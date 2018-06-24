@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.hga.appturismo.activity.InsertarLugarActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="15dp"
+            android:orientation="vertical"
+            android:paddingBottom="15dp">
+
+            <LinearLayout
+                android:id="@+id/layout_tipo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+                <TextView
+                    android:id="@+id/label_textView_tipo"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/label_tipo"
+                    android:textSize="@dimen/size_text_primary"/>
+
+                <Spinner
+                    android:id="@+id/spinner_tipo"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:textSize="@dimen/size_text_primary"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/black"/>
+
+            <LinearLayout
+                android:id="@+id/layout_provincia"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+                <TextView
+                    android:id="@+id/label_textView_provincia"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/label_provincia"
+                    android:textSize="@dimen/size_text_primary"/>
+
+                <Spinner
+                    android:id="@+id/spinner_provincia"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:text="@array/provincia"
+                    android:textSize="@dimen/size_text_primary"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_tipoTurismo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+                <TextView
+                    android:id="@+id/label_textView_tipoTurismo"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    android:text="@string/label_tipo_de_turismo"
+                    android:textSize="@dimen/size_text_primary"/>
+
+                <Spinner
+                    android:id="@+id/spinner_tipo_turismo"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:text="@array/tipo_turismo"
+                    android:textSize="@dimen/size_text_primary"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_nombre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+                <TextView
+                    android:id="@+id/label_textView_nombre"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/label_nombre"
+                    android:textSize="@dimen/size_text_primary"/>
+
+                <EditText
+                    android:id="@+id/txt_nombre"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin_label_top_bottom"
+                    android:layout_marginTop="@dimen/margin_label_top_bottom"
+                    android:layout_weight="2"
+                    android:inputType="text"
+                    android:textSize="@dimen/size_text_primary"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_descripcion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+                <TextView
+                    android:id="@+id/label_descripcion"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    android:text="Descripción:"
+                    android:textSize="@dimen/size_text_primary"/>
+
+                <EditText
+                    android:id="@+id/txt_descripcion"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin_label_top_bottom"
+                    android:layout_marginTop="@dimen/margin_label_top_bottom"
+                    android:layout_weight="2"
+                    android:inputType="text"
+                    android:textSize="@dimen/size_text_primary"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+                <TextView
+                    android:id="@+id/label_email"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin_label_top_bottom"
+                    android:layout_marginTop="@dimen/margin_label_top_bottom"
+                    android:layout_weight="1"
+                    android:text="@string/label_email"
+                    android:textSize="@dimen/size_text_primary"/>
+
+                <EditText
+                    android:id="@+id/txt_email"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin_label_top_bottom"
+                    android:layout_marginTop="@dimen/margin_label_top_bottom"
+                    android:layout_weight="2"
+                    android:inputType="textEmailAddress"
+                    android:textSize="@dimen/size_text_primary"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_direccion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+                <TextView
+                    android:id="@+id/label_direccion"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin_label_top_bottom"
+                    android:layout_marginTop="@dimen/margin_label_top_bottom"
+                    android:layout_weight="1"
+                    android:text="@string/label_direccion"
+                    android:textSize="@dimen/size_text_primary"/>
+
+                <EditText
+                    android:id="@+id/txt_direccion"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="2"
+                    android:inputType="text"
+                    android:textSize="@dimen/size_text_primary"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_pagina_web"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+                <TextView
+                    android:id="@+id/label_pagina_web"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin_label_top_bottom"
+                    android:layout_marginTop="@dimen/margin_label_top_bottom"
+                    android:layout_weight="1"
+                    android:text="@string/label_pagina_web"
+                    android:textSize="@dimen/size_text_primary"/>
+
+                <EditText
+                    android:id="@+id/txt_paginaweb"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="2"
+                    android:inputType="textUri"
+                    android:textSize="@dimen/size_text_primary"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_telefono"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+                <TextView
+                    android:id="@+id/label_telefono"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    android:text="Teléfono:"
+                    android:textSize="@dimen/size_text_primary"/>
+
+                <EditText
+                    android:id="@+id/txt_telefono"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin_label_top_bottom"
+                    android:layout_marginTop="@dimen/margin_label_top_bottom"
+                    android:layout_weight="2"
+                    android:inputType="number"
+                    android:maxLength="8"
+                    android:textSize="@dimen/size_text_primary"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_horario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+                <TextView
+                    android:id="@+id/label_horario"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    android:text="Horario:"
+                    android:textSize="@dimen/size_text_primary"/>
+
+                <EditText
+                    android:id="@+id/txt_horario"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin_label_top_bottom"
+                    android:layout_marginTop="@dimen/margin_label_top_bottom"
+                    android:layout_weight="2"
+                    android:inputType="text"
+                    android:textSize="@dimen/size_text_primary"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_latitud"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+                <TextView
+                    android:id="@+id/label_latitud"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    android:text="Latitud:"
+                    android:textSize="@dimen/size_text_primary"/>
+
+                <EditText
+                    android:id="@+id/txt_latitud"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin_label_top_bottom"
+                    android:layout_marginTop="@dimen/margin_label_top_bottom"
+                    android:layout_weight="2"
+                    android:inputType="text"
+                    android:textSize="@dimen/size_text_primary"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_longitud"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+                <TextView
+                    android:id="@+id/label_longitud"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    android:text="Longitud:"
+                    android:textSize="@dimen/size_text_primary"/>
+
+                <EditText
+                    android:id="@+id/txt_longitud"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin_label_top_bottom"
+                    android:layout_marginTop="@dimen/margin_label_top_bottom"
+                    android:layout_weight="2"
+                    android:inputType="text"
+                    android:textSize="@dimen/size_text_primary"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_imagen"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin_label_top_bottom"
+                    android:layout_marginTop="@dimen/margin_label_top_bottom"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:id="@+id/btn_imagen"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/colorPrimary"
+                        android:hint="Capturar"
+                        android:onClick="goCameraActivity"
+                        tools:targetApi="lollipop"/>
+
+                    <Button
+                        android:id="@+id/btn_imagen_android"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/colorPrimary"
+                        android:hint="Buscar Imagen"
+                        android:onClick="goGaleryActivity"
+                        tools:targetApi="lollipop"/>
+
+                    <TextView
+                        android:id="@+id/ruta_imagen"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:textSize="@dimen/size_text_primary"
+                        android:visibility="gone"/>
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/insertar_imagen"
+                    android:layout_width="0dp"
+                    android:layout_height="150dp"
+                    android:layout_marginBottom="@dimen/margin_label_top_bottom"
+                    android:layout_marginTop="@dimen/margin_label_top_bottom"
+                    android:layout_weight="2"
+                    android:src="@drawable/img_fondo"
+                    android:text="@string/label_longitud"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+                <Button
+                    android:id="@+id/btn_insertar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:onClick="insertarLugarSQLite"
+                    android:text="@string/label_insertar"
+                    android:textAllCaps="false"
+                    tools:targetApi="lollipop"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</android.support.design.widget.CoordinatorLayout>

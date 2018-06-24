@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="provincia">
+        <item> Arani </item>
+        <item> Arque</item>
+        <item> Ayopaya</item>
+        <item> Bolívar</item>
+        <item> Narciso Campero</item>
+        <item> Capinota</item>
+        <item> Cercado</item>
+        <item> Chapare</item>
+        <item> Esteban Arce</item>
+        <item> Germán Jordán</item>
+        <item> José Carrasco </item>
+        <item> Mizque</item>
+        <item> Punata</item>
+        <item> Quillacollo</item>
+        <item> Tapacarí</item>
+        <item> Tiraque</item>
+    </string-array>
+
+    <string-array name="tipo_turismo">
+        <item>Sitios Naturales</item>
+        <item>Patrimonio Urbano Arquitectónico, Artístico, Museos y Manifestaciones Culturales</item>
+        <item>Etnografía y Folklore</item>
+        <item>Realizaciones Técnicas y Científicas</item>
+        <item>Acontecimientos Programados</item>
+    </string-array>
+
+    <string-array name="tipo_insercion">
+        <item>Serv. Hospedaje</item>
+        <item>Serv. Alimentación</item>
+        <item>Lugar Turístico</item>
+    </string-array>
+</resources>

@@ -1,0 +1,33 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.hga.appturismo.activity.MainAdminActivity">
+    <item
+        android:id="@+id/action_login"
+        android:orderInCategory="102"
+        android:title="@string/action_login"
+        android:visible="false"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_user_insert"
+        android:orderInCategory="103"
+        android:title="@string/action_user_insert"
+        android:visible="false"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_edit_profile"
+        android:orderInCategory="104"
+        android:title="@string/action_edit_profile"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_reset"
+        android:orderInCategory="105"
+        android:title="@string/action_reset_profile"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_close_login"
+        android:orderInCategory="106"
+        android:title="@string/action_login_close"
+        app:showAsAction="never" />
+
+</menu>

@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.hga.appturismo">
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.READ_LOGS"/>
+    <!--
+         The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
+         Google Maps Android API v2, but you must specify either coarse or fine
+         location permissions for the 'MyLocation' functionality.
+    -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+    <uses-feature
+        android:name="android.hardware.camera2"
+        android:required="false"/>
+
+    <!-- To auto-complete the email text field in the login form with the user's emails -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.READ_PROFILE"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+
+    <application
+        android:name=".api.TurismoAplicacion"
+        android:allowBackup="true"
+        android:icon="@drawable/marcador_lugar"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/marcador_lugar"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.hga.appturismo"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths"/>
+        </provider>
+        <!--
+             The API key for Google Maps-based APIs is defined as a string resource.
+             (See the file "res/values/google_maps_api.xml").
+             Note that the API key is linked to the encryption key used to sign the APK.
+             You need a different API key for each encryption key, including the release key that is used to
+             sign the APK for publishing.
+             You can define the keys for the debug and release targets in src/debug/ and src/release/.
+        -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key"/>
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version"/>
+        <!-- main -->
+        <activity
+            android:name=".activity.MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.LoginActivity"
+            android:label="@string/title_activity_login"
+            android:parentActivityName=".activity.MainActivity"
+            android:windowSoftInputMode="stateHidden">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.hga.appturismo.activity.MainActivity"/>
+        </activity>
+        <!-- mapas -->
+        <activity
+            android:name=".activity.MapaLugaresActivity"
+            android:label="@string/title_activity_maps_lugares"
+            android:parentActivityName=".activity.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.hga.appturismo.activity.MainActivity"/>
+        </activity>
+        <activity
+            android:name=".activity.MapaHotelesActivity"
+            android:label="@string/title_activity_mapa_hoteles"
+            android:parentActivityName=".activity.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.hga.appturismo.activity.MainActivity"/>
+        </activity>
+        <activity
+            android:name=".activity.MapaRestaurantesActivity"
+            android:label="@string/title_activity_mapa_restaurantes"
+            android:parentActivityName=".activity.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.hga.appturismo.activity.MainActivity"/>
+        </activity>
+        <!-- descripcion -->
+        <activity
+            android:name=".activity.DescripcionLugarTuristicoActivity"
+            android:label="@string/title_activity_descripcion"
+            android:parentActivityName=".activity.ListaLugaresActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.hga.appturismo.activity.ListaLugaresActivity"/>
+        </activity>
+        <activity
+            android:name=".activity.DescripcionHotelActivity"
+            android:label="@string/title_activity_descripcion_hotel"
+            android:parentActivityName=".activity.MapaHotelesActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.hga.appturismo.activity.MapaHotelesActivity"/>
+        </activity>
+        <activity
+            android:name=".activity.DescripcionRestauranteActivity"
+            android:label="@string/title_activity_descripcion_restaurante"
+            android:parentActivityName=".activity.MapaRestaurantesActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.hga.appturismo.activity.MapaRestaurantesActivity"/>
+        </activity>
+        <!-- insertar -->
+        <activity
+            android:name=".activity.InsertarLugarActivity"
+            android:label="Insertar"
+            android:parentActivityName=".activity.MainActivity"
+            android:windowSoftInputMode="stateHidden">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.hga.appturismo.activity.MainActivity"/>
+        </activity>
+        <activity
+            android:name=".activity.ListaLugaresActivity"
+            android:label="Lugares Turísticos"
+            android:parentActivityName=".activity.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.hga.appturismo.activity.MainActivity"/>
+        </activity>
+        <activity
+            android:name=".activity.ListaHotelesActivity"
+            android:label="Servicios de Hospedaje "
+            android:parentActivityName=".activity.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.hga.appturismo.activity.MainActivity"/>
+        </activity>
+        <activity
+            android:name=".activity.ListaRestaurantesActivity"
+            android:label="Servicios de Alimentación"
+            android:parentActivityName=".activity.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.hga.appturismo.activity.MainActivity"/>
+        </activity>
+        <activity
+            android:name=".activity.BuscarPorProvinciaActivity"
+            android:label="Buscar por Provincia"
+            android:parentActivityName=".activity.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.hga.appturismo.activity.MainActivity"/>
+        </activity>
+        <activity
+            android:name=".activity.EditarActivity"
+            android:label="Editar"
+            android:parentActivityName=".activity.MainActivity"
+            android:windowSoftInputMode="stateHidden">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.hga.appturismo.activity.MainActivity"/>
+        </activity>
+        <activity
+            android:name=".activity.EditarUsuarioActivity"
+            android:label="Editar Usuario"
+            android:parentActivityName=".activity.MainActivity"
+            android:windowSoftInputMode="stateHidden">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.hga.appturismo.activity.MainActivity"/>
+        </activity>
+        <activity
+            android:name=".activity.InsertarUsuarioActivity"
+            android:label="Insertar Usuario"
+            android:parentActivityName=".activity.MainActivity"
+            android:windowSoftInputMode="stateHidden">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.hga.appturismo.activity.MainActivity"/>
+        </activity>
+        <activity
+            android:name=".activity.ListaUsuariosActivity"
+            android:label="Usuarios Registrados"
+            android:parentActivityName=".activity.MainActivity"
+            android:windowSoftInputMode="stateHidden">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.hga.appturismo.activity.MainActivity"/>
+        </activity>
+        <activity android:name=".activity.ClasTurismoActivity">
+        </activity>
+    </application>
+
+</manifest>

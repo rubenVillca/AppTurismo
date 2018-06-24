@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "775100974746",
+    "firebase_url": "https://mi-proyecto-4408d.firebaseio.com",
+    "project_id": "mi-proyecto-4408d",
+    "storage_bucket": "mi-proyecto-4408d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:775100974746:android:13551f9121135c8e",
+        "android_client_info": {
+          "package_name": "com.hga.appturismo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "775100974746-979us20lmntugbd58lem2bi4u5b19j55.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.hga.appturismo",
+            "certificate_hash": "d53aef9796990ad25d4b95d07043b655224632cc"
+          }
+        },
+        {
+          "client_id": "775100974746-fmkk2molee9pltupnet1oqcjdov29unc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZkJOGlIZKJhR143LYR8zpFXVlwp7EeoM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "775100974746-fmkk2molee9pltupnet1oqcjdov29unc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
