@@ -20,7 +20,7 @@ import java.util.ArrayList;
  */
 
 public class DataBaseManager extends SQLiteOpenHelper {
-    public static final int DATABASE_VERSION = 82;
+    public static final int DATABASE_VERSION = 85;
     public static final String DATABASE_NAME = "APP_TURISMO";
 
     public static final String TABLE_IMAGENES = "IMAGENES";
@@ -195,18 +195,8 @@ public class DataBaseManager extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_HOTELES);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_USUARIOS);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_PUNTAJE);
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_IMAGENES);
 
         onCreate(db);
-    }
-
-    private void deleteDatos(SQLiteDatabase db) {
-        deleteDatosRestaurante(db);
-        deleteDatosLugarTuristico(db);
-        deleteDatosHotel(db);
-        deleteDatosPuntaje(db);
-        deleteDatosUsuario(db);
-        deleteDatosImagenes(db);
     }
 
     private void insertarDatosSQLite(SQLiteDatabase db) {

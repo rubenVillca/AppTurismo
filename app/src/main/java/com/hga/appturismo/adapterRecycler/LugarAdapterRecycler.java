@@ -409,7 +409,8 @@ public class LugarAdapterRecycler extends RecyclerView.Adapter<LugarAdapterRecyc
                     public void onSuccess(Uri uri) {
                         // Got the download URL for 'users/me/profile.png'
                         // Pass it to Picasso to download, show in ImageView and caching
-                        Picasso.with(activity).load(uri.toString()).into(holder.imageCardView);
+                        Picasso.with(activity).setIndicatorsEnabled(true);
+                        Picasso.with(activity).load(uri.toString()).error(R.drawable.ic_delete).fit().into(holder.imageCardView);
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override

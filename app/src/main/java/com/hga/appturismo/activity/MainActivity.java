@@ -330,7 +330,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             postReference.push().setValue(modeloLugarTuristico);
         }
         //insertar usuarios autenhticate firebase and database firebase
-        ArrayList<ModeloUsuario> usuarios = listas.getListaUsuarios();
+        /*ArrayList<ModeloUsuario> usuarios = listas.getListaUsuarios();
         for (ModeloUsuario m : usuarios) {
             postReference = app.getDataBaseReferenceUsuario(m.getIdFirebase());
             postReference.setValue(m);
@@ -352,7 +352,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         }
                     }
             );
-        }
+        }*/
 
     }
 }
