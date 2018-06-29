@@ -30,7 +30,7 @@ public class Listas {
 
         setListaLugarTuristico();
         setListaHoteles();
-        setListaRestaurantes();
+        setListaRestaurantes();//
         //setListaUsuarios();
     }
 
@@ -128,7 +128,7 @@ public class Listas {
         hotel.setGpsX(-17.381609879813155f);
         hotel.setGpsY(-66.14440619945526f);
         hotel.setDireccion("Av. Aniceto Arce nro. 766 entre Papa Paulo y Puente Muyurina");
-        hotel.setImagenesFirebaseArreglo(new String[]{"Olympic Extreme Relax - HOSTAL OLYMPIC1.jpg", "Olympic Extreme Relax - HOSTAL OLYMPIC2.jpg", "Olympic Extreme Relax - HOSTAL OLYMPIC3.jpg" });
+        hotel.setImagenesFirebaseArreglo(new String[]{"olympic extreme relax - hostal olympic1.jpg", "olympic extreme relax - hostal olympic2.jpg", "olympic extreme relax - hostal olympic3.jpg" });
         //hotel.setimagenesandroid(new int[]{r.drawable.img_portada});
         hotel.setTelefono(4532066);
         hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -143,7 +143,7 @@ public class Listas {
         hotel.setGpsX(-17.38467001063881f);
         hotel.setGpsY(-66.16149187088013f);
         hotel.setDireccion("C. Junín nro. 867 Zona: Central");
-        hotel.setImagenesFirebaseArreglo(new String[]{"Adara Suites Apart Hotel1.jpg","Adara Suites Apart Hotel2.jpg", "Adara Suites Apart Hotel3.jpg","Adara Suites Apart Hotel4.jpg" });
+        hotel.setImagenesFirebaseArreglo(new String[]{"adara suites apart hotel1.jpg","adara suites apart hotel2.jpg", "adara suites apart hotel3.jpg","adara suites apart hotel4.jpg" });
         //hotel.setimagenesandroid(new int[]{r.drawable.img_portada});
         hotel.setTelefono(4662020);
         hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
