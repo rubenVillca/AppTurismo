@@ -1378,7 +1378,6 @@ public class Listas {
         hotel.setEstado(Constants.ESTADO_LUGAR_VISIBLE);
         listaHoteles.add(hotel);
 
-
         hotel = new ModeloHotel();
         hotel.setIdSQLite(idHotel++);
         hotel.setNombre("Virginias  Hotel");
