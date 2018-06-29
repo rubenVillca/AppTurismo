@@ -1,5 +1,9 @@
 package com.hga.appturismo.provider;
 
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
+
+import com.hga.appturismo.R;
 import com.hga.appturismo.modelo.ModeloHotel;
 import com.hga.appturismo.modelo.ModeloLugarTuristico;
 import com.hga.appturismo.modelo.ModeloPuntaje;
@@ -26,8 +30,8 @@ public class Listas {
 
         setListaLugarTuristico();
         setListaHoteles();
-        setListaRestaurantes();
-        setListaUsuarios();
+        setListaRestaurantes();//
+        //setListaUsuarios();
     }
 
     public ArrayList<ModeloHotel> getListaHoteles() {
@@ -60,10 +64,10 @@ public class Listas {
         hotel.setDireccion("Alfonso Arze nro. 2091 Zona: Jaihuayco");
         hotel.setImagenesFirebaseArreglo(new String[]{
                 "hostal bonairense.jpg",
-                "Hostal BONAIRENSE1.jpg",
-                "Hostal BONAIRENSE4.jpg",
-                "Hostal BONAIRENSE7.jpg" ,
-                "Hostal BONAIRENSE9.jpg"
+                "hostal bonairense1.jpg",
+                "hostal bonairense4.jpg",
+                "hostal bonairense7.jpg" ,
+                "hostal bonairense9.jpg"
         });
         hotel.setTelefono(4567452);
         hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -124,7 +128,7 @@ public class Listas {
         hotel.setGpsX(-17.381609879813155f);
         hotel.setGpsY(-66.14440619945526f);
         hotel.setDireccion("Av. Aniceto Arce nro. 766 entre Papa Paulo y Puente Muyurina");
-        hotel.setImagenesFirebaseArreglo(new String[]{"Olympic Extreme Relax - HOSTAL OLYMPIC1.jpg", "Olympic Extreme Relax - HOSTAL OLYMPIC2.jpg", "Olympic Extreme Relax - HOSTAL OLYMPIC3.jpg" });
+        hotel.setImagenesFirebaseArreglo(new String[]{"olympic extreme relax - hostal olympic1.jpg", "olympic extreme relax - hostal olympic2.jpg", "olympic extreme relax - hostal olympic3.jpg" });
         //hotel.setimagenesandroid(new int[]{r.drawable.img_portada});
         hotel.setTelefono(4532066);
         hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -139,7 +143,7 @@ public class Listas {
         hotel.setGpsX(-17.38467001063881f);
         hotel.setGpsY(-66.16149187088013f);
         hotel.setDireccion("C. Junín nro. 867 Zona: Central");
-        hotel.setImagenesFirebaseArreglo(new String[]{"Adara Suites Apart Hotel1.jpg","Adara Suites Apart Hotel2.jpg", "Adara Suites Apart Hotel3.jpg","Adara Suites Apart Hotel4.jpg" });
+        hotel.setImagenesFirebaseArreglo(new String[]{"adara suites apart hotel1.jpg","adara suites apart hotel2.jpg", "adara suites apart hotel3.jpg","adara suites apart hotel4.jpg" });
         //hotel.setimagenesandroid(new int[]{r.drawable.img_portada});
         hotel.setTelefono(4662020);
         hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -1374,7 +1378,6 @@ public class Listas {
         hotel.setEstado(Constants.ESTADO_LUGAR_VISIBLE);
         listaHoteles.add(hotel);
 
-
         hotel = new ModeloHotel();
         hotel.setIdSQLite(idHotel++);
         hotel.setNombre("Virginias  Hotel");
@@ -1860,7 +1863,7 @@ public class Listas {
         restaurante.setGpsX(-17.377476510219704f);
         restaurante.setGpsY(-66.15127919241786f);
         restaurante.setDireccion("Av. Pando nro. 1143 Edificio: Condominio Recoleta Piso: Pb Oficina: 1 Zona: Recoleta");
-        restaurante.setImagenesFirebaseArreglo(new String[]{ "de k'ffe, cafe, lounge1.jpg", "de k'ffe, cafe, lounge2.jpg", "de k'ffe, cafe, lounge3.jpg", "de k'ffe, cafe, lounge4.jpg", "de k'ffe, cafe, lounge5.jpg"});
+        restaurante.setImagenesFirebaseArreglo(new String[]{ "De K'ffe, Cafe, Lounge1.jpg", "De K'ffe, Cafe, Lounge2.jpg", "De K'ffe, Cafe, Lounge3.jpg", "De K'ffe, Cafe, Lounge4.jpg", "De K'ffe, Cafe, Lounge5.jpg"});
         restaurante.setTelefono(4402050);
         restaurante.setHorario("Lunes a Domingo 09:00-02:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -3411,7 +3414,7 @@ public class Listas {
         restaurante.setGpsX(-17.38669919088183f);
         restaurante.setGpsY(-66.15481987595558f);
         restaurante.setDireccion("Av. Salamanca Nro. 577 casi Lanza");
-        restaurante.setImagenesFirebaseArreglo(new String[]{ "restaurant na cunna1.jpg", "restaurant na cunna3.jpg", "restaurant na cunna4.jpg"});
+        restaurante.setImagenesFirebaseArreglo(new String[]{ "Restaurant Na Cunna1.jpg", "Restaurant Na Cunna3.jpg", "Restaurant Na Cunna4.jpg"});
         restaurante.setTelefono(70369682 );
         restaurante.setHorario("Jueves a Sábado 17:00 - 01:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -4813,7 +4816,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_ARANI);
         lugarTuristico.setTipo("Acontecimientos Programados");
         lugarTuristico.setNombre("Festividad de la Virgen “La Bella”");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"festividad de la virgen la bella.jpg",  "festividad de la virgen la bella2.jpg", "festividad de la virgen la bella3.jpg" });
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"iglesia de san bartolome1.jpg",  "iglesia de san bartolome3.jpg", "iglesia de san bartolome2.jpg" });
         lugarTuristico.setDescripcion("Araní es un atractivo destino para la práctica de turismo religioso, actividad que se encuentra enmarcada en una profunda tradición y ferviente vocación religiosa, resultado del proceso de evangelización y catequización que se llevó a cabo durante la conquista, además de haber funcionado como sede del Obispado de Santa Cruz de la Sierra, el siglo XVII. Entre el 23 y el 25 de agosto, Arani se viste de gala al celebrar la festividad religiosa en honor a la Virgen La Bella, declarada Patrimonio Cultural y Religioso del Departamento de Cochabamba, mediante Ley de 24 de diciembre de 2007. Esta fiesta, al contrario de otras festividades que comienzan con la entrada folklórica, inicia su evento festivo con el día del calvario, seguido de la procesión de la sagrada imagen de la Bella, para finalizar con la demostración folklórica.\n" +
                 "No obstante, antes de la celebración misma de la fiesta, la imagen es venerada en principio en la ciudad de Sacaba para después retornar a Arani donde se da inicio a las tres jornadas festivas. En esta fiesta, durante el calvario también se acostumbra adquirir objetos en miniatura o propiedades para luego ser bendecidas en los rituales católicos y andinos, con similares características que las de Urkupiña.\n");
         lugarTuristico.setHorario("No se tiene registrado.");
@@ -4889,7 +4892,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_ARANI);
         lugarTuristico.setTipo("Sitios Naturales");
         lugarTuristico.setNombre("Cascada Toro Warkhu");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"cascada toro warkhu .jpg"});
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"cascada toro warkhu.jpg"});
         lugarTuristico.setDescripcion("Toro Warkhu, una cascada de al menos 50 m. de altura, maravilla natural que está a menos de tres horas de caminata de la plaza principal del municipio de Vacas, que desde hace un par de años impulsa el turismo para fortalecer su economía.");
         lugarTuristico.setHorario("Abierto");
         lugarTuristico.setDireccion("Vacas, Bolivia");
@@ -5437,7 +5440,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_PUNATA);
         lugarTuristico.setTipo("Realizaciones Técnicas y Científicas");
         lugarTuristico.setNombre("Parque Defensores del Chaco");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"parques defensores del chaco.jpg"});
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"parques defensores del chaco.jpgg"});
         lugarTuristico.setDescripcion("Este parque se encuentra ubicado en la parte posterior del templo San Juan Bautista, en ella se encuentra el monumento en homenaje al héroe de la guerra del chaco el Mariscal Bernardinho Bilbao Rioja. Es importante mencionar que punateños y punateñas como el Mayor Desiderio Rocha, Tte de Av.Alberto Montaño, Walter Rocha, Lucio Canedo, Subte. Laureano Hinojosa quienes fueron partícipes en estos actos valerosos quienes hoy en día guardan sus restos en el Cementerio general de Punata. Este monumento fue entregado por la Sub federación de beneméritos de la Patria el año 1991.");
         lugarTuristico.setHorario("Abierto");
         lugarTuristico.setDireccion("Calle Bolívar, Punata");
