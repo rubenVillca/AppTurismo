@@ -31,7 +31,7 @@ public class Listas {
         setListaLugarTuristico();
         setListaHoteles();
         setListaRestaurantes();
-        setListaUsuarios();
+        //setListaUsuarios();
     }
 
     public ArrayList<ModeloHotel> getListaHoteles() {
@@ -63,11 +63,11 @@ public class Listas {
         hotel.setGpsY(-66.15610867738724f);
         hotel.setDireccion("Alfonso Arze nro. 2091 Zona: Jaihuayco");
         hotel.setImagenesFirebaseArreglo(new String[]{
-                "Hostal BONAIRENSE.jpg",
-                "Hostal BONAIRENSE1.jpg",
-                "Hostal BONAIRENSE4.jpg",
-                "Hostal BONAIRENSE7.jpg" ,
-                "Hostal BONAIRENSE9.jpg"
+                "hostal bonairense.jpg",
+                "hostal bonairense1.jpg",
+                "hostal bonairense4.jpg",
+                "hostal bonairense7.jpg" ,
+                "hostal bonairense9.jpg"
         });
         hotel.setTelefono(4567452);
         hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -83,7 +83,7 @@ public class Listas {
         hotel.setGpsY(-66.15779981017113f);
         hotel.setDireccion("C. España nro.636");
         hotel.setImagenesFirebaseArreglo(new String[]{
-                "Apart Hotel Regina.jpg",
+                "apart hotel regina.jpg",
                 "Apart Hotel Regina1.jpg",
                 "Apart Hotel Regina2.jpg",
                 "Apart Hotel Regina3.jpg",
@@ -107,7 +107,7 @@ public class Listas {
         hotel.setGpsY(-66.15142554044724f);
         hotel.setDireccion("Av. Pando nro. 1271(Recoleta)");
         hotel.setImagenesFirebaseArreglo(new String[]{
-                "Hotel Portales1.jpg",
+                "hotel portales1.jpg",
                 "Hotel Portales2.jpg",
                 "Hotel Portales3.jpg",
                 "Hotel Portales4.jpg",
@@ -129,7 +129,7 @@ public class Listas {
         hotel.setGpsY(-66.14440619945526f);
         hotel.setDireccion("Av. Aniceto Arce nro. 766 entre Papa Paulo y Puente Muyurina");
         hotel.setImagenesFirebaseArreglo(new String[]{"Olympic Extreme Relax - HOSTAL OLYMPIC1.jpg", "Olympic Extreme Relax - HOSTAL OLYMPIC2.jpg", "Olympic Extreme Relax - HOSTAL OLYMPIC3.jpg" });
-        //hotel.setImagenesAndroid(new int[]{R.drawable.img_portada});
+        //hotel.setimagenesandroid(new int[]{r.drawable.img_portada});
         hotel.setTelefono(4532066);
         hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         hotel.setPaginaWeb("hostalolympic.com");
@@ -144,7 +144,7 @@ public class Listas {
         hotel.setGpsY(-66.16149187088013f);
         hotel.setDireccion("C. Junín nro. 867 Zona: Central");
         hotel.setImagenesFirebaseArreglo(new String[]{"Adara Suites Apart Hotel1.jpg","Adara Suites Apart Hotel2.jpg", "Adara Suites Apart Hotel3.jpg","Adara Suites Apart Hotel4.jpg" });
-        //hotel.setImagenesAndroid(new int[]{R.drawable.img_portada});
+        //hotel.setimagenesandroid(new int[]{r.drawable.img_portada});
         hotel.setTelefono(4662020);
         hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         hotel.setPaginaWeb(" No se tiene registrado.");
@@ -161,7 +161,7 @@ public class Listas {
         hotel.setGpsY(-66.16324067115784f);
         hotel.setDireccion("C. Juan de la Reza nro. 433 entre c. Tumusla y Av. Rafael Urquidi (Central)");
         hotel.setImagenesFirebaseArreglo(new String[]{
-                "Apart Hotel La Corona1.jpg"});
+                "apart hotel la corona1.jpg"});
         hotel.setTelefono(4520269);
         hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         hotel.setPaginaWeb("lacorona@supernet.com.bo");
@@ -177,7 +177,7 @@ public class Listas {
         hotel.setGpsY(-66.16348877549171f);
         hotel.setDireccion("General Achá nro. 560 Edificio: Hotel Mundial Piso: Pb Zona: Barrio Noroeste");
         hotel.setImagenesFirebaseArreglo(new String[]{
-                "Armenia Hotel5.jpg","Armenia Hotel1.jpg", "Armenia Hotel2.jpg", "Armenia Hotel3.jpg", "Armenia Hotel4.jpg"  });
+                "armenia hotel5.jpg","armenia hotel1.jpg", "armenia hotel2.jpg", "armenia hotel3.jpg", "armenia hotel4.jpg"  });
         hotel.setTelefono(0);
         hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         hotel.setPaginaWeb("No se tiene registrado.");
@@ -193,7 +193,7 @@ public class Listas {
         hotel.setGpsY(-66.15532882511616f);
         hotel.setDireccion("C. 25 de Mayo entre Bolívar y Sucre nro. 210 Zona: Central");
         hotel.setImagenesFirebaseArreglo(new String[]{
-                "Cesar's Plaza Hotel.jpg", "Cesar's Plaza Hotel1.jpg", "Cesar's Plaza Hotel2.jpg", "Cesar's Plaza Hotel3.jpg" });
+                "cesar's plaza hotel.jpg", "cesar's plaza hotel1.jpg", "cesar's plaza hotel2.jpg", "cesar's plaza hotel3.jpg" });
         hotel.setTelefono(4254032);
         hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         hotel.setPaginaWeb("www.cesarsplaza.com");
@@ -209,7 +209,7 @@ public class Listas {
         hotel.setGpsY(-66.15571975708008f);
         hotel.setDireccion("C. Jordán nro. 341 entre 25 de mayo y Esteban Arze Zona: Central");
         hotel.setImagenesFirebaseArreglo(new String[]{
-                "City Hotel Ltda1.jpg", "City Hotel Ltda2.jpg", "City Hotel Ltda3.jpg", "City Hotel Ltda4.jpg", "City Hotel Ltda5.jpg", "City Hotel Ltda6.jpg" });
+                "city hotel ltda1.jpg", "city hotel ltda2.jpg", "city hotel ltda3.jpg", "city hotel ltda4.jpg", "city hotel ltda5.jpg", "city hotel ltda6.jpg" });
         hotel.setTelefono(4222993);
         hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         hotel.setPaginaWeb("www.cityhotelbolivia.com");
@@ -225,7 +225,7 @@ public class Listas {
         hotel.setGpsY(-66.15698978304863f);
         hotel.setDireccion("C. España nro.  342 entre Mayor Rocha y Ecuador");
         hotel.setImagenesFirebaseArreglo(new String[]{
-                "Monserrat Hotel1.jpg", "Monserrat Hotel2.jpg", "Monserrat Hotel3.jpg", "Monserrat Hotel4.jpg", "Monserrat Hotel5.jpg" });
+                "monserrat hotel1.jpg", "monserrat hotel2.jpg", "monserrat hotel3.jpg", "monserrat hotel4.jpg", "monserrat hotel5.jpg" });
         hotel.setTelefono(4521011);
         hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         hotel.setPaginaWeb("www.hotelmonserrat.com");
@@ -241,7 +241,7 @@ public class Listas {
         hotel.setGpsY(-66.16483876481652f);
         hotel.setDireccion("C. Suipacha nro. 181 Zona: Central");
         hotel.setImagenesFirebaseArreglo(new String[]{
-                "Hotel Briston.jpg", "Hotel Briston1.jpg", "Hotel Briston3.jpg" });
+                "hotel briston.jpg", "hotel briston1.jpg", "hotel briston3.jpg" });
         hotel.setTelefono(0);
         hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         hotel.setPaginaWeb("No se tiene registrado.");
@@ -257,7 +257,7 @@ public class Listas {
         hotel.setGpsY(-66.29199676215649f);
         hotel.setDireccion("Camino Antiguo a Portero Zona: Marquina");
         hotel.setImagenesFirebaseArreglo(new String[]{
-                "El Poncho.jpg", "El Poncho2.jpg", "El Poncho3.jpg", "El Poncho4.jpg", "El Poncho5.jpg", "El Poncho6.jpg" });
+                "el poncho.jpg", "el poncho2.jpg", "el poncho3.jpg", "el poncho4.jpg", "el poncho5.jpg", "el poncho6.jpg" });
         hotel.setTelefono(4392283);
         hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         hotel.setPaginaWeb("No se tiene registrado");
@@ -272,7 +272,7 @@ public class Listas {
         hotel.setGpsY(-66.15543812513351f);
         hotel.setDireccion("C. Esteban Arze nro. 788 Edificio: Americana Hotel Zona: Sud-Oeste");
         hotel.setImagenesFirebaseArreglo(new String[]{
-                "Americana Hotel0.jpg", "Americana Hote1.jpg",  "Americana Hotel2.jpg", "Americana Hotel3.jpg", "Americana Hotel5.jpg" });
+                "americana hotel0.jpg", "americana hote1.jpg",  "americana hotel2.jpg", "americana hotel3.jpg", "americana hotel5.jpg" });
         hotel.setTelefono(0);
         hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         hotel.setPaginaWeb("www.americanahotel.com.bo");
@@ -288,7 +288,7 @@ public class Listas {
         hotel.setGpsY(-66.1604592204094f);
         hotel.setDireccion("Av. Heroínas nro. 239 entre Junín y Hamiraya");
         hotel.setImagenesFirebaseArreglo(new String[]{
-                "Hotel Heroinas.jpg", "Hotel Heroinas2.jpg", "Hotel Heroinas3.jpg" });
+                "hotel heroinas.jpg", "hotel heroinas2.jpg", "hotel heroinas3.jpg" });
         hotel.setTelefono(4583171);
         hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         hotel.setPaginaWeb("www.hotelheroinas.webs.com");
@@ -303,7 +303,7 @@ public class Listas {
         hotel.setGpsY(-66.16528317332268f);
         hotel.setDireccion("C. Colombia nro. 710 Zona: Noroeste");
         hotel.setImagenesFirebaseArreglo(new String[]{
-                "Hostal Maya Bolivia1.jpg", "Hostal Maya Bolivia2.jpg", "hostalmayabolivia.jpg" });
+                "hostal maya bolivia1.jpg", "hostal maya bolivia2.jpg", "hostalmayabolivia.jpg" });
         hotel.setTelefono(4259701);
         hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         hotel.setPaginaWeb("No se tiene registrado.");
@@ -318,7 +318,7 @@ public class Listas {
         hotel.setGpsY(-66.16483876481652f);
         hotel.setDireccion("C. Suipacha nro. 181 Zona: Central");
         hotel.setImagenesFirebaseArreglo(new String[]{
-                "Hotel Briston.jpg", "Hotel Briston1.jpg", "Hotel Briston3.jpg" });
+                "hotel briston.jpg", "hotel briston1.jpg", "hotel briston3.jpg" });
         hotel.setTelefono(0);
         hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         hotel.setPaginaWeb("No se tiene registrado.");
@@ -333,7 +333,7 @@ public class Listas {
         hotel.setGpsY(-66.1634150147438f);
         hotel.setDireccion("C.  Huallparimachi nro. 1862 Zona: Cala Cala");
         hotel.setImagenesFirebaseArreglo(new String[]{
-                "Hotel Camino Plaza1.jpg", "Hotel Camino Plaza2.jpg", "Hotel Camino Plaza3.jpg", "Hotel Camino Plaza4.jpg", "Hotel Camino Plaza5.jpg", "Hotel Camino Plaza6.jpg", "Hotel Camino Plaza7.jpg" });
+                "hotel camino plaza1.jpg", "hotel camino plaza2.jpg", "hotel camino plaza3.jpg", "hotel camino plaza4.jpg", "hotel camino plaza5.jpg", "hotel camino plaza6.jpg", "hotel camino plaza7.jpg" });
         hotel.setTelefono(4200306);
         hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         hotel.setPaginaWeb("caminoplaza.com");
@@ -349,7 +349,7 @@ public class Listas {
         hotel.setGpsY(-66.15711316466331f);
         hotel.setDireccion("Av. Ballivián nro. 0611 Edificio: Hotel Diplomat Zona: El Prado");
         hotel.setImagenesFirebaseArreglo(new String[]{
-                "Hotel Diplomat Martinez Sociedad Ltda5.jpg", "Hotel Diplomat Martinez Sociedad Ltda1.jpg", "Hotel Diplomat Martinez Sociedad Ltda2.jpg", "Hotel Diplomat Martinez Sociedad Ltda3.jpg", "Hotel Diplomat Martinez Sociedad Ltda4.jpg", "Hotel Diplomat Martinez Sociedad Ltda6.jpg" });
+                "hotel diplomat martinez sociedad ltda5.jpg", "hotel diplomat martinez sociedad ltda1.jpg", "hotel diplomat martinez sociedad ltda2.jpg", "hotel diplomat martinez sociedad ltda3.jpg", "hotel diplomat martinez sociedad ltda4.jpg", "hotel diplomat martinez sociedad ltda6.jpg" });
         hotel.setTelefono(4250687);
         hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         hotel.setPaginaWeb("www.hdiplomat.com");
@@ -365,7 +365,7 @@ public class Listas {
         hotel.setGpsY(-66.15682817995548f);
         hotel.setDireccion("C. España nro. 172 entre Av. Heroínas y C. Colombia");
         hotel.setImagenesFirebaseArreglo(new String[]{
-                "Hotel Felipez7.jpg", "Hotel Felipez.jpg", "Hotel Felipez2.jpg", "Hotel Felipez3.jpg" });
+                "hotel felipez7.jpg", "hotel felipez.jpg", "hotel felipez2.jpg", "hotel felipez3.jpg" });
         hotel.setTelefono(4510773);
         hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         hotel.setPaginaWeb("felipezhotel.com-hotel.com");
@@ -381,7 +381,7 @@ public class Listas {
         hotel.setGpsY(-64.86629068851471f);
         hotel.setDireccion("");
         hotel.setImagenesFirebaseArreglo(new String[]{
-                "Hotel Integracion1.jpg", "Hotel Integracion2.jpg", "Hotel Integracion3.jpg", "Hotel Integracion4.jpg" });
+                "hotel integracion1.jpg", "hotel integracion2.jpg", "hotel integracion3.jpg", "hotel integracion4.jpg" });
         hotel.setTelefono(4773024);
         hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         hotel.setPaginaWeb("granhotelintegracion.com");
@@ -397,7 +397,7 @@ public class Listas {
         hotel.setGpsY(-66.16008270531893f);
         hotel.setDireccion("C. Junín nro. 156 Edificio: Hotel León Zona: Central");
         hotel.setImagenesFirebaseArreglo(new String[]{
-                "Hotel León Avila1.jpg", "Hotel León Avila.jpg", "Hotel León Avila0.jpg", "Hotel León Avila2.jpg" });
+                "hotel león avila1.jpg", "hotel león avila.jpg", "hotel león avila0.jpg", "hotel león avila2.jpg" });
         hotel.setTelefono(4589380);
         hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         hotel.setPaginaWeb("No se tiene registrado.");
@@ -413,7 +413,7 @@ public class Listas {
         hotel.setGpsY(-66.15667060017586f);
         hotel.setDireccion("C. La Paz nro. 439 Edificio: Hotel Luxor Zona: Noreste");
         hotel.setImagenesFirebaseArreglo(new String[]{
-                "Hotel Luxor Cochabamba1.jpg", "Hotel Luxor Cochabamba2.jpg" });
+                "hotel luxor cochabamba1.jpg", "hotel luxor cochabamba2.jpg" });
         hotel.setTelefono(4524048);
         hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         hotel.setPaginaWeb("No se tiene registrado");
@@ -429,7 +429,7 @@ public class Listas {
         hotel.setGpsY(-66.15672424435616f);
         hotel.setDireccion("C. Ladislao Cabreranro.601 y Nataniel Aguirre Edificio: Hotel Manhattan");
         hotel.setImagenesFirebaseArreglo(new String[]{
-                "Hotel Manhattan1.jpg", "Hotel Manhattan2.jpg" });
+                "hotel manhattan1.jpg", "hotel manhattan2.jpg" });
         hotel.setTelefono(0);
         hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         hotel.setPaginaWeb("www.hotelmanhattanbolivia.com");
@@ -445,7 +445,7 @@ public class Listas {
         hotel.setGpsY(-66.15728214383125f);
         hotel.setDireccion("Av. Aroma.");
         hotel.setImagenesFirebaseArreglo(new String[]{
-                "Hotel Fortaleza1.jpg"});
+                "hotel fortaleza1.jpg"});
         hotel.setTelefono(4229912);
         hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         hotel.setPaginaWeb("No se tiene registrado.");
@@ -461,7 +461,7 @@ public class Listas {
         hotel.setGpsY(-66.15402862429619f);
         hotel.setDireccion("C. Lanza entre Paccieri y Venezuela nro. 464");
         hotel.setImagenesFirebaseArreglo(new String[]{
-                "Apart Hotel Violetta1.jpg", "Apart Hotel Violetta2.jpg", "Apart Hotel Violetta3.jpg", "Apart Hotel Violetta4.jpg"});
+                "apart hotel violetta1.jpg", "apart hotel violetta2.jpg", "apart hotel violetta3.jpg", "apart hotel violetta4.jpg"});
         hotel.setTelefono(4523386);
         hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         hotel.setPaginaWeb("violettas.com");
@@ -476,7 +476,7 @@ public class Listas {
         hotel.setGpsY(-66.15824103355408f);
         hotel.setDireccion("Av. Ayacucho nro. 552 entre Ladislao Cabrera y Calama");
         hotel.setImagenesFirebaseArreglo(new String[]{
-                "Hotel Kokusai1.jpg"});
+                "hotel kokusai1.jpg"});
         hotel.setTelefono(4582486);
         hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         hotel.setPaginaWeb("www.hotelkokusaibolivia.com");
@@ -492,7 +492,7 @@ public class Listas {
         hotel.setGpsY(-66.15731835365295f);
         hotel.setDireccion("Calle España Nro. 349 entre Mayor Rocha y Ecuador ");
         hotel.setImagenesFirebaseArreglo(new String[]{
-                "Gran Hotel Ambassador Ltda2.jpg", "Gran Hotel Ambassador Ltda1.jpg", "Hotel Ambassador1.jpg", "Hotel Ambassador2.jpg", "Hotel Ambassador3.jpg"});
+                "gran hotel ambassador ltda2.jpg", "gran hotel ambassador ltda1.jpg", "hotel ambassador1.jpg", "hotel ambassador2.jpg", "hotel ambassador3.jpg"});
         hotel.setTelefono(44253816);
         hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         hotel.setPaginaWeb("www.granhotelambassador.com/");
@@ -507,7 +507,7 @@ public class Listas {
         hotel.setGpsY(-66.1564439535141f);
         hotel.setDireccion("C. Nataniel Aguirre nro. 749 entre C. Uruguay, Av. Aroma");
         hotel.setImagenesFirebaseArreglo(new String[]{
-                "Hostal Escobar.jpg"});
+                "hostal escobar.jpg"});
         hotel.setTelefono(4225812);
         hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         hotel.setPaginaWeb("No se tiene registrado.");
@@ -523,7 +523,7 @@ public class Listas {
         hotel.setGpsY(-65.42054370045662f);
         hotel.setDireccion("Av. Benigno Paz entre Calle Santa Cruz Zona: Villa Tunari");
         hotel.setImagenesFirebaseArreglo(new String[]{
-                "Hostal Pueblo Lindo Villa Tunari1.jpg", "Hostal Pueblo Lindo Villa Tunari2.jpg", "Hostal Pueblo Lindo Villa Tunari3.jpg"});
+                "hostal pueblo lindo villa tunari1.jpg", "hostal pueblo lindo villa tunari2.jpg", "hostal pueblo lindo villa tunari3.jpg"});
         hotel.setTelefono(75976183);
         hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         hotel.setPaginaWeb("No se tiene registrado.");
@@ -539,7 +539,7 @@ public class Listas {
         hotel.setGpsY(-66.15787960588932f);
         hotel.setDireccion("Av. Ayacucho nro. 754 Zona: Sud Oeste");
         hotel.setImagenesFirebaseArreglo(new String[]{
-                "Hostal Dory’s1.jpg", "Hostal Dory’s2.jpg", "Hostal Dory’s3.jpg"});
+                "hostal dory’s1.jpg", "hostal dory’s2.jpg", "hostal dory’s3.jpg"});
         hotel.setTelefono(4583590);
         hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         hotel.setPaginaWeb("No se tiene registrado. ");
@@ -554,7 +554,7 @@ public class Listas {
         hotel.setGpsY(-66.1633861809969f);
         hotel.setDireccion("C. Méndez Arcos nro. 518 Zona: Central");
         hotel.setImagenesFirebaseArreglo(new String[]{
-                "Hostal Familiar F.G2.jpg", "Hostal Familiar F.G.jpg", "Hostal Familiar F.G1.jpg" });
+                "hostal familiar f.g2.jpg", "hostal familiar f.g.jpg", "hostal familiar f.g1.jpg" });
         hotel.setTelefono(4589681);
         hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         hotel.setPaginaWeb("No se tiene registrado. ");
@@ -570,7 +570,7 @@ public class Listas {
         hotel.setGpsY(-65.41794195771217f);
         hotel.setDireccion("Av. Benigno Paz Zona: Villa Tunari");
         hotel.setImagenesFirebaseArreglo(new String[]{
-                "Hostal Habana Las Cocas.jpg", "Hostal Habana Las Cocas2.jpg" });
+                "hostal habana las cocas.jpg", "hostal habana las cocas2.jpg" });
         hotel.setTelefono(71776471);
         hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         hotel.setPaginaWeb("No se tiene registrado.");
@@ -586,7 +586,7 @@ public class Listas {
         hotel.setGpsY(-66.1604592204094f);
         hotel.setDireccion("Av. Heroínas nro. 239 entre Junín y Hamiraya");
         hotel.setImagenesFirebaseArreglo(new String[]{
-                "Hotel Heroinas.jpg", "Hotel Heroinas2.jpg", "Hotel Heroinas3.jpg" });
+                "hotel heroinas.jpg", "hotel heroinas2.jpg", "hotel heroinas3.jpg" });
         hotel.setTelefono(4583171);
         hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         hotel.setPaginaWeb("www.hotelheroinas.webs.com");
@@ -602,7 +602,7 @@ public class Listas {
         hotel.setGpsY(-66.15172326564789f);
         hotel.setDireccion("Antezana Sucre y Jordan Nro.341 Zona: Sud Este");
         hotel.setImagenesFirebaseArreglo(new String[]{
-                "Hostal J.E.M1.jpg", "Hostal J.E.M2.jpg", "Hostal J.E.M3.jpg" });
+                "hostal j.e.m1.jpg", "hostal j.e.m2.jpg", "hostal j.e.m3.jpg" });
         hotel.setTelefono(4510058);
         hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         hotel.setPaginaWeb("No se tiene registrado.");
@@ -618,7 +618,7 @@ public class Listas {
         hotel.setGpsY(-66.15586191415787f);
         hotel.setDireccion("C. Nataniel Aguirre nro. 939 Zona: Central Sud");
         hotel.setImagenesFirebaseArreglo(new String[]{
-                "Hostal Leito.jpg"});
+                "hostal leito.jpg"});
         hotel.setTelefono(4226890);
         hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         hotel.setPaginaWeb("No se tiene registrado");
@@ -634,7 +634,7 @@ public class Listas {
         hotel.setGpsY( -66.15641444921494f);
         hotel.setDireccion("C. Nataniel Aguirre nro. 767 Zona: Sud Oeste");
         hotel.setImagenesFirebaseArreglo(new String[]{
-                "Hostal Malibu.jpg"});
+                "hostal malibu.jpg"});
         hotel.setTelefono(4503777);
         hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         hotel.setPaginaWeb("hostal-malibu.com");
@@ -649,7 +649,7 @@ public class Listas {
         hotel.setGpsY(-65.42222276329994f);
         hotel.setDireccion("Villa Tunari");
         hotel.setImagenesFirebaseArreglo(new String[]{
-                "Hostal Palmilla.jpg"});
+                "hostal palmilla.jpg"});
         hotel.setTelefono(76412571);
         hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         hotel.setPaginaWeb("No se tiene registrado.");
@@ -665,7 +665,7 @@ public class Listas {
         hotel.setGpsY(-66.16528317332268f);
         hotel.setDireccion("C. Colombia nro. 710 Zona: Noroeste");
         hotel.setImagenesFirebaseArreglo(new String[]{
-                "Hostal Maya Bolivia1.jpg", "Hostal Maya Bolivia2.jpg", "hostalmayabolivia.jpg" });
+                "hostal maya bolivia1.jpg", "hostal maya bolivia2.jpg", "hostalmayabolivia.jpg" });
         hotel.setTelefono(4259701);
         hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         hotel.setPaginaWeb("No se tiene registrado.");
@@ -681,7 +681,7 @@ public class Listas {
         hotel.setGpsY( -66.16012662649155f);
         hotel.setDireccion("Gral. Achá nro. 235 Zona: Noroeste Central");
         hotel.setImagenesFirebaseArreglo(new String[]{
-                "Hostal Puente de Plata1.jpg", "Hostal Puente de Plata2.jpg" });
+                "hostal puente de plata1.jpg", "hostal puente de plata2.jpg" });
         hotel.setTelefono(4583454);
         hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         hotel.setPaginaWeb("No se tiene registrado");
@@ -696,7 +696,7 @@ public class Listas {
         hotel.setGpsY(-66.15793526172638f);
         hotel.setDireccion("Av. Ayacucho nro. 714 entre Ladislao Cabrera y Uruguay");
         hotel.setImagenesFirebaseArreglo(new String[]{
-                "Hostal Versalles1.jpg", "Hostal Versalles2.jpg", "Hostal Versalles3.jpg" });
+                "hostal versalles1.jpg", "hostal versalles2.jpg", "hostal versalles3.jpg" });
         hotel.setTelefono(4583315);
         hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         hotel.setPaginaWeb("No se tiene registrado.");
@@ -712,7 +712,7 @@ public class Listas {
         hotel.setGpsY(-66.15580558776855f);
         hotel.setDireccion("C. 25 De Mayo nro. 167 Edificio: Hotel Boston Zona: Central");
         hotel.setImagenesFirebaseArreglo(new String[]{
-                "Hotel Boston1.jpg"});
+                "hotel boston1.jpg"});
         hotel.setTelefono(4224421);
         hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         hotel.setPaginaWeb("No se tiene registrado.");
@@ -728,7 +728,7 @@ public class Listas {
         hotel.setGpsY( -66.16483876481652f);
         hotel.setDireccion("C. Suipacha Esq. Gral. Acha  nro. 181 Zona: Central");
         hotel.setImagenesFirebaseArreglo(new String[]{
-                "Hotel Briston.jpg", "Hotel Briston1.jpg", "Hotel Briston3.jpg" });
+                "hotel briston.jpg", "hotel briston1.jpg", "hotel briston3.jpg" });
         hotel.setTelefono(4366156);
         hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         hotel.setPaginaWeb("hotelbriston.com");
@@ -743,7 +743,7 @@ public class Listas {
         hotel.setGpsY(-66.1634150147438f);
         hotel.setDireccion("C.  Huallparimachi nro. 1862 Zona: Cala Cala");
         hotel.setImagenesFirebaseArreglo(new String[]{
-                "Hotel Camino Plaza1.jpg", "Hotel Camino Plaza2.jpg", "Hotel Camino Plaza3.jpg", "Hotel Camino Plaza4.jpg", "Hotel Camino Plaza5.jpg", "Hotel Camino Plaza6.jpg", "Hotel Camino Plaza7.jpg" });
+                "hotel camino plaza1.jpg", "hotel camino plaza2.jpg", "hotel camino plaza3.jpg", "hotel camino plaza4.jpg", "hotel camino plaza5.jpg", "hotel camino plaza6.jpg", "hotel camino plaza7.jpg" });
         hotel.setTelefono(4200306);
         hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         hotel.setPaginaWeb("caminoplaza.com");
@@ -759,7 +759,7 @@ public class Listas {
         hotel.setGpsY(-65.43620109558105f);
         hotel.setDireccion("C. Innominada, Carretera Cbba.-Sta. Cruz Km.156 Zona: Cuarenta Arroyos");
         hotel.setImagenesFirebaseArreglo(new String[]{
-                "Hotel Victoria1.jpg", "Hotel Victoria2.jpg" });
+                "hotel victoria1.jpg", "hotel victoria2.jpg" });
         hotel.setTelefono(4136538);
         hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         hotel.setPaginaWeb("victoria-resort.com");
@@ -775,7 +775,7 @@ public class Listas {
         hotel.setGpsY(-66.15711316466331f);
         hotel.setDireccion("Av. Ballivián nro. 0611 Edificio: Hotel Diplomat Zona: El Prado");
         hotel.setImagenesFirebaseArreglo(new String[]{
-                "Hotel Diplomat Martinez Sociedad Ltda5.jpg", "Hotel Diplomat Martinez Sociedad Ltda1.jpg", "Hotel Diplomat Martinez Sociedad Ltda2.jpg", "Hotel Diplomat Martinez Sociedad Ltda3.jpg", "Hotel Diplomat Martinez Sociedad Ltda4.jpg", "Hotel Diplomat Martinez Sociedad Ltda6.jpg"});
+                "hotel diplomat martinez sociedad ltda5.jpg", "hotel diplomat martinez sociedad ltda1.jpg", "hotel diplomat martinez sociedad ltda2.jpg", "hotel diplomat martinez sociedad ltda3.jpg", "hotel diplomat martinez sociedad ltda4.jpg", "hotel diplomat martinez sociedad ltda6.jpg"});
         hotel.setTelefono(4250687);
         hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         hotel.setPaginaWeb("www.hdiplomat.com");
@@ -790,7 +790,7 @@ public class Listas {
         hotel.setGpsY(-66.16029158234596f);
         hotel.setDireccion("C. Hamiraya nro. 475 Zona: Central");
         hotel.setImagenesFirebaseArreglo(new String[]{
-                "Hotel El Super 81.jpg", "Hotel El Super 8.jpg", "Hotel El Super 82.jpg" });
+                "hotel el super 81.jpg", "hotel el super 8.jpg", "hotel el super 82.jpg" });
         hotel.setTelefono(4581978);
         hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         hotel.setPaginaWeb("No se tiene registrado.");
@@ -806,7 +806,7 @@ public class Listas {
         hotel.setGpsY(-66.15682817995548f);
         hotel.setDireccion("C. España nro. 172 entre Av. Heroínas y C. Colombia");
         hotel.setImagenesFirebaseArreglo(new String[]{
-                "Hotel Felipez3.jpg",  "Hotel Felipez.jpg", "Hotel Felipez2.jpg", "Hotel Felipez7.jpg"});
+                "hotel felipez3.jpg",  "hotel felipez.jpg", "hotel felipez2.jpg", "hotel felipez7.jpg"});
         hotel.setTelefono(4510773);
         hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         hotel.setPaginaWeb("felipezhotel.com-hotel.com");
@@ -822,7 +822,7 @@ public class Listas {
         hotel.setGpsY(-66.1144258081913f);
         hotel.setDireccion("Kaluyo-Angostura Zona: Angostura");
         hotel.setImagenesFirebaseArreglo(new String[]{
-                "Hotel Hacienda de Kaluyo1.jpg", "Hotel Hacienda de Kaluyo2.jpg", "Hotel Hacienda de Kaluyo3.jpg", "Hotel Hacienda de Kaluyo4.jpg", "Hotel Hacienda de Kaluyo5.jpg" });
+                "hotel hacienda de kaluyo1.jpg", "hotel hacienda de kaluyo2.jpg", "hotel hacienda de kaluyo3.jpg", "hotel hacienda de kaluyo4.jpg", "hotel hacienda de kaluyo5.jpg" });
         hotel.setTelefono(4576593);
         hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         hotel.setPaginaWeb("com-hotel.com");
@@ -838,7 +838,7 @@ public class Listas {
         hotel.setGpsY(-66.2307558953762f);
         hotel.setDireccion("Av. Yamparticuy Zona: Tiquipaya");
         hotel.setImagenesFirebaseArreglo(new String[]{
-                "Hotel Regina Resort y Convenciones1.jpg", "Hotel Regina Resort y Convenciones2.jpg", "Hotel Regina Resort y Convenciones3.jpg", "Hotel Regina Resort y Convenciones4.jpg" });
+                "hotel regina resort y convenciones1.jpg", "hotel regina resort y convenciones2.jpg", "hotel regina resort y convenciones3.jpg", "hotel regina resort y convenciones4.jpg" });
         hotel.setTelefono(4316555);
         hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         hotel.setPaginaWeb("No se tiene registrado.");
@@ -854,7 +854,7 @@ public class Listas {
         hotel.setGpsY(-64.86629068851471f);
         hotel.setDireccion("Av. De La Integración Zona: Loc. Ivirgarzama");
         hotel.setImagenesFirebaseArreglo(new String[]{
-                "Hotel Integracion1.jpg", "Hotel Integracion2.jpg", "Hotel Integracion3.jpg", "Hotel Integracion4.jpg" });
+                "hotel integracion1.jpg", "hotel integracion2.jpg", "hotel integracion3.jpg", "hotel integracion4.jpg" });
         hotel.setTelefono(4773024);
         hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         hotel.setPaginaWeb("granhotelintegracion.com");
@@ -870,7 +870,7 @@ public class Listas {
         hotel.setGpsY(-66.16008270531893f);
         hotel.setDireccion("C. Junín nro. 156 Edificio: Hotel León Zona: Central");
         hotel.setImagenesFirebaseArreglo(new String[]{
-                "Hotel León Avila1.jpg", "Hotel León Avila.jpg", "Hotel León Avila0.jpg", "Hotel León Avila2.jpg" });
+                "hotel león avila1.jpg", "hotel león avila.jpg", "hotel león avila0.jpg", "hotel león avila2.jpg" });
         hotel.setTelefono(4589380);
         hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         hotel.setPaginaWeb("No se tiene registrado.");
@@ -885,7 +885,7 @@ public class Listas {
         hotel.setGpsY(-66.15667060017586f);
         hotel.setDireccion("C. La Paz nro. 439 Edificio: Hotel Luxor Zona: Noreste");
         hotel.setImagenesFirebaseArreglo(new String[]{
-                "Hotel Luxor Cochabamba1.jpg", "Hotel Luxor Cochabamba2.jpg" });
+                "hotel luxor cochabamba1.jpg", "hotel luxor cochabamba2.jpg" });
         hotel.setTelefono(4524048);
         hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         hotel.setPaginaWeb("No se tiene registrado.");
@@ -901,7 +901,7 @@ public class Listas {
         hotel.setGpsY(-66.15672424435616f);
         hotel.setDireccion("C. Ladislao Cabrera nro.601 y Nataniel Aguirre Edificio: Hotel Manhattan");
         hotel.setImagenesFirebaseArreglo(new String[]{
-                "Hotel Manhattan1.jpg", "Hotel Manhattan2.jpg"});
+                "hotel manhattan1.jpg", "hotel manhattan2.jpg"});
         hotel.setTelefono(4252488);
         hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         hotel.setPaginaWeb("www.hotelmanhattanbolivia.com");
@@ -916,7 +916,7 @@ public class Listas {
         hotel.setGpsY(-66.15672156214714f);
         hotel.setDireccion("C. Nataniel Aguirre nro. 718 Edificio: Hotel Reina Nieves Zona: Central");
         hotel.setImagenesFirebaseArreglo(new String[]{
-                "Hotel Reina Nieves1.jpg" });
+                "hotel reina nieves1.jpg" });
         hotel.setTelefono(4256269);
         hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         hotel.setPaginaWeb("www.reinanieveshotel.com");
@@ -932,7 +932,7 @@ public class Listas {
         hotel.setGpsY(-66.15723520517349f);
         hotel.setDireccion("C. España entre Ecuador y Mayor Rocha nro. 329");
         hotel.setImagenesFirebaseArreglo(new String[]{
-                "Hotel Siles Ideal1.jpg", "Hotel Siles Ideal2.jpg", "Hotel Siles Ideal3.jpg", "Hotel Siles Ideal4.jpg"});
+                "hotel siles ideal1.jpg", "hotel siles ideal2.jpg", "hotel siles ideal3.jpg", "hotel siles ideal4.jpg"});
         hotel.setTelefono(4235175);
         hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         hotel.setPaginaWeb("www.hotelideal.com.bo");
@@ -948,7 +948,7 @@ public class Listas {
         hotel.setGpsY(-66.15769520401955f);
         hotel.setDireccion("C. Baptista S-011 esq. Av. Heroínas");
         hotel.setImagenesFirebaseArreglo(new String[]{
-                "Hotel Unión1.jpg", "Hotel Unión2.jpg", "Hotel Unión3.jpg" });
+                "hotel unión1.jpg", "hotel unión2.jpg", "hotel unión3.jpg" });
         hotel.setTelefono(4503728);
         hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         hotel.setPaginaWeb("hotelunion-bolivia.com");
@@ -964,7 +964,7 @@ public class Listas {
         hotel.setGpsY(-66.1596661247313f);
         hotel.setDireccion("C. Baptista nro. 746 Zona: Prado");
         hotel.setImagenesFirebaseArreglo(new String[]{
-                "Jaguar House Hostel0.jpg", "Jaguar House Hostel1.jpg", "Jaguar House Hostel2.jpg" });
+                "jaguar house hostel0.jpg", "jaguar house hostel1.jpg", "jaguar house hostel2.jpg" });
         hotel.setTelefono(4523799);
         hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         hotel.setPaginaWeb("www.jaguarhousehostel.com/");
@@ -980,7 +980,7 @@ public class Listas {
         hotel.setGpsY(-66.16137385368347f);
         hotel.setDireccion("C. Hamiraya nro. 181 Zona: Central Oeste");
         hotel.setImagenesFirebaseArreglo(new String[]{
-                "La Fontaine Oruro Hotel1.jpg", "La Fontaine Oruro Hotel2.jpg"});
+                "la fontaine oruro hotel1.jpg", "la fontaine oruro hotel2.jpg"});
         hotel.setTelefono(4252838);
         hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         hotel.setPaginaWeb("www.fontainehotel.com");
@@ -995,7 +995,7 @@ public class Listas {
         hotel.setGpsY(-66.15014880895615f);
         hotel.setDireccion("Calle David Alvestegui Nro. 769 entre Avenida Pando y Avenida Melchor Urquidi ");
         hotel.setImagenesFirebaseArreglo(new String[]{
-                "La Tua Casa 0.jpg", "La Tua Casa 1.jpg", "La Tua Casa 2.jpg", "La Tua Casa 3.jpg", "La Tua Casa 4.jpg" });
+                "la tua casa 0.jpg", "la tua casa 1.jpg", "la tua casa 2.jpg", "la tua casa 3.jpg", "la tua casa 4.jpg" });
         hotel.setTelefono(4032006);
         hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         hotel.setPaginaWeb("latuacasahotelboutique.com");
@@ -1011,7 +1011,7 @@ public class Listas {
         hotel.setGpsY(-66.15625217556953f);
         hotel.setDireccion("C. Esteban Arce nro. 601");
         hotel.setImagenesFirebaseArreglo(new String[]{
-                "Hotel Las Vegas1.jpg", "Hotel Las Vegas2.jpg"});
+                "hotel las vegas1.jpg", "hotel las vegas2.jpg"});
         hotel.setTelefono(4229976);
         hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         hotel.setPaginaWeb("No se tiene registrado.");
@@ -1026,7 +1026,7 @@ public class Listas {
         hotel.setGpsY(-66.16529675200582f);
         hotel.setDireccion("C. España nro.  250 Edificio: Ñaupa House Piso: 1 Zona: Central");
         hotel.setImagenesFirebaseArreglo(new String[]{
-                "Ñaupa House Hostel1.jpg", "Ñaupa House Hostel2.jpg"});
+                "ñaupa house hostel1.jpg", "ñaupa house hostel2.jpg"});
         hotel.setTelefono(4250862);
         hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         hotel.setPaginaWeb("naupahouse.com");
@@ -1042,7 +1042,7 @@ public class Listas {
         hotel.setGpsY(-66.15400180220604f);
         hotel.setDireccion("Av. Potosi nro. 1365 Zona: Recoleta");
         hotel.setImagenesFirebaseArreglo(new String[]{
-                "Anteus Apart Hotel1.jpg", "Anteus Apart Hotel2.jpg", "Anteus Apart Hotel3.jpg" });
+                "anteus apart hotel1.jpg", "anteus apart hotel2.jpg", "anteus apart hotel3.jpg" });
         hotel.setTelefono(4245067);
         hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         hotel.setPaginaWeb("www.hotelanteus.com");
@@ -1057,7 +1057,7 @@ public class Listas {
         hotel.setGpsY(-66.15124851465225f);
         hotel.setDireccion("Av. Oquendo nro. 690 Edificio: Hotel Toloma Piso: 1 Oficina: 1 Zona: Muyurina");
         hotel.setImagenesFirebaseArreglo(new String[]{
-                "Toloma Hotel0.jpg", "Toloma Hotel1.jpg", "Toloma Hotel1_1.jpg", "Toloma Hotel2.jpg", "Toloma Hotel2_1.jpg", "Toloma Hotel3.jpg", "Toloma Hotel4.jpg", "Toloma Hotel4_1.jpg", "Toloma Hotel5.jpg" });
+                "toloma hotel0.jpg", "toloma hotel1.jpg", "toloma hotel1_1.jpg", "toloma hotel2.jpg", "toloma hotel2_1.jpg", "toloma hotel3.jpg", "toloma hotel4.jpg", "toloma hotel4_1.jpg", "toloma hotel5.jpg" });
         hotel.setTelefono(4533600);
         hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         hotel.setPaginaWeb("www.tolomahotel.com");
@@ -1073,7 +1073,7 @@ public class Listas {
         hotel.setGpsY(-65.39628982543945f);
         hotel.setDireccion("Carretera A Santa Cruz Km 163 Zona: Agrigento");
         hotel.setImagenesFirebaseArreglo(new String[]{
-                "Los Tucanes.jpg" });
+                "los tucanes.jpg" });
         hotel.setTelefono(4136506);
         hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         hotel.setPaginaWeb("No se tiene registrado.");
@@ -1088,7 +1088,7 @@ public class Listas {
         hotel.setGpsY(-64.8638927936554f);
         hotel.setDireccion("Av. Integración Edificio: Hotel Torero II Zona: Díaz ");
         hotel.setImagenesFirebaseArreglo(new String[]{
-                "Hotel Torero II1.jpg", "Hotel Torero II2.jpg", "Hotel Torero II3.jpg", "Hotel Torero II4.jpg"});
+                "hotel torero ii1.jpg", "hotel torero ii2.jpg", "hotel torero ii3.jpg", "hotel torero ii4.jpg"});
         hotel.setTelefono(4773629);
         hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         hotel.setPaginaWeb("No se tiene registrado.");
@@ -1104,7 +1104,7 @@ public class Listas {
         hotel.setGpsY(-66.15223087370396f);
         hotel.setDireccion("Plaza Ubaldo Anze E-415, La Recoleta, Cochabamba, Bolivia");
         hotel.setImagenesFirebaseArreglo(new String[]{
-                "Gran Hotel Cochabamba S.A1.jpg", "Gran Hotel Cochabamba 2.jpg", "Gran Hotel Cochabamba 3.jpg", "Gran Hotel Cochabamba S.A2.jpg", "Gran Hotel Cochabamba S.A6.jpg", "Gran Hotel Cochabamba.jpg"});
+                "gran hotel cochabamba s.a1.jpg", "gran hotel cochabamba 2.jpg", "gran hotel cochabamba 3.jpg", "gran hotel cochabamba s.a2.jpg", "gran hotel cochabamba s.a6.jpg", "gran hotel cochabamba.jpg"});
         hotel.setTelefono(4489420);
         hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         hotel.setPaginaWeb("www.granhotelcochabamba.com.bo");
@@ -1119,7 +1119,7 @@ public class Listas {
         hotel.setGpsY(-66.156966984272f);
         hotel.setDireccion("C. Agustín López");
         hotel.setImagenesFirebaseArreglo(new String[]{
-                "Hostal Oruro1.jpg" });
+                "hostal oruro1.jpg" });
         hotel.setTelefono(0);
         hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         hotel.setPaginaWeb("No se tiene registrado");
@@ -1135,7 +1135,7 @@ public class Listas {
         hotel.setGpsY(-65.43705940246582f);
         hotel.setDireccion("Carretera Cbba - Snt. Cruz");
         hotel.setImagenesFirebaseArreglo(new String[]{
-                "Banana Tropic1.jpg", "Banana Tropic2.jpg", "Banana Tropic3.jpg" });
+                "banana tropic1.jpg", "banana tropic2.jpg", "banana tropic3.jpg" });
         hotel.setTelefono(4700956);
         hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         hotel.setPaginaWeb(": No se tiene registrado.");
@@ -1150,7 +1150,7 @@ public class Listas {
         hotel.setGpsY(-66.15461938083172f);
         hotel.setDireccion("C. 25 de Mayo 583");
         hotel.setImagenesFirebaseArreglo(new String[]{
-                "Hostal Florida1.jpg", "Hostal Florida2.jpg"});
+                "hostal florida1.jpg", "hostal florida2.jpg"});
         hotel.setTelefono(4257911);
         hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         hotel.setPaginaWeb("No se tiene registrado.");
@@ -1166,7 +1166,7 @@ public class Listas {
         hotel.setGpsY(-66.15614622831345f);
         hotel.setDireccion("Esteban Arce casi Pasaje Aldunate");
         hotel.setImagenesFirebaseArreglo(new String[]{
-                "Hotel Maria de Los Angeles1.jpg" });
+                "hotel maria de los angeles1.jpg" });
         hotel.setTelefono(0);
         hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         hotel.setPaginaWeb("No se tiene registrado");
@@ -1181,7 +1181,7 @@ public class Listas {
         hotel.setGpsY(-66.15695759654045f);
         hotel.setDireccion("México 346 entre España y 25 de Mayo ");
         hotel.setImagenesFirebaseArreglo(new String[]{
-                "Hotel Gard Gina’s0.jpg", "Hotel Gard Gina’s1.jpg", "Hotel Gard Gina’s2.jpg", "Hotel Gard Gina’s3.jpg", "Hotel Gard Gina’s4.jpg"});
+                "hotel gard gina’s0.jpg", "hotel gard gina’s1.jpg", "hotel gard gina’s2.jpg", "hotel gard gina’s3.jpg", "hotel gard gina’s4.jpg"});
         hotel.setTelefono(4222925);
         hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         hotel.setPaginaWeb("www.hotelginas.com");
@@ -1197,7 +1197,7 @@ public class Listas {
         hotel.setGpsY(-66.15933269262314f);
         hotel.setDireccion("Av. Ayacucho nro. 356 entre Ecuador y Mayor Rocha");
         hotel.setImagenesFirebaseArreglo(new String[]{
-                "Hotel Moraine2_1.jpg", "Hotel Moraine1.jpg", "Hotel Moraine1_1.jpg", "Hotel Moraine2.jpg",  "Hotel Moraine3.jpg"});
+                "hotel moraine2_1.jpg", "hotel moraine1.jpg", "hotel moraine1_1.jpg", "hotel moraine2.jpg",  "hotel moraine3.jpg"});
         hotel.setTelefono(4230750);
         hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         hotel.setPaginaWeb("hotelmorainecochabamba.com");
@@ -1212,7 +1212,7 @@ public class Listas {
         hotel.setGpsY(-66.15992411971092f);
         hotel.setDireccion("Junín 134 entre Av. Heroínas y C. Colombia");
         hotel.setImagenesFirebaseArreglo(new String[]{
-                "Hostal Casa Vieja3.jpg", "Hostal Casa Vieja.jpg", "Hostal Casa Vieja2.jpg" });
+                "hostal casa vieja3.jpg", "hostal casa vieja.jpg", "hostal casa vieja2.jpg" });
         hotel.setTelefono(4583791);
         hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         hotel.setPaginaWeb("No se tiene registrado.");
@@ -1227,7 +1227,7 @@ public class Listas {
         hotel.setGpsY(-66.153409704566f);
         hotel.setDireccion("Paccieri y Antezana");
         hotel.setImagenesFirebaseArreglo(new String[]{
-                "Tamesis Hotel1.jpg", "Tamesis Hotel2.jpg"});
+                "tamesis hotel1.jpg", "tamesis hotel2.jpg"});
         hotel.setTelefono(4527605);
         hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         hotel.setPaginaWeb("No se tiene registrado.");
@@ -1242,7 +1242,7 @@ public class Listas {
         hotel.setGpsY(-66.15402661263943f);
         hotel.setDireccion("C. 25 de Mayo y Montes");
         hotel.setImagenesFirebaseArreglo(new String[]{
-                "HOTEL DAVINCI1.jpg"});
+                "hotel davinci1.jpg"});
         hotel.setTelefono(0);
         hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         hotel.setPaginaWeb("No se tiene registrado.");
@@ -1258,7 +1258,7 @@ public class Listas {
         hotel.setGpsY(-66.16156563162804f);
         hotel.setDireccion("C. Atahuallpa y Mostajo");
         hotel.setImagenesFirebaseArreglo(new String[]{
-                "La colonia.jpg", "La colonia1.jpg", "La colonia2.jpg", "La colonia3.jpg" });
+                "la colonia.jpg", "la colonia1.jpg", "la colonia2.jpg", "la colonia3.jpg" });
         hotel.setTelefono(4450300);
         hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         hotel.setPaginaWeb("lacoloniahotel.com.bo");
@@ -1274,7 +1274,7 @@ public class Listas {
         hotel.setGpsY(-66.15910470485687f);
         hotel.setDireccion("Av. Oblitas nro. 220");
         hotel.setImagenesFirebaseArreglo(new String[]{
-                "Hotel Oblitas1.jpg", "Hotel Oblitas2.jpg"});
+                "hotel oblitas1.jpg", "hotel oblitas2.jpg"});
         hotel.setTelefono(4543704);
         hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         hotel.setPaginaWeb("oblitashotel.com");
@@ -1290,7 +1290,7 @@ public class Listas {
         hotel.setGpsY(-65.47824203968048f);
         hotel.setDireccion("Sobre la carretera Cbba - Sta Cruz; Km. 151; pasando 500m la tranca de Padre Sama ( 10km. antes de Villa Tunari)");
         hotel.setImagenesFirebaseArreglo(new String[]{
-                "HOTEL CANDIRE.jpg"});
+                "hotel candire.jpg"});
         hotel.setTelefono(70382348);
         hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         hotel.setPaginaWeb("No se tiene registrado.");
@@ -1306,7 +1306,7 @@ public class Listas {
         hotel.setGpsY(-66.15070939064026f);
         hotel.setDireccion("Federico Blanco casi Oquendo");
         hotel.setImagenesFirebaseArreglo(new String[]{
-                "Hotel de La Torre1.jpg", "Hotel de La Torre2.jpg" });
+                "hotel de la torre1.jpg", "hotel de la torre2.jpg" });
         hotel.setTelefono(0);
         hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         hotel.setPaginaWeb("delatorreapart.com-hotel.com");
@@ -1322,7 +1322,7 @@ public class Listas {
         hotel.setGpsY(-66.25139951705933f);
         hotel.setDireccion("Av. Elías Meneces");
         hotel.setImagenesFirebaseArreglo(new String[]{
-                "Casa Campestre2.jpg", "Casa Campestre0.jpg", "Casa Campestre1.jpg", "Casa Campestre3.jpg", "Casa Campestre4.jpg" });
+                "casa campestre2.jpg", "casa campestre0.jpg", "casa campestre1.jpg", "casa campestre3.jpg", "casa campestre4.jpg" });
         hotel.setTelefono(4350312);
         hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         hotel.setPaginaWeb("lacasacampestre.com");
@@ -1354,7 +1354,7 @@ public class Listas {
         hotel.setGpsY(-66.15082522854209f);
         hotel.setDireccion("Circunvalación 2 entre final Pando y Luis Calvo");
         hotel.setImagenesFirebaseArreglo(new String[]{
-                "Puka Killa00.jpg", "Puka Killa0.jpg", "Puka Killa1.jpg", "Puka Killa2.jpg", "Puka Killa3.jpg", "Puka Killa4.jpg" });
+                "puka killa00.jpg", "puka killa0.jpg", "puka killa1.jpg", "puka killa2.jpg", "puka killa3.jpg", "puka killa4.jpg" });
         hotel.setTelefono(4227434);
         hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         hotel.setPaginaWeb("www.pukakillasrl.com");
@@ -1370,7 +1370,7 @@ public class Listas {
         hotel.setGpsY(-66.15700721740723f);
         hotel.setDireccion("Av. Ayacucho 7241");
         hotel.setImagenesFirebaseArreglo(new String[]{
-                "Arasan Hotel.jpg"});
+                "arasan hotel.jpg"});
         hotel.setTelefono(4552001);
         hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         hotel.setPaginaWeb("arasancbba@gmail.com");
@@ -1386,7 +1386,7 @@ public class Listas {
         hotel.setGpsY(-66.15381941199303f);
         hotel.setDireccion("C. Bolívar 440 entre Lanza y Av. San Martín");
         hotel.setImagenesFirebaseArreglo(new String[]{
-                "Virginias  Hotel.jpg"});
+                "virginias  hotel.jpg"});
         hotel.setTelefono(4510468);
         hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         hotel.setPaginaWeb("No se tiene registrado.");
@@ -1406,7 +1406,7 @@ public class Listas {
         restaurante.setGpsX(-17.376839762065707f);
         restaurante.setGpsY(-66.16944931447506f);
         restaurante.setDireccion("Av. Juan De La Rosa nro. 842 Zona: Sarco");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Bunker Grill S.R.L.2.jpg", "Bunker Grill S.R.L.jpg", "Bunker Grill S.R.L_1.jpg", "Bunker Grill S.R.L3.jpg" });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"bunker grill s.r.l.2.jpg", "bunker grill s.r.l.jpg", "bunker grill s.r.l_1.jpg", "bunker grill s.r.l3.jpg" });
         restaurante.setTelefono(0);
         restaurante.setHorario("No se tiene registrado");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -1419,7 +1419,7 @@ public class Listas {
         restaurante.setGpsX(-17.389166044786787f);
         restaurante.setGpsY(-66.1704383790493f);
         restaurante.setDireccion("Av. Perú nro. 580 Zona: Villa Galindo");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Carbonell1.jpg"});
+        restaurante.setImagenesFirebaseArreglo(new String[]{"carbonell1.jpg"});
         restaurante.setTelefono(4418199);
         restaurante.setHorario("Lunes a Sábado 18:30-22:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -1432,7 +1432,7 @@ public class Listas {
         restaurante.setGpsX(-17.376764248067403f);
         restaurante.setGpsY(-66.17607034742832f);
         restaurante.setDireccion("Av. Melchor Pérez nro. 1555 Zona: Sarco");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Carne y Fuego.jpg", "Carne y Fuego2.PNG", "Carne y Fuego3.PNG" });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"carne y fuego.jpg", "carne y fuego2.png", "carne y fuego3.png" });
         restaurante.setTelefono(4243800);
         restaurante.setHorario("Martes a Viernes 18:00-23:00 Sábado 18:00-23:00 Domingo 11:00-15:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -1446,7 +1446,7 @@ public class Listas {
         restaurante.setGpsX(-17.37802494378927f);
         restaurante.setGpsY(-66.15633934736252f);
         restaurante.setDireccion("C. Aniceto Padilla nro. 339 Zona: Norte");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Carniclub1.jpg", "Carniclub2.jpg" });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"carniclub1.jpg", "carniclub2.jpg" });
         restaurante.setTelefono(4036494);
         restaurante.setHorario("Lunes a Sábado: 17:00-22:30");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -1459,7 +1459,7 @@ public class Listas {
         restaurante.setGpsX(-17.391429377982195f);
         restaurante.setGpsY(-66.15454092621803f);
         restaurante.setDireccion("Av. San Martin nro. 150 Zona: Central");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Chicken S Kingdom S.R.L.1.jpg", "Chicken S Kingdom S.R.L.2.jpg" });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"chicken s kingdom s.r.l.1.jpg", "chicken s kingdom s.r.l.2.jpg" });
         restaurante.setTelefono(4660328);
         restaurante.setHorario("Lunes a Domingo 10:00-23:45");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -1472,7 +1472,7 @@ public class Listas {
         restaurante.setGpsX(-17.408995653764446f);
         restaurante.setGpsY(-66.15610867738724f);
         restaurante.setDireccion("Alfonso Arze nro. 2091 Zona: Jaihuayco");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Restaurante Pochos3.jpg", "Restaurante Pochos1.jpg", "Restaurante Pochos2.jpg"});
+        restaurante.setImagenesFirebaseArreglo(new String[]{"restaurante pochos3.jpg", "restaurante pochos1.jpg", "restaurante pochos2.jpg"});
         restaurante.setTelefono(60348277);
         restaurante.setHorario("No se tiene registrado.");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -1486,7 +1486,7 @@ public class Listas {
         restaurante.setGpsX(-17.38526897630569f);
         restaurante.setGpsY(-66.15441352128983f);
         restaurante.setDireccion("C. Chuquisaca nro. 688 Zona: Noreste");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Paprika 1.jpg", "Paprika 2.jpg", "Paprika 3.jpg" });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"paprika 1.jpg", "paprika 2.jpg", "paprika 3.jpg" });
         restaurante.setTelefono(4662400);
         restaurante.setHorario("Lunes a Sábado 11:30 - 01:30 Domingo 11:30-0");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -1499,7 +1499,7 @@ public class Listas {
         restaurante.setGpsX(-17.38755219496939f);
         restaurante.setGpsY(-66.16038411855698f);
         restaurante.setDireccion("José de La Reza 143");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"BOSQUE DE LAS HADAS.jpg", "El Bosque De Las Hadas 1.jpg", "El Bosque De Las Hadas 2.jpg" });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"bosque de las hadas.jpg", "el bosque de las hadas 1.jpg", "el bosque de las hadas 2.jpg" });
         restaurante.setTelefono(4522806);
         restaurante.setHorario("Lunes a Sábado 18:00- 23:30");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -1513,7 +1513,7 @@ public class Listas {
         restaurante.setGpsX(-17.38605607564349f);
         restaurante.setGpsY(-66.15666791796684f);
         restaurante.setDireccion("Av. Ballivián nro. 0622 Zona: Central");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Jardin Colonial.jpg", "Jardin Colonial2.jpg" });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"jardin colonial.jpg", "jardin colonial2.jpg" });
         restaurante.setTelefono(4221056);
         restaurante.setHorario("No se tiene registrado.");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -1526,7 +1526,7 @@ public class Listas {
         restaurante.setGpsX(-17.376025745120195f);
         restaurante.setGpsY(-66.16588532924652f);
         restaurante.setDireccion("C. José Quintín Mendoza nro. 1489 Zona: Cala Cala");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"la chingada.jpg", "La chingada1.jpg", "La chingada2.jpg" });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"la chingada.jpg", "la chingada1.jpg", "la chingada2.jpg" });
         restaurante.setTelefono(4501156);
         restaurante.setHorario("Lunes a Sábado de 18:00 – 23:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -1539,7 +1539,7 @@ public class Listas {
         restaurante.setGpsX(-17.381373104697445f);
         restaurante.setGpsY(-66.17012858390808f);
         restaurante.setDireccion("Casto Rojas nro. 1649 Zona: Glorieta");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Acertijos.jpg"});
+        restaurante.setImagenesFirebaseArreglo(new String[]{"acertijos.jpg"});
         restaurante.setTelefono(4400352);
         restaurante.setHorario("No se tiene registrado.");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -1552,7 +1552,7 @@ public class Listas {
         restaurante.setGpsX(-17.371657381677554f);
         restaurante.setGpsY(-66.16151869297028f);
         restaurante.setDireccion("C. Juan Capriles nro. 170 Zona: Cala Cala");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Apthapi World Street Food.jpg"});
+        restaurante.setImagenesFirebaseArreglo(new String[]{"apthapi world street food.jpg"});
         restaurante.setTelefono(67426557);
         restaurante.setHorario("Lunes a Viernes: 12:00 – 1400  17:00 – 22:30 Sabado 18:00 – 21:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -1565,7 +1565,7 @@ public class Listas {
         restaurante.setGpsX(-17.375481785238488f);
         restaurante.setGpsY(-66.15381572395563f);
         restaurante.setDireccion("Av. Potosí nro. 1392 Zona: Queru Queru");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Muela Del Diablo.jpg", "Muela Del Diablo2.jpg" });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"muela del diablo.jpg", "muela del diablo2.jpg" });
         restaurante.setTelefono(4799686);
         restaurante.setHorario("Lunes a Jueves: 09:30 – 11:30 Viernes 09:30 – 02:00 Sábado 17:30 - 0200 ");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -1578,7 +1578,7 @@ public class Listas {
         restaurante.setGpsX(-17.371467951312823f);
         restaurante.setGpsY(-66.18206441402435f);
         restaurante.setDireccion("Av. América oeste Nro. 1509 lado Fiorentina");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Restaurant Rincón del Valle1.jpg", "Restaurant Rincón del Valle2.jpg", "Restaurant Rincón del Valle3.jpg", "Restaurant Rincón del Valle4.jpg", "Restaurant Rincón del Valle5.jpg", "Restaurant Rincón del Valle6.jpg" });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"restaurant rincón del valle1.jpg", "restaurant rincón del valle2.jpg", "restaurant rincón del valle3.jpg", "restaurant rincón del valle4.jpg", "restaurant rincón del valle5.jpg", "restaurant rincón del valle6.jpg" });
         restaurante.setTelefono(4280339);
         restaurante.setHorario("Lunes a Viernes 12:00 - 15:00  Sábado y Domingo  12:00 - 19:00  ");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -1591,7 +1591,7 @@ public class Listas {
         restaurante.setGpsX(-17.374059162520194f);
         restaurante.setGpsY(-66.16060271859169f);
         restaurante.setDireccion("Calle Tarija Nro. 1508 esquina Calle Guadalquivir");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Bar Restaurant Mediterráneo1.jpg", "Bar Restaurant Mediterráneo2.jpg"  });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"bar restaurant mediterráneo1.jpg", "bar restaurant mediterráneo2.jpg"  });
         restaurante.setTelefono(4036421);
         restaurante.setHorario("Lunes a Sábado 17:00 - 23:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -1605,7 +1605,7 @@ public class Listas {
         restaurante.setGpsX(-17.37377630054552f);
         restaurante.setGpsY(-66.14937096834183f);
         restaurante.setDireccion("Av. Melchor Urquidi nro. 1430 Zona: Queru Queru");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Con Yapa1.jpg", "Con Yapa2.jpg", "Con Yapa2_1.jpg" });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"con yapa1.jpg", "con yapa2.jpg", "con yapa2_1.jpg" });
         restaurante.setTelefono(4548627);
         restaurante.setHorario("Lunes a Domingo de 10:00- 22:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -1631,7 +1631,7 @@ public class Listas {
         restaurante.setGpsX(-17.388920320753154f);
         restaurante.setGpsY(-66.15746855735779f);
         restaurante.setDireccion("C. España nro. 409 Zona: Central");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"La Cantonata0.jpg", "La Cantonata1.jpg" });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"la cantonata0.jpg", "la cantonata1.jpg" });
         restaurante.setTelefono(4259222);
         restaurante.setHorario("Lunes a Sábado de 12:00-22:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -1644,7 +1644,7 @@ public class Listas {
         restaurante.setGpsX(-17.377898234662428f);
         restaurante.setGpsY(-66.15159317851067f);
         restaurante.setDireccion("Av. Pando nro. 1164 Zona: Recoleta");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Barbacoa1.jpg"});
+        restaurante.setImagenesFirebaseArreglo(new String[]{"barbacoa1.jpg"});
         restaurante.setTelefono(4522525);
         restaurante.setHorario("Lunes a Sábado 12:00 – 15:00 Domingo 12:00 – 15:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -1657,7 +1657,7 @@ public class Listas {
         restaurante.setGpsX(-17.377260208080074f);
         restaurante.setGpsY(-66.15328699350357f);
         restaurante.setDireccion("C. Beni nro. 577 Zona: Queru Queru");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Baretto Café Express.jpg"});
+        restaurante.setImagenesFirebaseArreglo(new String[]{"baretto café express.jpg"});
         restaurante.setTelefono(4485211);
         restaurante.setHorario("No se tiene registrado");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -1671,7 +1671,7 @@ public class Listas {
         restaurante.setGpsX(-17.377356840132606f);
         restaurante.setGpsY(-66.1537778377533f);
         restaurante.setDireccion("C. Beni Edificio: Toscana Piso: Pb Oficina: 2 Zona: Recoleta");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Big Joy.jpg", "Big Joy2.jpg", "Big Joy3.jpg" });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"big joy.jpg", "big joy2.jpg", "big joy3.jpg" });
         restaurante.setTelefono(4798545);
         restaurante.setHorario("Martes a Domingo: 17:30- 23:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -1684,7 +1684,7 @@ public class Listas {
         restaurante.setGpsX(-17.378770478037364f);
         restaurante.setGpsY(-66.16587392985821f);
         restaurante.setDireccion("Av. Juan de La Rosa nro. 560 Zona: Estadium");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Brasas & Carbón.jpg", "Brasas & Carbón1.jpg", "Brasas & Carbón2.jpg" });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"brasas & carbón.jpg", "brasas & carbón1.jpg", "brasas & carbón2.jpg" });
         restaurante.setTelefono(4545459);
         restaurante.setHorario("No se tiene registrado.");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -1697,7 +1697,7 @@ public class Listas {
         restaurante.setGpsX(-17.372841317018036f);
         restaurante.setGpsY(-66.16031974554062f);
         restaurante.setDireccion("Av. América nro. 222 Zona: Norte");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Bricks Pizzeria S.R.L.jpg"});
+        restaurante.setImagenesFirebaseArreglo(new String[]{"bricks pizzeria s.r.l.jpg"});
         restaurante.setTelefono(4799911);
         restaurante.setHorario("Lunes a Domingo  10:00 - 23:30");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -1711,7 +1711,7 @@ public class Listas {
         restaurante.setGpsX(-17.39463459893635f);
         restaurante.setGpsY(-66.15894712507725f);
         restaurante.setDireccion("Santibáñez nro. 134 Zona: Centro");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Café Lea Mas.jpg","Café Lea Mas1.jpg" });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"café lea mas.jpg","café lea mas1.jpg" });
         restaurante.setTelefono(71748747);
         restaurante.setHorario("Lunes a Sábado 9:00 - 21:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -1725,7 +1725,7 @@ public class Listas {
         restaurante.setGpsX(-17.39069285391186f);
         restaurante.setGpsY(-66.17052286863327f);
         restaurante.setDireccion("Av. Perú nro. 460 Zona: Hipodromo");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Café Parlawi & Lab1.jpg"});
+        restaurante.setImagenesFirebaseArreglo(new String[]{"café parlawi & lab1.jpg"});
         restaurante.setTelefono(77491649);
         restaurante.setHorario("Lunes a  Sábado 9:00- 19:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -1739,7 +1739,7 @@ public class Listas {
         restaurante.setGpsX(-17.3899172927802f);
         restaurante.setGpsY(-66.15680873394012f);
         restaurante.setDireccion("C. Chuquisaca nro. 501 Zona: Central Noreste");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Café Fragmentos1.jpg", "Café Fragmentos.jpg" });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"café fragmentos1.jpg", "café fragmentos.jpg" });
         restaurante.setTelefono(0);
         restaurante.setHorario("No se tiene registrado");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -1753,7 +1753,7 @@ public class Listas {
         restaurante.setGpsX(-17.369925622470742f);
         restaurante.setGpsY(-66.16224825382233f);
         restaurante.setDireccion("Huallparrimachi y Tupac Katary");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Caffeina Caffeina1.jpg"});
+        restaurante.setImagenesFirebaseArreglo(new String[]{"caffeina caffeina1.jpg"});
         restaurante.setTelefono(4231006);
         restaurante.setHorario("Lunes a Sábado 10:00-2:00 Domingo 10:00-16:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -1767,7 +1767,7 @@ public class Listas {
         restaurante.setGpsX(-17.371261881571947f);
         restaurante.setGpsY(-66.17804244160652f);
         restaurante.setDireccion("Av. América Esquina Intiraymi Zona: Sarco");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Capicúa.jpg", "Capicúa_1.jpg", "Capicúa1.jpg" });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"capicúa.jpg", "capicúa_1.jpg", "capicúa1.jpg" });
         restaurante.setTelefono(4446042);
         restaurante.setHorario("No se tiene registrado.");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -1781,7 +1781,7 @@ public class Listas {
         restaurante.setGpsX(-17.384203187213203f);
         restaurante.setGpsY(-66.16834877058864f);
         restaurante.setDireccion("Pasaje Zoológico nro. 1471 y Av. Tadeo Haenke, Hipodromo");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Chicken Brass1.jpg"});
+        restaurante.setImagenesFirebaseArreglo(new String[]{"chicken brass1.jpg"});
         restaurante.setTelefono(4444852);
         restaurante.setHorario("Lunes a Jueves 18:00-22:00 Viernes y Sabado 12:0-15:00, 18:00-22:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -1795,7 +1795,7 @@ public class Listas {
         restaurante.setGpsX(-17.37246437843471f);
         restaurante.setGpsY(-66.15387909114361f);
         restaurante.setDireccion("Calle Potosí entre Av. América y Juan Capriles");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Churrasquería Bagu0.jpg", "Churrasquería Bagu1.jpg", "Churrasquería Bagu2.jpg", "Churrasquería Bagu3.jpg", "Churrasquería Bagu4.jpg"  });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"churrasquería bagu0.jpg", "churrasquería bagu1.jpg", "churrasquería bagu2.jpg", "churrasquería bagu3.jpg", "churrasquería bagu4.jpg"  });
         restaurante.setTelefono(4290795);
         restaurante.setHorario("Martes a Sábado 12:00-15:00, 19:00-23:00 , Domingo 12:00-15:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -1809,7 +1809,7 @@ public class Listas {
         restaurante.setGpsX(-17.38049447436129f);
         restaurante.setGpsY(-66.16928234696388f);
         restaurante.setDireccion("Parque Demetrio Canelas esq. Av. C. Medinacelli");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Churrasquería Bruno1.jpg", "Churrasquería Bruno2.jpg"  });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"churrasquería bruno1.jpg", "churrasquería bruno2.jpg"  });
         restaurante.setTelefono(72266897);
         restaurante.setHorario("Lunes a Sabado 11:00-15:00, 18:00-23:00, Domingo 11:30-15:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -1823,7 +1823,7 @@ public class Listas {
         restaurante.setGpsX(-17.378525379988663f);
         restaurante.setGpsY(-66.15108624100685f);
         restaurante.setDireccion("Psje. Boulevard De La Recoleta Y/O Av. Uyuni, Aniceto Padilla 680");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Churrasquería Tunari Boulevar.jpg"});
+        restaurante.setImagenesFirebaseArreglo(new String[]{"churrasquería tunari boulevar.jpg"});
         restaurante.setTelefono(4488153);
         restaurante.setHorario("Martes a Jueves 18:20-23:00 Viernes y Sábado 12:00- 15:00 Domingo 12:00-15:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -1837,7 +1837,7 @@ public class Listas {
         restaurante.setGpsX(-17.38677470078144f);
         restaurante.setGpsY(-66.15878149867058f);
         restaurante.setDireccion("C.Baptista nro. 604 Edificio: Alborada Piso: Pb Oficina: 2 Zona: Nor-Oeste");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Cratos1.jpg", "Cratos2.jpg", "Cratos3.jpg" });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"cratos1.jpg", "cratos2.jpg", "cratos3.jpg" });
         restaurante.setTelefono(4287772);
         restaurante.setHorario("Lunes a Sábado 09:00-20:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -1850,7 +1850,7 @@ public class Listas {
         restaurante.setGpsX(-17.38414783384251f);
         restaurante.setGpsY(-66.15525841712952f);
         restaurante.setDireccion("C. Antezana nro. 763 Zona: Central");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Da Vinci Pizzeria Bar1.jpg", "Da Vinci Pizzeria Bar2.jpg" });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"da vinci pizzeria bar1.jpg", "da vinci pizzeria bar2.jpg" });
         restaurante.setTelefono(4660857);
         restaurante.setHorario("Lunes a Sábado 18:30-00:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -1878,7 +1878,7 @@ public class Listas {
         restaurante.setGpsX(-17.389283147530463f);
         restaurante.setGpsY(-66.0877700150013f);
         restaurante.setDireccion("Carretera Sacaba 6.5 al Sud Pasaje Sin Salida Zona: Este");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Dimas' Restaurant1.jpg", "Dimas' Restaurant2.jpg"});
+        restaurante.setImagenesFirebaseArreglo(new String[]{"dimas' restaurant1.jpg", "dimas' restaurant2.jpg"});
         restaurante.setTelefono(4721154);
         restaurante.setHorario("Lunes 12:00-14:00 Martes a Domingo 12:00-22:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -1891,7 +1891,7 @@ public class Listas {
         restaurante.setGpsX(-17.377808642297584f);
         restaurante.setGpsY(-66.14958085119724f);
         restaurante.setDireccion("Melchor Urquidi nro. 1166 Zona: Queru Queru");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Dogs Burgers & More0.jpg", "Dogs Burgers & More1.jpg", "Dogs Burgers & More2.jpg" });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"dogs burgers & more0.jpg", "dogs burgers & more1.jpg", "dogs burgers & more2.jpg" });
         restaurante.setTelefono(4414176);
         restaurante.setHorario("Martes a Domingo 15:30-23:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -1905,7 +1905,7 @@ public class Listas {
         restaurante.setGpsX(-17.37240230188733f);
         restaurante.setGpsY(-66.15931257605553f);
         restaurante.setDireccion("Av. América nro. 275 Zona: Queru Queru");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Chicharronería Doña Pola1.jpg", "Chicharronería Doña Pola2.jpg" });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"chicharronería doña pola1.jpg", "chicharronería doña pola2.jpg" });
         restaurante.setTelefono(4248332);
         restaurante.setHorario("No se tiene registrado");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -1919,7 +1919,7 @@ public class Listas {
         restaurante.setGpsX(-17.378969499971284f);
         restaurante.setGpsY(-66.16606906056404f);
         restaurante.setDireccion("Av. Juan de la Rosa esq. Calle Julio Mendez, próximo a la clínica los Angeles");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Döner Kebab1.jpg"});
+        restaurante.setImagenesFirebaseArreglo(new String[]{"döner kebab1.jpg"});
         restaurante.setTelefono(67420179);
         restaurante.setHorario("Lunes a Viernes 08:00-12:30, 18:00-22:00 Sábado y Domingo 18:00-22:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -1933,7 +1933,7 @@ public class Listas {
         restaurante.setGpsX(-17.421780419580454f);
         restaurante.setGpsY(-66.1584247648716f);
         restaurante.setDireccion("Av. Suecia nro. 1259 Zona: Sud");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Dori Pollo.jpg"});
+        restaurante.setImagenesFirebaseArreglo(new String[]{"dori pollo.jpg"});
         restaurante.setTelefono(4748613);
         restaurante.setHorario("Lunes a Domingo de 10:00 – 23:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -1947,7 +1947,7 @@ public class Listas {
         restaurante.setGpsX(-17.380996823613167f);
         restaurante.setGpsY(-66.15136384963989f);
         restaurante.setDireccion("Av. Ramón Rivero nro. 736 Zona: Noreste");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Dortmund Bierhaus2.jpg", "Dortmund Bierhaus.jpg", "Dortmund Bierhaus3.jpg" });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"dortmund bierhaus2.jpg", "dortmund bierhaus.jpg", "dortmund bierhaus3.jpg" });
         restaurante.setTelefono(72725089);
         restaurante.setHorario("Lunes a Domingo 19:00-22:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -1961,7 +1961,7 @@ public class Listas {
         restaurante.setGpsX(-17.373292490363422f);
         restaurante.setGpsY(-66.1525634676218f);
         restaurante.setDireccion("Av. América Este Zona: Queru Queru");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"El Bagual.jpg"});
+        restaurante.setImagenesFirebaseArreglo(new String[]{"el bagual.jpg"});
         restaurante.setTelefono(0);
         restaurante.setHorario("Lunes a Sábado 07:00-23:00 Sábado y Domingo 11:00-23:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -1975,7 +1975,7 @@ public class Listas {
         restaurante.setGpsX(-17.337414022181616f);
         restaurante.setGpsY(-66.22109055519104f);
         restaurante.setDireccion("Av. Reducto nro.  354 Zona: Tiquipaya");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"El Buen Gusto Tiquipayeño.jpg"});
+        restaurante.setImagenesFirebaseArreglo(new String[]{"el buen gusto tiquipayeño.jpg"});
         restaurante.setTelefono(4316673);
         restaurante.setHorario("Lunes a Domingo de 08:00-20:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -1989,7 +1989,7 @@ public class Listas {
         restaurante.setGpsX(-17.374652403296814f);
         restaurante.setGpsY(-66.15763954818249f);
         restaurante.setDireccion("C.Trinidad nro. 1456 Zona: Norte");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Gaudil Restaurant Buffet.jpg", "Gaudil Restaurant Buffet2.jpg" });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"gaudil restaurant buffet.jpg", "gaudil restaurant buffet2.jpg" });
         restaurante.setTelefono(4424041);
         restaurante.setHorario("No se tiene registrado");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -2003,7 +2003,7 @@ public class Listas {
         restaurante.setGpsX(-17.365475194997373f);
         restaurante.setGpsY(-66.18834681808949f);
         restaurante.setDireccion("C. Adolfo Ballivián nro. 139 Zona: Sarcobamba");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Mesón del Cantor00.jpg", "Mesón del Cantor.jpg", "Mesón del Cantor0.jpg", "Mesón del Cantor1.jpg", "Mesón del Cantor2.jpg", "Mesón del Cantor3.jpg" });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"mesón del cantor00.jpg", "mesón del cantor.jpg", "mesón del cantor0.jpg", "mesón del cantor1.jpg", "mesón del cantor2.jpg", "mesón del cantor3.jpg" });
         restaurante.setTelefono(4422554);
         restaurante.setHorario("Jueves a Sábado 18:00-00:00 Domingo 12:00-00:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -2017,7 +2017,7 @@ public class Listas {
         restaurante.setGpsX(-17.38885888969319f);
         restaurante.setGpsY(-66.15851528942585f);
         restaurante.setDireccion("C. Baptista nro. 434 Zona: Central");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"El Palacio del Silpancho1.jpg", "El Palacio del Silpancho2.jpg" });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"el palacio del silpancho1.jpg", "el palacio del silpancho2.jpg" });
         restaurante.setTelefono(4222732);
         restaurante.setHorario("No se tiene registrado");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -2032,7 +2032,7 @@ public class Listas {
         restaurante.setGpsX(-17.38341320023889f);
         restaurante.setGpsY(-66.15251585841179f);
         restaurante.setDireccion("Salamanca nro. 916 Zona: Central");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"El Tablón Family’s Food1.jpg", "El Tablón Family’s Food2.jpg", "El Tablón Family’s Food3.jpg", "El Tablón Family’s Food4.jpg" });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"el tablón family’s food1.jpg", "el tablón family’s food2.jpg", "el tablón family’s food3.jpg", "el tablón family’s food4.jpg" });
         restaurante.setTelefono(0);
         restaurante.setHorario("Lunes a Domingo de 06:30 - 22:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -2046,7 +2046,7 @@ public class Listas {
         restaurante.setGpsX(-17.388624683587803f);
         restaurante.setGpsY(-66.170699223876f);
         restaurante.setDireccion("Av. Perú nro. 651 Zona: Villa Ingavi");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Frica’s Burger.jpg"});
+        restaurante.setImagenesFirebaseArreglo(new String[]{"frica’s burger.jpg"});
         restaurante.setTelefono(4244035);
         restaurante.setHorario("No se tiene registrado");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -2060,7 +2060,7 @@ public class Listas {
         restaurante.setGpsX(-17.389089256061734f);
         restaurante.setGpsY(-66.15735188126564f);
         restaurante.setDireccion("C. España nro. 286 Zona: Central");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Giros Pub.jpg", "Giros Pub_1.jpg" });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"giros pub.jpg", "giros pub_1.jpg" });
         restaurante.setTelefono(70753557);
         restaurante.setHorario("No se tiene registrado");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -2074,7 +2074,7 @@ public class Listas {
         restaurante.setGpsX(-17.378008305222057f);
         restaurante.setGpsY(-66.1569495499134f);
         restaurante.setDireccion("Av. Santa Cruz Esq. Aniceto Padilla nro. 1210 Zona: Queru Queru");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Greddy Gorillas.jpg"});
+        restaurante.setImagenesFirebaseArreglo(new String[]{"greddy gorillas.jpg"});
         restaurante.setTelefono(78326960);
         restaurante.setHorario("No se tiene registrado");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -2087,7 +2087,7 @@ public class Listas {
         restaurante.setGpsX(-17.388042366561884f);
         restaurante.setGpsY(-66.17444157600403f);
         restaurante.setDireccion("Av D'Orbigni, Cochabamba");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Guti's.jpg"});
+        restaurante.setImagenesFirebaseArreglo(new String[]{"guti's.jpg"});
         restaurante.setTelefono(4283148);
         restaurante.setHorario("Martes a Sábado  19:30 - 23:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -2100,7 +2100,7 @@ public class Listas {
         restaurante.setGpsX(-17.379473773227488f);
         restaurante.setGpsY(-66.16647809743881f);
         restaurante.setDireccion("C. Diomedes de Pereira nro. 588 Zona: Cala Cala");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Heladería Colonial España1.jpg", "Heladería Colonial España2.jpg" });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"heladería colonial españa1.jpg", "heladería colonial españa2.jpg" });
         restaurante.setTelefono(4417028);
         restaurante.setHorario("No se tiene registrado");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -2113,7 +2113,7 @@ public class Listas {
         restaurante.setGpsX(-17.387476685390638f);
         restaurante.setGpsY(-66.15560844540596f);
         restaurante.setDireccion("Av. José Ballivián (El Prado)");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Heladería Globos S.R.L.jpg", "Heladería Globos S.R.L0.jpg", "Heladería Globos S.R.L2.jpg", "Heladería Globos S.R.L3.jpg" });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"heladería globos s.r.l.jpg", "heladería globos s.r.l0.jpg", "heladería globos s.r.l2.jpg", "heladería globos s.r.l3.jpg" });
         restaurante.setTelefono(4520606);
         restaurante.setHorario("Lunes a Domingo 10:00- 00:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -2126,7 +2126,7 @@ public class Listas {
         restaurante.setGpsX(-17.39223756735946f);
         restaurante.setGpsY(-66.15616500377655f);
         restaurante.setDireccion("Av. Heroínas nro. 354, Pje Fidelia Sanchez Zona: Central");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Heladería Gracia S.R.L..jpg"});
+        restaurante.setImagenesFirebaseArreglo(new String[]{"heladería gracia s.r.l..jpg"});
         restaurante.setTelefono(4501300);
         restaurante.setHorario("No se tiene registrado");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -2139,7 +2139,7 @@ public class Listas {
         restaurante.setGpsX(-17.396910022162697f);
         restaurante.setGpsY(-66.15239046514034f);
         restaurante.setDireccion("Ladislao Cabrera #612 Ciudad Cochabamba, Cochabamba, Bolivia");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Helados Brunello S.R.L.0.jpg", "Helados Brunello S.R.L.1.jpg", "Helados Brunello S.R.L.2.jpg", "Helados Brunello S.R.L.3.jpg" });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"helados brunello s.r.l.0.jpg", "helados brunello s.r.l.1.jpg", "helados brunello s.r.l.2.jpg", "helados brunello s.r.l.3.jpg" });
         restaurante.setTelefono( 4140187);
         restaurante.setHorario("Lunes a Domingo de 11:00-19:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -2152,7 +2152,7 @@ public class Listas {
         restaurante.setGpsX(-17.37545874690195f);
         restaurante.setGpsY(-66.15092061460018f);
         restaurante.setDireccion("Plaza de comidas Huper Mall 4to piso. Pando y Portales/ zona Recoleta Cochabamba, Bolivia.");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Hunan1.PNG"});
+        restaurante.setImagenesFirebaseArreglo(new String[]{"hunan1.png"});
         restaurante.setTelefono(4548737);
         restaurante.setHorario("Lunes a Domingo 12:00-22:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -2165,7 +2165,7 @@ public class Listas {
         restaurante.setGpsX(-17.37586127742051f);
         restaurante.setGpsY(-66.15790776908398f);
         restaurante.setDireccion("Calle Trinidad entre C. Pedro Blanco y C. Portales ");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Kansas Grill & Bar.jpg", "Kansas Grill & Bar0.jpg", "Kansas Grill & Bar1.jpg", "Kansas Grill & Bar2.jpg", "Kansas Grill & Bar3.jpg" });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"kansas grill & bar.jpg", "kansas grill & bar0.jpg", "kansas grill & bar1.jpg", "kansas grill & bar2.jpg", "kansas grill & bar3.jpg" });
         restaurante.setTelefono(4122727);
         restaurante.setHorario("Lunes a Sábado de 12:00-23:59 ");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -2178,7 +2178,7 @@ public class Listas {
         restaurante.setGpsX(-17.372133516594012f);
         restaurante.setGpsY(-66.16958476603031f);
         restaurante.setDireccion("Av. America no 663 entre Eduardo Caba y Daniel Albornoz");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Karbonju.jpg", "Karbonju_1.jpg", "Karbonju0.jpg", "Karbonju1.jpg", "Karbonju2.jpg", "Karbonju2_1.jpg", "Karbonju3.jpg" });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"karbonju.jpg", "karbonju_1.jpg", "karbonju0.jpg", "karbonju1.jpg", "karbonju2.jpg", "karbonju2_1.jpg", "karbonju3.jpg" });
         restaurante.setTelefono(4413634);
         restaurante.setHorario("Martes y Miércoles 12:00-15:00 Jueves, Viernes y Sábado de 19:00-23:00 Domingo12:00-16:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -2191,7 +2191,7 @@ public class Listas {
         restaurante.setGpsX(-17.373953569300213f);
         restaurante.setGpsY(-66.16113513708115f);
         restaurante.setDireccion("Pasaje Tarija  nro. 7 , Cala Cala");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Koi Sushi Bar4.jpg", "Koi Sushi Bar.jpg", "Koi Sushi Bar2.jpg", "Koi Sushi Bar3.jpg"});
+        restaurante.setImagenesFirebaseArreglo(new String[]{"koi sushi bar4.jpg", "koi sushi bar.jpg", "koi sushi bar2.jpg", "koi sushi bar3.jpg"});
         restaurante.setTelefono(4247314);
         restaurante.setHorario("Lunes 18:00-23:30 Martes a Domingo de 12:00-23:30");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -2204,7 +2204,7 @@ public class Listas {
         restaurante.setGpsX(-17.395102995457886f);
         restaurante.setGpsY(-66.16040289402008f);
         restaurante.setDireccion("C. Santibáñez casi C. Hamiraya nro. 921 Zona: Sud Oeste");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"La Bohemia Chuquisaqueña2.jpg", "La Bohemia Chuquisaqueña1.jpg" });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"la bohemia chuquisaqueña2.jpg", "la bohemia chuquisaqueña1.jpg" });
         restaurante.setTelefono(4585181);
         restaurante.setHorario("Lunes a Domingo 9:00 – 14:30");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -2217,7 +2217,7 @@ public class Listas {
         restaurante.setGpsX(-17.368793506437342f);
         restaurante.setGpsY(-66.16364501416683f);
         restaurante.setDireccion("Av. Libertador Esq.Juan Huallparimachi");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"La Cantera Café Resto Bar.jpg", "La Cantera Café Resto Bar2.jpg", "La Cantera Café Resto Bar3.jpg", "La Cantera Café Resto Bar4.jpg" });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"la cantera café resto bar.jpg", "la cantera café resto bar2.jpg", "la cantera café resto bar3.jpg", "la cantera café resto bar4.jpg" });
         restaurante.setTelefono(4546527 );
         restaurante.setHorario("Lunes a Domingo a partir de las 18:30");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -2230,7 +2230,7 @@ public class Listas {
         restaurante.setGpsX(-17.3779622291819f);
         restaurante.setGpsY(-66.15846768021584f);
         restaurante.setDireccion("Av. Aniceto Padilla nro. 237  entre Av. Santa Cruz y Av. Villarroel ");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Casona de la Pascualita.jpg", "Casona de la Pascualita2.jpg", "Casona de la Pascualita3.jpg" });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"casona de la pascualita.jpg", "casona de la pascualita2.jpg", "casona de la pascualita3.jpg" });
         restaurante.setTelefono(4485999 );
         restaurante.setHorario("Lunes a Domingo 11:45-15:00 excepto Sábado");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -2243,7 +2243,7 @@ public class Listas {
         restaurante.setGpsX(-17.374242190623917f);
         restaurante.setGpsY(-66.1590014398098f);
         restaurante.setDireccion("Av. Gualberto Villarroel y Psj Guadalquivir");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"La Sangucheria.jpg", "La Sangucheria0.jpg", "La Sangucheria2.jpg" });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"la sangucheria.jpg", "la sangucheria0.jpg", "la sangucheria2.jpg" });
         restaurante.setTelefono(4419704);
         restaurante.setHorario("Martes a Domingo 9:30-22:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -2256,7 +2256,7 @@ public class Listas {
         restaurante.setGpsX(-17.527094244373355f);
         restaurante.setGpsY(-66.08554914593697f);
         restaurante.setDireccion("Carretera Antigua a Santa Cruz Km 16  Zona: Angostura");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Lago del Edén.jpg"});
+        restaurante.setImagenesFirebaseArreglo(new String[]{"lago del edén.jpg"});
         restaurante.setTelefono(0);
         restaurante.setHorario("Lunes a Domingo 11:45-18:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -2269,7 +2269,7 @@ public class Listas {
         restaurante.setGpsX(-17.376117898163606f);
         restaurante.setGpsY(-66.14992886781693f);
         restaurante.setDireccion("Melchor Urquidi nro. nro. 1249 Zona: Norte");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Las Moras.jpg", "Las Moras1.jpg", "Las Moras2.jpg", "Las Moras3.jpg", "Las Moras4.jpg" });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"las moras.jpg", "las moras1.jpg", "las moras2.jpg", "las moras3.jpg", "las moras4.jpg" });
         restaurante.setTelefono(4439043);
         restaurante.setHorario("Lunes a Viernes  18:30 – 23:30 Sábado y Domingo 11:00 – 15:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -2282,7 +2282,7 @@ public class Listas {
         restaurante.setGpsX(-17.37214759583345f);
         restaurante.setGpsY(-66.1464124917984f);
         restaurante.setDireccion("Av. Eudoro Galindo nro.1760 entre Av. America y Fidel Anze");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Lutetia.jpg", "Lutetia1.jpg", "Lutetia2.jpg", "Lutetia3.jpg", "Lutetia4.jpg" });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"lutetia.jpg", "lutetia1.jpg", "lutetia2.jpg", "lutetia3.jpg", "lutetia4.jpg" });
         restaurante.setTelefono(4501020);
         restaurante.setHorario("Lunes a Sábado 9:00-12:00  15:00-20:30");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -2295,7 +2295,7 @@ public class Listas {
         restaurante.setGpsX(-17.386315881673582f);
         restaurante.setGpsY(-66.155886054039f);
         restaurante.setDireccion("Calle Valdivieso #581 Entre Salamanca y ChuquisacaCalle Valdivieso #581 Entre Salamanca y Chuquisaca");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Mad Mex0.jpg", "Mad Mex1.jpg", "Mad Mex2.5.jpg", "Mad Mex2.jpg", "Mad Mex3.jpg", "Mad Mex4.jpg", "Mad Mex5.jpg", "Mad Mex6.jpg" });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"mad mex0.jpg", "mad mex1.jpg", "mad mex2.5.jpg", "mad mex2.jpg", "mad mex3.jpg", "mad mex4.jpg", "mad mex5.jpg", "mad mex6.jpg" });
         restaurante.setTelefono(4351493);
         restaurante.setHorario("Martes a Sábado 19:00 – 00:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -2308,7 +2308,7 @@ public class Listas {
         restaurante.setGpsX(-17.389192920832944f);
         restaurante.setGpsY(-66.10998205840588f);
         restaurante.setDireccion("Av. Chapare No 4550, entre Maximiliano Kolbe y San Antonio de Padua");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Madonna Mia01.jpg", "Madonna Mia02.jpg", "Madonna Mia03.jpg", "Madonna Mia04.jpg" });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"madonna mia01.jpg", "madonna mia02.jpg", "madonna mia03.jpg", "madonna mia04.jpg" });
         restaurante.setTelefono(4790000);
         restaurante.setHorario("Lunes a Domingo 18:00 – 22:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -2321,7 +2321,7 @@ public class Listas {
         restaurante.setGpsX(-17.385810347433218f);
         restaurante.setGpsY(-66.15752220153809f);
         restaurante.setDireccion("Av. Ballivian");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Maesma Pizzeria.jpg", "Maesma Pizzeria1.jpg", "Maesma Pizzeria2.jpg", "Maesma Pizzeria3.jpg", "Maesma Pizzeria4.jpg", "Maesma Pizzeria5.jpg" });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"maesma pizzeria.jpg", "maesma pizzeria1.jpg", "maesma pizzeria2.jpg", "maesma pizzeria3.jpg", "maesma pizzeria4.jpg", "maesma pizzeria5.jpg" });
         restaurante.setTelefono(4527616);
         restaurante.setHorario("No se tiene registrado.");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -2334,7 +2334,7 @@ public class Listas {
         restaurante.setGpsX(-17.369325326655158f);
         restaurante.setGpsY(-66.1436752974987f);
         restaurante.setDireccion("Benjamin Guzman y Av. Circunvalación  Cochabamba");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Maesma Pizzeria1.jpg", "Maesma Pizzeria2.jpg", "Maesma Pizzeria3.jpg"});
+        restaurante.setImagenesFirebaseArreglo(new String[]{"maesma pizzeria1.jpg", "maesma pizzeria2.jpg", "maesma pizzeria3.jpg"});
         restaurante.setTelefono(4225088);
         restaurante.setHorario("No se tiene registrado.");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -2347,7 +2347,7 @@ public class Listas {
         restaurante.setGpsX(-17.378969499971284f);
         restaurante.setGpsY(-66.16606839001179f);
         restaurante.setDireccion("Juan de la Rosa #559 esquina calle José Aguirre de Acha");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Malditos Food1.jpg", "Malditos Food2.jpg" });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"malditos food1.jpg", "malditos food2.jpg" });
         restaurante.setTelefono(4436194);
         restaurante.setHorario("Lunes a Sábado 17:30-23:30");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -2360,7 +2360,7 @@ public class Listas {
         restaurante.setGpsX(-17.384933018240368f);
         restaurante.setGpsY(-66.18229508399963f);
         restaurante.setDireccion("Avenida Beijing esquina Topáter");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Malditos Food2.jpg"});
+        restaurante.setImagenesFirebaseArreglo(new String[]{"malditos food2.jpg"});
         restaurante.setTelefono(4425267);
         restaurante.setHorario("Lunes a Sábado 17:30-23:30");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -2373,7 +2373,7 @@ public class Listas {
         restaurante.setGpsX(-17.386560329374934f);
         restaurante.setGpsY(-66.15276010707021f);
         restaurante.setDireccion("Paccieri entre antezana y 16 de julio #741");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Marisqueria Mar Adentro.jpg"});
+        restaurante.setImagenesFirebaseArreglo(new String[]{"marisqueria mar adentro.jpg"});
         restaurante.setTelefono(4355328);
         restaurante.setHorario("Lunes 09:30 – 14:00 Martes a Sábado 09:30 – 14:30");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -2386,7 +2386,7 @@ public class Listas {
         restaurante.setGpsX(-17.37723333028156f);
         restaurante.setGpsY(-66.15356124937534f);
         restaurante.setDireccion("Beni nro. 0539 Edificio: Edif. Beni Piso: Pb Oficina: L2 Zona: Recoleta");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Maria Bonita Mexican Food.jpg", "Maria Bonita Mexican Food_1.jpg" });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"maria bonita mexican food.jpg", "maria bonita mexican food_1.jpg" });
         restaurante.setTelefono(4453333);
         restaurante.setHorario("No se tiene registrado.");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -2399,7 +2399,7 @@ public class Listas {
         restaurante.setGpsX(-17.36871990905333f);
         restaurante.setGpsY(-66.1693212389946f);
         restaurante.setDireccion("C. Man Cesped nro. 464 Edificio: Eco 1 Piso: P.B. Zona: Cala Cala");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Menta Restobar1.jpg", "Menta Restobar2.jpg", "Menta Restobar3.jpg" });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"menta restobar1.jpg", "menta restobar2.jpg", "menta restobar3.jpg" });
         restaurante.setTelefono(4309789);
         restaurante.setHorario("Lunes a Sábado 12:00-15:00 18:30-22:00 ");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -2412,7 +2412,7 @@ public class Listas {
         restaurante.setGpsX(-17.372783720340752f);
         restaurante.setGpsY(-66.1544369906187f);
         restaurante.setDireccion("Av. America y Pantaleon Dalence Frente de la U. UPAL N° 592");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Ms. Sushi Mr. Ramyun0.jpg", "Ms. Sushi Mr. Ramyun1.jpg" });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"ms. sushi mr. ramyun0.jpg", "ms. sushi mr. ramyun1.jpg" });
         restaurante.setTelefono(71611152);
         restaurante.setHorario("Lunes 11:30 - 22:30 Martes a Sábado 9:00 – 22:30 Domingo 16:30 – 22:30");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -2425,7 +2425,7 @@ public class Listas {
         restaurante.setGpsX(-17.375481785238488f);
         restaurante.setGpsY(-66.15381572395563f);
         restaurante.setDireccion("Av. Potosí nro. 1392 Zona: Queru Queru");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Muela Del Diablo.jpg", "Muela Del Diablo2.jpg" });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"muela del diablo.jpg", "muela del diablo2.jpg" });
         restaurante.setTelefono(76220409);
         restaurante.setHorario("No se tiene registrado");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -2438,7 +2438,7 @@ public class Listas {
         restaurante.setGpsX(-17.387339744210674f);
         restaurante.setGpsY(-66.15523159503937f);
         restaurante.setDireccion("C. Baldivieso nro. 509 Zona: Plaza Colon");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Retaurant Nauvoo.jpg", "Retaurant Nauvoo1.jpg", "Retaurant Nauvoo2.jpg", "Retaurant Nauvoo3.jpg", "Retaurant Nauvoo15.jpg", "Retaurant Nauvoo16.jpg", "Retaurant Nauvoo17.jpg" });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"retaurant nauvoo.jpg", "retaurant nauvoo1.jpg", "retaurant nauvoo2.jpg", "retaurant nauvoo3.jpg", "retaurant nauvoo15.jpg", "retaurant nauvoo16.jpg", "retaurant nauvoo17.jpg" });
         restaurante.setTelefono(4549383);
         restaurante.setHorario("Lunes a Sábado 07:00 – 22:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -2451,7 +2451,7 @@ public class Listas {
         restaurante.setGpsX(-17.36262402308524f);
         restaurante.setGpsY(-66.16858296096325f);
         restaurante.setDireccion("Av. Circunvalación esq. C. Luis Taborga nro. 2417 Zona: Temporal Pampa");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"New York Chicken1.jpg", "New York Chicken2.jpg", "New York Chicken3.jpg" });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"new york chicken1.jpg", "new york chicken2.jpg", "new york chicken3.jpg" });
         restaurante.setTelefono(4471169);
         restaurante.setHorario("Martes a Domingo 18:00-22:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -2464,7 +2464,7 @@ public class Listas {
         restaurante.setGpsX(-17.383673010021106f);
         restaurante.setGpsY(-66.18867471814156f);
         restaurante.setDireccion("C. Thunupa Zona: Villa Busch Norte");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Churrasquería El Cumpa.jpg", "Churrasquería El Cumpa1.jpg" });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"churrasquería el cumpa.jpg", "churrasquería el cumpa1.jpg" });
         restaurante.setTelefono(4254175);
         restaurante.setHorario("Viernes y Sábado  18:00-23:30 Domingo: 12:00-18:00 ");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -2477,7 +2477,7 @@ public class Listas {
         restaurante.setGpsX(-17.39161302861343f);
         restaurante.setGpsY(-66.1523998528719f);
         restaurante.setDireccion("Av. Libertador Bolivar nro. 1324 Zona: Norte");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Napoli's Pizzeria1.5.jpg", "Napoli's Pizzeria1.jpg", "Napoli's Pizzeria2.jpg" });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"napoli's pizzeria1.5.jpg", "napoli's pizzeria1.jpg", "napoli's pizzeria2.jpg" });
         restaurante.setTelefono(4454877);
         restaurante.setHorario("Lunes a Domingo 16:00-0:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -2490,7 +2490,7 @@ public class Listas {
         restaurante.setGpsX(-17.37723653001968f);
         restaurante.setGpsY(-66.15130953490734f);
         restaurante.setDireccion("Pando nro. 1177 Zona: Recoleta");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Pizzería Cozzolisi.jpg"});
+        restaurante.setImagenesFirebaseArreglo(new String[]{"pizzería cozzolisi.jpg"});
         restaurante.setTelefono(4485400);
         restaurante.setHorario("Lunes a Domingo 11:00-23:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -2503,7 +2503,7 @@ public class Listas {
         restaurante.setGpsX(-17.369102615127318f);
         restaurante.setGpsY(-66.1758778989315f);
         restaurante.setDireccion("Av. Melchor Perez De Olquin nro. 678 Edificio: Romina Piso: 1 Zona: Norte");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Pollos Willys El Sabor A La Brasa1.jpg", "Pollos Willys El Sabor A La Brasa2.jpg" });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"pollos willys el sabor a la brasa1.jpg", "pollos willys el sabor a la brasa2.jpg" });
         restaurante.setTelefono(4408412);
         restaurante.setHorario("Lunes a Domingo 12:00-20:30");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -2516,7 +2516,7 @@ public class Listas {
         restaurante.setGpsX(-17.361410581581247f);
         restaurante.setGpsY(-66.16682477295399f);
         restaurante.setDireccion("C. J. Baptista Esq. Hernando Siles nro.  572 Zona Temporal");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Quinta Chop Las Américas3.jpg", "Quinta Chop Las Américas4.jpg", "Quinta Chop Las Américas5.jpg", "Quinta Chop Las Américas6.jpg" });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"quinta chop las américas3.jpg", "quinta chop las américas4.jpg", "quinta chop las américas5.jpg", "quinta chop las américas6.jpg" });
         restaurante.setTelefono(4241817);
         restaurante.setHorario("Martes y Miércoles: 12:00-20:00 Jueves 12:00-22:00 Viernes 12:00-2:45 Sábado :12:00-22:00 Domingo 11:00- 18:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -2529,7 +2529,7 @@ public class Listas {
         restaurante.setGpsX(-17.378677686386496f);
         restaurante.setGpsY(-66.15161195397377f);
         restaurante.setDireccion("Pasaje Boulevar nro. 618 Zona: Recoleta");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Restaurant Casa De Campo1.jpg"});
+        restaurante.setImagenesFirebaseArreglo(new String[]{"restaurant casa de campo1.jpg"});
         restaurante.setTelefono(4392137);
         restaurante.setHorario("Lunes a Sábado de 12:00 – 23:30  Domingo 11:30-1430");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -2542,7 +2542,7 @@ public class Listas {
         restaurante.setGpsX(-17.385924252738377f);
         restaurante.setGpsY(-66.15675508975983f);
         restaurante.setDireccion("Av. Ballivián nro. 626 Zona: Central");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Restaurant Savarin2.jpg", "Restaurant Savarin3.jpg" });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"restaurant savarin2.jpg", "restaurant savarin3.jpg" });
         restaurante.setTelefono(4523880);
         restaurante.setHorario("No se tiene registrado");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -2555,7 +2555,7 @@ public class Listas {
         restaurante.setGpsX(-17.368883103212763f);
         restaurante.setGpsY(-66.16417575627565f);
         restaurante.setDireccion("Man Césped y Adela Zamudio  Edificio: Edificio Patmos Piso: Pb Oficina: B Zona: Norte");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Seoul Food00.jpg", "Seoul Food0.jpg", "Seoul Food2.jpg", "Seoul Food3.jpg", "Seoul Food4.jpg", "Seoul Food5.jpg", "Seoul Food6.jpg", "Seoul Food7.jpg", "Seoul Food8.jpg", "Seoul Food9.jpg", "Seoul Food10.jpg", "Seoul Food11.jpg", "Seoul Food12.jpg"});
+        restaurante.setImagenesFirebaseArreglo(new String[]{"seoul food00.jpg", "seoul food0.jpg", "seoul food2.jpg", "seoul food3.jpg", "seoul food4.jpg", "seoul food5.jpg", "seoul food6.jpg", "seoul food7.jpg", "seoul food8.jpg", "seoul food9.jpg", "seoul food10.jpg", "seoul food11.jpg", "seoul food12.jpg"});
         restaurante.setTelefono(4250480);
         restaurante.setHorario("Lunes a Sábado 11:00-15:00 18:00-22:00 ");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -2581,7 +2581,7 @@ public class Listas {
         restaurante.setGpsX(-17.398636407059282f);
         restaurante.setGpsY(-66.154490634799f);
         restaurante.setDireccion("C. 25 De Mayo nro. 762 Zona: Sudeste");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Shofár1.jpg"});
+        restaurante.setImagenesFirebaseArreglo(new String[]{"shofár1.jpg"});
         restaurante.setTelefono(4025082);
         restaurante.setHorario("Lunes a Domingo 10:00-22:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -2594,7 +2594,7 @@ public class Listas {
         restaurante.setGpsX(-17.375021017956897f);
         restaurante.setGpsY(-66.15767776966095f);
         restaurante.setDireccion("C. Pantaleón Dalence nro. 1777 Zona: Queru Queru");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Simple Foods1.jpg", "Simple Foods2.jpg", "Simple Foods3.jpg", "Simple Foods4.jpg", "Simple Foods5.jpg", "Simple Foods6.jpg", "Simple Foods7.jpg" });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"simple foods1.jpg", "simple foods2.jpg", "simple foods3.jpg", "simple foods4.jpg", "simple foods5.jpg", "simple foods6.jpg", "simple foods7.jpg" });
         restaurante.setTelefono(72201478);
         restaurante.setHorario("Lunes a Viernes 11:00-20:00 Sábado  14:00-20:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -2607,7 +2607,7 @@ public class Listas {
         restaurante.setGpsX(-17.3734639999393f);
         restaurante.setGpsY(-66.15068189799786f);
         restaurante.setDireccion("Av. América nro. 826 Zona: Queru - Queru");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Sole Mi18.jpg", "Sole Mio2.jpg", "Sole Mio3.jpg", "Sole Mio4.jpg", "Sole Mio5.jpg", "Sole Mio6.jpg", "Sole Mio7.jpg", "Sole Mio8.jpg", "Sole Mio9.jpg", "Sole Mio10.jpg", "Sole Mio11.jpg", "Sole Mio12.jpg", "Sole Mio13.jpg", "Sole Mio15.jpg", "Sole Mio16.jpg", "Sole Mio17.jpg", "Sole Mio18.jpg" });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"sole mi18.jpg", "sole mio2.jpg", "sole mio3.jpg", "sole mio4.jpg", "sole mio5.jpg", "sole mio6.jpg", "sole mio7.jpg", "sole mio8.jpg", "sole mio9.jpg", "sole mio10.jpg", "sole mio11.jpg", "sole mio12.jpg", "sole mio13.jpg", "sole mio15.jpg", "sole mio16.jpg", "sole mio17.jpg", "sole mio18.jpg" });
         restaurante.setTelefono(4283379);
         restaurante.setHorario("Martes a Domingo 12:00-14:30 18:00-23:30");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -2620,7 +2620,7 @@ public class Listas {
         restaurante.setGpsX(-17.369882104290127f);
         restaurante.setGpsY(-66.16224221885204f);
         restaurante.setDireccion("Juan Huallparimachi 1761");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Solo Pastas6.jpg", "Solo Pastas7.jpg", "Solo Pastas8.jpg", "Solo Pastas9.jpg", "Solo Pastas10.jpg" });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"solo pastas6.jpg", "solo pastas7.jpg", "solo pastas8.jpg", "solo pastas9.jpg", "solo pastas10.jpg" });
         restaurante.setTelefono(4580088);
         restaurante.setHorario("Lunes a Sábado  11:00-23:00 Domingo 11:00-15:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -2633,7 +2633,7 @@ public class Listas {
         restaurante.setGpsX(-17.38336200614964f);
         restaurante.setGpsY(-66.1586594581604f);
         restaurante.setDireccion("Av. Ballivián nro. 820 Zona: Central");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Restaurante Suiza6.jpg", "Restaurante Suiza1.jpg", "Restaurante Suiza2.jpg", "Restaurante Suiza3.jpg", "Restaurante Suiza4.jpg", "Restaurante Suiza5.jpg"});
+        restaurante.setImagenesFirebaseArreglo(new String[]{"restaurante suiza6.jpg", "restaurante suiza1.jpg", "restaurante suiza2.jpg", "restaurante suiza3.jpg", "restaurante suiza4.jpg", "restaurante suiza5.jpg"});
         restaurante.setTelefono(4257102);
         restaurante.setHorario("Lunes a Sábado 11:00-14:30 y 18:30-23:00 Domingo: 11:00-14:30");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -2646,7 +2646,7 @@ public class Listas {
         restaurante.setGpsX(-17.384446037930708f);
         restaurante.setGpsY(-66.1528430879116f);
         restaurante.setDireccion("C. Pedro Borda nro. 629 Zona: Central");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Stuffz Burgers1.jpg", "Stuffz Burgers2.jpg", "Stuffz Burgers3.jpg", "Stuffz Burgers4.jpg" });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"stuffz burgers1.jpg", "stuffz burgers2.jpg", "stuffz burgers3.jpg", "stuffz burgers4.jpg" });
         restaurante.setTelefono(4510673);
         restaurante.setHorario("Lunes a domingo 11:00-0:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -2659,7 +2659,7 @@ public class Listas {
         restaurante.setGpsX(-17.391042879187346f);
         restaurante.setGpsY(-66.2749245017767f);
         restaurante.setDireccion("Calle Calama entre Litoral y Mejillones,Quillacollo");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Súper Caldos Originales.jpg", "Súper Caldos Originales2.jpg", "Súper Caldos Originales3.jpg", "Súper Caldos Originales25.jpg", "Súper Caldos Originales26.jpg" });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"súper caldos originales.jpg", "súper caldos originales2.jpg", "súper caldos originales3.jpg", "súper caldos originales25.jpg", "súper caldos originales26.jpg" });
         restaurante.setTelefono(4363455);
         restaurante.setHorario("Lunes a Domingo 08:00 – 13:30");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -2672,7 +2672,7 @@ public class Listas {
         restaurante.setGpsX(-17.37821436737091f);
         restaurante.setGpsY(-66.15710712969303f);
         restaurante.setDireccion("Av. Santa Cruz esq. Aniceto Padilla, acera sur-oeste Zona: Recoleta");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Sushitos1.jpg", "Sushitos2.jpg", "Sushitos3.jpg", "Sushitos4.jpg" });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"sushitos1.jpg", "sushitos2.jpg", "sushitos3.jpg", "sushitos4.jpg" });
         restaurante.setTelefono(4405087);
         restaurante.setHorario("Martes a Domingo 18:20 – 23:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -2685,7 +2685,7 @@ public class Listas {
         restaurante.setGpsX(-17.38631460184183f);
         restaurante.setGpsY(-66.16045385599136f);
         restaurante.setDireccion("C. La Paz nro. 687 casi esq. Av. Ayacucho ");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Tierra Andaluz0.jpg", "Tierra Andaluz1.jpg", "Tierra Andaluz2.jpg", "Tierra Andaluz3.jpg" });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"tierra andaluz0.jpg", "tierra andaluz1.jpg", "tierra andaluz2.jpg", "tierra andaluz3.jpg" });
         restaurante.setTelefono(4394836);
         restaurante.setHorario("Miércoles a Domingo 18:30-22:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -2698,7 +2698,7 @@ public class Listas {
         restaurante.setGpsX(-17.371350197203572f);
         restaurante.setGpsY(-66.18251904845238f);
         restaurante.setDireccion("Av. América Oeste nro.  1519 Zona: Sarcobamba");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Tonny's2.jpg", "Tonny's1.jpg", "Tonny's3.jpg", "Tonny's4.jpg"  });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"tonny's2.jpg", "tonny's1.jpg", "tonny's3.jpg", "tonny's4.jpg"  });
         restaurante.setTelefono(0);
         restaurante.setHorario("Lunes a Domingo 18:30 – 22:30 ");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -2711,7 +2711,7 @@ public class Listas {
         restaurante.setGpsX( -17.37337760521033f);
         restaurante.setGpsY(-66.15231737494469f);
         restaurante.setDireccion("Av. América Nº 752 entre Pando y Potosi");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Tuesday0.jpg", "Tuesday1.jpg", "Tuesday2.jpg", "Tuesday3.jpg", "Tuesday4.jpg", "Tuesday5.jpg", "Tuesday6.jpg", "Tuesday7.jpg", "Tuesday8.jpg" });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"tuesday0.jpg", "tuesday1.jpg", "tuesday2.jpg", "tuesday3.jpg", "tuesday4.jpg", "tuesday5.jpg", "tuesday6.jpg", "tuesday7.jpg", "tuesday8.jpg" });
         restaurante.setTelefono(4487042);
         restaurante.setHorario("Lunes a Domingo 08:00-23:45");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -2724,7 +2724,7 @@ public class Listas {
         restaurante.setGpsX(-17.385396960168354f);
         restaurante.setGpsY(-66.15401923656464f);
         restaurante.setDireccion("Salamanca y Antezana, Cochabamba");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Vainilla0.jpg", "Vainilla1.jpg", "Vainilla2.jpg", "Vainilla3.jpg", "Vainilla4.jpg", "Vainilla5.jpg" });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"vainilla0.jpg", "vainilla1.jpg", "vainilla2.jpg", "vainilla3.jpg", "vainilla4.jpg", "vainilla5.jpg" });
         restaurante.setTelefono(4522104);
         restaurante.setHorario("Lunes a Sabado 08:00-22:30 Domingo 8:00-21:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -2737,7 +2737,7 @@ public class Listas {
         restaurante.setGpsX(-17.37841850945736f);
         restaurante.setGpsY(-66.15101382136345f);
         restaurante.setDireccion("Boulevard La Recoleta nro.  717 Zona: Recoleta");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Vinoppolis.jpg"});
+        restaurante.setImagenesFirebaseArreglo(new String[]{"vinoppolis.jpg"});
         restaurante.setTelefono(4485120);
         restaurante.setHorario("Martes a Sábado 18:00-02:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -2750,7 +2750,7 @@ public class Listas {
         restaurante.setGpsX(-17.372034961887636f);
         restaurante.setGpsY(-66.15562319755554f);
         restaurante.setDireccion("C. Juan Capriles nro. 616 Edificio: Santorini Piso: Pb Oficina: 1 Zona: Queru Queru");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"What’s Up 1.jpg", "What’s Up 2.jpg" });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"what’s up 1.jpg", "what’s up 2.jpg" });
         restaurante.setTelefono(4667777);
         restaurante.setHorario("Lunes a Domingo 11:00 - 23:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -2763,7 +2763,7 @@ public class Listas {
         restaurante.setGpsX(-17.37345888025279f);
         restaurante.setGpsY(-66.14997379481792f);
         restaurante.setDireccion("Av. America y Melchor Urquidi nro. 860 Zona: Queru Queru");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Wonderfood1.jpg", "Wonderfood2.jpg", "Wonderfood3.jpg", "Wonderfood4.jpg", "Wonderfood5.jpg", "Wonderfood6.jpg" });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"wonderfood1.jpg", "wonderfood2.jpg", "wonderfood3.jpg", "wonderfood4.jpg", "wonderfood5.jpg", "wonderfood6.jpg" });
         restaurante.setTelefono(4488493);
         restaurante.setHorario("No se tiene registrado");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -2776,7 +2776,7 @@ public class Listas {
         restaurante.setGpsX(-17.39243081559684f);
         restaurante.setGpsY(-66.15608721971512f);
         restaurante.setDireccion("Av.Heroinas entre 25 de Mayo y España Pasaje Fidelia Sanchez, Av Heroínas");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Donal Heladeria1.jpg", "Donal Heladeria2.jpg", "Donal Heladeria3.jpg", "Donal Heladeria4.jpg"});
+        restaurante.setImagenesFirebaseArreglo(new String[]{"donal heladeria1.jpg", "donal heladeria2.jpg", "donal heladeria3.jpg", "donal heladeria4.jpg"});
         restaurante.setTelefono(4509477);
         restaurante.setHorario("Lunes a Domingo 07:30-23:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -2789,7 +2789,7 @@ public class Listas {
         restaurante.setGpsX(-17.377233970229188f);
         restaurante.setGpsY(-66.15346871316433f);
         restaurante.setDireccion("Beni 553");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Ecla Express1.jpg", "Ecla Express2.jpg", "Ecla Express3.jpg" });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"ecla express1.jpg", "ecla express2.jpg", "ecla express3.jpg" });
         restaurante.setTelefono(70768969);
         restaurante.setHorario("No se tiene registrado.");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -2802,7 +2802,7 @@ public class Listas {
         restaurante.setGpsX(-17.37562385491644f);
         restaurante.setGpsY(-66.15089312195778f);
         restaurante.setDireccion("HUPER MALL.");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Shawarma King.jpg"});
+        restaurante.setImagenesFirebaseArreglo(new String[]{"shawarma king.jpg"});
         restaurante.setTelefono(4548737);
         restaurante.setHorario("Lunes a Sábado 12:00-23:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -2815,7 +2815,7 @@ public class Listas {
         restaurante.setGpsX(-17.389512873460113f);
         restaurante.setGpsY(-66.15369200706482f);
         restaurante.setDireccion("Ecuador nro. 610 Esq. Lanza");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Sillpancheria Celia.jpg"});
+        restaurante.setImagenesFirebaseArreglo(new String[]{"sillpancheria celia.jpg"});
         restaurante.setTelefono(4229192);
         restaurante.setHorario("Lunes a Sábado 12:00-14:00 18:00-21:00 Domingo 18:00-0:000");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -2828,7 +2828,7 @@ public class Listas {
         restaurante.setGpsX(-17.38994480861918f);
         restaurante.setGpsY(-66.15363501012325f);
         restaurante.setDireccion("Calle Lanza nro 248 entre Ecuador y Colombia");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Restaurant Las Palmeras1.jpg", "Restaurant Las Palmeras2.jpg", "Restaurant Las Palmeras3.jpg", "Restaurant Las Palmeras4.jpg", "Restaurant Las Palmeras5.jpg" });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"restaurant las palmeras1.jpg", "restaurant las palmeras2.jpg", "restaurant las palmeras3.jpg", "restaurant las palmeras4.jpg", "restaurant las palmeras5.jpg" });
         restaurante.setTelefono(4228559);
         restaurante.setHorario("Lunes a Domingo 12:00-1:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -2841,7 +2841,7 @@ public class Listas {
         restaurante.setGpsX(-17.38592169306938f);
         restaurante.setGpsY(-66.15562872961164f);
         restaurante.setDireccion("Valdivieso entre Chuquisaca y Salamanca #563");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"La Tentazione0.jpg", "La Tentazione1.jpg", "La Tentazione2.jpg", "La Tentazione3.jpg" });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"la tentazione0.jpg", "la tentazione1.jpg", "la tentazione2.jpg", "la tentazione3.jpg" });
         restaurante.setTelefono(4522797);
         restaurante.setHorario("Lunes y Sábado 09:00-15:00, Martes a Viernes 09:00-18:30");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -2854,7 +2854,7 @@ public class Listas {
         restaurante.setGpsX(-17.37811901566005f);
         restaurante.setGpsY(-66.15684762597084f);
         restaurante.setDireccion("Edificio V&V Planta Baja, Aniceto Padilla esq. Av Santa Cruz");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Cassis0.jpg", "Cassis1.jpg", "Cassis2.jpg", "Cassis3.jpg" });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"cassis0.jpg", "cassis1.jpg", "cassis2.jpg", "cassis3.jpg" });
         restaurante.setTelefono(4036120);
         restaurante.setHorario("Martes a Domingo 15:00-22:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -2867,7 +2867,7 @@ public class Listas {
         restaurante.setGpsX(-17.387262954719134f);
         restaurante.setGpsY(-66.16491369903088f);
         restaurante.setDireccion("Av. Rivereña");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Charques Doña Julia1.jpg"});
+        restaurante.setImagenesFirebaseArreglo(new String[]{"charques doña julia1.jpg"});
         restaurante.setTelefono(0);
         restaurante.setHorario("No se tiene registrado");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -2882,7 +2882,7 @@ public class Listas {
         restaurante.setGpsX(-17.373745582476722f);
         restaurante.setGpsY(-66.15794263780117f);
         restaurante.setDireccion("Buenos Aires");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Churrasquería “El Arriero”1.jpg", "Churrasquería “El Arriero”2.jpg", "Churrasquería “El Arriero”3.jpg", "Churrasquería “El Arriero”4.jpg" });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"churrasquería “el arriero”1.jpg", "churrasquería “el arriero”2.jpg", "churrasquería “el arriero”3.jpg", "churrasquería “el arriero”4.jpg" });
         restaurante.setTelefono(78383965);
         restaurante.setHorario("No se tiene registrado");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -2895,7 +2895,7 @@ public class Listas {
         restaurante.setGpsX(-17.347914343364845f);
         restaurante.setGpsY(-66.16689920425415f);
         restaurante.setDireccion("T'ikallajta 5024");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Sabor Chaqueño1.jpg", "Sabor Chaqueño2.jpg"});
+        restaurante.setImagenesFirebaseArreglo(new String[]{"sabor chaqueño1.jpg", "sabor chaqueño2.jpg"});
         restaurante.setTelefono(70396703);
         restaurante.setHorario("Viernes 19:00-23:00 Sábado y Domingo 12:00-16:00 ");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -2908,7 +2908,7 @@ public class Listas {
         restaurante.setGpsX(-17.377799683058683f);
         restaurante.setGpsY(-66.14966936409473f);
         restaurante.setDireccion("Av. Melchor Urquidi, Número 01166");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Dogs Burgers & More0.jpg", "Dogs Burgers & More1.jpg", "Dogs Burgers & More2.jpg" });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"dogs burgers & more0.jpg", "dogs burgers & more1.jpg", "dogs burgers & more2.jpg" });
         restaurante.setTelefono(4414176);
         restaurante.setHorario("Martes A Domingo 15:30-23:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -2921,7 +2921,7 @@ public class Listas {
         restaurante.setGpsX(-17.37521300446513f);
         restaurante.setGpsY(-66.18058450520039f);
         restaurante.setDireccion("Av. Beiging y Av. Juan de la Rosa acera este");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Cuadri Burger1.jpg"});
+        restaurante.setImagenesFirebaseArreglo(new String[]{"cuadri burger1.jpg"});
         restaurante.setTelefono(4417868);
         restaurante.setHorario("Lunes a Domingo 18:30-21:30");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -2934,7 +2934,7 @@ public class Listas {
         restaurante.setGpsX(-17.394707546014473f);
         restaurante.setGpsY(-66.16498544812202f);
         restaurante.setDireccion("Gral. Acha nro.721 y Suipacha");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Delicias Chuquisaqueñas1.jpg", "Delicias Chuquisaqueñas2.jpg" });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"delicias chuquisaqueñas1.jpg", "delicias chuquisaqueñas2.jpg" });
         restaurante.setTelefono(4258130);
         restaurante.setHorario("Lunes a Domingo 09:00-14:00 Domingo 09:00-13:30");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -2947,7 +2947,7 @@ public class Listas {
         restaurante.setGpsX(-17.38672030806029f);
         restaurante.setGpsY(-66.1624963581562f);
         restaurante.setDireccion("Av. Pedro Domingo Murillo, frente al ex Zoológico");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Doggus1.jpg"});
+        restaurante.setImagenesFirebaseArreglo(new String[]{"doggus1.jpg"});
         restaurante.setTelefono(75492400);
         restaurante.setHorario("Miércoles a Domingo 18:00 - 23:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -2960,7 +2960,7 @@ public class Listas {
         restaurante.setGpsX(-17.37230950700923f);
         restaurante.setGpsY(-66.16317965090275f);
         restaurante.setDireccion("Av. América nro. 138");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Don Coquito0.jpg", "Don Coquito1.jpg", "Don Coquito2.jpg" });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"don coquito0.jpg", "don coquito1.jpg", "don coquito2.jpg" });
         restaurante.setTelefono(4409092);
         restaurante.setHorario("Lunes a Sábado 11:00-22:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -2973,7 +2973,7 @@ public class Listas {
         restaurante.setGpsX(-17.378951581606675f);
         restaurante.setGpsY(-66.16612337529659f);
         restaurante.setDireccion("Av. Juan de la Rosa esq. Calle Julio Mendez, próximo a la clínica los Angeles");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Döner Kebab1.jpg"});
+        restaurante.setImagenesFirebaseArreglo(new String[]{"döner kebab1.jpg"});
         restaurante.setTelefono(67420179);
         restaurante.setHorario("Lunes a Viernes 08:00-12:30 18:00-22:00 Sábado y Domingo 18:00-22:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -2986,7 +2986,7 @@ public class Listas {
         restaurante.setGpsX(-17.379722069701113f);
         restaurante.setGpsY(-66.16868421435356f);
         restaurante.setDireccion("De Pereira Plaza R. Palmas");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"El Atrio del Baul.jpg"});
+        restaurante.setImagenesFirebaseArreglo(new String[]{"el atrio del baul.jpg"});
         restaurante.setTelefono(4403893);
         restaurante.setHorario("Lunes a Viernes 18:00 – 23:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -2999,7 +2999,7 @@ public class Listas {
         restaurante.setGpsX(-17.390760683359414f);
         restaurante.setGpsY(-66.14944607019424f);
         restaurante.setDireccion("Av. Heroinas entre Av. Oquendo y calle Pasteur");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"El Rey de la Sabrosura1.jpg"});
+        restaurante.setImagenesFirebaseArreglo(new String[]{"el rey de la sabrosura1.jpg"});
         restaurante.setTelefono(60746756);
         restaurante.setHorario("Lunes a Domingo 10:00 - 22:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -3012,7 +3012,7 @@ public class Listas {
         restaurante.setGpsX(-17.384558024319013f);
         restaurante.setGpsY(-66.1509608477354f);
         restaurante.setDireccion("Torres Soffer, Av. Oquendo");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Bufalo's Rodizio.jpg"});
+        restaurante.setImagenesFirebaseArreglo(new String[]{"bufalo's rodizio.jpg"});
         restaurante.setTelefono(4251597);
         restaurante.setHorario("Lunes 19:00-22:30 Martes a Sábado 12:00-15:00 ,19:00-22:30 Domingo 12:00-1500");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -3025,7 +3025,7 @@ public class Listas {
         restaurante.setGpsX(-17.397169172899623f);
         restaurante.setGpsY(-66.15227982401848f);
         restaurante.setDireccion("Lanza entre Ladislao Cabrera y Uruguay");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Empanadas Paula.jpg"});
+        restaurante.setImagenesFirebaseArreglo(new String[]{"empanadas paula.jpg"});
         restaurante.setTelefono(4227056);
         restaurante.setHorario("Lunes a Domingo 09:00-19:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -3038,7 +3038,7 @@ public class Listas {
         restaurante.setGpsX(-17.372014482980944f);
         restaurante.setGpsY(-66.17268741130829f);
         restaurante.setDireccion("America Oeste 989, entre Gabriel Rene Moreno y Manchaypuito.");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Fragola.jpg"});
+        restaurante.setImagenesFirebaseArreglo(new String[]{"fragola.jpg"});
         restaurante.setTelefono(4121010);
         restaurante.setHorario("Lunes a Domingo  11:30 - 21:00 ");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -3051,7 +3051,7 @@ public class Listas {
         restaurante.setGpsX( -17.379475693046857f);
         restaurante.setGpsY(-66.16647742688656f);
         restaurante.setDireccion("De Pereira Plaza y Batallón de Colorados");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Heladería Colonial España1.jpg", "Heladería Colonial España2.jpg" });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"heladería colonial españa1.jpg", "heladería colonial españa2.jpg" });
         restaurante.setTelefono(0);
         restaurante.setHorario("Lunes a Domingo 14:00-18:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -3064,7 +3064,7 @@ public class Listas {
         restaurante.setGpsX(-17.38831368813202f);
         restaurante.setGpsY(-66.14290684461594f);
         restaurante.setDireccion("Max Paredes 220 final Colombia este zona san pedro");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Hola Paella.jpg"});
+        restaurante.setImagenesFirebaseArreglo(new String[]{"hola paella.jpg"});
         restaurante.setTelefono(4590044);
         restaurante.setHorario("Lunes a Domingo 11:45 - 15:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -3077,7 +3077,7 @@ public class Listas {
         restaurante.setGpsX(-17.377134138371943f);
         restaurante.setGpsY(-66.15661963820457f);
         restaurante.setDireccion("Beni 330");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"La Morada Café 1.jpg","La Morada Café2.jpg","La Morada Café3.jpg","La Morada Café4.jpg"});
+        restaurante.setImagenesFirebaseArreglo(new String[]{"la morada café 1.jpg","la morada café2.jpg","la morada café3.jpg","la morada café4.jpg"});
         restaurante.setTelefono(9742380);
         restaurante.setHorario("Lunes a Viernes 08:00 - 22:00 Sábado 09:00 - 22:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -3090,7 +3090,7 @@ public class Listas {
         restaurante.setGpsX(-17.37717765482922f);
         restaurante.setGpsY(-66.15415368229151f);
         restaurante.setDireccion("Calle Beni #0487 casi esquina Potosi, Acera Norte");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"La Vinagreta.jpg"});
+        restaurante.setImagenesFirebaseArreglo(new String[]{"la vinagreta.jpg"});
         restaurante.setTelefono(0);
         restaurante.setHorario("Lunes a Viernes 11:00-22:00 Sábado 11:00-14:30");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -3103,7 +3103,7 @@ public class Listas {
         restaurante.setGpsX(-17.38420798663761f);
         restaurante.setGpsY(-66.15299463272095f);
         restaurante.setDireccion("Av. Salamanca 818 esq. Pedro Borda");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Las Leñas del Valle.jpg"});
+        restaurante.setImagenesFirebaseArreglo(new String[]{"las leñas del valle.jpg"});
         restaurante.setTelefono(4500674);
         restaurante.setHorario("Lunes a Sábado 18:00-23:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -3116,7 +3116,7 @@ public class Listas {
         restaurante.setGpsX(-17.372642928386675f);
         restaurante.setGpsY(-66.14671424031258f);
         restaurante.setDireccion("Av America esquina Eudoro Galindo # 1719 (Una cuadra al norte del Banco BNB)");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Let’s Rock 1.jpg"});
+        restaurante.setImagenesFirebaseArreglo(new String[]{"let’s rock 1.jpg"});
         restaurante.setTelefono(75499780);
         restaurante.setHorario("Jueves a Sábado 17:00 - 02:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -3129,7 +3129,7 @@ public class Listas {
         restaurante.setGpsX( -17.389289546585317f);
         restaurante.setGpsY(-66.08183093369007f);
         restaurante.setDireccion("Av. Villazón km 7");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Los Chicharrones Originales1.jpg", "Los Chicharrones Originales2.jpg", "Los Chicharrones Originales3.jpg", "Los Chicharrones Originales4.jpg" });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"los chicharrones originales1.jpg", "los chicharrones originales2.jpg", "los chicharrones originales3.jpg", "los chicharrones originales4.jpg" });
         restaurante.setTelefono(77632712);
         restaurante.setHorario("Sábado Domingo 08:00 - 22:00 Lunes 08:00 - 14:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -3142,7 +3142,7 @@ public class Listas {
         restaurante.setGpsX(-17.34886417514498f);
         restaurante.setGpsY(-66.19583889842033f);
         restaurante.setDireccion("14 De Septiembre y Av. Ecológica 256");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Mac Soba 2.jpg", "Mac Soba.jpg"  });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"mac soba 2.jpg", "mac soba.jpg"  });
         restaurante.setTelefono(4792872);
         restaurante.setHorario("Lunes a Domingo 16:00-23:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -3155,7 +3155,7 @@ public class Listas {
         restaurante.setGpsX(-17.365002882716308f);
         restaurante.setGpsY(-66.1526070535183f);
         restaurante.setDireccion("Av. Circunvalación esq. Potosi. 1 cuadra al norte. 823");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Mega Chicken0.jpg", "Mega Chicken1.jpg", "Mega Chicken2.jpg"  });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"mega chicken0.jpg", "mega chicken1.jpg", "mega chicken2.jpg"  });
         restaurante.setTelefono(4233797);
         restaurante.setHorario("Martes a Domingo 17:00 - 22:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -3168,7 +3168,7 @@ public class Listas {
         restaurante.setGpsX(-17.371210044116154f);
         restaurante.setGpsY(-66.18632577359676f);
         restaurante.setDireccion("Av. América");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Monopoly Fast Food.jpg"});
+        restaurante.setImagenesFirebaseArreglo(new String[]{"monopoly fast food.jpg"});
         restaurante.setTelefono(4420554);
         restaurante.setHorario("Lunes a Domingo 19:00 - 22:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -3181,7 +3181,7 @@ public class Listas {
         restaurante.setGpsX(-17.37042480086186f);
         restaurante.setGpsY(-66.16351827979088f);
         restaurante.setDireccion("Libertador Simon Bolivar nro 1775");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Mosita Camba1.jpg", "Mosita Camba2.jpg" });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"mosita camba1.jpg", "mosita camba2.jpg" });
         restaurante.setTelefono(4410805);
         restaurante.setHorario("Lunes a Sábado 9:00 - 20:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -3194,7 +3194,7 @@ public class Listas {
         restaurante.setGpsX(-17.3849925308569f);
         restaurante.setGpsY(-66.15432769060135f);
         restaurante.setDireccion("Antezana Esquina Chuquisaca");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Novecento1.jpg", "Novecento2.jpg", "Novecento3.jpg" });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"novecento1.jpg", "novecento2.jpg", "novecento3.jpg" });
         restaurante.setTelefono(4663024);
         restaurante.setHorario("Lunes a Viernes 12:00 - 00:00 Sábado 18:00 - 00:00 Domingo 12:00 – 16:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -3207,7 +3207,7 @@ public class Listas {
         restaurante.setGpsX(-17.371589545150545f);
         restaurante.setGpsY(-66.16859436035156f);
         restaurante.setDireccion("Av. Ricardo Jaimes Freyre");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Otoño Bistro Pub1.jpg", "Otoño Bistro Pub2.jpg" });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"otoño bistro pub1.jpg", "otoño bistro pub2.jpg" });
         restaurante.setTelefono(4794480);
         restaurante.setHorario("Lunes a Sábado 20:00 - 04:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -3220,7 +3220,7 @@ public class Listas {
         restaurante.setGpsX(-17.363021461830993f);
         restaurante.setGpsY(-66.15060210227966f);
         restaurante.setDireccion("Av. Pando");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Paqui’s Restaurant0.jpg", "Paqui’s Restaurant1.jpg", "Paqui’s Restaurant2.jpg", "Paqui’s Restaurant3.jpg", "Paqui’s Restaurant4.jpg", "Paqui’s Restaurant5.jpg" });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"paqui’s restaurant0.jpg", "paqui’s restaurant1.jpg", "paqui’s restaurant2.jpg", "paqui’s restaurant3.jpg", "paqui’s restaurant4.jpg", "paqui’s restaurant5.jpg" });
         restaurante.setTelefono(4546701);
         restaurante.setHorario("Lunes a Sábado 12:00 - 15:00 Domingo 11:30-15:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -3233,7 +3233,7 @@ public class Listas {
         restaurante.setGpsX(-17.37928691071078f);
         restaurante.setGpsY(-66.16614751517773f);
         restaurante.setDireccion("Diómedes de Pereira #0568 entre Juan de la Rosa y Batallón Colorado");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Pastelería Elida1.jpg","Pastelería Elida2.jpg"  });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"pastelería elida1.jpg","pastelería elida2.jpg"  });
         restaurante.setTelefono(4448592);
         restaurante.setHorario("Lunes a Sábado 08:00-20:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -3246,7 +3246,7 @@ public class Listas {
         restaurante.setGpsX(-17.392435934752676f);
         restaurante.setGpsY(-66.14867426455021f);
         restaurante.setDireccion("Pasteur entre Bolívar y Sucre");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Peach’s  Delight1.jpg"});
+        restaurante.setImagenesFirebaseArreglo(new String[]{"peach’s  delight1.jpg"});
         restaurante.setTelefono(70364393);
         restaurante.setHorario("No se tiene registrado.");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -3259,7 +3259,7 @@ public class Listas {
         restaurante.setGpsX(-17.37139371503537f);
         restaurante.setGpsY(-66.17461927235126f);
         restaurante.setDireccion("Av. América");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Churrasquería Sachawasi1.jpg" ,"Churrasquería Sachawasi2.jpg" ,"Churrasquería Sachawasi4.png" });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"churrasquería sachawasi1.jpg" ,"churrasquería sachawasi2.jpg" ,"churrasquería sachawasi4.png" });
         restaurante.setTelefono(4666403);
         restaurante.setHorario("Lunes a Domingo 11:30 - 23:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -3272,7 +3272,7 @@ public class Listas {
         restaurante.setGpsX(-17.383042042767375f);
         restaurante.setGpsY(-66.16892494261265f);
         restaurante.setDireccion("Av. Martin de La Rocha y Av. Perú ");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"El Nuevo Amanecer Cochabambino1.jpg", "El Nuevo Amanecer Cochabambino2.jpg"  });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"el nuevo amanecer cochabambino1.jpg", "el nuevo amanecer cochabambino2.jpg"  });
         restaurante.setTelefono(4405892);
         restaurante.setHorario("Lunes a Domingo 12:00 – 23:00 Domingo 12:00 – 15:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -3285,7 +3285,7 @@ public class Listas {
         restaurante.setGpsX(-17.374571768741006f);
         restaurante.setGpsY(-66.16683885455132f);
         restaurante.setDireccion("Lucas Mendoza 582 Esq. José Aguirre Achá");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Pepperoni0.jpg", "Pepperoni1.jpg", "Pepperoni2.jpg", "Pepperoni3.jpg", "Pepperoni4.jpg" });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"pepperoni0.jpg", "pepperoni1.jpg", "pepperoni2.jpg", "pepperoni3.jpg", "pepperoni4.jpg" });
         restaurante.setTelefono(4038122);
         restaurante.setHorario("Martes a Domingo 12:00-15:00 , 19:00-23:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -3298,7 +3298,7 @@ public class Listas {
         restaurante.setGpsX(-17.371315638918013f);
         restaurante.setGpsY(-66.18271619081497f);
         restaurante.setDireccion("Av. América nro. 1521, entre Juan de La Rosa y Av. Beijing");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"PizzeríaMiguitas Tu Y Yo 1.jpg", "PizzeríaMiguitas Tu Y Yo 2.jpg"  });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"pizzeríamiguitas tu y yo 1.jpg", "pizzeríamiguitas tu y yo 2.jpg"  });
         restaurante.setTelefono(4421486);
         restaurante.setHorario("Lunes a Domingo 17:00-22:30");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -3311,7 +3311,7 @@ public class Listas {
         restaurante.setGpsX(-17.367254994971187f);
         restaurante.setGpsY(-66.20789006352425f);
         restaurante.setDireccion("Av. Esperanza");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Pizzería Villa Esperanza1.jpg"});
+        restaurante.setImagenesFirebaseArreglo(new String[]{"pizzería villa esperanza1.jpg"});
         restaurante.setTelefono(4016901);
         restaurante.setHorario("Lunes a Domingo 17:30 - 23:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -3324,7 +3324,7 @@ public class Listas {
         restaurante.setGpsX(-17.371439792728374f);
         restaurante.setGpsY(-66.17205172777176f);
         restaurante.setDireccion("Av. Gabriel René Moreno Casi Av. América");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Pollos a La Brasa Villa Chicken 1.jpg", "Pollos a La Brasa Villa Chicken 2.jpg" });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"pollos a la brasa villa chicken 1.jpg", "pollos a la brasa villa chicken 2.jpg" });
         restaurante.setTelefono(4443598);
         restaurante.setHorario("Lunes a Domingo 11:30-22:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -3337,7 +3337,7 @@ public class Listas {
         restaurante.setGpsX(-17.37998764416485f);
         restaurante.setGpsY(-66.15942522883415f);
         restaurante.setDireccion("Av. Gualberto Villarroel");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Puerto Madero1.jpg"});
+        restaurante.setImagenesFirebaseArreglo(new String[]{"puerto madero1.jpg"});
         restaurante.setTelefono(4486700);
         restaurante.setHorario("Martes  a Domingo 12:00-15:00 18:00-22:30");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -3350,7 +3350,7 @@ public class Listas {
         restaurante.setGpsX(-17.3908221137808f);
         restaurante.setGpsY(-66.18502289056778f);
         restaurante.setDireccion("Cobija y Manuel Rodríguez");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Punto de Encuentro Restaurant1.jpg"});
+        restaurante.setImagenesFirebaseArreglo(new String[]{"punto de encuentro restaurant1.jpg"});
         restaurante.setTelefono(4427903);
         restaurante.setHorario("Martes a Domingo 12:00 - 20:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -3363,7 +3363,7 @@ public class Listas {
         restaurante.setGpsX(-17.368543275211046f);
         restaurante.setGpsY(-66.16884112358093f);
         restaurante.setDireccion("Man cesped Nro.459 entre tarcos y Algarrobos");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Quinta El Palmar.jpg"});
+        restaurante.setImagenesFirebaseArreglo(new String[]{"quinta el palmar.jpg"});
         restaurante.setTelefono(4246224);
         restaurante.setHorario("Sábado y Domingo 12:00 – 18:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -3376,7 +3376,7 @@ public class Listas {
         restaurante.setGpsX(-17.3707076680129f);
         restaurante.setGpsY(-66.17274172604084f);
         restaurante.setDireccion("Manchay Puito Nro. 1963");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Quinta Soledad0.jpg", "Quinta Soledad1.jpg", "Quinta Soledad2.jpg", "Quinta Soledad3.jpg" });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"quinta soledad0.jpg", "quinta soledad1.jpg", "quinta soledad2.jpg", "quinta soledad3.jpg" });
         restaurante.setTelefono(4413567);
         restaurante.setHorario("No se tiene registrado");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -3389,7 +3389,7 @@ public class Listas {
         restaurante.setGpsX(-17.372408701532358f);
         restaurante.setGpsY(-66.16506457328796f);
         restaurante.setDireccion("Av. América Esquina Pasaje Irigoyen");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Rancho Viejo3.jpg", "Rancho Viejo.jpg", "Rancho Viejo2.jpg"  });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"rancho viejo3.jpg", "rancho viejo.jpg", "rancho viejo2.jpg"  });
         restaurante.setTelefono(4245888);
         restaurante.setHorario("Lunes a Viernes 11:30-15:00 , 18:00-22:00 Sábado y Domingo 11:30-23:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -3402,7 +3402,7 @@ public class Listas {
         restaurante.setGpsX(-17.393695242734278f);
         restaurante.setGpsY(-66.15268617868423f);
         restaurante.setDireccion("Sucre entre Lanza y Antezana");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Repostería Rossi.jpg"});
+        restaurante.setImagenesFirebaseArreglo(new String[]{"repostería rossi.jpg"});
         restaurante.setTelefono(4220929);
         restaurante.setHorario("Lunes a Sábado 07:00 - 20:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -3428,7 +3428,7 @@ public class Listas {
         restaurante.setGpsX(-17.370193771032014f);
         restaurante.setGpsY(-66.15681745111942f);
         restaurante.setDireccion("Av. Santa Cruz esq. Ciclovía");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Alcaparras Restaurant & Bar1.jpg", "Alcaparras Restaurant & Bar2.jpg", "Alcaparras Restaurant & Bar3.jpg" });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"alcaparras restaurant & bar1.jpg", "alcaparras restaurant & bar2.jpg", "alcaparras restaurant & bar3.jpg" });
         restaurante.setTelefono(4060919);
         restaurante.setHorario("Martes a Sábado 19:00 – 23:00 Domingo 12:00 – 16:00 ");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -3441,7 +3441,7 @@ public class Listas {
         restaurante.setGpsX(-17.378582974859885f);
         restaurante.setGpsY(-66.17596507072449f);
         restaurante.setDireccion("Av. Melchor Pérez De Olguín");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Círculo de Amigos1.jpg", "Círculo de Amigos2.jpg" });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"círculo de amigos1.jpg", "círculo de amigos2.jpg" });
         restaurante.setTelefono(0);
         restaurante.setHorario("Martes  a Domingo 18:00-22:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -3454,7 +3454,7 @@ public class Listas {
         restaurante.setGpsX(-17.392268282324746f);
         restaurante.setGpsY(-66.15609660744667f);
         restaurante.setDireccion("Av. Heroínas E-0352");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Restaurant Cristal1.jpg", "Restaurant Cristal2.jpg", "Restaurant Cristal3.jpg", "Restaurant Cristal4.jpg" });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"restaurant cristal1.jpg", "restaurant cristal2.jpg", "restaurant cristal3.jpg", "restaurant cristal4.jpg" });
         restaurante.setTelefono(4258933);
         restaurante.setHorario("Lunes a Domingo 07:00-23:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -3467,7 +3467,7 @@ public class Listas {
         restaurante.setGpsX(-17.381557405354467f);
         restaurante.setGpsY(-66.17554128170013f);
         restaurante.setDireccion("Av. Tadeo Haenke Nro. 2150");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Restaurant Jacaranda.jpg", "Restaurant Jacaranda2.jpg", "Restaurant Jacaranda3.jpg", "Restaurant Jacaranda4.jpg" });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"restaurant jacaranda.jpg", "restaurant jacaranda2.jpg", "restaurant jacaranda3.jpg", "restaurant jacaranda4.jpg" });
         restaurante.setTelefono(4286424);
         restaurante.setHorario("Lunes a Domingo 11:00 – 20:30");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -3480,7 +3480,7 @@ public class Listas {
         restaurante.setGpsX(-17.521311223015367f);
         restaurante.setGpsY(-66.0873281210661f);
         restaurante.setDireccion("Zona La Angostura");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Restaurant Jusk’u Rumi1.jpg", "Restaurant Jusk’u Rumi2.jpg"  });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"restaurant jusk’u rumi1.jpg", "restaurant jusk’u rumi2.jpg"  });
         restaurante.setTelefono(70775969);
         restaurante.setHorario("Lunes a Domingo 09:00-18:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -3493,7 +3493,7 @@ public class Listas {
         restaurante.setGpsX(-17.371566506324328f);
         restaurante.setGpsY(-66.17794454097748f);
         restaurante.setDireccion("Av. América Oeste , calle Azanaque Nro. 1000");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Restaurant La Gaviota1.jpg", "Restaurant La Gaviota2.jpg", "Restaurant La Gaviota3.jpg" });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"restaurant la gaviota1.jpg", "restaurant la gaviota2.jpg", "restaurant la gaviota3.jpg" });
         restaurante.setTelefono(4424497);
         restaurante.setHorario("No se tiene registrado.");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -3506,7 +3506,7 @@ public class Listas {
         restaurante.setGpsX(-17.377018307751403f);
         restaurante.setGpsY(-66.19058026000857f);
         restaurante.setDireccion("Chiriguanos y Apurimak Nro. 1586");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"De La Tierra1.jpg", "De La Tierra2.jpg" });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"de la tierra1.jpg", "de la tierra2.jpg" });
         restaurante.setTelefono(79973505);
         restaurante.setHorario("Jueves a Domingo 12:00 – 21:45");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -3519,7 +3519,7 @@ public class Listas {
         restaurante.setGpsX(-17.371753376720008f);
         restaurante.setGpsY( -66.13968551158905f);
         restaurante.setDireccion("Av. Circunvalacion Nro. 1680 direccion a Pacata entre M.Mendez y J.Anaya");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Restaurant La Villa0.jpg", "Restaurant La Villa1.jpg", "Restaurant La Villa2.jpg", "Restaurant La Villa3.jpg", "Restaurant La Villa4.jpg", "Restaurant La Villa5.jpg", "Restaurant La Villa6.jpg", "Restaurant La Villa7.jpg", "Restaurant La Villa8.jpg", "Restaurant La Villa9.jpg", "Restaurant La Villa10.jpg", "Restaurant La Villa11.jpg", "Restaurant La Villa12.jpg", "Restaurant La Villa13.jpg", "Restaurant La Villa14.jpg", "Restaurant La Villa15.jpg", "Restaurant La Villa16.jpg", "Restaurant La Villa17.jpg", "Restaurant La Villa18.jpg", "Restaurant La Villa19.jpg", "Restaurant La Villa20.jpg", "Restaurant La Villa21.jpg", "Restaurant La Villa22.jpg", "Restaurant La Villa23.jpg", "Restaurant La Villa24.jpg", "Restaurant La Villa25.jpg", "Restaurant La Villa26.jpg" });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"restaurant la villa0.jpg", "restaurant la villa1.jpg", "restaurant la villa2.jpg", "restaurant la villa3.jpg", "restaurant la villa4.jpg", "restaurant la villa5.jpg", "restaurant la villa6.jpg", "restaurant la villa7.jpg", "restaurant la villa8.jpg", "restaurant la villa9.jpg", "restaurant la villa10.jpg", "restaurant la villa11.jpg", "restaurant la villa12.jpg", "restaurant la villa13.jpg", "restaurant la villa14.jpg", "restaurant la villa15.jpg", "restaurant la villa16.jpg", "restaurant la villa17.jpg", "restaurant la villa18.jpg", "restaurant la villa19.jpg", "restaurant la villa20.jpg", "restaurant la villa21.jpg", "restaurant la villa22.jpg", "restaurant la villa23.jpg", "restaurant la villa24.jpg", "restaurant la villa25.jpg", "restaurant la villa26.jpg" });
             restaurante.setTelefono(4482205);
         restaurante.setHorario("Lunes a Sábado 11:30 - 14:30");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -3532,7 +3532,7 @@ public class Listas {
         restaurante.setGpsX(-17.39229771749497f);
         restaurante.setGpsY(-66.15032717585564f);
         restaurante.setDireccion("Bolívar Nro. 848 entre 16 de Julio y Oquendo ");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Restaurant Los Ángeles4.jpg", "Restaurant Los Ángeles1.jpg", "Restaurant Los Ángeles2.jpg", "Restaurant Los Ángeles3.jpg"  });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"restaurant los ángeles4.jpg", "restaurant los ángeles1.jpg", "restaurant los ángeles2.jpg", "restaurant los ángeles3.jpg"  });
         restaurante.setTelefono(4501319 );
         restaurante.setHorario("Lunes a Domingo 11:00-21:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -3545,7 +3545,7 @@ public class Listas {
         restaurante.setGpsX(-17.394186677643397f);
         restaurante.setGpsY(-66.16987310349941f);
         restaurante.setDireccion("Av. Blanco Galindo Km. 1 nro. 1173");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Restaurant Magui0.jpg", "Restaurant Magui1.jpg", "Restaurant Magui2.jpg", "Restaurant Magui3.jpg", "Restaurant Magui4.jpg" });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"restaurant magui0.jpg", "restaurant magui1.jpg", "restaurant magui2.jpg", "restaurant magui3.jpg", "restaurant magui4.jpg" });
         restaurante.setTelefono(4245164);
         restaurante.setHorario("Lunes a Domingo 08:00-14:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -3558,7 +3558,7 @@ public class Listas {
         restaurante.setGpsX(-17.38534832631108f);
         restaurante.setGpsY(-66.16975776851177f);
         restaurante.setDireccion("Av. Perú y excombatientes");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Restaurant Moreira1.jpg", "Restaurant Moreira2.jpg", "Restaurant Moreira3.jpg" });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"restaurant moreira1.jpg", "restaurant moreira2.jpg", "restaurant moreira3.jpg" });
         restaurante.setTelefono(4297965);
         restaurante.setHorario("No se tiene registrado.");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -3571,7 +3571,7 @@ public class Listas {
         restaurante.setGpsX(-17.377716490105158f);
         restaurante.setGpsY(-66.15275658667088f);
         restaurante.setDireccion("Beni");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Picaditos Grill1.jpg", "Picaditos Grill2.jpg", "Picaditos Grill3.jpg"});
+        restaurante.setImagenesFirebaseArreglo(new String[]{"picaditos grill1.jpg", "picaditos grill2.jpg", "picaditos grill3.jpg"});
         restaurante.setTelefono(72420369);
         restaurante.setHorario("No se tiene registrado.");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -3584,7 +3584,7 @@ public class Listas {
         restaurante.setGpsX(-17.389250512347143f);
         restaurante.setGpsY(-66.17817521095276f);
         restaurante.setDireccion("La Plata y Nueva Castilla");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Restaurant todo al Horno1.jpg"});
+        restaurante.setImagenesFirebaseArreglo(new String[]{"restaurant todo al horno1.jpg"});
         restaurante.setTelefono(4409347);
         restaurante.setHorario("Sábado Domingo 11:00 - 1900");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -3597,7 +3597,7 @@ public class Listas {
         restaurante.setGpsX(-17.385082119705487f);
         restaurante.setGpsY(-66.17057919502258f);
         restaurante.setDireccion("Av. Excombatientes entre Av. Perú y Diego de Almagro 1758");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Restaurante De Doña Ruth1.jpg", "Restaurante De Doña Ruth2.jpg"  });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"restaurante de doña ruth1.jpg", "restaurante de doña ruth2.jpg"  });
         restaurante.setTelefono(69467999);
         restaurante.setHorario("Lunes a Domingo 12:00 - 10:30");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -3610,7 +3610,7 @@ public class Listas {
         restaurante.setGpsX(-17.5334678871805f);
         restaurante.setGpsY(-66.0827288031578f);
         restaurante.setDireccion("Zona La Angostura");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Restaurante Náutico Las Isla1.jpg", "Restaurante Náutico Las Isla2.jpg", "Restaurante Náutico Las Isla3.jpg", "Restaurante Náutico Las Isla4.jpg" });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"restaurante náutico las isla1.jpg", "restaurante náutico las isla2.jpg", "restaurante náutico las isla3.jpg", "restaurante náutico las isla4.jpg" });
         restaurante.setTelefono(4576911);
         restaurante.setHorario("No se tiene registrado");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -3623,7 +3623,7 @@ public class Listas {
         restaurante.setGpsX(-17.418188593482085f);
         restaurante.setGpsY(-66.12714350223541f);
         restaurante.setDireccion("Cto. Bolivia");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Planchitas Originales1.jpg", "Planchitas Originales2.jpg", "Planchitas Originales3.jpg" });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"planchitas originales1.jpg", "planchitas originales2.jpg", "planchitas originales3.jpg" });
         restaurante.setTelefono(4752550);
         restaurante.setHorario("Miércoles a Domingo 10:00 - 22:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -3636,7 +3636,7 @@ public class Listas {
         restaurante.setGpsX(-17.38518706658663f);
         restaurante.setGpsY(-66.18275105953217f);
         restaurante.setDireccion("C. Circunvalación nro. 043 entre C. Tovar y C. S. Mendoza");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Rolling Wings1.jpg", "Rolling Wings2.jpg"});
+        restaurante.setImagenesFirebaseArreglo(new String[]{"rolling wings1.jpg", "rolling wings2.jpg"});
         restaurante.setTelefono(4036814);
         restaurante.setHorario("Lunes a Sábado  18:00 - 23:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -3649,7 +3649,7 @@ public class Listas {
         restaurante.setGpsX(-17.394791371129717f);
         restaurante.setGpsY(-66.156290397048f);
         restaurante.setDireccion("Esteban Arze entre y Jordán, Sucre");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Salón de Té El Pahuichi.jpg"});
+        restaurante.setImagenesFirebaseArreglo(new String[]{"salón de té el pahuichi.jpg"});
         restaurante.setTelefono(4254697);
         restaurante.setHorario("Lunes A Sábado 9:00-21:00 Domingo 10:00- 21:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -3662,7 +3662,7 @@ public class Listas {
         restaurante.setGpsX(-17.378525379988663f);
         restaurante.setGpsY(-66.15273579955101f);
         restaurante.setDireccion("Aniceto Padilla");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Break & Donuts1.jpg", "Break & Donuts2.jpg" });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"break & donuts1.jpg", "break & donuts2.jpg" });
         restaurante.setTelefono(4485209);
         restaurante.setHorario("Lunes a Domingo 07:30 - 21:30");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -3675,7 +3675,7 @@ public class Listas {
         restaurante.setGpsX(-17.377709450699673f);
         restaurante.setGpsY(-66.15553669631481f);
         restaurante.setDireccion("Tomas Frías");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Snack Don Tino1.jpg"});
+        restaurante.setImagenesFirebaseArreglo(new String[]{"snack don tino1.jpg"});
         restaurante.setTelefono(4486703);
         restaurante.setHorario("No se tiene registrado");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -3688,7 +3688,7 @@ public class Listas {
         restaurante.setGpsX(-17.372262789570044f);
         restaurante.setGpsY(-66.16928368806839f);
         restaurante.setDireccion("Av. America Esquina Daniel Albornoz Nro. 655");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Spicy & More1.jpg", "Spicy & More2.jpg" });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"spicy & more1.jpg", "spicy & more2.jpg" });
         restaurante.setTelefono(4402525);
         restaurante.setHorario("Lunes 18:00-  23:00 Martes a Domingo 12:00-23:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -3701,7 +3701,7 @@ public class Listas {
         restaurante.setGpsX(-17.387077379981488f);
         restaurante.setGpsY(-66.15751281380653f);
         restaurante.setDireccion("Chuquisaca");
-        restaurante.setImagenesFirebaseArreglo(new String[]{"Subs & Co1.jpg", "Subs & Co2.jpg" });
+        restaurante.setImagenesFirebaseArreglo(new String[]{"subs & co1.jpg", "subs & co2.jpg" });
         restaurante.setTelefono(4224336);
         restaurante.setHorario("Lunes a Viernes 11:00-14:00 , 17:00-21:00 Sábado 11:00-21:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
@@ -3720,7 +3720,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         lugarTuristico.setTipo("Realizaciones Técnicas y Científicas");
         lugarTuristico.setNombre("Cristo de la Concordia");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"CRISTO DE LA CONCORDIA1.jpg", "CRISTO DE LA CONCORDIA2.jpg", "CRISTO DE LA CONCORDIA3.jpg" });
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"cristo de la concordia1.jpg", "cristo de la concordia2.jpg", "cristo de la concordia3.jpg" });
         lugarTuristico.setDescripcion("Situado sobre el cerro San Pedro, El Cristo tiene el denominativo de la “Concordia”, significando el carácter integrador geográfico, político y social que tiene la ciudad y el departamento de Cochabamba.\n" +
                 "\n" +
                 "Para perpetuar el recuerdo de la visita del Papa Juan Pablo II y la enseñanza de paz, entendimiento y concordia impartida en esa ocasión por el Vicario de Cristo, a iniciativa del dirigente obrero fabril Lucio López, se acordó levantar en la cumbre del cerro San Pedro, una monumental y bellísima obra escultora del Cristo de la Concordia proyectada y llevada a cabo por los afanado escultores y arquitectos cochabambinos, los hermanos Walter y Cesar Terrazas.\n" +
@@ -3742,7 +3742,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         lugarTuristico.setTipo("Patrimonio Urbano Arquitectónico, Artístico, Museos y Manifestaciones Culturales");
         lugarTuristico.setNombre("Colina de San Sebastián La Coronilla ");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"COLINAS DE SAN SEBASTIAN LA CORONILLA1.jpg", "COLINAS DE SAN SEBASTIAN LA CORONILLA2.jpg" });
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"colinas de san sebastian la coronilla1.jpg", "colinas de san sebastian la coronilla2.jpg" });
         lugarTuristico.setDescripcion("En la zona sur de la ciudad, muy cerca de la Terminal de Buses,  se encuentra la colina de San Sebastián en cuya cuesta se halla el monumento a las Heroínas de la Coronilla, el Paseo de Los Héroes y el Monumento a las Armas, monumentos que son considerado Sitio de Interés Histórico, Cultural y Nacional. El monumento a las Heroínas, esculpida en bronce en 1922, representa simbólicamente la participación de un grupo de valerosas mujeres que resistieron a las tropas del General Goyeneche, durante la guerra de la independencia.\n" +
                 "\n" +
                 "El día de la Madre en Bolivia se celebra el 27 de Mayo en memoria del movimiento heroico de las mujeres cochabambinas al enfrentarse en desigual lucha ante los realistas y por ser el único movimiento libertario en Latinoamérica que demostró el valor de las mujeres para la consolidación de la soberanía de la patria.\n");
@@ -3759,7 +3759,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         lugarTuristico.setTipo("Realizaciones Técnicas y Científicas ");
         lugarTuristico.setNombre("Jardín Botánico  ");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"JARDIN BOTANICO1.jpg","JARDIN BOTANICO2.jpg","JARDIN BOTANICO3.jpg"," JARDIN BOTANICO4.jpg"});
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"jardin botanico1.jpg","jardin botanico2.jpg","jardin botanico3.jpg"," jardin botanico4.jpg"});
         lugarTuristico.setDescripcion("El Jardín Botánico Martín Cárdenas surgió como un homenaje al más grande de los botánicos bolivianos Martín Cárdenas Hermosa, nacido en Cochabamba, gran investigador de campo, y fundador de la Facultad de Biología de la Universidad Mayor de San Simón y rector de la misma durante dos gestiones.\n" +
                 "Entre los objetivos del jardín botánico se encuentran el de promover la investigación, la enseñanza y el de exhibición de la flora de la provincia de Cochabamba, así como la conservación de la diversidad florística y de sus endemismos. Fue creado en 1962.\n");
         lugarTuristico.setHorario("Lunes a Sábado 10:00 - 16:00");
@@ -3775,7 +3775,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         lugarTuristico.setTipo("Realizaciones Técnicas y Científicas ");
         lugarTuristico.setNombre("Parque de la Familia");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"PARQUE DE LA FAMILIA1.jpg", "PARQUE DE LA FAMILIA2.jpg", "PARQUE DE LA FAMILIA3.jpg" });
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"parque de la familia1.jpg", "parque de la familia2.jpg", "parque de la familia3.jpg" });
         lugarTuristico.setDescripcion("También conocido como el parque de “aguas danzantes”. Esta nueva atracción tiene un moderno sistema que combina música e iluminación con el movimiento de los chorros de agua. La combinación de estos elementos permite la proyección de imágenes en el agua y disparos del líquido " +
                 "a una altura de hasta 20 metros. El espectáculo se sincroniza con música.");
         lugarTuristico.setHorario("Martes a Domingo: 15:00 a 22:00 hrs");
@@ -3791,7 +3791,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         lugarTuristico.setTipo("Realizaciones Técnicas y Científicas ");
         lugarTuristico.setNombre("Parque de Educación Vial");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"PARQUE DE EDUCACION VIAL1.jpg", "PARQUE DE EDUCACION VIAL2.jpg", "PARQUE DE EDUCACION VIAL3.jpg", "PARQUE DE EDUCACION VIAL4.jpg" });
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"parque de educacion vial1.jpg", "parque de educacion vial2.jpg", "parque de educacion vial3.jpg", "parque de educacion vial4.jpg" });
         lugarTuristico.setDescripcion("Área recreacional de educación vial, donde los más pequeños pueden aprender sobre la seguridad vial, a través de un pequeño circuito y recorridos divertidos, en el cual podrán identificar las diferentes señalizaciones viales. Dentro esta área se puede apreciar igualmente diferentes juegos recreacionales, paseos a través del trencito en las diferentes calles creadas " +
                 "dentro el parque y diversión con cochecitos chocadores además de diferentes áreas verdes.");
         lugarTuristico.setHorario("Martes a Domingo:10:00 a 19:00 hrs ");
@@ -3807,7 +3807,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         lugarTuristico.setTipo("Realizaciones Técnicas y Científicas ");
         lugarTuristico.setNombre("Parque Mariscal Santa Cruz");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"PARQUE MARISCAL SANTA CRUZ4.jpg", "PARQUE MARISCAL SANTA CRUZ5.jpg", "PARQUE MARISCAL SANTA CRUZ1.jpg", "PARQUE MARISCAL SANTA CRUZ2.jpg" });
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"parque mariscal santa cruz4.jpg", "parque mariscal santa cruz5.jpg", "parque mariscal santa cruz1.jpg", "parque mariscal santa cruz2.jpg" });
         lugarTuristico.setDescripcion("El parque Mariscal Santa Cruz es una verdadera y sólida opción para quienes desean practicar deportes de diferente naturaleza. Cuenta con amplios espacios verdes, campos deportivos y áreas para juegos o simplemente lugares de convivencia. Su infraestructura deportiva consta de canchas poli funcionales, ideales para la práctica de básquet, voleibol y  fútbol  de salón. Lo que le permite una agradable estadía de los visitantes.\n" +
                 "\n" +
                 "Se destaca como espacio recreativo más grande de la ciudad de Cochabamba. El objetivo de su recreación fue la sensibilización ciudadana, recuperación y preservación del medio ambiente, además de la defensa de los recursos de la naturaleza como el agua, el aire y la biodiversidad.\n" +
@@ -3826,7 +3826,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         lugarTuristico.setTipo("Realizaciones Técnicas y Científicas ");
         lugarTuristico.setNombre("La Ciclo Vía");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"LA CICLOVIA1.jpg", "LA CICLOVIA2.jpg", "LA CICLOVIA3.jpg" });
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"la ciclovia1.jpg", "la ciclovia2.jpg", "la ciclovia3.jpg" });
         lugarTuristico.setDescripcion("La ciudad cuenta con una Ciclovía principal que recorre parte de la ciudad, iniciándose en el llamado Circuito Bolivia, al sudoeste de la ciudad, en el perímetro de la Laguna Alalay, siguiendo hacia el norte por la avenida Rubén Darío, bordeando la colina San Pedro. En seguida cruza la avenida Villazón, entrando por la avenida Florentino Mendieta hasta la Plaza Tarija, de ahí sigue su largo recorrido por la avenida Rodríguez Morales, para finalizar su tramo entre la avenida Simón López y la calle Wiracocha, a unas cuadras de la Casona de Mayorazgo, al noroeste de la ciudad.\n" +
                 "El recorrido completo de esta ciclovía es de aproximadamente 25 km. En su extenso tramo, el viajero puede disfrutar  y conocer gran parte de la ciudad, como las zonas de Las Cuadras, Muyurina, Tupuraya, Queru Queru, Cala Cala y Mayorazgo.\n");
         lugarTuristico.setHorario("Abierto");
@@ -3842,7 +3842,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         lugarTuristico.setTipo("Realizaciones Técnicas y Científicas ");
         lugarTuristico.setNombre("Parque Kanata ");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"PARQUE KANATA1.jpg", "PARQUE KANATA2.jpg", "PARQUE KANATA3.jpg" });
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"parque kanata1.jpg", "parque kanata2.jpg", "parque kanata3.jpg" });
         lugarTuristico.setDescripcion("Este renovado parque al sur de la ciudad posee juegos infantiles: sube y bajas, resbalines, túneles, paralelas, etc. También tiene canchas de fulbito y de basket con graderías de cemento. Para los niños está el moderno ‘Chapoteador’ que es una piscina de poca altura para que caminen descalzos y se refresquen. El parque cuenta además con parvulario, destinado a bebés " +
                 "desde los 6 meses hasta los 5 años de edad con columpios, casitas diminutas para bebés gateadores, resbalines y corrales." +
                 "Martes a Sábado: 10:00 a 18:00 hrs.\n");
@@ -3859,7 +3859,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         lugarTuristico.setTipo("Realizaciones Técnicas y Científicas ");
         lugarTuristico.setNombre("Teleférico");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"TELEFERICO1.jpg" ,"TELEFERICO2.jpg" ,"TELEFERICO3.jpg" ,"TELEFERICO4.jpg" });
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"teleferico1.jpg" ,"teleferico2.jpg" ,"teleferico3.jpg" ,"teleferico4.jpg" });
         lugarTuristico.setDescripcion("El Teleférico, una obra que es orgullo de los cochabambinos, permite subir y bajar en pocos minutos la cima de San Pedro. Parte del Parque de La Autonomía hasta la cima.\n" +
                 "Permite gozar una bella vista panorámica de la ciudad.");
         lugarTuristico.setHorario(" Lunes a Domingo: 9:00 a 17:00\n Miércoles: Cerrado   ");
@@ -3875,7 +3875,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         lugarTuristico.setTipo("Realizaciones Técnicas y Científicas ");
         lugarTuristico.setNombre("Plaza 14 de Septiembre");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"PLAZA 14 DE SEPTIEMBRE1.jpg", "PLAZA 14 DE SEPTIEMBRE2.jpg", "PLAZA 14 DE SEPTIEMBRE3.jpg", "PLAZA 14 DE SEPTIEMBRE4.jpg" });
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"plaza 14 de septiembre1.jpg", "plaza 14 de septiembre2.jpg", "plaza 14 de septiembre3.jpg", "plaza 14 de septiembre4.jpg" });
         lugarTuristico.setDescripcion("Remodelada en 1938, la plaza 14 de Septiembre se cobra importancia por su diseño y pasado histórico. \n" +
                 "En el nivel inferior de sus cuatro elevaciones muestra un ritmo unitario de arcos sobre las columnas (estilos Dórico y Jónico). El cuerpo superior de las edificaciones de su alrededor se remató con frontones y áticos cuyo resultado definitivo y que se mantiene hasta nuestros días es la conjugación de los estilos: Barroco y Neo-Clásico.\n" +
                 "En el centro se observa un enorme enfilado de cemento conocido como “Columna de los Héroes” o “Columna de la Libertad”(estilo Corintio), que en su cúspide se yergue un cóndor con las alas extendidas. \n" +
@@ -3893,7 +3893,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         lugarTuristico.setTipo("Realizaciones Técnicas y Científicas ");
         lugarTuristico.setNombre("Plazuela Colón");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"PLAZUELA COLON1.jpg", "PLAZUELA COLON2.jpg", "PLAZUELA COLON3.jpg", "PLAZUELA COLON4.jpg" });
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"plazuela colon1.jpg", "plazuela colon2.jpg", "plazuela colon3.jpg", "plazuela colon4.jpg" });
         lugarTuristico.setDescripcion("Está llena de árboles y vegetación típica de Cochabamba y embellecida por las construcciones modernas de la zona. Tiene un vistoso puente peatonal sobre una pileta.\n" +
                 "Frente a la Plaza Colón, sobre la acera este, se encuentra el paseo Independencia, que muestra la arquitectura de la época Republicana de la ciudad de Cochabamba. En este paseo, se llevan a cabo concierto, ferias, festivales y otras actividades de carácter cultural.\n" +
                 "Antiguamente existía un portón entre la plaza Colón y El Prado, así como un tranvía que pasaba por un bosquecillo de árboles. Lleva el nombre de Plaza Colón en homenaje a Cristóbal Colón, descubridor de América.");
@@ -3910,7 +3910,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         lugarTuristico.setTipo("Realizaciones Técnicas y Científicas ");
         lugarTuristico.setNombre("Plazuela Cala Cala");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"PLAZUELA CALA CALA1.jpg", "PLAZUELA CALA CALA2.jpg" });
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"plazuela cala cala1.jpg", "plazuela cala cala2.jpg" });
         lugarTuristico.setDescripcion("Construida el 1863 con el nombre de “Plaza del Regocijo” donde, cada noviembre, las familias más distinguidas de la ciudad se trasladaban para pasar momentos de grato esparcimiento, además de tomarse un delicioso baño. Ubicada en la campiña de Cala Cala, la “Plaza del Regocijo” Fue una de las más atractivas por sus exuberantes y paradisiacos bosques." +
                 "Hoy Cala Cala Mantiene su fama y tradición. Aunque la espesura de sus bosques y sus aires vallunos de noviembre han desaparecido, concentra todavía entre sus habitantes a las familias originarias Cochabambinas.");
         lugarTuristico.setHorario(" Abierto");
@@ -3926,7 +3926,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         lugarTuristico.setTipo("Realizaciones Técnicas y Científicas ");
         lugarTuristico.setNombre("Plazuela Corazonistas");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"PLAZUELA CORAZONISTAS1.jpg", "PLAZUELA CORAZONISTAS2.jpg", "PLAZUELA CORAZONISTAS3.jpg", "PLAZUELA CORAZONISTAS4.jpg" });
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"plazuela corazonistas1.jpg", "plazuela corazonistas2.jpg", "plazuela corazonistas3.jpg", "plazuela corazonistas4.jpg" });
         lugarTuristico.setDescripcion("Ubicada en la avenida Heroínas, frente a la Iglesia del Corazón de Jesús, ésta plazuela de forma alargada, lleva al medio de ella un monumento de la" + " Virgen con una gran aureola iluminada. El mismo fue construido en conmemoración al Encuentro Mariano en Cochabamba.");
         lugarTuristico.setHorario(" Abierto");
         lugarTuristico.setDireccion("Calle Hamiraya, Av Heroínas, Cochabamba, Bolivia");
@@ -3941,7 +3941,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         lugarTuristico.setTipo("Realizaciones Técnicas y Científicas ");
         lugarTuristico.setNombre("Plaza de las Banderas");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"PLAZA DE LAS BANDERAS1.jpg", "PLAZA DE LAS BANDERAS2.jpg", "PLAZA DE LAS BANDERAS3.jpg" });
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"plaza de las banderas1.jpg", "plaza de las banderas2.jpg", "plaza de las banderas3.jpg" });
         lugarTuristico.setDescripcion("La Plaza de las Banderas representa la unión de los pueblos americanos, luciendo las banderas de cada uno de ellos. También posee la fuente Carlos Montenegro que representa “La diversidad en equilibrio”, del artista boliviano Andrés Gavilano.");
         lugarTuristico.setHorario("Abierto");
         lugarTuristico.setDireccion("A. José Ballivián (El Prado), Cochabamba, Bolivia");
@@ -3956,7 +3956,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         lugarTuristico.setTipo("Patrimonio Urbano Arquitectónico, Artístico, Museos y Manifestaciones Culturales");
         lugarTuristico.setNombre("Catedral Metropolitana");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"CATEDRAL METROPOLITANA1.jpg", "CATEDRAL METROPOLITANA2.jpg", "CATEDRAL METROPOLITANA3.jpg", "CATEDRAL METROPOLITANA4.jpg" });
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"catedral metropolitana1.jpg", "catedral metropolitana2.jpg", "catedral metropolitana3.jpg", "catedral metropolitana4.jpg" });
         lugarTuristico.setDescripcion("Es la Iglesia Mayor. Más conocida como la  “Catedral Metropolitana” de la ciudad ce Cochabamba, fue construida en 1735 y es una de las mayores de Charcas, de las antiguas, en su interior conserva cuadros y muebles coloniales. Una galería de arcos que data de principios de siglo cubre la parte lateral de la plaza 14 de Septiembre y queda descubierta solo la portada de la cabecera, que se alza sobre la calle Esteban Arze.\n" +
                 "Su portada se compone de tres cuerpos con columnas salomónicas que flaquean la puerta. Hay cartonería a los lados y decoración “mestiza”; en la coronación, la portada se alza entre dos grandes contrafuertes que parecen dispuestos a recibir un arco, que posee una sola torre donde se encuentra el reloj principal.\n");
         lugarTuristico.setHorario("Lunes a Viernes 07:45 – 20:30");
@@ -3972,7 +3972,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         lugarTuristico.setTipo("Patrimonio Urbano Arquitectónico, Artístico, Museos y Manifestaciones Culturales");
         lugarTuristico.setNombre("Convento de Santa Clara");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"CONVENTO SANTA CLARA1.jpg", "CONVENTO SANTA CLARA2.jpg" });
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"convento santa clara1.jpg", "convento santa clara2.jpg" });
         lugarTuristico.setDescripcion("La iglesia de Santa Clara y el convento que lleva el mismo nombre, fueron fundados el 25 de mayo de 1648 fecha en la que se inició la construcción de la antigua iglesia ubicada donde hoy se encuentra el Palacio de la Cultura.\n" +
                 "\n" +
                 "La benefactora principal fue Doña Francisca de Vargas, quien financió la construcción del convento y la iglesia con las rentas de su hacienda que se encontraba en Cliza. La construcción del actual templo se efectuó entre" +
@@ -3990,7 +3990,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         lugarTuristico.setTipo("Patrimonio Urbano Arquitectónico, Artístico, Museos y Manifestaciones Culturales");
         lugarTuristico.setNombre("Iglesia de Santo Domingo");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"IGLESIA DE SANTO DOMINGO1.jpg", "IGLESIA DE SANTO DOMINGO2.jpg", "IGLESIA DE SANTO DOMINGO3.jpg" });
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"iglesia de santo domingo1.jpg", "iglesia de santo domingo2.jpg", "iglesia de santo domingo3.jpg" });
         lugarTuristico.setDescripcion("Este hermoso templo de piedra y barro posee más de cuatro siglos de existencia y fue erigido en el sitio original del Convento de los Frailes de la Orden de Predicadores o Dominicos el año 1612. Fue la primera sede parroquial de la entonces Villa de Oropeza, hoy ciudad de Cochabamba." +
                 " Es la única construcción religiosa en la ciudad que guarda semejanza con los templos de la región andina del altiplano.");
         lugarTuristico.setHorario(" No hay horario de atención");
@@ -4007,7 +4007,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         lugarTuristico.setTipo("Patrimonio Urbano Arquitectónico, Artístico, Museos y Manifestaciones Culturales");
         lugarTuristico.setNombre("Templo del Hospicio");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"TEMPLO HOSPICIO1.jpg", "TEMPLO HOSPICIO2.jpg", "TEMPLO HOSPICIO3.jpg" });
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"templo hospicio1.jpg", "templo hospicio2.jpg", "templo hospicio3.jpg" });
         lugarTuristico.setDescripcion("El Templo del Hospicio se encuentra ubicado en la acera sur de la plaza Colón. Su construcción se inició en 1859 y concluyó en 1875. Fue obra del arquitecto José Rosetti, está construida enteramente de adobe, la iglesia es de un estilo neoclásico, sin Cúpula y posee algunos detalles barrocos y bizantinos. Se construyó con" +
                 " aportes de la población Cochabambina y de los centros mineros donde acudían los sacerdotes Franciscanos a pedir contribuciones.");
         lugarTuristico.setHorario(" No hay horario de atención");
@@ -4023,7 +4023,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         lugarTuristico.setTipo("Patrimonio Urbano Arquitectónico, Artístico, Museos y Manifestaciones Culturales");
         lugarTuristico.setNombre("Templo de  San Francisco");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"TEMPLO DE SAN FRANCISCO1.jpg", "TEMPLO DE SAN FRANCISCO2.jpg", "TEMPLO DE SAN FRANCISCO3.jpg", "TEMPLO DE SAN FRANCISCO4.jpg" });
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"templo de san francisco1.jpg", "templo de san francisco2.jpg", "templo de san francisco3.jpg", "templo de san francisco4.jpg" });
         lugarTuristico.setDescripcion("Este templo de gran belleza y perfectamente conservado fue edificado en 1581 con retablo en el altar mayor bañado en “Pan de Oro” conjuntamente con el púlpito; se considera que es una obra del barroco mestizo. Fue reconstruido en 1782, finalmente se modernizo en 1926 conservado algunas partes de su edificación original.\n" +
                 "De las iglesias Cochabambinas de los primeros tiempos, La Merced es la única que mantuvo y conservó intacta su estructura y estilo renacentista del siglo XVI; fue construida por Sebastián montes y terminada en 1604.\n" +
                 "Como todas las iglesias nave única con un arco triunfal que señalaba el presbítero. El testero plano y la cubierta de artesonado.\n" +
@@ -4041,7 +4041,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         lugarTuristico.setTipo("Patrimonio Urbano Arquitectónico, Artístico, Museos y Manifestaciones Culturales");
         lugarTuristico.setNombre("Museo Convento de Santa Teresa");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"MUSEO CONVENTO DE SANTA TERESA1.jpg", "MUSEO CONVENTO DE SANTA TERESA2.jpg", "MUSEO CONVENTO DE SANTA TERESA3.jpg", "MUSEO CONVENTO DE SANTA TERESA4.jpg" });
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"museo convento de santa teresa1.jpg", "museo convento de santa teresa2.jpg", "museo convento de santa teresa3.jpg", "museo convento de santa teresa4.jpg" });
         lugarTuristico.setDescripcion("De estilo barroco este convento es una de las construcciones más antiguas que existen en Cochabamba, fue construido en 1760. La construcción inicial quedó inconclusa y se retomó cuarenta años después con una peculiar construcción dentro de otra.\n" +
                 "El lugar es considerado una reliquia colonial, por sus características de construcción y riqueza en sus paredes, cuadros y ambientes, donde se observan imágenes del año 1.700 propias de los Jesuitas que llegaron al país a predicar el evangelio de Jesucristo.\n" +
                 "El convento recibía a las mujeres de las familias mejor acomodadas económicamente en la ciudad que decidían dedicar sus vidas al servicio del señor, quienes en la mayoría de los casos llegaban acompañadas por algunas sirvientas que también permanecían enclaustradas por el resto de sus días.\n" +
@@ -4061,7 +4061,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         lugarTuristico.setTipo("Sitios Naturales");
         lugarTuristico.setNombre("Laguna Alalay ");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"LAGUNA ALALAY1.jpg", "LAGUNA ALALAY2.jpg", "LAGUNA ALALAY3.jpg" });
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"laguna alalay1.jpg", "laguna alalay2.jpg", "laguna alalay3.jpg" });
         lugarTuristico.setDescripcion("La laguna Alalay tiene en su entorno una forma vehicular denominada “circuito Bolivia” que permite el recorrido vehicular alrededor de este atractivo. Así mismo, posee una franja peatonal para bicicletas que forma parte de la ciclovía que llega a tener un total aproximado de 15 km. de recorrido\n" +
                 "También cuenta con lugares para descanso de los peatones, haciendo su visita más agradable, sobre todo durante la primavera y verano donde se puede apreciar la flora y la fauna del lugar.\n" +
                 "La laguna Alalay corresponde a un sistema semi-artificial, intervenido a partir de 1935 en su profundización de cubeta, tiene condiciones de vaso regulador de crecidas del río Rocha para el control de las inundaciones provocadas en época de lluvias por dicha cuenca. \n" +
@@ -4081,7 +4081,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         lugarTuristico.setTipo("Sitios Naturales");
         lugarTuristico.setNombre("Parque Nacional Tunari");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"PARQUE NACIONAL TUNARI1.jpg", "PARQUE NACIONAL TUNARI2.jpg", "PARQUE NACIONAL TUNARI3.jpg", "PARQUE NACIONAL TUNARI4.jpg" });
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"parque nacional tunari1.jpg", "parque nacional tunari2.jpg", "parque nacional tunari3.jpg", "parque nacional tunari4.jpg" });
         lugarTuristico.setDescripcion("El Parque Nacional Tunari, fue creado y declarado Parque Nacional el 30 de marzo de 1962. El pico del Tunari se encuentra a 5.200 m.s.n.m. es el más alto de la cordillera del mismo nombre y es uno de los atractivos turísticos naturales más representativos de la ciudad de Cochabamba. \n" +
                 "\n" +
                 "El Parque Nacional Tunari se encuentra a 4 Km. del centro de la ciudad de Cochabamba, lugar donde se puede disfrutar de grandes momentos de recreación y esparcimiento, sobre todo para quienes acuden al encuentro con la naturaleza. El parque brinda la posibilidad de disfrutar de la naturaleza, practicar el ecoturismo, turismo de aventura y el paisajismo ya que desde sus faldas se puede apreciar esta bella ciudad. \n" +
@@ -4104,7 +4104,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         lugarTuristico.setTipo("Patrimonio Urbano Arquitectónico, Artístico, Museos y Manifestaciones Culturales");
         lugarTuristico.setNombre("Casa de la Cultura");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"CASA DE LA CULTURA1.jpg", "CASA DE LA CULTURA2.jpg" });
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"casa de la cultura1.jpg", "casa de la cultura2.jpg" });
         lugarTuristico.setDescripcion("La Casa de la Cultura tiene por objetivo institucional promover, fomentar, revalorizar, y difundir las expresiones artísticas, " +
                 "las prácticas inter-culturales y el patrimonio cultural del Municipio de Cochabamba. El Centro es escenario para diversas actividades en el ámbito de la cultura. En este lugar, aparte de poder contemplar obras de arte propias de la cultura boliviana, también se puede acceder a los diversos archivos y biblioteca, así como al teatro integrado en el centro.");
         lugarTuristico.setHorario("Lunes a Viernes 8:00 - 18:30");
@@ -4120,7 +4120,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         lugarTuristico.setTipo("Patrimonio Urbano Arquitectónico, Artístico, Museos y Manifestaciones Culturales");
         lugarTuristico.setNombre("Teatro Achá");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"TEATRO ACHA1.jpg", "TEATRO ACHA2.jpg", "TEATRO ACHA3.jpg", "TEATRO ACHA4.jpg", "TEATRO ACHA5.jpg" });
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"teatro acha1.jpg", "teatro acha2.jpg", "teatro acha3.jpg", "teatro acha4.jpg", "teatro acha5.jpg" });
         lugarTuristico.setDescripcion("En1578 se levanta imponente una de las obras arquitectónicas más importantes de la época. El convento de San Agustín que posteriormente sirvió para la consolidación del famoso “Teatro de la Unión Americana” remodelado en 1864 y que con posteridad adquirió el nombre de “Teatro Achá”, en homenaje al presidente José María Achá.\n" +
                 "Esta joya colonial se erige hoy como el verdadero estandarte del arte y la cultura cochabambina. Ante sus palcos y su gran salón dorado han debutado las mejores campañas de danza y teatro y han concertado extraordinarios músicos y directores de orquesta, consolidando a Cochabamba como el semillero de artistas. \n" +
                 "Este majestuoso edificio que evoca en silencio el pasado, cobijando en su interior los restis del fundador de Cochabamba Gerónimo de Osorio es sin lugar a dudas, uno de los principales monumentos de la ciudad y que aun encierra en sus muros la historia de Bolivia.\n");
@@ -4139,7 +4139,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         lugarTuristico.setTipo("Patrimonio Urbano Arquitectónico, Artístico, Museos y Manifestaciones Culturales");
         lugarTuristico.setNombre("Museo Casona Santivañez");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"MUSEO CASONA SANTIVAÑEZ1.jpg", "MUSEO CASONA SANTIVAÑEZ2.jpg", "MUSEO CASONA SANTIVAÑEZ3.jpg", "MUSEO CASONA SANTIVAÑEZ4.jpg", "MUSEO CASONA SANTIVAÑEZ5.jpg", "MUSEO CASONA SANTIVAÑEZ6.jpg" });
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"museo casona santivañez1.jpg", "museo casona santivañez2.jpg", "museo casona santivañez3.jpg", "museo casona santivañez4.jpg", "museo casona santivañez5.jpg", "museo casona santivañez6.jpg" });
         lugarTuristico.setDescripcion("La Casona Santivañez declarada Patrimonio Histórico de Cochabamba, constituye una reliquia arquitectónica de estilo colonial, que data del siglo XIX. La elegancia, historia y colorido, caracterizan esta infraestructura de gran valor turístico para Cochabamba.\n" +
                 "Perteneció en su época a Don Juan Antonio Santivañez de Gazma y Barrao. A la muerte de los herederos, el inmueble pasó a ser propiedad de la Universidad Católica Boliviana. Posteriormente, la Honorable Municipalidad de Cochabamba, recuperó el predio sobre la base de una permuta con el fin expreso de cobijar el museo de la familia Santivañez y ser un centro de exposición artístico cultural.\n" +
                 "Al recorrer sus elegantes ambientes se muestra la arquitectura propia de la época e historia traducida en la cultura y el arte plasmado en toda la casona. Pilares de arquitectura colonial, paredes tapizadas con figuras llamativas, pisos construidos detalladamente caracterizan el lugar adornado con cuadros y muebles que pertenecieron a la familia y a pesar del tiempo se mantienen intactos.\n" +
@@ -4157,7 +4157,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         lugarTuristico.setTipo("Patrimonio Urbano Arquitectónico, Artístico, Museos y Manifestaciones Culturales");
         lugarTuristico.setNombre("Casa Museo Martín Cárdenas");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"CASA MUSEO MARTIN CARDENAS1.jpg", "CASA MUSEO MARTIN CARDENAS2.jpg", "CASA MUSEO MARTIN CARDENAS3.jpg", "CASA MUSEO MARTIN CARDENAS4.jpg" });
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"casa museo martin cardenas1.jpg", "casa museo martin cardenas2.jpg", "casa museo martin cardenas3.jpg", "casa museo martin cardenas4.jpg" });
         lugarTuristico.setDescripcion("La Casa Museo Internacional y Científico Martín Cárdenas Hermosa es un patrimonio consagrado al destacado científico y botánico cochabambino, que entre varios estudios e investigaciones reconocidos internacionalmente figura la variada flora boliviana. Fue declarado Monumento Nacional el 31 de Julio de 1973; en él se guardan y exponen objetos personales, diferentes investigaciones y publicaciones que se preservaron en el tiempo como reliquias históricas.\n" +
                 "El centro se encuentra instalado donde residió el doctor Martín Cárdenas, quien consagró gran parte de su vida al estudio de la botánica de la región y de toda Bolivia. La Casa Museo es un lugar histórico que sirve como referente para los estudiantes de biología y botánica.\n" +
                 "El Jardín Botánico de la ciudad, lleva precisamente el nombre de este destacado científico como tributo a su loable labor de años de investigación y aporte a las ciencias naturales y en especial la botánica.\n");
@@ -4174,7 +4174,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         lugarTuristico.setTipo("Realizaciones Técnicas y Científicas ");
         lugarTuristico.setNombre("Art Gallery Gildaro Antezana");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"ART GALLERY GILDARO ANTEZANA1.jpg" ,"ART GALLERY GILDARO ANTEZANA2.jpg" });
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"art gallery gildaro antezana1.jpg" ,"art gallery gildaro antezana2.jpg" });
         lugarTuristico.setDescripcion("Es el salón más requerido por los artistas regionales y nacionales de " +
                 "gran nivel para la difusión de sus obras de escultura, pintura, grabados, dibujo y otras manifestaciones. ");
         lugarTuristico.setHorario("No se tiene registrado.");
@@ -4190,7 +4190,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         lugarTuristico.setTipo("Realizaciones Técnicas y Científicas ");
         lugarTuristico.setNombre("Salon de exposición Mario Unzueta ");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"SALON DE EXPOSICION MARIO UNZUETA1.jpg", "SALON DE EXPOSICION MARIO UNZUETA2.jpg", "SALON DE EXPOSICION MARIO UNZUETA3.jpg" });
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"salon de exposicion mario unzueta1.jpg", "salon de exposicion mario unzueta2.jpg", "salon de exposicion mario unzueta3.jpg" });
         lugarTuristico.setDescripcion("Es un salón de exposición de artes plásticas, ero su básica es la promoción cultural de las actividades de diversas instituciones y personas que se dan a conocer y muchas veces, ofrecen a la venta sus obras.Es un salón de exposición de artes plásticas, ero su básica es la promoción cultural de" +
                 " las actividades de diversas instituciones y personas que se dan a conocer y muchas veces, ofrecen a la venta sus obras.");
         lugarTuristico.setHorario("No se tiene registrado.");
@@ -4206,7 +4206,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         lugarTuristico.setTipo("Patrimonio Urbano Arquitectónico, Artístico, Museos y Manifestaciones Culturales");
         lugarTuristico.setNombre("Teatro Adela Zamudio");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"TEATRO ADELA ZAMUDIO1.jpg", "TEATRO ADELA ZAMUDIO2.jpg" });
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"teatro adela zamudio1.jpg", "teatro adela zamudio2.jpg" });
         lugarTuristico.setDescripcion("Teatro ubicado en pleno centro de la ciudad, con buena capacidad para espectadores. Dividido en dos niveles. Es escenario para  actividades culturales como festivales nacionales e internacionales de música, presentaciones de baile, ciclos cinematográficos, obras de teatro, actuaciones estelares, " +
                 "conciertos folklóricos, eventos históricos y otros. Cuenta con dos ingresos laterales y dos ingresos laterales frontales.");
         lugarTuristico.setHorario("No se tiene registrado.");
@@ -4222,7 +4222,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         lugarTuristico.setTipo("Patrimonio Urbano Arquitectónico, Artístico, Museos y Manifestaciones Culturales");
         lugarTuristico.setNombre("Museo Arqueológico ");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"MUSEO ARQUEOLOGICO1.jpg", "MUSEO ARQUEOLOGICO2.jpg", "MUSEO ARQUEOLOGICO3.jpg", "MUSEO ARQUEOLOGICO4.jpg" });
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"museo arqueologico1.jpg", "museo arqueologico2.jpg", "museo arqueologico3.jpg", "museo arqueologico4.jpg" });
         lugarTuristico.setDescripcion("El Museo Aqueológico de la Universidad Mayor de San Simón cuenta actualmente con aproximadamente 40.000 piezas arqueológicas, etnográficas y paleontológicas, clasificadas e inventariadas en su mayoría procedentes del Departamento de Cochabamba y otras regiones de Bolivia. Cuenta con un equipo de investigadores que realizan estudios, proyectos y programas en coordinación con instituciones científicas, educativas y demás dentro y fuera del país.\n" +
                 "Actualmente cuenta con tres áreas de exposición permanente:\n" +
                 "La Sección Arqueológica que constituye la parte fundamental del Museo. Muestra una secuencia cronológica de las distintas culturas que ocuparon Cochabamba y áreas aledañas, desde las sociedades pre-cerámicas hasta la formación de los grandes estados, como Tiwanaku e Inca.\n" +
@@ -4242,7 +4242,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         lugarTuristico.setTipo("Patrimonio Urbano Arquitectónico, Artístico, Museos y Manifestaciones Culturales");
         lugarTuristico.setNombre("Centro Cultural “Simon I. Patiño”");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"CENTRO CULTURAL SIMON I PATIÑO1.jpg", "CENTRO CULTURAL SIMON I PATIÑO2.jpg", "CENTRO CULTURAL SIMON I PATIÑO3.jpg", "CENTRO CULTURAL SIMON I PATIÑO5.jpg" });
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"centro cultural simon i patiño1.jpg", "centro cultural simon i patiño2.jpg", "centro cultural simon i patiño3.jpg", "centro cultural simon i patiño5.jpg" });
         lugarTuristico.setDescripcion("Una obra arquitectónica maravillosa, un paseo por una parte de la historia de un hombre visionario a pesar de sus limitaciones, imponente gusto decorativo y ecléctico que todos deberíamos conocer. Excelente atención y conocimiento de su personal.");
         lugarTuristico.setHorario("Martes a Viernes 15:30 -  18:00, Sábado 09:30 – 11:30, Domingo11:00 – 11:30");
         lugarTuristico.setDireccion("Potosí 1450, Cochabamba, Bolivia");
@@ -4258,7 +4258,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_QUILLACOLLO);
         lugarTuristico.setTipo("Patrimonio Urbano Arquitectónico, Artístico, Museos y Manifestaciones Culturales");
         lugarTuristico.setNombre("Parroquia de San Idelfonso");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"PARROQUIA DE SAN IDELFONSO1.jpg", "PARROQUIA DE SAN IDELFONSO2.jpg", "PARROQUIA DE SAN IDELFONSO3.jpg" ,"PARROQUIA DE SAN IDELFONSO4.jpg" });
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"parroquia de san idelfonso1.jpg", "parroquia de san idelfonso2.jpg", "parroquia de san idelfonso3.jpg" ,"parroquia de san idelfonso4.jpg" });
         lugarTuristico.setDescripcion("Se construyó en 1908   y se consagra solemnemente  el 14 de agosto de1947.\n" +
                 "El templo fue construido entre los años 1908 1947, la primer fue colocada en el mes de abril  de 1908,   cuando oficiaba el Párroco el  Fructuoso  Mencia este hermoso  templo fue edificado con pedrones trasladados desde El Calvario piedra por piedra, con arena del rio Tacata Que fueron traídos en mantas, ponchos, tablones y  Los por ancianos y niños.\n" +
                 "Fue declarado patrimonio histórico, actualmente es el Altar Mayor emplazado en el lugar y sitio más estratégico como admirable se halla compuesto de varios motivos también excepcionales, La expresión radiante de la urna áurea (revestida de la pintura pan de oro) de donde la imagen original de la santísima virgen de Urkupiña va irradiando sus dones divinos.\n" +
@@ -4279,7 +4279,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_QUILLACOLLO);
         lugarTuristico.setTipo("Patrimonio Urbano Arquitectónico, Artístico, Museos y Manifestaciones Culturales");
         lugarTuristico.setNombre("Santuario de la Virgen de Urkupiña");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"SANTUARIO DE LA VIRGEN DE URKUPIÑA1.jpg", "SANTUARIO DE LA VIRGEN DE URKUPIÑA2.jpg", "SANTUARIO DE LA VIRGEN DE URKUPIÑA3.jpg" });
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"santuario de la virgen de urkupiña1.jpg", "santuario de la virgen de urkupiña2.jpg", "santuario de la virgen de urkupiña3.jpg" });
         lugarTuristico.setDescripcion("Cuenta la historia que a una pastorcita se le apareció la imagen de la Virgen con el Niño, cuando ella llevaba a pastorear a sus ovejas, al principio no le creía sus relatos y un día su madre la siguió y pudo observala.\n" +
                 "En dicho lugar se creó el Santuario en donde todos los 14 de Agosto se realiza una peregrinación.\n" +
                 "Todos hacen pedidos por su salud o por mejoras en sus vidas, en lo material dejan una pequeña replica de los solicitado, autitos de juguetes, fotocopias de billetes.\n" +
@@ -4298,7 +4298,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_QUILLACOLLO);
         lugarTuristico.setTipo("Patrimonio Urbano Arquitectónico, Artístico, Museos y Manifestaciones Culturales");
         lugarTuristico.setNombre("Señor de Piñami ");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"SEÑOR DE PIÑAMI1.jpg"});
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"señor de piñami1.jpg"});
         lugarTuristico.setDescripcion("Señor de Piñami, también conocido como Señor de los compadres, que celebran su fiesta el segundo jueves anterior a la fiesta del carnaval.\n" +
                 "Recorrido que se realiza, resaltando la emotiva visita a la virgen de Urkupiña, ubicada en el altar mayor.\n");
         lugarTuristico.setHorario("No hay horario de atención");
@@ -4314,7 +4314,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_QUILLACOLLO);
         lugarTuristico.setTipo("Patrimonio Urbano Arquitectónico, Artístico, Museos y Manifestaciones Culturales");
         lugarTuristico.setNombre("Iglesia El Paso ");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"IGLESIA EL PASO1.jpg", "IGLESIA EL PASO2.jpg" });
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"iglesia el paso1.jpg", "iglesia el paso2.jpg" });
         lugarTuristico.setDescripcion("Pueblo ubicado en las faldas del Tunari, en la zona noreste del municipio de Quillacollo. Es una de las más antiguas poblaciones coloniales del valle cochabambino.\n" +
                 "Su historia se remonta a mediados del siglo XVI, cuando don Juan Polo de Ondegardo, recibió estas tierras como repartimiento. Durante el tiempo de reducción de los pueblos originarios, este Pueblo de Indios fue creado por Cédula Real el 27 de Mayo de 1571 por orden del Virrey Francisco de Toledo. A finales de la colonia, fue centro de doctrina y administración para la comarca indígena como criolla. En la época republicana se elevó a rango de cantón de Quillacollo, un 14 de septiembre de 1905. A lo largo de la historia se constituyó en un lugar de reposo y paso obligado para atravesar la cordillera hacia el trópico y viceversa.\n" +
                 "Es de los primeros centros poblados en Cochabamba.\n" +
@@ -4332,7 +4332,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_QUILLACOLLO);
         lugarTuristico.setTipo("Realizaciones Técnicas y Científicas ");
         lugarTuristico.setNombre("Centro Eco - Turístico el Poncho");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"CENTRO ECOTURISTICO EL PONCHO1.jpg", "CENTRO ECOTURISTICO EL PONCHO2.jpg", "CENTRO ECOTURISTICO EL PONCHO3.jpg" });
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"centro ecoturistico el poncho1.jpg", "centro ecoturistico el poncho2.jpg", "centro ecoturistico el poncho3.jpg" });
         lugarTuristico.setDescripcion("Al pie del majestuoso Tunari, y a tan solo 20 Kilometros del centro de la ciudad de Cochabamba, se encuentra el Centro Eco-turístico El Poncho, lugar caracterizado por su arquitectura ecológica y ancestral, combinada con una hermosa diversidad de flora y fauna silvestre, además de una serie de paisajes naturales característicos del valle alto de Cochabamba.\n" +
                 "El Poncho es un centro energético construido en base a posiciones estelares de antiguas constelaciones, y tiene como principal misión buscar el reencuentro y el descanso de nuestros huéspedes y amigos.\n");
         lugarTuristico.setHorario("No se tiene registrado");
@@ -4348,7 +4348,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_QUILLACOLLO);
         lugarTuristico.setTipo("Sitios Naturales");
         lugarTuristico.setNombre("Parque Eco - Turístico Pairumani ");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"PARQUE ECOTURISTICO PAIRUMANI3.jpg", "PARQUE ECOTURISTICO PAIRUMANI1.jpg", "PARQUE ECOTURISTICO PAIRUMANI2.jpg" });
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"parque ecoturistico pairumani3.jpg", "parque ecoturistico pairumani1.jpg", "parque ecoturistico pairumani2.jpg" });
         lugarTuristico.setDescripcion("El parque Pairumani está rodeado de vertientes de límpidas aguas que descienden directamente del Tunari, un gran bosque de eucaliptos y de qewiñas. El parque tiene parrilleros, baños, agua potable y basureros a disposición. Además, en el lugar se alquilan carpas, de 2 a 25 personas, a quienes quieran pasar la noche, dentro del parque se encuentra una cascada natural y campos deportivos para la recreación.\n" +
                 "En este lugar funcionaba una estación hidroeléctrica que pertenecía al Barón del Estaño.\n");
         lugarTuristico.setHorario("No se tiene registrado");
@@ -4364,7 +4364,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_QUILLACOLLO);
         lugarTuristico.setTipo("Realizaciones Técnicas y Científicas");
         lugarTuristico.setNombre("Liriuni");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"LIRIUNI1.jpg", "LIRIUNI2.jpg", "LIRIUNI3.jpg" });
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"liriuni1.jpg", "liriuni2.jpg", "liriuni3.jpg" });
         lugarTuristico.setDescripcion("Liriuni es un balneario natural, ubicado en la Cordillera Tunari, dentro el municipio de Quillacollo. Se encuentra a 20 kilómetros de la ciudad de Cochabamba.\n" +
                 "De belleza impactante, el viajero es testigo de cómo aquí se confunden el campo, la brisa, el agua y los sonidos propios del lugar para dar como resultado un paisaje apasionante y cautivador.\n" +
                 "El gran imán de esta hermosa zona es, definitivamente la cualidad curativa y medicinal que posee sus aguas, es por ello que muchos visitantes, más que todo adultos mayores, acuden al lugar sólo para comprobar las cualidades terapéuticas de sus aguas.\n" +
@@ -4384,7 +4384,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_QUILLACOLLO);
         lugarTuristico.setTipo("Patrimonio Urbano Arquitectónico, Artístico, Museos y Manifestaciones Culturales");
         lugarTuristico.setNombre("Mansión Villa Albina");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"MANSION ALBINA PATIÑO1.jpg", "MANSION ALBINA PATIÑO2.jpg", "MANSION ALBINA PATIÑO3.jpg", "MANSION ALBINA PATIÑO4.jpg" });
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"mansion albina patiño1.jpg", "mansion albina patiño2.jpg", "mansion albina patiño3.jpg", "mansion albina patiño4.jpg" });
         lugarTuristico.setDescripcion("Esta belleza arquitectónica ubicada en las faldas del Tunari a 2 Kms. de Vinto, fue mandada a construir por el Barón del Estaño Simón I. Patiño entre los años 1818 y1921, bajo la dirección del Arq. Francés Jardín y concluido por su hijo. Villa Albina posee toda la magia del arte europeo: patios inmensos con fuentes deslumbrantes, majestuosos jardines, esculturas y el gran mausoleo e donde descansan los restos de los propietarios.\n" +
                 "\n" +
                 "Actualmente en una de sus dependencias funciona el más importante laboratorio filogenético de maíz y haba; y una granja experimental.\n");
@@ -4401,7 +4401,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_QUILLACOLLO);
         lugarTuristico.setTipo("Patrimonio Urbano Arquitectónico, Artístico, Museos y Manifestaciones Culturales");
         lugarTuristico.setNombre("Palacio Consistorial");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"PALACIO CONSISTORIAL.jpg"});
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"palacio consistorial.jpg"});
         lugarTuristico.setDescripcion("El actual edificio de la Alcaldía Municipal de Quillacollo, conocido también como Palacio Consistorial, es una de las infraestructuras más antiguas, de la época republicana. Este se caracteriza por tener en la fachada, balcones trabajados en fierro forjado y una galería de arcos que lo representa. La alcaldía de Quillacollo funciona en este lugar desde el año 1857, convirtiéndose en un símbolo para los quillacolleños, del pasado y presente de su sociedad.\n" +
                 "Se encuentra en pleno centro de la ciudad de Quillacollo, siendo parte del casco histórico de la misma. En este edificio funciona la Alcaldía en la parte superior y el centro de abastecimiento o mercado popular en la parte baja.\n");
         lugarTuristico.setHorario("No hay horario de atención");
@@ -4419,7 +4419,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_QUILLACOLLO);
         lugarTuristico.setTipo("Realizaciones Técnicas y Científicas");
         lugarTuristico.setNombre("Plaza 6 de Agosto ");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"PLAZA 6 DE AGOSTO1.jpg", "PLAZA 6 DE AGOSTO2.jpg", "PLAZA 6 DE AGOSTO3.jpg" });
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"plaza 6 de agosto1.jpg", "plaza 6 de agosto2.jpg", "plaza 6 de agosto3.jpg" });
         lugarTuristico.setDescripcion("La Plaza 6 de Agosto o del “Cóndor”, junto a la Plaza Principal, representan la identidad de Quillacollo y son los referentes más antiguos como espacios de confraternidad y esparcimiento. También conocida como la Plaza de la Alcaldía por estar ubicado al frente del edificio municipal, consta de especies arbóreas nativas como molles, ligustros, palmeras y jardines con especies variadas de flores.\n" +
                 "Destaca el monumento al “C ó n d o r”, como fiel representación de esa emblemática ave que abunda en la Cordillera del Tunari.\n");
         lugarTuristico.setHorario("Abierto");
@@ -4435,7 +4435,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_QUILLACOLLO);
         lugarTuristico.setTipo("Patrimonio Urbano Arquitectónico, Artístico, Museos y Manifestaciones Culturales");
         lugarTuristico.setNombre("Qollcas Incaicas de Cotapachi");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"QOLLCAS INCAICAS DE COTAPACHI1.jpg", "QOLLCAS INCAICAS DE COTAPACHI2.jpg", "QOLLCAS INCAICAS DE COTAPACHI3.jpg" });
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"qollcas incaicas de cotapachi1.jpg", "qollcas incaicas de cotapachi2.jpg", "qollcas incaicas de cotapachi3.jpg" });
         lugarTuristico.setDescripcion("Al sur de la ciudad de Quillacollo, sobre las colinas alrededor de la laguna de Cotapachi, se encuentra uno de los sitios arqueológicos incaicos más importantes de Bolivia.\n" +
                 "Llamadas qollqas por los incas, se trata de un enorme complejo de silos emplazados en tres sectores de la colina para el acopio de maíz que se producía en la zona, siendo el más grande del imperio de los incas, formado por aproximadamente 2.500 qollcas o silos. Es muy importante este dato porque no hay que olvidar que la capital del imperio de los Incas fue El Cuzco, y ni siquiera en los alrededores de esa ciudad, donde estaba toda la estructura del poder y las grandes construcciones, existía un depósito de tales dimensiones.\n" +
                 "Ocupan una superficie de aproximadamente 61 hectáreas. Fueron construidas ordenadamente en filas sumando alrededor de 2.500 unidades en filas de norte a sur. Tuvieron originalmente base circular de piedra, forma cónica de tres metros de altura y estructura tipo canasta combinada y reforzada con barro y techo de paja.\n" +
@@ -4453,7 +4453,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_QUILLACOLLO);
         lugarTuristico.setTipo("Patrimonio Urbano Arquitectónico, Artístico, Museos y Manifestaciones Culturales");
         lugarTuristico.setNombre("Inka Rakay");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"INKA RAKAY1.jpg", "INKA RAKAY2.jpg" });
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"inka rakay1.jpg", "inka rakay2.jpg" });
         lugarTuristico.setDescripcion("Fortaleza Incaica, construida entre 1460 y 1470. Fue un conjunto de 17 edificios cuadrangulares y rectangulares, y de algunos silos redondos. Son las ruinas Incaicas más accesibles para visitar desde Cochabamba. Los expertos clasifican Inka Rakay como un centro administrativo de los Incas, encargado de:\n" +
                 "1) La organización del asentamiento de los quechuas y aymaras, que los incas llevaron del Altiplano, para cultivar el maíz en el valle de Cochabamba.\n" +
                 "2) La creación y la administración del granero de Quillacollo.\n" +
@@ -4475,7 +4475,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_QUILLACOLLO);
         lugarTuristico.setTipo("Sitios Naturales");
         lugarTuristico.setNombre("Los Molinos");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"LOS MOLINOS1.jpg", "LOS MOLINOS2.jpg", "LOS MOLINOS3.jpg" });
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"los molinos1.jpg", "los molinos2.jpg", "los molinos3.jpg" });
         lugarTuristico.setDescripcion("Es una zona ecológica, turística y productiva de diversidad climática propia de los valles, punas y subtrópicos que se mezclan con el cotidiano vivir de su gente. En esta zona además se puede encontrar una hermosa cascada natural de más de 15 mts. de altura en cuyas pozas es posible refrescarse.");
         lugarTuristico.setHorario("No se tiene registrado");
         lugarTuristico.setDireccion("Tiquipaya, Bolivia");
@@ -4490,7 +4490,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_QUILLACOLLO);
         lugarTuristico.setTipo("Realizaciones Técnicas y Científicas");
         lugarTuristico.setNombre("Acuaventura");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"ACUAVENTURA1.jpg", "ACUAVENTURA2.jpg", "ACUAVENTURA3.jpg", "ACUAVENTURA4.jpg" });
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"acuaventura1.jpg", "acuaventura2.jpg", "acuaventura3.jpg", "acuaventura4.jpg" });
         lugarTuristico.setDescripcion("Dos esculturas de elefantes, apostados a ambos lados de la entrada dan la bienvenida al visitante. Adentro, hay un par de dos grandes estructuras de toboganes para probar la adrenalina, media docena de resbalines pequeños, cuatro piscinas de distintos tamaños, dos de éstas con sistema de agua atemperada para niños, un “río” de 60 metros de largo, y un juego de camping (descenso inclinado en cuerda), donde las familias pueden pasar un fin de semana, refrescarse con todos las ofertas que puede ofrecer un balneario al aire libre, con juegos, sauna y pahuichis para servirse un plato de fin de semana.");
         lugarTuristico.setHorario("Jueves a Domingo 10:00 - 18:00");
         lugarTuristico.setDireccion("Av.Suárez Miranda, Quillacollo, Bolivia ");
@@ -4505,7 +4505,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_QUILLACOLLO);
         lugarTuristico.setTipo("Sitios Naturales");
         lugarTuristico.setNombre("Chocalla");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"CHOCALLA1.jpg", "CHOCALLA2.jpg", "CHOCALLA3.jpg" });
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"chocalla1.jpg", "chocalla2.jpg", "chocalla3.jpg" });
         lugarTuristico.setDescripcion(": Del extremo norte de Quillacollo, en una colina a más de 3.200 metros sobre el nivel del mar, a la distancia se observa la ciudad de Cochabamba envuelta en una nube gris que la aprisiona. El bosque tiene 40 hectáreas con más de 10 variedades de pinos, eucaliptos, kewiñas y otras que la comunidad administra.\n" +
                 "Además de la oferta ecológica, Chocaya tiene otros atractivos históricos como la primera planta hidroeléctrica de Cochabamba que funcionó desde 1908. Ahora las máquinas son piezas de museo.\n" +
                 "Las cascadas naturales, los ocho molinos antiguos de piedra (sin funcionar), la producción de flores, la horticultura, los senderos de donde emergen variedad de aves y mamíferos como el zorro andino, las zarigüeyas, los zorrinos, búhos, palomas, halcones y, en alguna ocasión, también planean desde las alturas los cóndores en busca de alimento.\n" +
@@ -4526,7 +4526,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_CAPINOTA);
         lugarTuristico.setTipo("Sitios Naturales");
         lugarTuristico.setNombre("Santivañez");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"SANTIVAÑEZ1.jpg" ,"SANTIVAÑEZ2.jpg", "SANTIVAÑEZ3.jpg", "SANTIVAÑEZ4.jpg" });
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"santivañez1.jpg" ,"santivañez2.jpg", "santivañez3.jpg", "santivañez4.jpg" });
         lugarTuristico.setDescripcion("Santivañez pueblo de valientes, pueblo de guerreros, histórica población, que se desarrolla sobre espacios concretos y determinados que tuvo importante papel en el proceso de consolidación del departamento de Cochabamba.\n" +
                 "La quebrada de Huirquini, que se encuentra a 3 ½ km. de la plaza Santivañez, es la zona mas visitada por los turistas quienes realizan descensos, campings, además de que pueden bañarse en sus aguas al fondo del precipicio.\n" +
                 "A su vez las Chullpas en Poquera son restos del periodo Incaico que se encuentran en el sector llamado Chullpamogo, que está en el camino a Poquera.\n");
@@ -4543,7 +4543,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_CAPINOTA);
         lugarTuristico.setTipo("Realizaciones Técnicas y Científicas ");
         lugarTuristico.setNombre("Plaza Principal(1° de Octubre)");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"PLAZA PRINCIPAL DEOCTUBRE1.jpg", "PLAZA PRINCIPAL DEOCTUBRE2.jpg", "PLAZA PRINCIPAL DEOCTUBRE13.jpg" });
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"plaza principal deoctubre1.jpg", "plaza principal deoctubre2.jpg", "plaza principal deoctubre13.jpg" });
         lugarTuristico.setDescripcion("Es importante destacar que en el mismo centro de Capinota (Plaza 1ro. de Octubre), existe una edificación de propiedad particular que desde hace muchísimos años ha sido destinada como alojamiento para el hospedaje de visitantes y oriundos del municipio.");
         lugarTuristico.setHorario("Abierto");
         lugarTuristico.setDireccion("Capinota, Bolivia");
@@ -4558,7 +4558,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_CAPINOTA);
         lugarTuristico.setTipo("Patrimonio Urbano Arquitectónico, Artístico, Museos y Manifestaciones Culturales");
         lugarTuristico.setNombre("Campana de Buen retiro");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"CAMPANA DE BUEN RETIRO1.jpg"});
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"campana de buen retiro1.jpg"});
         lugarTuristico.setDescripcion("En efecto, esta memorable campana anunciaba con su repicar las principales actividades de la estación. Se encontraba a la salida de la oficina principal, donde a su vez se encontraba el telégrafo y colindaba con la oficina del  Jefe de Estación, quien salía a tocarla cuando el tren estaba saliendo de alguna de las estaciones próximas.  En ese momento se producía un bullicio y movimiento inusitado en toda la estación, tanto por parte de los pasajeros que debían abordar el tren, de gente que esperaba a algún pariente y, principalmente, de los comerciantes de verdura y de vendedoras de comida que preparaban sus platos para atender a los viajantes. Buen Retiro era la última estación del valle y la más importante antes de subir la cordillera.\n" +
                 "La estación de Buen retiro funcionó desde 1915, y solo dos años después el  ferrocarril fue extendido hasta Cochabamba. La campana, por lo tanto, pudo tener un siglo anunciando el movimiento de trenes.  Como sucede con el ferrocarril en general, que es desmantelado todos los días, y su equipamiento y sus piezas son robados sistemáticamente, en la oportunidad fue robada la campana.\n");
         lugarTuristico.setHorario("Abierto");
@@ -4575,7 +4575,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_BOLIVAR);
         lugarTuristico.setTipo("Sitios Naturales");
         lugarTuristico.setNombre("Cuevas de Totora Pampa");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"CUEVAS DE TOTORA PAMPA1.jpg", "CUEVAS DE TOTORA PAMPA2.jpg" });
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"cuevas de totora pampa1.jpg", "cuevas de totora pampa2.jpg" });
         lugarTuristico.setDescripcion("Se puede observar formaciones pétreas naturales.");
         lugarTuristico.setHorario("No hay horario de atención");
         lugarTuristico.setDireccion("Bolivar, Bolivia");
@@ -4591,7 +4591,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_MIZQUE);
         lugarTuristico.setTipo("Patrimonio Urbano Arquitectónico, Artístico, Museos y Manifestaciones Culturales");
         lugarTuristico.setNombre("Museo arqueológico P. Mauricio Valcanover");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"Museo arqueológico Pm.jpg"});
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"museo arqueológico pm.jpg"});
         lugarTuristico.setDescripcion("El museo arqueológico P. Mauricio Valcanover, ubicado en la alcaldía, expone piezas arqueológicas, herramientas, armas, símbolos, vestimentas, cerámicas precolombinas, fósiles y trajes típicos de Rakaypampa.");
         lugarTuristico.setHorario("No se tiene registrado");
         lugarTuristico.setDireccion("C. Bolívar, Mizque, Bolivia");
@@ -4606,7 +4606,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_MIZQUE);
         lugarTuristico.setTipo("Etnografía y Folkore");
         lugarTuristico.setNombre("Ruedo de Toros");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"RUEDO DE TOROS1.jpg"});
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"ruedo de toros1.jpg"});
         lugarTuristico.setDescripcion("La actividad complementaria de la festividad del Señor de Burgos, es la tradicional corrida de Toros, una de las prácticas más populares post hispánicas que se acostumbra realizar durante ocho jornadas.\n" +
                 "Todas las tardes, la plaza taurina es escenario de esta famosa tradición, donde se aprecia la bravura de los toros y la experiencia de los capeadores, quienes tentados por los sendos premios buscan arrebatar la platería o los billetes de diferentes cortes, previamente amarrados en aguayos o pañoletas en las espaldas o astas de este bravo animal.\n" +
                 "Una misa y la posterior romería oficiada el 8 de septiembre en honor a la Virgen de Guadalupe, es el inicio a este evento tradicional, en el que participan experimentados toreros mizqueños, aiquileños y totoreños, además de los vallunos provenientes de Punata, Arani, Cliza que gustan de esta costumbre taurina.\n" +
@@ -4624,7 +4624,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_MIZQUE);
         lugarTuristico.setTipo("Patrimonio Urbano Arquitectónico, Artístico, Museos y Manifestaciones Culturales");
         lugarTuristico.setNombre("Parroquia de Mizque - San Sebastián");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"parroquia DE MISQUE.jpg"});
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"parroquia de misque.jpg"});
         lugarTuristico.setDescripcion("Destruida en el terremoto del año 1998; se terminó la reconstrucción en 2002, en ocasiones se puede subir a la torre para gozar de la vista sobre el valle.");
         lugarTuristico.setHorario("No hay horario de atención");
         lugarTuristico.setDireccion("C. Sucre, Mizque, Bolivia");
@@ -4639,7 +4639,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_MIZQUE);
         lugarTuristico.setTipo("Sitios Naturales");
         lugarTuristico.setNombre("Rio Mizque");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"RIO MIZQUE1.jpg", "RIO MIZQUE2.jpg" });
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"rio mizque1.jpg", "rio mizque2.jpg" });
         lugarTuristico.setDescripcion("Actividad casi obligatoria en la fiesta de Pascua");
         lugarTuristico.setHorario("Abierto");
         lugarTuristico.setDireccion("Mizque, Bolivia");
@@ -4654,7 +4654,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_MIZQUE);
         lugarTuristico.setTipo("Patrimonio Urbano Arquitectónico, Artístico, Museos y Manifestaciones Culturales");
         lugarTuristico.setNombre("Puente de los libertadores");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"PUENTE DE LOS LIBERTADORES1.jpg", "PUENTE DE LOS LIBERTADORES2.jpg" });
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"puente de los libertadores1.jpg", "puente de los libertadores2.jpg" });
         lugarTuristico.setDescripcion("Puente de los Libertadores bello puente ubicado a 25 km. De Mizque, que se alza sobre un sendero incaico y muestra una imponente cañada justo donde se ubica este puente construido durante la colonia y que sigue siendo utilizado hasta nuestros días. El puente debe su denominación porque por allí cruzaron las huestes de Simón Bolívar durante la guerra de la Independencia.");
         lugarTuristico.setHorario("Abierto");
         lugarTuristico.setDireccion("Mizque, Bolivia");
@@ -4669,7 +4669,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_MIZQUE);
         lugarTuristico.setTipo("Sitios Naturales");
         lugarTuristico.setNombre("Mizque - Cascada ");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"CASCADA MISQUE1.jpg", "CASCADA MISQUE2.jpg" });
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"cascada misque1.jpg", "cascada misque2.jpg" });
         lugarTuristico.setDescripcion("Con bellos paisajes ideales para pasar momentos en familia");
         lugarTuristico.setHorario("Abierto");
         lugarTuristico.setDireccion("Mizque, Bolivia");
@@ -4686,7 +4686,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_GERMAN_JORDAN);
         lugarTuristico.setTipo("Realizaciones Técnicas y Científicas ");
         lugarTuristico.setNombre("Plaza de Tolata");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"PLAZA TOLATA1.jpg", "PLAZA TOLATA2.jpg", "PLAZA TOLATA3.jpg", "PLAZA TOLATA4.jpg" });
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"plaza tolata1.jpg", "plaza tolata2.jpg", "plaza tolata3.jpg", "plaza tolata4.jpg" });
         lugarTuristico.setDescripcion("Está compuesta de diseños modernos y vegetación,  muy agradable deleitarse de su belleza, suelen realizarse algunas actividades religiosas el 14 de Septiembre.");
         lugarTuristico.setHorario("Abierto");
         lugarTuristico.setDireccion("Tolata, Bolivia");
@@ -4701,7 +4701,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_GERMAN_JORDAN);
         lugarTuristico.setTipo("Patrimonio Urbano Arquitectónico, Artístico, Museos y Manifestaciones Culturales");
         lugarTuristico.setNombre("Parroquia San Antonio Tolata");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"PARROQUIA SAN ANTONIO DE TOLATA1.jpg", "PARROQUIA SAN ANTONIO DE TOLATA2.jpg" });
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"parroquia san antonio de tolata1.jpg", "parroquia san antonio de tolata2.jpg" });
         lugarTuristico.setDescripcion("Según relatos del Monseñor Walter Rosales en el año 1864 durante la presidencia del General Mariano Melgarejo, en el cerro kalapaKira a 1 km hacia el norte de la actual plaza principal de Tolata, donde apareció una imagen de la Virgen María a una pastorcita.\n" +
                 "Dicha imagen fue trasladada a Tarata ya que aquella época Tolata pertenecía a la parroquia de Tarata.\n" +
                 "El pueblo lloraba porque el pueblo de Tarata se apodero de la imagen, fue entonces que a la misma pastorcita se le apareció la actual imagen que está en la parroquia de Tolata un 14 de septiembre, es por esta razón que su fiesta se celebra en esta fecha cada año bajo la vocación de Nuestra Señora del Patrocinio y como Patrona de Tolata.\n" +
@@ -4720,7 +4720,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_GERMAN_JORDAN);
         lugarTuristico.setTipo("Patrimonio Urbano Arquitectónico, Artístico, Museos y Manifestaciones Culturales");
         lugarTuristico.setNombre("Templo de Nuestra Señora del Carmen");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"Templo de Nuestra Señora del Carmen1.jpg", "Templo de Nuestra Señora del Carmen2.jpg", "Templo de Nuestra Señora del Carmen3.jpg" });
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"templo de nuestra señora del carmen1.jpg", "templo de nuestra señora del carmen2.jpg", "templo de nuestra señora del carmen3.jpg" });
         lugarTuristico.setDescripcion("El templo de Nuestra Señora del Carmen ubicada en la plaza principal 21 de Septiembre cuya torre del reloj que data de 1912 y es considerado el más antiguo de la región. En cuyos ambientes de realiza la celebración de la Virgen del Carmen.");
         lugarTuristico.setHorario("No se tiene registrado.");
         lugarTuristico.setDireccion("Plaza principal de Cliza, Cliza, Bolivia");
@@ -4735,7 +4735,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_GERMAN_JORDAN);
         lugarTuristico.setTipo("Realizaciones Técnicas y Científicas");
         lugarTuristico.setNombre("Mercado Central de Cliza");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"MERCADO CENTARL DE CLIZA1.jpg", "MERCADO CENTARL DE CLIZA3.jpg" });
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"mercado centarl de cliza1.jpg", "mercado centarl de cliza3.jpg" });
         lugarTuristico.setDescripcion("Es el mercado central de la ciudad, donde, desde, que sale el sol no hasta mucho después que deja de brillar se vive un ambiente de fiesta en el que el regateo por el precio es su particularidad.");
         lugarTuristico.setHorario("No hay horario de atención");
         lugarTuristico.setDireccion("Cliza , Bolivia");
@@ -4750,7 +4750,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_GERMAN_JORDAN);
         lugarTuristico.setTipo("Patrimonio Urbano Arquitectónico, Artístico, Museos y Manifestaciones Culturales");
         lugarTuristico.setNombre("Iglesia de San Miguel");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"MERCADO CENTARL DE CLIZA1.jpg", "MERCADO CENTARL DE CLIZA3.jpg" });
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"mercado centarl de cliza1.jpg", "mercado centarl de cliza3.jpg" });
         lugarTuristico.setDescripcion("Iglesia San Miguel, es una joya arquitectónica construida el 1788, aunque es posible que esta edificación se la haya hecho sobre otra construcción más antigua. Llama la atención su cúpula recubierta con azulejos multicolores fabricados por los artesanos de Huaiculli en Tarata, así como esta iglesia todavía queda en Toco casas que conservan su estilo condal.\n" +
                 "El altar central esta tallada en madera cedro con mágicas representaciones de simbólicas divinas que le dan un toque de esplendorosa magnificencia.\n" +
                 "Guarda los elementos que definen la tipología de los primeros templos altoperuano, la misma que pervive aún después de la Independencia de la República, la cual demuestra a simple vista características de real importancia en cada uno sus elementos constructivos como ser, la disposición en planta de la iglesia, la cubierta, la estructura, una cúpula con acabados imponentes, la puerta de ingreso y todos los pequeños elementos decorativos que la hacen única en su tipo.\n");
@@ -4767,7 +4767,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_GERMAN_JORDAN);
         lugarTuristico.setTipo("Realizaciones Técnicas y Científicas ");
         lugarTuristico.setNombre("Plaza de Granos ");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"PLAZA DE GRANOS1.jpg", "PLAZA DE GRANOS2.jpg" });
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"plaza de granos1.jpg", "plaza de granos2.jpg" });
         lugarTuristico.setDescripcion("Uno de sus principales productos que tiene Cliza es la producción de maíz cuya comercialización es una de las principales actividades del municipio y es un elemento fundamental de la cultura. Se puede encontrar la variedad más grande de granos de maíz del departamento.\n" +
                 "La chicha cliceña que se caracteriza por su particular y diferente forma de elaboración como también por su maíz, chicha amarilla y kulli se puede degustar en el centro del pueblo. \n" +
                 "Se puede encontrar la variedad más grande de granos de maíz del departamento. \n");
@@ -4784,7 +4784,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_GERMAN_JORDAN);
         lugarTuristico.setTipo("Patrimonio Urbano Arquitectónico, Artístico, Museos y Manifestaciones Culturales");
         lugarTuristico.setNombre("Arco de Bienvenida - Cliza");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"Arco de Bienvenida1.jpg", "Arco de Bienvenida2.jpg" });
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"arco de bienvenida1.jpg", "arco de bienvenida2.jpg" });
         lugarTuristico.setDescripcion("EL arco de Bienvenida de Cliza se encuentra ubicada en la Av. Monseñor Walter Rosales, desde el ingreso al pueblo la historia acompaña al visitante. El arco histórico de Cliza da la bienvenida al “pueblo pujante y granero de Bolivia”.  ");
         lugarTuristico.setHorario("Abierto");
         lugarTuristico.setDireccion("Cliza, Bolivia");
@@ -4800,7 +4800,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_ARANI);
         lugarTuristico.setTipo("Patrimonio Urbano Arquitectónico, Artístico, Museos y Manifestaciones Culturales");
         lugarTuristico.setNombre("Iglesia de San Bartolomé ");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"IGLESIA DE SAN BARTOLOME1.jpg", "IGLESIA DE SAN BARTOLOME2.jpg", "IGLESIA DE SAN BARTOLOME3.jpg" });
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"iglesia de san bartolome1.jpg", "iglesia de san bartolome2.jpg", "iglesia de san bartolome3.jpg" });
         lugarTuristico.setDescripcion("Uno de los atractivos arquitectónicos religiosos más bellos que se precia de tener la población de Arani, es el templo colonial de San Bartolomé, declarado Monumento Nacional, en 1945.\n" +
                 "Diseñado por el obispo agustino Fray Bernardino de Cárdenas, al más puro estilo romano y barroco plateresco, y construido por Lucas Cabral, en 1610, esta reliquia religiosa es considerada como una de las mejores obras de arte del virreinato, actualmente se encuentra entre las cinco catedrales marianas del país, consagrada a las indulgencias de peregrinos de todo el territorio Nacional.\n" +
                 "Su interior está hermosamente decorado por varios retablos tallados en madera cedro. En el altar se encuentra la imagen de la Virgen “La Bella”, cuya fiesta es celebrada con pompas desde el 23 al 25 de agosto.\n");
@@ -4817,7 +4817,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_ARANI);
         lugarTuristico.setTipo("Acontecimientos Programados");
         lugarTuristico.setNombre("Festividad de la Virgen “La Bella”");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"IGLESIA DE SAN BARTOLOME1.jpg",  "IGLESIA DE SAN BARTOLOME3.jpg", "IGLESIA DE SAN BARTOLOME2.jpg" });
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"iglesia de san bartolome1.jpg",  "iglesia de san bartolome3.jpg", "iglesia de san bartolome2.jpg" });
         lugarTuristico.setDescripcion("Araní es un atractivo destino para la práctica de turismo religioso, actividad que se encuentra enmarcada en una profunda tradición y ferviente vocación religiosa, resultado del proceso de evangelización y catequización que se llevó a cabo durante la conquista, además de haber funcionado como sede del Obispado de Santa Cruz de la Sierra, el siglo XVII. Entre el 23 y el 25 de agosto, Arani se viste de gala al celebrar la festividad religiosa en honor a la Virgen La Bella, declarada Patrimonio Cultural y Religioso del Departamento de Cochabamba, mediante Ley de 24 de diciembre de 2007. Esta fiesta, al contrario de otras festividades que comienzan con la entrada folklórica, inicia su evento festivo con el día del calvario, seguido de la procesión de la sagrada imagen de la Bella, para finalizar con la demostración folklórica.\n" +
                 "No obstante, antes de la celebración misma de la fiesta, la imagen es venerada en principio en la ciudad de Sacaba para después retornar a Arani donde se da inicio a las tres jornadas festivas. En esta fiesta, durante el calvario también se acostumbra adquirir objetos en miniatura o propiedades para luego ser bendecidas en los rituales católicos y andinos, con similares características que las de Urkupiña.\n");
         lugarTuristico.setHorario("No se tiene registrado.");
@@ -4833,7 +4833,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_ARANI);
         lugarTuristico.setTipo("Realizaciones Técnicas y Científicas");
         lugarTuristico.setNombre("Plaza 24 de Noviembre");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"PLAZA 24 DE NOVIEMBRE1.jpg", "PLAZA 24 DE NOVIEMBRE2.jpg", "PLAZA 24 DE NOVIEMBRE3.jpg" });
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"plaza 24 de noviembre1.jpg", "plaza 24 de noviembre2.jpg", "plaza 24 de noviembre3.jpg" });
         lugarTuristico.setDescripcion("Esta plaza se caracteriza por la cantidad de gente que participa en sus ferias en las cuales los comunarios presentan la variedad de sus productos pero fundamentalmente el tradicional pan, los distintos platos y la riquísima chicha en sus dos colores kulli y amarillo.");
         lugarTuristico.setHorario("Abierto");
         lugarTuristico.setDireccion("Arani, Bolivia");
@@ -4848,7 +4848,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_ARANI);
         lugarTuristico.setTipo("Patrimonio Urbano Arquitectónico, Artístico, Museos y Manifestaciones Culturales");
         lugarTuristico.setNombre("Molino ");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"MOLINO1.jpg"});
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"molino1.jpg"});
         lugarTuristico.setDescripcion("Un molino antiguo, construido el siglo XIX, realizada por Schneider, Haviland.");
         lugarTuristico.setHorario("No se tiene registrado.");
         lugarTuristico.setDireccion("Arani, Bolivia");
@@ -4863,7 +4863,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_ARANI);
         lugarTuristico.setTipo("Sitios Naturales");
         lugarTuristico.setNombre("Puya Raymundi");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"PUYA RAYMONDI1.jpg", "PUYA RAYMONDI2.jpg" });
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"puya raymondi1.jpg", "puya raymondi2.jpg" });
         lugarTuristico.setDescripcion("La Puya Raymundi, planta catalogada como especie en extinción, habita en la región, la cual florece cada cien años aproximadamente, siendo polinizada por el picaflor de pico curvo, especie que también se encuentra en peligro de extinción.");
         lugarTuristico.setHorario("Abierto");
         lugarTuristico.setDireccion("Vacas, Bolivia");
@@ -4878,7 +4878,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_ARANI);
         lugarTuristico.setTipo("Sitios Naturales");
         lugarTuristico.setNombre("Cascadas Rosas Pampa");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"CASCADAS ROSAS PAMPA1.jpg"});
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"cascadas rosas pampa1.jpg"});
         lugarTuristico.setDescripcion("Cascadas Rosas Pampa ubicada en la provincia de Arani de aguas cristalinas para pasar un momento de diversión además de la vista agradable que posee este atractivo natural. ");
         lugarTuristico.setHorario("Abierto");
         lugarTuristico.setDireccion("Vacas, Bolivia");
@@ -4893,7 +4893,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_ARANI);
         lugarTuristico.setTipo("Sitios Naturales");
         lugarTuristico.setNombre("Cascada Toro Warkhu");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"Cascada Toro Warkhu.jpg"});
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"cascada toro warkhu.jpg"});
         lugarTuristico.setDescripcion("Toro Warkhu, una cascada de al menos 50 m. de altura, maravilla natural que está a menos de tres horas de caminata de la plaza principal del municipio de Vacas, que desde hace un par de años impulsa el turismo para fortalecer su economía.");
         lugarTuristico.setHorario("Abierto");
         lugarTuristico.setDireccion("Vacas, Bolivia");
@@ -4908,7 +4908,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_ARANI);
         lugarTuristico.setTipo("Sitios Naturales");
         lugarTuristico.setNombre("Laguna Parco Jhocha");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"Parco Jhocha1.jpg", "Parco Jhocha2.jpg" });
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"parco jhocha1.jpg", "parco jhocha2.jpg" });
         lugarTuristico.setDescripcion("Uno de los atractivos de la comunidad de Vacas son sus lagunas de aguas tranquilas donde se puede hacer camping y turismo de pesca recreativa.\n" +
                 "Tiene más de siete kilómetros cuadrados y es de agua dulce.\n");
         lugarTuristico.setHorario("Abierto");
@@ -4925,7 +4925,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_ARQUE);
         lugarTuristico.setTipo("Sitios Naturales");
         lugarTuristico.setNombre("Sicaya ");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"SiCAYA1.jpg", "SiCAYA2.jpg" });
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"sicaya1.jpg", "sicaya2.jpg" });
         lugarTuristico.setDescripcion("Habitada anteriormente por la cultura de los Túmulos. (a.c.), donde existen pedazos de cerámica sin pinturas.\n" +
                 "A manera de conclusión, cabe señalar que la provincia, por la serie de factores antes mencionados posee una riqueza arqueológica digna de mayor atención y por lo tanto de investigaciones sistemáticas y científicas. Las pocas piezas arqueológicas conocidas hasta la fecha dan cuenta de esta riqueza, entre estas se destacan: tipos de cobre, estatuillas líticas de la cultura de los túmulos, figurillas de arcilla, hachas metálicas, punta de lanza de cuarzo.  \n");
         lugarTuristico.setHorario("No se tiene registrado.");
@@ -4941,7 +4941,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_ARQUE);
         lugarTuristico.setTipo("Sitios Naturales");
         lugarTuristico.setNombre("Tacopaya");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"TACOPAYA1.jpg", "TACOPAYA2.jpg" });
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"tacopaya1.jpg", "tacopaya2.jpg" });
         lugarTuristico.setDescripcion("De paisajes hermosos atravesados por ríos y montañas, de gente hospitalaria y tradicional.");
         lugarTuristico.setHorario("Abierto");
         lugarTuristico.setDireccion("Arque, Bolivia");
@@ -4956,7 +4956,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_ARANI);
         lugarTuristico.setTipo("Sitios Naturales");
         lugarTuristico.setNombre("Pesarani");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"PESARANI1.jpg"});
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"pesarani1.jpg"});
         lugarTuristico.setDescripcion("De aguas cristalinas y paisajes hermosos, cuyo afluente crece en tiempos de lluvia, además de ser aprovechabas para el riego de sus sembradíos.\n" +
                 "La producción agrícola, principalmente de papa y cebada, es la base de su economía. Las mujeres se dedican a la Agroforestería y el tejido pero sólo para su uso.\n");
         lugarTuristico.setHorario("Abierto");
@@ -4973,7 +4973,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_ESTEBAN_ARZE);
         lugarTuristico.setTipo("Sitios Naturales");
         lugarTuristico.setNombre("La Angostura");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"LA ANGOSTURA1.jpg", "LA ANGOSTURA2.jpg", "LA ANGOSTURA3.jpg", "LA ANGOSTURA4.jpg" });
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"la angostura1.jpg", "la angostura2.jpg", "la angostura3.jpg", "la angostura4.jpg" });
         lugarTuristico.setDescripcion("Se trata de una laguna artificial que originalmente fue construida como una represa para riegos y actualmente también es uno de los lugares turísticos en los que se puede disfrutar de piscina, paseos en bote por la laguna, y de la comida de la zona. A orillas de la laguna se encuentran varios restaurantes cuya especialidad es el pescado, además de las dulces y cálidas cabañas que ofrecen alojamiento y servicios para celebrar ocasiones especiales.\n" +
                 "Esta represa fue materializada gracias a la cooperación del Gobierno de México, que junto a su similar de Bolivia, concretó el embalse que acumula 50.000.000 de metros cúbicos de agua. Su culminación, después de 8 años fue en 1948.\n");
         lugarTuristico.setHorario("Abierto");
@@ -4989,7 +4989,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_ESTEBAN_ARZE);
         lugarTuristico.setTipo("Patrimonio Urbano Arquitectónico, Artístico, Museos y Manifestaciones Culturales");
         lugarTuristico.setNombre("Templo San Pedro ");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"TEMPLO SAN PEDRO3.jpg", "TEMPLO SAN PEDRO1.jpg", "TEMPLO SAN PEDRO2.jpg" });
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"templo san pedro3.jpg", "templo san pedro1.jpg", "templo san pedro2.jpg" });
         lugarTuristico.setDescripcion("El templo de San Pedro, ubicado cerca de la Plaza de Armas, tiene la estructura de una sola nave en forma de cruz latina. Sus retablos están tallados en madera y cubiertos con pan de oro. En este sitio se conserva el primer libro de fábrica (1963) y también un órgano del siglo XVIII considerado reliquia patrimonial de Tarata, al lado derecho del interior del templo, se puede apreciar la espada original de Melgarejo.");
         lugarTuristico.setHorario("No hay horario de atención");
         lugarTuristico.setDireccion("Plaza principal de Tarata, Bolivia");
@@ -5004,7 +5004,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_ESTEBAN_ARZE);
         lugarTuristico.setTipo("Patrimonio Urbano Arquitectónico, Artístico, Museos y Manifestaciones Culturales");
         lugarTuristico.setNombre("Casa de Barrientos");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"CASA DE BARRIENTOS.jpg"});
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"casa de barrientos.jpg"});
         lugarTuristico.setDescripcion("Edificación en la que sobre sale la Arquitectura Colonial, la Planta baja con pilastras talladas en roca al igual que sus puertas con arquería y jampas, en la Planta Alta resalta sus balcones en hierro forjado y sus decorados afiligranados. Se observa en este lugar, que las calles antiguas se abren en brazos, de carácter clásicos y Coloniales, pintados con el Ocre Rojizo.");
         lugarTuristico.setHorario("No se tiene registrado.");
         lugarTuristico.setDireccion("Tarata, Bolivia");
@@ -5019,7 +5019,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_ESTEBAN_ARZE);
         lugarTuristico.setTipo("Patrimonio Urbano Arquitectónico, Artístico, Museos y Manifestaciones Culturales");
         lugarTuristico.setNombre("Casa de Melgarejo ");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"CASA DE MELGAREJO 1.jpg"});
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"casa de melgarejo 1.jpg"});
         lugarTuristico.setDescripcion("Al oeste de Tarata esta la casa del Gral. Melgarejo al interior está su imagen que es venerada con flores y chica, la casa es de dos plantas construido con adobe, que conserva pese a los años transcurridos la imponencia de su estructura decorada en las arcadas de sus ventanales con el Águila Bicéfala que le da el semblante marcial al edificio. En el año 1999 restauraron la casa del Gral. Mariano Melgarejo.");
         lugarTuristico.setHorario("No se tiene registrado.");
         lugarTuristico.setDireccion("Tarata, Bolivia");
@@ -5034,7 +5034,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_ESTEBAN_ARZE);
         lugarTuristico.setTipo("Patrimonio Urbano Arquitectónico, Artístico, Museos y Manifestaciones Culturales");
         lugarTuristico.setNombre("Puente de Mariano Melgarejo");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"PUENTE MARIANO MELGAREJO1.jpg", "PUENTE MARIANO MELGAREJO2.jpg", "PUENTE MARIANO MELGAREJO3.jpg" });
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"puente mariano melgarejo1.jpg", "puente mariano melgarejo2.jpg", "puente mariano melgarejo3.jpg" });
         lugarTuristico.setDescripcion("Construido originalmente durante el año 1861, para que la gente cruzara el Río Pilcomayo e ir hacia la zona del convento. Pero también se dice que este puente fue construido por los franciscanos para que la población cruzara con facilidad al convento posteriormente el ex presidente Mariano Melgarejo lo utilizo con su querido caballo Holofermes, y descansaba debajo del árbol de ceibo y se dedicaba a coplear, ya que él amaba ante todo a su caballo fue un regalo traído del extranjero.");
         lugarTuristico.setHorario("Abierto");
         lugarTuristico.setDireccion("Tarata, Bolivia");
@@ -5049,7 +5049,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_ESTEBAN_ARZE);
         lugarTuristico.setTipo("Realizaciones Técnicas y Científicas ");
         lugarTuristico.setNombre("Plaza Principal Aroma");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"PLAZA PRINCIPAL AROMA1.jpg", "PLAZA PRINCIPAL AROMA2.jpg", "PLAZA PRINCIPAL AROMA4.jpg" });
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"plaza principal aroma1.jpg", "plaza principal aroma2.jpg", "plaza principal aroma4.jpg" });
         lugarTuristico.setDescripcion("En la plaza principal se puede observar un busto del General Mariano Melgarejo, sin embargo lo más llamativo es la Estatua del General Esteban Arze, un justo homenaje a este personaje.\n" +
                 "Caminando unas calles arriba, se puede encontrar un monumento en homenaje a la mujer ");
         lugarTuristico.setHorario("Abierto");
@@ -5065,7 +5065,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_ESTEBAN_ARZE);
         lugarTuristico.setTipo("Patrimonio Urbano Arquitectónico, Artístico, Museos y Manifestaciones Culturales");
         lugarTuristico.setNombre("La torre del mirador");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"TORRE MIRADOR1.jpg"});
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"torre mirador1.jpg"});
         lugarTuristico.setDescripcion("Ubicada en la Plaza Principal de Tarata en el Edificio Municipal, construida en la Época como un lugar de observación o vigía, alberga en sus ambientes un  reloj centenario que funciona a cuerda construida en Alemania. De este edificio se observa la ciudad, los techos coloniales, las calles, barrios y pueblos circunvecinos.");
         lugarTuristico.setHorario("No se tiene registrado.");
         lugarTuristico.setDireccion("Tarata, Bolivia");
@@ -5080,7 +5080,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_ESTEBAN_ARZE);
         lugarTuristico.setTipo("Patrimonio Urbano Arquitectónico, Artístico, Museos y Manifestaciones Culturales");
         lugarTuristico.setNombre("Museo paleontológico y centro cultural artístico");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"Museo paleontológico y centro cultural artístico1.jpg"});
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"museo paleontológico y centro cultural artístico1.jpg"});
         lugarTuristico.setDescripcion("En la Casa de la Cultura ubicada en la plaza Principal de la ciudad donde se encuentra el primer Museo histórico, galería fotográfica, paleontológico de cerámica, restos fósiles, entre otros.\n" +
                 "Es un centro de recolección de la historia de Tarata desde sus inicios y el aporte de la población a través del tiempo, de los años, contemplando fotografías de carácter histórico que nos trasporta a épocas pasadas de la población.\n");
         lugarTuristico.setHorario("No se tiene registrado");
@@ -5096,7 +5096,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_ESTEBAN_ARZE);
         lugarTuristico.setTipo("Patrimonio Urbano Arquitectónico, Artístico, Museos y Manifestaciones Culturales");
         lugarTuristico.setNombre("Palacio Consistorial (Tarata)");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"PALACIO CONSISTORIAL1.jpg"});
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"palacio consistorial1.jpg"});
         lugarTuristico.setDescripcion("Edificio construido en el Siglo XVIII, en el salón principal conserva los retratos de los personajes más importantes nacidos en este suelo y que han descollado en el quehacer político, histórico, y cultural de nuestro país; también cobija los decretos con la firma del Libertador Bolívar del 29 de noviembre de 1825 y del General Mariano Melgarejo de 1866 donde declara a Tarata, el nuevo Departamento de Bolivia.");
         lugarTuristico.setHorario("No hay horario de atención");
         lugarTuristico.setDireccion("Tarata, Bolivia");
@@ -5111,7 +5111,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_ESTEBAN_ARZE);
         lugarTuristico.setTipo("Patrimonio Urbano Arquitectónico, Artístico, Museos y Manifestaciones Culturales");
         lugarTuristico.setNombre("Cuartel de Melgarejo");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"CUARTEL DE MELGAREJO.jpg"});
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"cuartel de melgarejo.jpg"});
         lugarTuristico.setDescripcion("Ubicado hacia el sur de la Plaza Principal, se observa un portón magistral que merece ser conservada en un fanal de cristal, por lo que muestra pilastras talladas en roca al más puro estilo Corintio Griego, el portón en sí con el mozárabe y con decorados republicanos. En el interior se conservan balaustres prolijamente tallados en madera de Cedro, los corredores con arcos de medio punto, las gradas que dan acceso a la planta alta y son de roca talladas que aún conservan su belleza y su funcionalidad.");
         lugarTuristico.setHorario("No se tiene registrado");
         lugarTuristico.setDireccion("Tarata, Bolivia");
@@ -5126,7 +5126,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_ESTEBAN_ARZE);
         lugarTuristico.setTipo("Patrimonio Urbano Arquitectónico, Artístico, Museos y Manifestaciones Culturales");
         lugarTuristico.setNombre("Templo franciscano de San José");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"Templo franciscano.jpg", "Templo franciscano1.jpg", "Templo franciscano2.jpg" });
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"templo franciscano.jpg", "templo franciscano1.jpg", "templo franciscano2.jpg" });
         lugarTuristico.setDescripcion("La arquitectura de este Templo es de estilo Neoclásico con reminiscencias Barrocas, tienen una fachada en tres cuerpos decoradas con juegos de pilastras, una espadaña y una torre donde penden campanas de gran sonoridad, todo esto jerarquizan la fachada, el interior del templo tiene un estilo románico en su construcción, los pilares tienen capiteles de estilo Corintio, la nave central es de cañón corrido, las capillas laterales cobijan imágenes de la devoción de los feligreses, entre los que sobresalen “San Severino”, venerado en todo el Valle como “El Santo de las Lluvias “. También es digno de conocer al visitar Tarata las Capillas Menores del Señor del Exaltación y el de la Sagrada Familia, que es una muestra de la gran religiosidad que caracteriza al pueblo.");
         lugarTuristico.setHorario("No se tiene registrado.");
         lugarTuristico.setDireccion("Tarata, Bolivia");
@@ -5141,7 +5141,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_ESTEBAN_ARZE);
         lugarTuristico.setTipo("Patrimonio Urbano Arquitectónico, Artístico, Museos y Manifestaciones Culturales");
         lugarTuristico.setNombre("Convento San José");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"CONVENTO SAN JOSE1.jpg"});
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"convento san jose1.jpg"});
         lugarTuristico.setDescripcion("El convento franciscano  de San José, construido en 1796, al interior se conservan parte de la arquitectura original, además de pinturas y cantaros, anteriormente funcionaba una fábrica de vino, en la actualidad es un centro de recogimiento espiritual.");
         lugarTuristico.setHorario("No hay horario de atención");
         lugarTuristico.setDireccion("Plaza Esteban Arce, Tarata, Bolivia");
@@ -5156,7 +5156,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_ESTEBAN_ARZE);
         lugarTuristico.setTipo("Sitios Naturales");
         lugarTuristico.setNombre("Arbol de Jarka ");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"ARBOL JARKA1.jpg", "ARBOL JARKA2.jpg" });
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"arbol jarka1.jpg", "arbol jarka2.jpg" });
         lugarTuristico.setDescripcion("Árbol “Jarka”, es un árbol con el tronco torcido ubicado en la Plazuela 27 de mayo, también denominado árbol de la juventud. En años anteriores esta zona se llamaba “loza katu” por la venta de cerámica.");
         lugarTuristico.setHorario("Abierto");
         lugarTuristico.setDireccion("Tarata, Bolivia");
@@ -5172,7 +5172,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_AYOPAYA);
         lugarTuristico.setTipo("Patrimonio Urbano Arquitectónico, Artístico, Museos y Manifestaciones Culturales");
         lugarTuristico.setNombre("Muralla de Sacambaya ");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"Muralla de Sacambaya2.jpg", "Muralla de Sacambaya3.jpg" });
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"muralla de sacambaya2.jpg", "muralla de sacambaya3.jpg" });
         lugarTuristico.setDescripcion("Es uno de los grandes restos arqueológicos de Ayopaya. Cuenta con 166 metros de longitud y cuatro metros de altura, y se ubica en el fondo de una impresionante cañada con leyendas de oro escondido. Durante la época de la república estas construcciones sirvieron de asilo para guerrilleros legendarios (José Miguel de Lanza y José Miguel de Chinchilla entre otros). Una hipótesis manejada sobre el origen de estas ruinas, es que este monumento podría haberse construido en un periodo preincaico y posiblemente fueron utilizados y reforzados por los incas.");
         lugarTuristico.setHorario("Abierto");
         lugarTuristico.setDireccion("Independencia, Bolivia");
@@ -5187,7 +5187,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_AYOPAYA);
         lugarTuristico.setTipo("Sitios Naturales");
         lugarTuristico.setNombre("Phajchanti");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"Phajchanti.jpg"});
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"phajchanti.jpg"});
         lugarTuristico.setDescripcion("Phajchanti es un bosque de 284 hectáreas cercado de neblina. Esta reserva forestal de la especie pino de monte es la mayor en Bolivia.Tiene una laguna donde se cría trucha y una cascada de sorprendente paisaje de difícil acceso y desafió para turistas aventureros. Desde la cima se puede observar el pueblo de Independencia. Sus casas son construidas de materiales del lugar, y hay comidas típicas como el T’impu (cordero con arroz). Su fiesta es en carnaval. Es una comunidad de fácil acceso y grandes valores naturales y culturales.");
         lugarTuristico.setHorario("Abierto");
         lugarTuristico.setDireccion("Independencia, Bolivia");
@@ -5202,7 +5202,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_AYOPAYA);
         lugarTuristico.setTipo("Patrimonio Urbano Arquitectónico, Artístico, Museos y Manifestaciones Culturales");
         lugarTuristico.setNombre("Morochata");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"Morochata.jpg"});
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"morochata.jpg"});
         lugarTuristico.setDescripcion("Esta caracterizado por poseer un clima teñido de pinceladas que oscilan entre tonalidades gélidas y templadas, indudablemente es el lugar propicio para la reproducción óptima de la trucha, por lo cual, el municipio tiene como principal fuente de explotación, la comercialización de esta variedad de pescado. También es conocida como la capital productora de la papa por su gran variedad. ");
         lugarTuristico.setHorario("Abierto");
         lugarTuristico.setDireccion("Ayopaya, Bolivia");
@@ -5217,7 +5217,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_AYOPAYA);
         lugarTuristico.setTipo("Patrimonio Urbano Arquitectónico, Artístico, Museos y Manifestaciones Culturales");
         lugarTuristico.setNombre("Independencia");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"INDEPENDENCIA.jpg"});
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"independencia.jpg"});
         lugarTuristico.setDescripcion("Independencia es una zona minera. Sea cual fuere la razón, los españoles y sobre todo los jesuitas se asentaron en Sacambaya y explotaron allí oro. Con la expulsión de esta orden religiosa de los dominios españoles, los jesuitas se fueron y, en su lugar han quedado solamente leyendas de tesoros escondidos.\n" +
                 "En el pueblo de la Villa de la Independencia, capital del Municipio, nombrado por la participación de su gente en la Guerra de Independencia, hay todavía casas coloniales; su gente es mestiza y quechua; el Río Palca está bajando bordeando el pueblo. Su fiesta patronal es 16 de julio, cuando honran su patrona La Virgen del Carmen con misas, desfiles, concursos de deportes y motos, y una corrida de toros. Gente vienen de las ciudades y el campo para compartir en las festividades. Hay unas rutas turísticas para aprovechar alrededor del pueblo.\n ");
         lugarTuristico.setHorario("Abierto");
@@ -5235,7 +5235,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_TIRAQUE);
         lugarTuristico.setTipo("Realizaciones Técnicas y Científicas ");
         lugarTuristico.setNombre("Plaza 15 de Octubre");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"PLAZA 15 DE OCTUBRE1.jpg"});
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"plaza 15 de octubre1.jpg"});
         lugarTuristico.setDescripcion(" La plaza 15 de Octubre, es el kilómetro cero que conduce a todas las rutas turísticas que esconde este pueblo y sus alrededores.");
         lugarTuristico.setHorario("Abierto");
         lugarTuristico.setDireccion("Tiraque, Bolivia");
@@ -5250,7 +5250,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_TIRAQUE);
         lugarTuristico.setTipo("Patrimonio Urbano Arquitectónico, Artístico, Museos y Manifestaciones Culturales");
         lugarTuristico.setNombre("Agua del Amor");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"AGUA DEL AMOR DEL AMOR1.jpg"});
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"agua del amor del amor1.jpg"});
         lugarTuristico.setDescripcion("Un manantial de agua ubicado al final de la calle Vandiola a unas cuadras de la plaza central, que según muchas historias esas aguas poseen virtudes afrodisiacas y curativas. La tradición oral cuenta, que una pareja al beber de estas aguas con bastante fe, encuentra una pasión inexplicable de frenesí. ");
         lugarTuristico.setHorario("Abierto");
         lugarTuristico.setDireccion("");
@@ -5265,7 +5265,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_TIRAQUE);
         lugarTuristico.setTipo("Sitios Naturales");
         lugarTuristico.setNombre("Bosque de los Enamorados");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"BOSQUE DEL AMOR1.jpg"});
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"bosque del amor1.jpg"});
         lugarTuristico.setDescripcion("Cuando sus impulsores decidieron forestar con eucaliptos y pinos la cadena de cerros que bordea al pueblo de Tiraque, jamás pensaron en que un día se convertiría en el “bosque del amor”. \n" +
                 "La locación donde se encuentran hace que el visitante pueda disfrutar a lo máximo del hermoso paisaje de la zona.\n" +
                 "Por esas cosas de la vida, gracias a la frondosidad que han adquirido estas plantas.\n");
@@ -5282,7 +5282,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_TIRAQUE);
         lugarTuristico.setTipo("Sitios Naturales");
         lugarTuristico.setNombre("Ch’ejta Rumi");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"CHEJTA RUMI.jpg", "CHETJTA RUMI2.jpg" });
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"chejta rumi.jpg", "chetjta rumi2.jpg" });
         lugarTuristico.setDescripcion("Ch’ejta Rumi también conocida como la “Piedra del Inca”, una piedra enorme partida por un rayo, por el que pasa el río Millu Mayo, además de ser un espacio en el que los turistas pueden acampar y estar junto a la naturaleza, nutrido por frondosos alisos, eucaliptos y kewiñas.\n" +
                 "Allí mismo se encuentra un antiguo molino de piedra, que a pesar de varios años de su construcción, continúa funcionando.\n");
         lugarTuristico.setHorario("Abierto");
@@ -5298,7 +5298,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_TIRAQUE);
         lugarTuristico.setTipo("Sitios Naturales");
         lugarTuristico.setNombre("Totora Qhocha");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"TOTORA QHOCHA1.jpg"});
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"totora qhocha1.jpg"});
         lugarTuristico.setDescripcion("Represas imponentes situadas a 4.000 metros de altura donde abunda la variedad piscícola y potencialidad inmensa");
         lugarTuristico.setHorario("Abierto");
         lugarTuristico.setDireccion("Tiraque, Bolivia");
@@ -5313,7 +5313,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_TIRAQUE);
         lugarTuristico.setTipo("Tipo turismo");
         lugarTuristico.setNombre("La Cueva del Amor");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"CHEJTA RUMI.jpg"});
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"chejta rumi.jpg"});
         lugarTuristico.setDescripcion("La Cueva del Amor, ubicada al noreste y un kilómetro y medio de Tiraque.\n" +
                 "Al pie de una enorme peña partida de nombre Ch’ejta Rumi, justo a un costado por donde discurre el río Millumayu (río salado)\n" +
                 "Según los comentarios locales, la pequeña cueva existente a espaldas de la gigantesca piedra, hoy denominada como el “Refugio del amor”, era la morada del demonio y de una hermosa mujer: el primero, un ser sobrenatural y la otra, una mortal que, según la leyenda mantenían una relación amorosa.\n");
@@ -5330,7 +5330,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_TIRAQUE);
         lugarTuristico.setTipo("Sitios Naturales");
         lugarTuristico.setNombre("Árbol milenario");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"ARBOL MILENARIO 1.jpg", "ARBOL MILENARIO 2.jpg" });
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"arbol milenario 1.jpg", "arbol milenario 2.jpg" });
         lugarTuristico.setDescripcion("Tan solo caminar por sus calles, como en sus alrededores, esta región encanta por sus diferentes atractivos de carácter cultural y la belleza natural de sus paisajes interandinos. Sin pasar desapercibido un gigantesco árbol de muchos años de vida que tiene una gran frondosidad.");
         lugarTuristico.setHorario("Abierto");
         lugarTuristico.setDireccion("Tiraque, Bolivia");
@@ -5347,7 +5347,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_PUNATA);
         lugarTuristico.setTipo("Patrimonio Urbano Arquitectónico, Artístico, Museos y Manifestaciones Culturales");
         lugarTuristico.setNombre("Templo San Juan Bautista");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"Templo San Juan Bautista1.jpg", "Templo San Juan Bautista2.jpg" });
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"templo san juan bautista1.jpg", "templo san juan bautista2.jpg" });
         lugarTuristico.setDescripcion("Ubicado en la ciudad de Punata capital de la provincia Punata, ubicado a 45 km de la ciudad de Cochabamba, se encuentra el templo san juan bautista. El primer templo fué edificado en 1635-1646 no duró más de un siglo y un tercio y se desplomo, se erigió el nuevo monumental y magnifico templo matriz San Juan Bautista entre los años 1770-1775 merced al esfuerzo tenaz y valiente del párroco Lic. Francisco Moscoso y Pérez, posteriormente fué declarado monumento nacional el 20 de abril de 1948, por haberse cimentado como base de la fundación de la ciudad de Punata, por su antigüedad y por las reliquias de arte colonial. responde al modelo barroco neoclásico, mestizo, en forma de cruz latina; alberga retablos tallados en madera y bañados en pan de oro.");
         lugarTuristico.setHorario("No se tiene registrado.");
         lugarTuristico.setDireccion("C.Bolívar , Punata");
@@ -5362,7 +5362,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_PUNATA);
         lugarTuristico.setTipo("Realizaciones Técnicas y Científicas ");
         lugarTuristico.setNombre(" Plaza 18 de mayo  ");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"Plaza 18 de mayo.jpg"});
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"plaza 18 de mayo.jpg"});
         lugarTuristico.setDescripcion("Se constituye en un importante legado histórico, en primera instancia fue conocido como Plaza Francisco Mariscal en homenaje al benefactor que cedió las tierras para la construcción del Templo San Juan Bautista y la base de la misma Plaza, su segundo nominativo fue Plaza 6 de agosto en homenaje al 6 de agosto de 1825 día en que se funda el territorio boliviano, y el tercer denominativo como Plaza 18 de mayo, nombre actual con el que se la conoce el cual rinde homenaje al 18 de mayo de 1838,fecha en la que el Mariscal Andrés de Santa Cruz Presidente de Bolivia y su Ministro General Dr. Andrés María Torrico punateño descansaban unos días en Punata, lugar que en ese entonces se constituía como Cantón de la Provincia Germán Jordán, quienes aprovechando su estadía tomaron la sabía decisión de crear la Villa de Punata.");
         lugarTuristico.setHorario("Abierto");
         lugarTuristico.setDireccion("Entre las calles Sucre ,Potosí");
@@ -5377,7 +5377,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_PUNATA);
         lugarTuristico.setTipo("Patrimonio Urbano Arquitectónico, Artístico, Museos y Manifestaciones Culturales");
         lugarTuristico.setNombre("Cementerio de Punata");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"Cementerio de Punata manuel asencio villarroel.jpg", "Cementerio de Punata1.jpg", "Cementerio de Punata2.jpg" });
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"cementerio de punata manuel asencio villarroel.jpg", "cementerio de punata1.jpg", "cementerio de punata2.jpg" });
         lugarTuristico.setDescripcion("Ubicado al Sur del área urbana tiene las condiciones apropiadas, no solo para población viviente, sino también para la que tiene que contar con una morada digna para un descanso eterno. El cementerio, en Punata permite pasear y observar las especies forestales cuidadosamente seleccionadas entre pinos, molles y hermosos rosales, que hacen atractivo el lugar. Además de constituirse en un legado histórico para la misma Punata ya que en ello descansan los restos de punateños célebres: Dr. Andrés María Torrico y el Dr. Manuel Ascencio Villarroel, ya que también en su interior se guarda la reliquia de un carro mortuorio de la época colonial, que servía para velar a los muertos.");
         lugarTuristico.setHorario("No se tiene registrado.");
         lugarTuristico.setDireccion("Av. Gualberto Villarroel, Punata");
@@ -5394,7 +5394,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_PUNATA);
         lugarTuristico.setTipo("Acontecimientos Programados");
         lugarTuristico.setNombre("La festividad del Señor de los milagros");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"La festividad del Señor de los milagros0.jpg", "La festividad del Señor de los milagros1.jpg" });
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"la festividad del señor de los milagros0.jpg", "la festividad del señor de los milagros1.jpg" });
         lugarTuristico.setDescripcion("Una de las características de Punata es la celebración de diferentes festividades religiosas, siendo la fiesta patronal del Señor de Milagros que recuerda la exaltación de la Cruz celebrada el último fin de semana del mes de Septiembre.\n" +
                 "La Festividad del Señor de los Milagros fue reconocida como Patrimonio Cultural e Inmaterial de Bolivia. La imagen del Patrono fue trabajada, con todos los rasgos y detalles de un ser humano de un tamaño de 50 centímetros. En la región de la columna vertebral a la altura de la cintura, tiene una abertura de 3 cm, cubierta de vidrio.\n" +
                 "La imagen llegó a Bolivia el año 1943 procedente de Burgos - España y a Punata gracias a la diligencia del Dr. Manuel de la Cruz Méndez para alguno de sus hijos que elija la vocación sacerdotal siendo merecedor Juan Méndez.\n ");
@@ -5411,7 +5411,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_PUNATA);
         lugarTuristico.setTipo("Realizaciones Técnicas y Científicas");
         lugarTuristico.setNombre("Plaza la Era");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"Plaza la Era.jpg"});
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"plaza la era.jpg"});
         lugarTuristico.setDescripcion("Es un sitio cultural e histórico ubicado al este del municipio aproximadamente 500 km. de la plaza principal, en ella se encuentra un palomario de la época colonial, además de ser la única que se conserva en el Municipio. Cuenta con una plaza en la que se constituye un kiosco colonial el mismo que Antiguamente se encontraba en la Plaza Principal. Es importante mencionar que la era se constituye en el lugar donde se inicia los actos festivos para la realización de la festividad del señor de milagros a fines del mes de septiembre.");
         lugarTuristico.setHorario("Abierto");
         lugarTuristico.setDireccion("C. Antofagasta, Punata");
@@ -5426,7 +5426,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_PUNATA);
         lugarTuristico.setTipo("Realizaciones Técnicas y Científicas");
         lugarTuristico.setNombre("Biblioteca Municipal - Punata");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"Biblioteca Municipal de punata.jpg"});
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"biblioteca municipal de punata.jpg"});
         lugarTuristico.setDescripcion("Se encuentra al este de la plaza Principal, se constituye en un infraestructura contigua al templo de San Juan Bautista ya que posee pasadizos directos al templo. En ella se encuentra 3 cuadros coloniales con las dimensiones de 2m x 1 m, con imágenes con temáticas religiosas. Además de poseer un mueso de restos de cerámica precolombina y restos arqueológica encontrados en inmediaciones de la Plaza en una excavación realizada entre los años1998 al 2001.");
         lugarTuristico.setHorario("No se tiene registrado.");
         lugarTuristico.setDireccion("Plaza 28 de septiembre, Punata");
@@ -5441,7 +5441,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_PUNATA);
         lugarTuristico.setTipo("Realizaciones Técnicas y Científicas");
         lugarTuristico.setNombre("Parque Defensores del Chaco");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"Parques Defensores del Chaco.jpgg"});
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"parques defensores del chaco.jpgg"});
         lugarTuristico.setDescripcion("Este parque se encuentra ubicado en la parte posterior del templo San Juan Bautista, en ella se encuentra el monumento en homenaje al héroe de la guerra del chaco el Mariscal Bernardinho Bilbao Rioja. Es importante mencionar que punateños y punateñas como el Mayor Desiderio Rocha, Tte de Av.Alberto Montaño, Walter Rocha, Lucio Canedo, Subte. Laureano Hinojosa quienes fueron partícipes en estos actos valerosos quienes hoy en día guardan sus restos en el Cementerio general de Punata. Este monumento fue entregado por la Sub federación de beneméritos de la Patria el año 1991.");
         lugarTuristico.setHorario("Abierto");
         lugarTuristico.setDireccion("Calle Bolívar, Punata");
@@ -5456,7 +5456,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_PUNATA);
         lugarTuristico.setTipo("Realizaciones Técnicas y Científicas");
         lugarTuristico.setNombre("Plazuela de coca");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"Plazuela de coca.jpg"});
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"plazuela de coca.jpg"});
         lugarTuristico.setDescripcion("Se encuentra ubicado al oeste de la plaza Principal 18 de mayo sobre la calle cobija, donde ostenta el monumento al Dr. Demetrio Canelas, considerado uno de los principales editores de la prensa escrita, periodista de profesión nació en Punata el 7 de abril de 1879 y murió el año 1964, fue director del Periódico La Patria de Oruro y posteriormente de los Tiempos en Cochabamba, fue Diputado Nacional y Ministro de Guerra y Hacienda delegado de Bolivia ante la Liga de las Naciones Unidas. Esta plaza se constituye en lugar de venta de flores de toda índole.");
         lugarTuristico.setHorario("Abierto");
         lugarTuristico.setDireccion("Calle Cobija, Punata");
@@ -5487,7 +5487,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_PUNATA);
         lugarTuristico.setTipo("Sitios Naturales");
         lugarTuristico.setNombre("Cerro killi killi");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"Cerro killi killi.jpg"});
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"cerro killi killi.jpg"});
         lugarTuristico.setDescripcion("En la cima del cerro K’ili K’ili” se encuentra la capilla de la Virgen María de Surumi”, en Villa Rivero.\n" +
                 "De acuerdo a expresiones de religiosas/os, la aparición de la imagen de la virgen María de Surumi, es el 8 de septiembre de 1940, los últimos años con autorización del arzobispado por gestiones de autoridades locales, la fecha es movible al fin de semana más próximo, para brindar mayores posibilidades de asistencia a los peregrinos visitantes.\n");
         lugarTuristico.setHorario("Abierto");
@@ -5506,7 +5506,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_JOSE_CARRASCO_TORRICO);
         lugarTuristico.setTipo("Sitios Naturales");
         lugarTuristico.setNombre("Incallajta");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"INCALLAJTA1.jpg", "INCALLAJTA2.jpg", "INCALLAJTA3.jpg", "INCALLAJTA4.jpg" });
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"incallajta1.jpg", "incallajta2.jpg", "incallajta3.jpg", "incallajta4.jpg" });
         lugarTuristico.setDescripcion("La fortaleza de Incallajta es un conjunto de edificaciones construídas en una superficie de aproximadamente 12 Has. Siguiendo la forma de una plataforma aluvial inclinada, delimitada por quebradas profundas, lo que le da un carácter estratégico defensivo inmejorable. Por referencia de cronistas españoles, se sabe que Incallajta fue mandada a construir entre 1463 y 1472 por Inca Tupac Yupanki habiendo sido invadida y saqueada por los pueblos del oriente (los Chiriguanos). Posteriormente, el inca Huayna Capac en 1525 la mandó a reconstruir.\n" +
                 "Este monumento tiene numerosos atractivos como: “La Kallanka” edificio de 22 mts. de ancho por 78 mts. de largo constituyéndose en el edificio techado más grande de las edificaciones precolombinas en América. La cascada o Pajcha que fue un lugar de rituales.\n");
         lugarTuristico.setHorario("Abierto");
@@ -5522,7 +5522,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_JOSE_CARRASCO_TORRICO);
         lugarTuristico.setTipo("Sitios Naturales");
         lugarTuristico.setNombre("Sehuencas");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"SEHUENCAS PARQUE NACIONAL CARRASCO1.jpg", "SEHUENCAS PARQUE NACIONAL CARRASCO2.jpg", "SEHUENCAS PARQUE NACIONAL CARRASCO3.jpg", "SEHUENCAS PARQUE NACIONAL CARRASCO4.jpg" });
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"sehuencas parque nacional carrasco1.jpg", "sehuencas parque nacional carrasco2.jpg", "sehuencas parque nacional carrasco3.jpg", "sehuencas parque nacional carrasco4.jpg" });
         lugarTuristico.setDescripcion("Sehuencas es definitivamente una maravilla, rodeado de árboles, helechos, flores, animales silvestres, sol, lluvia, rocío, neblina.\n" +
                 "En el trayecto al Parque, en general se aprecia un bellísimo jardín con cerros a la izquierda y la derecha en una especie de cañadón, con arboleda y vegetación natural que permanece húmeda todo el tiempo, un río y un camino angosto de tierra y de trecho en trecho se aprecian unas cascadas con aguas cristalinas que bajan de cerros empinados y que invitan a darse un mojazón, pero el agua es fría.\n");
         lugarTuristico.setHorario("Abierto");
@@ -5555,7 +5555,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_CHAPARE);
         lugarTuristico.setTipo("Realizaciones Técnicas y Científicas");
         lugarTuristico.setNombre("Parque Machia");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"PARQUE MACHIA2.jpg", "PARQUE MACHIA3.jpg", "PARQUE MACHIA4.jpg", "PARQUE MACHIA1.jpg" });
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"parque machia2.jpg", "parque machia3.jpg", "parque machia4.jpg", "parque machia1.jpg" });
         lugarTuristico.setDescripcion("Situado a dos kilómetros de Villa Tunari, en el Chapare, fue creado hace más de 10 años, es el lugar dedicado a la readaptación de animales que vivían en cautiverio. Este parque tiene una superficie de 36 hectáreas oficiales, a las que se suman otras 110 que se están utilizando con el permiso de las comunidades. Sus mentores la comunidad Inti Wara Yasi, se dedica al cuidado de varias especies que conviven en el parque, en su mayor parte monos, loros, tucanes, papagayos, halcones, tejones, ciervos, armadillos, perezosos, reptiles y felinos.");
         lugarTuristico.setHorario("No se tiene registrado.");
         lugarTuristico.setDireccion("7, Villa Tunari, Bolivia");
@@ -5570,7 +5570,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_CHAPARE);
         lugarTuristico.setTipo("Sitios Naturales");
         lugarTuristico.setNombre("Puerto aurora");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"PUERTO AURORA.jpg"});
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"puerto aurora.jpg"});
         lugarTuristico.setDescripcion("Puerto Aurora una pequeña población se encuentra a orillas del rió Chapare, sus características rusticas de las casas de madera y techos de palma y jatata hacen que esta población sea pintoresca y como no realizar visitas en las embarcaciones de madera hechas por los mismos comunarios que sirven para trasladar de la orilla del rio a la isla que se encuentra al frente. Puerto Aurora se encuentra a 19 Km. de la población de Chimoré a 30 minutos en movilidad. El tiempo de pesca recomendado por los comunarios en Puerto aurora es el mes de agosto.");
         lugarTuristico.setHorario("Abierto");
         lugarTuristico.setDireccion("Distrito VI Puerto Aurora");
@@ -5585,7 +5585,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_CHAPARE);
         lugarTuristico.setTipo("Patrimonio Urbano Arquitectónico, Artístico, Museos y Manifestaciones Culturales");
         lugarTuristico.setNombre("Museo cap. David Andrade López");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"MUSEO CAP. DAVID ANDRADE LOPEZ 1.jpg", "MUSEO CAP. DAVID ANDRADE LOPEZ 2.jpg" });
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"museo cap. david andrade lopez 1.jpg", "museo cap. david andrade lopez 2.jpg" });
         lugarTuristico.setDescripcion("Ubicado a 1 Km. de la población de Chimoré, en los ambientes de la UMOPAR, en dicho lugar se encuentra objetos incautados por la FELCN, donde se podrá observar las diversas formas de fabricar y transportar sustancias controladas, este atractivo puede ser visitado en coordinación con la Responsable de la Unidad de Turismo.");
         lugarTuristico.setHorario("Abierto");
         lugarTuristico.setDireccion("Chapare, Bolivia");
@@ -5600,7 +5600,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_CHAPARE);
         lugarTuristico.setTipo("Sitios Naturales");
         lugarTuristico.setNombre("Parque Nacional Isidoro Sécure");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"Parque Nacional Isidoro Sécure3.jpg", "Parque Nacional Isidoro Sécure.jpg", "Parque Nacional Isidoro Sécure0.jpg", "Parque Nacional Isidoro Sécure1.jpg", "Parque Nacional Isidoro Sécure2.jpg" });
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"parque nacional isidoro sécure3.jpg", "parque nacional isidoro sécure.jpg", "parque nacional isidoro sécure0.jpg", "parque nacional isidoro sécure1.jpg", "parque nacional isidoro sécure2.jpg" });
         lugarTuristico.setDescripcion("Área protegida donde habitan diferentes comunidades indígenas ahí se desarrolla planes de manejo de peces y lagartos posee una diversidad geográfica con bosques nublados y sabanas inundadas, pantanos y lagunas, dando un espectáculo de naturaleza, cobijo de una rica flora y fauna silvestre.");
         lugarTuristico.setHorario("Abierto");
         lugarTuristico.setDireccion("Chapare, Bolivia");
@@ -5632,7 +5632,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_CHAPARE);
         lugarTuristico.setTipo("Sitios Naturales");
         lugarTuristico.setNombre("Laguna Corani");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"LAGUNA CORANI.jpg", "LAGUNA CORANI0.jpg" });
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"laguna corani.jpg", "laguna corani0.jpg" });
         lugarTuristico.setDescripcion("Laguna artificial de mágico encanto  rodeada de bosques de pinos y ríos, donde la brisa del altiplano se transforma en un encuentro placentero con lo telúrico y enigmático de un lugar de pesca y recreación tradicional.");
         lugarTuristico.setHorario("Abierto");
         lugarTuristico.setDireccion("Colomi, Bolivia");
@@ -5648,7 +5648,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_CHAPARE);
         lugarTuristico.setTipo("Sitios Naturales");
         lugarTuristico.setNombre("Laguna San Isidro");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"LAGUNA SAN ISIDRO.jpg", "LAGUNA SAN ISIDRO1.jpg" });
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"laguna san isidro.jpg", "laguna san isidro1.jpg" });
         lugarTuristico.setDescripcion("La laguna de san isidro es principalmente atractivo de la comunidad, de aguas cristalinas en su interior conviven especies de peces como el pejerrey dorado. Este espejo de agua natural posee una diversidad de ofertas en cuanto a actividades re-creativas, que van desde la simple pesca deportiva, paseos en botes, natación.\n" +
                 "Durante el mes de abril se realiza el Festival turístico gastronómico y la competencia de motociclismo, donde participan de esta actividad autoridades municipales y departamentales.\n" +
                 "Galeón Morgan es la representación artística del barco pirata ingles el cual navegaba por el atlántico, robando riquezas del nuevo mundo a los barcos mercaderes españoles, galeón es un mirador turístico y centro de atención turística, construido de madera y hierro.\n");
@@ -5665,7 +5665,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_CHAPARE);
         lugarTuristico.setTipo("Patrimonio Urbano Arquitectónico, Artístico, Museos y Manifestaciones Culturales");
         lugarTuristico.setNombre("Santuario de la Virgen de los Ángeles (Iglesia de Melga)");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"Santuario de la Virgen de los Ángeles.jpg", "Santuario de la Virgen de los Ángeles2.jpg", "Santuario de la Virgen de los Ángeles3.jpg" });
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"santuario de la virgen de los ángeles.jpg", "santuario de la virgen de los ángeles2.jpg", "santuario de la virgen de los ángeles3.jpg" });
         lugarTuristico.setDescripcion("El santuario de melga se encuentra al norte de la carretera a 15 km. Aproximadamente de Sacaba, la iglesia tiene un estilo arquitectónico ecléctico con detalles clásicos de la arquitectura religiosa vanguardista.\n" +
                 "Es una torre de piedra y cubierta con teja industrial, esta obra espectacular se caracteriza por su monumentalidad y por amplios jardines exteriores, muchas personas llegan al lugar, algunos por conocer la iglesia debido a que es una obra de arte que llama la atención y otros por sanidad. Los días 18, 19, 20 de octubre de cada año la iglesia es visitada con el fin de celebrar la fiesta de la patrona Virgen de los Ángeles.\n");
         lugarTuristico.setHorario("No se tiene registrado.");
@@ -5683,7 +5683,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_CAMPERO);
         lugarTuristico.setTipo("Patrimonio Urbano Arquitectónico, Artístico, Museos y Manifestaciones Culturales");
         lugarTuristico.setNombre("Museo del Charango");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"MUSEO DEL CHARANGO0.jpg", "MUSEO DEL CHARANGO1.jpg", "MUSEO DEL CHARANGO2.jpg", "MUSEO DEL CHARANGO3.jpg", "MUSEO DEL CHARANGO4.jpg" });
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"museo del charango0.jpg", "museo del charango1.jpg", "museo del charango2.jpg", "museo del charango3.jpg", "museo del charango4.jpg" });
         lugarTuristico.setDescripcion("Museo del Charango, donde hay piezas realmente únicas, premiadas en diferentes festivales, con un sinfín de detalles tallados, como los cuernos de un escarabajo, el mapa de Bolivia o algunas escenas costumbristas. El museo cuenta la trayectoria del Instrumento de Cuerda más rico en Artesanía Boliviana, es pues así que Aiquile muestra a Bolivia y al mundo el por qué se le denomina \"Cuna De Charangos\".\n" +
                 "Aiquile fue declarado Capital Nacional del Charango y la Feria y Festival del Charango declarada Patrimonio Oral e Intangible de Bolivia, se efectúa del 2 al 4 de noviembre.\n");
         lugarTuristico.setHorario("Lunes a Viernes de 08:30 – 17:00");
@@ -5699,7 +5699,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_CAMPERO);
         lugarTuristico.setTipo("Sitios Naturales");
         lugarTuristico.setNombre("Omereque / Paraba Frente Roja");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"OMEREQUE PARABA ROJA1.jpg", "OMEREQUE PARABA ROJA2.jpg", "OMEREQUE PARABA ROJA3.jpg" });
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"omereque paraba roja1.jpg", "omereque paraba roja2.jpg", "omereque paraba roja3.jpg" });
         lugarTuristico.setDescripcion("Es un municipio ubicado al sur de Cochabamba. En sus valles florecieron importantes culturas precolombinas. Fue una de las zonas más pobladas y un importante yacimiento arqueológico. Es uno de los destinos turísticos poco conocido, pero de gran valor.\n" +
                 "Omereque posee valles fértiles que son atravesados por el río Mizque, que nace cerca de la población que le da nombre y recorre la provincia Campero, para luego seguir su curso por los valles cruceños y finalmente unirse al Río Grande.\n" +
                 "Miles de años atrás, los habitantes de los valles de Omereque, al sur de Cochabamba, dibujaron sobre los farallones que dan al río Mizque, unos lagartos o lagartijas de gran tamaño, figuras humanas y representaciones del sol y de la luna. Esas figuras, que fueron pintadas con ocres de color rojo carmín, rojo oscuro y naranja y grasa animal, han sobrevivido como mudos testimonios de los primeros habitantes humanos de esa región.\n" +
@@ -5717,7 +5717,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_CAMPERO);
         lugarTuristico.setTipo("Patrimonio Urbano Arquitectónico, Artístico, Museos y Manifestaciones Culturales");
         lugarTuristico.setNombre("Monumento al Charango");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"MONUMENTO A CHARANGO1.jpg", "MONUMENTO AL CHARANGO.jpg" });
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"monumento a charango1.jpg", "monumento al charango.jpg" });
         lugarTuristico.setDescripcion("Está en el parque del Kjochi. Imponente infraestructura de cemento en forma de charango. Es uno de los monumentos más representativos de Aiquile, en cuyo lugar también se realizan representaciones folklóricas.");
         lugarTuristico.setHorario("Abierto");
         lugarTuristico.setDireccion("Aiquile, Bolivia");
@@ -5732,7 +5732,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_CAMPERO);
         lugarTuristico.setTipo("Sitios Naturales");
         lugarTuristico.setNombre("Colina San Sebastián “El cerrito”");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"COLINA DE SAN SEBATIAN1.jpg", "COLINA DE SANSEBASTIAN1.jpg", "COLINA DE SANSEBASTIAN2.jpg" });
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"colina de san sebatian1.jpg", "colina de sansebastian1.jpg", "colina de sansebastian2.jpg" });
         lugarTuristico.setDescripcion("La colina de San Sebastián, considerado un lugar histórico: según los aiquileños, aquí es donde Patricio Lara, héroe de la batalla de la Tenería, se parapetó para hacer frente a la arremetida de los españoles, y ahí mismo fue ahorcado.");
         lugarTuristico.setHorario("Abierto");
         lugarTuristico.setDireccion("Aiquile, Bolivia");
@@ -5747,7 +5747,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_CAMPERO);
         lugarTuristico.setTipo("Patrimonio Urbano Arquitectónico, Artístico, Museos y Manifestaciones Culturales");
         lugarTuristico.setNombre("Catedral San Pedro");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"CATEDRAL DE SAN PEDRO1.jpg", "CATEDRAL DE SAN PEDRO2.jpg", "CATEDRAL DE SAN PEDRO3.jpg", "CATEDRAL DE SAN PEDRO4.jpg", "CATEDRAL DE SAN PEDRO5.jpg" });
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"catedral de san pedro1.jpg", "catedral de san pedro2.jpg", "catedral de san pedro3.jpg", "catedral de san pedro4.jpg", "catedral de san pedro5.jpg" });
         lugarTuristico.setDescripcion("Es una obra maestra, sustituye a la anterior catedral derrumbada por el terremoto de 1998 que asoló la ciudad. Es preciosa, moderna y amplia. \n" +
                 "Merece la pena visitar, las campanas del patio que  pertenecieron a la anterior iglesia. Está custodiada por la virgen de Candelaria patrona de Aiquile. Sus visitas de la plaza son inmejorables, lugar de reunión de los aiquileños.\n");
         lugarTuristico.setHorario("Abierto");
@@ -5763,7 +5763,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_CAMPERO);
         lugarTuristico.setTipo("Realizaciones Técnicas y Científicas ");
         lugarTuristico.setNombre("Plaza Zenón Delgadillo");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"PLAZA ZENON DELGADILLO1.jpg", "PLAZA ZENON DELGADILLO2.jpg" });
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"plaza zenon delgadillo1.jpg", "plaza zenon delgadillo2.jpg" });
         lugarTuristico.setDescripcion("La plaza Zenón Delgadillo tiene una enorme tradición histórica, cultural, recreacional, medioambiental y turística y se encuentra ubicada a los pies de la colina de San Sebastián. Posee una escultura más Mide 15 metros, pesa 3 toneladas y está hecho de hierro viene a ser el charango más grande del mundo.");
         lugarTuristico.setHorario("Abierto");
         lugarTuristico.setDireccion("Aiquile, Bolivia");
