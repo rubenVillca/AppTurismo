@@ -87,9 +87,7 @@ public class LugarAdapterRecycler extends RecyclerView.Adapter<LugarAdapterRecyc
                     for (ModeloLugarTuristico modeloLugarTuristico : modeloLugarTuristicos) {
 
                         if ((modeloLugarTuristico.getNombre().toLowerCase()).contains(charString) ||
-                                modeloLugarTuristico.getDescripcion().toLowerCase().contains(charString) ||
-                                modeloLugarTuristico.getProvincia().toLowerCase().contains(charString) ||
-                                modeloLugarTuristico.getDireccion().toLowerCase().contains(charString)) {
+                                modeloLugarTuristico.getProvincia().toLowerCase().contains(charString)) {
 
                             filteredList.add(modeloLugarTuristico);
                         }
