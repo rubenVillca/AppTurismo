@@ -202,9 +202,10 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.hga.appturismo.activity.MainActivity"/>
         </activity>
-        <activity android:name=".activity.BuscarPorTipoActivity"
-                  android:label="Buscar por tipo de actividad"
-                  android:parentActivityName=".activity.MainActivity">
+        <activity
+            android:name=".activity.BuscarPorTipoActivity"
+            android:label="Buscar por tipo de actividad"
+            android:parentActivityName=".activity.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.hga.appturismo.activity.MainActivity"/>

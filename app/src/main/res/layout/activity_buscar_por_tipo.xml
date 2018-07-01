@@ -14,7 +14,8 @@
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            tools:ignore="UselessParent">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -30,8 +31,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
-                        android:text="Clasificación del Turismo en Cochabamba"
-                        android:textSize="19dp" />
+                        android:text="@string/label_clasificacion_del_turismo_en_cochabamba"
+                        android:textSize="19sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -42,19 +43,17 @@
                     android:id="@+id/btn_sitiosNaturales"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Sitios Naturales"
-                    android:onClick="goSitiosNaturales"
+                    android:text="@string/tipo_sitios_naturales"
                     android:textAllCaps="false"/>
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
                     <Button
-                        android:id="@+id/btn_patrimonio_Urbano"
+                        android:id="@+id/btn_patrimonioUrbano"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Patrimonio Urbano Arquitectónico, Artístico, Museos y Manifestaciones Culturales"
-                        android:onClick="goPatrimonioUrbano"
+                        android:text="@string/tipo_patrimonio_urbano"
                         android:textAllCaps="false"/>
                 </LinearLayout>
                 <LinearLayout
@@ -64,8 +63,7 @@
                         android:id="@+id/btn_etnografia"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Etnografía y Folklore"
-                        android:onClick="goEtnografia"
+                        android:text="@string/tipo_etnograf_a_y_folklore"
                         android:textAllCaps="false"/>
                 </LinearLayout>
                 <LinearLayout
@@ -75,8 +73,7 @@
                         android:id="@+id/btn_realizacioneTecnicas"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Realizaciones Técnicas y Científicas"
-                        android:onClick="goRealizacionesTecnicas"
+                        android:text="@string/tipo_realizaciones_t_cnicas_y_cient_ficas"
                         android:textAllCaps="false"/>
                 </LinearLayout>
                 <LinearLayout
@@ -86,8 +83,7 @@
                         android:id="@+id/btn_acontecimientosPro"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Acontecimientos Programados"
-                        android:onClick="goAcontecimientosProgramados"
+                        android:text="@string/tipo_acontecimientos_programados"
                         android:textAllCaps="false"/>
                 </LinearLayout>
 
