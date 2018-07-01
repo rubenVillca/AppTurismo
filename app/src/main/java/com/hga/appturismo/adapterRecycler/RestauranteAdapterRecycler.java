@@ -344,9 +344,7 @@ public class RestauranteAdapterRecycler extends RecyclerView.Adapter<Restaurante
                     for (ModeloRestaurante modeloRestaurante : modeloRestaurantes) {
 
                         if (modeloRestaurante.getNombre().toLowerCase().contains(charString) ||
-                                modeloRestaurante.getProvincia().toLowerCase().contains(charString) ||
-                                modeloRestaurante.getDireccion().toLowerCase().contains(charString) ||
-                                modeloRestaurante.getPaginaWeb().toLowerCase().contains(charString)) {
+                                modeloRestaurante.getProvincia().toLowerCase().contains(charString)) {
 
                             filteredList.add(modeloRestaurante);
                         }

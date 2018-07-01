@@ -3739,7 +3739,7 @@ public class Listas {
         lugarTuristico = new ModeloLugarTuristico();
         lugarTuristico.setIdSQLite(idLugTur++);
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
-        lugarTuristico.setTipo("Patrimonio Urbano Arquitectónico, Artístico, Museos y Manifestaciones Culturales");
+        lugarTuristico.setTipo("Manifestaciones Culturales");
         lugarTuristico.setNombre("Colina de San Sebastián La Coronilla ");
         lugarTuristico.setImagenesFirebaseArreglo(new String[]{"colinas de san sebastian la coronilla1.jpg", "colinas de san sebastian la coronilla2.jpg" });
         lugarTuristico.setDescripcion("En la zona sur de la ciudad, muy cerca de la Terminal de Buses,  se encuentra la colina de San Sebastián en cuya cuesta se halla el monumento a las Heroínas de la Coronilla, el Paseo de Los Héroes y el Monumento a las Armas, monumentos que son considerado Sitio de Interés Histórico, Cultural y Nacional. El monumento a las Heroínas, esculpida en bronce en 1922, representa simbólicamente la participación de un grupo de valerosas mujeres que resistieron a las tropas del General Goyeneche, durante la guerra de la independencia.\n" +
@@ -3953,7 +3953,7 @@ public class Listas {
         lugarTuristico = new ModeloLugarTuristico();
         lugarTuristico.setIdSQLite(idLugTur++);
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
-        lugarTuristico.setTipo("Patrimonio Urbano Arquitectónico, Artístico, Museos y Manifestaciones Culturales");
+        lugarTuristico.setTipo("Patrimonio Urbano Arquitectónico");
         lugarTuristico.setNombre("Catedral Metropolitana");
         lugarTuristico.setImagenesFirebaseArreglo(new String[]{"catedral metropolitana1.jpg", "catedral metropolitana2.jpg", "catedral metropolitana3.jpg", "catedral metropolitana4.jpg" });
         lugarTuristico.setDescripcion("Es la Iglesia Mayor. Más conocida como la  “Catedral Metropolitana” de la ciudad ce Cochabamba, fue construida en 1735 y es una de las mayores de Charcas, de las antiguas, en su interior conserva cuadros y muebles coloniales. Una galería de arcos que data de principios de siglo cubre la parte lateral de la plaza 14 de Septiembre y queda descubierta solo la portada de la cabecera, que se alza sobre la calle Esteban Arze.\n" +
@@ -4797,7 +4797,7 @@ public class Listas {
         lugarTuristico = new ModeloLugarTuristico();
         lugarTuristico.setIdSQLite(idLugTur++);
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_ARANI);
-        lugarTuristico.setTipo("Patrimonio Urbano Arquitectónico, Artístico, Museos y Manifestaciones Culturales");
+        lugarTuristico.setTipo("Patrimonio Urbano Arquitectónico");
         lugarTuristico.setNombre("Iglesia de San Bartolomé ");
         lugarTuristico.setImagenesFirebaseArreglo(new String[]{"iglesia de san bartolome1.jpg", "iglesia de san bartolome2.jpg", "iglesia de san bartolome3.jpg" });
         lugarTuristico.setDescripcion("Uno de los atractivos arquitectónicos religiosos más bellos que se precia de tener la población de Arani, es el templo colonial de San Bartolomé, declarado Monumento Nacional, en 1945.\n" +

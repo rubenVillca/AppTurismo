@@ -264,6 +264,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         startActivity(buscarPorProvincia);
     }
 
+    public void goTipoActivity(View view) {
+        Intent buscarPorTipo = new Intent(this, BuscarPorTipoActivity.class);
+        startActivity(buscarPorTipo);
+    }
     private void resetData() {
         TurismoAplicacion app = (TurismoAplicacion) getApplicationContext();
 

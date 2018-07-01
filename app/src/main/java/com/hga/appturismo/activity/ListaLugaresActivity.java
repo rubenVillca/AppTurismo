@@ -35,10 +35,34 @@ public class ListaLugaresActivity extends AppCompatActivity {
     private ArrayList<ModeloLugarTuristico> lugaresTuristicos;
     private ArrayList<ModeloPuntaje> modeloPuntajes;
     private DataBaseSync dataBaseSync;
-    private String provincia = "";
+    private String lugarSeleccionado = "";//provincia o tipo de lugar
+    private boolean isProvincia;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_lista_lugares);
+        dataBaseSync = new DataBaseSync(this);
+
+        Bundle bundle = getIntent().getExtras();
+        if (bundle != null && bundle.getString("lugarSeleccionado") != null) {
+            lugarSeleccionado = bundle.getString("lugarSeleccionado");
+            isProvincia=bundle.getBoolean("isProvincia");
+        }else{
+            lugarSeleccionado ="";
+            isProvincia=true;
+        }
+
+        if (!isProvincia){
+            setTitle("Tipo: "+lugarSeleccionado);
+        }
+        initRecyclerView();
+        loadJSONLugarTuristico();
+    }
 
     public void goMapLugar(View view) {
         Intent intent = new Intent(this, MapaLugaresActivity.class);
+        intent.putExtra("isProvincia",isProvincia);
         startActivity(intent);
     }
 
@@ -71,13 +95,16 @@ public class ListaLugaresActivity extends AppCompatActivity {
                     lugaresTuristicos.clear();
                     if (listaResponse != null) {
                         ArrayList<ModeloLugarTuristico> turisticoArrayList = listaResponse.getListModeloLugarTuristico();
-                        if (!provincia.equals("")) {
+                        if (!lugarSeleccionado.equals("")) {
                             for (ModeloLugarTuristico modeloLugarTuristico : turisticoArrayList) {
-                                if (modeloLugarTuristico.getProvincia().equals(provincia)) {
+                                if (isProvincia&&modeloLugarTuristico.getProvincia().equals(lugarSeleccionado)) {
+                                    lugaresTuristicos.add(modeloLugarTuristico);
+                                }
+                                if (!isProvincia&&modeloLugarTuristico.getTipo().equals(lugarSeleccionado)){
                                     lugaresTuristicos.add(modeloLugarTuristico);
                                 }
                             }
-                        } else {
+                        } else{
                             lugaresTuristicos.addAll(turisticoArrayList);
                         }
                     }
@@ -133,21 +160,7 @@ public class ListaLugaresActivity extends AppCompatActivity {
         adapterRecycler.notifyDataSetChanged();
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_lista_lugares);
-        dataBaseSync = new DataBaseSync(this);
 
-        Bundle bundle = getIntent().getExtras();
-        if (bundle != null && bundle.getString("provincia") != null) {
-            provincia = bundle.getString("provincia");
-        }else{
-            provincia="";
-        }
-        initRecyclerView();
-        loadJSONLugarTuristico();
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

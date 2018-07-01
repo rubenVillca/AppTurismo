@@ -344,8 +344,6 @@ public class HotelAdapterRecycler extends RecyclerView.Adapter<HotelAdapterRecyc
                     for (ModeloHotel modeloHotel : hoteles) {
 
                         if (modeloHotel.getNombre().toLowerCase().contains(charString) ||
-                                modeloHotel.getDireccion().toLowerCase().contains(charString) ||
-                                modeloHotel.getPaginaWeb().toLowerCase().contains(charString) ||
                                 modeloHotel.getProvincia().toLowerCase().contains(charString)) {
 
                             filteredList.add(modeloHotel);

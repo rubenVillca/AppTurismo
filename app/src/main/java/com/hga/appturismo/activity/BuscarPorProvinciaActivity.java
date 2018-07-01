@@ -76,52 +76,68 @@ public class BuscarPorProvinciaActivity extends AppCompatActivity implements Vie
         int idProvincia=v.getId();
         switch (idProvincia){
             case R.id.btnProvinciaArani:
-                intent.putExtra("provincia","Arani");
+                intent.putExtra("lugarSeleccionado","Arani");
+                intent.putExtra("isProvincia",true);
                 break;
             case R.id.btnProvinciaArque:
-                intent.putExtra("provincia","Arque");
+                intent.putExtra("lugarSeleccionado","Arque");
+                intent.putExtra("isProvincia",true);
                 break;
             case R.id.btnProvinciaAyopaya:
-                intent.putExtra("provincia","Ayopaya");
+                intent.putExtra("lugarSeleccionado","Ayopaya");
+                intent.putExtra("isProvincia",true);
                 break;
             case R.id.btnProvinciaBolivar:
-                intent.putExtra("provincia","Bolívar");
+                intent.putExtra("lugarSeleccionado","Bolívar");
+                intent.putExtra("isProvincia",true);
                 break;
             case R.id.btnProvinciaCampero:
-                intent.putExtra("provincia","Narciso Campero");
+                intent.putExtra("lugarSeleccionado","Narciso Campero");
+                intent.putExtra("isProvincia",true);
                 break;
             case R.id.btnProvinciaCapinota:
-                intent.putExtra("provincia","Capinota");
+                intent.putExtra("lugarSeleccionado","Capinota");
+                intent.putExtra("isProvincia",true);
                 break;
             case R.id.btnProvinciaCercado:
-                intent.putExtra("provincia","Cercado");
+                intent.putExtra("lugarSeleccionado","Cercado");
+                intent.putExtra("isProvincia",true);
                 break;
             case R.id.btnProvinciaChapare:
-                intent.putExtra("provincia","Chapare");
+                intent.putExtra("lugarSeleccionado","Chapare");
+                intent.putExtra("isProvincia",true);
                 break;
             case R.id.btnProvinciaEstebanArze:
-                intent.putExtra("provincia","Esteban Arce");
+                intent.putExtra("lugarSeleccionado","Esteban Arce");
+                intent.putExtra("isProvincia",true);
                 break;
             case R.id.btnProvinciaGermanJordan:
-                intent.putExtra("provincia","Germán Jordán");
+                intent.putExtra("lugarSeleccionado","Germán Jordán");
+                intent.putExtra("isProvincia",true);
                 break;
             case R.id.btnProvinciaJoseCarrasco:
-                intent.putExtra("provincia","José Carrasco");
+                intent.putExtra("lugarSeleccionado","José Carrasco");
+                intent.putExtra("isProvincia",true);
                 break;
             case R.id.btnProvinciaMizque:
-                intent.putExtra("provincia","Mizque");
+                intent.putExtra("lugarSeleccionado","Mizque");
+                intent.putExtra("isProvincia",true);
                 break;
             case R.id.btnProvinciaPunata:
-                intent.putExtra("provincia","Punata");
+                intent.putExtra("lugarSeleccionado","Punata");
+                intent.putExtra("isProvincia",true);
                 break;
             case R.id.btnProvinciaQuillacollo:
-                intent.putExtra("provincia","Quillacollo");
+                intent.putExtra("lugarSeleccionado","Quillacollo");
+                intent.putExtra("isProvincia",true);
                 break;
             case R.id.btnProvinciaTapacari:
-                intent.putExtra("provincia","Tapacarí");
+                intent.putExtra("lugarSeleccionado","Tapacarí");
+                intent.putExtra("isProvincia",true);
                 break;
             case R.id.btnProvinciaTiraque:
-                intent.putExtra("provincia","Tiraque");
+                intent.putExtra("lugarSeleccionado","Tiraque");
+                intent.putExtra("isProvincia",true);
                 break;
         }
         startActivity(intent);
