@@ -141,4 +141,6 @@
 
     <string name="pref_title_vibrate">Vibrate</string>
     <string name="action_reset_profile">Resetear Datos</string>
+    <string name="buscar_por_provincia">Buscar por Provincia</string>
+    <string name="buscar_por_tipo">Buscar por Tipo</string>
 </resources>

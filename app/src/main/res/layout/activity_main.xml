@@ -81,14 +81,23 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
                 <Button
                     android:id="@+id/btnBuscarProvincia"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:onClick="goProvinciaActivity"
-                    android:text="Buscar por Provincia"
+                    android:text="@string/buscar_por_provincia"
+                    android:textAllCaps="false"/>
+
+                <Button
+                    android:id="@+id/btnBuscarTipo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="goTipoActivity"
+                    android:text="@string/buscar_por_tipo"
                     android:textAllCaps="false"/>
             </LinearLayout>
 
