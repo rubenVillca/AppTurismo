@@ -11,6 +11,7 @@ import com.hga.appturismo.modelo.ModeloLugarTuristico;
 import com.hga.appturismo.modelo.ModeloPuntaje;
 import com.hga.appturismo.modelo.ModeloRestaurante;
 import com.hga.appturismo.modelo.ModeloUsuario;
+import com.hga.appturismo.provider.Listas;
 
 import java.util.ArrayList;
 
@@ -325,7 +326,14 @@ public class DataBaseSync {
         }
     }
 
-    public void deleteAllSQLite() {
+    public void resetSQLite() {
         helper.deleteAllDatos(db);
+
+        Listas listas=new Listas();
+        updateHotelSQLite(listas.getListaHoteles());
+        updateLugarTuristicoSQLite(listas.getListaLugares());
+        updateRestauranteSQLite(listas.getListaRestaurantes());
+        updateUsuariosSQLite(listas.getListaUsuarios());
+        updatePuntajeSQLite(listas.getListaPuntaje());
     }
 }

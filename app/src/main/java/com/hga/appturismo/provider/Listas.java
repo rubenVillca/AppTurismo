@@ -14,7 +14,7 @@ public class Listas {
     private ArrayList<ModeloLugarTuristico> listaLugares;
     private ArrayList<ModeloRestaurante> listaRestaurantes;
     private ArrayList<ModeloUsuario> listaUsuarios;
-    private ArrayList<ModeloPuntaje> usuarioLugar;
+    private ArrayList<ModeloPuntaje> listaPuntaje;
 
     public Listas() {
         this.listaHoteles = new ArrayList<>();
@@ -22,13 +22,13 @@ public class Listas {
         this.listaRestaurantes = new ArrayList<>();
         this.listaUsuarios= new ArrayList<>();
         this.listaUsuarios= new ArrayList<>();
-        this.usuarioLugar= new ArrayList<>();
+        this.listaPuntaje = new ArrayList<>();
 
         int idLugar=setListaLugarTuristico();
         setListaAcontecimientos(idLugar);
         setListaHoteles();
         setListaRestaurantes();
-        //setListaUsuarios();
+        setListaUsuarios();
     }
 
     public ArrayList<ModeloHotel> getListaHoteles() {
@@ -47,8 +47,8 @@ public class Listas {
         return listaUsuarios;
     }
 
-    public ArrayList<ModeloPuntaje> getUsuarioLugar(){
-        return usuarioLugar;
+    public ArrayList<ModeloPuntaje> getListaPuntaje(){
+        return listaPuntaje;
     }
 
     private void setListaHoteles() {
@@ -5775,6 +5775,7 @@ public class Listas {
 
         return idLugTur;
     }
+
     private void setListaAcontecimientos(int idAcontecimiento){
         ModeloLugarTuristico acontecimiento;
 
@@ -5822,6 +5823,19 @@ public class Listas {
         modeloUsuario.setEmail("juan@gmail.com");
         modeloUsuario.setIdFirebase(modeloUsuario.getEmail());
         modeloUsuario.setTelefono(String.valueOf(60761941));
+        modeloUsuario.setContrasenia("firebase123");
+        modeloUsuario.setRol(Constants.USUARIO_ROL_NORMAL);
+        modeloUsuario.setEstado(Constants.ESTADO_USUARIO_ACTIVO);
+        listaUsuarios.add(modeloUsuario);
+
+        idUser++;
+        modeloUsuario=new ModeloUsuario();
+        modeloUsuario.setIdSqlite(idUser);
+        modeloUsuario.setNombre("Juana");
+        modeloUsuario.setApellido("Gonzales");
+        modeloUsuario.setEmail("juana@gmail.com");
+        modeloUsuario.setIdFirebase(modeloUsuario.getEmail());
+        modeloUsuario.setTelefono(String.valueOf(60761940));
         modeloUsuario.setContrasenia("firebase123");
         modeloUsuario.setRol(Constants.USUARIO_ROL_NORMAL);
         modeloUsuario.setEstado(Constants.ESTADO_USUARIO_ACTIVO);

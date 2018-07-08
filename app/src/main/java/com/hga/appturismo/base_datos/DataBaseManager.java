@@ -205,21 +205,12 @@ public class DataBaseManager extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    private void deleteDatos(SQLiteDatabase db) {
-        deleteDatosRestaurante(db);
-        deleteDatosLugarTuristico(db);
-        deleteDatosHotel(db);
-        deleteDatosPuntaje(db);
-        deleteDatosUsuario(db);
-        deleteDatosImagenes(db);
-    }
-
     private void insertarDatosSQLite(SQLiteDatabase db) {
         Listas listas = new Listas();
         insertarLugares(listas.getListaLugares(), db);
         insertarHoteles(listas.getListaHoteles(), db);
         insertarRestaurantes(listas.getListaRestaurantes(), db);
-        //insertarUsuarios(listas.getListaUsuarios(), db);
+        insertarUsuarios(listas.getListaUsuarios(), db);
 
     }
 
