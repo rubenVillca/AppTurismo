@@ -91,6 +91,8 @@ public class DataBaseSync {
         modeloLugarTuristico.setGpsY(cursor.getFloat(cursor.getColumnIndex(DataBaseManager.LUGARES_LONGITUD)));
         modeloLugarTuristico.setActividad(cursor.getString(cursor.getColumnIndex(DataBaseManager.LUGARES_ACTIVIDAD)));
         modeloLugarTuristico.setEstado(cursor.getString(cursor.getColumnIndex(DataBaseManager.LUGARES_ESTADO)));
+        modeloLugarTuristico.setLinea(cursor.getString(cursor.getColumnIndex(DataBaseManager.LUGARES_LINEA)));
+        modeloLugarTuristico.setFecha(cursor.getString(cursor.getColumnIndex(DataBaseManager.LUGARES_FECHA)));
         modeloLugarTuristico.setImagenesFirebase(getListaImagenes(ModeloImagen.TIPO_LUGAR, modeloLugarTuristico.getIdSQLite()));
         return modeloLugarTuristico;
     }
@@ -141,7 +143,6 @@ public class DataBaseSync {
         modeloRestaurante.setImagenesFirebase(getListaImagenes(ModeloImagen.TIPO_RESTAURANTE, modeloRestaurante.getIdSQLite()));
         return modeloRestaurante;
     }
-
 
     public ModeloRestaurante getRestaurante(String nombreMarcador) {
         ModeloRestaurante modeloRestaurante = new ModeloRestaurante();

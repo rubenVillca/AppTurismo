@@ -1,10 +1,5 @@
 package com.hga.appturismo.provider;
 
-import android.widget.ArrayAdapter;
-import android.widget.Spinner;
-
-import com.hga.appturismo.R;
-import com.hga.appturismo.modelo.ModeloAcontecimiento;
 import com.hga.appturismo.modelo.ModeloHotel;
 import com.hga.appturismo.modelo.ModeloLugarTuristico;
 import com.hga.appturismo.modelo.ModeloPuntaje;
@@ -17,7 +12,6 @@ import java.util.ArrayList;
 public class Listas {
     private ArrayList<ModeloHotel> listaHoteles;
     private ArrayList<ModeloLugarTuristico> listaLugares;
-    private ArrayList<ModeloAcontecimiento> listaAcontecimientos;
     private ArrayList<ModeloRestaurante> listaRestaurantes;
     private ArrayList<ModeloUsuario> listaUsuarios;
     private ArrayList<ModeloPuntaje> usuarioLugar;
@@ -25,14 +19,13 @@ public class Listas {
     public Listas() {
         this.listaHoteles = new ArrayList<>();
         this.listaLugares = new ArrayList<>();
-        this.listaAcontecimientos= new ArrayList<>();
         this.listaRestaurantes = new ArrayList<>();
         this.listaUsuarios= new ArrayList<>();
         this.listaUsuarios= new ArrayList<>();
         this.usuarioLugar= new ArrayList<>();
 
-        setListaLugarTuristico();
-        setListaAcontecimientos();
+        int idLugar=setListaLugarTuristico();
+        setListaAcontecimientos(idLugar);
         setListaHoteles();
         setListaRestaurantes();
         //setListaUsuarios();
@@ -44,10 +37,6 @@ public class Listas {
 
     public ArrayList<ModeloLugarTuristico> getListaLugares() {
         return listaLugares;
-    }
-
-    public ArrayList<ModeloAcontecimiento> getListaAcontecimientos (){
-        return listaAcontecimientos;
     }
 
     public ArrayList<ModeloRestaurante> getListaRestaurantes() {
@@ -3717,7 +3706,7 @@ public class Listas {
 
     }
 
-    private void setListaLugarTuristico() {
+    private int setListaLugarTuristico() {
         int idLugTur = 1;
         ModeloLugarTuristico lugarTuristico;
 
@@ -3741,6 +3730,8 @@ public class Listas {
         lugarTuristico.setTelefono(4228530);
         lugarTuristico.setGpsX(-17.38435132938883f);
         lugarTuristico.setGpsY(-66.1349768936634f);
+        lugarTuristico.setLinea("");
+        lugarTuristico.setFecha("");
         lugarTuristico.setEstado(Constants.ESTADO_LUGAR_VISIBLE);
         listaLugares.add(lugarTuristico);
 
@@ -3758,6 +3749,8 @@ public class Listas {
         lugarTuristico.setTelefono(0);
         lugarTuristico.setGpsX(-17.4047292f);
         lugarTuristico.setGpsY(-66.1604894f);
+        lugarTuristico.setLinea("");
+        lugarTuristico.setFecha("");
         lugarTuristico.setEstado(Constants.ESTADO_LUGAR_VISIBLE);
         listaLugares.add(lugarTuristico);
 
@@ -5779,12 +5772,13 @@ public class Listas {
         lugarTuristico.setGpsY(-65.18137112259865f);
         lugarTuristico.setEstado(Constants.ESTADO_LUGAR_VISIBLE);
         listaLugares.add(lugarTuristico);
-    }
-    private void setListaAcontecimientos(){
-        int idAcontecimiento = 1;
-        ModeloAcontecimiento acontecimiento;
 
-        acontecimiento = new ModeloAcontecimiento();
+        return idLugTur;
+    }
+    private void setListaAcontecimientos(int idAcontecimiento){
+        ModeloLugarTuristico acontecimiento;
+
+        acontecimiento = new ModeloLugarTuristico();
         acontecimiento.setIdSQLite(idAcontecimiento++);
         //acontecimiento.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         acontecimiento.setTipo("Acontecimientos Programados");
@@ -5792,13 +5786,15 @@ public class Listas {
         acontecimiento.setImagenesFirebaseArreglo(new String[]{"Festividad de la Virgen LA BELLA.jpg", "Festividad de la Virgen LA BELLA2.jpg", "Festividad de la Virgen LA BELLA3.jpg"});
         acontecimiento.setDescripcion("Araní es un atractivo destino para la práctica de turismo religioso, actividad que se encuentra enmarcada en una profunda tradición y ferviente vocación religiosa, resultado del proceso de evangelización y catequización que se llevó a cabo durante la conquista, además de haber funcionado como sede del Obispado de Santa Cruz de la Sierra, el siglo XVII. Entre el 23 y el 25 de agosto, Arani se viste de gala al celebrar la festividad religiosa en honor a la Virgen La Bella, declarada Patrimonio Cultural y Religioso del Departamento de Cochabamba, mediante Ley de 24 de diciembre de 2007. Esta fiesta, al contrario de otras festividades que comienzan con la entrada folklórica, inicia su evento festivo con el día del calvario, seguido de la procesión de la sagrada imagen de la Bella, para finalizar con la demostración folklórica.\n" +
                 "No obstante, antes de la celebración misma de la fiesta, la imagen es venerada en principio en la ciudad de Sacaba para después retornar a Arani donde se da inicio a las tres jornadas festivas. En esta fiesta, durante el calvario también se acostumbra adquirir objetos en miniatura o propiedades para luego ser bendecidas en los rituales católicos y andinos, con similares características que las de Urkupiña.\n");
-        acontecimiento.setHorario("No se tiene registrado.");
+        acontecimiento.setHorario("09:00");
         acontecimiento.setDireccion("Arani, Bolivia");
         acontecimiento.setTelefono(0);
         acontecimiento.setGpsX(-17.57885187017981f);
         acontecimiento.setGpsY(-65.77288269996643f);
         acontecimiento.setEstado(Constants.ESTADO_LUGAR_VISIBLE);
-        listaAcontecimientos.add(acontecimiento);
+        acontecimiento.setFecha("25 mayo ");
+        acontecimiento.setLinea("x");
+        listaLugares.add(acontecimiento);
     }
 
     private  void setListaUsuarios(){

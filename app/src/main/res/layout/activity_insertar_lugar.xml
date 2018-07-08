@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.hga.appturismo.activity.InsertarLugarActivity">
+                                                 xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                 xmlns:tools="http://schemas.android.com/tools"
+                                                 android:layout_width="match_parent"
+                                                 android:layout_height="match_parent"
+                                                 tools:context="com.hga.appturismo.activity.InsertarLugarActivity">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -101,6 +101,7 @@
                     android:textSize="@dimen/size_text_primary"/>
             </LinearLayout>
 
+
             <LinearLayout
                 android:id="@+id/layout_nombre"
                 android:layout_width="match_parent"
@@ -155,6 +156,61 @@
                     android:layout_weight="2"
                     android:inputType="text"
                     android:textSize="@dimen/size_text_primary"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_lineaTurismo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+                <TextView
+                    android:id="@+id/label_textView_linea"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/label_linea"
+                    android:textSize="@dimen/size_text_primary"/>
+
+                <EditText
+                    android:id="@+id/txt_linea"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin_label_top_bottom"
+                    android:layout_marginTop="@dimen/margin_label_top_bottom"
+                    android:layout_weight="2"
+                    android:inputType="text"
+                    android:textSize="@dimen/size_text_primary"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_fechaTurismo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+                <TextView
+                    android:id="@+id/label_textView_fecha"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/label_fecha"
+                    android:textSize="@dimen/size_text_primary"/>
+
+                <EditText
+                    android:id="@+id/txt_fecha"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin_label_top_bottom"
+                    android:layout_marginTop="@dimen/margin_label_top_bottom"
+                    android:layout_weight="2"
+                    android:inputType="date"
+                    android:textSize="@dimen/size_text_primary"/>
+
             </LinearLayout>
 
             <LinearLayout

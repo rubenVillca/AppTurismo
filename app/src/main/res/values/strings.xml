@@ -149,4 +149,6 @@
     <string name="label_clasificacion_del_turismo_en_cochabamba">Clasificación del Turismo en Cochabamba</string>
     <string name="tipo_patrimonio_urbano">Patrimonio Urbano Arquitectónico, Artístico, Museos y Manifestaciones Culturales</string>
     <string name="tipo_acontecimientos_programados">Acontecimientos Programados</string>
+    <string name="label_linea">Línea</string>
+    <string name="label_fecha">Fecha:</string>
 </resources>

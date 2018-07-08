@@ -5,7 +5,6 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.hga.appturismo.modelo.ModeloAcontecimiento;
 import com.hga.appturismo.modelo.ModeloHotel;
 import com.hga.appturismo.modelo.ModeloImagen;
 import com.hga.appturismo.modelo.ModeloLugarTuristico;
@@ -21,7 +20,7 @@ import java.util.ArrayList;
  */
 
 public class DataBaseManager extends SQLiteOpenHelper {
-    public static final int DATABASE_VERSION = 82;
+    public static final int DATABASE_VERSION = 84;
     public static final String DATABASE_NAME = "APP_TURISMO";
 
     public static final String TABLE_IMAGENES = "IMAGENES";
@@ -45,22 +44,8 @@ public class DataBaseManager extends SQLiteOpenHelper {
     public static final String LUGARES_PROVINCIA = "PROVINCIA_LUGAR";
     public static final String LUGARES_ACTIVIDAD = "ACTIVIDAD_LUGAR";
     public static final String LUGARES_ESTADO= "ESTADO_LUGAR";
-
-    public static final String TABLE_ACONTECIMIENTOS_PROGRAMADOS = "ACONTECIMIENTOS_PROGRAMADOS";
-    public static final String ACONTECIMIENTOS_ID_SQLITE = "ID_SQLITE_ACONTECIMIENTOS";
-    public static final String ACONTECIMIENTOS_ID_FIREBASE = "ID_FIREBASE_ACONTECIMIENTOS";
-    public static final String ACONTECIMIENTOS_NAME = "NOMBRE_ACONTECIMIENTOS";
-    public static final String ACONTECIMIENTOS_DESCRIPCION = "DESCRIPCION_ACONTECIMIENTOS";
-    public static final String ACONTECIMIENTOS_UBICACION = "UBICACION_ACONTECIMIENTOS";
-    public static final String ACONTECIMIENTOS_FECHA = "FECHA_ACONTECIMIENTOS";
-    public static final String ACONTECIMIENTOS_HORARIO = "HORARIO_ACONTECIMIENTOS";
-    public static final String ACONTECIMIENTOS_LINEA_TRANSPORTE = "FECHA_ACONTECIMIENTOS";
-    public static final String ACONTECIMIENTOS_TELEFONO = "TELEFONO_ACONTECIMIENTOS";
-    public static final String ACONTECIMIENTOS_LATITUD = "LATITUD_ACONTECIMIENTOS";
-    public static final String ACONTECIMIENTOS_LONGITUD = "LONGITUD_ACONTECIMIENTOS";
-    public static final String ACONTECIMIENTOS_PROVINCIA = "PROVINCIA_ACONTECIMIENTOS";
-    public static final String ACONTECIMIENTOS_ACTIVIDAD = "ACTIVIDAD_ACONTECIMIENTOS";
-    public static final String ACONTECIMIENTOS_ESTADO= "ESTADO_ACONTECIMIENTOS";
+    public static final String LUGARES_FECHA= "FECHA_LUGAR";
+    public static final String LUGARES_LINEA= "LINEA_LUGAR";
 
     public static final String TABLE_RESTAURANTES = "RESTAURANTES";
     public static final String RESTAURANTES_ID_SQLITE = "ID_SQLITE_REST";
@@ -117,7 +102,6 @@ public class DataBaseManager extends SQLiteOpenHelper {
         db.execSQL(getTableSitioTurisico());
         db.execSQL(getTableRestaurantes());
         db.execSQL(getTableHoteles());
-        db.execSQL(getTableAcontecimientosProgramados());
 
         insertarDatosSQLite(db);
     }
@@ -171,28 +155,13 @@ public class DataBaseManager extends SQLiteOpenHelper {
                 + LUGARES_LATITUD + " text,"
                 + LUGARES_LONGITUD + " text,"
                 + LUGARES_ACTIVIDAD + " text,"
-                + LUGARES_ESTADO + " text"
+                + LUGARES_ESTADO + " text,"
+                + LUGARES_LINEA + " text,"
+                + LUGARES_FECHA + " text"
                 + ");";
     }
 
-    private String getTableAcontecimientosProgramados() {
-        return "create table " + TABLE_LUGARES + " ("
-                + ACONTECIMIENTOS_ID_SQLITE + " integer primary key,"
-                + ACONTECIMIENTOS_ID_FIREBASE + " text,"
-                + ACONTECIMIENTOS_NAME + " text,"
-                + ACONTECIMIENTOS_PROVINCIA + " text,"
-                + ACONTECIMIENTOS_DESCRIPCION + " text,"
-                + ACONTECIMIENTOS_UBICACION + " text,"
-                + ACONTECIMIENTOS_FECHA + " text,"
-                + ACONTECIMIENTOS_HORARIO + " text,"
-                + ACONTECIMIENTOS_LINEA_TRANSPORTE + " text,"
-                + ACONTECIMIENTOS_TELEFONO + " text,"
-                + ACONTECIMIENTOS_LATITUD + " text,"
-                + ACONTECIMIENTOS_LONGITUD + " text,"
-                + ACONTECIMIENTOS_ACTIVIDAD + " text,"
-                + ACONTECIMIENTOS_ESTADO + " text"
-                + ");";
-    }
+
     private String getTableRestaurantes() {
         return "create table " + TABLE_RESTAURANTES + " ("
                 + RESTAURANTES_ID_SQLITE + " integer primary key,"
@@ -227,7 +196,6 @@ public class DataBaseManager extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_IMAGENES);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_LUGARES);
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_ACONTECIMIENTOS_PROGRAMADOS);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_RESTAURANTES);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_HOTELES);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_USUARIOS);
@@ -249,7 +217,6 @@ public class DataBaseManager extends SQLiteOpenHelper {
     private void insertarDatosSQLite(SQLiteDatabase db) {
         Listas listas = new Listas();
         insertarLugares(listas.getListaLugares(), db);
-        insertarAcontecimientos(listas.getListaAcontecimientos(),db);
         insertarHoteles(listas.getListaHoteles(), db);
         insertarRestaurantes(listas.getListaRestaurantes(), db);
         //insertarUsuarios(listas.getListaUsuarios(), db);
@@ -330,38 +297,6 @@ public class DataBaseManager extends SQLiteOpenHelper {
         }
     }
 
-    private void insertarAcontecimientos(ArrayList<ModeloAcontecimiento> listaAcontecimientos, SQLiteDatabase db) {
-        for (ModeloAcontecimiento acontecimiento : listaAcontecimientos) {
-            insertarAcontecimientos(db, acontecimiento);
-        }
-    }
-
-
-    public void insertarAcontecimientos(SQLiteDatabase db, ModeloAcontecimiento acontecimiento) {
-        ContentValues contentValues = new ContentValues();
-
-        contentValues.put(DataBaseManager.ACONTECIMIENTOS_ID_SQLITE, acontecimiento.getIdSQLite());
-        contentValues.put(DataBaseManager.ACONTECIMIENTOS_ID_FIREBASE, String.valueOf(acontecimiento.getIdFirebase()));
-        contentValues.put(DataBaseManager.ACONTECIMIENTOS_NAME, String.valueOf(acontecimiento.getNombre()));
-        contentValues.put(DataBaseManager.ACONTECIMIENTOS_DESCRIPCION, String.valueOf(acontecimiento.getDescripcion()));
-        contentValues.put(DataBaseManager.ACONTECIMIENTOS_UBICACION, String.valueOf(acontecimiento.getDireccion()));
-        contentValues.put(DataBaseManager.ACONTECIMIENTOS_FECHA, acontecimiento.getFecha());
-        contentValues.put(DataBaseManager.ACONTECIMIENTOS_HORARIO, acontecimiento.getHorario());
-        contentValues.put(DataBaseManager.ACONTECIMIENTOS_LINEA_TRANSPORTE,acontecimiento.getLinea());
-        contentValues.put(DataBaseManager.ACONTECIMIENTOS_TELEFONO, String.valueOf(acontecimiento.getTelefono()));
-        contentValues.put(DataBaseManager.ACONTECIMIENTOS_LATITUD, String.valueOf(acontecimiento.getGpsX()));
-        contentValues.put(DataBaseManager.ACONTECIMIENTOS_LONGITUD, String.valueOf(acontecimiento.getGpsY()));
-        contentValues.put(DataBaseManager.ACONTECIMIENTOS_ACTIVIDAD, acontecimiento.getActividad());
-        contentValues.put(DataBaseManager.ACONTECIMIENTOS_ESTADO, String.valueOf(acontecimiento.getEstado()));
-
-        if (db.insert(DataBaseManager.TABLE_ACONTECIMIENTOS_PROGRAMADOS, null, contentValues) == -1) {
-            System.out.println("Error en la base de datos turismo: " + contentValues.toString() + "\nmodelo:" + acontecimiento.toString());
-        } else {
-            insertarImagenes(acontecimiento.getImagenes(), db);
-        }
-
-    }
-
     private void insertarLugares(ArrayList<ModeloLugarTuristico> listaLugares, SQLiteDatabase db) {
         for (ModeloLugarTuristico lugar : listaLugares) {
             insertarLugarTuristico(db, lugar);
@@ -383,6 +318,8 @@ public class DataBaseManager extends SQLiteOpenHelper {
         contentValues.put(DataBaseManager.LUGARES_LONGITUD, String.valueOf(lugar.getGpsY()));
         contentValues.put(DataBaseManager.LUGARES_ACTIVIDAD, String.valueOf(lugar.getActividad()));
         contentValues.put(DataBaseManager.LUGARES_ESTADO, String.valueOf(lugar.getEstado()));
+        contentValues.put(DataBaseManager.LUGARES_LINEA,String.valueOf(lugar.getLinea()));
+        contentValues.put(DataBaseManager.LUGARES_FECHA,String.valueOf(lugar.getFecha()));
 
         if (db.insert(DataBaseManager.TABLE_LUGARES, null, contentValues) == -1) {
             System.out.println("Error en la base de datos turismo: " + contentValues.toString() + "\nmodelo:" + lugar.toString());
