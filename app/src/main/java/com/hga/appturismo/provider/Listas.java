@@ -4,6 +4,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
 import com.hga.appturismo.R;
+import com.hga.appturismo.modelo.ModeloAcontecimiento;
 import com.hga.appturismo.modelo.ModeloHotel;
 import com.hga.appturismo.modelo.ModeloLugarTuristico;
 import com.hga.appturismo.modelo.ModeloPuntaje;
@@ -16,6 +17,7 @@ import java.util.ArrayList;
 public class Listas {
     private ArrayList<ModeloHotel> listaHoteles;
     private ArrayList<ModeloLugarTuristico> listaLugares;
+    private ArrayList<ModeloAcontecimiento> listaAcontecimientos;
     private ArrayList<ModeloRestaurante> listaRestaurantes;
     private ArrayList<ModeloUsuario> listaUsuarios;
     private ArrayList<ModeloPuntaje> usuarioLugar;
@@ -23,14 +25,16 @@ public class Listas {
     public Listas() {
         this.listaHoteles = new ArrayList<>();
         this.listaLugares = new ArrayList<>();
+        this.listaAcontecimientos= new ArrayList<>();
         this.listaRestaurantes = new ArrayList<>();
         this.listaUsuarios= new ArrayList<>();
         this.listaUsuarios= new ArrayList<>();
         this.usuarioLugar= new ArrayList<>();
 
         setListaLugarTuristico();
+        setListaAcontecimientos();
         setListaHoteles();
-        setListaRestaurantes();//
+        setListaRestaurantes();
         //setListaUsuarios();
     }
 
@@ -40,6 +44,10 @@ public class Listas {
 
     public ArrayList<ModeloLugarTuristico> getListaLugares() {
         return listaLugares;
+    }
+
+    public ArrayList<ModeloAcontecimiento> getListaAcontecimientos (){
+        return listaAcontecimientos;
     }
 
     public ArrayList<ModeloRestaurante> getListaRestaurantes() {
@@ -3739,7 +3747,7 @@ public class Listas {
         lugarTuristico = new ModeloLugarTuristico();
         lugarTuristico.setIdSQLite(idLugTur++);
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
-        lugarTuristico.setTipo("Manifestaciones Culturales");
+        lugarTuristico.setTipo("Patrimonio Urbano Arquitectónico, Artístico, Museos y Manifestaciones Culturales");
         lugarTuristico.setNombre("Colina de San Sebastián La Coronilla ");
         lugarTuristico.setImagenesFirebaseArreglo(new String[]{"colinas de san sebastian la coronilla1.jpg", "colinas de san sebastian la coronilla2.jpg" });
         lugarTuristico.setDescripcion("En la zona sur de la ciudad, muy cerca de la Terminal de Buses,  se encuentra la colina de San Sebastián en cuya cuesta se halla el monumento a las Heroínas de la Coronilla, el Paseo de Los Héroes y el Monumento a las Armas, monumentos que son considerado Sitio de Interés Histórico, Cultural y Nacional. El monumento a las Heroínas, esculpida en bronce en 1922, representa simbólicamente la participación de un grupo de valerosas mujeres que resistieron a las tropas del General Goyeneche, durante la guerra de la independencia.\n" +
@@ -3953,7 +3961,7 @@ public class Listas {
         lugarTuristico = new ModeloLugarTuristico();
         lugarTuristico.setIdSQLite(idLugTur++);
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
-        lugarTuristico.setTipo("Patrimonio Urbano Arquitectónico");
+        lugarTuristico.setTipo("Patrimonio Urbano Arquitectónico, Artístico, Museos y Manifestaciones Culturales");
         lugarTuristico.setNombre("Catedral Metropolitana");
         lugarTuristico.setImagenesFirebaseArreglo(new String[]{"catedral metropolitana1.jpg", "catedral metropolitana2.jpg", "catedral metropolitana3.jpg", "catedral metropolitana4.jpg" });
         lugarTuristico.setDescripcion("Es la Iglesia Mayor. Más conocida como la  “Catedral Metropolitana” de la ciudad ce Cochabamba, fue construida en 1735 y es una de las mayores de Charcas, de las antiguas, en su interior conserva cuadros y muebles coloniales. Una galería de arcos que data de principios de siglo cubre la parte lateral de la plaza 14 de Septiembre y queda descubierta solo la portada de la cabecera, que se alza sobre la calle Esteban Arze.\n" +
@@ -4797,7 +4805,7 @@ public class Listas {
         lugarTuristico = new ModeloLugarTuristico();
         lugarTuristico.setIdSQLite(idLugTur++);
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_ARANI);
-        lugarTuristico.setTipo("Patrimonio Urbano Arquitectónico");
+        lugarTuristico.setTipo("Patrimonio Urbano Arquitectónico, Artístico, Museos y Manifestaciones Culturales");
         lugarTuristico.setNombre("Iglesia de San Bartolomé ");
         lugarTuristico.setImagenesFirebaseArreglo(new String[]{"iglesia de san bartolome1.jpg", "iglesia de san bartolome2.jpg", "iglesia de san bartolome3.jpg" });
         lugarTuristico.setDescripcion("Uno de los atractivos arquitectónicos religiosos más bellos que se precia de tener la población de Arani, es el templo colonial de San Bartolomé, declarado Monumento Nacional, en 1945.\n" +
@@ -4816,7 +4824,7 @@ public class Listas {
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_ARANI);
         lugarTuristico.setTipo("Acontecimientos Programados");
         lugarTuristico.setNombre("Festividad de la Virgen “La Bella”");
-        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"iglesia de san bartolome1.jpg",  "iglesia de san bartolome3.jpg", "iglesia de san bartolome2.jpg" });
+        lugarTuristico.setImagenesFirebaseArreglo(new String[]{"Festividad de la Virgen LA BELLA.jpg", "Festividad de la Virgen LA BELLA2.jpg", "Festividad de la Virgen LA BELLA3.jpg"  });
         lugarTuristico.setDescripcion("Araní es un atractivo destino para la práctica de turismo religioso, actividad que se encuentra enmarcada en una profunda tradición y ferviente vocación religiosa, resultado del proceso de evangelización y catequización que se llevó a cabo durante la conquista, además de haber funcionado como sede del Obispado de Santa Cruz de la Sierra, el siglo XVII. Entre el 23 y el 25 de agosto, Arani se viste de gala al celebrar la festividad religiosa en honor a la Virgen La Bella, declarada Patrimonio Cultural y Religioso del Departamento de Cochabamba, mediante Ley de 24 de diciembre de 2007. Esta fiesta, al contrario de otras festividades que comienzan con la entrada folklórica, inicia su evento festivo con el día del calvario, seguido de la procesión de la sagrada imagen de la Bella, para finalizar con la demostración folklórica.\n" +
                 "No obstante, antes de la celebración misma de la fiesta, la imagen es venerada en principio en la ciudad de Sacaba para después retornar a Arani donde se da inicio a las tres jornadas festivas. En esta fiesta, durante el calvario también se acostumbra adquirir objetos en miniatura o propiedades para luego ser bendecidas en los rituales católicos y andinos, con similares características que las de Urkupiña.\n");
         lugarTuristico.setHorario("No se tiene registrado.");
@@ -5771,6 +5779,26 @@ public class Listas {
         lugarTuristico.setGpsY(-65.18137112259865f);
         lugarTuristico.setEstado(Constants.ESTADO_LUGAR_VISIBLE);
         listaLugares.add(lugarTuristico);
+    }
+    private void setListaAcontecimientos(){
+        int idAcontecimiento = 1;
+        ModeloAcontecimiento acontecimiento;
+
+        acontecimiento = new ModeloAcontecimiento();
+        acontecimiento.setIdSQLite(idAcontecimiento++);
+        //acontecimiento.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
+        acontecimiento.setTipo("Acontecimientos Programados");
+        acontecimiento.setNombre("Festividad de la Virgen “La Bella”");
+        acontecimiento.setImagenesFirebaseArreglo(new String[]{"Festividad de la Virgen LA BELLA.jpg", "Festividad de la Virgen LA BELLA2.jpg", "Festividad de la Virgen LA BELLA3.jpg"});
+        acontecimiento.setDescripcion("Araní es un atractivo destino para la práctica de turismo religioso, actividad que se encuentra enmarcada en una profunda tradición y ferviente vocación religiosa, resultado del proceso de evangelización y catequización que se llevó a cabo durante la conquista, además de haber funcionado como sede del Obispado de Santa Cruz de la Sierra, el siglo XVII. Entre el 23 y el 25 de agosto, Arani se viste de gala al celebrar la festividad religiosa en honor a la Virgen La Bella, declarada Patrimonio Cultural y Religioso del Departamento de Cochabamba, mediante Ley de 24 de diciembre de 2007. Esta fiesta, al contrario de otras festividades que comienzan con la entrada folklórica, inicia su evento festivo con el día del calvario, seguido de la procesión de la sagrada imagen de la Bella, para finalizar con la demostración folklórica.\n" +
+                "No obstante, antes de la celebración misma de la fiesta, la imagen es venerada en principio en la ciudad de Sacaba para después retornar a Arani donde se da inicio a las tres jornadas festivas. En esta fiesta, durante el calvario también se acostumbra adquirir objetos en miniatura o propiedades para luego ser bendecidas en los rituales católicos y andinos, con similares características que las de Urkupiña.\n");
+        acontecimiento.setHorario("No se tiene registrado.");
+        acontecimiento.setDireccion("Arani, Bolivia");
+        acontecimiento.setTelefono(0);
+        acontecimiento.setGpsX(-17.57885187017981f);
+        acontecimiento.setGpsY(-65.77288269996643f);
+        acontecimiento.setEstado(Constants.ESTADO_LUGAR_VISIBLE);
+        listaAcontecimientos.add(acontecimiento);
     }
 
     private  void setListaUsuarios(){

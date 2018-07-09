@@ -14,6 +14,7 @@ public class Constants {
     public static final String FIREBASE_STORAGE_URL_HOTEL =  "HOTELES/";
     public static final String FIREBASE_STORAGE_URL_RESTAURANTE = "RESTAURANTES/";
     public static final String FIREBASE_STORAGE_URL_LUGAR_TURISTICO = "LUGARES/";
+    public static final String FIREBASE_STORAGE_URL_ACONTECIMIENTO = "LUGARES/";
 
     //provincias
     public static final String FIREBASE_PROVINCIA_ARANI = "Arani";
@@ -43,6 +44,7 @@ public class Constants {
 
     //base de daos firebase
     public static final String FIREBASE_DATABASE_LUGAR_TURISTICO = "LUGARES";
+    public static final String FIREBASE_DATABASE_ACONTECIMIENTO = "ACONTECIMIENTOS";
     public static final String FIREBASE_DATABASE_HOTEL = "HOTELES";
     public static final String FIREBASE_DATABASE_RESTAURANTE = "RESTAURANTES";
     public static final String FIREBASE_DATABASE_USUARIO="USUARIO";
