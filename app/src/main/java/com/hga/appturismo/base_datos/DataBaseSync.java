@@ -333,7 +333,7 @@ public class DataBaseSync {
         updateHotelSQLite(listas.getListaHoteles());
         updateLugarTuristicoSQLite(listas.getListaLugares());
         updateRestauranteSQLite(listas.getListaRestaurantes());
-        updateUsuariosSQLite(listas.getListaUsuarios());
+        //updateUsuariosSQLite(listas.getListaUsuarios());
         updatePuntajeSQLite(listas.getListaPuntaje());
     }
 }

@@ -39,14 +39,14 @@ public class ResetFirebase {
         deleteHoteles(app);
         deleteRestaurantes(app);
         deleteLugaresTuristicos(app);
-        deleteUsuarios();
+        //deleteUsuarios();
 
         Listas listas = new Listas();
 
         insertHoteles(app, listas);
         insertRestaurantes(app, listas);
         insertLugaresTuristicos(app, listas);
-        insertUsuarios(app, listas);
+        //insertUsuarios(app, listas);
     }
 
     private void insertUsuarios(TurismoAplicacion app, Listas listas) {
