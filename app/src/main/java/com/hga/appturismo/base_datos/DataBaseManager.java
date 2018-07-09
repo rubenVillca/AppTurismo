@@ -20,7 +20,7 @@ import java.util.ArrayList;
  */
 
 public class DataBaseManager extends SQLiteOpenHelper {
-    public static final int DATABASE_VERSION = 86;
+    public static final int DATABASE_VERSION = 87;
     public static final String DATABASE_NAME = "APP_TURISMO";
 
     public static final String TABLE_IMAGENES = "IMAGENES";

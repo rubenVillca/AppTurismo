@@ -30,7 +30,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|end"
-                android:layout_marginBottom="50dp"
+                android:layout_marginBottom="80dp"
                 android:id="@+id/linearLayoutCardViewButtons"
                 android:orientation="horizontal">
 
@@ -57,21 +57,22 @@
                 android:orientation="vertical"
                 android:paddingTop="@dimen/activity_vertical_margin"
                 android:paddingBottom="@dimen/activity_vertical_margin"
-                android:paddingLeft="5dp">
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp">
+
+                <TextView
+                    android:id="@+id/nameCardView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold"
+                    android:paddingRight="10dp"/>
 
                 <LinearLayout
                     android:id="@+id/puntuacion"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
-                    <TextView
-                        android:id="@+id/nameCardView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAlignment="center"
-                        android:textColor="@android:color/white"
-                        android:textStyle="bold"
-                        android:paddingRight="10dp"/>
 
                     <TextView
                         android:id="@+id/puntajeCardView"
