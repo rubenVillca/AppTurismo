@@ -11,6 +11,7 @@ import com.hga.appturismo.modelo.ModeloLugarTuristico;
 import com.hga.appturismo.modelo.ModeloPuntaje;
 import com.hga.appturismo.modelo.ModeloRestaurante;
 import com.hga.appturismo.modelo.ModeloUsuario;
+import com.hga.appturismo.provider.Listas;
 
 import java.util.ArrayList;
 
@@ -91,6 +92,8 @@ public class DataBaseSync {
         modeloLugarTuristico.setGpsY(cursor.getFloat(cursor.getColumnIndex(DataBaseManager.LUGARES_LONGITUD)));
         modeloLugarTuristico.setActividad(cursor.getString(cursor.getColumnIndex(DataBaseManager.LUGARES_ACTIVIDAD)));
         modeloLugarTuristico.setEstado(cursor.getString(cursor.getColumnIndex(DataBaseManager.LUGARES_ESTADO)));
+        modeloLugarTuristico.setLinea(cursor.getString(cursor.getColumnIndex(DataBaseManager.LUGARES_LINEA)));
+        modeloLugarTuristico.setFecha(cursor.getString(cursor.getColumnIndex(DataBaseManager.LUGARES_FECHA)));
         modeloLugarTuristico.setImagenesFirebase(getListaImagenes(ModeloImagen.TIPO_LUGAR, modeloLugarTuristico.getIdSQLite()));
         return modeloLugarTuristico;
     }
@@ -141,7 +144,6 @@ public class DataBaseSync {
         modeloRestaurante.setImagenesFirebase(getListaImagenes(ModeloImagen.TIPO_RESTAURANTE, modeloRestaurante.getIdSQLite()));
         return modeloRestaurante;
     }
-
 
     public ModeloRestaurante getRestaurante(String nombreMarcador) {
         ModeloRestaurante modeloRestaurante = new ModeloRestaurante();
@@ -324,7 +326,14 @@ public class DataBaseSync {
         }
     }
 
-    public void deleteAllSQLite() {
+    public void resetSQLite() {
         helper.deleteAllDatos(db);
+
+        Listas listas=new Listas();
+        updateHotelSQLite(listas.getListaHoteles());
+        updateLugarTuristicoSQLite(listas.getListaLugares());
+        updateRestauranteSQLite(listas.getListaRestaurantes());
+        updateUsuariosSQLite(listas.getListaUsuarios());
+        updatePuntajeSQLite(listas.getListaPuntaje());
     }
 }

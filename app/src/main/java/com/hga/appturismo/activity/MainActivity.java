@@ -3,11 +3,9 @@ package com.hga.appturismo.activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,23 +14,12 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DatabaseReference;
 import com.hga.appturismo.R;
 import com.hga.appturismo.api.TurismoAplicacion;
 import com.hga.appturismo.base_datos.DataBaseSync;
-import com.hga.appturismo.modelo.ModeloHotel;
-import com.hga.appturismo.modelo.ModeloLugarTuristico;
-import com.hga.appturismo.modelo.ModeloRestaurante;
-import com.hga.appturismo.modelo.ModeloUsuario;
-import com.hga.appturismo.provider.Listas;
+import com.hga.appturismo.provider.ResetFirebase;
 import com.hga.appturismo.util.Constants;
-
-import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -52,7 +39,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(listaRestaurante);
                 break;
             case R.id.action_search:
-                SearchView searchView = (SearchView) findViewById(R.id.action_search);
+                SearchView searchView = findViewById(R.id.action_search);
                 searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
                     @Override
                     public boolean onQueryTextSubmit(String query) {
@@ -158,7 +145,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(intent);
                 break;
             case R.id.action_reset:
-                resetData();
+                resetDataFirebase();
+                resetDatosSQlite();
                 break;
         }
         return super.onOptionsItemSelected(item);
@@ -201,64 +189,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    private DatabaseReference getDatabaseReferenceProvincia(TurismoAplicacion app, String provincia) {
-        DatabaseReference postReference;
-        switch (provincia) {
-            case Constants.FIREBASE_PROVINCIA_ARANI:
-                postReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_PROVINCIA_ARANI);
-                break;
-            case Constants.FIREBASE_PROVINCIA_ARQUE:
-                postReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_PROVINCIA_ARQUE);
-                break;
-            case Constants.FIREBASE_PROVINCIA_AYOPAYA:
-                postReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_PROVINCIA_AYOPAYA);
-                break;
-            case Constants.FIREBASE_PROVINCIA_BOLIVAR:
-                postReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_PROVINCIA_BOLIVAR);
-                break;
-            case Constants.FIREBASE_PROVINCIA_CAMPERO:
-                postReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_PROVINCIA_CAMPERO);
-                break;
-            case Constants.FIREBASE_PROVINCIA_CAPINOTA:
-                postReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_PROVINCIA_CAPINOTA);
-                break;
-            case Constants.FIREBASE_PROVINCIA_CERCADO:
-                postReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_PROVINCIA_CERCADO);
-                break;
-            case Constants.FIREBASE_PROVINCIA_CHAPARE:
-                postReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_PROVINCIA_CHAPARE);
-                break;
-            case Constants.FIREBASE_PROVINCIA_ESTEBAN_ARZE:
-                postReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_PROVINCIA_ESTEBAN_ARZE);
-                break;
-            case Constants.FIREBASE_PROVINCIA_GERMAN_JORDAN:
-                postReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_PROVINCIA_GERMAN_JORDAN);
-                break;
-            case Constants.FIREBASE_PROVINCIA_JOSE_CARRASCO_TORRICO:
-                postReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_PROVINCIA_JOSE_CARRASCO_TORRICO);
-                break;
-            case Constants.FIREBASE_PROVINCIA_MIZQUE:
-                postReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_PROVINCIA_MIZQUE);
-                break;
-            case Constants.FIREBASE_PROVINCIA_PUNATA:
-                postReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_PROVINCIA_PUNATA);
-                break;
-            case Constants.FIREBASE_PROVINCIA_QUILLACOLLO:
-                postReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_PROVINCIA_QUILLACOLLO);
-                break;
-            case Constants.FIREBASE_PROVINCIA_TAPACARI:
-                postReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_PROVINCIA_TAPACARI);
-                break;
-            case Constants.FIREBASE_PROVINCIA_TIRAQUE:
-                postReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_PROVINCIA_TIRAQUE);
-                break;
-            default:
-                postReference = app.getDataBaseReferenceLugarTuristico("");
-                break;
-        }
-        return postReference;
-    }
-
     public void goProvinciaActivity(View view) {
         Intent buscarPorProvincia = new Intent(this, BuscarPorProvinciaActivity.class);
         startActivity(buscarPorProvincia);
@@ -268,95 +198,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Intent buscarPorTipo = new Intent(this, BuscarPorTipoActivity.class);
         startActivity(buscarPorTipo);
     }
-    private void resetData() {
+
+    private void resetDataFirebase() {
         TurismoAplicacion app = (TurismoAplicacion) getApplicationContext();
 
-        eliminarDatosSQlite();
-        eliminarDatosFirebase(app);
-        insertDatosFirebase(app);
+        ResetFirebase resetFirebase=new ResetFirebase(app,this);
+        resetFirebase.resetDatosFirebase();
     }
 
-    private void eliminarDatosSQlite() {
+    private void resetDatosSQlite() {
         DataBaseSync dataBaseSync=new DataBaseSync(this);
-        dataBaseSync.deleteAllSQLite();
-    }
-
-    private void eliminarDatosFirebase(final TurismoAplicacion app) {
-        DatabaseReference postReference;
-        //eliminar hoteles firebase
-        postReference = app.getDataBaseReferenceHotel("");
-        postReference.removeValue();
-        //eliminar restaurantes firebase
-        postReference = app.getDataBaseReferenceRestaurante("");
-        postReference.removeValue();
-        //eliinar lugares turisticos firebase
-        postReference = getDatabaseReferenceProvincia(app, "");
-        postReference.removeValue();
-        //eliminar usuario autenticate firebase
-        /*FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();//solo un usuario puede ver la lista de usuarios
-        assert user != null;
-        user.delete().addOnCompleteListener(new OnCompleteListener<Void>() {
-            @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                if (task.isSuccessful()) {
-                    DatabaseReference postReference;
-                    //eliminar usuarios firebase
-                    postReference = app.getDataBaseReferenceUsuario();
-                    postReference.removeValue();//eliminar de firebase
-
-                    Log.d("Eliminado usuario", "Cuenta de usuario en firebase eliminada.");
-                }
-            }
-        });*/
-    }
-
-    private void insertDatosFirebase(TurismoAplicacion app) {
-        DatabaseReference postReference;
-
-        Listas listas = new Listas();
-        //insertar hoteles
-        postReference = app.getDataBaseReferenceHotel("");
-        ArrayList<ModeloHotel> listHotel = listas.getListaHoteles();
-        for (ModeloHotel hotel : listHotel) {
-            postReference.push().setValue(hotel);
-        }
-        //insertar restaurantes
-        postReference = app.getDataBaseReferenceRestaurante("");
-        ArrayList<ModeloRestaurante> restaurantes = listas.getListaRestaurantes();
-        for (ModeloRestaurante r : restaurantes) {
-            postReference.push().setValue(r);
-        }
-        //insertar lugares turisticos por provincia
-        ArrayList<ModeloLugarTuristico> modeloLugarTuristicos = listas.getListaLugares();
-        for (ModeloLugarTuristico modeloLugarTuristico : modeloLugarTuristicos) {
-            String provincia = modeloLugarTuristico.getProvincia();
-            postReference = getDatabaseReferenceProvincia(app, provincia);
-            postReference.push().setValue(modeloLugarTuristico);
-        }
-        //insertar usuarios autenhticate firebase and database firebase
-        /*ArrayList<ModeloUsuario> usuarios = listas.getListaUsuarios();
-        for (ModeloUsuario m : usuarios) {
-            postReference = app.getDataBaseReferenceUsuario(m.getIdFirebase());
-            postReference.setValue(m);
-
-            FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
-            firebaseAuth.createUserWithEmailAndPassword(m.getEmail().trim(), m.getContrasenia().trim()).addOnCompleteListener(
-                    new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if (task.isSuccessful()) {
-                                //modeloUsuario.setIdFirebase(firebaseAuth.getCurrentUser().getUid());//no usado
-                                Toast.makeText(MainActivity.this, "Usuario creado exitosamente", Toast.LENGTH_SHORT).show();
-
-                            } else {
-                                Toast.makeText(MainActivity.this, "Usuario no creado," +
-                                        " por que la contraseña es demasiado corta" +
-                                        " o porque el usuario ya existe", Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                    }
-            );
-        }*/
-
+        dataBaseSync.resetSQLite();
     }
 }

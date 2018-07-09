@@ -13,6 +13,8 @@ public class ModeloLugarTuristico implements Serializable {
     private String descripcion;
     private String horario;
     private String direccion;
+    private String fecha;
+    private String linea;
     private int telefono;
     private float gpsX;
     private float gpsY ;
@@ -34,6 +36,24 @@ public class ModeloLugarTuristico implements Serializable {
         this.gpsY = 0f;
         this.actividad = "";
         this.estado = "";
+        this.fecha="";
+        this.linea="";
+    }
+
+    public String getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
+    }
+
+    public String getLinea() {
+        return linea;
+    }
+
+    public void setLinea(String linea) {
+        this.linea = linea;
     }
 
     public String getIdFirebase() {

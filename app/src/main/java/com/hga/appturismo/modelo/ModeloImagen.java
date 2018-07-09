@@ -19,7 +19,6 @@ public class ModeloImagen implements Serializable {
     public static String TIPO_RESTAURANTE="RESTAURANTES";
     public static String TIPO_HOTEL="HOTELES";
     public static String TIPO_LUGAR="LUGARES";
-    public static String TIPO_ACONTECIMIENTO = "ACONTECIMIENTO";
 
     public ModeloImagen() {
         this.idImagen = 0;

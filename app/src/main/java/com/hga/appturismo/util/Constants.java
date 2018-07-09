@@ -14,7 +14,6 @@ public class Constants {
     public static final String FIREBASE_STORAGE_URL_HOTEL =  "HOTELES/";
     public static final String FIREBASE_STORAGE_URL_RESTAURANTE = "RESTAURANTES/";
     public static final String FIREBASE_STORAGE_URL_LUGAR_TURISTICO = "LUGARES/";
-    public static final String FIREBASE_STORAGE_URL_ACONTECIMIENTO = "LUGARES/";
 
     //provincias
     public static final String FIREBASE_PROVINCIA_ARANI = "Arani";
@@ -34,17 +33,8 @@ public class Constants {
     public static final String FIREBASE_PROVINCIA_TAPACARI = "Tapacari";
     public static final String FIREBASE_PROVINCIA_TIRAQUE = "Tiraque";
 
-    //tipo de turismo
-    //public static final String FIREBASE_TIPO_TURISMO = "TIPO_TURISMO";
-    public static final String FIREBASE_TIPO_TURISMO_SITIOS_NATURALES = "TIPO_TURISMO/SITIOS_NATURALES";
-    public static final String FIREBASE_TIPO_TURISMO_PATRIMONIOS = "TIPO_TURISMO/PATRIMONIO_URBANO_ARQUITECTONICO_ARTISTICO_MUSEOS_MANIFESTACIONES_CULTURALES";
-    public static final String FIREBASE_TIPO_TURISMO_ETNOGRAFIA_FOLKLORE = "TIPO_TURISMO/ETNOGRAFIA_FOLKLORE";
-    public static final String FIREBASE_TIPO_TURISMO_REALIZACIONES_TECNICAS_CIENTIFICAS = "TIPO_TURISMO/REALIZACIONES_TECNICAS_CIENTIFICAS";
-    public static final String FIREBASE_TIPO_TURISMO_ACONTECIMIENTOS_PROGRAMADOS = "TIPO_TURISMO/ACONTECIMIENTOS_PROGRAMADOS";
-
     //base de daos firebase
     public static final String FIREBASE_DATABASE_LUGAR_TURISTICO = "LUGARES";
-    public static final String FIREBASE_DATABASE_ACONTECIMIENTO = "ACONTECIMIENTOS";
     public static final String FIREBASE_DATABASE_HOTEL = "HOTELES";
     public static final String FIREBASE_DATABASE_RESTAURANTE = "RESTAURANTES";
     public static final String FIREBASE_DATABASE_USUARIO="USUARIO";

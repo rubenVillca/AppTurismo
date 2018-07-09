@@ -1,6 +1,5 @@
 package com.hga.appturismo.api;
 
-import com.hga.appturismo.modelo.ModeloAcontecimiento;
 import com.hga.appturismo.modelo.ModeloHotel;
 import com.hga.appturismo.modelo.ModeloLugarTuristico;
 import com.hga.appturismo.modelo.ModeloRestaurante;
@@ -18,7 +17,6 @@ public class ListaResponse {
     private ArrayList<ModeloHotel> listModeloHotel;
     private ArrayList<ModeloRestaurante> listModeloRestaurante;
     private ArrayList<ModeloLugarTuristico> listModeloLugarTuristico;
-    private ArrayList<ModeloAcontecimiento> listModeloAcontecimiento;
     private ArrayList<ModeloUsuario> listUsuarios;
     private ArrayList<ModeloPuntaje> listPuntaje;
 
@@ -60,13 +58,5 @@ public class ListaResponse {
 
     public void setListPuntaje(ArrayList<ModeloPuntaje> listUsuariosLugar) {
         this.listPuntaje = listUsuariosLugar;
-    }
-
-    public ArrayList<ModeloAcontecimiento> getListModeloAcontecimiento() {
-        return listModeloAcontecimiento;
-    }
-
-    public void setListModeloAcontecimiento(ArrayList<ModeloAcontecimiento> listModeloAcontecimiento) {
-        this.listModeloAcontecimiento = listModeloAcontecimiento;
     }
 }

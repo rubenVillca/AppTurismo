@@ -680,32 +680,6 @@ public class EditarActivity extends AppCompatActivity {
         return postReference;
     }
 
-    private DatabaseReference getPostReferenceTipoTurismo(String urlFirebase, String tipo) {
-        DatabaseReference postReference;
-        tipo = tipo.toLowerCase();
-        switch (tipo) {
-            case "sitios naturales":
-                postReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_TIPO_TURISMO_SITIOS_NATURALES + "/" + urlFirebase);
-                break;
-            case "patrimonio urbano arquitectónico, artístico, museos y manifestaciones culturales":
-                postReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_TIPO_TURISMO_PATRIMONIOS + "/" + urlFirebase);
-                break;
-            case "etnografía y folklore":
-                postReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_TIPO_TURISMO_ETNOGRAFIA_FOLKLORE + "/" + urlFirebase);
-                break;
-            case "realizaciones técnicas y científicas":
-                postReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_TIPO_TURISMO_REALIZACIONES_TECNICAS_CIENTIFICAS + "/" + urlFirebase);
-                break;
-            case "acontecimientos programados":
-                postReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_TIPO_TURISMO_ACONTECIMIENTOS_PROGRAMADOS + "/" + urlFirebase);
-                break;
-            default:
-                postReference = null;
-                break;
-        }
-        return postReference;
-    }
-
     private void mostrarDatosRestaurante() {
         app = (TurismoAplicacion) getApplicationContext();
         editar_layout_provincia.setVisibility(View.GONE);

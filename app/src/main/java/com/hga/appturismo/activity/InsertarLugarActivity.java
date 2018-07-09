@@ -64,6 +64,8 @@ public class InsertarLugarActivity extends AppCompatActivity {
     private EditText txt_direccion;
     private EditText txt_paginaweb;
     private EditText txt_email;
+    private EditText txt_linea;
+    private EditText txt_fecha;
 
     private Spinner spinnerProvincia;
     private Spinner spinnerTipoTurismo;
@@ -82,6 +84,8 @@ public class InsertarLugarActivity extends AppCompatActivity {
     private LinearLayout layout_latitud;
     private LinearLayout layout_longitud;
     private LinearLayout layout_imagen;
+    private LinearLayout layout_linea;
+    private LinearLayout layout_fecha;
 
     private View focusView = null;
 
@@ -220,6 +224,8 @@ public class InsertarLugarActivity extends AppCompatActivity {
         modeloLugarTuristico.setGpsX(Float.parseFloat(txt_latitud.getText().toString()));
         modeloLugarTuristico.setGpsY(Float.parseFloat(txt_longitud.getText().toString()));
         modeloLugarTuristico.setProvincia(spinnerProvincia.getSelectedItem().toString());
+        modeloLugarTuristico.setLinea(txt_linea.getText().toString());
+        modeloLugarTuristico.setFecha(txt_fecha.getText().toString());
         return modeloLugarTuristico;
     }
 
@@ -424,6 +430,8 @@ public class InsertarLugarActivity extends AppCompatActivity {
         layout_horario = (LinearLayout) findViewById(R.id.layout_horario);
         layout_latitud = (LinearLayout) findViewById(R.id.layout_latitud);
         layout_longitud = (LinearLayout) findViewById(R.id.layout_longitud);
+        layout_fecha =(LinearLayout) findViewById(R.id.layout_fechaTurismo);
+        layout_linea=(LinearLayout)findViewById(R.id.layout_lineaTurismo);
         layout_imagen = (LinearLayout) findViewById(R.id.layout_imagen);
     }
 
@@ -444,6 +452,8 @@ public class InsertarLugarActivity extends AppCompatActivity {
         txt_longitud = (EditText) findViewById(R.id.txt_longitud);
         txt_descripcion = (EditText) findViewById(R.id.txt_descripcion);
         txt_horario = (EditText) findViewById(R.id.txt_horario);
+        txt_linea = (EditText) findViewById(R.id.txt_linea);
+        txt_fecha = (EditText) findViewById(R.id.txt_fecha);
     }
 
     /**
@@ -461,11 +471,44 @@ public class InsertarLugarActivity extends AppCompatActivity {
         ArrayAdapter<CharSequence> adapterTipoTurismo = ArrayAdapter.createFromResource(this, R.array.tipo_turismo, android.R.layout.simple_spinner_item);
         adapterTipoTurismo.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerTipoTurismo.setAdapter(adapterTipoTurismo);
+        spinnerTipoTurismo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                switch (position) {
+                    case 4://acontecimiento en un lugar turistico
+                        layout_tipo.setVisibility(View.VISIBLE);
+                        layout_provincia.setVisibility(View.VISIBLE);
+                        //layout_provincia.removeAllViews();//lo elimnar y despues no vuelve a aparecer
+                        layout_tipoTurismo.setVisibility(View.VISIBLE);
+                        layout_nombre.setVisibility(View.VISIBLE);
+                        layout_descripcion.setVisibility(View.VISIBLE);
+                        layout_email.setVisibility(View.VISIBLE);
+                        layout_direccion.setVisibility(View.VISIBLE);
+                        layout_pagina_web.setVisibility(View.GONE);
+                        layout_telefono.setVisibility(View.VISIBLE);
+                        layout_horario.setVisibility(View.VISIBLE);
+                        layout_latitud.setVisibility(View.VISIBLE);
+                        layout_longitud.setVisibility(View.VISIBLE);
+                        layout_imagen.setVisibility(View.VISIBLE);
+                        layout_linea.setVisibility(View.VISIBLE);
+                        layout_fecha.setVisibility(View.VISIBLE);
+                        break;
+                        default:
+                            layout_linea.setVisibility(View.GONE);
+                            layout_fecha.setVisibility(View.GONE);
+                            break;
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
 
         ArrayAdapter<CharSequence> adapterTipo = ArrayAdapter.createFromResource(this, R.array.tipo_insercion, android.R.layout.simple_spinner_item);
         adapterTipo.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerTipo.setAdapter(adapterTipo);
-
         spinnerTipo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -615,7 +658,7 @@ public class InsertarLugarActivity extends AppCompatActivity {
             isValidLugarTuristico = false;
         }
         if (latitud.isEmpty()) {
-            txt_latitud.setError("Ingrese la latidud GPS");
+            txt_latitud.setError("Ingrese la latidud");
             focusView = txt_latitud;
             isValidLugarTuristico = false;
         }
@@ -625,7 +668,7 @@ public class InsertarLugarActivity extends AppCompatActivity {
             isValidLugarTuristico = false;
         }
         if (provincia.isEmpty()) {
-            txt_provincia.setError("Sleccione una provincia");
+            txt_provincia.setError("Sleccione una Provincia");
             focusView = txt_provincia;
             isValidLugarTuristico = false;
         }
