@@ -37,8 +37,14 @@ public class ImagenSwip extends PagerAdapter {
     public Object instantiateItem(ViewGroup container, int position) {
         LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View itemView= layoutInflater.inflate(R.layout.viewpager_turismo,container,false);
+        itemView.getLayoutParams().width = ViewGroup.LayoutParams.MATCH_PARENT;
+        itemView.getLayoutParams().height = ViewGroup.LayoutParams.WRAP_CONTENT;
 
-        final ImageView imageView= (ImageView) itemView.findViewById(R.id.imageViewTurismo);
+        ImageView imageView= itemView.findViewById(R.id.imageViewTurismo);
+        imageView.getLayoutParams().width = ViewGroup.LayoutParams.MATCH_PARENT;
+        imageView.getLayoutParams().height = ViewGroup.LayoutParams.WRAP_CONTENT;
+        imageView.refreshDrawableState();
+        final ImageView imageViewCopy=imageView;
 
         ModeloImagen modeloImagen =imagesResources.get(position);
         if (!modeloImagen.getUrlApp().isEmpty()) {
@@ -49,7 +55,7 @@ public class ImagenSwip extends PagerAdapter {
                 Picasso.with(context).load(modeloImagen.getUrlApp()).into(imageView);
             }
         }else {
-            final String urlImagen = modeloImagen.getUrlServer();
+            String urlImagen = modeloImagen.getUrlServer();
             TurismoAplicacion app = (TurismoAplicacion)context.getApplicationContext();
             StorageReference storageRef = app.getStorageReferenceImagen(modeloImagen.getTipoImagen()+"/"+urlImagen);
             storageRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
@@ -57,7 +63,7 @@ public class ImagenSwip extends PagerAdapter {
                 public void onSuccess(Uri uri) {
                     // Got the download URL for 'users/me/profile.png'
                     // Pass it to Picasso to download, show in ImageView and caching
-                    Picasso.with(context).load(uri.toString()).into(imageView);
+                    Picasso.with(context).load(uri.toString()).into(imageViewCopy);
                 }
             }).addOnFailureListener(new OnFailureListener() {
                 @Override

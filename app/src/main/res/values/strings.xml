@@ -151,4 +151,5 @@
     <string name="tipo_acontecimientos_programados">Acontecimientos Programados</string>
     <string name="label_linea">Línea</string>
     <string name="label_fecha">Fecha:</string>
+    <string name="labelName">Nombre:</string>
 </resources>
