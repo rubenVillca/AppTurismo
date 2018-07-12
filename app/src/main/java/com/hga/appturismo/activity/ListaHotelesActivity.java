@@ -76,6 +76,7 @@ public class ListaHotelesActivity extends AppCompatActivity {
 
                     loadJSONFirebasePuntaje();
 
+
                     dataBaseSync.updateHotelSQLite(modeloHotels);//actualizar hotel sqlite
                 }
             }
