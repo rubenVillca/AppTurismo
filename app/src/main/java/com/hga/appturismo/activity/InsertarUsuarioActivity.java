@@ -16,7 +16,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.hga.appturismo.R;
-import com.hga.appturismo.api.TurismoAplicacion;
+import com.hga.appturismo.bdFirebase.TurismoAplicacion;
 import com.hga.appturismo.modelo.ModeloUsuario;
 import com.hga.appturismo.util.Constants;
 
@@ -104,7 +104,7 @@ public class InsertarUsuarioActivity extends AppCompatActivity {
         DatabaseReference databaseReference;
         databaseReference = app.getDataBaseReferenceUsuario("");
 
-        databaseReference.child(modeloUsuario.getIdFirebase()).setValue(modeloUsuario);//insertar en bd firebase
+        databaseReference.child(modeloUsuario.getIdFirebase()).setValue(modeloUsuario);//insertar en bd bdFirebase
 
         return modeloUsuario;
     }

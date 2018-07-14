@@ -1,4 +1,4 @@
-package com.hga.appturismo.api;
+package com.hga.appturismo.bdFirebase;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

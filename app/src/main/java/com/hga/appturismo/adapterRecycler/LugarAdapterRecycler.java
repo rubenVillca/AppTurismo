@@ -24,7 +24,7 @@ import com.google.firebase.storage.StorageReference;
 import com.hga.appturismo.R;
 import com.hga.appturismo.activity.DescripcionLugarTuristicoActivity;
 import com.hga.appturismo.activity.EditarActivity;
-import com.hga.appturismo.api.TurismoAplicacion;
+import com.hga.appturismo.bdFirebase.TurismoAplicacion;
 import com.hga.appturismo.modelo.ModeloImagen;
 import com.hga.appturismo.modelo.ModeloLugarTuristico;
 import com.hga.appturismo.modelo.ModeloPuntaje;
@@ -32,7 +32,6 @@ import com.hga.appturismo.modelo.ModeloUsuario;
 import com.hga.appturismo.util.Constants;
 import com.squareup.picasso.Picasso;
 
-import java.sql.Date;
 import java.util.ArrayList;
 
 import static android.content.Context.MODE_PRIVATE;
@@ -115,10 +114,10 @@ public class LugarAdapterRecycler extends RecyclerView.Adapter<LugarAdapterRecyc
     }
 
     /**
-     * comvertir la ruta de firebase para usarlo...
+     * comvertir la ruta de bdFirebase para usarlo...
      *
-     * @param urlFirebase: ruta de la ruta en firebase
-     * @return DatabaseReference:direccion de la ruta firebase en formato firebase
+     * @param urlFirebase: ruta de la ruta en bdFirebase
+     * @return DatabaseReference:direccion de la ruta bdFirebase en formato bdFirebase
      */
     private DatabaseReference getPostReferenceProvincia(String urlFirebase, String provincia) {
         DatabaseReference databaseReference;
@@ -230,7 +229,7 @@ public class LugarAdapterRecycler extends RecyclerView.Adapter<LugarAdapterRecyc
     }
 
     /**
-     * guardar estrellas marcadas en firebase
+     * guardar estrellas marcadas en bdFirebase
      * @param estrellasMarcadas: cantidad de estrellas marcadas en un recyclerView
      * @param holder: contenedor del recyclerView
      * @param modeloLugarTuristico:
@@ -250,7 +249,7 @@ public class LugarAdapterRecycler extends RecyclerView.Adapter<LugarAdapterRecyc
                 puntaje.setIdUsuarioFirebase(email);
                 puntaje.setTipo(ModeloImagen.TIPO_LUGAR);
                 if (!puntaje.getIdFirebase().isEmpty()) {
-                    postReference.child(puntaje.getIdFirebase()).setValue(puntaje);//actualizar puntaje de lugar en firebase
+                    postReference.child(puntaje.getIdFirebase()).setValue(puntaje);//actualizar puntaje de lugar en bdFirebase
                     isInsert=true;
                 }
             }
@@ -263,7 +262,7 @@ public class LugarAdapterRecycler extends RecyclerView.Adapter<LugarAdapterRecyc
             modeloPuntaje.setTipo(ModeloImagen.TIPO_LUGAR);
             modeloPuntajes.add(modeloPuntaje);//actualizar lista android
 
-            postReference.push().setValue(modeloPuntaje);//insertar en firebase
+            postReference.push().setValue(modeloPuntaje);//insertar en bdFirebase
 
             holder.promedio.setText(String.valueOf(modeloPuntaje.getPuntaje()));
         }
@@ -275,7 +274,7 @@ public class LugarAdapterRecycler extends RecyclerView.Adapter<LugarAdapterRecyc
         double promedio = getPromedio(holder, modeloLugarTuristico);//marcar todas las estrellas del recycler
 
         setTextHolder(holder, modeloLugarTuristico, promedio);//ponser valor promedio de estrellas
-        setImageHolder(holder, modeloLugarTuristico);//leer imagen desde firebase
+        setImageHolder(holder, modeloLugarTuristico);//leer imagen desde bdFirebase
         setEstrellasHolder(holder, modeloLugarTuristico);//marcar estrellas
         setButtonHolder(holder, position, modeloLugarTuristico);//estableces acciones de botones en cardview
         setVisivilityHolder(holder);//mostrar valores dependiendo los roles y permisos

@@ -29,8 +29,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.hga.appturismo.R;
-import com.hga.appturismo.base_datos.DataBaseSync;
-import com.hga.appturismo.api.TurismoAplicacion;
+import com.hga.appturismo.bdSQLite.DataBaseSync;
+import com.hga.appturismo.bdFirebase.TurismoAplicacion;
 import com.hga.appturismo.modelo.ModeloHotel;
 import com.hga.appturismo.modelo.ModeloImagen;
 import com.hga.appturismo.modelo.ModeloLugarTuristico;
@@ -54,7 +54,7 @@ public class InsertarLugarActivity extends AppCompatActivity {
     private TurismoAplicacion app;
     private StorageReference storageReference;
     private DatabaseReference databaseReference;
-    //
+
     private EditText txt_nombre;
     private EditText txt_descripcion;
     private EditText txt_telefono;
@@ -272,7 +272,7 @@ public class InsertarLugarActivity extends AppCompatActivity {
     }
 
     /**
-     * envia la imagen tomada por la camara al servidor firebase//h
+     * envia la imagen tomada por la camara al servidor bdFirebase//h
      */
     private void guardarDatosFirebaseHotel(final ModeloHotel modeloHotel) {
         databaseReference = app.getDataBaseReferenceHotel("");
@@ -302,7 +302,7 @@ public class InsertarLugarActivity extends AppCompatActivity {
     }
 
     /**
-     * envia la imagen tomada por la camara al servidor firebase
+     * envia la imagen tomada por la camara al servidor bdFirebase
      */
     private void guardarDatosFirebaseLugarTuristico(final ModeloLugarTuristico modeloLugarTuristico) {
         File file = new File(mCurrentAbsolutePhotoPath);
@@ -389,7 +389,7 @@ public class InsertarLugarActivity extends AppCompatActivity {
     }
 
     /**
-     * enviar los datos recuperados del activity al servidor firebase
+     * enviar los datos recuperados del activity al servidor bdFirebase
      */
     private void guardarDatosFirebaseRestaurante(final ModeloRestaurante modeloRestaurante) {
         databaseReference = app.getDataBaseReferenceRestaurante("");
@@ -490,8 +490,6 @@ public class InsertarLugarActivity extends AppCompatActivity {
                         layout_latitud.setVisibility(View.VISIBLE);
                         layout_longitud.setVisibility(View.VISIBLE);
                         layout_imagen.setVisibility(View.VISIBLE);
-                        layout_linea.setVisibility(View.VISIBLE);
-                        layout_fecha.setVisibility(View.VISIBLE);
                         break;
                         default:
                             layout_linea.setVisibility(View.GONE);
@@ -558,6 +556,9 @@ public class InsertarLugarActivity extends AppCompatActivity {
                         layout_latitud.setVisibility(View.VISIBLE);
                         layout_longitud.setVisibility(View.VISIBLE);
                         layout_imagen.setVisibility(View.VISIBLE);
+                        //layout_linea.setVisibility(View.VISIBLE);
+                        //layout_fecha.setVisibility(View.VISIBLE);
+
                         break;
                 }
             }
@@ -570,7 +571,7 @@ public class InsertarLugarActivity extends AppCompatActivity {
     }
 
     /**
-     * envia los datos llenados  en la vista al servidro firebase
+     * envia los datos llenados  en la vista al servidro bdFirebase
      * tambien los almacena en la base de datos interna SQLite
      * PD: la imagen tomada tambien es enviada al servidor fireBase
      *

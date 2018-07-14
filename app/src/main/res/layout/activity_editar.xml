@@ -154,6 +154,64 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/editar_layout_linea"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+                <TextView
+                    android:id="@+id/editar_label_linea"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    android:text="Linea:"
+                    android:textSize="@dimen/size_text_primary" />
+
+                <EditText
+                    android:id="@+id/editar_txt_linea"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin_label_top_bottom"
+                    android:layout_marginTop="@dimen/margin_label_top_bottom"
+                    android:layout_weight="2"
+                    android:inputType="text"
+                    android:textSize="@dimen/size_text_primary" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/editar_layout_fecha"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+                <TextView
+                    android:id="@+id/editar_label_fecha"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    android:text="Fecha:"
+                    android:textSize="@dimen/size_text_primary" />
+
+                <EditText
+                    android:id="@+id/editar_txt_fecha"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin_label_top_bottom"
+                    android:layout_marginTop="@dimen/margin_label_top_bottom"
+                    android:layout_weight="2"
+                    android:inputType="text"
+                    android:textSize="@dimen/size_text_primary" />
+            </LinearLayout>
+
+            <LinearLayout
                 android:id="@+id/editar_layout_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

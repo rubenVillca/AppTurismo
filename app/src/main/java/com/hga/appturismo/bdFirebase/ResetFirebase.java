@@ -1,4 +1,4 @@
-package com.hga.appturismo.provider;
+package com.hga.appturismo.bdFirebase;
 
 import android.support.annotation.NonNull;
 import android.util.Log;
@@ -11,11 +11,12 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.hga.appturismo.activity.MainActivity;
-import com.hga.appturismo.api.TurismoAplicacion;
+import com.hga.appturismo.bdFirebase.TurismoAplicacion;
 import com.hga.appturismo.modelo.ModeloHotel;
 import com.hga.appturismo.modelo.ModeloLugarTuristico;
 import com.hga.appturismo.modelo.ModeloRestaurante;
 import com.hga.appturismo.modelo.ModeloUsuario;
+import com.hga.appturismo.provider.Listas;
 import com.hga.appturismo.util.Constants;
 
 import java.util.ArrayList;
@@ -33,7 +34,7 @@ public class ResetFirebase {
     }
 
     /**
-     * Eliminar datos existentes en firebase e insertar los datos de la clase Listas en firebase
+     * Eliminar datos existentes en bdFirebase e insertar los datos de la clase Listas en bdFirebase
      */
     public void resetDatosFirebase() {
         deleteHoteles(app);
@@ -50,7 +51,7 @@ public class ResetFirebase {
     }
 
     private void insertUsuarios(TurismoAplicacion app, Listas listas) {
-        DatabaseReference postReference;//insertar usuarios autenhticate firebase and database firebase
+        DatabaseReference postReference;//insertar usuarios autenhticate bdFirebase and database bdFirebase
         ArrayList<ModeloUsuario> usuarios = listas.getListaUsuarios();
         for (ModeloUsuario m : usuarios) {
             postReference = app.getDataBaseReferenceUsuario(m.getIdFirebase());
@@ -106,7 +107,7 @@ public class ResetFirebase {
     }
 
     private void deleteUsuarios() {
-        //eliminar usuario autenticate firebase
+        //eliminar usuario autenticate bdFirebase
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();//solo un usuario puede ver la lista de usuarios
         assert user != null;
         user.delete().addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -114,30 +115,30 @@ public class ResetFirebase {
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()) {
                     DatabaseReference postReference;
-                    //eliminar usuarios firebase
+                    //eliminar usuarios bdFirebase
                     postReference = app.getDataBaseReferenceUsuario();
-                    postReference.removeValue();//eliminar de firebase
+                    postReference.removeValue();//eliminar de bdFirebase
 
-                    Log.d("Eliminado usuario", "Cuenta de usuario en firebase eliminada.");
+                    Log.d("Eliminado usuario", "Cuenta de usuario en bdFirebase eliminada.");
                 }
             }
         });
     }
 
     private void deleteLugaresTuristicos(TurismoAplicacion app) {
-        DatabaseReference postReference;//eliinar lugares turisticos firebase
+        DatabaseReference postReference;//eliinar lugares turisticos bdFirebase
         postReference = app.getDataBaseReferenceLugarTuristico("");
         postReference.removeValue();
     }
 
     private void deleteRestaurantes(TurismoAplicacion app) {
-        DatabaseReference postReference;//eliminar restaurantes firebase
+        DatabaseReference postReference;//eliminar restaurantes bdFirebase
         postReference = app.getDataBaseReferenceRestaurante("");
         postReference.removeValue();
     }
 
     private void deleteHoteles(TurismoAplicacion app) {
-        DatabaseReference postReference;//eliminar hoteles firebase
+        DatabaseReference postReference;//eliminar hoteles bdFirebase
         postReference = app.getDataBaseReferenceHotel("");
         postReference.removeValue();
     }

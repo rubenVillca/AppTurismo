@@ -30,7 +30,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.hga.appturismo.R;
-import com.hga.appturismo.api.TurismoAplicacion;
+import com.hga.appturismo.bdFirebase.TurismoAplicacion;
 import com.hga.appturismo.modelo.ModeloHotel;
 import com.hga.appturismo.modelo.ModeloImagen;
 import com.hga.appturismo.modelo.ModeloLugarTuristico;
@@ -76,6 +76,8 @@ public class EditarActivity extends AppCompatActivity {
     private EditText editar_txt_horario;
     private EditText editar_txt_latitud;
     private EditText editar_txt_longitud;
+    private EditText editar_txt_linea;
+    private EditText editar_txt_fecha;
 
     private Button editar_btn_imagen_capturar;
     private Button editar_btn_insertar;//guardar
@@ -97,6 +99,8 @@ public class EditarActivity extends AppCompatActivity {
     private LinearLayout editar_layout_latitud;
     private LinearLayout editar_layout_longitud;
     private LinearLayout editar_layout_imagen;
+    private LinearLayout editar_layout_linea;
+    private  LinearLayout editar_layout_fecha;
     private View focusView = null;
 
     /**
@@ -184,6 +188,10 @@ public class EditarActivity extends AppCompatActivity {
         editar_txt_latitud = (EditText) findViewById(R.id.editar_txt_latitud);
         editar_layout_longitud = (LinearLayout) findViewById(R.id.editar_layout_longitud);
         editar_txt_longitud = (EditText) findViewById(R.id.editar_txt_longitud);
+        editar_layout_linea = (LinearLayout) findViewById(R.id.editar_layout_linea);
+        editar_txt_linea = (EditText) findViewById(R.id.editar_txt_linea);
+        editar_layout_fecha = (LinearLayout) findViewById(R.id.editar_layout_fecha);
+        editar_txt_fecha= (EditText) findViewById(R.id.editar_txt_linea);
 
         editar_layout_imagen = (LinearLayout) findViewById(R.id.editar_layout_imagen);
         editar_txt_ruta_imagen = (TextView) findViewById(R.id.editar_ruta_imagen);
@@ -219,7 +227,7 @@ public class EditarActivity extends AppCompatActivity {
                         Toast.makeText(EditarActivity.this, "Editado lugar " + modeloLugarTuristicoNew.getNombre(), Toast.LENGTH_SHORT).show();
                     /*Intent intent=new Intent(EditarActivity.this,ListaLugaresActivity.class);
                     startActivity(intent);*/
-                        //insertar imgen en firebase
+                        //insertar imgen en bdFirebase
                     }
                 }
                 Intent intent = new Intent(EditarActivity.this, MainActivity.class);
@@ -372,6 +380,8 @@ public class EditarActivity extends AppCompatActivity {
                         editar_layout_latitud.setVisibility(View.VISIBLE);
                         editar_layout_longitud.setVisibility(View.VISIBLE);
                         editar_layout_imagen.setVisibility(View.VISIBLE);
+                        editar_layout_linea.setVisibility(View.GONE);
+                        editar_layout_fecha.setVisibility(View.GONE);
                         break;
                     case 1://modeloRestauranteOld
                         editar_layout_tipo.setVisibility(View.GONE);
@@ -387,6 +397,8 @@ public class EditarActivity extends AppCompatActivity {
                         editar_layout_latitud.setVisibility(View.VISIBLE);
                         editar_layout_longitud.setVisibility(View.VISIBLE);
                         editar_layout_imagen.setVisibility(View.VISIBLE);
+                        editar_layout_linea.setVisibility(View.GONE);
+                        editar_layout_fecha.setVisibility(View.GONE);
                         break;
                     case 2://lugar turistico
                         editar_layout_tipo.setVisibility(View.VISIBLE);
@@ -402,6 +414,8 @@ public class EditarActivity extends AppCompatActivity {
                         editar_layout_latitud.setVisibility(View.VISIBLE);
                         editar_layout_longitud.setVisibility(View.VISIBLE);
                         editar_layout_imagen.setVisibility(View.VISIBLE);
+                        editar_layout_linea.setVisibility(View.VISIBLE);
+                        editar_layout_fecha.setVisibility(View.VISIBLE);
                         break;
                 }
             }
@@ -445,6 +459,8 @@ public class EditarActivity extends AppCompatActivity {
         modeloLugarTuristicoNew.setTelefono(Integer.parseInt(editar_txt_telefono.getText().toString()));
         modeloLugarTuristicoNew.setGpsX(Float.parseFloat(editar_txt_latitud.getText().toString()));
         modeloLugarTuristicoNew.setGpsY(Float.parseFloat(editar_txt_longitud.getText().toString()));
+        modeloLugarTuristicoNew.setLinea(editar_txt_linea.getText().toString());
+        modeloLugarTuristicoNew.setFecha(editar_txt_fecha.getText().toString());
     }
 
     @NonNull
@@ -516,11 +532,11 @@ public class EditarActivity extends AppCompatActivity {
      */
     private void guardarFirebaseHotel() {
         app = (TurismoAplicacion) getApplicationContext();
-        //subir datos a firebase
+        //subir datos a bdFirebase
         databaseReference = app.getDataBaseReferenceHotel();
         databaseReference.child(modeloHotelNew.getIdFirebase()).setValue(modeloHotelNew);
         if (!mCurrentPhotoPath.isEmpty()) {
-            //subir imagen a firebase
+            //subir imagen a bdFirebase
             File file = new File(mCurrentAbsolutePhotoPath);
             final Uri uri = Uri.fromFile(file);
 
@@ -546,11 +562,11 @@ public class EditarActivity extends AppCompatActivity {
      */
     private void guardarFirebaseRestaurante() {
         app = (TurismoAplicacion) getApplicationContext();
-        //subir datos a firebase
+        //subir datos a bdFirebase
         databaseReference = app.getDataBaseReferenceRestaurante();
         databaseReference.child(modeloRestauranteNew.getIdFirebase()).setValue(modeloRestauranteNew);
         if (!mCurrentPhotoPath.isEmpty()) {
-            //subir imagen a firebase
+            //subir imagen a bdFirebase
             File file = new File(mCurrentAbsolutePhotoPath);
             final Uri uri = Uri.fromFile(file);
 
@@ -578,7 +594,7 @@ public class EditarActivity extends AppCompatActivity {
      */
     private void guardarFirebaseLugarTuristico() {
         app = (TurismoAplicacion) getApplicationContext();
-        //subir datos a firebase
+        //subir datos a bdFirebase
         databaseReference = getPostReferenceProvincia(modeloLugarTuristicoNew.getIdFirebase(), modeloLugarTuristicoNew.getProvincia());
         databaseReference.setValue(modeloLugarTuristicoNew);
         if (!modeloLugarTuristicoNew.getProvincia().equals(modeloLugarTuristicoOld.getProvincia())) {
@@ -586,7 +602,7 @@ public class EditarActivity extends AppCompatActivity {
             databaseReference.removeValue();
         }
 
-        //subir imagen a firebase
+        //subir imagen a bdFirebase
         if (!mCurrentPhotoPath.isEmpty()) {
             File file = new File(mCurrentAbsolutePhotoPath);
             final Uri uri = Uri.fromFile(file);
@@ -609,10 +625,10 @@ public class EditarActivity extends AppCompatActivity {
     }
 
     /**
-     * comvertir la ruta de firebase para usarlo...
+     * comvertir la ruta de bdFirebase para usarlo...
      *
-     * @param urlFirebase: ruta de la ruta en firebase
-     * @return DatabaseReference:direccion de la ruta firebase en formato firebase
+     * @param urlFirebase: ruta de la ruta en bdFirebase
+     * @return DatabaseReference:direccion de la ruta bdFirebase en formato bdFirebase
      */
     private DatabaseReference getPostReferenceProvincia(String urlFirebase, String provincia) {
         DatabaseReference postReference;
@@ -698,6 +714,7 @@ public class EditarActivity extends AppCompatActivity {
         editar_txt_horario.setText(modeloRestauranteOld.getHorario());
         editar_txt_latitud.setText(valueOf(valueOf(modeloRestauranteOld.getGpsX())));
         editar_txt_longitud.setText(valueOf(valueOf(modeloRestauranteOld.getGpsY())));
+
         String urlImagen = "";
         if (!modeloRestauranteOld.getImagenes().isEmpty()) {
             if (modeloRestauranteOld.getImagenes().get(0).getUrlServer().isEmpty()) {
@@ -788,9 +805,9 @@ public class EditarActivity extends AppCompatActivity {
         editar_layout_tipo.setVisibility(View.GONE);
         editar_layout_pagina_web.setVisibility(View.GONE);
         //editar_spinner_tipo.setText(modeloLugarTuristicoOld.get());
-        int idProvincia = getIdProvincia(modeloLugarTuristicoOld.getProvincia());
+        //int idProvincia = getIdProvincia(modeloLugarTuristicoOld.getProvincia());
         int idTipoTurismo = getTipoTurismo(modeloLugarTuristicoOld.getTipo());
-        editar_spinner_provincia.setSelection(idProvincia);
+        //editar_spinner_provincia.setSelection(idProvincia);
         editar_spinner_tipo_turismo.setSelection(idTipoTurismo);
         editar_txt_nombre.setText(modeloLugarTuristicoOld.getNombre());
         editar_txt_descripcion.setText(modeloLugarTuristicoOld.getDescripcion());
@@ -801,6 +818,8 @@ public class EditarActivity extends AppCompatActivity {
         editar_txt_horario.setText(modeloLugarTuristicoOld.getHorario());
         editar_txt_latitud.setText(valueOf(valueOf(modeloLugarTuristicoOld.getGpsX())));
         editar_txt_longitud.setText(valueOf(valueOf(modeloLugarTuristicoOld.getGpsY())));
+        //editar_txt_linea.setText(modeloLugarTuristicoNew.getLinea());
+        //editar_txt_fecha.setText(modeloLugarTuristicoNew.getFecha());
         String urlImagen = "";
         if (!modeloLugarTuristicoOld.getImagenes().isEmpty()) {
             if (modeloLugarTuristicoOld.getImagenes().get(0).getUrlServer().isEmpty()) {
@@ -860,7 +879,7 @@ public class EditarActivity extends AppCompatActivity {
     }
 
     private int getIdProvincia(String provincia) {
-        provincia = provincia.toLowerCase();
+        provincia.toLowerCase();
         int res;
         switch (provincia) {
             case "arani":
@@ -1009,7 +1028,7 @@ public class EditarActivity extends AppCompatActivity {
             isValidLugarTuristico = false;
         }
         if (provincia.isEmpty()) {
-            editar_txt_provincia.setError("Sleccione una provincia");
+            editar_txt_provincia.setError("Seleccione una provincia");
             focusView = editar_txt_provincia;
             isValidLugarTuristico = false;
         }

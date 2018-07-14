@@ -15,12 +15,12 @@ import android.view.View;
 
 import com.hga.appturismo.R;
 import com.hga.appturismo.adapterRecycler.LugarAdapterRecycler;
-import com.hga.appturismo.api.ListaResponse;
+import com.hga.appturismo.bdFirebase.ListaResponse;
 import com.hga.appturismo.typeAdapter.LugarResponseTypeAdapter;
-import com.hga.appturismo.api.TurismoCliente;
-import com.hga.appturismo.api.TurismoFirebaseService;
+import com.hga.appturismo.bdFirebase.TurismoCliente;
+import com.hga.appturismo.bdFirebase.TurismoFirebaseService;
 import com.hga.appturismo.typeAdapter.PuntajeResponseTypeAdapter;
-import com.hga.appturismo.base_datos.DataBaseSync;
+import com.hga.appturismo.bdSQLite.DataBaseSync;
 import com.hga.appturismo.modelo.ModeloLugarTuristico;
 import com.hga.appturismo.modelo.ModeloPuntaje;
 
@@ -57,7 +57,8 @@ public class ListaLugaresActivity extends AppCompatActivity {
             setTitle("Tipo: "+lugarSeleccionado);
         }
         initRecyclerView();
-        loadJSONLugarTuristico();
+        //loadJSONLugarTuristico();
+        loadSQLite();
     }
 
     public void goMapLugar(View view) {
@@ -123,7 +124,7 @@ public class ListaLugaresActivity extends AppCompatActivity {
     }
 
     /**
-     * leer de json firebase la lista de lugares y s
+     * leer de json bdFirebase la lista de lugares y s
      */
     private void loadJSONPuntaje() {
         TurismoFirebaseService turismoFirebaseService = (new TurismoCliente(new PuntajeResponseTypeAdapter())).getService();

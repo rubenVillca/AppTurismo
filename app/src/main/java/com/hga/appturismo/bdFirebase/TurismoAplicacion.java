@@ -1,4 +1,4 @@
-package com.hga.appturismo.api;
+package com.hga.appturismo.bdFirebase;
 
 import android.app.Application;
 
@@ -15,7 +15,7 @@ import com.hga.appturismo.util.Constants;
 public class TurismoAplicacion extends Application {
     //imagnes
     private FirebaseStorage firebaseStorage;
-    //bd firebase
+    //bd bdFirebase
     private FirebaseDatabase firebaseDatabase;
 
     public TurismoAplicacion() {
@@ -48,35 +48,35 @@ public class TurismoAplicacion extends Application {
         return firebaseStorage.getReferenceFromUrl(Constants.FIREBASE_STORAGE_URL + ruta);
     }
     /**
-    * base de datos hotel firebase
+    * base de datos hotel bdFirebase
     * */
     public DatabaseReference getDataBaseReferenceHotel() {
         return firebaseDatabase.getReference(Constants.FIREBASE_DATABASE_HOTEL);
     }
 
     /**
-     * base de datos restaurante firebase
+     * base de datos restaurante bdFirebase
      * */
     public DatabaseReference getDataBaseReferenceRestaurante() {
         return firebaseDatabase.getReference(Constants.FIREBASE_DATABASE_RESTAURANTE);
     }
 
     /**
-     * base de datos lugar turistico firebase
+     * base de datos lugar turistico bdFirebase
      * */
     public DatabaseReference getDataBaseReferenceLugarTuristico(String provincia) {
         return firebaseDatabase.getReference(Constants.FIREBASE_DATABASE_LUGAR_TURISTICO +"/"+provincia);
     }
 
     /**
-     * base de datos usuario firebase
+     * base de datos usuario bdFirebase
      * */
     public DatabaseReference getDataBaseReferenceUsuario() {
         return  firebaseDatabase.getReference(Constants.FIREBASE_BASE_URL+Constants.FIREBASE_DATABASE_USUARIO);
     }
 
     /**
-     * base de datos puntaje firebase
+     * base de datos puntaje bdFirebase
      * */
     public DatabaseReference getDataBaseReferencePuntaje() {
         return firebaseDatabase.getReference(Constants.FIREBASE_DATABASE_PUNTAJE);
@@ -85,8 +85,8 @@ public class TurismoAplicacion extends Application {
 
     /**
      * /**
-     * base de datos hotel firebase
-     * @param idFirebase: ide de firebase
+     * base de datos hotel bdFirebase
+     * @param idFirebase: ide de bdFirebase
      * @return DatabaseReference
      */
     public DatabaseReference getDataBaseReferenceHotel(String idFirebase) {
@@ -94,28 +94,28 @@ public class TurismoAplicacion extends Application {
     }
 
     /**
-     * base de datos restaurante firebase
+     * base de datos restaurante bdFirebase
      * */
     public DatabaseReference getDataBaseReferenceRestaurante(String idFirebase) {
         return firebaseDatabase.getReference(Constants.FIREBASE_DATABASE_RESTAURANTE+"/"+idFirebase);
     }
 
     /**
-     * base de datos lugar turistico firebase
+     * base de datos lugar turistico bdFirebase
      * */
     public DatabaseReference getDataBaseReferenceLugarTuristico(String provincia,String idFirebase) {
         return firebaseDatabase.getReference(Constants.FIREBASE_DATABASE_LUGAR_TURISTICO +"/"+provincia+"/"+idFirebase);
     }
 
     /**
-     * base de datos usuario firebase
+     * base de datos usuario bdFirebase
      * */
     public DatabaseReference getDataBaseReferenceUsuario(String idFirebase) {
         return  firebaseDatabase.getReference(Constants.FIREBASE_DATABASE_USUARIO+"/"+idFirebase);
     }
 
     /**
-     * base de datos puntaje firebase
+     * base de datos puntaje bdFirebase
      * */
     public DatabaseReference getDataBaseReferencePuntaje(String idFirebase) {
         return firebaseDatabase.getReference(Constants.FIREBASE_DATABASE_PUNTAJE+"/"+idFirebase);

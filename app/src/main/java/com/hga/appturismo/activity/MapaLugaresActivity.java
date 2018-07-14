@@ -19,11 +19,11 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
 import com.hga.appturismo.R;
-import com.hga.appturismo.base_datos.DataBaseSync;
+import com.hga.appturismo.bdSQLite.DataBaseSync;
 import com.hga.appturismo.modelo.ModeloLugarTuristico;
-import com.hga.appturismo.util.DirectionFinder;
-import com.hga.appturismo.util.DirectionFinderListener;
-import com.hga.appturismo.util.Route;
+import com.hga.appturismo.mapas.DirectionFinder;
+import com.hga.appturismo.mapas.DirectionFinderListener;
+import com.hga.appturismo.mapas.Route;
 
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;

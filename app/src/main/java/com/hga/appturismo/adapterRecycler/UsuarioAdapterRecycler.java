@@ -20,7 +20,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.hga.appturismo.R;
 import com.hga.appturismo.activity.EditarUsuarioActivity;
-import com.hga.appturismo.api.TurismoAplicacion;
+import com.hga.appturismo.bdFirebase.TurismoAplicacion;
 import com.hga.appturismo.modelo.ModeloUsuario;
 
 import java.util.ArrayList;
@@ -120,7 +120,7 @@ public class UsuarioAdapterRecycler extends RecyclerView.Adapter<UsuarioAdapterR
     }
 
     private void eliminarUsuario(final int position, final ModeloUsuario modeloUsuario){
-        //eliminar usuario autenticate firebase
+        //eliminar usuario autenticate bdFirebase
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         assert user != null;
         user.delete().addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -128,12 +128,12 @@ public class UsuarioAdapterRecycler extends RecyclerView.Adapter<UsuarioAdapterR
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()) {
                     DatabaseReference databaseReference= app.getDataBaseReferenceUsuario(modeloUsuario.getIdFirebase());
-                    databaseReference.removeValue();//eliminar de firebase
+                    databaseReference.removeValue();//eliminar de bdFirebase
                     usuarios.remove(position);
                     usuariosFilter=usuarios;
                     notifyDataSetChanged();
 
-                    Log.d("Eliminado usuario", "Cuenta de usuario en firebase eliminada.");
+                    Log.d("Eliminado usuario", "Cuenta de usuario en bdFirebase eliminada.");
                 }
             }
         });

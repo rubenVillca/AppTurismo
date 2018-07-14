@@ -3,8 +3,7 @@ package com.hga.appturismo.typeAdapter;
 import com.google.gson.TypeAdapter;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.hga.appturismo.api.ListaResponse;
-import com.hga.appturismo.modelo.ModeloRestaurante;
+import com.hga.appturismo.bdFirebase.ListaResponse;
 import com.hga.appturismo.modelo.ModeloUsuario;
 
 import java.io.IOException;
@@ -76,7 +75,7 @@ public class UsuarioResponseTypeAdapter extends TypeAdapter {
                     modeloUsuario.setEstado(in.nextString());
                     break;
                 default:
-                    System.out.println("Error al leer desde firebase");
+                    System.out.println("Error al leer desde bdFirebase");
                     break;
             }
         }

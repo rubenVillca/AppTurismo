@@ -24,11 +24,9 @@ import com.google.firebase.storage.StorageReference;
 import com.hga.appturismo.R;
 import com.hga.appturismo.activity.DescripcionHotelActivity;
 import com.hga.appturismo.activity.EditarActivity;
-import com.hga.appturismo.api.TurismoAplicacion;
+import com.hga.appturismo.bdFirebase.TurismoAplicacion;
 import com.hga.appturismo.modelo.ModeloHotel;
 import com.hga.appturismo.modelo.ModeloImagen;
-import com.hga.appturismo.modelo.ModeloHotel;
-import com.hga.appturismo.modelo.ModeloHotel;
 import com.hga.appturismo.modelo.ModeloPuntaje;
 import com.hga.appturismo.modelo.ModeloUsuario;
 import com.hga.appturismo.util.Constants;
@@ -242,7 +240,7 @@ public class HotelAdapterRecycler extends RecyclerView.Adapter<HotelAdapterRecyc
         }
     }
     /**
-     * guardar estrellas marcadas en firebase
+     * guardar estrellas marcadas en bdFirebase
      * @param estrellasMarcadas: cantidad de estrellas marcadas en un recyclerView
      * @param holder: contenedor del recyclerView
      * @param modeloHotel:
@@ -262,7 +260,7 @@ public class HotelAdapterRecycler extends RecyclerView.Adapter<HotelAdapterRecyc
                 puntaje.setIdUsuarioFirebase(email);
                 puntaje.setTipo(ModeloImagen.TIPO_HOTEL);
                 if (!puntaje.getIdFirebase().isEmpty()) {
-                    postReference.child(puntaje.getIdFirebase()).setValue(puntaje);//actualizar puntaje del lugar (hotel, restaurante o lugar tour) en firebase
+                    postReference.child(puntaje.getIdFirebase()).setValue(puntaje);//actualizar puntaje del lugar (hotel, restaurante o lugar tour) en bdFirebase
                     isInsert=true;
                 }
             }
@@ -275,7 +273,7 @@ public class HotelAdapterRecycler extends RecyclerView.Adapter<HotelAdapterRecyc
             modeloPuntaje.setTipo(ModeloImagen.TIPO_HOTEL);
             modeloPuntajes.add(modeloPuntaje);//actualizar lista android
 
-            postReference.push().setValue(modeloPuntaje);//insertar en firebase
+            postReference.push().setValue(modeloPuntaje);//insertar en bdFirebase
 
             holder.promedio.setText(String.valueOf(modeloPuntaje.getPuntaje()));
         }
@@ -317,7 +315,7 @@ public class HotelAdapterRecycler extends RecyclerView.Adapter<HotelAdapterRecyc
 
     private void eliminarHotel(int position, ModeloHotel modeloHotel) {
         DatabaseReference databaseReference=app.getDataBaseReferenceHotel(modeloHotel.getIdFirebase());
-        databaseReference.removeValue();//eliminar de firebase
+        databaseReference.removeValue();//eliminar de bdFirebase
 
         hoteles.remove(position);
         notifyItemRemoved(position);

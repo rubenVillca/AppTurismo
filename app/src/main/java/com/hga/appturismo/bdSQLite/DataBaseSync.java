@@ -1,4 +1,4 @@
-package com.hga.appturismo.base_datos;
+package com.hga.appturismo.bdSQLite;
 
 import android.content.Context;
 import android.database.Cursor;

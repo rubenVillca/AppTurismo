@@ -16,9 +16,9 @@ import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.hga.appturismo.R;
-import com.hga.appturismo.api.TurismoAplicacion;
-import com.hga.appturismo.base_datos.DataBaseSync;
-import com.hga.appturismo.provider.ResetFirebase;
+import com.hga.appturismo.bdFirebase.TurismoAplicacion;
+import com.hga.appturismo.bdSQLite.DataBaseSync;
+import com.hga.appturismo.bdFirebase.ResetFirebase;
 import com.hga.appturismo.util.Constants;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 menu.findItem(R.id.action_login).setVisible(false);
                 menu.findItem(R.id.action_user_insert).setVisible(true);
                 menu.findItem(R.id.action_edit_profile).setVisible(true);
-                menu.findItem(R.id.action_reset).setVisible(true);//para resetear firebase y sqlite
+                menu.findItem(R.id.action_reset).setVisible(true);//para resetear bdFirebase y sqlite
                 menu.findItem(R.id.action_close_login).setVisible(true);
                 break;
             case Constants.USUARIO_ROL_NORMAL:

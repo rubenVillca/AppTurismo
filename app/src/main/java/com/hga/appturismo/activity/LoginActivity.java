@@ -36,10 +36,10 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.hga.appturismo.R;
-import com.hga.appturismo.api.ListaResponse;
-import com.hga.appturismo.api.TurismoCliente;
-import com.hga.appturismo.api.TurismoFirebaseService;
-import com.hga.appturismo.base_datos.DataBaseSync;
+import com.hga.appturismo.bdFirebase.ListaResponse;
+import com.hga.appturismo.bdFirebase.TurismoCliente;
+import com.hga.appturismo.bdFirebase.TurismoFirebaseService;
+import com.hga.appturismo.bdSQLite.DataBaseSync;
 import com.hga.appturismo.modelo.ModeloUsuario;
 import com.hga.appturismo.typeAdapter.UsuarioResponseTypeAdapter;
 
@@ -241,7 +241,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     }
 
     /**
-    * verificar que el usuario exista en firebase Authenticate
+    * verificar que el usuario exista en bdFirebase Authenticate
      */
     private void verifyLoginFirebaseAuthenticate() {
         String email = mEmailView.getText().toString();
@@ -263,7 +263,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     }
 
     /**
-     * verificar que el usuario exista en la base de datos de firebase
+     * verificar que el usuario exista en la base de datos de bdFirebase
      * @param task:
      */
     private void verifyLoginFirebase(final Task<AuthResult> task) {

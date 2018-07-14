@@ -1,10 +1,10 @@
-package com.hga.appturismo.util;
+package com.hga.appturismo.mapas;
 
-public class Distance {
+public class Duration {
     public String text;
     public int value;
 
-    public Distance(String text, int value) {
+    public Duration(String text, int value) {
         this.text = text;
         this.value = value;
     }

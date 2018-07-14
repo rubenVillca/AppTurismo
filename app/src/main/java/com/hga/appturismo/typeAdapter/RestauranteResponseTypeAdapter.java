@@ -3,7 +3,7 @@ package com.hga.appturismo.typeAdapter;
 import com.google.gson.TypeAdapter;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.hga.appturismo.api.ListaResponse;
+import com.hga.appturismo.bdFirebase.ListaResponse;
 import com.hga.appturismo.modelo.ModeloImagen;
 import com.hga.appturismo.modelo.ModeloRestaurante;
 

@@ -5,9 +5,9 @@ package com.hga.appturismo.util;
  */
 
 public class Constants {
-    //ruta base imagenes firebase
+    //ruta base imagenes bdFirebase
     public static final String FIREBASE_STORAGE_URL = "gs://mi-proyecto-4408d.appspot.com/TURISMO/";
-    //ruta base bd firebase
+    //ruta base bd bdFirebase
     public final static String FIREBASE_BASE_URL= "https://mi-proyecto-4408d.firebaseio.com/";
 
     //imagenes
@@ -33,7 +33,7 @@ public class Constants {
     public static final String FIREBASE_PROVINCIA_TAPACARI = "Tapacari";
     public static final String FIREBASE_PROVINCIA_TIRAQUE = "Tiraque";
 
-    //base de daos firebase
+    //base de daos bdFirebase
     public static final String FIREBASE_DATABASE_LUGAR_TURISTICO = "LUGARES";
     public static final String FIREBASE_DATABASE_HOTEL = "HOTELES";
     public static final String FIREBASE_DATABASE_RESTAURANTE = "RESTAURANTES";
@@ -64,4 +64,5 @@ public class Constants {
     public static final String ESTADO_USUARIO_SOLICITUD_RECHAZADA="Solicitud rechazada ";
     public static final String ESTADO_USUARIO_SOLICITUD_ACEPTADO="Solicitud aceptado";
 
+    public static final String ESTADO_LUGAR_INACTIVO = "No definido";
 }

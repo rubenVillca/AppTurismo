@@ -1,4 +1,4 @@
-package com.hga.appturismo.base_datos;
+package com.hga.appturismo.bdSQLite;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -311,6 +311,7 @@ public class DataBaseManager extends SQLiteOpenHelper {
         contentValues.put(DataBaseManager.LUGARES_ESTADO, String.valueOf(lugar.getEstado()));
         contentValues.put(DataBaseManager.LUGARES_LINEA,String.valueOf(lugar.getLinea()));
         contentValues.put(DataBaseManager.LUGARES_FECHA,String.valueOf(lugar.getFecha()));
+        contentValues.put(DataBaseManager.LUGARES_PROVINCIA,lugar.getProvincia());
 
         if (db.insert(DataBaseManager.TABLE_LUGARES, null, contentValues) == -1) {
             System.out.println("Error en la base de datos turismo: " + contentValues.toString() + "\nmodelo:" + lugar.toString());

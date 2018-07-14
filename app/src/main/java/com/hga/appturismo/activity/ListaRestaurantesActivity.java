@@ -15,12 +15,12 @@ import android.view.View;
 
 import com.hga.appturismo.R;
 import com.hga.appturismo.adapterRecycler.RestauranteAdapterRecycler;
-import com.hga.appturismo.api.ListaResponse;
+import com.hga.appturismo.bdFirebase.ListaResponse;
 import com.hga.appturismo.typeAdapter.PuntajeResponseTypeAdapter;
 import com.hga.appturismo.typeAdapter.RestauranteResponseTypeAdapter;
-import com.hga.appturismo.api.TurismoCliente;
-import com.hga.appturismo.api.TurismoFirebaseService;
-import com.hga.appturismo.base_datos.DataBaseSync;
+import com.hga.appturismo.bdFirebase.TurismoCliente;
+import com.hga.appturismo.bdFirebase.TurismoFirebaseService;
+import com.hga.appturismo.bdSQLite.DataBaseSync;
 import com.hga.appturismo.modelo.ModeloPuntaje;
 import com.hga.appturismo.modelo.ModeloRestaurante;
 
@@ -42,7 +42,8 @@ public class ListaRestaurantesActivity extends AppCompatActivity {
         dataBaseSync=new DataBaseSync(this);
 
         initRecyclerView();
-        loadJSONFirebase();
+        //loadJSONFirebase();
+        loadSQLite();
     }
 
     private void initRecyclerView() {

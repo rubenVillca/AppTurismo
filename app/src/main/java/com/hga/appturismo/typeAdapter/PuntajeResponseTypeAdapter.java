@@ -3,7 +3,7 @@ package com.hga.appturismo.typeAdapter;
 import com.google.gson.TypeAdapter;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.hga.appturismo.api.ListaResponse;
+import com.hga.appturismo.bdFirebase.ListaResponse;
 import com.hga.appturismo.modelo.ModeloPuntaje;
 
 import java.io.IOException;
@@ -69,7 +69,7 @@ public class PuntajeResponseTypeAdapter extends TypeAdapter {
                     break;
                 default:
                     in.nextString();
-                    System.out.println("Error al leer desde firebase");
+                    System.out.println("Error al leer desde bdFirebase");
                     break;
             }
         }

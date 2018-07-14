@@ -1,4 +1,4 @@
-package com.hga.appturismo.api;
+package com.hga.appturismo.bdFirebase;
 
 import com.hga.appturismo.modelo.ModeloHotel;
 import com.hga.appturismo.modelo.ModeloLugarTuristico;

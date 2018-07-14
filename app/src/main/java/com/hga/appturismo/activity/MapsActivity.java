@@ -20,13 +20,13 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.Polyline;
 import com.hga.appturismo.R;
-import com.hga.appturismo.base_datos.DataBaseSync;
+import com.hga.appturismo.bdSQLite.DataBaseSync;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback {
-    public static int ZOOM_MAP = 13;
+    public static int ZOOM_MAP = 10;
     protected GoogleMap mMap;
     protected DataBaseSync listas;
     protected Location myLocationGPS;

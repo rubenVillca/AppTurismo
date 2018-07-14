@@ -1,4 +1,4 @@
-package com.hga.appturismo.util;
+package com.hga.appturismo.mapas;
 
 import java.util.List;
 

@@ -21,7 +21,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.hga.appturismo.R;
-import com.hga.appturismo.api.TurismoAplicacion;
+import com.hga.appturismo.bdFirebase.TurismoAplicacion;
 import com.hga.appturismo.modelo.ModeloUsuario;
 import com.hga.appturismo.util.Constants;
 
@@ -157,7 +157,7 @@ public class EditarUsuarioActivity extends AppCompatActivity {
     }
 
     /**
-     * guardar los cambios en firebase para usuario
+     * guardar los cambios en bdFirebase para usuario
      */
     private void actualizarFirebase() {
         app = (TurismoAplicacion) getApplicationContext();

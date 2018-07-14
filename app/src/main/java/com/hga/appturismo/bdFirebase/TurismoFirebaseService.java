@@ -1,4 +1,4 @@
-package com.hga.appturismo.api;
+package com.hga.appturismo.bdFirebase;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
