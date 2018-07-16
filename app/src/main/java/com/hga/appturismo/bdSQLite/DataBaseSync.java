@@ -83,6 +83,7 @@ public class DataBaseSync {
         modeloLugarTuristico.setIdSQLite(cursor.getInt(cursor.getColumnIndex(DataBaseManager.LUGARES_ID_SQLITE)));
         modeloLugarTuristico.setProvincia(cursor.getString(cursor.getColumnIndex(DataBaseManager.LUGARES_PROVINCIA)));
         modeloLugarTuristico.setIdFirebase(cursor.getString(cursor.getColumnIndex(DataBaseManager.LUGARES_ID_FIREBASE)));
+        modeloLugarTuristico.setTipo(cursor.getString(cursor.getColumnIndex(DataBaseManager.LUGARES_TIPO)));
         modeloLugarTuristico.setNombre(cursor.getString(cursor.getColumnIndex(DataBaseManager.LUGARES_NAME)));
         modeloLugarTuristico.setDescripcion(cursor.getString(cursor.getColumnIndex(DataBaseManager.LUGARES_DESCRIPCION)));
         modeloLugarTuristico.setHorario(cursor.getString(cursor.getColumnIndex(DataBaseManager.LUGARES_HORARIO_ATENCION)));

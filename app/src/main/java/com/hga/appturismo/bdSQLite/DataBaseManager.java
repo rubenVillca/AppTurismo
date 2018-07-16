@@ -20,7 +20,7 @@ import java.util.ArrayList;
  */
 
 public class DataBaseManager extends SQLiteOpenHelper {
-    public static final int DATABASE_VERSION = 89;
+    public static final int DATABASE_VERSION = 90;
     public static final String DATABASE_NAME = "APP_TURISMO";
 
     public static final String TABLE_IMAGENES = "IMAGENES";
@@ -34,6 +34,7 @@ public class DataBaseManager extends SQLiteOpenHelper {
     public static final String TABLE_LUGARES = "LUGARES_TURISTICOS";
     public static final String LUGARES_ID_SQLITE = "ID_SQLITE_LUGAR";
     public static final String LUGARES_ID_FIREBASE = "ID_FIREBASE_LUGAR";
+    public static final String LUGARES_TIPO = "¨TIPO_FIREBASE_LUGAR";
     public static final String LUGARES_NAME = "NOMBRE_LUGAR";
     public static final String LUGARES_DESCRIPCION = "DESCRIPCION_LUGAR";
     public static final String LUGARES_UBICACION = "UBICACION_LUGAR";
@@ -152,6 +153,7 @@ public class DataBaseManager extends SQLiteOpenHelper {
         return "create table " + TABLE_LUGARES + " ("
                 + LUGARES_ID_SQLITE + " integer primary key,"
                 + LUGARES_ID_FIREBASE + " text,"
+                + LUGARES_TIPO + " text,"
                 + LUGARES_NAME + " text,"
                 + LUGARES_PROVINCIA + " text,"
                 + LUGARES_DESCRIPCION + " text,"
@@ -312,6 +314,7 @@ public class DataBaseManager extends SQLiteOpenHelper {
         contentValues.put(DataBaseManager.LUGARES_ID_SQLITE, lugar.getIdSQLite());
         contentValues.put(DataBaseManager.LUGARES_ID_FIREBASE, String.valueOf(lugar.getIdFirebase()));
         contentValues.put(DataBaseManager.LUGARES_NAME, String.valueOf(lugar.getNombre()));
+        contentValues.put(DataBaseManager.LUGARES_TIPO, String.valueOf(lugar.getTipo()));
         contentValues.put(DataBaseManager.LUGARES_DESCRIPCION, String.valueOf(lugar.getDescripcion()));
         contentValues.put(DataBaseManager.LUGARES_UBICACION, String.valueOf(lugar.getDireccion()));
         contentValues.put(DataBaseManager.LUGARES_HORARIO_ATENCION, lugar.getHorario());

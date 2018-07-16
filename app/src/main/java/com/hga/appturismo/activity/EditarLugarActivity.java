@@ -62,10 +62,6 @@ public class EditarLugarActivity extends EditarActivity {
                 startActivity(intent);
             }
         });
-
-        if (modeloLugarTuristicoOld != null) {
-            mostrarImagenLugarTuristico();
-        }
     }
 
     private void mostrarImagenLugarTuristico() {
@@ -120,6 +116,8 @@ public class EditarLugarActivity extends EditarActivity {
         modeloLugarTuristicoNew.setGpsY(Float.parseFloat(editar_txt_longitud.getText().toString()));
         modeloLugarTuristicoNew.setLinea(editar_txt_linea.getText().toString());
         modeloLugarTuristicoNew.setFecha(editar_txt_fecha.getText().toString());
+
+        mostrarImagenLugarTuristico();
     }
 
     /**

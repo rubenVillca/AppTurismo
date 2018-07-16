@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -97,15 +98,37 @@ public class DescripcionLugarTuristicoActivity extends AppCompatActivity impleme
         TextView textViewActividadText = findViewById(R.id.textViewActividadText);
         textViewActividadText.setText(modeloLugarTuristico.getActividad());
 
-        TextView textViewLineaText = findViewById(R.id.textViewLineaText);
-        textViewLineaText.setText(modeloLugarTuristico.getLinea());
+        if (modeloLugarTuristico.getLinea().isEmpty()) {
+            LinearLayout linearLayoutLinea =findViewById(R.id.linearLayoutLinea);
+            linearLayoutLinea.setVisibility(View.GONE);
+        }else {
+            TextView textViewLineaText = findViewById(R.id.textViewLineaText);
+            textViewLineaText.setText(modeloLugarTuristico.getLinea());
 
-        TextView textViewFechaText = findViewById(R.id.textViewFechaText);
-        textViewFechaText.setText(modeloLugarTuristico.getFecha());
+        }
 
-        TextView textViewRegistradoPorText = findViewById(R.id.textViewRegistradoPorText);
-        textViewRegistradoPorText.setText(modeloLugarTuristico.getRegistradoPor());
+        if (modeloLugarTuristico.getFecha().isEmpty()) {
+            LinearLayout linearLayoutFecha=findViewById(R.id.linearLayoutFecha);
+            linearLayoutFecha.setVisibility(View.GONE);
+        }else {
+            TextView textViewFechaText = findViewById(R.id.textViewFechaText);
+            textViewFechaText.setText(modeloLugarTuristico.getFecha());
+        }
 
+        if (modeloLugarTuristico.getHorario().isEmpty()) {
+            LinearLayout linearLayoutHorario=findViewById(R.id.linearLayoutHorario);
+            linearLayoutHorario.setVisibility(View.GONE);
+        }else {
+            TextView textViewHorario = findViewById(R.id.textViewHorariosText);
+            textViewHorario.setText(modeloLugarTuristico.getHorario());
+        }
+        if (modeloLugarTuristico.getActividad().isEmpty()) {
+            LinearLayout linearLayoutActividad=findViewById(R.id.linearLayoutActividad);
+            linearLayoutActividad.setVisibility(View.GONE);
+        }else {
+            TextView textViewActividad = findViewById(R.id.textViewActividadText);
+            textViewActividad.setText(modeloLugarTuristico.getActividad());
+        }
 
         //botones
         Button buttonAudio = findViewById(R.id.buttonAudio);

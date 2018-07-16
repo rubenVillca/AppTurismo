@@ -102,7 +102,9 @@ public class EditarActivity extends AppCompatActivity {
 
             Uri selectedImage = data.getData();
             String[] filePathColumn = {MediaStore.Images.Media.DATA};//Array size of 1, and we put in a string
+
             Cursor cursor = getContentResolver().query(selectedImage, filePathColumn, null, null, null);
+
             cursor.moveToFirst();
             int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
             mCurrentAbsolutePhotoPath = cursor.getString(columnIndex);//here we have our image path.

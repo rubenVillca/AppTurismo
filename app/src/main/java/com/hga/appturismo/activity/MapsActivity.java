@@ -26,7 +26,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback {
-    public static int ZOOM_MAP = 10;
+    public static int ZOOM_MAP = 15;
     protected GoogleMap mMap;
     protected DataBaseSync listas;
     protected Location myLocationGPS;

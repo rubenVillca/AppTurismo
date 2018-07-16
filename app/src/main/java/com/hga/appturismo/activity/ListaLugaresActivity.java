@@ -44,6 +44,14 @@ public class ListaLugaresActivity extends AppCompatActivity {
         setContentView(R.layout.activity_lista_lugares);
         dataBaseSync = new DataBaseSync(this);
 
+        init();
+
+        initRecyclerView();
+        //loadJSONLugarTuristico();
+        loadSQLite();
+    }
+
+    private void init() {
         Bundle bundle = getIntent().getExtras();
         if (bundle != null && bundle.getString("lugarSeleccionado") != null) {
             lugarSeleccionado = bundle.getString("lugarSeleccionado");
@@ -52,13 +60,9 @@ public class ListaLugaresActivity extends AppCompatActivity {
             lugarSeleccionado ="";
             isProvincia=true;
         }
-
         if (!isProvincia){
             setTitle("Tipo: "+lugarSeleccionado);
         }
-        initRecyclerView();
-        //loadJSONLugarTuristico();
-        loadSQLite();
     }
 
     public void goMapLugar(View view) {

@@ -116,7 +116,9 @@
                         android:layout_height="wrap_content"
                         android:text="" />
                 </LinearLayout>
+
                 <LinearLayout
+                    android:id="@+id/linearLayoutLinea"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
@@ -134,7 +136,9 @@
                         android:layout_height="wrap_content"
                         android:text="" />
                 </LinearLayout>
+
                 <LinearLayout
+                    android:id="@+id/linearLayoutFecha"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
@@ -192,6 +196,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/linearLayoutHorario"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
@@ -209,7 +214,9 @@
                         android:layout_height="wrap_content"
                         android:text="" />
                 </LinearLayout>
+
                 <LinearLayout
+                    android:id="@+id/linearLayoutActividad"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
@@ -226,25 +233,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/textViewRegistradoPor"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Registrado por:"
-                        android:textStyle="bold"/>
-
-                    <TextView
-                        android:id="@+id/textViewRegistradoPorText"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text=""/>
                 </LinearLayout>
 
                 <include layout="@layout/content_button_description"/>

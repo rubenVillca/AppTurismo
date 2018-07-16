@@ -21,8 +21,6 @@ import java.util.Locale;
 
 public class DescripcionHotelActivity extends AppCompatActivity  implements TextToSpeech.OnInitListener{
     private TextToSpeech tts;
-    private ViewPager viewPager;
-    private ImagenSwip imagenSwip;
     private ModeloHotel modeloHotel;
 
     @Override
@@ -47,31 +45,24 @@ public class DescripcionHotelActivity extends AppCompatActivity  implements Text
      * Modificar la vista con datos del controlador
      */
     private void actualizarContenido() {
-        //texto a modificar
-        TextView textViewProvinciaText=(TextView)findViewById(R.id.textViewProvinciaText);
-        textViewProvinciaText.setText(modeloHotel.getProvincia());
-
-        TextView textViewNombreText=(TextView)findViewById(R.id.textViewNombreText);
+        TextView textViewNombreText= findViewById(R.id.textViewNombreText);
         textViewNombreText.setText(modeloHotel.getNombre());
 
-        TextView textViewDireccionText=(TextView)findViewById(R.id.textViewDireccionText);
+        TextView textViewDireccionText= findViewById(R.id.textViewDireccionText);
         textViewDireccionText.setText(modeloHotel.getDireccion());
 
-        TextView textViewTelefonoText=(TextView)findViewById(R.id.textViewTelefonoText);
+        TextView textViewTelefonoText= findViewById(R.id.textViewTelefonoText);
         textViewTelefonoText.setText(String.valueOf(modeloHotel.getTelefono()));
 
-        TextView textViewPagWebText=(TextView)findViewById(R.id.textViewPagWebText);
+        TextView textViewPagWebText= findViewById(R.id.textViewPagWebText);
         textViewPagWebText.setText(String.valueOf(modeloHotel.getPaginaWeb()));
 
-        TextView textViewEmailText=(TextView)findViewById(R.id.textViewEmailText);
+        TextView textViewEmailText= findViewById(R.id.textViewEmailText);
         textViewEmailText.setText(String.valueOf(modeloHotel.getEmail()));
 
-        TextView textViewRegistradoPorText = (TextView) findViewById(R.id.textViewRegistradoPorText);
-        textViewRegistradoPorText.setText(modeloHotel.getRegistradoPor());
+        Button buttonTrazarRuta= findViewById(R.id.buttonTrazarRuta);
 
-        Button buttonTrazarRuta=(Button)findViewById(R.id.buttonTrazarRuta);
-
-        Button buttonAudio = (Button) findViewById(R.id.buttonAudio);
+        Button buttonAudio = findViewById(R.id.buttonAudio);
         buttonAudio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -95,8 +86,8 @@ public class DescripcionHotelActivity extends AppCompatActivity  implements Text
             }
         });
         //imagenes
-        viewPager=(ViewPager)findViewById(R.id.imagenTurismo);
-        imagenSwip=new ImagenSwip(modeloHotel.getImagenes(),this);
+        ViewPager viewPager = findViewById(R.id.imagenTurismo);
+        ImagenSwip imagenSwip = new ImagenSwip(modeloHotel.getImagenes(), this);
         viewPager.setAdapter(imagenSwip);
     }
 
