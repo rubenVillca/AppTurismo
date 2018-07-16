@@ -20,13 +20,18 @@
         android:title="@string/action_edit_profile"
         app:showAsAction="never" />
     <item
+        android:id="@+id/action_sincronizar"
+        android:orderInCategory="106"
+        android:title="@string/action_sincronizar"
+        />
+    <item
         android:id="@+id/action_reset"
-        android:orderInCategory="105"
+        android:orderInCategory="107"
         android:title="@string/action_reset_profile"
-        app:showAsAction="never" />
+        />
     <item
         android:id="@+id/action_close_login"
-        android:orderInCategory="106"
+        android:orderInCategory="108"
         android:title="@string/action_login_close"
         app:showAsAction="never" />
 

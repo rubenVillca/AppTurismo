@@ -29,8 +29,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.hga.appturismo.R;
-import com.hga.appturismo.bdSQLite.DataBaseSync;
 import com.hga.appturismo.bdFirebase.TurismoAplicacion;
+import com.hga.appturismo.bdSQLite.DataBaseSync;
 import com.hga.appturismo.modelo.ModeloHotel;
 import com.hga.appturismo.modelo.ModeloImagen;
 import com.hga.appturismo.modelo.ModeloLugarTuristico;
@@ -66,6 +66,8 @@ public class InsertarLugarActivity extends AppCompatActivity {
     private EditText txt_email;
     private EditText txt_linea;
     private EditText txt_fecha;
+    private EditText txt_registrado_por;
+
 
     private Spinner spinnerProvincia;
     private Spinner spinnerTipoTurismo;
@@ -86,6 +88,8 @@ public class InsertarLugarActivity extends AppCompatActivity {
     private LinearLayout layout_imagen;
     private LinearLayout layout_linea;
     private LinearLayout layout_fecha;
+    private LinearLayout layout_registrado_por;
+
 
     private View focusView = null;
 
@@ -173,6 +177,7 @@ public class InsertarLugarActivity extends AppCompatActivity {
         modeloHotel.setEmail(txt_email.getText().toString());
         modeloHotel.setGpsX(Float.parseFloat(txt_latitud.getText().toString()));
         modeloHotel.setGpsY(Float.parseFloat(txt_longitud.getText().toString()));
+        modeloHotel.setNombre(txt_registrado_por.getText().toString());
         return modeloHotel;
     }
 
@@ -226,6 +231,7 @@ public class InsertarLugarActivity extends AppCompatActivity {
         modeloLugarTuristico.setProvincia(spinnerProvincia.getSelectedItem().toString());
         modeloLugarTuristico.setLinea(txt_linea.getText().toString());
         modeloLugarTuristico.setFecha(txt_fecha.getText().toString());
+        modeloLugarTuristico.setNombre(txt_registrado_por.getText().toString());
         return modeloLugarTuristico;
     }
 
@@ -240,6 +246,7 @@ public class InsertarLugarActivity extends AppCompatActivity {
         modeloRestaurante.setTelefonoString(txt_telefono.getText().toString());
         modeloRestaurante.setGpsX(Float.parseFloat(txt_latitud.getText().toString()));
         modeloRestaurante.setGpsY(Float.parseFloat(txt_longitud.getText().toString()));
+        modeloRestaurante.setNombre(txt_registrado_por.getText().toString());
 
         return modeloRestaurante;
     }
@@ -432,6 +439,9 @@ public class InsertarLugarActivity extends AppCompatActivity {
         layout_longitud = (LinearLayout) findViewById(R.id.layout_longitud);
         layout_fecha =(LinearLayout) findViewById(R.id.layout_fechaTurismo);
         layout_linea=(LinearLayout)findViewById(R.id.layout_lineaTurismo);
+        layout_registrado_por = (LinearLayout) findViewById(R.id.layout_registrado_por);//automatico guardar el nombre de la persona que registro
+
+
         layout_imagen = (LinearLayout) findViewById(R.id.layout_imagen);
     }
 
@@ -454,6 +464,8 @@ public class InsertarLugarActivity extends AppCompatActivity {
         txt_horario = (EditText) findViewById(R.id.txt_horario);
         txt_linea = (EditText) findViewById(R.id.txt_linea);
         txt_fecha = (EditText) findViewById(R.id.txt_fecha);
+        txt_registrado_por = (EditText) findViewById(R.id.txt_registrado_por);
+
     }
 
     /**
@@ -490,6 +502,7 @@ public class InsertarLugarActivity extends AppCompatActivity {
                         layout_latitud.setVisibility(View.VISIBLE);
                         layout_longitud.setVisibility(View.VISIBLE);
                         layout_imagen.setVisibility(View.VISIBLE);
+                        layout_registrado_por.setVisibility(View.VISIBLE);
                         break;
                         default:
                             layout_linea.setVisibility(View.GONE);
@@ -525,6 +538,7 @@ public class InsertarLugarActivity extends AppCompatActivity {
                         layout_horario.setVisibility(View.VISIBLE);
                         layout_latitud.setVisibility(View.VISIBLE);
                         layout_longitud.setVisibility(View.VISIBLE);
+                        layout_registrado_por.setVisibility(View.VISIBLE);
                         layout_imagen.setVisibility(View.VISIBLE);
                         break;
                     case 1://restaurante
@@ -540,6 +554,7 @@ public class InsertarLugarActivity extends AppCompatActivity {
                         layout_horario.setVisibility(View.VISIBLE);
                         layout_latitud.setVisibility(View.VISIBLE);
                         layout_longitud.setVisibility(View.VISIBLE);
+                        layout_registrado_por.setVisibility(View.VISIBLE);
                         layout_imagen.setVisibility(View.VISIBLE);
                         break;
                     case 2://lugar turistico
@@ -555,9 +570,10 @@ public class InsertarLugarActivity extends AppCompatActivity {
                         layout_horario.setVisibility(View.VISIBLE);
                         layout_latitud.setVisibility(View.VISIBLE);
                         layout_longitud.setVisibility(View.VISIBLE);
+                        layout_registrado_por.setVisibility(View.VISIBLE);
                         layout_imagen.setVisibility(View.VISIBLE);
-                        //layout_linea.setVisibility(View.VISIBLE);
-                        //layout_fecha.setVisibility(View.VISIBLE);
+                        layout_linea.setVisibility(View.GONE);
+                        layout_fecha.setVisibility(View.GONE);
 
                         break;
                 }

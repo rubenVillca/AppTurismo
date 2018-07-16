@@ -76,6 +76,9 @@ public class DescripcionLugarTuristicoActivity extends AppCompatActivity impleme
         TextView textViewFechaText = (TextView) findViewById(R.id.textViewFechaText);
         textViewFechaText.setText(modeloLugarTuristico.getFecha());
 
+        TextView textViewRegistradoPorText = (TextView) findViewById(R.id.textViewRegistradoPorText);
+        textViewRegistradoPorText.setText(modeloLugarTuristico.getRegistradoPor());
+
 
         //botones
         Button buttonAudio = (Button) findViewById(R.id.buttonAudio);

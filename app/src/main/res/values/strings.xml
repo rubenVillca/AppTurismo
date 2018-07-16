@@ -152,4 +152,5 @@
     <string name="label_linea">Línea</string>
     <string name="label_fecha">Fecha:</string>
     <string name="labelName">Nombre:</string>
+    <string name="action_sincronizar">Sincronizar</string>
 </resources>

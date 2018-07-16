@@ -65,6 +65,9 @@ public class DescripcionRestauranteActivity extends AppCompatActivity implements
         TextView textViewEmailText = (TextView) findViewById(R.id.textViewEmailText);
         textViewEmailText.setText(String.valueOf(modeloRestaurante.getEmail()));
 
+        TextView textViewRegistradoPorText = (TextView) findViewById(R.id.textViewRegistradoPorText);
+        textViewRegistradoPorText.setText(modeloRestaurante.getRegistradoPor());
+
         Button buttonAudio = (Button) findViewById(R.id.buttonAudio);
         buttonAudio.setOnClickListener(new View.OnClickListener() {
             @Override

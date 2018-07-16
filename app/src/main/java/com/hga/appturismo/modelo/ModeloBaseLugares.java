@@ -19,6 +19,7 @@ public class ModeloBaseLugares implements Serializable {
     protected float gpsY;
     protected String estado;
     protected String descripcion;
+    protected String registradoPor;
 
     public String getDescripcion() {
         return descripcion;
@@ -39,6 +40,7 @@ public class ModeloBaseLugares implements Serializable {
         this.gpsY = 0f;
         this.estado = Constants.ESTADO_LUGAR_INACTIVO;
         this.descripcion="";
+        this.registradoPor = "";
     }
 
     public int getIdSQLite() {
@@ -69,6 +71,13 @@ public class ModeloBaseLugares implements Serializable {
         return direccion;
     }
 
+    public String getRegistradoPor() {
+        return registradoPor;
+    }
+
+    public void setRegistradoPor(String registradoPor) {
+        this.registradoPor = registradoPor;
+    }
     public void setDireccion(String direccion) {
         this.direccion = direccion;
     }

@@ -65,6 +65,10 @@ public class DescripcionHotelActivity extends AppCompatActivity  implements Text
 
         TextView textViewEmailText=(TextView)findViewById(R.id.textViewEmailText);
         textViewEmailText.setText(String.valueOf(modeloHotel.getEmail()));
+
+        TextView textViewRegistradoPorText = (TextView) findViewById(R.id.textViewRegistradoPorText);
+        textViewRegistradoPorText.setText(modeloHotel.getRegistradoPor());
+
         Button buttonTrazarRuta=(Button)findViewById(R.id.buttonTrazarRuta);
 
         Button buttonAudio = (Button) findViewById(R.id.buttonAudio);

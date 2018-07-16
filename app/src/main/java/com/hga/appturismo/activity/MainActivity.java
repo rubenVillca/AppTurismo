@@ -16,9 +16,9 @@ import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.hga.appturismo.R;
+import com.hga.appturismo.bdFirebase.ResetFirebase;
 import com.hga.appturismo.bdFirebase.TurismoAplicacion;
 import com.hga.appturismo.bdSQLite.DataBaseSync;
-import com.hga.appturismo.bdFirebase.ResetFirebase;
 import com.hga.appturismo.util.Constants;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -95,6 +95,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 menu.findItem(R.id.action_login).setVisible(false);
                 menu.findItem(R.id.action_user_insert).setVisible(true);
                 menu.findItem(R.id.action_edit_profile).setVisible(true);
+                menu.findItem(R.id.action_sincronizar).setVisible(true);
                 menu.findItem(R.id.action_reset).setVisible(true);//para resetear bdFirebase y sqlite
                 menu.findItem(R.id.action_close_login).setVisible(true);
                 break;
@@ -102,6 +103,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 menu.findItem(R.id.action_login).setVisible(false);
                 menu.findItem(R.id.action_user_insert).setVisible(false);
                 menu.findItem(R.id.action_edit_profile).setVisible(true);
+                menu.findItem(R.id.action_sincronizar).setVisible(false);
                 menu.findItem(R.id.action_reset).setVisible(false);
                 menu.findItem(R.id.action_close_login).setVisible(true);
                 break;
@@ -109,6 +111,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 menu.findItem(R.id.action_login).setVisible(true);
                 menu.findItem(R.id.action_user_insert).setVisible(true);
                 menu.findItem(R.id.action_edit_profile).setVisible(false);
+                menu.findItem(R.id.action_sincronizar).setVisible(false);
                 menu.findItem(R.id.action_reset).setVisible(true);//para resetear datos habilita a true y seleccionar
                 menu.findItem(R.id.action_close_login).setVisible(false);
                 break;
@@ -198,6 +201,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Intent buscarPorTipo = new Intent(this, BuscarPorTipoActivity.class);
         startActivity(buscarPorTipo);
     }
+
+   /* private void sincronizarSQLiteConDataFirebase() {
+        TurismoAplicacion app = (TurismoAplicacion) getApplicationContext();
+
+    }*/
 
     private void resetDataFirebase() {
         TurismoAplicacion app = (TurismoAplicacion) getApplicationContext();

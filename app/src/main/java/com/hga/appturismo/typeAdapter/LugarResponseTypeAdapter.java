@@ -112,6 +112,9 @@ public class LugarResponseTypeAdapter extends TypeAdapter {
                 case "linea":
                     turistico.setLinea(reader.nextString());
                     break;
+                case "registradoPor":
+                    turistico.setRegistradoPor(reader.nextString());
+                    break;
                 default:
                     reader.nextString();
                     break;

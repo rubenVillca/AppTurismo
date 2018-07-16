@@ -94,6 +94,7 @@ public class DataBaseSync {
         modeloLugarTuristico.setEstado(cursor.getString(cursor.getColumnIndex(DataBaseManager.LUGARES_ESTADO)));
         modeloLugarTuristico.setLinea(cursor.getString(cursor.getColumnIndex(DataBaseManager.LUGARES_LINEA)));
         modeloLugarTuristico.setFecha(cursor.getString(cursor.getColumnIndex(DataBaseManager.LUGARES_FECHA)));
+        modeloLugarTuristico.setRegistradoPor(cursor.getString(cursor.getColumnIndex(DataBaseManager.LUGARES_REGISTRADO_POR)));
         modeloLugarTuristico.setImagenesFirebase(getListaImagenes(ModeloImagen.TIPO_LUGAR, modeloLugarTuristico.getIdSQLite()));
         return modeloLugarTuristico;
     }
@@ -141,6 +142,7 @@ public class DataBaseSync {
         modeloRestaurante.setGpsX(cursor.getFloat(cursor.getColumnIndex(DataBaseManager.RESTAURANTES_LATITUD)));
         modeloRestaurante.setGpsY(cursor.getFloat(cursor.getColumnIndex(DataBaseManager.RESTAURANTES_LONGITUD)));
         modeloRestaurante.setEstado(cursor.getString(cursor.getColumnIndex(DataBaseManager.RESTAURANTES_ESTADO)));
+        modeloRestaurante.setRegistradoPor(cursor.getString(cursor.getColumnIndex(DataBaseManager.RESTAURANTES_REGISTRADO_POR)));
         modeloRestaurante.setImagenesFirebase(getListaImagenes(ModeloImagen.TIPO_RESTAURANTE, modeloRestaurante.getIdSQLite()));
         return modeloRestaurante;
     }
@@ -186,6 +188,7 @@ public class DataBaseSync {
         modeloHotel.setEmail(cursor.getString(cursor.getColumnIndex(DataBaseManager.HOTELES_EMAIL)));
         modeloHotel.setGpsX(cursor.getFloat(cursor.getColumnIndex(DataBaseManager.HOTELES_LATITUD)));
         modeloHotel.setGpsY(cursor.getFloat(cursor.getColumnIndex(DataBaseManager.HOTELES_LONGITUD)));
+        modeloHotel.setRegistradoPor(cursor.getString(cursor.getColumnIndex(DataBaseManager.HOTELES_REGISTRADO_POR)));
         modeloHotel.setEstado(cursor.getString(cursor.getColumnIndex(DataBaseManager.HOTELES_ESTADO)));
 
         modeloHotel.setImagenes(getListaImagenes(ModeloImagen.TIPO_HOTEL, modeloHotel.getIdSQLite()));

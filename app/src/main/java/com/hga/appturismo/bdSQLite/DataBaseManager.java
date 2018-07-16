@@ -8,9 +8,9 @@ import android.database.sqlite.SQLiteOpenHelper;
 import com.hga.appturismo.modelo.ModeloHotel;
 import com.hga.appturismo.modelo.ModeloImagen;
 import com.hga.appturismo.modelo.ModeloLugarTuristico;
+import com.hga.appturismo.modelo.ModeloPuntaje;
 import com.hga.appturismo.modelo.ModeloRestaurante;
 import com.hga.appturismo.modelo.ModeloUsuario;
-import com.hga.appturismo.modelo.ModeloPuntaje;
 import com.hga.appturismo.provider.Listas;
 
 import java.util.ArrayList;
@@ -20,7 +20,7 @@ import java.util.ArrayList;
  */
 
 public class DataBaseManager extends SQLiteOpenHelper {
-    public static final int DATABASE_VERSION = 87;
+    public static final int DATABASE_VERSION = 89;
     public static final String DATABASE_NAME = "APP_TURISMO";
 
     public static final String TABLE_IMAGENES = "IMAGENES";
@@ -46,6 +46,8 @@ public class DataBaseManager extends SQLiteOpenHelper {
     public static final String LUGARES_ESTADO= "ESTADO_LUGAR";
     public static final String LUGARES_FECHA= "FECHA_LUGAR";
     public static final String LUGARES_LINEA= "LINEA_LUGAR";
+    public static final String LUGARES_REGISTRADO_POR = "REGISTRADO_POR";
+
 
     public static final String TABLE_RESTAURANTES = "RESTAURANTES";
     public static final String RESTAURANTES_ID_SQLITE = "ID_SQLITE_REST";
@@ -58,6 +60,8 @@ public class DataBaseManager extends SQLiteOpenHelper {
     public static final String RESTAURANTES_LATITUD = "LATITUD_REST";
     public static final String RESTAURANTES_LONGITUD = "LONGITUD_REST";
     public static final String RESTAURANTES_ESTADO= "ESTADO_REST";
+    public static final String RESTAURANTES_REGISTRADO_POR = "REGISTRADO_POR";
+
 
     public static final String TABLE_HOTELES = "HOTELES";
     public static final String HOTELES_SQLITE_ID = "ID_SQLITE_HOTEL";
@@ -70,6 +74,8 @@ public class DataBaseManager extends SQLiteOpenHelper {
     public static final String HOTELES_LATITUD = "LATITUD_HOTEL";
     public static final String HOTELES_LONGITUD = "LONGITUD_HOTEL";
     public static final String HOTELES_ESTADO= "ESTADO_HOTEL";
+    public static final String HOTELES_REGISTRADO_POR = "REGISTRADO_POR";
+
 
     public static final String TABLE_USUARIOS = "USUARIOS";
     public static final String USER_SQLITE_ID = "ID_SQLITE_USER";
@@ -157,7 +163,8 @@ public class DataBaseManager extends SQLiteOpenHelper {
                 + LUGARES_ACTIVIDAD + " text,"
                 + LUGARES_ESTADO + " text,"
                 + LUGARES_LINEA + " text,"
-                + LUGARES_FECHA + " text"
+                + LUGARES_FECHA + " text,"
+                + LUGARES_REGISTRADO_POR + " text"
                 + ");";
     }
 
@@ -173,7 +180,8 @@ public class DataBaseManager extends SQLiteOpenHelper {
                 + RESTAURANTES_EMAIL + " text,"
                 + RESTAURANTES_LATITUD + " text,"
                 + RESTAURANTES_LONGITUD + " text,"
-                + RESTAURANTES_ESTADO + " text"
+                + RESTAURANTES_ESTADO + " text,"
+                + RESTAURANTES_REGISTRADO_POR + " text"
                 + ");";
     }
 
@@ -188,7 +196,8 @@ public class DataBaseManager extends SQLiteOpenHelper {
                 + HOTELES_EMAIL + " text,"
                 + HOTELES_LATITUD + " text,"
                 + HOTELES_LONGITUD + " text,"
-                + HOTELES_ESTADO + " text"
+                + HOTELES_ESTADO + " text,"
+                + HOTELES_REGISTRADO_POR + " text"
                 + ");";
     }
 
@@ -253,6 +262,7 @@ public class DataBaseManager extends SQLiteOpenHelper {
         contentValues.put(DataBaseManager.RESTAURANTES_LATITUD, String.valueOf(modeloRestaurante.getGpsX()));
         contentValues.put(DataBaseManager.RESTAURANTES_LONGITUD, String.valueOf(modeloRestaurante.getGpsY()));
         contentValues.put(DataBaseManager.RESTAURANTES_ESTADO, String.valueOf(modeloRestaurante.getEstado()));
+        contentValues.put(DataBaseManager.RESTAURANTES_REGISTRADO_POR, modeloRestaurante.getRegistradoPor());
 
         if (db.insert(DataBaseManager.TABLE_RESTAURANTES, null, contentValues) == -1) {
             System.out.println("Error en la base de datos restaurante: " + contentValues.toString() + "\nModeloRestaurante:" + modeloRestaurante.toString());
@@ -280,6 +290,7 @@ public class DataBaseManager extends SQLiteOpenHelper {
         contentValues.put(DataBaseManager.HOTELES_LATITUD, String.valueOf(modeloHotel.getGpsX()));
         contentValues.put(DataBaseManager.HOTELES_LONGITUD, String.valueOf(modeloHotel.getGpsY()));
         contentValues.put(DataBaseManager.HOTELES_ESTADO, String.valueOf(modeloHotel.getEstado()));
+        contentValues.put(DataBaseManager.HOTELES_REGISTRADO_POR, modeloHotel.getRegistradoPor());
 
         if (db.insert(DataBaseManager.TABLE_HOTELES, null, contentValues) == -1) {
             System.out.println("Error en la base de datos hotel: " + contentValues.toString() + "\nModeloHotel: " + modeloHotel.toString());
@@ -312,6 +323,7 @@ public class DataBaseManager extends SQLiteOpenHelper {
         contentValues.put(DataBaseManager.LUGARES_LINEA,String.valueOf(lugar.getLinea()));
         contentValues.put(DataBaseManager.LUGARES_FECHA,String.valueOf(lugar.getFecha()));
         contentValues.put(DataBaseManager.LUGARES_PROVINCIA,lugar.getProvincia());
+        contentValues.put(DataBaseManager.LUGARES_REGISTRADO_POR, lugar.getRegistradoPor());
 
         if (db.insert(DataBaseManager.TABLE_LUGARES, null, contentValues) == -1) {
             System.out.println("Error en la base de datos turismo: " + contentValues.toString() + "\nmodelo:" + lugar.toString());
