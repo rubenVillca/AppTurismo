@@ -176,6 +176,34 @@
                 android:value="com.hga.appturismo.activity.MainActivity"/>
         </activity>
         <activity
+            android:name=".activity.EditarHotelActivity"
+            android:label="Editar hotel"
+            android:parentActivityName=".activity.MainActivity"
+            android:windowSoftInputMode="stateHidden">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.hga.appturismo.activity.MainActivity"/>
+        </activity>
+        <activity
+            android:name=".activity.EditarRestauranteActivity"
+            android:label="Editar restaurante"
+            android:parentActivityName=".activity.MainActivity"
+            android:windowSoftInputMode="stateHidden">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.hga.appturismo.activity.MainActivity"/>
+        </activity>
+        <activity
+            android:name=".activity.EditarLugarActivity"
+            android:label="Editar lugar turistico"
+            android:parentActivityName=".activity.MainActivity"
+            android:windowSoftInputMode="stateHidden">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.hga.appturismo.activity.MainActivity"/>
+        </activity>
+
+        <activity
             android:name=".activity.EditarUsuarioActivity"
             android:label="Editar Usuario"
             android:parentActivityName=".activity.MainActivity"

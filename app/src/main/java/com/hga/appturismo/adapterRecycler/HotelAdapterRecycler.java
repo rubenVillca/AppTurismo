@@ -23,7 +23,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.storage.StorageReference;
 import com.hga.appturismo.R;
 import com.hga.appturismo.activity.DescripcionHotelActivity;
-import com.hga.appturismo.activity.EditarActivity;
+import com.hga.appturismo.activity.EditarHotelActivity;
 import com.hga.appturismo.bdFirebase.TurismoAplicacion;
 import com.hga.appturismo.modelo.ModeloHotel;
 import com.hga.appturismo.modelo.ModeloImagen;
@@ -148,7 +148,7 @@ public class HotelAdapterRecycler extends RecyclerView.Adapter<HotelAdapterRecyc
         holder.btn_editar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(activity, EditarActivity.class);
+                Intent intent = new Intent(activity, EditarHotelActivity.class);
                 intent.putExtra("modeloHotel", modeloHotel);
                 activity.startActivity(intent);
             }

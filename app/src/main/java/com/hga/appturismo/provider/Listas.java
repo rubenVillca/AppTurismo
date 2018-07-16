@@ -3730,7 +3730,7 @@ public class Listas {
         lugarTuristico.setTelefono(4228530);
         lugarTuristico.setGpsX(-17.38435132938883f);
         lugarTuristico.setGpsY(-66.1349768936634f);
-        lugarTuristico.setLinea("");
+        lugarTuristico.setLinea("111");
         lugarTuristico.setFecha("");
         lugarTuristico.setEstado(Constants.ESTADO_LUGAR_VISIBLE);
         listaLugares.add(lugarTuristico);
@@ -3749,7 +3749,7 @@ public class Listas {
         lugarTuristico.setTelefono(0);
         lugarTuristico.setGpsX(-17.4047292f);
         lugarTuristico.setGpsY(-66.1604894f);
-        lugarTuristico.setLinea("");
+        lugarTuristico.setLinea("111");
         lugarTuristico.setFecha("");
         lugarTuristico.setEstado(Constants.ESTADO_LUGAR_VISIBLE);
         listaLugares.add(lugarTuristico);

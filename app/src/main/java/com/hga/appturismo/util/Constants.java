@@ -65,4 +65,7 @@ public class Constants {
     public static final String ESTADO_USUARIO_SOLICITUD_ACEPTADO="Solicitud aceptado";
 
     public static final String ESTADO_LUGAR_INACTIVO = "No definido";
+    public static int SELECT_HOTEL = 0;
+    public static int SELECT_LUGAR = 1;
+    public static int SELECT_RESTAURANTE = 2;
 }

@@ -23,7 +23,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.storage.StorageReference;
 import com.hga.appturismo.R;
 import com.hga.appturismo.activity.DescripcionRestauranteActivity;
-import com.hga.appturismo.activity.EditarActivity;
+import com.hga.appturismo.activity.EditarRestauranteActivity;
 import com.hga.appturismo.bdFirebase.TurismoAplicacion;
 import com.hga.appturismo.modelo.ModeloImagen;
 import com.hga.appturismo.modelo.ModeloPuntaje;
@@ -150,7 +150,7 @@ public class RestauranteAdapterRecycler extends RecyclerView.Adapter<Restaurante
         holder.btn_editar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(activity, EditarActivity.class);
+                Intent intent = new Intent(activity, EditarRestauranteActivity.class);
                 intent.putExtra("modeloRestaurante", modeloRestaurante);
                 activity.startActivity(intent);
             }

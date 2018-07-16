@@ -1,4 +1,4 @@
-package com.hga.appturismo.util;
+package com.hga.appturismo.imagenes;
 
 import android.content.Context;
 import android.net.Uri;

@@ -14,8 +14,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.hga.appturismo.R;
+import com.hga.appturismo.imagenes.ImagenSwip;
 import com.hga.appturismo.modelo.ModeloRestaurante;
-import com.hga.appturismo.util.ImagenSwip;
 
 import java.util.Locale;
 

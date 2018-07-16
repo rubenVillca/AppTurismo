@@ -23,7 +23,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.storage.StorageReference;
 import com.hga.appturismo.R;
 import com.hga.appturismo.activity.DescripcionLugarTuristicoActivity;
-import com.hga.appturismo.activity.EditarActivity;
+import com.hga.appturismo.activity.EditarLugarActivity;
 import com.hga.appturismo.bdFirebase.TurismoAplicacion;
 import com.hga.appturismo.modelo.ModeloImagen;
 import com.hga.appturismo.modelo.ModeloLugarTuristico;
@@ -85,8 +85,8 @@ public class LugarAdapterRecycler extends RecyclerView.Adapter<LugarAdapterRecyc
 
                     for (ModeloLugarTuristico modeloLugarTuristico : modeloLugarTuristicos) {
 
-                        if ((modeloLugarTuristico.getNombre().toLowerCase()).contains(charString) ||
-                                modeloLugarTuristico.getProvincia().toLowerCase().contains(charString)) {
+                        if ((modeloLugarTuristico.getNombre().toLowerCase()).contains(charString)
+                                || modeloLugarTuristico.getProvincia().toLowerCase().contains(charString)) {
 
                             filteredList.add(modeloLugarTuristico);
                         }
@@ -223,7 +223,7 @@ public class LugarAdapterRecycler extends RecyclerView.Adapter<LugarAdapterRecyc
      * @param modeloLugarTuristico:
      */
     private void goEditarLugarTuristico(ModeloLugarTuristico modeloLugarTuristico) {
-        Intent intent = new Intent(activity, EditarActivity.class);
+        Intent intent = new Intent(activity, EditarLugarActivity.class);
         intent.putExtra("lugar", modeloLugarTuristico);
         activity.startActivity(intent);
     }
@@ -477,17 +477,17 @@ public class LugarAdapterRecycler extends RecyclerView.Adapter<LugarAdapterRecyc
 
         private LugarViewHolder(View itemView) {
             super(itemView);
-            nameCardView = (TextView) itemView.findViewById(R.id.nameCardView);
-            imageCardView = (ImageView) itemView.findViewById(R.id.imageCardView);
-            btn_editar = (FloatingActionButton) itemView.findViewById(R.id.btn_editar);
-            btn_eliminar = (FloatingActionButton) itemView.findViewById(R.id.btn_eliminar);
-            estrella1 = (CheckBox) itemView.findViewById(R.id.star1);
-            estrella2 = (CheckBox) itemView.findViewById(R.id.star2);
-            estrella3 = (CheckBox) itemView.findViewById(R.id.star3);
-            estrella4 = (CheckBox) itemView.findViewById(R.id.star4);
-            estrella5 = (CheckBox) itemView.findViewById(R.id.star5);
-            promedio = (TextView) itemView.findViewById(R.id.promedioCardView);
-            layoutEstrellas=(LinearLayout)itemView.findViewById(R.id.calificacion);
+            nameCardView = itemView.findViewById(R.id.nameCardView);
+            imageCardView = itemView.findViewById(R.id.imageCardView);
+            btn_editar = itemView.findViewById(R.id.btn_editar);
+            btn_eliminar = itemView.findViewById(R.id.btn_eliminar);
+            estrella1 = itemView.findViewById(R.id.star1);
+            estrella2 = itemView.findViewById(R.id.star2);
+            estrella3 = itemView.findViewById(R.id.star3);
+            estrella4 = itemView.findViewById(R.id.star4);
+            estrella5 = itemView.findViewById(R.id.star5);
+            promedio = itemView.findViewById(R.id.promedioCardView);
+            layoutEstrellas = itemView.findViewById(R.id.calificacion);
         }
     }
 }

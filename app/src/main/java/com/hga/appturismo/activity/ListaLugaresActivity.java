@@ -16,13 +16,13 @@ import android.view.View;
 import com.hga.appturismo.R;
 import com.hga.appturismo.adapterRecycler.LugarAdapterRecycler;
 import com.hga.appturismo.bdFirebase.ListaResponse;
-import com.hga.appturismo.typeAdapter.LugarResponseTypeAdapter;
 import com.hga.appturismo.bdFirebase.TurismoCliente;
 import com.hga.appturismo.bdFirebase.TurismoFirebaseService;
-import com.hga.appturismo.typeAdapter.PuntajeResponseTypeAdapter;
 import com.hga.appturismo.bdSQLite.DataBaseSync;
 import com.hga.appturismo.modelo.ModeloLugarTuristico;
 import com.hga.appturismo.modelo.ModeloPuntaje;
+import com.hga.appturismo.typeAdapter.LugarResponseTypeAdapter;
+import com.hga.appturismo.typeAdapter.PuntajeResponseTypeAdapter;
 
 import java.util.ArrayList;
 
@@ -160,8 +160,6 @@ public class ListaLugaresActivity extends AppCompatActivity {
         lugaresTuristicos.addAll(dataBaseSync.getListaLugarTuristco());
         adapterRecycler.notifyDataSetChanged();
     }
-
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
