@@ -416,35 +416,6 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/layout_registrado_por"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal"
-                android:weightSum="3">
-
-                <TextView
-                    android:id="@+id/label_registrado_por"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="5dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_weight="1"
-                    android:text="Registrado por:"
-                    android:textSize="@dimen/size_text_primary"/>
-
-                <EditText
-                    android:id="@+id/txt_registrado_por"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/margin_label_top_bottom"
-                    android:layout_marginTop="@dimen/margin_label_top_bottom"
-                    android:layout_weight="2"
-                    android:inputType="text"
-                    android:textSize="@dimen/size_text_primary"/>
-            </LinearLayout>
-
-            <LinearLayout
                 android:id="@+id/layout_imagen"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

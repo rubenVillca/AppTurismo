@@ -79,7 +79,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
         crearContenido();
     }
 

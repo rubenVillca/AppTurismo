@@ -3,6 +3,7 @@ package com.hga.appturismo.activity;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.graphics.Color;
 import android.net.Uri;
@@ -45,6 +46,8 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class InsertarLugarActivity extends AppCompatActivity {
+    private String email;
+
     public static final int REQUEST_IMAGE_CAPTURE = 1;
     public static int SELECT_PICTURE = 3;
     private ImageView imageView;
@@ -66,8 +69,6 @@ public class InsertarLugarActivity extends AppCompatActivity {
     private EditText txt_email;
     private EditText txt_linea;
     private EditText txt_fecha;
-    private EditText txt_registrado_por;
-
 
     private Spinner spinnerProvincia;
     private Spinner spinnerTipoTurismo;
@@ -88,8 +89,6 @@ public class InsertarLugarActivity extends AppCompatActivity {
     private LinearLayout layout_imagen;
     private LinearLayout layout_linea;
     private LinearLayout layout_fecha;
-    private LinearLayout layout_registrado_por;
-
 
     private View focusView = null;
 
@@ -130,13 +129,18 @@ public class InsertarLugarActivity extends AppCompatActivity {
         setContentView(R.layout.activity_insertar_lugar);
 
         app = (TurismoAplicacion) getApplicationContext();
-
+        getEmail();
         iniciarValores();
         iniciarLayout();
         showImageCamera();
         initSpinner();
     }
 
+
+    private void getEmail() {
+        SharedPreferences sharedPreferences = getSharedPreferences("USER", MODE_PRIVATE);
+        email = sharedPreferences.getString("email", "");
+    }
     /**
      * guarda la imagen tomada con la camara en el activity en el celular
      */
@@ -177,7 +181,7 @@ public class InsertarLugarActivity extends AppCompatActivity {
         modeloHotel.setEmail(txt_email.getText().toString());
         modeloHotel.setGpsX(Float.parseFloat(txt_latitud.getText().toString()));
         modeloHotel.setGpsY(Float.parseFloat(txt_longitud.getText().toString()));
-        modeloHotel.setNombre(txt_registrado_por.getText().toString());
+        modeloHotel.setNombre(email);
         return modeloHotel;
     }
 
@@ -231,7 +235,7 @@ public class InsertarLugarActivity extends AppCompatActivity {
         modeloLugarTuristico.setProvincia(spinnerProvincia.getSelectedItem().toString());
         modeloLugarTuristico.setLinea(txt_linea.getText().toString());
         modeloLugarTuristico.setFecha(txt_fecha.getText().toString());
-        modeloLugarTuristico.setNombre(txt_registrado_por.getText().toString());
+        modeloLugarTuristico.setRegistradoPor(email);
         return modeloLugarTuristico;
     }
 
@@ -246,7 +250,7 @@ public class InsertarLugarActivity extends AppCompatActivity {
         modeloRestaurante.setTelefonoString(txt_telefono.getText().toString());
         modeloRestaurante.setGpsX(Float.parseFloat(txt_latitud.getText().toString()));
         modeloRestaurante.setGpsY(Float.parseFloat(txt_longitud.getText().toString()));
-        modeloRestaurante.setNombre(txt_registrado_por.getText().toString());
+        modeloRestaurante.setRegistradoPor(email);
 
         return modeloRestaurante;
     }
@@ -425,47 +429,42 @@ public class InsertarLugarActivity extends AppCompatActivity {
     }
 
     private void iniciarLayout() {
-        layout_tipo = (LinearLayout) findViewById(R.id.layout_tipo);
-        layout_provincia = (LinearLayout) findViewById(R.id.layout_provincia);
-        layout_tipoTurismo = (LinearLayout) findViewById(R.id.layout_tipoTurismo);
-        layout_nombre = (LinearLayout) findViewById(R.id.layout_nombre);
-        layout_descripcion = (LinearLayout) findViewById(R.id.layout_descripcion);
-        layout_email = (LinearLayout) findViewById(R.id.layout_email);
-        layout_direccion = (LinearLayout) findViewById(R.id.layout_direccion);
-        layout_pagina_web = (LinearLayout) findViewById(R.id.layout_pagina_web);
-        layout_telefono = (LinearLayout) findViewById(R.id.layout_telefono);
-        layout_horario = (LinearLayout) findViewById(R.id.layout_horario);
-        layout_latitud = (LinearLayout) findViewById(R.id.layout_latitud);
-        layout_longitud = (LinearLayout) findViewById(R.id.layout_longitud);
-        layout_fecha =(LinearLayout) findViewById(R.id.layout_fechaTurismo);
-        layout_linea=(LinearLayout)findViewById(R.id.layout_lineaTurismo);
-        layout_registrado_por = (LinearLayout) findViewById(R.id.layout_registrado_por);//automatico guardar el nombre de la persona que registro
-
-
-        layout_imagen = (LinearLayout) findViewById(R.id.layout_imagen);
+        layout_tipo = findViewById(R.id.layout_tipo);
+        layout_provincia = findViewById(R.id.layout_provincia);
+        layout_tipoTurismo = findViewById(R.id.layout_tipoTurismo);
+        layout_nombre = findViewById(R.id.layout_nombre);
+        layout_descripcion = findViewById(R.id.layout_descripcion);
+        layout_email = findViewById(R.id.layout_email);
+        layout_direccion = findViewById(R.id.layout_direccion);
+        layout_pagina_web = findViewById(R.id.layout_pagina_web);
+        layout_telefono = findViewById(R.id.layout_telefono);
+        layout_horario = findViewById(R.id.layout_horario);
+        layout_latitud = findViewById(R.id.layout_latitud);
+        layout_longitud = findViewById(R.id.layout_longitud);
+        layout_fecha = findViewById(R.id.layout_fechaTurismo);
+        layout_linea= findViewById(R.id.layout_lineaTurismo);
+        layout_imagen = findViewById(R.id.layout_imagen);
     }
 
     private void iniciarValores() {
-        imageView = (ImageView) findViewById(R.id.insertar_imagen);
-        txt_ruta_imagen = (TextView) findViewById(R.id.ruta_imagen);
+        imageView = findViewById(R.id.insertar_imagen);
+        txt_ruta_imagen = findViewById(R.id.ruta_imagen);
 
-        spinnerProvincia = (Spinner) findViewById(R.id.spinner_provincia);
-        spinnerTipoTurismo = (Spinner) findViewById(R.id.spinner_tipo_turismo);
-        spinnerTipo = (Spinner) findViewById(R.id.spinner_tipo);
+        spinnerProvincia = findViewById(R.id.spinner_provincia);
+        spinnerTipoTurismo = findViewById(R.id.spinner_tipo_turismo);
+        spinnerTipo = findViewById(R.id.spinner_tipo);
 
-        txt_nombre = (EditText) findViewById(R.id.txt_nombre);
-        txt_direccion = (EditText) findViewById(R.id.txt_direccion);
-        txt_telefono = (EditText) findViewById(R.id.txt_telefono);
-        txt_paginaweb = (EditText) findViewById(R.id.txt_paginaweb);
-        txt_email = (EditText) findViewById(R.id.txt_email);
-        txt_latitud = (EditText) findViewById(R.id.txt_latitud);
-        txt_longitud = (EditText) findViewById(R.id.txt_longitud);
-        txt_descripcion = (EditText) findViewById(R.id.txt_descripcion);
-        txt_horario = (EditText) findViewById(R.id.txt_horario);
-        txt_linea = (EditText) findViewById(R.id.txt_linea);
-        txt_fecha = (EditText) findViewById(R.id.txt_fecha);
-        txt_registrado_por = (EditText) findViewById(R.id.txt_registrado_por);
-
+        txt_nombre = findViewById(R.id.txt_nombre);
+        txt_direccion = findViewById(R.id.txt_direccion);
+        txt_telefono = findViewById(R.id.txt_telefono);
+        txt_paginaweb = findViewById(R.id.txt_paginaweb);
+        txt_email = findViewById(R.id.txt_email);
+        txt_latitud = findViewById(R.id.txt_latitud);
+        txt_longitud = findViewById(R.id.txt_longitud);
+        txt_descripcion = findViewById(R.id.txt_descripcion);
+        txt_horario = findViewById(R.id.txt_horario);
+        txt_linea = findViewById(R.id.txt_linea);
+        txt_fecha = findViewById(R.id.txt_fecha);
     }
 
     /**
@@ -490,7 +489,6 @@ public class InsertarLugarActivity extends AppCompatActivity {
                     case 4://acontecimiento en un lugar turistico
                         layout_tipo.setVisibility(View.VISIBLE);
                         layout_provincia.setVisibility(View.VISIBLE);
-                        //layout_provincia.removeAllViews();//lo elimnar y despues no vuelve a aparecer
                         layout_tipoTurismo.setVisibility(View.VISIBLE);
                         layout_nombre.setVisibility(View.VISIBLE);
                         layout_descripcion.setVisibility(View.VISIBLE);
@@ -502,7 +500,6 @@ public class InsertarLugarActivity extends AppCompatActivity {
                         layout_latitud.setVisibility(View.VISIBLE);
                         layout_longitud.setVisibility(View.VISIBLE);
                         layout_imagen.setVisibility(View.VISIBLE);
-                        layout_registrado_por.setVisibility(View.VISIBLE);
                         break;
                         default:
                             layout_linea.setVisibility(View.GONE);
@@ -538,7 +535,6 @@ public class InsertarLugarActivity extends AppCompatActivity {
                         layout_horario.setVisibility(View.VISIBLE);
                         layout_latitud.setVisibility(View.VISIBLE);
                         layout_longitud.setVisibility(View.VISIBLE);
-                        layout_registrado_por.setVisibility(View.VISIBLE);
                         layout_imagen.setVisibility(View.VISIBLE);
                         break;
                     case 1://restaurante
@@ -554,7 +550,6 @@ public class InsertarLugarActivity extends AppCompatActivity {
                         layout_horario.setVisibility(View.VISIBLE);
                         layout_latitud.setVisibility(View.VISIBLE);
                         layout_longitud.setVisibility(View.VISIBLE);
-                        layout_registrado_por.setVisibility(View.VISIBLE);
                         layout_imagen.setVisibility(View.VISIBLE);
                         break;
                     case 2://lugar turistico
@@ -570,7 +565,6 @@ public class InsertarLugarActivity extends AppCompatActivity {
                         layout_horario.setVisibility(View.VISIBLE);
                         layout_latitud.setVisibility(View.VISIBLE);
                         layout_longitud.setVisibility(View.VISIBLE);
-                        layout_registrado_por.setVisibility(View.VISIBLE);
                         layout_imagen.setVisibility(View.VISIBLE);
                         layout_linea.setVisibility(View.GONE);
                         layout_fecha.setVisibility(View.GONE);
@@ -781,7 +775,7 @@ public class InsertarLugarActivity extends AppCompatActivity {
      * activa la camara para tomar una foto
      */
     private void showImageCamera() {
-        Button button = (Button) findViewById(R.id.btn_imagen);
+        Button button = findViewById(R.id.btn_imagen);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
