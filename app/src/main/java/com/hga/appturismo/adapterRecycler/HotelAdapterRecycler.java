@@ -112,7 +112,7 @@ public class HotelAdapterRecycler extends RecyclerView.Adapter<HotelAdapterRecyc
                 holder.estrella4.setVisibility(View.VISIBLE);
                 holder.estrella5.setVisibility(View.VISIBLE);
                 break;
-            case Constants.USUARIO_ROL_NORMAL:
+            case Constants.USUARIO_ROL_REVISOR:
                 holder.btn_editar.setVisibility(View.GONE);
                 holder.btn_eliminar.setVisibility(View.GONE);
                 holder.layoutEstrellas.setVisibility(View.VISIBLE);

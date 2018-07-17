@@ -54,16 +54,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     }
                 });
                 break;
-            case R.id.btnInsertar:
+            case R.id.btnInsertSite:
                 Intent insertarLugar = new Intent(this, InsertarLugarActivity.class);
                 startActivity(insertarLugar);
                 break;
-            case R.id.btnUsuarios:
+            case R.id.btnListUsuarios:
                 Intent listaUsuarios = new Intent(this, ListaUsuariosActivity.class);
                 startActivity(listaUsuarios);
                 break;
+            case R.id.btnAddUsuarios:
+                Intent addUsuarios = new Intent(this, InsertarUsuarioActivity.class);
+                startActivity(addUsuarios);
+                break;
             default:
-                System.out.println("error!. la accion selecionada no esta asociadda a ninguna funcion");
+                System.out.println("Error!. la accion selecionada no esta asociadda a ninguna funcion");
                 break;
         }
     }
@@ -73,7 +77,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         crearContenido();
@@ -99,7 +103,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 menu.findItem(R.id.action_reset).setVisible(true);//para resetear bdFirebase y sqlite
                 menu.findItem(R.id.action_close_login).setVisible(true);
                 break;
-            case Constants.USUARIO_ROL_NORMAL:
+            case Constants.USUARIO_ROL_REVISOR:
                 menu.findItem(R.id.action_login).setVisible(false);
                 menu.findItem(R.id.action_user_insert).setVisible(false);
                 menu.findItem(R.id.action_edit_profile).setVisible(true);
@@ -156,38 +160,46 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void crearContenido() {
-        ImageButton btnMapaLugares = (ImageButton) findViewById(R.id.btnMapaLugar);
+        ImageButton btnMapaLugares = findViewById(R.id.btnMapaLugar);
         btnMapaLugares.setOnClickListener(this);
 
-        ImageButton btnMapaHoteles = (ImageButton) findViewById(R.id.btnMapaHoteles);
+        ImageButton btnMapaHoteles = findViewById(R.id.btnMapaHoteles);
         btnMapaHoteles.setOnClickListener(this);
 
-        ImageButton btnMapaRestaurantes = (ImageButton) findViewById(R.id.btnMapaRestaurantes);
+        ImageButton btnMapaRestaurantes = findViewById(R.id.btnMapaRestaurantes);
         btnMapaRestaurantes.setOnClickListener(this);
         SharedPreferences sharedPreferences = getSharedPreferences("USER", MODE_PRIVATE);
         int rol = sharedPreferences.getInt("rol", 0);
+        //contenedores de botones para insertar
+        LinearLayout linearLayoutAddSite = findViewById(R.id.layout_container_add_site);
+        LinearLayout linearLayoutUser = findViewById(R.id.layout_container_user_list);
+        LinearLayout linearLayoutAddUser = findViewById(R.id.layout_container_add_user);
 
-        LinearLayout linearLayout = (LinearLayout) findViewById(R.id.layout_container_admin);
-        LinearLayout linearLayoutUser = (LinearLayout) findViewById(R.id.layout_container_users);
-
-        ImageView btnInsertar = (ImageView) findViewById(R.id.btnInsertar);
+        ImageView btnInsertar = findViewById(R.id.btnInsertSite);
         btnInsertar.setOnClickListener(this);
 
-        ImageButton btnUsuario = (ImageButton) findViewById(R.id.btnUsuarios);
+        ImageButton btnUsuario = findViewById(R.id.btnListUsuarios);
         btnUsuario.setOnClickListener(this);
+
+        ImageButton btnAddUser = findViewById(R.id.btnAddUsuarios);
+        btnAddUser.setOnClickListener(this);
 
         switch (rol) {
             case Constants.USUARIO_ROL_ADMIN:
-                linearLayout.setVisibility(View.VISIBLE);
+                linearLayoutAddSite.setVisibility(View.VISIBLE);
                 linearLayoutUser.setVisibility(View.VISIBLE);
+                linearLayoutAddUser.setVisibility(View.VISIBLE);
+
                 break;
-            case Constants.USUARIO_ROL_NORMAL:
-                linearLayout.setVisibility(View.VISIBLE);
+            case Constants.USUARIO_ROL_REVISOR:
+                linearLayoutAddSite.setVisibility(View.VISIBLE);
                 linearLayoutUser.setVisibility(View.GONE);
+                linearLayoutAddUser.setVisibility(View.GONE);
                 break;
             default:
-                linearLayout.setVisibility(View.GONE);
+                linearLayoutAddSite.setVisibility(View.GONE);
                 linearLayoutUser.setVisibility(View.GONE);
+                linearLayoutAddUser.setVisibility(View.GONE);
                 break;
         }
     }

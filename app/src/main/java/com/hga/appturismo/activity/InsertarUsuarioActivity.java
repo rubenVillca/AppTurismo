@@ -97,7 +97,7 @@ public class InsertarUsuarioActivity extends AppCompatActivity {
         modeloUsuario.setIdFirebase(modeloUsuario.getEmail());
         modeloUsuario.setContrasenia(txt_pwd.getText().toString());
         modeloUsuario.setTelefono(txt_telefono.getText().toString());
-        modeloUsuario.setRol(Constants.USUARIO_ROL_NORMAL);
+        modeloUsuario.setRol(Constants.USUARIO_ROL_REVISOR);
 
         TurismoAplicacion app = (TurismoAplicacion) getApplicationContext();
 

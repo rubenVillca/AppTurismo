@@ -5824,7 +5824,7 @@ public class Listas {
         modeloUsuario.setIdFirebase(modeloUsuario.getEmail());
         modeloUsuario.setTelefono(String.valueOf(60761941));
         modeloUsuario.setContrasenia("firebase123");
-        modeloUsuario.setRol(Constants.USUARIO_ROL_NORMAL);
+        modeloUsuario.setRol(Constants.USUARIO_ROL_REVISOR);
         modeloUsuario.setEstado(Constants.ESTADO_USUARIO_ACTIVO);
         listaUsuarios.add(modeloUsuario);
 
@@ -5837,7 +5837,7 @@ public class Listas {
         modeloUsuario.setIdFirebase(modeloUsuario.getEmail());
         modeloUsuario.setTelefono(String.valueOf(60761940));
         modeloUsuario.setContrasenia("firebase123");
-        modeloUsuario.setRol(Constants.USUARIO_ROL_NORMAL);
+        modeloUsuario.setRol(Constants.USUARIO_ROL_REVISOR);
         modeloUsuario.setEstado(Constants.ESTADO_USUARIO_ACTIVO);
         listaUsuarios.add(modeloUsuario);
     }

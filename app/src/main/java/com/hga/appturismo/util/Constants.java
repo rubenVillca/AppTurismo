@@ -46,7 +46,7 @@ public class Constants {
     public static final String FIREBASE_TIPO_LUGAR_TURISTICO ="Lugar turistico";//usuario_lugar
 
     public static final int USUARIO_ROL_ADMIN=1;
-    public static final int USUARIO_ROL_NORMAL=2;
+    public static final int USUARIO_ROL_REVISOR =2;
 
     //estado de lugar
     public static final String ESTADO_LUGAR_VISIBLE="Visible";
