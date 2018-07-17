@@ -66,12 +66,11 @@
 
             <Button
                 android:id="@+id/email_sign_in_button"
-                style="?android:textAppearanceSmall"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:text="@string/action_sign_in"
-                android:textStyle="bold"
+                android:textColor="@color/colorPrimaryDark"
                 android:textAllCaps="false"/>
 
             <Button
@@ -80,6 +79,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:text="Crear usuario"
+                android:textColor="@color/colorPrimaryDark"
                 android:textAllCaps="false"/>
         </LinearLayout>
     </ScrollView>

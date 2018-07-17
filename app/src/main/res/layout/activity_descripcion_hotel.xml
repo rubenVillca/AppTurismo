@@ -24,17 +24,20 @@
 
                 <TextView
                     android:id="@+id/textViewNombre"
-                    android:layout_width="match_parent"
+                    android:layout_width="145dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.5"
                     android:text="Nombre: "
-                    android:textStyle="bold" />
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textStyle="bold"/>
 
                 <TextView
                     android:id="@+id/textViewNombreText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.5"
+                    android:textColor="@color/colorAccent"
+                    android:textStyle="bold"
                     android:text="" />
             </LinearLayout>
 
@@ -62,6 +65,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Dirección: "
+                    android:textColor="@color/colorPrimaryDark"
                     android:textStyle="bold" />
 
                 <TextView
@@ -81,6 +85,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Teléfono: "
+                    android:textColor="@color/colorPrimaryDark"
                     android:textStyle="bold" />
 
                 <TextView
@@ -99,6 +104,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Página Web: "
+                    android:textColor="@color/colorPrimaryDark"
                     android:textStyle="bold"/>
 
                 <TextView
@@ -116,6 +122,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Email: "
+                    android:textColor="@color/colorPrimaryDark"
                     android:textStyle="bold" />
 
                 <TextView

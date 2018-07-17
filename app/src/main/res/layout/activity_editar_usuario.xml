@@ -31,6 +31,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/label_nombre"
+                    android:textColor="@color/colorPrimaryDark"
                     android:textSize="@dimen/size_text_primary" />
 
                 <EditText
@@ -58,6 +59,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Apellido:"
+                    android:textColor="@color/colorPrimaryDark"
                     android:textSize="@dimen/size_text_primary"/>
 
                 <EditText
@@ -87,6 +89,7 @@
                     android:layout_marginTop="@dimen/margin_label_top_bottom"
                     android:layout_weight="1"
                     android:text="@string/label_email"
+                    android:textColor="@color/colorPrimaryDark"
                     android:textSize="@dimen/size_text_primary" />
 
                 <EditText
@@ -117,6 +120,7 @@
                     android:layout_marginTop="5dp"
                     android:layout_weight="1"
                     android:text="Teléfono:"
+                    android:textColor="@color/colorPrimaryDark"
                     android:textSize="@dimen/size_text_primary"/>
 
                 <EditText
@@ -147,6 +151,7 @@
                     android:layout_marginTop="5dp"
                     android:layout_weight="1"
                     android:text="Contraseña"
+                    android:textColor="@color/colorPrimaryDark"
                     android:textSize="@dimen/size_text_primary" />
 
                 <EditText

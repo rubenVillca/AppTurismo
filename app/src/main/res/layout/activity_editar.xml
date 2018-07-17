@@ -59,6 +59,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/label_provincia"
+                    android:textColor="@color/colorPrimaryDark"
                     android:textSize="@dimen/size_text_primary" />
 
                 <Spinner
@@ -86,6 +87,7 @@
                     android:layout_marginTop="5dp"
                     android:layout_weight="1"
                     android:text="@string/label_tipo_de_turismo"
+                    android:textColor="@color/colorPrimaryDark"
                     android:textSize="@dimen/size_text_primary" />
 
                 <Spinner
@@ -111,6 +113,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/label_nombre"
+                    android:textColor="@color/colorPrimaryDark"
                     android:textSize="@dimen/size_text_primary" />
 
                 <EditText
@@ -140,6 +143,7 @@
                     android:layout_marginTop="5dp"
                     android:layout_weight="1"
                     android:text="Descripción"
+                    android:textColor="@color/colorPrimaryDark"
                     android:textSize="@dimen/size_text_primary" />
 
                 <EditText
@@ -169,6 +173,7 @@
                     android:layout_marginTop="5dp"
                     android:layout_weight="1"
                     android:text="Linea:"
+                    android:textColor="@color/colorPrimaryDark"
                     android:textSize="@dimen/size_text_primary" />
 
                 <EditText
@@ -198,6 +203,7 @@
                     android:layout_marginTop="5dp"
                     android:layout_weight="1"
                     android:text="Fecha:"
+                    android:textColor="@color/colorPrimaryDark"
                     android:textSize="@dimen/size_text_primary" />
 
                 <EditText
@@ -227,6 +233,7 @@
                     android:layout_marginTop="@dimen/margin_label_top_bottom"
                     android:layout_weight="1"
                     android:text="@string/label_email"
+                    android:textColor="@color/colorPrimaryDark"
                     android:textSize="@dimen/size_text_primary" />
 
                 <EditText
@@ -256,6 +263,7 @@
                     android:layout_marginTop="@dimen/margin_label_top_bottom"
                     android:layout_weight="1"
                     android:text="@string/label_direccion"
+                    android:textColor="@color/colorPrimaryDark"
                     android:textSize="@dimen/size_text_primary" />
 
                 <EditText
@@ -284,6 +292,7 @@
                     android:layout_marginTop="@dimen/margin_label_top_bottom"
                     android:layout_weight="1"
                     android:text="@string/label_pagina_web"
+                    android:textColor="@color/colorPrimaryDark"
                     android:textSize="@dimen/size_text_primary" />
 
                 <EditText
@@ -312,6 +321,7 @@
                     android:layout_marginTop="5dp"
                     android:layout_weight="1"
                     android:text="Teléfono"
+                    android:textColor="@color/colorPrimaryDark"
                     android:textSize="@dimen/size_text_primary" />
 
                 <EditText
@@ -341,6 +351,7 @@
                     android:layout_marginTop="5dp"
                     android:layout_weight="1"
                     android:text="Horario"
+                    android:textColor="@color/colorPrimaryDark"
                     android:textSize="@dimen/size_text_primary" />
 
                 <EditText
@@ -370,6 +381,7 @@
                     android:layout_marginTop="5dp"
                     android:layout_weight="1"
                     android:text="Latitud"
+                    android:textColor="@color/colorPrimaryDark"
                     android:textSize="@dimen/size_text_primary" />
 
                 <EditText
@@ -399,6 +411,7 @@
                     android:layout_marginTop="5dp"
                     android:layout_weight="1"
                     android:text="Longitud"
+                    android:textColor="@color/colorPrimaryDark"
                     android:textSize="@dimen/size_text_primary" />
 
                 <EditText

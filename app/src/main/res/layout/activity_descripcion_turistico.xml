@@ -25,18 +25,20 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
+
                     <TextView
                         android:id="@+id/textViewProvincia"
-                        android:layout_width="wrap_content"
+                        android:layout_width="128dp"
                         android:layout_height="wrap_content"
                         android:text="Provincia:"
-                        android:textStyle="bold" />
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textStyle="bold"/>
 
                     <TextView
                         android:id="@+id/textViewProvinciaText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="" />
+                        android:text=""/>
 
                 </LinearLayout>
 
@@ -48,11 +50,12 @@
 
                     <TextView
                         android:id="@+id/textViewTipo"
-                        android:layout_width="match_parent"
+                        android:layout_width="257dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
                         android:text="Tipo de Turismo:"
-                        android:textStyle="bold" />
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textStyle="bold"/>
 
                     <TextView
                         android:id="@+id/textViewTipoText"
@@ -70,17 +73,20 @@
 
                     <TextView
                         android:id="@+id/textViewNombre"
-                        android:layout_width="match_parent"
+                        android:layout_width="257dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
                         android:text="Nombre: "
-                        android:textStyle="bold" />
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textStyle="bold"/>
 
                     <TextView
                         android:id="@+id/textViewNombreText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
+                        android:textStyle="bold"
+                        android:textColor="@color/colorAccent"
                         android:text="" />
                 </LinearLayout>
 
@@ -108,6 +114,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Descripción: "
+                        android:textColor="@color/colorPrimaryDark"
                         android:textStyle="bold" />
 
                     <TextView
@@ -128,6 +135,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Linea: "
+                        android:textColor="@color/colorPrimaryDark"
                         android:textStyle="bold" />
 
                     <TextView
@@ -148,6 +156,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Fecha: "
+                        android:textColor="@color/colorPrimaryDark"
                         android:textStyle="bold" />
 
                     <TextView
@@ -167,6 +176,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/text_direccion"
+                        android:textColor="@color/colorPrimaryDark"
                         android:textStyle="bold" />
 
                     <TextView
@@ -186,6 +196,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Teléfono: "
+                        android:textColor="@color/colorPrimaryDark"
                         android:textStyle="bold" />
 
                     <TextView
@@ -206,6 +217,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Horarios de atención: "
+                        android:textColor="@color/colorPrimaryDark"
                         android:textStyle="bold" />
 
                     <TextView
@@ -226,6 +238,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Actividades:"
+                        android:textColor="@color/colorPrimaryDark"
                         android:textStyle="bold"/>
 
                     <TextView

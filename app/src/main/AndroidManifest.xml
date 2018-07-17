@@ -205,7 +205,7 @@
 
         <activity
             android:name=".activity.EditarUsuarioActivity"
-            android:label="Editar Usuario"
+            android:label="Actualizar inf. de Usuario"
             android:parentActivityName=".activity.MainActivity"
             android:windowSoftInputMode="stateHidden">
             <meta-data

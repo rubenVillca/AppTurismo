@@ -27,7 +27,9 @@
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:text="Provincias de Cochabamba"
-                    android:textSize="20dp" />
+                    android:textColor="@color/colorAccent"
+                    android:textSize="18dp"
+                    android:textStyle="bold"/>
             </LinearLayout>
 
             <LinearLayout
