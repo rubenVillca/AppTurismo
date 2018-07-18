@@ -152,6 +152,7 @@
     <string name="label_linea">Línea:</string>
     <string name="label_fecha">Fecha:</string>
     <string name="labelName">Nombre:</string>
+    <string name="label_rolUser">Tipo Usuario:</string>
     <string name="action_sincronizar">Sincronizar</string>
     <string name="description_imagen">TODO</string>
 </resources>

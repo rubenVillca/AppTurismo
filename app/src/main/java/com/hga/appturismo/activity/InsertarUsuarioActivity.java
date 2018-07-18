@@ -6,8 +6,12 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -30,6 +34,15 @@ public class InsertarUsuarioActivity extends AppCompatActivity {
     private EditText txt_email;
     private EditText txt_telefono;
     private EditText txt_pwd;
+
+    private LinearLayout layout_rol_user;
+    private LinearLayout editar_layout_nombre_user;
+    private LinearLayout editar_layout_apellido_user;
+    private LinearLayout editar_layout_email_user;
+    private LinearLayout editar_layout_telefono_user;
+    private LinearLayout editar_layout_pwd_user;
+
+    private Spinner spinnerRolUser;
 
     private Button button;
 
@@ -91,6 +104,7 @@ public class InsertarUsuarioActivity extends AppCompatActivity {
 
     private ModeloUsuario insertarUsuarioFirebase() {
         ModeloUsuario modeloUsuario = new ModeloUsuario();
+        //modeloUsuario.setRol(spinnerRolUser.getSelectedItem().toString());
         modeloUsuario.setNombre(txt_nombre.getText().toString());
         modeloUsuario.setApellido(txt_apellido.getText().toString());
         modeloUsuario.setEmail(txt_email.getText().toString());
@@ -108,5 +122,43 @@ public class InsertarUsuarioActivity extends AppCompatActivity {
 
         return modeloUsuario;
     }
+    private void initSpinnerRolUser() {
+        ArrayAdapter<CharSequence> adapterUsuario = ArrayAdapter.createFromResource(this, R.array.rol_user, android.R.layout.simple_spinner_item);
+        adapterUsuario.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerRolUser.setAdapter(adapterUsuario);
 
+        ArrayAdapter<CharSequence> adapterRolUser = ArrayAdapter.createFromResource(this, R.array.rol_user, android.R.layout.simple_spinner_item);
+        adapterRolUser.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerRolUser.setAdapter(adapterRolUser);
+        spinnerRolUser.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                switch (position) {
+                    case 1://usuario administrador
+                        layout_rol_user.setVisibility(View.VISIBLE);
+                        editar_layout_nombre_user.setVisibility(View.VISIBLE);
+                        editar_layout_apellido_user.setVisibility(View.VISIBLE);
+                        editar_layout_email_user.setVisibility(View.VISIBLE);
+                        editar_layout_telefono_user.setVisibility(View.VISIBLE);
+                        editar_layout_pwd_user.setVisibility(View.VISIBLE);
+                        break;
+                    case 2://usuario revisor
+                        layout_rol_user.setVisibility(View.GONE);
+                        editar_layout_nombre_user.setVisibility(View.VISIBLE);
+                        editar_layout_apellido_user.setVisibility(View.VISIBLE);
+                        editar_layout_email_user.setVisibility(View.VISIBLE);
+                        editar_layout_telefono_user.setVisibility(View.VISIBLE);
+                        editar_layout_pwd_user.setVisibility(View.VISIBLE);
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+    }
 }

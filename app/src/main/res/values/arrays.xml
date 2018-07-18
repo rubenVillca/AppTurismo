@@ -32,4 +32,9 @@
         <item>Serv. Alimentación</item>
         <item>Lugar Turístico</item>
     </string-array>
+
+    <string-array name="rol_user">
+        <item>Usuario Administrador</item>
+        <item>Usuario Revisor</item>
+    </string-array>
 </resources>

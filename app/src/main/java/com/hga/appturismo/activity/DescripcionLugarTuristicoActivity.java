@@ -104,9 +104,7 @@ public class DescripcionLugarTuristicoActivity extends AppCompatActivity impleme
         }else {
             TextView textViewLineaText = findViewById(R.id.textViewLineaText);
             textViewLineaText.setText(modeloLugarTuristico.getLinea());
-
         }
-
         if (modeloLugarTuristico.getFecha().isEmpty()) {
             LinearLayout linearLayoutFecha=findViewById(R.id.linearLayoutFecha);
             linearLayoutFecha.setVisibility(View.GONE);
