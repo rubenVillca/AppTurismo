@@ -679,7 +679,7 @@ public class InsertarLugarActivity extends AppCompatActivity {
             isValidLugarTuristico = false;
         }
         if (provincia.isEmpty()) {
-            txt_provincia.setError("Sleccione una Provincia");
+            txt_provincia.setError("Seleccione una Provincia");
             focusView = txt_provincia;
             isValidLugarTuristico = false;
         }

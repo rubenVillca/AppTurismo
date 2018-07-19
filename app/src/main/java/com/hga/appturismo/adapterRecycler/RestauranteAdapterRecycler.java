@@ -115,8 +115,8 @@ public class RestauranteAdapterRecycler extends RecyclerView.Adapter<Restaurante
                 holder.estrella5.setVisibility(View.VISIBLE);
                 break;
             case Constants.USUARIO_ROL_REVISOR:
-                holder.btn_editar.setVisibility(View.GONE);
-                holder.btn_eliminar.setVisibility(View.GONE);
+                holder.btn_editar.setVisibility(View.VISIBLE);
+                holder.btn_eliminar.setVisibility(View.VISIBLE);
                 holder.layoutEstrellas.setVisibility(View.VISIBLE);
                 holder.estrella1.setVisibility(View.VISIBLE);
                 holder.estrella2.setVisibility(View.VISIBLE);
@@ -127,12 +127,12 @@ public class RestauranteAdapterRecycler extends RecyclerView.Adapter<Restaurante
             default://para usuario no logueado
                 holder.btn_editar.setVisibility(View.GONE);
                 holder.btn_eliminar.setVisibility(View.GONE);
-                holder.layoutEstrellas.setVisibility(View.GONE);
-                holder.estrella1.setVisibility(View.GONE);
-                holder.estrella2.setVisibility(View.GONE);
-                holder.estrella3.setVisibility(View.GONE);
-                holder.estrella4.setVisibility(View.GONE);
-                holder.estrella5.setVisibility(View.GONE);
+                holder.layoutEstrellas.setVisibility(View.VISIBLE);
+                holder.estrella1.setVisibility(View.VISIBLE);
+                holder.estrella2.setVisibility(View.VISIBLE);
+                holder.estrella3.setVisibility(View.VISIBLE);
+                holder.estrella4.setVisibility(View.VISIBLE);
+                holder.estrella5.setVisibility(View.VISIBLE);
                 break;
         }
 
@@ -155,7 +155,8 @@ public class RestauranteAdapterRecycler extends RecyclerView.Adapter<Restaurante
                 activity.startActivity(intent);
             }
         });
-        holder.btn_eliminar.setOnClickListener(new View.OnClickListener() {
+        holder.btn_eliminar.setOnClickListener(
+                new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 eliminarRestaurante(position,modeloRestaurante);

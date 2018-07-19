@@ -154,6 +154,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 resetDataFirebase();
                 resetDatosSQlite();
                 break;
+            case R.id.action_sincronizar:
+                break;
         }
         return super.onOptionsItemSelected(item);
     }

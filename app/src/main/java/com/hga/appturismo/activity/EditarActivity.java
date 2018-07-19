@@ -65,7 +65,8 @@ public class EditarActivity extends AppCompatActivity {
     protected Button editar_btn_imagen_buscar;
     protected TextView editar_txt_ruta_imagen;//ruta de la imagen
     protected ImageView imageView;//imagen capturada
-    protected FloatingActionButton btn_editar;//
+
+    protected FloatingActionButton btn_editar;
 
     protected LinearLayout editar_layout_tipo;
     protected LinearLayout editar_layout_provincia;
