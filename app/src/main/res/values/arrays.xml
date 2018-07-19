@@ -33,8 +33,8 @@
         <item>Lugar Turístico</item>
     </string-array>
 
-    <string-array name="rol_user">
-        <item>Usuario Administrador</item>
-        <item>Usuario Revisor</item>
+    <string-array name="tipo_rol_user">
+        <item>Administrador</item>
+        <item>Revisor</item>
     </string-array>
 </resources>
