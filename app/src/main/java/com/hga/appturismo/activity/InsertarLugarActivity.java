@@ -69,6 +69,7 @@ public class InsertarLugarActivity extends AppCompatActivity {
     private EditText txt_email;
     private EditText txt_linea;
     private EditText txt_fecha;
+    private EditText txt_registrador;
 
     private Spinner spinnerProvincia;
     private Spinner spinnerTipoTurismo;
@@ -89,6 +90,7 @@ public class InsertarLugarActivity extends AppCompatActivity {
     private LinearLayout layout_imagen;
     private LinearLayout layout_linea;
     private LinearLayout layout_fecha;
+    private LinearLayout layout_registrador;
 
     private View focusView = null;
 

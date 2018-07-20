@@ -2,6 +2,7 @@ package com.hga.appturismo.activity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
@@ -23,6 +24,7 @@ import java.util.Locale;
 public class DescripcionLugarTuristicoActivity extends AppCompatActivity implements TextToSpeech.OnInitListener {
     private TextToSpeech tts;
     private ModeloLugarTuristico modeloLugarTuristico;
+    private String email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,8 +33,12 @@ public class DescripcionLugarTuristicoActivity extends AppCompatActivity impleme
 
         recuperarDatos();
         mostrarContenido();
+        //getEmail();
     }
-
+    /*private void getEmail() {
+        SharedPreferences sharedPreferences = getSharedPreferences("USER", MODE_PRIVATE);
+        email = sharedPreferences.getString("email", "");
+    }*/
     @Override
     protected void onStop() {
         super.onStop();
@@ -98,6 +104,9 @@ public class DescripcionLugarTuristicoActivity extends AppCompatActivity impleme
         TextView textViewActividadText = findViewById(R.id.textViewActividadText);
         textViewActividadText.setText(modeloLugarTuristico.getActividad());
 
+        /*TextView textViewRegistradoPorText = findViewById(R.id.textViewRegistradoPorText);
+        textViewRegistradoPorText.setText(modeloLugarTuristico.getRegistradoPor());*/
+
         if (modeloLugarTuristico.getLinea().isEmpty()) {
             LinearLayout linearLayoutLinea =findViewById(R.id.linearLayoutLinea);
             linearLayoutLinea.setVisibility(View.GONE);
@@ -127,6 +136,14 @@ public class DescripcionLugarTuristicoActivity extends AppCompatActivity impleme
             TextView textViewActividad = findViewById(R.id.textViewActividadText);
             textViewActividad.setText(modeloLugarTuristico.getActividad());
         }
+
+        /*if (modeloLugarTuristico.getRegistradoPor().isEmpty()) {
+            LinearLayout linearLayoutRegistradoPor=findViewById(R.id.linearLayoutRegistradoPor);
+            linearLayoutRegistradoPor.setVisibility(View.GONE);
+        }else {
+            TextView textViewRegistradoPor = findViewById(R.id.textViewRegistradoPorText);
+            textViewRegistradoPor.setText(modeloLugarTuristico.getRegistradoPor());
+        }*/
 
         //botones
         Button buttonAudio = findViewById(R.id.buttonAudio);
