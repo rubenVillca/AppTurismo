@@ -244,9 +244,9 @@ public class InsertarLugarActivity extends AppCompatActivity {
         SharedPreferences sharedPreferences = getSharedPreferences("USER", MODE_PRIVATE);
         int rol = sharedPreferences.getInt("rol", 0);
         if (rol==Constants.USUARIO_ROL_REVISOR)
-            modeloLugarTuristico.setEstado(Constants.ESTADO_LUGAR_INACTIVO);
+            modeloLugarTuristico.setEstado(Constants.ESTADO_LUGAR_SUG_INSERTAR);
         else
-            modeloLugarTuristico.setEstado(Constants.ESTADO_LUGAR_ACTIVO);
+            modeloLugarTuristico.setEstado(Constants.ESTADO_LUGAR_VISIBLE);
         return modeloLugarTuristico;
     }
 

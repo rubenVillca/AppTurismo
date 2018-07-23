@@ -1,6 +1,7 @@
 package com.hga.appturismo.activity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.view.MenuItemCompat;
@@ -91,7 +92,7 @@ public class ListaLugaresActivity extends AppCompatActivity {
     }
 
     /**
-     * leer de json la lista de lugares turisticos
+     * leer de firebase la lista de lugares turisticos
      */
     private void loadFirebaseLugarTuristico() {
         TurismoFirebaseService turismoFirebaseService = (new TurismoCliente(new LugarResponseTypeAdapter())).getService();
@@ -105,21 +106,9 @@ public class ListaLugaresActivity extends AppCompatActivity {
 
                     lugaresTuristicos.clear();
                     if (listaResponse != null) {
-                        ArrayList<ModeloLugarTuristico> turisticoArrayList = listaResponse.getListModeloLugarTuristico();
-                        if (!lugarSeleccionado.equals("")) {
-                            for (ModeloLugarTuristico modeloLugarTuristico : turisticoArrayList) {
-                                if (isProvincia&&modeloLugarTuristico.getProvincia().equals(lugarSeleccionado)) {
-                                    lugaresTuristicos.add(modeloLugarTuristico);
-                                }
-                                if (!isProvincia&&modeloLugarTuristico.getTipo().equals(lugarSeleccionado)){
-                                    lugaresTuristicos.add(modeloLugarTuristico);
-                                }
-                            }
-                        } else{
-                            lugaresTuristicos.addAll(turisticoArrayList);
-                        }
+                        setListaLugares(listaResponse);
                     }
-                    loadJSONPuntaje();
+                    loadFirebasePuntaje();
                     adapterRecycler.notifyDataSetChanged();
                     lugarTuristico.update(lugaresTuristicos);
                 }
@@ -133,10 +122,31 @@ public class ListaLugaresActivity extends AppCompatActivity {
         });
     }
 
+    private void setListaLugares(ListaResponse listaResponse) {
+        ArrayList<ModeloLugarTuristico> turisticoArrayList = listaResponse.getListModeloLugarTuristico();
+        if (!lugarSeleccionado.isEmpty()) {
+            for (ModeloLugarTuristico modeloLugarTuristico : turisticoArrayList) {
+                SharedPreferences sharedPreferences = getSharedPreferences("USER", MODE_PRIVATE);
+                int rol = sharedPreferences.getInt("rol", 0);
+
+                if (modeloLugarTuristico.getEstado().equals(Constants.ESTADO_LUGAR_VISIBLE)||rol==Constants.USUARIO_ROL_ADMIN) {
+                    if (isProvincia && modeloLugarTuristico.getProvincia().equals(lugarSeleccionado)) {
+                        lugaresTuristicos.add(modeloLugarTuristico);
+                    }
+                    if (!isProvincia && modeloLugarTuristico.getTipo().equals(lugarSeleccionado)) {
+                        lugaresTuristicos.add(modeloLugarTuristico);
+                    }
+                }
+            }
+        } else{
+            lugaresTuristicos.addAll(turisticoArrayList);
+        }
+    }
+
     /**
      * leer de json bdFirebase la lista de lugares y s
      */
-    private void loadJSONPuntaje() {
+    private void loadFirebasePuntaje() {
         TurismoFirebaseService turismoFirebaseService = (new TurismoCliente(new PuntajeResponseTypeAdapter())).getService();
 
         Call<ListaResponse> lugarResponseCall = turismoFirebaseService.getListPuntaje();

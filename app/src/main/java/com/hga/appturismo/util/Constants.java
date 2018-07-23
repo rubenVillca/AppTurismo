@@ -54,7 +54,6 @@ public class Constants {
     public static final String ESTADO_LUGAR_SUG_INSERTAR="Sugerir insercion";
     public static final String ESTADO_LUGAR_SUG_EDITAR="Sugerir edicion";
     public static final String ESTADO_LUGAR_SUG_ELIMINAR="Sugerir eliminado";
-    public static final String ESTADO_LUGAR_SUG_ACEPTAR="Aceptar sugerencia";
     public static final String ESTADO_LUGAR_SUG_RECHAZAR="Rechazar sugerencia";
 
     //estado_usuario
@@ -64,8 +63,6 @@ public class Constants {
     public static final String ESTADO_USUARIO_SOLICITUD_RECHAZADA="Solicitud rechazada ";
     public static final String ESTADO_USUARIO_SOLICITUD_ACEPTADO="Solicitud aceptado";
 
-    public static final String ESTADO_LUGAR_INACTIVO = "No definido";
-    public static final String ESTADO_LUGAR_ACTIVO = "Activo";
     public static final boolean IS_READ_FIREBASE = true;
 
     public static int SELECT_HOTEL = 0;
