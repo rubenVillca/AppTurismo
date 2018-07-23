@@ -19,11 +19,10 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
 import com.hga.appturismo.R;
-import com.hga.appturismo.bdSQLite.DataBaseSync;
-import com.hga.appturismo.modelo.ModeloHotel;
 import com.hga.appturismo.mapas.DirectionFinder;
 import com.hga.appturismo.mapas.DirectionFinderListener;
 import com.hga.appturismo.mapas.Route;
+import com.hga.appturismo.modelo.ModeloHotel;
 
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
@@ -46,8 +45,7 @@ public class MapaHotelesActivity extends MapsActivity implements GoogleMap.OnMar
         Bundle bundle=getIntent().getExtras();
         if (bundle!=null) {
             String nombreMarcador = bundle.getString("nombre");
-            DataBaseSync dataBaseSync = new DataBaseSync(this);
-            modeloHotel = dataBaseSync.getHotel(nombreMarcador);
+            modeloHotel = listaHotel.getItem(nombreMarcador);
         }
     }
 
@@ -64,7 +62,7 @@ public class MapaHotelesActivity extends MapsActivity implements GoogleMap.OnMar
     }
 
     protected void setMarcadoresHoteles() {
-        ArrayList<ModeloHotel> hoteles=listas.getListaHoteles();
+        ArrayList<ModeloHotel> hoteles=listaHotel.list();
         for (ModeloHotel lugar :hoteles){
             LatLng lugarHotel = new LatLng(lugar.getGpsX(), lugar.getGpsY());
             mMap.addMarker(new MarkerOptions().position(lugarHotel)
@@ -80,7 +78,7 @@ public class MapaHotelesActivity extends MapsActivity implements GoogleMap.OnMar
     @Override
    public boolean onMarkerClick(Marker marker) {
        final String name = marker.getTitle();
-       ArrayList<ModeloHotel> listaHotels = listas.getListaHoteles();
+       ArrayList<ModeloHotel> listaHotels = listaHotel.list();
        for (final ModeloHotel mHotel : listaHotels) {
            if (mHotel.getNombre().equals(name)) {
                Snackbar.make(findViewById(R.id.map), "" + marker.getTitle(), Snackbar.LENGTH_LONG).setAction("Ver detalles", new View.OnClickListener() {

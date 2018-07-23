@@ -1,6 +1,7 @@
 package com.hga.appturismo.activity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.view.MenuItemCompat;
@@ -16,11 +17,11 @@ import android.view.View;
 import com.hga.appturismo.R;
 import com.hga.appturismo.adapterRecycler.RestauranteAdapterRecycler;
 import com.hga.appturismo.bdFirebase.ListaResponse;
+import com.hga.appturismo.bdSQLite.SqliteRestaurante;
 import com.hga.appturismo.typeAdapter.PuntajeResponseTypeAdapter;
 import com.hga.appturismo.typeAdapter.RestauranteResponseTypeAdapter;
 import com.hga.appturismo.bdFirebase.TurismoCliente;
 import com.hga.appturismo.bdFirebase.TurismoFirebaseService;
-import com.hga.appturismo.bdSQLite.DataBaseSync;
 import com.hga.appturismo.modelo.ModeloPuntaje;
 import com.hga.appturismo.modelo.ModeloRestaurante;
 
@@ -34,12 +35,13 @@ public class ListaRestaurantesActivity extends AppCompatActivity {
     private RestauranteAdapterRecycler adapterRecycler;
     private ArrayList<ModeloRestaurante> modeloRestaurantes;
     private ArrayList<ModeloPuntaje> modeloPuntajes;
-    private DataBaseSync dataBaseSync;
+    private SqliteRestaurante restaurante;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_restaurantes);
-        dataBaseSync=new DataBaseSync(this);
+        restaurante =new SqliteRestaurante(this);
 
         initRecyclerView();
         //loadJSONFirebase();
@@ -53,10 +55,11 @@ public class ListaRestaurantesActivity extends AppCompatActivity {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
 
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.restauranteRecyclerView);
+        RecyclerView recyclerView = findViewById(R.id.restauranteRecyclerView);
         recyclerView.setLayoutManager(linearLayoutManager);
         adapterRecycler = new RestauranteAdapterRecycler(modeloRestaurantes, modeloPuntajes,R.layout.cardview_list, this);
         recyclerView.setAdapter(adapterRecycler);
+
     }
 
     private void loadJSONFirebase() {
@@ -78,7 +81,7 @@ public class ListaRestaurantesActivity extends AppCompatActivity {
 
                     loadJSONFirebasePuntaje();
 
-                    dataBaseSync.updateRestauranteSQLite(modeloRestaurantes);
+                    restaurante.update(modeloRestaurantes);
                 }
             }
 
@@ -107,7 +110,7 @@ public class ListaRestaurantesActivity extends AppCompatActivity {
                     }
                     adapterRecycler.notifyDataSetChanged();
 
-                    dataBaseSync.updatePuntajeSQLite(modeloPuntajes);//actualizar sqlite puntaje
+                    restaurante.updatePuntajeSQLite(modeloPuntajes);//actualizar sqlite puntaje
                 }
             }
 
@@ -120,7 +123,7 @@ public class ListaRestaurantesActivity extends AppCompatActivity {
     }
     private void loadSQLite() {
         modeloRestaurantes.clear();
-        modeloRestaurantes.addAll(dataBaseSync.getListaRestaurantes());
+        modeloRestaurantes.addAll(restaurante.list());
         adapterRecycler.notifyDataSetChanged();
     }
 

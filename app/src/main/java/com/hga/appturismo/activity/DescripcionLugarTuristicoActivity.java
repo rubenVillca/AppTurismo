@@ -18,6 +18,7 @@ import android.widget.Toast;
 import com.hga.appturismo.R;
 import com.hga.appturismo.imagenes.ImagenSwip;
 import com.hga.appturismo.modelo.ModeloLugarTuristico;
+import com.hga.appturismo.util.Constants;
 
 import java.util.Locale;
 
@@ -136,15 +137,6 @@ public class DescripcionLugarTuristicoActivity extends AppCompatActivity impleme
             TextView textViewActividad = findViewById(R.id.textViewActividadText);
             textViewActividad.setText(modeloLugarTuristico.getActividad());
         }
-
-        /*if (modeloLugarTuristico.getRegistradoPor().isEmpty()) {
-            LinearLayout linearLayoutRegistradoPor=findViewById(R.id.linearLayoutRegistradoPor);
-            linearLayoutRegistradoPor.setVisibility(View.GONE);
-        }else {
-            TextView textViewRegistradoPor = findViewById(R.id.textViewRegistradoPorText);
-            textViewRegistradoPor.setText(modeloLugarTuristico.getRegistradoPor());
-        }*/
-
         //botones
         Button buttonAudio = findViewById(R.id.buttonAudio);
         buttonAudio.setOnClickListener(new View.OnClickListener() {
@@ -173,6 +165,16 @@ public class DescripcionLugarTuristicoActivity extends AppCompatActivity impleme
         ViewPager viewPager = findViewById(R.id.imagenTurismo);
         ImagenSwip imagenSwip = new ImagenSwip(modeloLugarTuristico.getImagenes(), this);
         viewPager.setAdapter(imagenSwip);
+
+        SharedPreferences sharedPreferences = getSharedPreferences("USER", MODE_PRIVATE);
+        int rol = sharedPreferences.getInt("rol", 0);
+        if (rol== Constants.USUARIO_ROL_ADMIN && !modeloLugarTuristico.getRegistradoPor().isEmpty()){
+            LinearLayout linearLayout=findViewById(R.id.linearLayoutRegistradoPor);
+            linearLayout.setVisibility(View.VISIBLE);
+
+            TextView textViewRegistradoPor= findViewById(R.id.textViewRegistradoPor);
+            textViewRegistradoPor.setText(modeloLugarTuristico.getRegistradoPor());
+        }
     }
 
     private void speakOut() {

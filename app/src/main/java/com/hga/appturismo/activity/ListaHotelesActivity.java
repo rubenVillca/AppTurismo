@@ -1,6 +1,7 @@
 package com.hga.appturismo.activity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.view.MenuItemCompat;
@@ -16,11 +17,11 @@ import android.view.View;
 import com.hga.appturismo.R;
 import com.hga.appturismo.adapterRecycler.HotelAdapterRecycler;
 import com.hga.appturismo.bdFirebase.ListaResponse;
+import com.hga.appturismo.bdSQLite.SqliteHotel;
 import com.hga.appturismo.typeAdapter.HotelResponseTypeAdapter;
 import com.hga.appturismo.typeAdapter.PuntajeResponseTypeAdapter;
 import com.hga.appturismo.bdFirebase.TurismoCliente;
 import com.hga.appturismo.bdFirebase.TurismoFirebaseService;
-import com.hga.appturismo.bdSQLite.DataBaseSync;
 import com.hga.appturismo.modelo.ModeloHotel;
 import com.hga.appturismo.modelo.ModeloPuntaje;
 
@@ -34,12 +35,12 @@ public class ListaHotelesActivity extends AppCompatActivity {
     private HotelAdapterRecycler adapterRecycler;
     private ArrayList<ModeloHotel> modeloHotels;
     private ArrayList<ModeloPuntaje> modeloPuntajes;
-    private DataBaseSync dataBaseSync;
+    private SqliteHotel hotel;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_hoteles);
-        dataBaseSync=new DataBaseSync(this);
+        hotel =new SqliteHotel(this);
 
         initRecyclerView();
         //loadJSONFirebaseHotel();
@@ -56,6 +57,8 @@ public class ListaHotelesActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(linearLayoutManager);
         adapterRecycler = new HotelAdapterRecycler(modeloHotels,modeloPuntajes, R.layout.cardview_list,this);
         recyclerView.setAdapter(adapterRecycler);
+
+
     }
 
     private void loadJSONFirebaseHotel() {
@@ -78,7 +81,7 @@ public class ListaHotelesActivity extends AppCompatActivity {
                     loadJSONFirebasePuntaje();
 
 
-                    dataBaseSync.updateHotelSQLite(modeloHotels);//actualizar hotel sqlite
+                    hotel.update(modeloHotels);//actualizar hotel sqlite
                 }
             }
 
@@ -107,7 +110,7 @@ public class ListaHotelesActivity extends AppCompatActivity {
                     }
                     adapterRecycler.notifyDataSetChanged();
 
-                    dataBaseSync.updatePuntajeSQLite(modeloPuntajes);//actualizar sqlite puntaje
+                    hotel.updatePuntajeSQLite(modeloPuntajes);//actualizar sqlite puntaje
                 }
             }
 
@@ -121,7 +124,7 @@ public class ListaHotelesActivity extends AppCompatActivity {
 
     private void loadSQLite() {
         modeloHotels.clear();
-        modeloHotels.addAll(dataBaseSync.getListaHoteles());
+        modeloHotels.addAll(hotel.list());
         adapterRecycler.notifyDataSetChanged();
     }
 

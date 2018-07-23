@@ -31,7 +31,9 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.hga.appturismo.R;
 import com.hga.appturismo.bdFirebase.TurismoAplicacion;
-import com.hga.appturismo.bdSQLite.DataBaseSync;
+import com.hga.appturismo.bdSQLite.SqliteHotel;
+import com.hga.appturismo.bdSQLite.SqliteLugar;
+import com.hga.appturismo.bdSQLite.SqliteRestaurante;
 import com.hga.appturismo.modelo.ModeloHotel;
 import com.hga.appturismo.modelo.ModeloImagen;
 import com.hga.appturismo.modelo.ModeloLugarTuristico;
@@ -173,9 +175,9 @@ public class InsertarLugarActivity extends AppCompatActivity {
     }
 
     @NonNull
-    private ModeloHotel getHotel(DataBaseSync dataBaseSync) {
+    private ModeloHotel getHotel(SqliteHotel hotel) {
         ModeloHotel modeloHotel = new ModeloHotel();
-        modeloHotel.setIdSQLite(dataBaseSync.getListaHoteles().size() + 1);
+        modeloHotel.setIdSQLite(hotel.list().size() + 1);
         modeloHotel.setNombre(txt_nombre.getText().toString());
         modeloHotel.setDireccion(txt_direccion.getText().toString());
         modeloHotel.setTelefonoString(txt_telefono.getText().toString());
@@ -219,13 +221,13 @@ public class InsertarLugarActivity extends AppCompatActivity {
     /**
      * recupera datos de la vista y lo convierte en un objeto ModeloLugarTuristico
      *
-     * @param dataBaseSync:conexion a la base de datos SQLite
+     * @param lugarTuristico:conexion a la base de datos SQLite
      * @return ModeloLugarTuristico:lugar turistico a insertar
      */
     @NonNull
-    private ModeloLugarTuristico getLugarTuristico(DataBaseSync dataBaseSync) {
+    private ModeloLugarTuristico getLugarTuristico(SqliteLugar lugarTuristico) {
         ModeloLugarTuristico modeloLugarTuristico = new ModeloLugarTuristico();
-        modeloLugarTuristico.setIdSQLite(dataBaseSync.getListaLugarTuristco().size() + 1);
+        modeloLugarTuristico.setIdSQLite(lugarTuristico.list().size() + 1);
         modeloLugarTuristico.setNombre(txt_nombre.getText().toString());
         modeloLugarTuristico.setTipo(spinnerTipoTurismo.getSelectedItem().toString());
         modeloLugarTuristico.setDescripcion(txt_descripcion.getText().toString());
@@ -242,9 +244,9 @@ public class InsertarLugarActivity extends AppCompatActivity {
     }
 
     @NonNull
-    private ModeloRestaurante getRestaurante(DataBaseSync dataBaseSync) {
+    private ModeloRestaurante getRestaurante(SqliteRestaurante restaurante) {
         ModeloRestaurante modeloRestaurante = new ModeloRestaurante();
-        modeloRestaurante.setIdSQLite(dataBaseSync.getListaRestaurantes().size() + 1);
+        modeloRestaurante.setIdSQLite(restaurante.list().size() + 1);
         modeloRestaurante.setNombre(txt_nombre.getText().toString());
         modeloRestaurante.setHorario(txt_horario.getText().toString());
         modeloRestaurante.setDireccion(txt_direccion.getText().toString());
@@ -590,17 +592,17 @@ public class InsertarLugarActivity extends AppCompatActivity {
      * @param view:parametros del boton presionado
      */
     public void insertarLugarSQLite(View view) {
-        DataBaseSync dataBaseSync = new DataBaseSync(this);
         ArrayList<ModeloImagen> modeloImagenArrayList;
         Intent intent;
 
         switch (spinnerTipo.getSelectedItemPosition()) {
             case 0://hotel
                 if (isValidHotel()) {
-                    ModeloHotel modeloHotel = getHotel(dataBaseSync);
+                    SqliteHotel hotel=new SqliteHotel(this);
+                    ModeloHotel modeloHotel = getHotel(hotel);
                     modeloImagenArrayList = getImagen(ModeloImagen.TIPO_HOTEL, modeloHotel.getIdSQLite(), ModeloImagen.TIPO_HOTEL + "/" + modeloHotel.getNombre());
                     modeloHotel.setImagenes(modeloImagenArrayList);
-                    dataBaseSync.insertarHotel(modeloHotel);//insertar modeloHotel en SQLite
+                    hotel.insert(modeloHotel);//insertar modeloHotel en SQLite
 
                     guardarDatosFirebaseHotel(modeloHotel);
                     intent = new Intent(this, MapaHotelesActivity.class);
@@ -609,10 +611,11 @@ public class InsertarLugarActivity extends AppCompatActivity {
                 break;
             case 1://restaurante
                 if (isValidRestaurante()) {
-                    ModeloRestaurante modeloRestaurante = getRestaurante(dataBaseSync);
+                    SqliteRestaurante restaurante=new SqliteRestaurante(this);
+                    ModeloRestaurante modeloRestaurante = getRestaurante(restaurante);
                     modeloImagenArrayList = getImagen(ModeloImagen.TIPO_RESTAURANTE, modeloRestaurante.getIdSQLite(), ModeloImagen.TIPO_RESTAURANTE + "/" + modeloRestaurante.getNombre());
                     modeloRestaurante.setImagenesFirebase(modeloImagenArrayList);
-                    dataBaseSync.insertarRestaurante(modeloRestaurante);//insertar restaurate en SQLite
+                    restaurante.insert(modeloRestaurante);//insertar restaurate en SQLite
 
                     guardarDatosFirebaseRestaurante(modeloRestaurante);
                     intent = new Intent(this, MapaRestaurantesActivity.class);
@@ -621,10 +624,11 @@ public class InsertarLugarActivity extends AppCompatActivity {
                 break;
             case 2://lugar turistico
                 if (isValidLugarTuristico()) {
-                    ModeloLugarTuristico modeloLugarTuristico = getLugarTuristico(dataBaseSync);
+                    SqliteLugar lugarTuristico=new SqliteLugar(this);
+                    ModeloLugarTuristico modeloLugarTuristico = getLugarTuristico(lugarTuristico);
                     modeloImagenArrayList = getImagen(ModeloImagen.TIPO_LUGAR, modeloLugarTuristico.getIdSQLite(), ModeloImagen.TIPO_LUGAR + "/" + modeloLugarTuristico.getNombre());
                     modeloLugarTuristico.setImagenesFirebase(modeloImagenArrayList);
-                    dataBaseSync.insertarLugarTuristico(modeloLugarTuristico);//insetar el lugar turistico en SQLite
+                    lugarTuristico.insert(modeloLugarTuristico);//insetar el lugar turistico en SQLite
 
                     guardarDatosFirebaseLugarTuristico(modeloLugarTuristico);
                     intent = new Intent(this, MapaLugaresActivity.class);

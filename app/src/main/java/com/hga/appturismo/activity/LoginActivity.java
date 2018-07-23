@@ -39,7 +39,7 @@ import com.hga.appturismo.R;
 import com.hga.appturismo.bdFirebase.ListaResponse;
 import com.hga.appturismo.bdFirebase.TurismoCliente;
 import com.hga.appturismo.bdFirebase.TurismoFirebaseService;
-import com.hga.appturismo.bdSQLite.DataBaseSync;
+import com.hga.appturismo.bdSQLite.SqliteUsuario;
 import com.hga.appturismo.modelo.ModeloUsuario;
 import com.hga.appturismo.typeAdapter.UsuarioResponseTypeAdapter;
 
@@ -72,24 +72,28 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        init();
 
+    }
+
+    private void init() {
         // Set up the login form.
-        mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
+        mEmailView = findViewById(R.id.email);
         populateAutoComplete();
 
-        mPasswordView = (EditText) findViewById(R.id.password);
+        mPasswordView = findViewById(R.id.password);
         mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView textView, int id, KeyEvent keyEvent) {
-                if (id == R.id.login || id == EditorInfo.IME_NULL) { //VERIFICAR EL OOO
-                    isValidLogin();
-                    return true;
+                boolean res=false;
+                if (id == R.id.login || id == EditorInfo.IME_NULL) { //VERIFICAR login
+                    res=isValidLogin();
                 }
-                return false;
+                return res;
             }
         });
 
-        Button mEmailSignInButton = (Button) findViewById(R.id.email_sign_in_button);
+        Button mEmailSignInButton = findViewById(R.id.email_sign_in_button);
         mEmailSignInButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -102,7 +106,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
 
-        Button button = (Button) findViewById(R.id.button_user_new);
+        Button button = findViewById(R.id.button_user_new);
         button.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -285,8 +289,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
                     for (ModeloUsuario m : modeloUsuarios) {
                         if (m.getEmail().equals(user.getEmail())) {
-                            DataBaseSync dataBaseSync = new DataBaseSync(LoginActivity.this);
-                            dataBaseSync.updateUsuariosSQLite(modeloUsuarios);
+                            SqliteUsuario usuario = new SqliteUsuario(LoginActivity.this);
+                            usuario.update(modeloUsuarios);
 
                             SharedPreferences.Editor sharedPreferences = getSharedPreferences("USER", MODE_PRIVATE).edit();
                             sharedPreferences.putString("email", user.getEmail());

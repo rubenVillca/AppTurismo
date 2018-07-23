@@ -19,7 +19,6 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
 import com.hga.appturismo.R;
-import com.hga.appturismo.bdSQLite.DataBaseSync;
 import com.hga.appturismo.modelo.ModeloLugarTuristico;
 import com.hga.appturismo.mapas.DirectionFinder;
 import com.hga.appturismo.mapas.DirectionFinderListener;
@@ -103,7 +102,7 @@ public class MapaLugaresActivity extends MapsActivity implements GoogleMap.OnMar
     @Override
     public boolean onMarkerClick(Marker marker) {
         final String name = marker.getTitle();
-        ArrayList<ModeloLugarTuristico> lugareTuristicos = listas.getListaLugarTuristco();
+        ArrayList<ModeloLugarTuristico> lugareTuristicos = listaLugarTuristico.list();
         for (final ModeloLugarTuristico mLugarTuristico : lugareTuristicos) {
             if (mLugarTuristico.getNombre().equals(name)) {
                 Snackbar.make(findViewById(R.id.map), "" + marker.getTitle(), Snackbar.LENGTH_LONG).setAction("Ver detalles", new View.OnClickListener() {
@@ -123,14 +122,13 @@ public class MapaLugaresActivity extends MapsActivity implements GoogleMap.OnMar
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
             String nombreMarcador = bundle.getString("nombre");
-            DataBaseSync dataBaseSync = new DataBaseSync(this);
-            modeloLugarTuristico = dataBaseSync.getLugarTuristico(nombreMarcador);
+            modeloLugarTuristico = listaLugarTuristico.getItem(nombreMarcador);
         }
     }
 
     protected void setMarcadoresLugaresTuristicos() {
         //marcadores varios
-        ArrayList<ModeloLugarTuristico> lugaresTuristicos = listas.getListaLugarTuristco();
+        ArrayList<ModeloLugarTuristico> lugaresTuristicos = listaLugarTuristico.list();
         for (ModeloLugarTuristico lugar : lugaresTuristicos) {
             LatLng lugarTuristico = new LatLng(lugar.getGpsX(), lugar.getGpsY());
             mMap.addMarker(new MarkerOptions().position(lugarTuristico)

@@ -1,6 +1,7 @@
 package com.hga.appturismo.activity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.view.MenuItemCompat;
@@ -18,7 +19,7 @@ import com.hga.appturismo.adapterRecycler.LugarAdapterRecycler;
 import com.hga.appturismo.bdFirebase.ListaResponse;
 import com.hga.appturismo.bdFirebase.TurismoCliente;
 import com.hga.appturismo.bdFirebase.TurismoFirebaseService;
-import com.hga.appturismo.bdSQLite.DataBaseSync;
+import com.hga.appturismo.bdSQLite.SqliteLugar;
 import com.hga.appturismo.modelo.ModeloLugarTuristico;
 import com.hga.appturismo.modelo.ModeloPuntaje;
 import com.hga.appturismo.typeAdapter.LugarResponseTypeAdapter;
@@ -34,7 +35,7 @@ public class ListaLugaresActivity extends AppCompatActivity {
     private LugarAdapterRecycler adapterRecycler;
     private ArrayList<ModeloLugarTuristico> lugaresTuristicos;
     private ArrayList<ModeloPuntaje> modeloPuntajes;
-    private DataBaseSync dataBaseSync;
+    private SqliteLugar lugarTuristico;
     private String lugarSeleccionado = "";//provincia o tipo de lugar
     private boolean isProvincia;
 
@@ -42,7 +43,7 @@ public class ListaLugaresActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_lugares);
-        dataBaseSync = new DataBaseSync(this);
+        lugarTuristico = new SqliteLugar(this);
 
         init();
 
@@ -82,6 +83,8 @@ public class ListaLugaresActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(linearLayoutManager);
         adapterRecycler = new LugarAdapterRecycler(lugaresTuristicos, modeloPuntajes, R.layout.cardview_list, this);
         recyclerView.setAdapter(adapterRecycler);
+
+
     }
 
     /**
@@ -115,7 +118,7 @@ public class ListaLugaresActivity extends AppCompatActivity {
                     }
                     loadJSONPuntaje();
                     adapterRecycler.notifyDataSetChanged();
-                    dataBaseSync.updateLugarTuristicoSQLite(lugaresTuristicos);
+                    lugarTuristico.update(lugaresTuristicos);
                 }
             }
 
@@ -152,16 +155,15 @@ public class ListaLugaresActivity extends AppCompatActivity {
                         modeloPuntajes.addAll(turisticoArrayList);
                     }
                     adapterRecycler.notifyDataSetChanged();
-                    dataBaseSync.updatePuntajeSQLite(modeloPuntajes);
+                    lugarTuristico.updatePuntajeSQLite(modeloPuntajes);
                 }
             }
         });
     }
 
     private void loadSQLite() {
-        DataBaseSync dataBaseSync = new DataBaseSync(this);
         lugaresTuristicos.clear();
-        lugaresTuristicos.addAll(dataBaseSync.getListaLugarTuristco());
+        lugaresTuristicos.addAll(lugarTuristico.list());
         adapterRecycler.notifyDataSetChanged();
     }
 

@@ -19,7 +19,7 @@ import java.util.ArrayList;
  * Created by HGA on 04/07/2017
  */
 
-public class DataBaseManager extends SQLiteOpenHelper {
+public class DBModel extends SQLiteOpenHelper {
     public static final int DATABASE_VERSION = 90;
     public static final String DATABASE_NAME = "APP_TURISMO";
 
@@ -97,7 +97,7 @@ public class DataBaseManager extends SQLiteOpenHelper {
     public static final String PUNTAJE_NRO_VISITAS = "NRO_VISITAS_PUNTAJE";
     public static final String PUNTAJE_TIPO = "TIPO_PUNTAJE";
 
-    public DataBaseManager(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
+    public DBModel(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
     }
 
@@ -234,13 +234,13 @@ public class DataBaseManager extends SQLiteOpenHelper {
     public void insertarImagen(SQLiteDatabase db, ModeloImagen modeloImagen) {
         ContentValues contentValues = new ContentValues();
 
-        contentValues.put(DataBaseManager.IMAGENES_ID_IMAGEN_SQLITE, modeloImagen.getIdImagen());
-        contentValues.put(DataBaseManager.IMAGENES_KEY_ID, modeloImagen.getKey_id());
-        contentValues.put(DataBaseManager.IMAGENES_TIPO, modeloImagen.getTipoImagen());
-        contentValues.put(DataBaseManager.IMAGENES_RUTA_APP, modeloImagen.getUrlApp());
-        contentValues.put(DataBaseManager.IMAGENES_RUTA_SERVER, modeloImagen.getUrlServer());
+        contentValues.put(DBModel.IMAGENES_ID_IMAGEN_SQLITE, modeloImagen.getIdImagen());
+        contentValues.put(DBModel.IMAGENES_KEY_ID, modeloImagen.getKey_id());
+        contentValues.put(DBModel.IMAGENES_TIPO, modeloImagen.getTipoImagen());
+        contentValues.put(DBModel.IMAGENES_RUTA_APP, modeloImagen.getUrlApp());
+        contentValues.put(DBModel.IMAGENES_RUTA_SERVER, modeloImagen.getUrlServer());
 
-        if (db.insert(DataBaseManager.TABLE_IMAGENES, null, contentValues) == -1) {
+        if (db.insert(DBModel.TABLE_IMAGENES, null, contentValues) == -1) {
             System.out.println("Error en la base de datos");
         }
     }
@@ -254,19 +254,19 @@ public class DataBaseManager extends SQLiteOpenHelper {
     public void insertarRestaurante(SQLiteDatabase db, ModeloRestaurante modeloRestaurante) {
         ContentValues contentValues = new ContentValues();
 
-        contentValues.put(DataBaseManager.RESTAURANTES_ID_SQLITE, modeloRestaurante.getIdSQLite());
-        contentValues.put(DataBaseManager.RESTAURANTES_ID_FIREBASE, modeloRestaurante.getIdFirebase());
-        contentValues.put(DataBaseManager.RESTAURANTES_NAME, modeloRestaurante.getNombre());
-        contentValues.put(DataBaseManager.RESTAURANTES_DIRECCION, modeloRestaurante.getDireccion());
-        contentValues.put(DataBaseManager.RESTAURANTES_HORARIO, modeloRestaurante.getHorario());
-        contentValues.put(DataBaseManager.RESTAURANTES_TELEFONO, String.valueOf(modeloRestaurante.getTelefono()));
-        contentValues.put(DataBaseManager.RESTAURANTES_EMAIL, modeloRestaurante.getEmail());
-        contentValues.put(DataBaseManager.RESTAURANTES_LATITUD, String.valueOf(modeloRestaurante.getGpsX()));
-        contentValues.put(DataBaseManager.RESTAURANTES_LONGITUD, String.valueOf(modeloRestaurante.getGpsY()));
-        contentValues.put(DataBaseManager.RESTAURANTES_ESTADO, String.valueOf(modeloRestaurante.getEstado()));
-        contentValues.put(DataBaseManager.RESTAURANTES_REGISTRADO_POR, modeloRestaurante.getRegistradoPor());
+        contentValues.put(DBModel.RESTAURANTES_ID_SQLITE, modeloRestaurante.getIdSQLite());
+        contentValues.put(DBModel.RESTAURANTES_ID_FIREBASE, modeloRestaurante.getIdFirebase());
+        contentValues.put(DBModel.RESTAURANTES_NAME, modeloRestaurante.getNombre());
+        contentValues.put(DBModel.RESTAURANTES_DIRECCION, modeloRestaurante.getDireccion());
+        contentValues.put(DBModel.RESTAURANTES_HORARIO, modeloRestaurante.getHorario());
+        contentValues.put(DBModel.RESTAURANTES_TELEFONO, String.valueOf(modeloRestaurante.getTelefono()));
+        contentValues.put(DBModel.RESTAURANTES_EMAIL, modeloRestaurante.getEmail());
+        contentValues.put(DBModel.RESTAURANTES_LATITUD, String.valueOf(modeloRestaurante.getGpsX()));
+        contentValues.put(DBModel.RESTAURANTES_LONGITUD, String.valueOf(modeloRestaurante.getGpsY()));
+        contentValues.put(DBModel.RESTAURANTES_ESTADO, String.valueOf(modeloRestaurante.getEstado()));
+        contentValues.put(DBModel.RESTAURANTES_REGISTRADO_POR, modeloRestaurante.getRegistradoPor());
 
-        if (db.insert(DataBaseManager.TABLE_RESTAURANTES, null, contentValues) == -1) {
+        if (db.insert(DBModel.TABLE_RESTAURANTES, null, contentValues) == -1) {
             System.out.println("Error en la base de datos restaurante: " + contentValues.toString() + "\nModeloRestaurante:" + modeloRestaurante.toString());
         } else {
             insertarImagenes(modeloRestaurante.getImagenes(), db);
@@ -282,19 +282,19 @@ public class DataBaseManager extends SQLiteOpenHelper {
     public void insertarHotel(SQLiteDatabase db, ModeloHotel modeloHotel) {
         ContentValues contentValues = new ContentValues();
 
-        contentValues.put(DataBaseManager.HOTELES_SQLITE_ID, modeloHotel.getIdSQLite());
-        contentValues.put(DataBaseManager.HOTELES_ID_FIREBASE, modeloHotel.getIdFirebase());
-        contentValues.put(DataBaseManager.HOTELES_NAME, modeloHotel.getNombre());
-        contentValues.put(DataBaseManager.HOTELES_DIRECCION, modeloHotel.getDireccion());
-        contentValues.put(DataBaseManager.HOTELES_TELEFONO, String.valueOf(modeloHotel.getTelefono()));
-        contentValues.put(DataBaseManager.HOTELES_PAGINA_WEB, modeloHotel.getPaginaWeb());
-        contentValues.put(DataBaseManager.HOTELES_EMAIL, modeloHotel.getEmail());
-        contentValues.put(DataBaseManager.HOTELES_LATITUD, String.valueOf(modeloHotel.getGpsX()));
-        contentValues.put(DataBaseManager.HOTELES_LONGITUD, String.valueOf(modeloHotel.getGpsY()));
-        contentValues.put(DataBaseManager.HOTELES_ESTADO, String.valueOf(modeloHotel.getEstado()));
-        contentValues.put(DataBaseManager.HOTELES_REGISTRADO_POR, modeloHotel.getRegistradoPor());
+        contentValues.put(DBModel.HOTELES_SQLITE_ID, modeloHotel.getIdSQLite());
+        contentValues.put(DBModel.HOTELES_ID_FIREBASE, modeloHotel.getIdFirebase());
+        contentValues.put(DBModel.HOTELES_NAME, modeloHotel.getNombre());
+        contentValues.put(DBModel.HOTELES_DIRECCION, modeloHotel.getDireccion());
+        contentValues.put(DBModel.HOTELES_TELEFONO, String.valueOf(modeloHotel.getTelefono()));
+        contentValues.put(DBModel.HOTELES_PAGINA_WEB, modeloHotel.getPaginaWeb());
+        contentValues.put(DBModel.HOTELES_EMAIL, modeloHotel.getEmail());
+        contentValues.put(DBModel.HOTELES_LATITUD, String.valueOf(modeloHotel.getGpsX()));
+        contentValues.put(DBModel.HOTELES_LONGITUD, String.valueOf(modeloHotel.getGpsY()));
+        contentValues.put(DBModel.HOTELES_ESTADO, String.valueOf(modeloHotel.getEstado()));
+        contentValues.put(DBModel.HOTELES_REGISTRADO_POR, modeloHotel.getRegistradoPor());
 
-        if (db.insert(DataBaseManager.TABLE_HOTELES, null, contentValues) == -1) {
+        if (db.insert(DBModel.TABLE_HOTELES, null, contentValues) == -1) {
             System.out.println("Error en la base de datos hotel: " + contentValues.toString() + "\nModeloHotel: " + modeloHotel.toString());
         } else {
             insertarImagenes(modeloHotel.getImagenes(), db);
@@ -311,24 +311,24 @@ public class DataBaseManager extends SQLiteOpenHelper {
     public void insertarLugarTuristico(SQLiteDatabase db, ModeloLugarTuristico lugar) {
         ContentValues contentValues = new ContentValues();
 
-        contentValues.put(DataBaseManager.LUGARES_ID_SQLITE, lugar.getIdSQLite());
-        contentValues.put(DataBaseManager.LUGARES_ID_FIREBASE, String.valueOf(lugar.getIdFirebase()));
-        contentValues.put(DataBaseManager.LUGARES_NAME, String.valueOf(lugar.getNombre()));
-        contentValues.put(DataBaseManager.LUGARES_TIPO, String.valueOf(lugar.getTipo()));
-        contentValues.put(DataBaseManager.LUGARES_DESCRIPCION, String.valueOf(lugar.getDescripcion()));
-        contentValues.put(DataBaseManager.LUGARES_UBICACION, String.valueOf(lugar.getDireccion()));
-        contentValues.put(DataBaseManager.LUGARES_HORARIO_ATENCION, lugar.getHorario());
-        contentValues.put(DataBaseManager.LUGARES_TELEFONO, String.valueOf(lugar.getTelefono()));
-        contentValues.put(DataBaseManager.LUGARES_LATITUD, String.valueOf(lugar.getGpsX()));
-        contentValues.put(DataBaseManager.LUGARES_LONGITUD, String.valueOf(lugar.getGpsY()));
-        contentValues.put(DataBaseManager.LUGARES_ACTIVIDAD, String.valueOf(lugar.getActividad()));
-        contentValues.put(DataBaseManager.LUGARES_ESTADO, String.valueOf(lugar.getEstado()));
-        contentValues.put(DataBaseManager.LUGARES_LINEA,String.valueOf(lugar.getLinea()));
-        contentValues.put(DataBaseManager.LUGARES_FECHA,String.valueOf(lugar.getFecha()));
-        contentValues.put(DataBaseManager.LUGARES_PROVINCIA,lugar.getProvincia());
-        contentValues.put(DataBaseManager.LUGARES_REGISTRADO_POR, lugar.getRegistradoPor());
+        contentValues.put(DBModel.LUGARES_ID_SQLITE, lugar.getIdSQLite());
+        contentValues.put(DBModel.LUGARES_ID_FIREBASE, String.valueOf(lugar.getIdFirebase()));
+        contentValues.put(DBModel.LUGARES_NAME, String.valueOf(lugar.getNombre()));
+        contentValues.put(DBModel.LUGARES_TIPO, String.valueOf(lugar.getTipo()));
+        contentValues.put(DBModel.LUGARES_DESCRIPCION, String.valueOf(lugar.getDescripcion()));
+        contentValues.put(DBModel.LUGARES_UBICACION, String.valueOf(lugar.getDireccion()));
+        contentValues.put(DBModel.LUGARES_HORARIO_ATENCION, lugar.getHorario());
+        contentValues.put(DBModel.LUGARES_TELEFONO, String.valueOf(lugar.getTelefono()));
+        contentValues.put(DBModel.LUGARES_LATITUD, String.valueOf(lugar.getGpsX()));
+        contentValues.put(DBModel.LUGARES_LONGITUD, String.valueOf(lugar.getGpsY()));
+        contentValues.put(DBModel.LUGARES_ACTIVIDAD, String.valueOf(lugar.getActividad()));
+        contentValues.put(DBModel.LUGARES_ESTADO, String.valueOf(lugar.getEstado()));
+        contentValues.put(DBModel.LUGARES_LINEA,String.valueOf(lugar.getLinea()));
+        contentValues.put(DBModel.LUGARES_FECHA,String.valueOf(lugar.getFecha()));
+        contentValues.put(DBModel.LUGARES_PROVINCIA,lugar.getProvincia());
+        contentValues.put(DBModel.LUGARES_REGISTRADO_POR, lugar.getRegistradoPor());
 
-        if (db.insert(DataBaseManager.TABLE_LUGARES, null, contentValues) == -1) {
+        if (db.insert(DBModel.TABLE_LUGARES, null, contentValues) == -1) {
             System.out.println("Error en la base de datos turismo: " + contentValues.toString() + "\nmodelo:" + lugar.toString());
         } else {
             insertarImagenes(lugar.getImagenes(), db);
@@ -345,17 +345,17 @@ public class DataBaseManager extends SQLiteOpenHelper {
     public void insertarUsuario(SQLiteDatabase db, ModeloUsuario modeloUsuario) {
         ContentValues contentValues = new ContentValues();
 
-        //contentValues.put(DataBaseManager.USER_SQLITE_ID, modeloUsuario.getIdSqlite());
-        contentValues.put(DataBaseManager.USER_ID_FIREBASE, String.valueOf(modeloUsuario.getIdFirebase()));
-        contentValues.put(DataBaseManager.USER_NAME, modeloUsuario.getNombre());
-        contentValues.put(DataBaseManager.USER_APELLIDO, modeloUsuario.getApellido());
-        contentValues.put(DataBaseManager.USER_EMAIL, modeloUsuario.getEmail());
-        contentValues.put(DataBaseManager.USER_TELEFONO, modeloUsuario.getTelefono());
-        contentValues.put(DataBaseManager.USER_ROL,modeloUsuario.getRol());
-        contentValues.put(DataBaseManager.USER_PWD, String.valueOf(modeloUsuario.getTelefono()));
-        contentValues.put(DataBaseManager.USER_ESTADO, String.valueOf(modeloUsuario.getEstado()));
+        //contentValues.put(DBModel.USER_SQLITE_ID, modeloUsuario.getIdSqlite());
+        contentValues.put(DBModel.USER_ID_FIREBASE, String.valueOf(modeloUsuario.getIdFirebase()));
+        contentValues.put(DBModel.USER_NAME, modeloUsuario.getNombre());
+        contentValues.put(DBModel.USER_APELLIDO, modeloUsuario.getApellido());
+        contentValues.put(DBModel.USER_EMAIL, modeloUsuario.getEmail());
+        contentValues.put(DBModel.USER_TELEFONO, modeloUsuario.getTelefono());
+        contentValues.put(DBModel.USER_ROL,modeloUsuario.getRol());
+        contentValues.put(DBModel.USER_PWD, String.valueOf(modeloUsuario.getTelefono()));
+        contentValues.put(DBModel.USER_ESTADO, String.valueOf(modeloUsuario.getEstado()));
 
-        if (db.insert(DataBaseManager.TABLE_USUARIOS, null, contentValues) == -1) {
+        if (db.insert(DBModel.TABLE_USUARIOS, null, contentValues) == -1) {
             System.out.println("Error en la base de datos Usuario: " + contentValues.toString() + "\nmodelo:" + modeloUsuario.toString());
         }
     }
@@ -363,14 +363,14 @@ public class DataBaseManager extends SQLiteOpenHelper {
     public void insertarPuntaje(SQLiteDatabase db, ModeloPuntaje modeloPuntaje) {
         ContentValues contentValues = new ContentValues();
 
-        contentValues.put(DataBaseManager.PUNTAJE_ID_FIREBASE, String.valueOf(modeloPuntaje.getIdFirebase()));
-        //contentValues.put(DataBaseManager.PUNTAJE_ID_SQLITE, modeloPuntaje.getIdUsuarioFirebase());
-        contentValues.put(DataBaseManager.PUNTAJE_ID_LUGAR_FIREBASE, modeloPuntaje.getIdLugarFirebase());
-        contentValues.put(DataBaseManager.PUNTAJE_CANTIDAD, modeloPuntaje.getPuntaje());
-        contentValues.put(DataBaseManager.PUNTAJE_NRO_VISITAS, modeloPuntaje.getNroVisitas());
-        contentValues.put(DataBaseManager.PUNTAJE_TIPO, modeloPuntaje.getTipo());
+        contentValues.put(DBModel.PUNTAJE_ID_FIREBASE, String.valueOf(modeloPuntaje.getIdFirebase()));
+        //contentValues.put(DBModel.PUNTAJE_ID_SQLITE, modeloPuntaje.getIdUsuarioFirebase());
+        contentValues.put(DBModel.PUNTAJE_ID_LUGAR_FIREBASE, modeloPuntaje.getIdLugarFirebase());
+        contentValues.put(DBModel.PUNTAJE_CANTIDAD, modeloPuntaje.getPuntaje());
+        contentValues.put(DBModel.PUNTAJE_NRO_VISITAS, modeloPuntaje.getNroVisitas());
+        contentValues.put(DBModel.PUNTAJE_TIPO, modeloPuntaje.getTipo());
 
-        if (db.insert(DataBaseManager.TABLE_PUNTAJE, null, contentValues) == -1) {
+        if (db.insert(DBModel.TABLE_PUNTAJE, null, contentValues) == -1) {
             System.out.println("Error en la base de datos Usuario lugar: " + contentValues.toString() + "\nmodelo:" + modeloPuntaje.toString());
         }
     }
@@ -406,5 +406,9 @@ public class DataBaseManager extends SQLiteOpenHelper {
         deleteDatosUsuario(db);
         deleteDatosPuntaje(db);
         deleteDatosImagenes(db);
+    }
+
+    public void deleteTableUsuario(SQLiteDatabase db) {
+        db.execSQL("DELETE FROM " + TABLE_USUARIOS);
     }
 }

@@ -18,7 +18,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.hga.appturismo.R;
 import com.hga.appturismo.bdFirebase.ResetFirebase;
 import com.hga.appturismo.bdFirebase.TurismoAplicacion;
-import com.hga.appturismo.bdSQLite.DataBaseSync;
+import com.hga.appturismo.bdSQLite.DBSQLiteManager;
 import com.hga.appturismo.util.Constants;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -106,16 +106,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 menu.findItem(R.id.action_login).setVisible(false);
                 menu.findItem(R.id.action_user_insert).setVisible(false);
                 menu.findItem(R.id.action_edit_profile).setVisible(true);
-                menu.findItem(R.id.action_sincronizar).setVisible(false);
-                menu.findItem(R.id.action_reset).setVisible(false);
+                menu.findItem(R.id.action_sincronizar).setVisible(true);
+                menu.findItem(R.id.action_reset).setVisible(true);
                 menu.findItem(R.id.action_close_login).setVisible(true);
                 break;
             default://no logueado
                 menu.findItem(R.id.action_login).setVisible(true);
-                menu.findItem(R.id.action_user_insert).setVisible(true);
+                menu.findItem(R.id.action_user_insert).setVisible(false);
                 menu.findItem(R.id.action_edit_profile).setVisible(false);
-                menu.findItem(R.id.action_sincronizar).setVisible(false);
-                menu.findItem(R.id.action_reset).setVisible(true);//para resetear datos habilita a true y seleccionar
+                menu.findItem(R.id.action_sincronizar).setVisible(true);
+                menu.findItem(R.id.action_reset).setVisible(false);//para resetear datos habilita a true y seleccionar
                 menu.findItem(R.id.action_close_login).setVisible(false);
                 break;
         }
@@ -215,11 +215,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         startActivity(buscarPorTipo);
     }
 
-   /* private void sincronizarSQLiteConDataFirebase() {
-        TurismoAplicacion app = (TurismoAplicacion) getApplicationContext();
-
-    }*/
-
     private void resetDataFirebase() {
         TurismoAplicacion app = (TurismoAplicacion) getApplicationContext();
 
@@ -228,7 +223,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void resetDatosSQlite() {
-        DataBaseSync dataBaseSync=new DataBaseSync(this);
-        dataBaseSync.resetSQLite();
+        DBSQLiteManager DBSQLiteManager =new DBSQLiteManager();
+        DBSQLiteManager.resetSQLite(this);
     }
 }

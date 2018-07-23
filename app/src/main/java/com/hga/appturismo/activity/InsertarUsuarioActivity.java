@@ -22,7 +22,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.hga.appturismo.R;
 import com.hga.appturismo.bdFirebase.TurismoAplicacion;
-import com.hga.appturismo.bdSQLite.DataBaseSync;
+import com.hga.appturismo.bdSQLite.DBSQLiteParent;
+import com.hga.appturismo.bdSQLite.SqliteUsuario;
 import com.hga.appturismo.modelo.ModeloUsuario;
 import com.hga.appturismo.util.Constants;
 
@@ -39,12 +40,6 @@ public class InsertarUsuarioActivity extends AppCompatActivity implements View.O
     private EditText txt_pwd;
     private EditText txt_rol_user;
 
-    private LinearLayout layout_rol_user;
-    private LinearLayout editar_layout_nombre_user;
-    private LinearLayout editar_layout_apellido_user;
-    private LinearLayout editar_layout_email_user;
-    private LinearLayout editar_layout_telefono_user;
-    private LinearLayout editar_layout_pwd_user;
 
     private Spinner spinnerRolUser;
 
@@ -70,25 +65,13 @@ public class InsertarUsuarioActivity extends AppCompatActivity implements View.O
     }
 
     private void init() {
-        layout_rol_user=findViewById(R.id.layout_rol_user);
         spinnerRolUser = findViewById(R.id.spinner_rolUser);
-
-        editar_layout_nombre_user=findViewById(R.id.editar_layout_nombre_user);
         txt_nombre = findViewById(R.id.txt_nombre);
-
-        editar_layout_apellido_user=findViewById(R.id.editar_layout_apellido_user);
         txt_apellido = findViewById(R.id.txt_apellido);
-
-        editar_layout_email_user=findViewById(R.id.editar_layout_email_user);
         txt_email = findViewById(R.id.txt_email);
         txt_email.setEnabled(true);
-
-        editar_layout_telefono_user=findViewById(R.id.editar_layout_telefono_user);
         txt_telefono = findViewById(R.id.txt_telefono);
-
-        editar_layout_pwd_user=findViewById(R.id.editar_layout_pwd_user);
         txt_pwd = findViewById(R.id.txt_pwd);
-
         button = findViewById(R.id.btn_editar_usuario);
         button.setOnClickListener(this);
     }
@@ -148,7 +131,7 @@ public class InsertarUsuarioActivity extends AppCompatActivity implements View.O
         spinnerRolUser.setAdapter(adapterUsuario);
     }
     public void insertarUsuarioSQLite(View view) {
-        DataBaseSync dataBaseSync = new DataBaseSync(this);
+        SqliteUsuario usuario = new SqliteUsuario(this);
         Intent intent;
 
         switch (spinnerRolUser.getSelectedItemPosition()) {

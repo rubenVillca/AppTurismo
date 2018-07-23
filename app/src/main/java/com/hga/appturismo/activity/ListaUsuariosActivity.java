@@ -16,8 +16,8 @@ import com.hga.appturismo.adapterRecycler.UsuarioAdapterRecycler;
 import com.hga.appturismo.bdFirebase.ListaResponse;
 import com.hga.appturismo.bdFirebase.TurismoCliente;
 import com.hga.appturismo.bdFirebase.TurismoFirebaseService;
+import com.hga.appturismo.bdSQLite.SqliteUsuario;
 import com.hga.appturismo.typeAdapter.UsuarioResponseTypeAdapter;
-import com.hga.appturismo.bdSQLite.DataBaseSync;
 import com.hga.appturismo.modelo.ModeloUsuario;
 
 import java.util.ArrayList;
@@ -33,12 +33,13 @@ import retrofit2.Response;
 public class ListaUsuariosActivity extends AppCompatActivity {
     private UsuarioAdapterRecycler adapterRecycler;
     private ArrayList<ModeloUsuario> modeloUsuarios;
+    private SqliteUsuario usuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_usuarios);
-
+        usuario = new SqliteUsuario(this);
         initRecyclerView();
         //loadJSONFirebase();
         loadSQLite();
@@ -72,8 +73,7 @@ public class ListaUsuariosActivity extends AppCompatActivity {
                     }
                     adapterRecycler.notifyDataSetChanged();
 
-                    DataBaseSync dataBaseSync = new DataBaseSync(ListaUsuariosActivity.this);
-                    dataBaseSync.updateUsuariosSQLite(modeloUsuarios);
+                    usuario.update(modeloUsuarios);
                 }
             }
 
@@ -86,9 +86,8 @@ public class ListaUsuariosActivity extends AppCompatActivity {
     }
 
     private void loadSQLite() {
-        DataBaseSync dataBaseSync = new DataBaseSync(this);
         modeloUsuarios.clear();
-        modeloUsuarios.addAll(dataBaseSync.getListaUsuarios());
+        modeloUsuarios.addAll(usuario.list());
         adapterRecycler.notifyDataSetChanged();
     }
 
