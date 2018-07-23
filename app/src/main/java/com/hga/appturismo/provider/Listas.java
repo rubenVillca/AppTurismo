@@ -5781,7 +5781,7 @@ public class Listas {
 
         acontecimiento = new ModeloLugarTuristico();
         acontecimiento.setIdSQLite(idAcontecimiento++);
-        //acontecimiento.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
+        acontecimiento.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         acontecimiento.setTipo("Acontecimientos Programados");
         acontecimiento.setNombre("Festividad de la Virgen “La Bella”");
         acontecimiento.setImagenesFirebaseArreglo(new String[]{"Festividad de la Virgen LA BELLA.jpg", "Festividad de la Virgen LA BELLA2.jpg", "Festividad de la Virgen LA BELLA3.jpg"});

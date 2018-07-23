@@ -20,15 +20,6 @@ public class ModeloBaseLugares implements Serializable {
     protected String estado;
     protected String descripcion;
     protected String registradoPor;
-
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
-
     public ModeloBaseLugares() {
         this.idSQLite = 0;
         this.idFirebase = "";
@@ -38,9 +29,18 @@ public class ModeloBaseLugares implements Serializable {
         this.telefono = 0;
         this.gpsX = 0f;
         this.gpsY = 0f;
-        this.estado = Constants.ESTADO_LUGAR_INACTIVO;
+        this.estado = Constants.ESTADO_LUGAR_ACTIVO;
         this.descripcion="";
-        this.registradoPor = "";
+        this.registradoPor = "hga.x@gmail.com";
+    }
+
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
     public int getIdSQLite() {

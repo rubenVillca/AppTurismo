@@ -107,7 +107,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 menu.findItem(R.id.action_user_insert).setVisible(false);
                 menu.findItem(R.id.action_edit_profile).setVisible(true);
                 menu.findItem(R.id.action_sincronizar).setVisible(true);
-                menu.findItem(R.id.action_reset).setVisible(true);
+                menu.findItem(R.id.action_reset).setVisible(true);//para descartivar la opcion de reseteo poner false aqui
+
                 menu.findItem(R.id.action_close_login).setVisible(true);
                 break;
             default://no logueado

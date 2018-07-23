@@ -21,17 +21,17 @@ public class ResetFirebase {
     public void resetDatosFirebase() {
         Listas listas = new Listas();
 
-        ResetFirebaseUsuarios resetFirebaseUsuarios =new ResetFirebaseUsuarios(mainActivity);
+        //ResetFirebaseUsuarios resetFirebaseUsuarios =new ResetFirebaseUsuarios(mainActivity);
         ResetFirebaseHoteles resetFirebaseHoteles=new ResetFirebaseHoteles();
         ResetFirebaseRestaurantes resetFirebaseRestaurantes=new ResetFirebaseRestaurantes();
         ResetFirebaseLugaresTour reserFirebaseLugaresTour=new ResetFirebaseLugaresTour();
 
-        resetFirebaseUsuarios.deleteUsuarios();
+        //resetFirebaseUsuarios.deleteUsuarios();
         resetFirebaseHoteles.deleteHoteles(app);
         resetFirebaseRestaurantes.deleteRestaurantes(app);
         reserFirebaseLugaresTour.deleteLugaresTuristicos(app);
 
-        resetFirebaseUsuarios.insertUsuarios(app,listas);
+        //resetFirebaseUsuarios.insertUsuarios(app,listas);
         resetFirebaseHoteles.insertHoteles(app, listas);
         resetFirebaseRestaurantes.insertRestaurantes(app, listas);
         reserFirebaseLugaresTour.insertLugaresTuristicos(app, listas);

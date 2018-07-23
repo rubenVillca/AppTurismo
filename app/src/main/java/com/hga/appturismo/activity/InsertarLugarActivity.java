@@ -240,6 +240,13 @@ public class InsertarLugarActivity extends AppCompatActivity {
         modeloLugarTuristico.setLinea(txt_linea.getText().toString());
         modeloLugarTuristico.setFecha(txt_fecha.getText().toString());
         modeloLugarTuristico.setRegistradoPor(email);
+
+        SharedPreferences sharedPreferences = getSharedPreferences("USER", MODE_PRIVATE);
+        int rol = sharedPreferences.getInt("rol", 0);
+        if (rol==Constants.USUARIO_ROL_REVISOR)
+            modeloLugarTuristico.setEstado(Constants.ESTADO_LUGAR_INACTIVO);
+        else
+            modeloLugarTuristico.setEstado(Constants.ESTADO_LUGAR_ACTIVO);
         return modeloLugarTuristico;
     }
 
@@ -323,6 +330,31 @@ public class InsertarLugarActivity extends AppCompatActivity {
         File file = new File(mCurrentAbsolutePhotoPath);
         final Uri uri = Uri.fromFile(file);
 
+        databaseReference=setReferencetProvincia(modeloLugarTuristico);
+
+        storageReference = app.getStorageReferenceLugarTuristico("");
+        StorageReference imageReference = storageReference.child(modeloLugarTuristico.getNombre() + "/" + uri.getLastPathSegment());
+
+        UploadTask uploadTask = imageReference.putFile(uri);
+
+        uploadTask.addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(InsertarLugarActivity.this, "Error al subir la imagen", Toast.LENGTH_LONG).show();
+            }
+        }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                Toast.makeText(InsertarLugarActivity.this, "ModeloImagen subida con exito", Toast.LENGTH_LONG).show();
+
+                //String imageURL = taskSnapshot.getDownloadUrl().toString();
+                //String imageURL=Constants.FIREBASE_STORAGE_IMGS + uri.getLastPathSegment();
+                databaseReference.push().setValue(modeloLugarTuristico);
+            }
+        });
+    }
+
+    private DatabaseReference setReferencetProvincia(ModeloLugarTuristico modeloLugarTuristico) {
         String provincia = modeloLugarTuristico.getProvincia();
         switch (provincia) {
             case "Arani":
@@ -381,26 +413,7 @@ public class InsertarLugarActivity extends AppCompatActivity {
             default:
                 break;
         }
-        storageReference = app.getStorageReferenceLugarTuristico("");
-        StorageReference imageReference = storageReference.child(modeloLugarTuristico.getNombre() + "/" + uri.getLastPathSegment());
-
-        UploadTask uploadTask = imageReference.putFile(uri);
-
-        uploadTask.addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Toast.makeText(InsertarLugarActivity.this, "Error al subir la imagen", Toast.LENGTH_LONG).show();
-            }
-        }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-            @Override
-            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                Toast.makeText(InsertarLugarActivity.this, "ModeloImagen subida con exito", Toast.LENGTH_LONG).show();
-
-                //String imageURL = taskSnapshot.getDownloadUrl().toString();
-                //String imageURL=Constants.FIREBASE_STORAGE_IMGS + uri.getLastPathSegment();
-                databaseReference.push().setValue(modeloLugarTuristico);
-            }
-        });
+        return databaseReference;
     }
 
     /**
