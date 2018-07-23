@@ -75,13 +75,21 @@ public class ListaHotelesActivity extends AppCompatActivity {
                     modeloHotels.clear();
                     if (listaResponse != null) {
                         ArrayList<ModeloHotel> hotelArrayList = listaResponse.getListModeloHotel();
-                        modeloHotels.addAll(hotelArrayList);
+
+                        SharedPreferences sharedPreferences = getSharedPreferences("USER", MODE_PRIVATE);
+                        int rol = sharedPreferences.getInt("rol", 0);
+                        if (rol==Constants.USUARIO_ROL_ADMIN) {
+                            modeloHotels.addAll(hotelArrayList);
+                        }else {
+                            for (ModeloHotel hotel : hotelArrayList) {
+                                if (hotel.getEstado().equals(Constants.ESTADO_LUGAR_VISIBLE)) {
+                                    modeloHotels.add(hotel);
+                                }
+                            }
+                        }
                     }
-                    adapterRecycler.notifyDataSetChanged();
-
                     loadJSONFirebasePuntaje();
-
-
+                    adapterRecycler.notifyDataSetChanged();
                     hotel.update(modeloHotels);//actualizar hotel sqlite
                 }
             }

@@ -1,6 +1,7 @@
 package com.hga.appturismo.activity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.view.MenuItemCompat;
@@ -78,12 +79,20 @@ public class ListaRestaurantesActivity extends AppCompatActivity {
                     modeloRestaurantes.clear();
                     if (listaResponse != null) {
                         ArrayList<ModeloRestaurante> restauranteArrayList = listaResponse.getListModeloRestaurante();
-                        modeloRestaurantes.addAll(restauranteArrayList);
+                        SharedPreferences sharedPreferences = getSharedPreferences("USER", MODE_PRIVATE);
+                        int rol = sharedPreferences.getInt("rol", 0);
+                        if (rol==Constants.USUARIO_ROL_ADMIN) {
+                            modeloRestaurantes.addAll(restauranteArrayList);
+                        }else {
+                         for (ModeloRestaurante restaurante:restauranteArrayList){
+                             if (restaurante.getEstado().equals(Constants.ESTADO_LUGAR_VISIBLE)){
+                                 modeloRestaurantes.add(restaurante);
+                             }
+                         }
+                        }
                     }
-                    adapterRecycler.notifyDataSetChanged();
-
                     loadJSONFirebasePuntaje();
-
+                    adapterRecycler.notifyDataSetChanged();
                     restaurante.update(modeloRestaurantes);
                 }
             }

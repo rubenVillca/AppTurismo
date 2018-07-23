@@ -106,7 +106,24 @@ public class ListaLugaresActivity extends AppCompatActivity {
 
                     lugaresTuristicos.clear();
                     if (listaResponse != null) {
-                        setListaLugares(listaResponse);
+                        ArrayList<ModeloLugarTuristico> turisticoArrayList = listaResponse.getListModeloLugarTuristico();
+                        if (!lugarSeleccionado.isEmpty()) {
+                            for (ModeloLugarTuristico modeloLugarTuristico : turisticoArrayList) {
+                                SharedPreferences sharedPreferences = getSharedPreferences("USER", MODE_PRIVATE);
+                                int rol = sharedPreferences.getInt("rol", 0);
+
+                                if (modeloLugarTuristico.getEstado().equals(Constants.ESTADO_LUGAR_VISIBLE)||rol==Constants.USUARIO_ROL_ADMIN) {
+                                    if (isProvincia && modeloLugarTuristico.getProvincia().equals(lugarSeleccionado)) {
+                                        lugaresTuristicos.add(modeloLugarTuristico);
+                                    }
+                                    if (!isProvincia && modeloLugarTuristico.getTipo().equals(lugarSeleccionado)) {
+                                        lugaresTuristicos.add(modeloLugarTuristico);
+                                    }
+                                }
+                            }
+                        } else{
+                            lugaresTuristicos.addAll(turisticoArrayList);
+                        }
                     }
                     loadFirebasePuntaje();
                     adapterRecycler.notifyDataSetChanged();
@@ -120,27 +137,6 @@ public class ListaLugaresActivity extends AppCompatActivity {
                 Log.d("Error", t.getMessage());
             }
         });
-    }
-
-    private void setListaLugares(ListaResponse listaResponse) {
-        ArrayList<ModeloLugarTuristico> turisticoArrayList = listaResponse.getListModeloLugarTuristico();
-        if (!lugarSeleccionado.isEmpty()) {
-            for (ModeloLugarTuristico modeloLugarTuristico : turisticoArrayList) {
-                SharedPreferences sharedPreferences = getSharedPreferences("USER", MODE_PRIVATE);
-                int rol = sharedPreferences.getInt("rol", 0);
-
-                if (modeloLugarTuristico.getEstado().equals(Constants.ESTADO_LUGAR_VISIBLE)||rol==Constants.USUARIO_ROL_ADMIN) {
-                    if (isProvincia && modeloLugarTuristico.getProvincia().equals(lugarSeleccionado)) {
-                        lugaresTuristicos.add(modeloLugarTuristico);
-                    }
-                    if (!isProvincia && modeloLugarTuristico.getTipo().equals(lugarSeleccionado)) {
-                        lugaresTuristicos.add(modeloLugarTuristico);
-                    }
-                }
-            }
-        } else{
-            lugaresTuristicos.addAll(turisticoArrayList);
-        }
     }
 
     /**

@@ -95,10 +95,10 @@ public class HotelAdapterRecycler extends RecyclerView.Adapter<HotelAdapterRecyc
         setImageHolder(holder, modeloHotel);
         setEstrellasHolder(holder, modeloHotel);//marcar estrellas
         setButtonHolder(holder, position, modeloHotel);
-        setVisivilityHolder(holder);
+        setVisivilityHolder(holder,modeloHotel.getRegistradoPor());
     }
 
-    private void setVisivilityHolder(HotelViewHolder holder) {
+    private void setVisivilityHolder(HotelViewHolder holder, String registradoPor) {
         SharedPreferences sharedPreferences=activity.getSharedPreferences("USER",MODE_PRIVATE);
         int rol=sharedPreferences.getInt("rol",0);
         switch (rol){
@@ -113,8 +113,8 @@ public class HotelAdapterRecycler extends RecyclerView.Adapter<HotelAdapterRecyc
                 holder.estrella5.setVisibility(View.VISIBLE);
                 break;
             case Constants.USUARIO_ROL_REVISOR:
-                holder.btn_editar.setVisibility(View.VISIBLE);
-                holder.btn_eliminar.setVisibility(View.VISIBLE);
+                holder.btn_editar.setVisibility(View.GONE);
+                holder.btn_eliminar.setVisibility(View.GONE);
                 holder.layoutEstrellas.setVisibility(View.VISIBLE);
                 holder.estrella1.setVisibility(View.VISIBLE);
                 holder.estrella2.setVisibility(View.VISIBLE);
@@ -132,6 +132,13 @@ public class HotelAdapterRecycler extends RecyclerView.Adapter<HotelAdapterRecyc
                 holder.estrella4.setVisibility(View.VISIBLE);
                 holder.estrella5.setVisibility(View.VISIBLE);
                 break;
+        }
+
+
+        String email = sharedPreferences.getString("email", "");
+        if (!email.isEmpty()&&email.equals(registradoPor)){
+            holder.btn_editar.setVisibility(View.VISIBLE);
+            holder.btn_eliminar.setVisibility(View.VISIBLE);
         }
     }
 

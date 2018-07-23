@@ -31,7 +31,7 @@ public class ModeloBaseLugares implements Serializable {
         this.gpsY = 0f;
         this.estado = Constants.ESTADO_LUGAR_VISIBLE;
         this.descripcion="";
-        this.registradoPor = "hga.x@gmail.com";
+        this.registradoPor = "hga.ax88@gmail.com";
     }
 
 

@@ -277,7 +277,7 @@ public class LugarAdapterRecycler extends RecyclerView.Adapter<LugarAdapterRecyc
         setImageHolder(holder, modeloLugarTuristico);//leer imagen desde bdFirebase
         setEstrellasHolder(holder, modeloLugarTuristico);//marcar estrellas
         setButtonHolder(holder, position, modeloLugarTuristico);//estableces acciones de botones en cardview
-        setVisivilityHolder(holder);//mostrar valores dependiendo los roles y permisos
+        setVisivilityHolder(holder,modeloLugarTuristico.getRegistradoPor());//mostrar valores dependiendo los roles y permisos
     }
 
     @Override
@@ -425,7 +425,7 @@ public class LugarAdapterRecycler extends RecyclerView.Adapter<LugarAdapterRecyc
         holder.nameCardView.setText(modeloLugarTuristico.getNombre());
     }
 
-    private void setVisivilityHolder(LugarViewHolder holder) {
+    private void setVisivilityHolder(LugarViewHolder holder,String registradoPor) {
         SharedPreferences sharedPreferences=activity.getSharedPreferences("USER",MODE_PRIVATE);
         int rol=sharedPreferences.getInt("rol",0);
         switch (rol){
@@ -459,6 +459,12 @@ public class LugarAdapterRecycler extends RecyclerView.Adapter<LugarAdapterRecyc
                 holder.estrella4.setVisibility(View.VISIBLE);
                 holder.estrella5.setVisibility(View.VISIBLE);
                 break;
+        }
+
+        String email = sharedPreferences.getString("email", "");
+        if (!email.isEmpty()&&email.equals(registradoPor)){
+            holder.btn_editar.setVisibility(View.VISIBLE);
+            holder.btn_eliminar.setVisibility(View.VISIBLE);
         }
     }
 

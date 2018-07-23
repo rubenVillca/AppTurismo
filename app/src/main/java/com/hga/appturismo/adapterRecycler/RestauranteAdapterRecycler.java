@@ -97,10 +97,10 @@ public class RestauranteAdapterRecycler extends RecyclerView.Adapter<Restaurante
         setImageHolder(holder, modeloRestaurante);
         setEstrellasHolder(holder, modeloRestaurante);//marcar estrellas
         setButtonHolder(holder, position, modeloRestaurante);
-        setVisivilityHolder(holder);
+        setVisivilityHolder(holder,modeloRestaurante.getRegistradoPor());
 
     }
-    private void setVisivilityHolder(RestauranteAdapterRecycler.RestauranteViewHolder holder) {
+    private void setVisivilityHolder(RestauranteViewHolder holder,String registradoPor) {
         SharedPreferences sharedPreferences=activity.getSharedPreferences("USER",MODE_PRIVATE);
         int rol=sharedPreferences.getInt("rol",0);
         switch (rol){
@@ -136,6 +136,11 @@ public class RestauranteAdapterRecycler extends RecyclerView.Adapter<Restaurante
                 break;
         }
 
+        String email = sharedPreferences.getString("email", "");
+        if (!email.isEmpty()&&email.equals(registradoPor)){
+            holder.btn_editar.setVisibility(View.VISIBLE);
+            holder.btn_eliminar.setVisibility(View.VISIBLE);
+        }
     }
     private void setButtonHolder(RestauranteAdapterRecycler.RestauranteViewHolder holder, final int position, final ModeloRestaurante modeloRestaurante) {
         holder.imageCardView.setOnClickListener(new View.OnClickListener() {
