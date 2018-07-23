@@ -24,6 +24,7 @@ import com.hga.appturismo.bdFirebase.TurismoCliente;
 import com.hga.appturismo.bdFirebase.TurismoFirebaseService;
 import com.hga.appturismo.modelo.ModeloHotel;
 import com.hga.appturismo.modelo.ModeloPuntaje;
+import com.hga.appturismo.util.Constants;
 
 import java.util.ArrayList;
 
@@ -43,8 +44,10 @@ public class ListaHotelesActivity extends AppCompatActivity {
         hotel =new SqliteHotel(this);
 
         initRecyclerView();
-        //loadJSONFirebaseHotel();
-        loadSQLite();
+        if (Constants.IS_READ_FIREBASE)
+            loadJSONFirebaseHotel();
+        else
+            loadSQLite();
     }
     private void initRecyclerView() {
         modeloHotels =new ArrayList<>();
@@ -57,8 +60,6 @@ public class ListaHotelesActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(linearLayoutManager);
         adapterRecycler = new HotelAdapterRecycler(modeloHotels,modeloPuntajes, R.layout.cardview_list,this);
         recyclerView.setAdapter(adapterRecycler);
-
-
     }
 
     private void loadJSONFirebaseHotel() {

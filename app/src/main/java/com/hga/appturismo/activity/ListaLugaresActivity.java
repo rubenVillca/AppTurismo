@@ -1,7 +1,6 @@
 package com.hga.appturismo.activity;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.view.MenuItemCompat;
@@ -24,6 +23,7 @@ import com.hga.appturismo.modelo.ModeloLugarTuristico;
 import com.hga.appturismo.modelo.ModeloPuntaje;
 import com.hga.appturismo.typeAdapter.LugarResponseTypeAdapter;
 import com.hga.appturismo.typeAdapter.PuntajeResponseTypeAdapter;
+import com.hga.appturismo.util.Constants;
 
 import java.util.ArrayList;
 
@@ -48,8 +48,11 @@ public class ListaLugaresActivity extends AppCompatActivity {
         init();
 
         initRecyclerView();
-        //loadJSONLugarTuristico();
-        loadSQLite();
+
+        if (Constants.IS_READ_FIREBASE)
+            loadFirebaseLugarTuristico();
+        else
+            loadSQLite();
     }
 
     private void init() {
@@ -90,7 +93,7 @@ public class ListaLugaresActivity extends AppCompatActivity {
     /**
      * leer de json la lista de lugares turisticos
      */
-    private void loadJSONLugarTuristico() {
+    private void loadFirebaseLugarTuristico() {
         TurismoFirebaseService turismoFirebaseService = (new TurismoCliente(new LugarResponseTypeAdapter())).getService();
 
         Call<ListaResponse> lugarResponseCall = turismoFirebaseService.getListLugarTuristico();

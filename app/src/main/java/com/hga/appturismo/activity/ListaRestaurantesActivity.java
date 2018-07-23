@@ -1,7 +1,6 @@
 package com.hga.appturismo.activity;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.view.MenuItemCompat;
@@ -24,6 +23,7 @@ import com.hga.appturismo.bdFirebase.TurismoCliente;
 import com.hga.appturismo.bdFirebase.TurismoFirebaseService;
 import com.hga.appturismo.modelo.ModeloPuntaje;
 import com.hga.appturismo.modelo.ModeloRestaurante;
+import com.hga.appturismo.util.Constants;
 
 import java.util.ArrayList;
 
@@ -44,8 +44,11 @@ public class ListaRestaurantesActivity extends AppCompatActivity {
         restaurante =new SqliteRestaurante(this);
 
         initRecyclerView();
-        //loadJSONFirebase();
-        loadSQLite();
+
+        if (Constants.IS_READ_FIREBASE)
+            loadFirebase();
+        else
+            loadSQLite();
     }
 
     private void initRecyclerView() {
@@ -62,7 +65,7 @@ public class ListaRestaurantesActivity extends AppCompatActivity {
 
     }
 
-    private void loadJSONFirebase() {
+    private void loadFirebase() {
         TurismoFirebaseService turismoFirebaseService = (new TurismoCliente(new RestauranteResponseTypeAdapter())).getService();
 
         Call<ListaResponse> restautanteResponseCall = turismoFirebaseService.getListRestaurante();

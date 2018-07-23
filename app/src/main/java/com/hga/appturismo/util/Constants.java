@@ -66,6 +66,7 @@ public class Constants {
 
     public static final String ESTADO_LUGAR_INACTIVO = "No definido";
     public static final String ESTADO_LUGAR_ACTIVO = "Activo";
+    public static final boolean IS_READ_FIREBASE = true;
 
     public static int SELECT_HOTEL = 0;
     public static int SELECT_LUGAR = 1;
