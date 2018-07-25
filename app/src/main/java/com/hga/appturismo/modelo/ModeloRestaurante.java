@@ -51,4 +51,10 @@ public class ModeloRestaurante extends ModeloBaseLugares{
     public void setPaginaWeb(String paginaWeb) {
         this.paginaWeb = paginaWeb;
     }
+
+    public boolean equals(ModeloRestaurante modeloRestaurante) {
+        return modeloRestaurante.getIdFirebase().equals(idFirebase)
+                && modeloRestaurante.getIdSQLite() == idSQLite
+                && modeloRestaurante.getNombre().equals(nombre);
+    }
 }
