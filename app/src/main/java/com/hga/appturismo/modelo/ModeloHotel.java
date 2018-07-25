@@ -39,4 +39,10 @@ public class ModeloHotel extends ModeloBaseLugares {
     public void setProvincia(String provincia) {
         this.provincia = provincia;
     }
+
+    public boolean equals(ModeloHotel modeloHotel) {
+        return modeloHotel.getIdFirebase().equals(idFirebase)
+                && modeloHotel.getIdSQLite() == idSQLite
+                && modeloHotel.getNombre().equals(nombre);
+    }
 }

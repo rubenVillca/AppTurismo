@@ -165,7 +165,6 @@ public class HotelAdapterRecycler extends RecyclerView.Adapter<HotelAdapterRecyc
             @Override
             public void onClick(View v) {
                 eliminarHotel(position,modeloHotel);
-                eliminarHotelFilter(position,modeloHotel);
             }
         });
     }
@@ -326,14 +325,8 @@ public class HotelAdapterRecycler extends RecyclerView.Adapter<HotelAdapterRecyc
         DatabaseReference databaseReference=app.getDataBaseReferenceHotel(modeloHotel.getIdFirebase());
         databaseReference.removeValue();//eliminar de bdFirebase
 
-        hoteles.remove(position);
-        notifyItemRemoved(position);
-    }
-    private void eliminarHotelFilter(int position, ModeloHotel hotelesFilter) {
-        DatabaseReference databaseReference=app.getDataBaseReferenceHotel(hotelesFilter.getIdFirebase());
-        databaseReference.removeValue();
-
-        hoteles.remove(position);
+        hotelesFilter.remove(modeloHotel);
+        hoteles.remove(modeloHotel);
         notifyItemRemoved(position);
     }
 
