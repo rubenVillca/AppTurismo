@@ -67,17 +67,11 @@ public class LugarAdapterRecycler extends RecyclerView.Adapter<LugarAdapterRecyc
         DatabaseReference provincia = getPostReferenceProvincia(modeloLugarTuristico.getIdFirebase(), modeloLugarTuristico.getProvincia());
         provincia.removeValue();
 
-        modeloLugarTuristicos.remove(position);
+        modeloLugarTuristicosFilter.remove(modeloLugarTuristico);
+        modeloLugarTuristicos.remove(modeloLugarTuristico);
         LugarAdapterRecycler.this.notifyItemRemoved(position);
     }
 
-    private void eliminarLugarFilter(int position, ModeloLugarTuristico modeloLugarTuristicoFilter) {
-        DatabaseReference provincia = getPostReferenceProvincia(modeloLugarTuristicoFilter.getIdFirebase(), modeloLugarTuristicoFilter.getProvincia());
-        provincia.removeValue();
-
-        modeloLugarTuristicosFilter.remove(position);
-        LugarAdapterRecycler.this.notifyItemRemoved(position);
-    }
     @Override
     public Filter getFilter() {
         return new Filter() {
@@ -132,59 +126,59 @@ public class LugarAdapterRecycler extends RecyclerView.Adapter<LugarAdapterRecyc
         provincia = provincia.toLowerCase();
         switch (provincia) {
             case "arani":
-                databaseReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_PROVINCIA_ARANI + urlFirebase);
+                databaseReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_PROVINCIA_ARANI + "/" + urlFirebase);
                 break;
             case "cercado":
-                databaseReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_PROVINCIA_CERCADO + urlFirebase);
+                databaseReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_PROVINCIA_CERCADO + "/" + urlFirebase);
                 break;
             case "arque":
-                databaseReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_PROVINCIA_ARQUE + urlFirebase);
+                databaseReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_PROVINCIA_ARQUE + "/" + urlFirebase);
                 break;
             case "ayopaya":
-                databaseReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_PROVINCIA_AYOPAYA + urlFirebase);
+                databaseReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_PROVINCIA_AYOPAYA + "/" + urlFirebase);
                 break;
             case "bolivar":
             case "bolívar":
-                databaseReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_PROVINCIA_BOLIVAR + urlFirebase);
+                databaseReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_PROVINCIA_BOLIVAR + "/" + urlFirebase);
                 break;
             case "campero":
             case "narciso campero":
-                databaseReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_PROVINCIA_CAMPERO + urlFirebase);
+                databaseReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_PROVINCIA_CAMPERO + "/" + urlFirebase);
                 break;
             case "chapare":
-                databaseReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_PROVINCIA_CHAPARE + urlFirebase);
+                databaseReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_PROVINCIA_CHAPARE + "/" + urlFirebase);
                 break;
             case "capinota":
-                databaseReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_PROVINCIA_CAPINOTA + urlFirebase);
+                databaseReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_PROVINCIA_CAPINOTA + "/" + urlFirebase);
                 break;
             case "esteban arze":
-                databaseReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_PROVINCIA_ESTEBAN_ARZE + urlFirebase);
+                databaseReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_PROVINCIA_ESTEBAN_ARZE + "/" + urlFirebase);
                 break;
             case "jordán":
             case "jordan":
             case "germán jordán":
-                databaseReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_PROVINCIA_GERMAN_JORDAN + urlFirebase);
+                databaseReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_PROVINCIA_GERMAN_JORDAN + "/" + urlFirebase);
                 break;
             case "carrasco":
             case "josé carrasco":
             case "José Carrasco":
-                databaseReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_PROVINCIA_JOSE_CARRASCO_TORRICO + urlFirebase);
+                databaseReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_PROVINCIA_JOSE_CARRASCO_TORRICO + "/" + urlFirebase);
                 break;
             case "mizque":
-                databaseReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_PROVINCIA_MIZQUE + urlFirebase);
+                databaseReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_PROVINCIA_MIZQUE + "/" + urlFirebase);
                 break;
             case "punata":
-                databaseReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_PROVINCIA_PUNATA + urlFirebase);
+                databaseReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_PROVINCIA_PUNATA + "/" + urlFirebase);
                 break;
             case "quillacollo":
-                databaseReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_PROVINCIA_QUILLACOLLO + urlFirebase);
+                databaseReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_PROVINCIA_QUILLACOLLO + "/" + urlFirebase);
                 break;
             case "tapacarí":
             case "tapacari":
-                databaseReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_PROVINCIA_TAPACARI + urlFirebase);
+                databaseReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_PROVINCIA_TAPACARI + "/" + urlFirebase);
                 break;
             case "tiraque":
-                databaseReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_PROVINCIA_TIRAQUE + urlFirebase);
+                databaseReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_PROVINCIA_TIRAQUE + "/" + urlFirebase);
                 break;
             default:
                 databaseReference = null;
@@ -312,7 +306,6 @@ public class LugarAdapterRecycler extends RecyclerView.Adapter<LugarAdapterRecyc
             @Override
             public void onClick(View v) {
                 eliminarLugar(position, modeloLugarTuristico);
-                eliminarLugarFilter(position, modeloLugarTuristico);
             }
         });
 

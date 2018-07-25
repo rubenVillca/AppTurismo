@@ -69,4 +69,11 @@ public class ModeloLugarTuristico extends ModeloBaseLugares{
     public void setActividad(String actividad) {
         this.actividad = actividad;
     }
+
+    public boolean equals(ModeloLugarTuristico modeloLugarTuristico) {
+        return modeloLugarTuristico.getIdFirebase().equals(idFirebase)
+                && modeloLugarTuristico.getIdSQLite() == idSQLite
+                && modeloLugarTuristico.getNombre().equals(nombre)
+                && modeloLugarTuristico.getProvincia().equals(provincia);
+    }
 }
