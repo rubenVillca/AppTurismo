@@ -41,7 +41,7 @@ import com.hga.appturismo.bdFirebase.TurismoCliente;
 import com.hga.appturismo.bdFirebase.TurismoFirebaseService;
 import com.hga.appturismo.bdSQLite.SqliteUsuario;
 import com.hga.appturismo.modelo.ModeloUsuario;
-import com.hga.appturismo.typeAdapter.UsuarioResponseTypeAdapter;
+import com.hga.appturismo.typeAdapterJson.UsuarioResponseTypeAdapter;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -22,8 +22,8 @@ import com.hga.appturismo.bdFirebase.TurismoFirebaseService;
 import com.hga.appturismo.bdSQLite.SqliteLugar;
 import com.hga.appturismo.modelo.ModeloLugarTuristico;
 import com.hga.appturismo.modelo.ModeloPuntaje;
-import com.hga.appturismo.typeAdapter.LugarResponseTypeAdapter;
-import com.hga.appturismo.typeAdapter.PuntajeResponseTypeAdapter;
+import com.hga.appturismo.typeAdapterJson.LugarResponseTypeAdapter;
+import com.hga.appturismo.typeAdapterJson.PuntajeResponseTypeAdapter;
 import com.hga.appturismo.util.Constants;
 
 import java.util.ArrayList;

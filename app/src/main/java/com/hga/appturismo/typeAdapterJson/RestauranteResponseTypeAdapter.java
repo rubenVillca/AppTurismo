@@ -1,11 +1,11 @@
-package com.hga.appturismo.typeAdapter;
+package com.hga.appturismo.typeAdapterJson;
 
 import com.google.gson.TypeAdapter;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.hga.appturismo.bdFirebase.ListaResponse;
-import com.hga.appturismo.modelo.ModeloHotel;
 import com.hga.appturismo.modelo.ModeloImagen;
+import com.hga.appturismo.modelo.ModeloRestaurante;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -14,7 +14,7 @@ import java.util.ArrayList;
  * Created by HGA on 31/08/2017
  */
 
-public class HotelResponseTypeAdapter extends TypeAdapter {
+public class RestauranteResponseTypeAdapter extends TypeAdapter {
     @Override
     public void write(JsonWriter out, Object value) throws IOException {
 
@@ -23,79 +23,82 @@ public class HotelResponseTypeAdapter extends TypeAdapter {
     @Override
     public ListaResponse read(JsonReader in) throws IOException {
         final ListaResponse response = new ListaResponse();
-        ArrayList<ModeloHotel> modeloHotels = new ArrayList<>();
+        ArrayList<ModeloRestaurante> modeloRestaurantes = new ArrayList<>();
         in.beginObject();
         while (in.hasNext()) {
-            ModeloHotel modeloHotel = null;
+            ModeloRestaurante modeloRestaurante = null;
             try {
-                modeloHotel = readHotel(in);
+                modeloRestaurante = readRestaurante(in);
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            modeloHotels.add(modeloHotel);
+            modeloRestaurantes.add(modeloRestaurante);
         }
         in.endObject();
-        response.setListModeloHotel(modeloHotels);
+        response.setListModeloRestaurante(modeloRestaurantes);
         return response;
     }
 
-    public ModeloHotel readHotel(JsonReader reader) throws IOException {
-        ModeloHotel modeloHotel = new ModeloHotel();
-        modeloHotel.setIdFirebase(reader.nextName());
+    private ModeloRestaurante readRestaurante(JsonReader reader) throws IOException {
+        ModeloRestaurante modeloRestaurante = new ModeloRestaurante();
+        modeloRestaurante.setIdFirebase(reader.nextName());
         reader.beginObject();
         while (reader.hasNext()) {
             String next = reader.nextName();
             switch (next) {
                 case "idSQLite":
-                    modeloHotel.setIdSQLite(reader.nextInt());
+                    modeloRestaurante.setIdSQLite(reader.nextInt());
                     break;
                 case "idFirebase":
                     reader.nextString();
-                    //modeloHotel.setIdFirebase(reader.nextString());
                     break;
                 case "nombre":
-                    modeloHotel.setNombre(reader.nextString());
+                    modeloRestaurante.setNombre(reader.nextString());
                     break;
                 case "gpsX":
-                    modeloHotel.setGpsX(Float.parseFloat(reader.nextString()));
+                    modeloRestaurante.setGpsX(Float.parseFloat(reader.nextString()));
                     break;
                 case "gpsY":
-                    modeloHotel.setGpsY(Float.parseFloat(reader.nextString()));
+                    modeloRestaurante.setGpsY(Float.parseFloat(reader.nextString()));
+                    break;
+
+                case "horario":
+                    modeloRestaurante.setHorario(reader.nextString());
                     break;
                 case "direccion":
-                    modeloHotel.setDireccion(reader.nextString());
+                    modeloRestaurante.setDireccion(reader.nextString());
                     break;
                 case "imagenes":
-                    modeloHotel.setImagenes(readImagenes(reader));
+                    modeloRestaurante.setImagenesFirebase(readImagenes(reader));
                     break;
                 case "telefono":
-                    modeloHotel.setTelefono(reader.nextInt());
+                    modeloRestaurante.setTelefono(reader.nextInt());
                     break;
                 case "provincia":
-                    modeloHotel.setProvincia(reader.nextString());
+                    modeloRestaurante.setProvincia(reader.nextString());
                     break;
                 case "paginaWeb":
-                    modeloHotel.setPaginaWeb(reader.nextString());
+                    modeloRestaurante.setPaginaWeb(reader.nextString());
                     break;
                 case "email":
-                    modeloHotel.setEmail(reader.nextString());
+                    modeloRestaurante.setEmail(reader.nextString());
                     break;
                 case "estado":
-                    modeloHotel.setEstado(reader.nextString());
+                    modeloRestaurante.setEstado(reader.nextString());
                     break;
                 case "registradoPor":
-                    modeloHotel.setRegistradoPor(reader.nextString());
+                    modeloRestaurante.setRegistradoPor(reader.nextString());
                     break;
                 default:
-                    reader.nextString();//no usado
+                    reader.nextString();
                     break;
             }
         }
         reader.endObject();
-        return modeloHotel;
+        return modeloRestaurante;
     }
 
-    public ArrayList<ModeloImagen> readImagenes(JsonReader readerImg) throws IOException {
+    private ArrayList<ModeloImagen> readImagenes(JsonReader readerImg) throws IOException {
         ArrayList<ModeloImagen> modeloImagenArrayList = new ArrayList<>();
         readerImg.beginArray();
         while (readerImg.hasNext()) {
@@ -106,7 +109,7 @@ public class HotelResponseTypeAdapter extends TypeAdapter {
         return modeloImagenArrayList;
     }
 
-    public ModeloImagen readImagen(JsonReader readImg) throws IOException {
+    private ModeloImagen readImagen(JsonReader readImg) throws IOException {
         ModeloImagen modeloImagen = new ModeloImagen();
         readImg.beginObject();
         while (readImg.hasNext()) {
@@ -130,9 +133,7 @@ public class HotelResponseTypeAdapter extends TypeAdapter {
                 case "urlServer":
                     modeloImagen.setUrlServer(readImg.nextString());
                     break;
-                default:
-                    readImg.nextString();
-                    break;
+                default:break;
             }
         }
         readImg.endObject();

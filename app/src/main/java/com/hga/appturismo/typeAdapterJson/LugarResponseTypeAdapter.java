@@ -1,4 +1,4 @@
-package com.hga.appturismo.typeAdapter;
+package com.hga.appturismo.typeAdapterJson;
 
 import com.google.gson.TypeAdapter;
 import com.google.gson.stream.JsonReader;

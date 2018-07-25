@@ -2,11 +2,11 @@ package com.hga.appturismo.bdFirebase;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.hga.appturismo.typeAdapter.HotelResponseTypeAdapter;
-import com.hga.appturismo.typeAdapter.LugarResponseTypeAdapter;
-import com.hga.appturismo.typeAdapter.PuntajeResponseTypeAdapter;
-import com.hga.appturismo.typeAdapter.RestauranteResponseTypeAdapter;
-import com.hga.appturismo.typeAdapter.UsuarioResponseTypeAdapter;
+import com.hga.appturismo.typeAdapterJson.HotelResponseTypeAdapter;
+import com.hga.appturismo.typeAdapterJson.LugarResponseTypeAdapter;
+import com.hga.appturismo.typeAdapterJson.PuntajeResponseTypeAdapter;
+import com.hga.appturismo.typeAdapterJson.RestauranteResponseTypeAdapter;
+import com.hga.appturismo.typeAdapterJson.UsuarioResponseTypeAdapter;
 import com.hga.appturismo.util.Constants;
 
 import retrofit2.Retrofit;
