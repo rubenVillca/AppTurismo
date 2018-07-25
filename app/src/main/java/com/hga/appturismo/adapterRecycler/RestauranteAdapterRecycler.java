@@ -165,6 +165,7 @@ public class RestauranteAdapterRecycler extends RecyclerView.Adapter<Restaurante
             @Override
             public void onClick(View v) {
                 eliminarRestaurante(position,modeloRestaurante);
+                eliminarRestauranteFilter(position,modeloRestaurante);
             }
         });
     }
@@ -319,11 +320,18 @@ public class RestauranteAdapterRecycler extends RecyclerView.Adapter<Restaurante
         holder.nameCardView.setText(modeloRestaurante.getNombre());
     }
     private void eliminarRestaurante(int position, ModeloRestaurante modeloRestaurante) {
-        DatabaseReference databaseReference=app.getDataBaseReferenceHotel(modeloRestaurante.getIdFirebase());
+        DatabaseReference databaseReference=app.getDataBaseReferenceRestaurante(modeloRestaurante.getIdFirebase());
         databaseReference.removeValue();//eliminar de bdFirebase
 
         modeloRestaurantes.remove(position);
-        restaurantesFilter=modeloRestaurantes;//eeeee
+        restaurantesFilter=modeloRestaurantes;
+        notifyItemRemoved(position);
+    }
+    private void eliminarRestauranteFilter(int position, ModeloRestaurante restaurantesFilter) {
+        DatabaseReference databaseReference=app.getDataBaseReferenceRestaurante(restaurantesFilter.getIdFirebase());
+        databaseReference.removeValue();
+
+        modeloRestaurantes.remove(position);
         notifyItemRemoved(position);
     }
 

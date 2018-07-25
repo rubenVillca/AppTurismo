@@ -25,6 +25,7 @@ import com.hga.appturismo.R;
 import com.hga.appturismo.activity.DescripcionLugarTuristicoActivity;
 import com.hga.appturismo.activity.EditarLugarActivity;
 import com.hga.appturismo.bdFirebase.TurismoAplicacion;
+import com.hga.appturismo.modelo.ModeloHotel;
 import com.hga.appturismo.modelo.ModeloImagen;
 import com.hga.appturismo.modelo.ModeloLugarTuristico;
 import com.hga.appturismo.modelo.ModeloPuntaje;
@@ -41,8 +42,8 @@ import static android.content.Context.MODE_PRIVATE;
  */
 
 public class LugarAdapterRecycler extends RecyclerView.Adapter<LugarAdapterRecycler.LugarViewHolder> implements Filterable {
-    private ArrayList<ModeloLugarTuristico> modeloLugarTuristicos;
-    private ArrayList<ModeloLugarTuristico> modeloLugarTuristicosFilter;
+    private ArrayList<ModeloLugarTuristico> modeloLugarTuristicos;//todas las listas de lugares
+    private ArrayList<ModeloLugarTuristico> modeloLugarTuristicosFilter;//todos los lugares que se estasn mostrando
     private ArrayList<ModeloPuntaje> modeloPuntajes;
     private int resource;
     private Activity activity;
@@ -70,6 +71,13 @@ public class LugarAdapterRecycler extends RecyclerView.Adapter<LugarAdapterRecyc
         LugarAdapterRecycler.this.notifyItemRemoved(position);
     }
 
+    private void eliminarLugarFilter(int position, ModeloLugarTuristico modeloLugarTuristicoFilter) {
+        DatabaseReference provincia = getPostReferenceProvincia(modeloLugarTuristicoFilter.getIdFirebase(), modeloLugarTuristicoFilter.getProvincia());
+        provincia.removeValue();
+
+        modeloLugarTuristicosFilter.remove(position);
+        LugarAdapterRecycler.this.notifyItemRemoved(position);
+    }
     @Override
     public Filter getFilter() {
         return new Filter() {
@@ -304,8 +312,10 @@ public class LugarAdapterRecycler extends RecyclerView.Adapter<LugarAdapterRecyc
             @Override
             public void onClick(View v) {
                 eliminarLugar(position, modeloLugarTuristico);
+                eliminarLugarFilter(position, modeloLugarTuristico);
             }
         });
+
     }
 
     private void setCheckEstrellas(int cantidad, LugarViewHolder holder) {

@@ -54,6 +54,7 @@ public class HotelAdapterRecycler extends RecyclerView.Adapter<HotelAdapterRecyc
         this.hoteles = hoteles;
         this.hotelesFilter = hoteles;
         this.modeloPuntajes = modeloPuntaje;
+
         this.resource = resource;
         this.activity = activity;
         this.sharedPreferences = activity.getSharedPreferences("USER", MODE_PRIVATE);
@@ -164,6 +165,7 @@ public class HotelAdapterRecycler extends RecyclerView.Adapter<HotelAdapterRecyc
             @Override
             public void onClick(View v) {
                 eliminarHotel(position,modeloHotel);
+                eliminarHotelFilter(position,modeloHotel);
             }
         });
     }
@@ -323,6 +325,13 @@ public class HotelAdapterRecycler extends RecyclerView.Adapter<HotelAdapterRecyc
     private void eliminarHotel(int position, ModeloHotel modeloHotel) {
         DatabaseReference databaseReference=app.getDataBaseReferenceHotel(modeloHotel.getIdFirebase());
         databaseReference.removeValue();//eliminar de bdFirebase
+
+        hoteles.remove(position);
+        notifyItemRemoved(position);
+    }
+    private void eliminarHotelFilter(int position, ModeloHotel hotelesFilter) {
+        DatabaseReference databaseReference=app.getDataBaseReferenceHotel(hotelesFilter.getIdFirebase());
+        databaseReference.removeValue();
 
         hoteles.remove(position);
         notifyItemRemoved(position);

@@ -52,7 +52,7 @@ public class Listas {
     }
 
     private void setListaHoteles() {
-        int idHotel = 1;
+        int idHotel = 0;
         ModeloHotel hotel = new ModeloHotel();
         hotel.setIdSQLite(idHotel++);
         hotel.setNombre("Hostal Bonairense");
@@ -1392,7 +1392,7 @@ public class Listas {
     }
 
     private void setListaRestaurantes() {
-        int idRestaurante = 1;
+        int idRestaurante = 0;
 
         ModeloRestaurante restaurante;
 
@@ -3707,7 +3707,7 @@ public class Listas {
     }
 
     private int setListaLugarTuristico() {
-        int idLugTur = 1;
+        int idLugTur = 0;
         ModeloLugarTuristico lugarTuristico;
 
         //CERCADO
