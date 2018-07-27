@@ -325,9 +325,10 @@ public class HotelAdapterRecycler extends RecyclerView.Adapter<HotelAdapterRecyc
         DatabaseReference databaseReference=app.getDataBaseReferenceHotel(modeloHotel.getIdFirebase());
         databaseReference.removeValue();//eliminar de bdFirebase
 
+        int p = hotelesFilter.indexOf(modeloHotel);
         hotelesFilter.remove(modeloHotel);
         hoteles.remove(modeloHotel);
-        notifyItemRemoved(position);
+        notifyItemRemoved(p);
     }
 
     @Override

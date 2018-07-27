@@ -67,9 +67,10 @@ public class LugarAdapterRecycler extends RecyclerView.Adapter<LugarAdapterRecyc
         DatabaseReference provincia = getPostReferenceProvincia(modeloLugarTuristico.getIdFirebase(), modeloLugarTuristico.getProvincia());
         provincia.removeValue();
 
+        int p = modeloLugarTuristicosFilter.indexOf(modeloLugarTuristico);
         modeloLugarTuristicosFilter.remove(modeloLugarTuristico);
         modeloLugarTuristicos.remove(modeloLugarTuristico);
-        LugarAdapterRecycler.this.notifyItemRemoved(position);
+        LugarAdapterRecycler.this.notifyItemRemoved(p);
     }
 
     @Override
