@@ -50,7 +50,6 @@ public class RestauranteAdapterRecycler extends RecyclerView.Adapter<Restaurante
     private SharedPreferences sharedPreferences;
     private String email;
     private TurismoAplicacion app;
-
     public RestauranteAdapterRecycler(ArrayList<ModeloRestaurante> modeloRestaurantes, ArrayList<ModeloPuntaje> modeloPuntaje, int resource, Activity activity) {
         this.modeloRestaurantes = modeloRestaurantes;
         this.restaurantesFilter = modeloRestaurantes;
@@ -318,13 +317,16 @@ public class RestauranteAdapterRecycler extends RecyclerView.Adapter<Restaurante
         holder.promedio.setText(String.format("%.1f", promedio));//promedio con 1 decimal
         holder.nameCardView.setText(modeloRestaurante.getNombre());
     }
+
     private void eliminarRestaurante(int position, ModeloRestaurante modeloRestaurante) {
         DatabaseReference databaseReference=app.getDataBaseReferenceRestaurante(modeloRestaurante.getIdFirebase());
         databaseReference.removeValue();//eliminar de bdFirebase
 
+        int p = restaurantesFilter.indexOf(modeloRestaurante);
         restaurantesFilter.remove(modeloRestaurante);
         modeloRestaurantes.remove(modeloRestaurante);
-        notifyItemRemoved(position);
+        //notifyDataSetChanged();
+        notifyItemRemoved(p);
     }
 
     @Override

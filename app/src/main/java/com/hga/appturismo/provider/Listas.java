@@ -767,21 +767,6 @@ public class Listas {
 
         hotel = new ModeloHotel();
         hotel.setIdSQLite(idHotel++);
-        hotel.setNombre("Hotel Diplomat Martinez");
-        hotel.setGpsX(-17.38656608861003f);
-        hotel.setGpsY(-66.15711316466331f);
-        hotel.setDireccion("Av. Ballivián nro. 0611 Edificio: Hotel Diplomat Zona: El Prado");
-        hotel.setImagenesFirebaseArreglo(new String[]{
-                "hotel diplomat martinez sociedad ltda5.jpg", "hotel diplomat martinez sociedad ltda1.jpg", "hotel diplomat martinez sociedad ltda2.jpg", "hotel diplomat martinez sociedad ltda3.jpg", "hotel diplomat martinez sociedad ltda4.jpg", "hotel diplomat martinez sociedad ltda6.jpg"});
-        hotel.setTelefono(4250687);
-        hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
-        hotel.setPaginaWeb("www.hdiplomat.com");
-        hotel.setEmail("reserva@hdiplomat.com");
-        hotel.setEstado(Constants.ESTADO_LUGAR_VISIBLE);
-        listaHoteles.add(hotel);
-
-        hotel = new ModeloHotel();
-        hotel.setIdSQLite(idHotel++);
         hotel.setNombre("Hotel El Super 8");
         hotel.setGpsX(-17.396774367803353f);
         hotel.setGpsY(-66.16029158234596f);
@@ -5783,7 +5768,7 @@ public class Listas {
         acontecimiento.setIdSQLite(idAcontecimiento++);
         acontecimiento.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         acontecimiento.setTipo("Acontecimientos Programados");
-        acontecimiento.setNombre("Festividad de la Virgen “La Bella”");
+        acontecimiento.setNombre("Festividad de la Virgen “La Bella”.");
         acontecimiento.setImagenesFirebaseArreglo(new String[]{"Festividad de la Virgen LA BELLA.jpg", "Festividad de la Virgen LA BELLA2.jpg", "Festividad de la Virgen LA BELLA3.jpg"});
         acontecimiento.setDescripcion("Araní es un atractivo destino para la práctica de turismo religioso, actividad que se encuentra enmarcada en una profunda tradición y ferviente vocación religiosa, resultado del proceso de evangelización y catequización que se llevó a cabo durante la conquista, además de haber funcionado como sede del Obispado de Santa Cruz de la Sierra, el siglo XVII. Entre el 23 y el 25 de agosto, Arani se viste de gala al celebrar la festividad religiosa en honor a la Virgen La Bella, declarada Patrimonio Cultural y Religioso del Departamento de Cochabamba, mediante Ley de 24 de diciembre de 2007. Esta fiesta, al contrario de otras festividades que comienzan con la entrada folklórica, inicia su evento festivo con el día del calvario, seguido de la procesión de la sagrada imagen de la Bella, para finalizar con la demostración folklórica.\n" +
                 "No obstante, antes de la celebración misma de la fiesta, la imagen es venerada en principio en la ciudad de Sacaba para después retornar a Arani donde se da inicio a las tres jornadas festivas. En esta fiesta, durante el calvario también se acostumbra adquirir objetos en miniatura o propiedades para luego ser bendecidas en los rituales católicos y andinos, con similares características que las de Urkupiña.\n");
