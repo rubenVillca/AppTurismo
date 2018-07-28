@@ -103,22 +103,30 @@ public class ListaLugaresActivity extends AppCompatActivity {
             public void onResponse(@NonNull Call<ListaResponse> call, @NonNull Response<ListaResponse> response) {
                 if (response.isSuccessful()) {
                     ListaResponse listaResponse = response.body();
-
+                    //lista de lugares turisticos a mostrar
                     lugaresTuristicos.clear();
                     if (listaResponse != null) {
+                        //lista de todos los lugares turisticos
                         ArrayList<ModeloLugarTuristico> turisticoArrayList = listaResponse.getListModeloLugarTuristico();
+                        //si existe un lugar seleccionado
                         if (!lugarSeleccionado.isEmpty()) {
+                            //recorrer toda la lista
                             for (ModeloLugarTuristico modeloLugarTuristico : turisticoArrayList) {
+                                //recuperar rol de las variables globales
                                 SharedPreferences sharedPreferences = getSharedPreferences("USER", MODE_PRIVATE);
                                 int rol = sharedPreferences.getInt("rol", 0);
-
+                                //si el estado es visivle
                                 if (modeloLugarTuristico.getEstado().equals(Constants.ESTADO_LUGAR_VISIBLE)||rol==Constants.USUARIO_ROL_ADMIN) {
+                                    //si se busca por provincia
                                     if (isProvincia && modeloLugarTuristico.getProvincia().equals(lugarSeleccionado)) {
                                         lugaresTuristicos.add(modeloLugarTuristico);
                                     }
+                                    //si no es por provincia
                                     if (!isProvincia && modeloLugarTuristico.getTipo().equals(lugarSeleccionado)) {
                                         lugaresTuristicos.add(modeloLugarTuristico);
                                     }
+                                    //para seleccionar lugares del tipo acontecimiento //crear uno similar en mainActivity.java
+                                    //if(modeloLugarTuristico.getTipo().equals(Constants.TIPO_LUGAR_ACONTECIMIENTO));
                                 }
                             }
                         } else{

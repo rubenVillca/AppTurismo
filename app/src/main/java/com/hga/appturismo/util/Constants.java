@@ -68,4 +68,8 @@ public class Constants {
     public static int SELECT_HOTEL = 0;
     public static int SELECT_LUGAR = 1;
     public static int SELECT_RESTAURANTE = 2;
+
+    public static String TIPO_LUGAR_ACONTECIMIENTO = "Acontecimientos Programados";
+    public static String TIPO_LUGAR_REALIZACIONES = "Realizaciones Técnicas y Científicas";
+    //asi sucesiamente
 }

@@ -3699,7 +3699,7 @@ public class Listas {
         lugarTuristico = new ModeloLugarTuristico();
         lugarTuristico.setIdSQLite(idLugTur++);
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
-        lugarTuristico.setTipo("Realizaciones Técnicas y Científicas");
+        lugarTuristico.setTipo(Constants.TIPO_LUGAR_REALIZACIONES);//asignar asi a los demas lugares
         lugarTuristico.setNombre("Cristo de la Concordia");
         lugarTuristico.setImagenesFirebaseArreglo(new String[]{"cristo de la concordia1.jpg", "cristo de la concordia2.jpg", "cristo de la concordia3.jpg" });
         lugarTuristico.setDescripcion("Situado sobre el cerro San Pedro, El Cristo tiene el denominativo de la “Concordia”, significando el carácter integrador geográfico, político y social que tiene la ciudad y el departamento de Cochabamba.\n" +
