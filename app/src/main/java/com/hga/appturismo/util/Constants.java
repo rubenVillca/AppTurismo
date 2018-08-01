@@ -69,7 +69,9 @@ public class Constants {
     public static int SELECT_LUGAR = 1;
     public static int SELECT_RESTAURANTE = 2;
 
-    public static String TIPO_LUGAR_ACONTECIMIENTO = "Acontecimientos Programados";
+    public static String TIPO_LUGAR_SITIOS_NATURALES = "Sitios Naturales";
+    public static String TIPO_LUGAR_PATRIMONIO = "Patrimonio Urbano Arquitectónico, Artístico, Museos y Manifestaciones Culturales";
+    public static String TIPO_LUGAR_ETNOGRAFIA = "Etnografía y Folklore";
     public static String TIPO_LUGAR_REALIZACIONES = "Realizaciones Técnicas y Científicas";
-    //asi sucesiamente
+    public static String TIPO_LUGAR_ACONTECIMIENTOS= "Acontecimientos Programados";
 }

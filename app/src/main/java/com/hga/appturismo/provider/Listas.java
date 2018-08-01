@@ -3699,7 +3699,7 @@ public class Listas {
         lugarTuristico = new ModeloLugarTuristico();
         lugarTuristico.setIdSQLite(idLugTur++);
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
-        lugarTuristico.setTipo(Constants.TIPO_LUGAR_REALIZACIONES);//asignar asi a los demas lugares
+        lugarTuristico.setTipo(Constants.TIPO_LUGAR_REALIZACIONES);
         lugarTuristico.setNombre("Cristo de la Concordia");
         lugarTuristico.setImagenesFirebaseArreglo(new String[]{"cristo de la concordia1.jpg", "cristo de la concordia2.jpg", "cristo de la concordia3.jpg" });
         lugarTuristico.setDescripcion("Situado sobre el cerro San Pedro, El Cristo tiene el denominativo de la “Concordia”, significando el carácter integrador geográfico, político y social que tiene la ciudad y el departamento de Cochabamba.\n" +
@@ -3723,6 +3723,7 @@ public class Listas {
         lugarTuristico = new ModeloLugarTuristico();
         lugarTuristico.setIdSQLite(idLugTur++);
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
+        lugarTuristico.setTipo(Constants.TIPO_LUGAR_PATRIMONIO);
         lugarTuristico.setTipo("Patrimonio Urbano Arquitectónico, Artístico, Museos y Manifestaciones Culturales");
         lugarTuristico.setNombre("Colina de San Sebastián La Coronilla ");
         lugarTuristico.setImagenesFirebaseArreglo(new String[]{"colinas de san sebastian la coronilla1.jpg", "colinas de san sebastian la coronilla2.jpg" });
@@ -3742,6 +3743,7 @@ public class Listas {
         lugarTuristico = new ModeloLugarTuristico();
         lugarTuristico.setIdSQLite(idLugTur++);
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
+        lugarTuristico.setTipo(Constants.TIPO_LUGAR_REALIZACIONES);
         lugarTuristico.setTipo("Realizaciones Técnicas y Científicas ");
         lugarTuristico.setNombre("Jardín Botánico  ");
         lugarTuristico.setImagenesFirebaseArreglo(new String[]{"jardin botanico1.jpg","jardin botanico2.jpg","jardin botanico3.jpg"," jardin botanico4.jpg"});
@@ -3758,6 +3760,7 @@ public class Listas {
         lugarTuristico = new ModeloLugarTuristico();
         lugarTuristico.setIdSQLite(idLugTur++);
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
+        lugarTuristico.setTipo(Constants.TIPO_LUGAR_REALIZACIONES);
         lugarTuristico.setTipo("Realizaciones Técnicas y Científicas ");
         lugarTuristico.setNombre("Parque de la Familia");
         lugarTuristico.setImagenesFirebaseArreglo(new String[]{"parque de la familia1.jpg", "parque de la familia2.jpg", "parque de la familia3.jpg" });
@@ -3774,6 +3777,7 @@ public class Listas {
         lugarTuristico = new ModeloLugarTuristico();
         lugarTuristico.setIdSQLite(idLugTur++);
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
+        lugarTuristico.setTipo(Constants.TIPO_LUGAR_REALIZACIONES);
         lugarTuristico.setTipo("Realizaciones Técnicas y Científicas ");
         lugarTuristico.setNombre("Parque de Educación Vial");
         lugarTuristico.setImagenesFirebaseArreglo(new String[]{"parque de educacion vial1.jpg", "parque de educacion vial2.jpg", "parque de educacion vial3.jpg", "parque de educacion vial4.jpg" });
@@ -3790,6 +3794,7 @@ public class Listas {
         lugarTuristico = new ModeloLugarTuristico();
         lugarTuristico.setIdSQLite(idLugTur++);
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
+        lugarTuristico.setTipo(Constants.TIPO_LUGAR_REALIZACIONES);
         lugarTuristico.setTipo("Realizaciones Técnicas y Científicas ");
         lugarTuristico.setNombre("Parque Mariscal Santa Cruz");
         lugarTuristico.setImagenesFirebaseArreglo(new String[]{"parque mariscal santa cruz4.jpg", "parque mariscal santa cruz5.jpg", "parque mariscal santa cruz1.jpg", "parque mariscal santa cruz2.jpg" });
@@ -3809,6 +3814,7 @@ public class Listas {
         lugarTuristico = new ModeloLugarTuristico();
         lugarTuristico.setIdSQLite(idLugTur++);
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
+        lugarTuristico.setTipo(Constants.TIPO_LUGAR_REALIZACIONES);
         lugarTuristico.setTipo("Realizaciones Técnicas y Científicas ");
         lugarTuristico.setNombre("La Ciclo Vía");
         lugarTuristico.setImagenesFirebaseArreglo(new String[]{"la ciclovia1.jpg", "la ciclovia2.jpg", "la ciclovia3.jpg" });
@@ -3825,6 +3831,7 @@ public class Listas {
         lugarTuristico = new ModeloLugarTuristico();
         lugarTuristico.setIdSQLite(idLugTur++);
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
+        lugarTuristico.setTipo(Constants.TIPO_LUGAR_REALIZACIONES);
         lugarTuristico.setTipo("Realizaciones Técnicas y Científicas ");
         lugarTuristico.setNombre("Parque Kanata ");
         lugarTuristico.setImagenesFirebaseArreglo(new String[]{"parque kanata1.jpg", "parque kanata2.jpg", "parque kanata3.jpg" });
@@ -3842,6 +3849,7 @@ public class Listas {
         lugarTuristico = new ModeloLugarTuristico();
         lugarTuristico.setIdSQLite(idLugTur++);
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
+        lugarTuristico.setTipo(Constants.TIPO_LUGAR_REALIZACIONES);
         lugarTuristico.setTipo("Realizaciones Técnicas y Científicas ");
         lugarTuristico.setNombre("Teleférico");
         lugarTuristico.setImagenesFirebaseArreglo(new String[]{"teleferico1.jpg" ,"teleferico2.jpg" ,"teleferico3.jpg" ,"teleferico4.jpg" });
@@ -3858,6 +3866,7 @@ public class Listas {
         lugarTuristico = new ModeloLugarTuristico();
         lugarTuristico.setIdSQLite(idLugTur++);
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
+        lugarTuristico.setTipo(Constants.TIPO_LUGAR_REALIZACIONES);
         lugarTuristico.setTipo("Realizaciones Técnicas y Científicas ");
         lugarTuristico.setNombre("Plaza 14 de Septiembre");
         lugarTuristico.setImagenesFirebaseArreglo(new String[]{"plaza 14 de septiembre1.jpg", "plaza 14 de septiembre2.jpg", "plaza 14 de septiembre3.jpg", "plaza 14 de septiembre4.jpg" });
@@ -3876,6 +3885,7 @@ public class Listas {
         lugarTuristico = new ModeloLugarTuristico();
         lugarTuristico.setIdSQLite(idLugTur++);
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
+        lugarTuristico.setTipo(Constants.TIPO_LUGAR_REALIZACIONES);
         lugarTuristico.setTipo("Realizaciones Técnicas y Científicas ");
         lugarTuristico.setNombre("Plazuela Colón");
         lugarTuristico.setImagenesFirebaseArreglo(new String[]{"plazuela colon1.jpg", "plazuela colon2.jpg", "plazuela colon3.jpg", "plazuela colon4.jpg" });
@@ -3893,6 +3903,7 @@ public class Listas {
         lugarTuristico = new ModeloLugarTuristico();
         lugarTuristico.setIdSQLite(idLugTur++);
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
+        lugarTuristico.setTipo(Constants.TIPO_LUGAR_REALIZACIONES);
         lugarTuristico.setTipo("Realizaciones Técnicas y Científicas ");
         lugarTuristico.setNombre("Plazuela Cala Cala");
         lugarTuristico.setImagenesFirebaseArreglo(new String[]{"plazuela cala cala1.jpg", "plazuela cala cala2.jpg" });
@@ -3909,6 +3920,7 @@ public class Listas {
         lugarTuristico = new ModeloLugarTuristico();
         lugarTuristico.setIdSQLite(idLugTur++);
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
+        lugarTuristico.setTipo(Constants.TIPO_LUGAR_REALIZACIONES);
         lugarTuristico.setTipo("Realizaciones Técnicas y Científicas ");
         lugarTuristico.setNombre("Plazuela Corazonistas");
         lugarTuristico.setImagenesFirebaseArreglo(new String[]{"plazuela corazonistas1.jpg", "plazuela corazonistas2.jpg", "plazuela corazonistas3.jpg", "plazuela corazonistas4.jpg" });
@@ -3924,6 +3936,7 @@ public class Listas {
         lugarTuristico = new ModeloLugarTuristico();
         lugarTuristico.setIdSQLite(idLugTur++);
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
+        lugarTuristico.setTipo(Constants.TIPO_LUGAR_REALIZACIONES);
         lugarTuristico.setTipo("Realizaciones Técnicas y Científicas ");
         lugarTuristico.setNombre("Plaza de las Banderas");
         lugarTuristico.setImagenesFirebaseArreglo(new String[]{"plaza de las banderas1.jpg", "plaza de las banderas2.jpg", "plaza de las banderas3.jpg" });
@@ -3939,6 +3952,7 @@ public class Listas {
         lugarTuristico = new ModeloLugarTuristico();
         lugarTuristico.setIdSQLite(idLugTur++);
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
+        lugarTuristico.setTipo(Constants.TIPO_LUGAR_PATRIMONIO);
         lugarTuristico.setTipo("Patrimonio Urbano Arquitectónico, Artístico, Museos y Manifestaciones Culturales");
         lugarTuristico.setNombre("Catedral Metropolitana");
         lugarTuristico.setImagenesFirebaseArreglo(new String[]{"catedral metropolitana1.jpg", "catedral metropolitana2.jpg", "catedral metropolitana3.jpg", "catedral metropolitana4.jpg" });
@@ -3955,6 +3969,7 @@ public class Listas {
         lugarTuristico = new ModeloLugarTuristico();
         lugarTuristico.setIdSQLite(idLugTur++);
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
+        lugarTuristico.setTipo(Constants.TIPO_LUGAR_PATRIMONIO);
         lugarTuristico.setTipo("Patrimonio Urbano Arquitectónico, Artístico, Museos y Manifestaciones Culturales");
         lugarTuristico.setNombre("Convento de Santa Clara");
         lugarTuristico.setImagenesFirebaseArreglo(new String[]{"convento santa clara1.jpg", "convento santa clara2.jpg" });
@@ -3973,6 +3988,7 @@ public class Listas {
         lugarTuristico = new ModeloLugarTuristico();
         lugarTuristico.setIdSQLite(idLugTur++);
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
+        lugarTuristico.setTipo(Constants.TIPO_LUGAR_PATRIMONIO);
         lugarTuristico.setTipo("Patrimonio Urbano Arquitectónico, Artístico, Museos y Manifestaciones Culturales");
         lugarTuristico.setNombre("Iglesia de Santo Domingo");
         lugarTuristico.setImagenesFirebaseArreglo(new String[]{"iglesia de santo domingo1.jpg", "iglesia de santo domingo2.jpg", "iglesia de santo domingo3.jpg" });
@@ -3990,6 +4006,7 @@ public class Listas {
         lugarTuristico = new ModeloLugarTuristico();
         lugarTuristico.setIdSQLite(idLugTur++);
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
+        lugarTuristico.setTipo(Constants.TIPO_LUGAR_PATRIMONIO);
         lugarTuristico.setTipo("Patrimonio Urbano Arquitectónico, Artístico, Museos y Manifestaciones Culturales");
         lugarTuristico.setNombre("Templo del Hospicio");
         lugarTuristico.setImagenesFirebaseArreglo(new String[]{"templo hospicio1.jpg", "templo hospicio2.jpg", "templo hospicio3.jpg" });
@@ -4006,6 +4023,7 @@ public class Listas {
         lugarTuristico = new ModeloLugarTuristico();
         lugarTuristico.setIdSQLite(idLugTur++);
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
+        lugarTuristico.setTipo(Constants.TIPO_LUGAR_PATRIMONIO);
         lugarTuristico.setTipo("Patrimonio Urbano Arquitectónico, Artístico, Museos y Manifestaciones Culturales");
         lugarTuristico.setNombre("Templo de  San Francisco");
         lugarTuristico.setImagenesFirebaseArreglo(new String[]{"templo de san francisco1.jpg", "templo de san francisco2.jpg", "templo de san francisco3.jpg", "templo de san francisco4.jpg" });
@@ -4044,6 +4062,7 @@ public class Listas {
         lugarTuristico = new ModeloLugarTuristico();
         lugarTuristico.setIdSQLite(idLugTur++);
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
+        lugarTuristico.setTipo(Constants.TIPO_LUGAR_SITIOS_NATURALES);
         lugarTuristico.setTipo("Sitios Naturales");
         lugarTuristico.setNombre("Laguna Alalay ");
         lugarTuristico.setImagenesFirebaseArreglo(new String[]{"laguna alalay1.jpg", "laguna alalay2.jpg", "laguna alalay3.jpg" });
@@ -4331,6 +4350,7 @@ public class Listas {
         lugarTuristico = new ModeloLugarTuristico();
         lugarTuristico.setIdSQLite(idLugTur++);
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_QUILLACOLLO);
+        lugarTuristico.setTipo(Constants.TIPO_LUGAR_SITIOS_NATURALES);
         lugarTuristico.setTipo("Sitios Naturales");
         lugarTuristico.setNombre("Parque Eco - Turístico Pairumani ");
         lugarTuristico.setImagenesFirebaseArreglo(new String[]{"parque ecoturistico pairumani3.jpg", "parque ecoturistico pairumani1.jpg", "parque ecoturistico pairumani2.jpg" });
@@ -4589,6 +4609,7 @@ public class Listas {
         lugarTuristico = new ModeloLugarTuristico();
         lugarTuristico.setIdSQLite(idLugTur++);
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_MIZQUE);
+        lugarTuristico.setTipo(Constants.TIPO_LUGAR_ETNOGRAFIA);
         lugarTuristico.setTipo("Etnografía y Folkore");
         lugarTuristico.setNombre("Ruedo de Toros");
         lugarTuristico.setImagenesFirebaseArreglo(new String[]{"ruedo de toros1.jpg"});
@@ -4800,6 +4821,7 @@ public class Listas {
         lugarTuristico = new ModeloLugarTuristico();
         lugarTuristico.setIdSQLite(idLugTur++);
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_ARANI);
+        lugarTuristico.setTipo(Constants.TIPO_LUGAR_ACONTECIMIENTOS);
         lugarTuristico.setTipo("Acontecimientos Programados");
         lugarTuristico.setNombre("Festividad de la Virgen “La Bella”");
         lugarTuristico.setImagenesFirebaseArreglo(new String[]{"Festividad de la Virgen LA BELLA.jpg", "Festividad de la Virgen LA BELLA2.jpg", "Festividad de la Virgen LA BELLA3.jpg"  });
@@ -5377,6 +5399,7 @@ public class Listas {
         lugarTuristico = new ModeloLugarTuristico();
         lugarTuristico.setIdSQLite(idLugTur++);
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_PUNATA);
+        lugarTuristico.setTipo(Constants.TIPO_LUGAR_ACONTECIMIENTOS);
         lugarTuristico.setTipo("Acontecimientos Programados");
         lugarTuristico.setNombre("La festividad del Señor de los milagros");
         lugarTuristico.setImagenesFirebaseArreglo(new String[]{"la festividad del señor de los milagros0.jpg", "la festividad del señor de los milagros1.jpg" });

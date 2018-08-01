@@ -155,4 +155,5 @@
     <string name="label_rolUser">Tipo Usuario:</string>
     <string name="action_sincronizar">Sincronizar</string>
     <string name="description_imagen">TODO</string>
+    <string name="acontecimiento">Acontecimiento:</string>
 </resources>

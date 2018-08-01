@@ -3,7 +3,10 @@ package com.hga.appturismo.activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -12,16 +15,28 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.hga.appturismo.R;
+import com.hga.appturismo.adapterRecycler.RestauranteAdapterRecycler;
 import com.hga.appturismo.bdFirebase.ResetFirebase;
 import com.hga.appturismo.bdFirebase.TurismoAplicacion;
 import com.hga.appturismo.bdSQLite.DBSQLiteManager;
+import com.hga.appturismo.bdSQLite.SqliteLugar;
+import com.hga.appturismo.imagenes.ImagenAcontecimientosSwip;
+import com.hga.appturismo.imagenes.ImagenSwip;
+import com.hga.appturismo.modelo.ModeloImagen;
+import com.hga.appturismo.modelo.ModeloLugarTuristico;
 import com.hga.appturismo.util.Constants;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+
+    private ArrayList<ModeloLugarTuristico> modeloLugarTuristicos;
+    private SqliteLugar lugar;
 
     @Override
     public void onClick(View view) {
@@ -67,7 +82,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(addUsuarios);
                 break;
             default:
-                System.out.println("Error!. la accion selecionada no esta asociadda a ninguna funcion");
+                System.out.println("Error!. la accion selecionada no esta asociada a ninguna funcion");
                 break;
         }
     }
@@ -77,9 +92,33 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        setMenu();
+        setLitaModeloLugares();
+        crearContenido();
+        setAcontecimientosView();
+    }
+
+    private void setAcontecimientosView() {
+        ViewPager viewPager = findViewById(R.id.imagenAcontecimiento);
+        ImagenAcontecimientosSwip imagenSwip = new ImagenAcontecimientosSwip(modeloLugarTuristicos, this);
+        viewPager.setAdapter(imagenSwip);
+    }
+
+    private void setMenu() {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        crearContenido();
+    }
+
+    private void setLitaModeloLugares() {
+        modeloLugarTuristicos=new ArrayList<>();
+        lugar=new SqliteLugar(this);
+        ArrayList<ModeloLugarTuristico> aux=lugar.list();
+        for (ModeloLugarTuristico lugarTuristico:aux){
+            if (lugarTuristico.getTipo().equals(Constants.TIPO_LUGAR_ACONTECIMIENTOS)){
+                modeloLugarTuristicos.add(lugarTuristico);
+            }
+        }
+
     }
 
     @Override
@@ -213,6 +252,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public void goTipoActivity(View view) {
         Intent buscarPorTipo = new Intent(this, BuscarPorTipoActivity.class);
+        //if(modeloLugarTuristico.getTipo().equals(Constants.TIPO_LUGAR_ACONTECIMIENTO));
         startActivity(buscarPorTipo);
     }
 
