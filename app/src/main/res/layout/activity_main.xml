@@ -65,6 +65,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/layout_container_portada"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:visibility="visible"
@@ -80,9 +81,11 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/layout_container_acontecimientos"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/height_card_service"
                 android:padding="0dp"
+                android:visibility="visible"
                 android:layout_margin="0dp">
 
                 <android.support.v4.view.ViewPager

@@ -99,9 +99,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void setAcontecimientosView() {
-        ViewPager viewPager = findViewById(R.id.imagenAcontecimiento);
-        ImagenAcontecimientosSwip imagenSwip = new ImagenAcontecimientosSwip(modeloLugarTuristicos, this);
-        viewPager.setAdapter(imagenSwip);
+        LinearLayout layoutAcontecimientos = findViewById(R.id.layout_container_acontecimientos);
+        LinearLayout layoutPortada = findViewById(R.id.layout_container_portada);
+
+        if (modeloLugarTuristicos.isEmpty()) {
+            layoutAcontecimientos.setVisibility(View.GONE);
+            layoutPortada.setVisibility(View.VISIBLE);
+        } else {
+            layoutAcontecimientos.setVisibility(View.VISIBLE);
+            layoutPortada.setVisibility(View.GONE);
+
+            ViewPager viewPager = findViewById(R.id.imagenAcontecimiento);
+            ImagenAcontecimientosSwip imagenSwip = new ImagenAcontecimientosSwip(modeloLugarTuristicos, this);
+            viewPager.setAdapter(imagenSwip);
+        }
     }
 
     private void setMenu() {
