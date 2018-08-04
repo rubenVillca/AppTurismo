@@ -2,36 +2,48 @@ package com.hga.appturismo.activity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.hga.appturismo.R;
-import com.hga.appturismo.adapterRecycler.RestauranteAdapterRecycler;
+import com.hga.appturismo.bdFirebase.ListaResponse;
 import com.hga.appturismo.bdFirebase.ResetFirebase;
 import com.hga.appturismo.bdFirebase.TurismoAplicacion;
-import com.hga.appturismo.bdSQLite.DBSQLiteManager;
+import com.hga.appturismo.bdFirebase.TurismoCliente;
+import com.hga.appturismo.bdFirebase.TurismoFirebaseService;
+import com.hga.appturismo.bdSQLite.SqliteHotel;
 import com.hga.appturismo.bdSQLite.SqliteLugar;
+import com.hga.appturismo.bdSQLite.SqliteRestaurante;
 import com.hga.appturismo.imagenes.ImagenAcontecimientosSwip;
-import com.hga.appturismo.imagenes.ImagenSwip;
-import com.hga.appturismo.modelo.ModeloImagen;
+import com.hga.appturismo.modelo.ModeloHotel;
 import com.hga.appturismo.modelo.ModeloLugarTuristico;
+import com.hga.appturismo.modelo.ModeloPuntaje;
+import com.hga.appturismo.modelo.ModeloRestaurante;
+import com.hga.appturismo.typeAdapterJson.HotelResponseTypeAdapter;
+import com.hga.appturismo.typeAdapterJson.LugarResponseTypeAdapter;
+import com.hga.appturismo.typeAdapterJson.PuntajeResponseTypeAdapter;
+import com.hga.appturismo.typeAdapterJson.RestauranteResponseTypeAdapter;
 import com.hga.appturismo.util.Constants;
 
 import java.util.ArrayList;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -93,7 +105,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         setMenu();
-        setLitaModeloLugares();
+        setListaModeloLugares();
         crearContenido();
         setAcontecimientosView();
     }
@@ -112,6 +124,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             ViewPager viewPager = findViewById(R.id.imagenAcontecimiento);
             ImagenAcontecimientosSwip imagenSwip = new ImagenAcontecimientosSwip(modeloLugarTuristicos, this);
             viewPager.setAdapter(imagenSwip);
+
         }
     }
 
@@ -120,7 +133,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setSupportActionBar(toolbar);
     }
 
-    private void setLitaModeloLugares() {
+    private void setListaModeloLugares() {
         modeloLugarTuristicos=new ArrayList<>();
         lugar=new SqliteLugar(this);
         ArrayList<ModeloLugarTuristico> aux=lugar.list();
@@ -206,6 +219,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 resetDatosSQlite();
                 break;
             case R.id.action_sincronizar:
+                resetDatosSQlite();
                 break;
         }
         return super.onOptionsItemSelected(item);
@@ -275,7 +289,199 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void resetDatosSQlite() {
-        DBSQLiteManager DBSQLiteManager =new DBSQLiteManager();
-        DBSQLiteManager.resetSQLite(this);
+        updateSQLiteHotel();
+        updateSQLiteRestaurantes();
+        updateSQLiteLugares();
+    }
+
+    private void updateSQLiteLugares() {
+        TurismoFirebaseService turismoFirebaseService = (new TurismoCliente(new LugarResponseTypeAdapter())).getService();
+
+        Call<ListaResponse> responseCall = turismoFirebaseService.getListLugarTuristico();
+        responseCall.enqueue(new Callback<ListaResponse>() {
+            @Override
+            public void onResponse(@NonNull Call<ListaResponse> call, @NonNull Response<ListaResponse> response) {
+                if (response.isSuccessful()) {
+                    ArrayList<ModeloLugarTuristico> modeloLugarTuristicos = new ArrayList<>();
+                    SqliteLugar sqliteLugar = new SqliteLugar(MainActivity.this);
+
+                    ListaResponse listaResponse = response.body();
+
+                    modeloLugarTuristicos.clear();
+                    if (listaResponse != null) {
+                        ArrayList<ModeloLugarTuristico> lugarTuristicoArrayList = listaResponse.getListModeloLugarTuristico();
+
+                        modeloLugarTuristicos.addAll(lugarTuristicoArrayList);
+                    }
+                    loadJSONFirebasePuntajeLugar();
+                    sqliteLugar.update(modeloLugarTuristicos);
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<ListaResponse> call, @NonNull Throwable t) {
+                Log.d("Error", t.getMessage());
+            }
+        });
+    }
+
+    private void updateSQLiteRestaurantes() {
+        TurismoFirebaseService turismoFirebaseService = (new TurismoCliente(new RestauranteResponseTypeAdapter())).getService();
+
+        Call<ListaResponse> responseCall = turismoFirebaseService.getListRestaurante();
+        responseCall.enqueue(new Callback<ListaResponse>() {
+            @Override
+            public void onResponse(@NonNull Call<ListaResponse> call, @NonNull Response<ListaResponse> response) {
+                if (response.isSuccessful()) {
+                    ArrayList<ModeloRestaurante> modeloRestaurantes = new ArrayList<>();
+                    SqliteRestaurante restaurante = new SqliteRestaurante(MainActivity.this);
+
+                    ListaResponse listaResponse = response.body();
+
+                    modeloRestaurantes.clear();
+                    if (listaResponse != null) {
+                        ArrayList<ModeloRestaurante> restauranteArrayList = listaResponse.getListModeloRestaurante();
+
+                        modeloRestaurantes.addAll(restauranteArrayList);
+                    }
+                    loadJSONFirebasePuntajeRestaurante();
+                    restaurante.update(modeloRestaurantes);
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<ListaResponse> call, @NonNull Throwable t) {
+                Log.d("Error", t.getMessage());
+            }
+        });
+    }
+
+    private void updateSQLiteHotel() {
+        TurismoFirebaseService turismoFirebaseService = (new TurismoCliente(new HotelResponseTypeAdapter())).getService();
+
+        Call<ListaResponse> responseCall = turismoFirebaseService.getListHotel();
+        responseCall.enqueue(new Callback<ListaResponse>() {
+            @Override
+            public void onResponse(@NonNull Call<ListaResponse> call, @NonNull Response<ListaResponse> response) {
+                if (response.isSuccessful()) {
+                    ArrayList<ModeloHotel> modeloHotels = new ArrayList<>();
+                    SqliteHotel hotel = new SqliteHotel(MainActivity.this);
+
+                    ListaResponse listaResponse = response.body();
+
+                    modeloHotels.clear();
+                    if (listaResponse != null) {
+                        ArrayList<ModeloHotel> hotelArrayList = listaResponse.getListModeloHotel();
+
+                        modeloHotels.addAll(hotelArrayList);
+                    }
+                    loadJSONFirebasePuntajeHotel();
+                    hotel.update(modeloHotels);
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<ListaResponse> call, @NonNull Throwable t) {
+                Log.d("Error", t.getMessage());
+            }
+        });
+    }
+
+    private void loadJSONFirebasePuntajeHotel() {
+        TurismoFirebaseService turismoFirebaseService = (new TurismoCliente(new PuntajeResponseTypeAdapter())).getService();
+
+        Call<ListaResponse> responseCall = turismoFirebaseService.getListPuntaje();
+        responseCall.enqueue(new Callback<ListaResponse>() {
+            @Override
+            public void onResponse(@NonNull Call<ListaResponse> call, @NonNull Response<ListaResponse> response) {
+
+                SqliteHotel hotel = new SqliteHotel(MainActivity.this);
+                ArrayList<ModeloPuntaje> modeloPuntajes = new ArrayList<>();
+
+                if (response.isSuccessful()) {
+                    ListaResponse listaResponse = response.body();
+
+                    modeloPuntajes.clear();
+                    if (listaResponse != null) {
+                        ArrayList<ModeloPuntaje> puntajeArrayList = listaResponse.getListPuntaje();
+                        modeloPuntajes.addAll(puntajeArrayList);
+
+                    }
+                }
+                loadJSONFirebasePuntajeHotel();
+                hotel.updatePuntajeSQLite(modeloPuntajes);//actualizar hotel sqlite
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<ListaResponse> call, @NonNull Throwable t) {
+                //loadSQLite();
+                Log.d("Error", t.getMessage());
+            }
+        });
+    }
+
+    private void loadJSONFirebasePuntajeRestaurante() {
+        TurismoFirebaseService turismoFirebaseService = (new TurismoCliente(new PuntajeResponseTypeAdapter())).getService();
+
+        Call<ListaResponse> responseCall = turismoFirebaseService.getListPuntaje();
+        responseCall.enqueue(new Callback<ListaResponse>() {
+            @Override
+            public void onResponse(@NonNull Call<ListaResponse> call, @NonNull Response<ListaResponse> response) {
+
+                SqliteRestaurante restaurante = new SqliteRestaurante(MainActivity.this);
+                ArrayList<ModeloPuntaje> modeloPuntajes = new ArrayList<>();
+
+                if (response.isSuccessful()) {
+                    ListaResponse listaResponse = response.body();
+
+                    modeloPuntajes.clear();
+                    if (listaResponse != null) {
+                        ArrayList<ModeloPuntaje> puntajeArrayList = listaResponse.getListPuntaje();
+                        modeloPuntajes.addAll(puntajeArrayList);
+
+                    }
+                }
+                loadJSONFirebasePuntajeHotel();
+                restaurante.updatePuntajeSQLite(modeloPuntajes);//actualizar restaurante sqlite
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<ListaResponse> call, @NonNull Throwable t) {
+                //loadSQLite();
+                Log.d("Error", t.getMessage());
+            }
+        });
+    }
+
+    private void loadJSONFirebasePuntajeLugar() {
+        TurismoFirebaseService turismoFirebaseService = (new TurismoCliente(new PuntajeResponseTypeAdapter())).getService();
+
+        Call<ListaResponse> responseCall = turismoFirebaseService.getListPuntaje();
+        responseCall.enqueue(new Callback<ListaResponse>() {
+            @Override
+            public void onResponse(@NonNull Call<ListaResponse> call, @NonNull Response<ListaResponse> response) {
+
+                SqliteLugar sqliteLugar = new SqliteLugar(MainActivity.this);
+                ArrayList<ModeloPuntaje> modeloPuntajes = new ArrayList<>();
+
+                if (response.isSuccessful()) {
+                    ListaResponse listaResponse = response.body();
+
+                    modeloPuntajes.clear();
+                    if (listaResponse != null) {
+                        ArrayList<ModeloPuntaje> puntajeArrayList = listaResponse.getListPuntaje();
+                        modeloPuntajes.addAll(puntajeArrayList);
+                    }
+                }
+                loadJSONFirebasePuntajeHotel();
+                sqliteLugar.updatePuntajeSQLite(modeloPuntajes);//actualizar sqliteLugar sqlite
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<ListaResponse> call, @NonNull Throwable t) {
+                //loadSQLite();
+                Log.d("Error", t.getMessage());
+            }
+        });
     }
 }

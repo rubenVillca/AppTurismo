@@ -309,7 +309,6 @@ public class LugarAdapterRecycler extends RecyclerView.Adapter<LugarAdapterRecyc
                 eliminarLugar(position, modeloLugarTuristico);
             }
         });
-
     }
 
     private void setCheckEstrellas(int cantidad, LugarViewHolder holder) {

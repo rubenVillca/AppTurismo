@@ -503,13 +503,14 @@ public class InsertarLugarActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 switch (position) {
+
                     case 4://acontecimiento en un lugar turistico
                         layout_tipo.setVisibility(View.VISIBLE);
                         layout_provincia.setVisibility(View.VISIBLE);
                         layout_tipoTurismo.setVisibility(View.VISIBLE);
                         layout_nombre.setVisibility(View.VISIBLE);
                         layout_descripcion.setVisibility(View.VISIBLE);
-                        layout_email.setVisibility(View.VISIBLE);
+                        layout_email.setVisibility(View.GONE);
                         layout_direccion.setVisibility(View.VISIBLE);
                         layout_pagina_web.setVisibility(View.GONE);
                         layout_telefono.setVisibility(View.VISIBLE);
@@ -517,6 +518,8 @@ public class InsertarLugarActivity extends AppCompatActivity {
                         layout_latitud.setVisibility(View.VISIBLE);
                         layout_longitud.setVisibility(View.VISIBLE);
                         layout_imagen.setVisibility(View.VISIBLE);
+                        layout_linea.setVisibility(View.VISIBLE);
+                        layout_fecha.setVisibility(View.VISIBLE);
                         break;
                         default:
                             layout_linea.setVisibility(View.GONE);
@@ -585,7 +588,6 @@ public class InsertarLugarActivity extends AppCompatActivity {
                         layout_imagen.setVisibility(View.VISIBLE);
                         layout_linea.setVisibility(View.GONE);
                         layout_fecha.setVisibility(View.GONE);
-
                         break;
                 }
             }
