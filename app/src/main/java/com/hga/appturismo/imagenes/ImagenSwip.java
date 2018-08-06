@@ -49,8 +49,14 @@ public class ImagenSwip extends PagerAdapter {
         imageView.setBackgroundColor(Color.GRAY);
         imageView.setPadding(0,0,0,0);
         imageView.refreshDrawableState();
-        final ImageView imageViewCopy=imageView;
 
+        setImageView(position, imageView);
+
+        container.addView(itemView);
+        return itemView;
+    }
+
+    private void setImageView(int position, final ImageView imageView) {
         ModeloImagen modeloImagen =imagesResources.get(position);
         if (!modeloImagen.getUrlApp().isEmpty()) {
             try {
@@ -68,7 +74,7 @@ public class ImagenSwip extends PagerAdapter {
                 public void onSuccess(Uri uri) {
                     // Got the download URL for 'users/me/profile.png'
                     // Pass it to Picasso to download, show in ImageView and caching
-                    Picasso.with(context).load(uri.toString()).into(imageViewCopy);
+                    Picasso.with(context).load(uri.toString()).into(imageView);
                 }
             }).addOnFailureListener(new OnFailureListener() {
                 @Override
@@ -77,9 +83,6 @@ public class ImagenSwip extends PagerAdapter {
                 }
             });
         }
-
-        container.addView(itemView);
-        return itemView;
     }
 
     @Override
