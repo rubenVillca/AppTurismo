@@ -1,6 +1,7 @@
 package com.hga.appturismo.imagenes;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v4.view.PagerAdapter;
@@ -36,13 +37,17 @@ public class ImagenSwip extends PagerAdapter {
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
         LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
         View itemView= layoutInflater.inflate(R.layout.viewpager_turismo,container,false);
         itemView.getLayoutParams().width = ViewGroup.LayoutParams.MATCH_PARENT;
         itemView.getLayoutParams().height = ViewGroup.LayoutParams.WRAP_CONTENT;
+        itemView.setPadding(0,0,0,0);
 
         ImageView imageView= itemView.findViewById(R.id.imageViewTurismo);
         imageView.getLayoutParams().width = ViewGroup.LayoutParams.MATCH_PARENT;
-        imageView.getLayoutParams().height = ViewGroup.LayoutParams.WRAP_CONTENT;
+        imageView.getLayoutParams().height = 720;
+        imageView.setBackgroundColor(Color.GRAY);
+        imageView.setPadding(0,0,0,0);
         imageView.refreshDrawableState();
         final ImageView imageViewCopy=imageView;
 

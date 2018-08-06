@@ -16,6 +16,8 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.ScrollView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -289,9 +291,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void resetDatosSQlite() {
+        setVisibleScrollBar(true);
         updateSQLiteHotel();
-        updateSQLiteRestaurantes();
-        updateSQLiteLugares();
+    }
+
+    private void setVisibleScrollBar(boolean isVisible) {
+        if (isVisible) {
+            ProgressBar progressBar = findViewById(R.id.main_progress);
+            progressBar.setVisibility(View.VISIBLE);
+
+            ScrollView scrollView = findViewById(R.id.scrollView);
+            scrollView.setVisibility(View.INVISIBLE);
+        }else{
+            ProgressBar progressBar = findViewById(R.id.main_progress);
+            progressBar.setVisibility(View.GONE);
+
+            ScrollView scrollView = findViewById(R.id.scrollView);
+            scrollView.setVisibility(View.VISIBLE);
+        }
     }
 
     private void updateSQLiteLugares() {
@@ -316,11 +333,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     loadJSONFirebasePuntajeLugar();
                     sqliteLugar.update(modeloLugarTuristicos);
                 }
+
+                setVisibleScrollBar(false);
             }
 
             @Override
             public void onFailure(@NonNull Call<ListaResponse> call, @NonNull Throwable t) {
                 Log.d("Error", t.getMessage());
+                setVisibleScrollBar(false);
             }
         });
     }
@@ -346,12 +366,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     }
                     loadJSONFirebasePuntajeRestaurante();
                     restaurante.update(modeloRestaurantes);
+                    updateSQLiteLugares();
                 }
             }
 
             @Override
             public void onFailure(@NonNull Call<ListaResponse> call, @NonNull Throwable t) {
                 Log.d("Error", t.getMessage());
+                setVisibleScrollBar(false);
             }
         });
     }
@@ -378,11 +400,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     loadJSONFirebasePuntajeHotel();
                     hotel.update(modeloHotels);
                 }
+                updateSQLiteRestaurantes();
             }
 
             @Override
             public void onFailure(@NonNull Call<ListaResponse> call, @NonNull Throwable t) {
                 Log.d("Error", t.getMessage());
+                setVisibleScrollBar(false);
             }
         });
     }

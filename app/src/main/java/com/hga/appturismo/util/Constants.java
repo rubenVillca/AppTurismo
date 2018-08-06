@@ -63,7 +63,7 @@ public class Constants {
     public static final String ESTADO_USUARIO_SOLICITUD_RECHAZADA="Solicitud rechazada ";
     public static final String ESTADO_USUARIO_SOLICITUD_ACEPTADO="Solicitud aceptado";
 
-    public static final boolean IS_READ_FIREBASE = true;
+    public static final boolean IS_READ_FIREBASE = false;
 
     public static int SELECT_HOTEL = 0;
     public static int SELECT_LUGAR = 1;
