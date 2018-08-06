@@ -22,20 +22,20 @@ public abstract class DBSQLiteParent {
         db = helper.getWritableDatabase();
     }
 
-    protected ArrayList<ModeloImagen> getListaImagenes(String type, int idKeyType) {
+    protected ArrayList<ModeloImagen> getListaImagenes(String type, int idTypeLugar) {
         ArrayList<ModeloImagen> modeloImagenArrayList = new ArrayList<>();
         Cursor cursor = db.rawQuery("Select * "
                         + " from " + DBModel.TABLE_IMAGENES
-                        + " where " + DBModel.IMAGENES_TIPO + "='" + type + "' and " + DBModel.IMAGENES_KEY_ID + "=" + idKeyType
+                        + " where " + DBModel.IMAGENES_TIPO + "='" + type + "' and " + DBModel.IMAGENES_KEY_ID + "=" + idTypeLugar
                 , null);
         if (cursor.moveToFirst()) {
             while (!cursor.isAfterLast()) {
                 ModeloImagen modeloImagen = new ModeloImagen();
 
-                modeloImagen.setId(cursor.getInt(cursor.getColumnIndex(DBModel.IMAGENES_ID)));
+                modeloImagen.setIdSqlite(cursor.getInt(cursor.getColumnIndex(DBModel.IMAGENES_ID)));
                 modeloImagen.setIdImagen(cursor.getInt(cursor.getColumnIndex(DBModel.IMAGENES_ID_IMAGEN_SQLITE)));
                 modeloImagen.setTipoImagen(cursor.getString(cursor.getColumnIndex(DBModel.IMAGENES_TIPO)));
-                modeloImagen.setKey_id(cursor.getInt(cursor.getColumnIndex(DBModel.IMAGENES_KEY_ID)));
+                modeloImagen.setIdLugarReference(cursor.getInt(cursor.getColumnIndex(DBModel.IMAGENES_KEY_ID)));
                 modeloImagen.setUrlApp(cursor.getString(cursor.getColumnIndex(DBModel.IMAGENES_RUTA_APP)));
                 modeloImagen.setUrlServer(cursor.getString(cursor.getColumnIndex(DBModel.IMAGENES_RUTA_SERVER)));
 

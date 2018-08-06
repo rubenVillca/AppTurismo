@@ -255,8 +255,8 @@ public class EditarActivity extends AppCompatActivity {
 
         if (!mCurrentPhotoPath.isEmpty()) {
             ModeloImagen modeloImagen = new ModeloImagen();
-            modeloImagen.setId(0);
-            modeloImagen.setKey_id(id);
+            modeloImagen.setIdSqlite(0);
+            modeloImagen.setIdLugarReference(id);
             modeloImagen.setIdImagen(1);
             modeloImagen.setTipoImagen(tipo);
             modeloImagen.setUrlApp(editar_txt_ruta_imagen.getText().toString());

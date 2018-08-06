@@ -9,6 +9,8 @@ import com.hga.appturismo.modelo.ModeloImagen;
 
 import java.util.ArrayList;
 
+import static com.hga.appturismo.bdSQLite.DBModel.TABLE_RESTAURANTES;
+
 /**
  * Created by HGA on 21/7/2018
  */
@@ -71,7 +73,10 @@ public class SqliteHotel extends DBSQLiteParent implements SqliteInterface<Model
 
     @Override
     public void delete() {
-
+        helper.deleteDatosHotel(db);
+    }
+    public void deletePuntaje(){
+        helper.deleteDatosPuntaje(db);
     }
 
     public void update(ArrayList<ModeloHotel> modeloHotels) {

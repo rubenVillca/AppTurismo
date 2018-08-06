@@ -31,7 +31,7 @@ public class SqliteUsuario extends DBSQLiteParent implements SqliteInterface<Mod
 
     @Override
     public void delete() {
-
+        helper.deleteDatosUsuario(db);
     }
 
     @Override

@@ -199,8 +199,8 @@ public class InsertarLugarActivity extends AppCompatActivity {
     @NonNull
     private ArrayList<ModeloImagen> getImagen(String tipo, int id, String ruta) {
         ModeloImagen modeloImagen = new ModeloImagen();
-        modeloImagen.setId(0);
-        modeloImagen.setKey_id(id);
+        modeloImagen.setIdSqlite(0);
+        modeloImagen.setIdLugarReference(id);
         modeloImagen.setIdImagen(1);
         modeloImagen.setTipoImagen(tipo);
         modeloImagen.setUrlApp(txt_ruta_imagen.getText().toString());

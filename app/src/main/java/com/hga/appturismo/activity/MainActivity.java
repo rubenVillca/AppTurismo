@@ -2,7 +2,6 @@ package com.hga.appturismo.activity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.view.ViewPager;
@@ -17,7 +16,6 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
-import android.widget.ScrollView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -51,6 +49,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private ArrayList<ModeloLugarTuristico> modeloLugarTuristicos;
     private SqliteLugar lugar;
+    private int state;
 
     @Override
     public void onClick(View view) {
@@ -218,7 +217,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.action_reset:
                 resetDataFirebase();
-                resetDatosSQlite();
+                //resetDatosSQlite();
                 break;
             case R.id.action_sincronizar:
                 resetDatosSQlite();
@@ -292,55 +291,96 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void resetDatosSQlite() {
         setVisibleScrollBar(true);
-        updateSQLiteHotel();
+
+        SqliteHotel sqliteHotel=new SqliteHotel(this);
+        sqliteHotel.delete();
+        sqliteHotel.deletePuntaje();
+
+        SqliteRestaurante sqliteRestaurante=new SqliteRestaurante(this);
+        sqliteRestaurante.delete();
+
+        SqliteLugar sqliteLugar=new SqliteLugar(this);
+        sqliteLugar.delete();
+
+        setProgressBar(1);
     }
 
     private void setVisibleScrollBar(boolean isVisible) {
         if (isVisible) {
-            ProgressBar progressBar = findViewById(R.id.main_progress);
-            progressBar.setVisibility(View.VISIBLE);
+            findViewById(R.id.scrollView).setVisibility(View.INVISIBLE);
+            findViewById(R.id.menuMain).setVisibility(View.INVISIBLE);
 
-            ScrollView scrollView = findViewById(R.id.scrollView);
-            scrollView.setVisibility(View.INVISIBLE);
+            findViewById(R.id.progressBarLayout).setVisibility(View.VISIBLE);
         }else{
-            ProgressBar progressBar = findViewById(R.id.main_progress);
-            progressBar.setVisibility(View.GONE);
+            findViewById(R.id.scrollView).setVisibility(View.VISIBLE);
+            findViewById(R.id.menuMain).setVisibility(View.VISIBLE);
 
-            ScrollView scrollView = findViewById(R.id.scrollView);
-            scrollView.setVisibility(View.VISIBLE);
+            findViewById(R.id.progressBarLayout).setVisibility(View.GONE);
         }
     }
 
-    private void updateSQLiteLugares() {
-        TurismoFirebaseService turismoFirebaseService = (new TurismoCliente(new LugarResponseTypeAdapter())).getService();
+    private void setProgressBar(int advance){
+        ProgressBar progressBar = findViewById(R.id.progressBarHorizontal);
+        progressBar.setMax(4);
+        switch (advance){
+            case 0:
+                progressBar.setProgress(advance);
+                Toast.makeText(MainActivity.this,"Error al sincronizar",Toast.LENGTH_LONG).show();
+                setVisibleScrollBar(false);
+                break;
+            case 1:
+                updateSQLiteHotel();
+                progressBar.setProgress(advance-1);
+                break;
+            case 2:
+                Toast.makeText(MainActivity.this,"Sincronizacion hoteles exitosa",Toast.LENGTH_SHORT).show();
+                updateSQLiteRestaurantes();
+                progressBar.setProgress(advance-1);
+                break;
+            case 3:
+                Toast.makeText(MainActivity.this,"Sincronizacion restaurantes exitosa",Toast.LENGTH_SHORT).show();
+                updateSQLiteLugares();
+                progressBar.setProgress(advance-1);
+                break;
+            case 4:
+                Toast.makeText(MainActivity.this,"Sincronizacion lugares turisticos exitosa",Toast.LENGTH_SHORT).show();
+                updateSQLitePuntaje();
+                progressBar.setProgress(advance-1);
+                break;
+            case 5:
+                Toast.makeText(MainActivity.this,"Sincronizacion exitosa",Toast.LENGTH_LONG).show();
+                progressBar.setProgress(advance-1);
+                setVisibleScrollBar(false);
+                break;
+        }
 
-        Call<ListaResponse> responseCall = turismoFirebaseService.getListLugarTuristico();
+    }
+
+    private void updateSQLiteHotel() {
+        TurismoFirebaseService turismoFirebaseService = (new TurismoCliente(new HotelResponseTypeAdapter())).getService();
+
+        Call<ListaResponse> responseCall = turismoFirebaseService.getListHotel();
         responseCall.enqueue(new Callback<ListaResponse>() {
             @Override
             public void onResponse(@NonNull Call<ListaResponse> call, @NonNull Response<ListaResponse> response) {
                 if (response.isSuccessful()) {
-                    ArrayList<ModeloLugarTuristico> modeloLugarTuristicos = new ArrayList<>();
-                    SqliteLugar sqliteLugar = new SqliteLugar(MainActivity.this);
-
                     ListaResponse listaResponse = response.body();
 
-                    modeloLugarTuristicos.clear();
                     if (listaResponse != null) {
-                        ArrayList<ModeloLugarTuristico> lugarTuristicoArrayList = listaResponse.getListModeloLugarTuristico();
-
-                        modeloLugarTuristicos.addAll(lugarTuristicoArrayList);
+                        SqliteHotel hotel = new SqliteHotel(MainActivity.this);
+                        ArrayList<ModeloHotel> hotelArrayList = listaResponse.getListModeloHotel();
+                        hotel.update(hotelArrayList);
                     }
-                    loadJSONFirebasePuntajeLugar();
-                    sqliteLugar.update(modeloLugarTuristicos);
-                }
 
-                setVisibleScrollBar(false);
+                    setProgressBar(2);
+                }else{
+                    setProgressBar(0);
+                }
             }
 
             @Override
             public void onFailure(@NonNull Call<ListaResponse> call, @NonNull Throwable t) {
-                Log.d("Error", t.getMessage());
-                setVisibleScrollBar(false);
+                setProgressBar(0);
             }
         });
     }
@@ -353,158 +393,78 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onResponse(@NonNull Call<ListaResponse> call, @NonNull Response<ListaResponse> response) {
                 if (response.isSuccessful()) {
-                    ArrayList<ModeloRestaurante> modeloRestaurantes = new ArrayList<>();
-                    SqliteRestaurante restaurante = new SqliteRestaurante(MainActivity.this);
-
                     ListaResponse listaResponse = response.body();
 
-                    modeloRestaurantes.clear();
                     if (listaResponse != null) {
+                        SqliteRestaurante restaurante = new SqliteRestaurante(MainActivity.this);
                         ArrayList<ModeloRestaurante> restauranteArrayList = listaResponse.getListModeloRestaurante();
-
-                        modeloRestaurantes.addAll(restauranteArrayList);
+                        restaurante.update(restauranteArrayList);
                     }
-                    loadJSONFirebasePuntajeRestaurante();
-                    restaurante.update(modeloRestaurantes);
-                    updateSQLiteLugares();
+                    setProgressBar(3);
+                }else{
+                    setProgressBar(0);
                 }
             }
 
             @Override
             public void onFailure(@NonNull Call<ListaResponse> call, @NonNull Throwable t) {
-                Log.d("Error", t.getMessage());
-                setVisibleScrollBar(false);
+                setProgressBar(0);
             }
         });
     }
 
-    private void updateSQLiteHotel() {
-        TurismoFirebaseService turismoFirebaseService = (new TurismoCliente(new HotelResponseTypeAdapter())).getService();
+    private void updateSQLiteLugares() {
+        TurismoFirebaseService turismoFirebaseService = (new TurismoCliente(new LugarResponseTypeAdapter())).getService();
 
-        Call<ListaResponse> responseCall = turismoFirebaseService.getListHotel();
+        Call<ListaResponse> responseCall = turismoFirebaseService.getListLugarTuristico();
         responseCall.enqueue(new Callback<ListaResponse>() {
             @Override
             public void onResponse(@NonNull Call<ListaResponse> call, @NonNull Response<ListaResponse> response) {
                 if (response.isSuccessful()) {
-                    ArrayList<ModeloHotel> modeloHotels = new ArrayList<>();
-                    SqliteHotel hotel = new SqliteHotel(MainActivity.this);
-
                     ListaResponse listaResponse = response.body();
 
-                    modeloHotels.clear();
                     if (listaResponse != null) {
-                        ArrayList<ModeloHotel> hotelArrayList = listaResponse.getListModeloHotel();
-
-                        modeloHotels.addAll(hotelArrayList);
+                        SqliteLugar sqliteLugar = new SqliteLugar(MainActivity.this);
+                        ArrayList<ModeloLugarTuristico> lugarTuristico = listaResponse.getListModeloLugarTuristico();
+                        sqliteLugar.update(lugarTuristico);
                     }
-                    loadJSONFirebasePuntajeHotel();
-                    hotel.update(modeloHotels);
+                    setProgressBar(4);
+                }else {
+                    setProgressBar(0);
                 }
-                updateSQLiteRestaurantes();
             }
 
             @Override
             public void onFailure(@NonNull Call<ListaResponse> call, @NonNull Throwable t) {
-                Log.d("Error", t.getMessage());
-                setVisibleScrollBar(false);
+                setProgressBar(0);
             }
         });
     }
 
-    private void loadJSONFirebasePuntajeHotel() {
+    private void updateSQLitePuntaje() {
         TurismoFirebaseService turismoFirebaseService = (new TurismoCliente(new PuntajeResponseTypeAdapter())).getService();
 
         Call<ListaResponse> responseCall = turismoFirebaseService.getListPuntaje();
         responseCall.enqueue(new Callback<ListaResponse>() {
             @Override
             public void onResponse(@NonNull Call<ListaResponse> call, @NonNull Response<ListaResponse> response) {
-
-                SqliteHotel hotel = new SqliteHotel(MainActivity.this);
-                ArrayList<ModeloPuntaje> modeloPuntajes = new ArrayList<>();
-
                 if (response.isSuccessful()) {
                     ListaResponse listaResponse = response.body();
 
-                    modeloPuntajes.clear();
                     if (listaResponse != null) {
-                        ArrayList<ModeloPuntaje> puntajeArrayList = listaResponse.getListPuntaje();
-                        modeloPuntajes.addAll(puntajeArrayList);
-
+                        SqliteHotel hotel = new SqliteHotel(MainActivity.this);
+                        ArrayList<ModeloPuntaje> listPuntaje = listaResponse.getListPuntaje();
+                        hotel.updatePuntajeSQLite(listPuntaje);//actualizar hotel sqlite
                     }
+                    setProgressBar(5);
+                }else{
+                    setProgressBar(0);
                 }
-                loadJSONFirebasePuntajeHotel();
-                hotel.updatePuntajeSQLite(modeloPuntajes);//actualizar hotel sqlite
             }
 
             @Override
             public void onFailure(@NonNull Call<ListaResponse> call, @NonNull Throwable t) {
-                //loadSQLite();
-                Log.d("Error", t.getMessage());
-            }
-        });
-    }
-
-    private void loadJSONFirebasePuntajeRestaurante() {
-        TurismoFirebaseService turismoFirebaseService = (new TurismoCliente(new PuntajeResponseTypeAdapter())).getService();
-
-        Call<ListaResponse> responseCall = turismoFirebaseService.getListPuntaje();
-        responseCall.enqueue(new Callback<ListaResponse>() {
-            @Override
-            public void onResponse(@NonNull Call<ListaResponse> call, @NonNull Response<ListaResponse> response) {
-
-                SqliteRestaurante restaurante = new SqliteRestaurante(MainActivity.this);
-                ArrayList<ModeloPuntaje> modeloPuntajes = new ArrayList<>();
-
-                if (response.isSuccessful()) {
-                    ListaResponse listaResponse = response.body();
-
-                    modeloPuntajes.clear();
-                    if (listaResponse != null) {
-                        ArrayList<ModeloPuntaje> puntajeArrayList = listaResponse.getListPuntaje();
-                        modeloPuntajes.addAll(puntajeArrayList);
-
-                    }
-                }
-                loadJSONFirebasePuntajeHotel();
-                restaurante.updatePuntajeSQLite(modeloPuntajes);//actualizar restaurante sqlite
-            }
-
-            @Override
-            public void onFailure(@NonNull Call<ListaResponse> call, @NonNull Throwable t) {
-                //loadSQLite();
-                Log.d("Error", t.getMessage());
-            }
-        });
-    }
-
-    private void loadJSONFirebasePuntajeLugar() {
-        TurismoFirebaseService turismoFirebaseService = (new TurismoCliente(new PuntajeResponseTypeAdapter())).getService();
-
-        Call<ListaResponse> responseCall = turismoFirebaseService.getListPuntaje();
-        responseCall.enqueue(new Callback<ListaResponse>() {
-            @Override
-            public void onResponse(@NonNull Call<ListaResponse> call, @NonNull Response<ListaResponse> response) {
-
-                SqliteLugar sqliteLugar = new SqliteLugar(MainActivity.this);
-                ArrayList<ModeloPuntaje> modeloPuntajes = new ArrayList<>();
-
-                if (response.isSuccessful()) {
-                    ListaResponse listaResponse = response.body();
-
-                    modeloPuntajes.clear();
-                    if (listaResponse != null) {
-                        ArrayList<ModeloPuntaje> puntajeArrayList = listaResponse.getListPuntaje();
-                        modeloPuntajes.addAll(puntajeArrayList);
-                    }
-                }
-                loadJSONFirebasePuntajeHotel();
-                sqliteLugar.updatePuntajeSQLite(modeloPuntajes);//actualizar sqliteLugar sqlite
-            }
-
-            @Override
-            public void onFailure(@NonNull Call<ListaResponse> call, @NonNull Throwable t) {
-                //loadSQLite();
-                Log.d("Error", t.getMessage());
+                setProgressBar(0);
             }
         });
     }

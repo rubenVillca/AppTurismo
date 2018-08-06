@@ -8,12 +8,12 @@ import java.util.HashMap;
  */
 
 public class ModeloImagen implements Serializable {
-    private int id;
+    private int idSqlite;
     private int idImagen;
     private String urlServer;
     private String urlApp;
     private String tipoImagen;
-    private int key_id;
+    private int idLugarReference;
     public HashMap<String,Object> timestampCreated;//h
 
     public static String TIPO_RESTAURANTE="RESTAURANTES";
@@ -25,40 +25,16 @@ public class ModeloImagen implements Serializable {
         this.urlServer = "";
         this.urlApp = "";
         this.tipoImagen = "";
-        this.key_id = 0;
-        //this.timestampCreated = ;
+        this.idLugarReference = 0;
+        this.timestampCreated = new HashMap<>();
     }
 
-    public int getId() {
-        return id;
+    public int getIdSqlite() {
+        return idSqlite;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public static String getTipoRestaurante() {
-        return TIPO_RESTAURANTE;
-    }
-
-    public static void setTipoRestaurante(String tipoRestaurante) {
-        TIPO_RESTAURANTE = tipoRestaurante;
-    }
-
-    public static String getTipoHotel() {
-        return TIPO_HOTEL;
-    }
-
-    public static void setTipoHotel(String tipoHotel) {
-        TIPO_HOTEL = tipoHotel;
-    }
-
-    public static String getTipoLugar() {
-        return TIPO_LUGAR;
-    }
-
-    public static void setTipoLugar(String tipoLugar) {
-        TIPO_LUGAR = tipoLugar;
+    public void setIdSqlite(int id) {
+        this.idSqlite = id;
     }
 
     public int getIdImagen() {
@@ -78,6 +54,7 @@ public class ModeloImagen implements Serializable {
     }
 
     public String getUrlApp() {
+        urlApp=tipoImagen+"/"+urlServer;
         return urlApp;
     }
 
@@ -93,13 +70,14 @@ public class ModeloImagen implements Serializable {
         this.tipoImagen = tipoImagen;
     }
 
-    public int getKey_id() {
-        return key_id;
+    public int getIdLugarReference() {
+        return idLugarReference;
     }
 
-    public void setKey_id(int key_id) {
-        this.key_id = key_id;
+    public void setIdLugarReference(int idLugarReference) {
+        this.idLugarReference = idLugarReference;
     }
+
     public HashMap<String, Object> getTimestampCreated() {
         return timestampCreated;
     }

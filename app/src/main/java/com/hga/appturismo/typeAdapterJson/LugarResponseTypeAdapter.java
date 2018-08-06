@@ -141,14 +141,14 @@ public class LugarResponseTypeAdapter extends TypeAdapter {
         while (readImg.hasNext()) {
             String name = readImg.nextName();
             switch (name) {
-                case "id":
-                    modeloImagen.setId(readImg.nextInt());
+                case "idSqlite":
+                    modeloImagen.setIdSqlite(readImg.nextInt());
                     break;
                 case "idImagen":
                     modeloImagen.setIdImagen(readImg.nextInt());
                     break;
-                case "key_id":
-                    modeloImagen.setKey_id(readImg.nextInt());
+                case "idLugarReference":
+                    modeloImagen.setIdLugarReference(readImg.nextInt());
                     break;
                 case "tipoImagen":
                     modeloImagen.setTipoImagen(readImg.nextString());

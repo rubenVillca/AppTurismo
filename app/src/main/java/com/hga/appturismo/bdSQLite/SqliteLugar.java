@@ -84,7 +84,7 @@ public class SqliteLugar extends DBSQLiteParent implements SqliteInterface<Model
 
     @Override
     public void delete() {
-
+        helper.deleteDatosLugarTuristico(db);
     }
 
     public void update(ArrayList<ModeloLugarTuristico> lugaresTuristicos) {

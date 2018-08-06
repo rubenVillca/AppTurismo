@@ -134,7 +134,7 @@ public class ModeloBaseLugares implements Serializable {
         for(int i=0;i<imagens.length;i++){
             ModeloImagen imagenes=new ModeloImagen();
             imagenes.setIdImagen(id++);
-            imagenes.setKey_id(this.idSQLite);
+            imagenes.setIdLugarReference(this.idSQLite);
             imagenes.setTipoImagen(ModeloImagen.TIPO_LUGAR);
             imagenes.setUrlServer(imagens[i]);
             this.imagenes.add(imagenes);
@@ -146,7 +146,7 @@ public class ModeloBaseLugares implements Serializable {
         for (Integer imagen:listaImg){
             ModeloImagen imagenes=new ModeloImagen();
             imagenes.setIdImagen(id++);
-            imagenes.setKey_id(this.idSQLite);
+            imagenes.setIdLugarReference(this.idSQLite);
             imagenes.setTipoImagen(ModeloImagen.TIPO_LUGAR);
             imagenes.setUrlApp(String.valueOf(imagen));
             this.imagenes.add(imagenes);

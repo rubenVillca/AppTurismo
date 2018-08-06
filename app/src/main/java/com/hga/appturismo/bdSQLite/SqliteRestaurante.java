@@ -78,6 +78,6 @@ public class SqliteRestaurante extends DBSQLiteParent implements SqliteInterface
 
     @Override
     public void delete() {
-
+        helper.deleteDatosRestaurante(db);
     }
 }

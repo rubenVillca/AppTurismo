@@ -20,7 +20,7 @@ import java.util.ArrayList;
  */
 
 public class DBModel extends SQLiteOpenHelper {
-    public static final int DATABASE_VERSION = 90;
+    public static final int DATABASE_VERSION = 91;
     public static final String DATABASE_NAME = "APP_TURISMO";
 
     public static final String TABLE_IMAGENES = "IMAGENES";
@@ -235,7 +235,7 @@ public class DBModel extends SQLiteOpenHelper {
         ContentValues contentValues = new ContentValues();
 
         contentValues.put(DBModel.IMAGENES_ID_IMAGEN_SQLITE, modeloImagen.getIdImagen());
-        contentValues.put(DBModel.IMAGENES_KEY_ID, modeloImagen.getKey_id());
+        contentValues.put(DBModel.IMAGENES_KEY_ID, modeloImagen.getIdLugarReference());
         contentValues.put(DBModel.IMAGENES_TIPO, modeloImagen.getTipoImagen());
         contentValues.put(DBModel.IMAGENES_RUTA_APP, modeloImagen.getUrlApp());
         contentValues.put(DBModel.IMAGENES_RUTA_SERVER, modeloImagen.getUrlServer());
@@ -364,7 +364,7 @@ public class DBModel extends SQLiteOpenHelper {
         ContentValues contentValues = new ContentValues();
 
         contentValues.put(DBModel.PUNTAJE_ID_FIREBASE, String.valueOf(modeloPuntaje.getIdFirebase()));
-        //contentValues.put(DBModel.PUNTAJE_ID_SQLITE, modeloPuntaje.getIdUsuarioFirebase());
+        //contentValues.put(DBModel.PUNTAJE_ID_SQLITE, modeloPuntaje.getIdSqlite());
         contentValues.put(DBModel.PUNTAJE_ID_LUGAR_FIREBASE, modeloPuntaje.getIdLugarFirebase());
         contentValues.put(DBModel.PUNTAJE_CANTIDAD, modeloPuntaje.getPuntaje());
         contentValues.put(DBModel.PUNTAJE_NRO_VISITAS, modeloPuntaje.getNroVisitas());
