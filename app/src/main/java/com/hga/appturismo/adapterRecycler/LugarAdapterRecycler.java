@@ -272,7 +272,7 @@ public class LugarAdapterRecycler extends RecyclerView.Adapter<LugarAdapterRecyc
     }
 
     @Override
-    public void onBindViewHolder(final LugarViewHolder holder, final int position) {
+    public void onBindViewHolder(@NonNull final LugarViewHolder holder, final int position) {
         final ModeloLugarTuristico modeloLugarTuristico = modeloLugarTuristicosFilter.get(position);
         double promedio = getPromedio(holder, modeloLugarTuristico);//marcar todas las estrellas del recycler
 
@@ -283,8 +283,9 @@ public class LugarAdapterRecycler extends RecyclerView.Adapter<LugarAdapterRecyc
         setVisivilityHolder(holder,modeloLugarTuristico.getRegistradoPor());//mostrar valores dependiendo los roles y permisos
     }
 
+    @NonNull
     @Override
-    public LugarViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public LugarViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(resource, parent, false);
         return new LugarViewHolder(view);
     }

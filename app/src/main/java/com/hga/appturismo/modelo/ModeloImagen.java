@@ -14,7 +14,6 @@ public class ModeloImagen implements Serializable {
     private String urlApp;
     private String tipoImagen;
     private int idLugarReference;
-    public HashMap<String,Object> timestampCreated;//h
 
     public static String TIPO_RESTAURANTE="RESTAURANTES";
     public static String TIPO_HOTEL="HOTELES";
@@ -26,7 +25,6 @@ public class ModeloImagen implements Serializable {
         this.urlApp = "";
         this.tipoImagen = "";
         this.idLugarReference = 0;
-        this.timestampCreated = new HashMap<>();
     }
 
     public int getIdSqlite() {
@@ -54,7 +52,6 @@ public class ModeloImagen implements Serializable {
     }
 
     public String getUrlApp() {
-        urlApp=tipoImagen+"/"+urlServer;
         return urlApp;
     }
 
@@ -76,13 +73,5 @@ public class ModeloImagen implements Serializable {
 
     public void setIdLugarReference(int idLugarReference) {
         this.idLugarReference = idLugarReference;
-    }
-
-    public HashMap<String, Object> getTimestampCreated() {
-        return timestampCreated;
-    }
-
-    public void setTimestampCreated(HashMap<String, Object> timestampCreated) {
-        this.timestampCreated = timestampCreated;
     }
 }

@@ -147,10 +147,10 @@ public class UsuarioAdapterRecycler extends RecyclerView.Adapter<UsuarioAdapterR
 
         private UsuarioViewHolder(View itemView) {
             super(itemView);
-            btn_editar = (FloatingActionButton) itemView.findViewById(R.id.btn_editar_usuario);
-            btn_eliminar = (FloatingActionButton) itemView.findViewById(R.id.btn_eliminar_usuario);
-            nameUserCardView=(TextView) itemView.findViewById(R.id.nameUserCardView);
-            emailUserCardView = (TextView) itemView.findViewById(R.id.emailUserCardView);
+            btn_editar = itemView.findViewById(R.id.btn_editar_usuario);
+            btn_eliminar = itemView.findViewById(R.id.btn_eliminar_usuario);
+            nameUserCardView= itemView.findViewById(R.id.nameUserCardView);
+            emailUserCardView = itemView.findViewById(R.id.emailUserCardView);
         }
 
     }

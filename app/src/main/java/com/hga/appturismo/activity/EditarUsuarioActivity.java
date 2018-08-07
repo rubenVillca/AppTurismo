@@ -121,13 +121,13 @@ public class EditarUsuarioActivity extends AppCompatActivity {
      * que se usaran en la opracion de edicion
      */
     private void initLayout() {
-        txt_nombre = (EditText) findViewById(R.id.txt_nombre);
-        txt_apellido = (EditText) findViewById(R.id.txt_apellido);
-        txt_email = (EditText) findViewById(R.id.txt_email);
-        txt_telefono = (EditText) findViewById(R.id.txt_telefono);
-        txt_pwd = (EditText) findViewById(R.id.txt_pwd);
+        txt_nombre = findViewById(R.id.txt_nombre);
+        txt_apellido = findViewById(R.id.txt_apellido);
+        txt_email = findViewById(R.id.txt_email);
+        txt_telefono = findViewById(R.id.txt_telefono);
+        txt_pwd = findViewById(R.id.txt_pwd);
 
-        button_editar = (Button) findViewById(R.id.btn_editar_usuario);
+        button_editar = findViewById(R.id.btn_editar_usuario);
         button_editar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

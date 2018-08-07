@@ -19,52 +19,52 @@ public class BuscarPorProvinciaActivity extends AppCompatActivity implements Vie
     }
 
     private void initButton() {
-        Button btnProvinciaArani = (Button) findViewById(R.id.btnProvinciaArani);
+        Button btnProvinciaArani = findViewById(R.id.btnProvinciaArani);
         btnProvinciaArani.setOnClickListener(this);
 
-        Button btnProvinciaArque = (Button) findViewById(R.id.btnProvinciaArque);
+        Button btnProvinciaArque = findViewById(R.id.btnProvinciaArque);
         btnProvinciaArque.setOnClickListener(this);
 
-        Button btnProvinciaAyopaya = (Button) findViewById(R.id.btnProvinciaAyopaya);
+        Button btnProvinciaAyopaya = findViewById(R.id.btnProvinciaAyopaya);
         btnProvinciaAyopaya.setOnClickListener(this);
 
-        Button btnProvinciaBolivar = (Button) findViewById(R.id.btnProvinciaBolivar);
+        Button btnProvinciaBolivar = findViewById(R.id.btnProvinciaBolivar);
         btnProvinciaBolivar.setOnClickListener(this);
 
-        Button btnProvinciaCampero = (Button) findViewById(R.id.btnProvinciaCampero);
+        Button btnProvinciaCampero = findViewById(R.id.btnProvinciaCampero);
         btnProvinciaCampero.setOnClickListener(this);
 
-        Button btnProvinciaCapinota = (Button) findViewById(R.id.btnProvinciaCapinota);
+        Button btnProvinciaCapinota = findViewById(R.id.btnProvinciaCapinota);
         btnProvinciaCapinota.setOnClickListener(this);
 
-        Button btnProvinciaCercado = (Button) findViewById(R.id.btnProvinciaCercado);
+        Button btnProvinciaCercado = findViewById(R.id.btnProvinciaCercado);
         btnProvinciaCercado.setOnClickListener(this);
 
-        Button btnProvinciaChapare = (Button) findViewById(R.id.btnProvinciaChapare);
+        Button btnProvinciaChapare = findViewById(R.id.btnProvinciaChapare);
         btnProvinciaChapare.setOnClickListener(this);
 
-        Button btnProvinciaEstebanArze = (Button) findViewById(R.id.btnProvinciaEstebanArze);
+        Button btnProvinciaEstebanArze = findViewById(R.id.btnProvinciaEstebanArze);
         btnProvinciaEstebanArze.setOnClickListener(this);
 
-        Button btnProvinciaGermanJordan = (Button) findViewById(R.id.btnProvinciaGermanJordan);
+        Button btnProvinciaGermanJordan = findViewById(R.id.btnProvinciaGermanJordan);
         btnProvinciaGermanJordan.setOnClickListener(this);
 
-        Button btnProvinciaJoseCarrasco = (Button) findViewById(R.id.btnProvinciaJoseCarrasco);
+        Button btnProvinciaJoseCarrasco = findViewById(R.id.btnProvinciaJoseCarrasco);
         btnProvinciaJoseCarrasco.setOnClickListener(this);
 
-        Button btnProvinciaMizque = (Button) findViewById(R.id.btnProvinciaMizque);
+        Button btnProvinciaMizque = findViewById(R.id.btnProvinciaMizque);
         btnProvinciaMizque.setOnClickListener(this);
 
-        Button btnProvinciaPunata = (Button) findViewById(R.id.btnProvinciaPunata);
+        Button btnProvinciaPunata = findViewById(R.id.btnProvinciaPunata);
         btnProvinciaPunata.setOnClickListener(this);
 
-        Button btnProvinciaQuillacollo = (Button) findViewById(R.id.btnProvinciaQuillacollo);
+        Button btnProvinciaQuillacollo = findViewById(R.id.btnProvinciaQuillacollo);
         btnProvinciaQuillacollo.setOnClickListener(this);
 
-        Button btnProvinciaTapacari = (Button) findViewById(R.id.btnProvinciaTapacari);
+        Button btnProvinciaTapacari = findViewById(R.id.btnProvinciaTapacari);
         btnProvinciaTapacari.setOnClickListener(this);
 
-        Button btnProvinciaTiraque = (Button) findViewById(R.id.btnProvinciaTiraque);
+        Button btnProvinciaTiraque = findViewById(R.id.btnProvinciaTiraque);
         btnProvinciaTiraque.setOnClickListener(this);
 
     }

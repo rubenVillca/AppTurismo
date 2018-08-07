@@ -131,12 +131,12 @@ public class ModeloBaseLugares implements Serializable {
 
     public void setImagenesFirebaseArreglo(String[] imagens) {
         int id=1;
-        for(int i=0;i<imagens.length;i++){
-            ModeloImagen imagenes=new ModeloImagen();
+        for (String imagen : imagens) {
+            ModeloImagen imagenes = new ModeloImagen();
             imagenes.setIdImagen(id++);
             imagenes.setIdLugarReference(this.idSQLite);
             imagenes.setTipoImagen(ModeloImagen.TIPO_LUGAR);
-            imagenes.setUrlServer(imagens[i]);
+            imagenes.setUrlServer(imagen);
             this.imagenes.add(imagenes);
         }
     }

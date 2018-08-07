@@ -46,28 +46,28 @@ public class DescripcionRestauranteActivity extends AppCompatActivity implements
      * Modificar la vista con datos del controlador
      */
     private void actualizarContenido() {
-        TextView textViewNombre = (TextView) findViewById(R.id.textViewNombreText);
+        TextView textViewNombre = findViewById(R.id.textViewNombreText);
         textViewNombre.setText(modeloRestaurante.getNombre());
 
-        TextView textViewDireccion = (TextView) findViewById(R.id.textViewDireccionText);
+        TextView textViewDireccion = findViewById(R.id.textViewDireccionText);
         textViewDireccion.setText(modeloRestaurante.getDireccion());
 
-        TextView textViewHorario = (TextView) findViewById(R.id.textViewHorariosText);
+        TextView textViewHorario = findViewById(R.id.textViewHorariosTextRestaurante);
         textViewHorario.setText(modeloRestaurante.getHorario());
 
-        TextView textViewTelefono = (TextView) findViewById(R.id.textViewTelefonoText);
+        TextView textViewTelefono = findViewById(R.id.textViewTelefonoText);
         textViewTelefono.setText(String.valueOf(modeloRestaurante.getTelefono()));
 
-        TextView textViewPagWebText = (TextView) findViewById(R.id.textViewPagWebText);
+        TextView textViewPagWebText = findViewById(R.id.textViewPagWebText);
         textViewPagWebText.setText(String.valueOf(modeloRestaurante.getPaginaWeb()));
 
-        TextView textViewEmailText = (TextView) findViewById(R.id.textViewEmailText);
+        TextView textViewEmailText = findViewById(R.id.textViewEmailText);
         textViewEmailText.setText(String.valueOf(modeloRestaurante.getEmail()));
 
         TextView textViewRegistradoPorText = findViewById(R.id.textViewRegistradoPorText);
         textViewRegistradoPorText.setText(modeloRestaurante.getRegistradoPor());
 
-        Button buttonAudio = (Button) findViewById(R.id.buttonAudio);
+        Button buttonAudio = findViewById(R.id.buttonAudio);
         buttonAudio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -75,7 +75,7 @@ public class DescripcionRestauranteActivity extends AppCompatActivity implements
             }
         });
 
-        Button buttonTrazarRuta = (Button) findViewById(R.id.buttonTrazarRuta);
+        Button buttonTrazarRuta = findViewById(R.id.buttonTrazarRuta);
         buttonTrazarRuta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -93,7 +93,7 @@ public class DescripcionRestauranteActivity extends AppCompatActivity implements
         });
 
         //imagenes
-        ViewPager viewPager = (ViewPager) findViewById(R.id.imagenTurismo);
+        ViewPager viewPager = findViewById(R.id.imagenTurismo);
         ImagenSwip imagenSwip = new ImagenSwip(modeloRestaurante.getImagenes(), this);
         viewPager.setAdapter(imagenSwip);
 

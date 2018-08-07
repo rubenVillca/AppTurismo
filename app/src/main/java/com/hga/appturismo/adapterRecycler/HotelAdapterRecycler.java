@@ -389,17 +389,17 @@ public class HotelAdapterRecycler extends RecyclerView.Adapter<HotelAdapterRecyc
 
         private HotelViewHolder(View itemView) {
             super(itemView);
-            nameCardView = (TextView) itemView.findViewById(R.id.nameCardView);
-            imageCardView = (ImageView) itemView.findViewById(R.id.imageCardView);
-            btn_editar = (FloatingActionButton) itemView.findViewById(R.id.btn_editar);
-            btn_eliminar = (FloatingActionButton) itemView.findViewById(R.id.btn_eliminar);
-            estrella1 = (CheckBox) itemView.findViewById(R.id.star1);
-            estrella2 = (CheckBox) itemView.findViewById(R.id.star2);
-            estrella3 = (CheckBox) itemView.findViewById(R.id.star3);
-            estrella4 = (CheckBox) itemView.findViewById(R.id.star4);
-            estrella5 = (CheckBox) itemView.findViewById(R.id.star5);
-            promedio=(TextView)itemView.findViewById(R.id.promedioCardView);
-            layoutEstrellas=(LinearLayout)itemView.findViewById(R.id.calificacion);
+            nameCardView = itemView.findViewById(R.id.nameCardView);
+            imageCardView = itemView.findViewById(R.id.imageCardView);
+            btn_editar = itemView.findViewById(R.id.btn_editar);
+            btn_eliminar = itemView.findViewById(R.id.btn_eliminar);
+            estrella1 = itemView.findViewById(R.id.star1);
+            estrella2 = itemView.findViewById(R.id.star2);
+            estrella3 = itemView.findViewById(R.id.star3);
+            estrella4 = itemView.findViewById(R.id.star4);
+            estrella5 = itemView.findViewById(R.id.star5);
+            promedio= itemView.findViewById(R.id.promedioCardView);
+            layoutEstrellas= itemView.findViewById(R.id.calificacion);
         }
     }
 }

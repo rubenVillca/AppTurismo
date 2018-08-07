@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private ArrayList<ModeloLugarTuristico> modeloLugarTuristicos;
     private SqliteLugar lugar;
-    private int state;
+
 
     @Override
     public void onClick(View view) {
@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Intent listaRestaurante = new Intent(this, ListaRestaurantesActivity.class);
                 startActivity(listaRestaurante);
                 break;
-            case R.id.action_search:
+            /*case R.id.action_search:
                 SearchView searchView = findViewById(R.id.action_search);
                 searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
                     @Override
@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         return false;
                     }
                 });
-                break;
+                break;*/
             case R.id.btnInsertSite:
                 Intent insertarLugar = new Intent(this, InsertarLugarActivity.class);
                 startActivity(insertarLugar);

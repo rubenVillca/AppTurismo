@@ -121,16 +121,19 @@ public class ImagenAcontecimientosSwip extends PagerAdapter {
 
     private void cargarImagen(int position, ImageView imageView, final ImageView imageViewCopy) {
         ModeloImagen modeloImagen =imagesResources.get(position).getImagenes().get(0);
-        if (!modeloImagen.getUrlApp().isEmpty()) {
-            try {
-                Integer.parseInt(modeloImagen.getUrlApp());
-                Picasso.with(context).load(Integer.parseInt(modeloImagen.getUrlApp())).into(imageView);
-            }catch (NumberFormatException e){
-                Picasso.with(context).load(modeloImagen.getUrlApp()).into(imageView);
-            }
-        }else {
+
+        //String urlImagen = Constants.FIREBASE_STORAGE_URL+modeloImagen.getTipoImagen()+"/"+modeloImagen.getUrlServer();
+        TurismoAplicacion app = (TurismoAplicacion) context.getApplicationContext();
+        /*File file = new File(app.getStorageReferenceImagen(modeloImagen.getUrlApp()).toString());
+        if (file.exists()) {*/
+            /*try {
+                int imagen=Integer.parseInt(modeloImagen.getUrlApp());//si la imagen esta en la app
+                Picasso.with(context).load(imagen).into(imageView);
+            }catch (NumberFormatException e){*/
+                //Picasso.with(context).load(urlImagen).into(imageView);//si la imagen esta en el celular
+            //}
+        /*}else {//si la imagen no esta en el celular*/
             String urlImagen = modeloImagen.getUrlServer();
-            TurismoAplicacion app = (TurismoAplicacion)context.getApplicationContext();
             StorageReference storageRef = app.getStorageReferenceImagen(modeloImagen.getTipoImagen()+"/"+urlImagen);
             storageRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                 @Override
@@ -145,7 +148,7 @@ public class ImagenAcontecimientosSwip extends PagerAdapter {
                     System.out.println("Error al cargar imagenes");
                 }
             });
-        }
+        //}
     }
 
     @Override

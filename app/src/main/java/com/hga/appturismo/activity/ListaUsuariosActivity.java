@@ -51,7 +51,7 @@ public class ListaUsuariosActivity extends AppCompatActivity {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
 
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.usuarioRecyclerView);
+        RecyclerView recyclerView = findViewById(R.id.usuarioRecyclerView);
         recyclerView.setLayoutManager(linearLayoutManager);
         adapterRecycler = new UsuarioAdapterRecycler(modeloUsuarios, R.layout.cardview_list_users, this);
         recyclerView.setAdapter(adapterRecycler);

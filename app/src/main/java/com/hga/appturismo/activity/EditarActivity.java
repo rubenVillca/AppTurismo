@@ -104,8 +104,10 @@ public class EditarActivity extends AppCompatActivity {
             Uri selectedImage = data.getData();
             String[] filePathColumn = {MediaStore.Images.Media.DATA};//Array size of 1, and we put in a string
 
+            assert selectedImage != null;
             Cursor cursor = getContentResolver().query(selectedImage, filePathColumn, null, null, null);
 
+            assert cursor != null;
             cursor.moveToFirst();
             int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
             mCurrentAbsolutePhotoPath = cursor.getString(columnIndex);//here we have our image path.
@@ -154,7 +156,7 @@ public class EditarActivity extends AppCompatActivity {
         editar_layout_linea = findViewById(R.id.editar_layout_linea);
         editar_txt_linea = findViewById(R.id.editar_txt_linea);
         editar_layout_fecha = findViewById(R.id.editar_layout_fecha);
-        editar_txt_fecha = findViewById(R.id.editar_txt_linea);
+        editar_txt_fecha = findViewById(R.id.editar_txt_fecha);
 
         editar_layout_imagen = findViewById(R.id.editar_layout_imagen);
         editar_txt_ruta_imagen = findViewById(R.id.editar_ruta_imagen);
@@ -372,7 +374,7 @@ public class EditarActivity extends AppCompatActivity {
     }
 
     protected int getIdProvincia(String provincia) {
-        provincia.toLowerCase();
+        provincia=provincia.toLowerCase();
         int res;
         switch (provincia) {
             case "arani":

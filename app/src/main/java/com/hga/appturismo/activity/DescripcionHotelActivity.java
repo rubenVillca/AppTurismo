@@ -79,6 +79,7 @@ public class DescripcionHotelActivity extends AppCompatActivity  implements Text
                 if (tts!=null)
                     tts.stop();
                 LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+                assert locationManager != null;
                 if (locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)||locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)) {
                     Intent intent = new Intent(DescripcionHotelActivity.this, MapaHotelesActivity.class);
                     intent.putExtra("nombre", modeloHotel.getNombre());

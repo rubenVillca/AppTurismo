@@ -49,6 +49,7 @@ public class ListaHotelesActivity extends AppCompatActivity {
         else
             loadSQLite();
     }
+
     private void initRecyclerView() {
         modeloHotels =new ArrayList<>();
         modeloPuntajes=new ArrayList<>();
@@ -56,7 +57,7 @@ public class ListaHotelesActivity extends AppCompatActivity {
         LinearLayoutManager linearLayoutManager=new LinearLayoutManager(this);
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
 
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.hotelRecyclerView);
+        RecyclerView recyclerView = findViewById(R.id.hotelRecyclerView);
         recyclerView.setLayoutManager(linearLayoutManager);
         adapterRecycler = new HotelAdapterRecycler(modeloHotels,modeloPuntajes, R.layout.cardview_list,this);
         recyclerView.setAdapter(adapterRecycler);

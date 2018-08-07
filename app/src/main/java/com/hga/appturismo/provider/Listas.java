@@ -1394,7 +1394,7 @@ public class Listas {
         restaurante.setEstado(Constants.ESTADO_LUGAR_VISIBLE);
         listaRestaurantes.add(restaurante);
 
-        /*restaurante = new ModeloRestaurante();
+        restaurante = new ModeloRestaurante();
         restaurante.setIdSQLite(idRestaurante++);
         restaurante.setNombre("Carbonell");
         restaurante.setGpsX(-17.389166044786787f);
@@ -3052,7 +3052,7 @@ public class Listas {
         restaurante.setEstado(Constants.ESTADO_LUGAR_VISIBLE);
         listaRestaurantes.add(restaurante);
 
-        *//*restaurante = new ModeloRestaurante();
+        restaurante = new ModeloRestaurante();
         restaurante.setIdSQLite(idRestaurante++);
         restaurante.setNombre("La Morada Café ");
         restaurante.setGpsX(-17.377134138371943f);
@@ -3063,7 +3063,7 @@ public class Listas {
         restaurante.setHorario("Lunes a Viernes 08:00 - 22:00 Sábado 09:00 - 22:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         restaurante.setEstado(Constants.ESTADO_LUGAR_VISIBLE);
-        listaRestaurantes.add(restaurante);*//*
+        listaRestaurantes.add(restaurante);
 
         restaurante = new ModeloRestaurante();
         restaurante.setIdSQLite(idRestaurante++);
@@ -3234,7 +3234,7 @@ public class Listas {
         restaurante.setEstado(Constants.ESTADO_LUGAR_VISIBLE);
         listaRestaurantes.add(restaurante);
 
-        *//*restaurante = new ModeloRestaurante();
+        restaurante = new ModeloRestaurante();
         restaurante.setIdSQLite(idRestaurante++);
         restaurante.setNombre("Peña Churrasquería \"Sachawasi\"");
         restaurante.setGpsX(-17.37139371503537f);
@@ -3245,7 +3245,7 @@ public class Listas {
         restaurante.setHorario("Lunes a Domingo 11:30 - 23:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         restaurante.setEstado(Constants.ESTADO_LUGAR_VISIBLE);
-        listaRestaurantes.add(restaurante);*//*
+        listaRestaurantes.add(restaurante);
 
         restaurante = new ModeloRestaurante();
         restaurante.setIdSQLite(idRestaurante++);
@@ -3687,7 +3687,7 @@ public class Listas {
         restaurante.setHorario("Lunes a Viernes 11:00-14:00 , 17:00-21:00 Sábado 11:00-21:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         restaurante.setEstado(Constants.ESTADO_LUGAR_VISIBLE);
-        listaRestaurantes.add(restaurante);*/
+        listaRestaurantes.add(restaurante);
 
     }
 

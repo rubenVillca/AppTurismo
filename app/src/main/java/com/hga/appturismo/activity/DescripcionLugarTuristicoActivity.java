@@ -99,7 +99,7 @@ public class DescripcionLugarTuristicoActivity extends AppCompatActivity impleme
         TextView textViewTelefonoText = findViewById(R.id.textViewTelefonoText);
         textViewTelefonoText.setText(String.valueOf(String.valueOf(modeloLugarTuristico.getTelefono())));
 
-        TextView textViewHorariosText = findViewById(R.id.textViewHorariosText);
+        TextView textViewHorariosText = findViewById(R.id.textViewHorariosTextLugar);
         textViewHorariosText.setText(modeloLugarTuristico.getHorario());
 
         TextView textViewActividadText = findViewById(R.id.textViewActividadText);
@@ -127,7 +127,7 @@ public class DescripcionLugarTuristicoActivity extends AppCompatActivity impleme
             LinearLayout linearLayoutHorario=findViewById(R.id.linearLayoutHorario);
             linearLayoutHorario.setVisibility(View.GONE);
         }else {
-            TextView textViewHorario = findViewById(R.id.textViewHorariosText);
+            TextView textViewHorario = findViewById(R.id.textViewHorariosTextLugar);
             textViewHorario.setText(modeloLugarTuristico.getHorario());
         }
         if (modeloLugarTuristico.getActividad().isEmpty()) {

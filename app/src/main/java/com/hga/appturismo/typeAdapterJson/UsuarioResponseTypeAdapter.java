@@ -26,7 +26,7 @@ public class UsuarioResponseTypeAdapter extends TypeAdapter {
 
         in.beginObject();
         while (in.hasNext()) {
-            ModeloUsuario modeloUsuario = null;
+            ModeloUsuario modeloUsuario;
             try {
                 modeloUsuario = readUsuario(in);
                 modeloUsuarios.add(modeloUsuario);

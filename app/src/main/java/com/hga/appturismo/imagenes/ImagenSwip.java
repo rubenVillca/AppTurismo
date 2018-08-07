@@ -17,6 +17,7 @@ import com.google.firebase.storage.StorageReference;
 import com.hga.appturismo.R;
 import com.hga.appturismo.bdFirebase.TurismoAplicacion;
 import com.hga.appturismo.modelo.ModeloImagen;
+import com.hga.appturismo.util.Constants;
 import com.squareup.picasso.Picasso;
 
 import java.io.File;
@@ -61,12 +62,18 @@ public class ImagenSwip extends PagerAdapter {
     private void setImageView(int position, final ImageView imageView) {
         ModeloImagen modeloImagen = imagesResources.get(position);
 
-        String urlImagen = modeloImagen.getUrlServer();
+        String urlImagen = modeloImagen.getTipoImagen()+"/"+modeloImagen.getUrlServer();
         TurismoAplicacion app = (TurismoAplicacion) context.getApplicationContext();
-
-        File file = new File(app.getStorageReferenceImagen(modeloImagen.getTipoImagen() + "/" + urlImagen).toString());
-        if (!file.exists()) {
-            StorageReference storageRef = app.getStorageReferenceImagen(modeloImagen.getTipoImagen() + "/" + urlImagen);
+        /*File file = new File(app.getStorageReferenceImagen(urlImagen).toString());
+        if (file.exists()) {*/
+            /*try {
+                int imagen=Integer.parseInt(modeloImagen.getUrlApp());
+                Picasso.with(context).load(imagen).into(imageView);
+            } catch (NumberFormatException e) {*/
+                //Picasso.with(context).load(urlImagen).into(imageView);//si la imagen esta en el celular
+            //}
+        /*}else {*/
+            StorageReference storageRef = app.getStorageReferenceImagen(urlImagen);
             storageRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                 @Override
                 public void onSuccess(Uri uri) {
@@ -80,27 +87,7 @@ public class ImagenSwip extends PagerAdapter {
                     System.out.println("Error al cargar imagenes");
                 }
             });
-        }else {
-            try {
-                Integer.parseInt(modeloImagen.getUrlApp());
-                Picasso.with(context).load(Integer.parseInt(modeloImagen.getUrlApp())).into(imageView);
-            } catch (NumberFormatException e) {
-                StorageReference storageRef = app.getStorageReferenceImagen(modeloImagen.getTipoImagen() + "/" + urlImagen);
-                storageRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                    @Override
-                    public void onSuccess(Uri uri) {
-                        // Got the download URL for 'users/me/profile.png'
-                        // Pass it to Picasso to download, show in ImageView and caching
-                        Picasso.with(context).load(uri.toString()).into(imageView);
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception exception) {
-                        System.out.println("Error al cargar imagenes");
-                    }
-                });
-            }
-        }
+        //}
     }
 
     @Override

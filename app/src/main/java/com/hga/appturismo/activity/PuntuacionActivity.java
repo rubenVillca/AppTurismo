@@ -21,9 +21,9 @@ public class PuntuacionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_lugares);
 
-        puntaje = (LinearLayout) findViewById(R.id.puntuacion);
+        puntaje = findViewById(R.id.puntuacion);
         for (int i = 1; i <= 5; i++) {
-            star = (CheckBox) puntaje.findViewWithTag(String.valueOf(i));
+            star = puntaje.findViewWithTag(String.valueOf(i));
             star.setOnClickListener(starsListener);
         }
     }
@@ -33,12 +33,12 @@ public class PuntuacionActivity extends AppCompatActivity {
             System.out.println("Puntaje: "+tag);
             //desmarcar todas las  estrellas
             for (int i = 1; i <= 5; i++)  {
-                star = (CheckBox) puntaje.findViewWithTag(String.valueOf(i));
+                star = puntaje.findViewWithTag(String.valueOf(i));
                 star.setChecked(false);
             }
             //marcar los seleccionado
             for (int i = 1 ; i <= tag; i++) {
-                star = (CheckBox) puntaje.findViewWithTag(String.valueOf(i));
+                star = puntaje.findViewWithTag(String.valueOf(i));
                 star.setChecked(true);
             }
 
