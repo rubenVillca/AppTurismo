@@ -19,6 +19,7 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.storage.StorageReference;
 import com.hga.appturismo.R;
+import com.hga.appturismo.activity.MainActivity;
 import com.hga.appturismo.bdFirebase.TurismoAplicacion;
 import com.hga.appturismo.modelo.ModeloImagen;
 import com.hga.appturismo.modelo.ModeloLugarTuristico;
@@ -48,7 +49,6 @@ public class ImagenAcontecimientosSwip extends PagerAdapter {
         LinearLayout linearLayoutText = new LinearLayout(container.getContext());
         linearLayoutText.setOrientation(LinearLayout.VERTICAL);
         linearLayoutText.setGravity(Gravity.BOTTOM);
-        linearLayoutText.setBackgroundColor(53292929);
 
         ViewPager.LayoutParams params = getLayoutParams();
 

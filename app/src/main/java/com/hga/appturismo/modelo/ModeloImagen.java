@@ -9,11 +9,11 @@ import java.util.HashMap;
 
 public class ModeloImagen implements Serializable {
     private int idSqlite;
-    private int idImagen;
+    private int idImagen;//numero de imagen de un lugar
+    private int idLugarReference;
     private String urlServer;
     private String urlApp;
     private String tipoImagen;
-    private int idLugarReference;
 
     public static String TIPO_RESTAURANTE="RESTAURANTES";
     public static String TIPO_HOTEL="HOTELES";

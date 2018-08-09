@@ -79,6 +79,10 @@ public class SqliteHotel extends DBSQLiteParent implements SqliteInterface<Model
         helper.deleteDatosPuntaje(db);
     }
 
+    public void deleteImagenes(){
+        helper.deleteDatosImagenes(db);
+    }
+
     public void update(ArrayList<ModeloHotel> modeloHotels) {
         helper.deleteDatosHotel(db);
         for (ModeloHotel modeloHotel : modeloHotels) {

@@ -143,7 +143,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 modeloLugarTuristicos.add(lugarTuristico);
             }
         }
-
     }
 
     @Override
@@ -217,7 +216,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.action_reset:
                 resetDataFirebase();
-                //resetDatosSQlite();
+                resetDatosSQlite();
                 break;
             case R.id.action_sincronizar:
                 resetDatosSQlite();
@@ -293,14 +292,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setVisibleScrollBar(true);
 
         SqliteHotel sqliteHotel=new SqliteHotel(this);
-        sqliteHotel.delete();
         sqliteHotel.deletePuntaje();
-
-        SqliteRestaurante sqliteRestaurante=new SqliteRestaurante(this);
-        sqliteRestaurante.delete();
-
-        SqliteLugar sqliteLugar=new SqliteLugar(this);
-        sqliteLugar.delete();
+        sqliteHotel.deleteImagenes();
 
         setProgressBar(1);
     }

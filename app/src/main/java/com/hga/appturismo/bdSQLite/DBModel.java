@@ -20,13 +20,13 @@ import java.util.ArrayList;
  */
 
 public class DBModel extends SQLiteOpenHelper {
-    public static final int DATABASE_VERSION = 91;
+    public static final int DATABASE_VERSION = 92;
     public static final String DATABASE_NAME = "APP_TURISMO";
 
     public static final String TABLE_IMAGENES = "IMAGENES";
-    public static final String IMAGENES_ID = "ID_IMAGEN";
-    public static final String IMAGENES_ID_IMAGEN_SQLITE = "ID_IMAGEN_SQLITE";
-    public static final String IMAGENES_KEY_ID = "KEY_TIPO_ID_IMGEN";
+    public static final String IMAGENES_ID_SQLITE = "ID_IMAGEN";
+    public static final String IMAGENES_POSICION_IMAGEN = "ID_IMAGEN_SQLITE";
+    public static final String IMAGENES_REFERENCE_LUGAR_ID = "KEY_TIPO_ID_IMGEN";
     public static final String IMAGENES_TIPO = "TIPO_IMAGEN";
     public static final String IMAGENES_RUTA_APP = "RUTA_APP_IMAGEN";
     public static final String IMAGENES_RUTA_SERVER = "RUTA_SERVER_IMAGEN";
@@ -115,9 +115,9 @@ public class DBModel extends SQLiteOpenHelper {
 
     private String getTableImagenes() {
         return "create table " + TABLE_IMAGENES + " ("
-                + IMAGENES_ID + " integer primary key autoincrement,"
-                + IMAGENES_KEY_ID + " integer,"
-                + IMAGENES_ID_IMAGEN_SQLITE + " integer,"
+                + IMAGENES_ID_SQLITE + " integer primary key autoincrement,"
+                + IMAGENES_REFERENCE_LUGAR_ID + " integer,"
+                + IMAGENES_POSICION_IMAGEN + " integer,"
                 + IMAGENES_TIPO + " text,"
                 + IMAGENES_RUTA_APP + " text,"
                 + IMAGENES_RUTA_SERVER + " text"
@@ -225,8 +225,9 @@ public class DBModel extends SQLiteOpenHelper {
 
     }
 
-    private void insertarImagenes(ArrayList<ModeloImagen> modeloImagenArrayList, SQLiteDatabase db) {
+    private void insertarImagenes(ArrayList<ModeloImagen> modeloImagenArrayList, SQLiteDatabase db,long idReference) {
         for (ModeloImagen modeloImagen : modeloImagenArrayList) {
+            modeloImagen.setIdLugarReference((int) idReference);
             insertarImagen(db, modeloImagen);
         }
     }
@@ -234,13 +235,14 @@ public class DBModel extends SQLiteOpenHelper {
     public void insertarImagen(SQLiteDatabase db, ModeloImagen modeloImagen) {
         ContentValues contentValues = new ContentValues();
 
-        contentValues.put(DBModel.IMAGENES_ID_IMAGEN_SQLITE, modeloImagen.getIdImagen());
-        contentValues.put(DBModel.IMAGENES_KEY_ID, modeloImagen.getIdLugarReference());
+        contentValues.put(DBModel.IMAGENES_POSICION_IMAGEN, modeloImagen.getIdImagen());
+        contentValues.put(DBModel.IMAGENES_REFERENCE_LUGAR_ID, modeloImagen.getIdLugarReference());
         contentValues.put(DBModel.IMAGENES_TIPO, modeloImagen.getTipoImagen());
         contentValues.put(DBModel.IMAGENES_RUTA_APP, modeloImagen.getUrlApp());
         contentValues.put(DBModel.IMAGENES_RUTA_SERVER, modeloImagen.getUrlServer());
 
-        if (db.insert(DBModel.TABLE_IMAGENES, null, contentValues) == -1) {
+        long idSqlite=db.insert(DBModel.TABLE_IMAGENES, null, contentValues);
+        if ( idSqlite== -1) {
             System.out.println("Error en la base de datos");
         }
     }
@@ -254,7 +256,7 @@ public class DBModel extends SQLiteOpenHelper {
     public void insertarRestaurante(SQLiteDatabase db, ModeloRestaurante modeloRestaurante) {
         ContentValues contentValues = new ContentValues();
 
-        contentValues.put(DBModel.RESTAURANTES_ID_SQLITE, modeloRestaurante.getIdSQLite());
+        //contentValues.put(DBModel.RESTAURANTES_ID_SQLITE, modeloRestaurante.getIdSQLite());
         contentValues.put(DBModel.RESTAURANTES_ID_FIREBASE, modeloRestaurante.getIdFirebase());
         contentValues.put(DBModel.RESTAURANTES_NAME, modeloRestaurante.getNombre());
         contentValues.put(DBModel.RESTAURANTES_DIRECCION, modeloRestaurante.getDireccion());
@@ -266,10 +268,11 @@ public class DBModel extends SQLiteOpenHelper {
         contentValues.put(DBModel.RESTAURANTES_ESTADO, String.valueOf(modeloRestaurante.getEstado()));
         contentValues.put(DBModel.RESTAURANTES_REGISTRADO_POR, modeloRestaurante.getRegistradoPor());
 
-        if (db.insert(DBModel.TABLE_RESTAURANTES, null, contentValues) == -1) {
+        long idSqlite=db.insert(DBModel.TABLE_RESTAURANTES, null, contentValues);
+        if (idSqlite == -1) {
             System.out.println("Error en la base de datos restaurante: " + contentValues.toString() + "\nModeloRestaurante:" + modeloRestaurante.toString());
         } else {
-            insertarImagenes(modeloRestaurante.getImagenes(), db);
+            insertarImagenes(modeloRestaurante.getImagenes(), db,idSqlite);
         }
     }
 
@@ -282,7 +285,7 @@ public class DBModel extends SQLiteOpenHelper {
     public void insertarHotel(SQLiteDatabase db, ModeloHotel modeloHotel) {
         ContentValues contentValues = new ContentValues();
 
-        contentValues.put(DBModel.HOTELES_SQLITE_ID, modeloHotel.getIdSQLite());
+        //contentValues.put(DBModel.HOTELES_SQLITE_ID, modeloHotel.getIdSQLite());
         contentValues.put(DBModel.HOTELES_ID_FIREBASE, modeloHotel.getIdFirebase());
         contentValues.put(DBModel.HOTELES_NAME, modeloHotel.getNombre());
         contentValues.put(DBModel.HOTELES_DIRECCION, modeloHotel.getDireccion());
@@ -294,10 +297,11 @@ public class DBModel extends SQLiteOpenHelper {
         contentValues.put(DBModel.HOTELES_ESTADO, String.valueOf(modeloHotel.getEstado()));
         contentValues.put(DBModel.HOTELES_REGISTRADO_POR, modeloHotel.getRegistradoPor());
 
-        if (db.insert(DBModel.TABLE_HOTELES, null, contentValues) == -1) {
+        long idSqliteReference=db.insert(DBModel.TABLE_HOTELES, null, contentValues);
+        if (idSqliteReference == -1) {
             System.out.println("Error en la base de datos hotel: " + contentValues.toString() + "\nModeloHotel: " + modeloHotel.toString());
         } else {
-            insertarImagenes(modeloHotel.getImagenes(), db);
+            insertarImagenes(modeloHotel.getImagenes(), db,idSqliteReference);
         }
     }
 
@@ -311,7 +315,7 @@ public class DBModel extends SQLiteOpenHelper {
     public void insertarLugarTuristico(SQLiteDatabase db, ModeloLugarTuristico lugar) {
         ContentValues contentValues = new ContentValues();
 
-        contentValues.put(DBModel.LUGARES_ID_SQLITE, lugar.getIdSQLite());
+        //contentValues.put(DBModel.LUGARES_ID_SQLITE, lugar.getIdSQLite());
         contentValues.put(DBModel.LUGARES_ID_FIREBASE, String.valueOf(lugar.getIdFirebase()));
         contentValues.put(DBModel.LUGARES_NAME, String.valueOf(lugar.getNombre()));
         contentValues.put(DBModel.LUGARES_TIPO, String.valueOf(lugar.getTipo()));
@@ -328,10 +332,11 @@ public class DBModel extends SQLiteOpenHelper {
         contentValues.put(DBModel.LUGARES_PROVINCIA,lugar.getProvincia());
         contentValues.put(DBModel.LUGARES_REGISTRADO_POR, lugar.getRegistradoPor());
 
-        if (db.insert(DBModel.TABLE_LUGARES, null, contentValues) == -1) {
+        long idSqlite=db.insert(DBModel.TABLE_LUGARES, null, contentValues) ;
+        if (idSqlite== -1) {
             System.out.println("Error en la base de datos turismo: " + contentValues.toString() + "\nmodelo:" + lugar.toString());
         } else {
-            insertarImagenes(lugar.getImagenes(), db);
+            insertarImagenes(lugar.getImagenes(), db,idSqlite);
         }
     }
 
@@ -363,8 +368,8 @@ public class DBModel extends SQLiteOpenHelper {
     public void insertarPuntaje(SQLiteDatabase db, ModeloPuntaje modeloPuntaje) {
         ContentValues contentValues = new ContentValues();
 
-        contentValues.put(DBModel.PUNTAJE_ID_FIREBASE, String.valueOf(modeloPuntaje.getIdFirebase()));
         //contentValues.put(DBModel.PUNTAJE_ID_SQLITE, modeloPuntaje.getIdSqlite());
+        contentValues.put(DBModel.PUNTAJE_ID_FIREBASE, String.valueOf(modeloPuntaje.getIdFirebase()));
         contentValues.put(DBModel.PUNTAJE_ID_LUGAR_FIREBASE, modeloPuntaje.getIdLugarFirebase());
         contentValues.put(DBModel.PUNTAJE_CANTIDAD, modeloPuntaje.getPuntaje());
         contentValues.put(DBModel.PUNTAJE_NRO_VISITAS, modeloPuntaje.getNroVisitas());
