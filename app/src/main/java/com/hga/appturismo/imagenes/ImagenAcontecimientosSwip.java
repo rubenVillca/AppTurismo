@@ -130,7 +130,7 @@ public class ImagenAcontecimientosSwip extends PagerAdapter {
         imageView.setPadding(0, 0, 0, 0);
         imageView.getLayoutParams().width = ViewGroup.LayoutParams.MATCH_PARENT;
         imageView.getLayoutParams().height = 720;
-        imageView.refreshDrawableState();
+        //imageView.refreshDrawableState();
         return imageView;
     }
 

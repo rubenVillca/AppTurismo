@@ -9,7 +9,7 @@
         android:id="@+id/imageViewTurismo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/img_portada"
+
         android:contentDescription="@string/title_activity_descripcion" />
 
 
