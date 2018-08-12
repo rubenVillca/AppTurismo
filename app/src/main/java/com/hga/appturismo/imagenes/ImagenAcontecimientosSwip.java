@@ -52,11 +52,14 @@ public class ImagenAcontecimientosSwip extends PagerAdapter {
         LinearLayout linearLayoutText = new LinearLayout(container.getContext());
         linearLayoutText.setOrientation(LinearLayout.VERTICAL);
         linearLayoutText.setGravity(Gravity.BOTTOM);
+        linearLayoutText.setAlpha(0.8f);
 
         ViewPager.LayoutParams params = getLayoutParams();
 
         TextView acontecimiento = getAcontecimientoTextView(imagesResources.get(position).getNombre(), params);
+        acontecimiento.setTextColor(Color.WHITE);
         TextView fecha = getAcontecimientoTextView(imagesResources.get(position).getFecha(), params);
+        fecha.setTextColor(Color.WHITE);
 
         linearLayoutText.addView(acontecimiento);
         linearLayoutText.addView(fecha);
