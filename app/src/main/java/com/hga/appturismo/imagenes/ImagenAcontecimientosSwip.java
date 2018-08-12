@@ -1,6 +1,7 @@
 package com.hga.appturismo.imagenes;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
 import android.support.annotation.NonNull;
@@ -14,11 +15,13 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.storage.StorageReference;
 import com.hga.appturismo.R;
+import com.hga.appturismo.activity.DescripcionLugarTuristicoActivity;
 import com.hga.appturismo.activity.MainActivity;
 import com.hga.appturismo.bdFirebase.TurismoAplicacion;
 import com.hga.appturismo.modelo.ModeloImagen;
@@ -42,7 +45,7 @@ public class ImagenAcontecimientosSwip extends PagerAdapter {
     }
 
     @Override
-    public Object instantiateItem(ViewGroup container, int position) {
+    public Object instantiateItem(ViewGroup container, final int position) {
         FrameLayout frameLayout = new FrameLayout(container.getContext());
 
         //contenedor de textos
@@ -57,10 +60,17 @@ public class ImagenAcontecimientosSwip extends PagerAdapter {
 
         linearLayoutText.addView(acontecimiento);
         linearLayoutText.addView(fecha);
+        linearLayoutText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, DescripcionLugarTuristicoActivity.class);
+                intent.putExtra("lugar", imagesResources.get(position));
+                context.startActivity(intent);
+            }
+        });
 
         //contenedor de imagen
         View itemView = getView(container);
-        itemView.setBackgroundColor(Color.GRAY);
         setImageView(position, itemView);
 
         //agregar contenedorres de texto e imagen al contenedor principal
@@ -96,6 +106,7 @@ public class ImagenAcontecimientosSwip extends PagerAdapter {
         LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
         View itemView= layoutInflater.inflate(R.layout.viewpager_turismo,container,false);
+        itemView.setBackgroundColor(Color.GREEN);
         itemView.setPadding(0,0,0,0);
         itemView.getLayoutParams().width = ViewGroup.LayoutParams.MATCH_PARENT;
         itemView.getLayoutParams().height = ViewGroup.LayoutParams.WRAP_CONTENT;
