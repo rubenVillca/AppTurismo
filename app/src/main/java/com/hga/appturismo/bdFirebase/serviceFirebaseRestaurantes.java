@@ -9,7 +9,7 @@ import java.util.ArrayList;
 /**
  * Created by HGA on 21/7/2018
  */
-public class ResetFirebaseRestaurantes {
+public class serviceFirebaseRestaurantes {
 
     public void deleteRestaurantes(TurismoAplicacion app) {
         DatabaseReference postReference;//eliminar restaurantes bdFirebase

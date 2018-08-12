@@ -19,14 +19,13 @@ import java.util.ArrayList;
 /**
  * Created by HGA on 21/7/2018
  */
-public class ResetFirebaseUsuarios {
-    private MainActivity mainActivity;
+public class ServiceFirebaseUsuarios extends ServiceFirebase {
 
-    public ResetFirebaseUsuarios(MainActivity mainActivity) {
-        this.mainActivity = mainActivity;
+    public ServiceFirebaseUsuarios(MainActivity mainActivity) {
+        super(mainActivity);
     }
 
-    public void insertUsuarios(TurismoAplicacion app, Listas listas) {
+    public void insert(TurismoAplicacion app, Listas listas) {
         DatabaseReference postReference;//insertar usuarios autenhticate bdFirebase and database bdFirebase
         ArrayList<ModeloUsuario> usuarios = listas.getListaUsuarios();
         for (ModeloUsuario m : usuarios) {
@@ -41,10 +40,8 @@ public class ResetFirebaseUsuarios {
                             if (task.isSuccessful()) {
                                 //modeloUsuario.setIdFirebase(firebaseAuth.getCurrentUser().getUid());//no usado
                                 Toast.makeText(mainActivity, "Usuario creado exitosamente", Toast.LENGTH_SHORT).show();
-
                             } else {
-                                Toast.makeText(mainActivity, "Usuario no creado," +
-                                        " por que la contraseña es demasiado corta" +
+                                Toast.makeText(mainActivity, "Usuario no creado, por que la contraseña es demasiado corta" +
                                         " o porque el usuario ya existe", Toast.LENGTH_SHORT).show();
                             }
                         }
@@ -53,7 +50,7 @@ public class ResetFirebaseUsuarios {
         }
     }
 
-    public void deleteUsuarios() {
+    public void delete() {
         //eliminar usuario autenticate bdFirebase
         FirebaseAuth auth = FirebaseAuth.getInstance();//solo un usuario puede ver la lista de usuarios
         if (auth.getCurrentUser() != null) {

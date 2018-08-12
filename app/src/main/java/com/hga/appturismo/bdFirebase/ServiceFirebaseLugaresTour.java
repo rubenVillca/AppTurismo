@@ -10,7 +10,7 @@ import java.util.ArrayList;
 /**
  * Created by HGA on 21/7/2018
  */
-class ResetFirebaseLugaresTour {
+class ServiceFirebaseLugaresTour {
     public void insertLugaresTuristicos(TurismoAplicacion app, Listas listas) {
         DatabaseReference postReference;//insertar lugares turisticos por provincia
         ArrayList<ModeloLugarTuristico> modeloLugarTuristicos = listas.getListaLugares();

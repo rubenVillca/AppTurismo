@@ -6,9 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -21,7 +19,7 @@ import android.widget.Toast;
 import com.google.firebase.auth.FirebaseAuth;
 import com.hga.appturismo.R;
 import com.hga.appturismo.bdFirebase.ListaResponse;
-import com.hga.appturismo.bdFirebase.ResetFirebase;
+import com.hga.appturismo.bdFirebase.ServiceResetFirebase;
 import com.hga.appturismo.bdFirebase.TurismoAplicacion;
 import com.hga.appturismo.bdFirebase.TurismoCliente;
 import com.hga.appturismo.bdFirebase.TurismoFirebaseService;
@@ -48,8 +46,18 @@ import retrofit2.Response;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private ArrayList<ModeloLugarTuristico> modeloLugarTuristicos;
-    private SqliteLugar lugar;
+    //private UserService userService;
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        setMenu();
+        crearContenido();
+        getAccontecimientos();
+        setAcontecimientosView();
+    }
 
     @Override
     public void onClick(View view) {
@@ -66,22 +74,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Intent listaRestaurante = new Intent(this, ListaRestaurantesActivity.class);
                 startActivity(listaRestaurante);
                 break;
-            /*case R.id.action_search:
-                SearchView searchView = findViewById(R.id.action_search);
-                searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-                    @Override
-                    public boolean onQueryTextSubmit(String query) {
-                        Toast.makeText(MainActivity.this, "Texto buscar: " + query, Toast.LENGTH_SHORT).show();
-                        return false;
-                    }
-
-                    @Override
-                    public boolean onQueryTextChange(String newText) {
-
-                        return false;
-                    }
-                });
-                break;*/
             case R.id.btnInsertSite:
                 Intent insertarLugar = new Intent(this, InsertarLugarActivity.class);
                 startActivity(insertarLugar);
@@ -97,51 +89,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             default:
                 System.out.println("Error!. la accion selecionada no esta asociada a ninguna funcion");
                 break;
-        }
-    }
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        setMenu();
-        setListaModeloLugares();
-        crearContenido();
-        setAcontecimientosView();
-    }
-
-    private void setAcontecimientosView() {
-        LinearLayout layoutAcontecimientos = findViewById(R.id.layout_container_acontecimientos);
-        LinearLayout layoutPortada = findViewById(R.id.layout_container_portada);
-
-        if (modeloLugarTuristicos.isEmpty()) {
-            layoutAcontecimientos.setVisibility(View.GONE);
-            layoutPortada.setVisibility(View.VISIBLE);
-        } else {
-            layoutAcontecimientos.setVisibility(View.VISIBLE);
-            layoutPortada.setVisibility(View.GONE);
-
-            ViewPager viewPager = findViewById(R.id.imagenAcontecimiento);
-            ImagenAcontecimientosSwip imagenSwip = new ImagenAcontecimientosSwip(modeloLugarTuristicos, this);
-            viewPager.setAdapter(imagenSwip);
-
-        }
-    }
-
-    private void setMenu() {
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-    }
-
-    private void setListaModeloLugares() {
-        modeloLugarTuristicos=new ArrayList<>();
-        lugar=new SqliteLugar(this);
-        ArrayList<ModeloLugarTuristico> aux=lugar.list();
-        for (ModeloLugarTuristico lugarTuristico:aux){
-            if (lugarTuristico.getTipo().equals(Constants.TIPO_LUGAR_ACONTECIMIENTOS)){
-                modeloLugarTuristicos.add(lugarTuristico);
-            }
         }
     }
 
@@ -179,7 +126,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 menu.findItem(R.id.action_user_insert).setVisible(false);
                 menu.findItem(R.id.action_edit_profile).setVisible(false);
                 menu.findItem(R.id.action_sincronizar).setVisible(true);
-                menu.findItem(R.id.action_reset).setVisible(false);//para resetear datos habilita a true y seleccionar
+                menu.findItem(R.id.action_reset).setVisible(true);//para resetear datos habilita a true y seleccionar
                 menu.findItem(R.id.action_close_login).setVisible(false);
                 break;
         }
@@ -223,6 +170,50 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public void goProvinciaActivity(View view) {
+        Intent buscarPorProvincia = new Intent(this, BuscarPorProvinciaActivity.class);
+        startActivity(buscarPorProvincia);
+    }
+
+    public void goTipoActivity(View view) {
+        Intent buscarPorTipo = new Intent(this, BuscarPorTipoActivity.class);
+        //if(modeloLugarTuristico.getTipo().equals(Constants.TIPO_LUGAR_ACONTECIMIENTO));
+        startActivity(buscarPorTipo);
+    }
+
+    private void setAcontecimientosView() {
+        LinearLayout layoutAcontecimientos = findViewById(R.id.layout_container_acontecimientos);
+        LinearLayout layoutPortada = findViewById(R.id.layout_container_portada);
+
+        if (modeloLugarTuristicos.isEmpty()) {
+            layoutAcontecimientos.setVisibility(View.GONE);
+            layoutPortada.setVisibility(View.VISIBLE);
+        } else {
+            layoutAcontecimientos.setVisibility(View.VISIBLE);
+            layoutPortada.setVisibility(View.GONE);
+
+            ViewPager viewPager = findViewById(R.id.imagenAcontecimiento);
+            ImagenAcontecimientosSwip imagenSwip = new ImagenAcontecimientosSwip(modeloLugarTuristicos, this);
+            viewPager.setAdapter(imagenSwip);
+        }
+    }
+
+    private void setMenu() {
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+    }
+
+    private void getAccontecimientos() {
+        modeloLugarTuristicos=new ArrayList<>();
+        SqliteLugar lugar = new SqliteLugar(this);
+        ArrayList<ModeloLugarTuristico> aux= lugar.list();
+        for (ModeloLugarTuristico lugarTuristico:aux){
+            if (lugarTuristico.getTipo().equals(Constants.TIPO_LUGAR_ACONTECIMIENTOS)){
+                modeloLugarTuristicos.add(lugarTuristico);
+            }
+        }
     }
 
     private void crearContenido() {
@@ -270,22 +261,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    public void goProvinciaActivity(View view) {
-        Intent buscarPorProvincia = new Intent(this, BuscarPorProvinciaActivity.class);
-        startActivity(buscarPorProvincia);
-    }
-
-    public void goTipoActivity(View view) {
-        Intent buscarPorTipo = new Intent(this, BuscarPorTipoActivity.class);
-        //if(modeloLugarTuristico.getTipo().equals(Constants.TIPO_LUGAR_ACONTECIMIENTO));
-        startActivity(buscarPorTipo);
-    }
-
     private void resetDataFirebase() {
-        TurismoAplicacion app = (TurismoAplicacion) getApplicationContext();
-
-        ResetFirebase resetFirebase=new ResetFirebase(app,this);
-        resetFirebase.resetDatosFirebase();
+        ServiceResetFirebase serviceResetFirebase =new ServiceResetFirebase(this);
+        serviceResetFirebase.resetDatosFirebase();
     }
 
     private void resetDatosSQlite() {
@@ -318,7 +296,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (advance){
             case 0:
                 progressBar.setProgress(advance);
-                Toast.makeText(MainActivity.this,"Error al sincronizar",Toast.LENGTH_LONG).show();
+                showTextLargue("Error al sincronizar");
                 setVisibleScrollBar(false);
                 break;
             case 1:
@@ -326,22 +304,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 progressBar.setProgress(advance-1);
                 break;
             case 2:
-                Toast.makeText(MainActivity.this,"Sincronizacion hoteles exitosa",Toast.LENGTH_SHORT).show();
+                showTextSmall("Sincronizacion hoteles exitosa");
                 updateSQLiteRestaurantes();
                 progressBar.setProgress(advance-1);
                 break;
             case 3:
-                Toast.makeText(MainActivity.this,"Sincronizacion restaurantes exitosa",Toast.LENGTH_SHORT).show();
+                showTextSmall("Sincronizacion restaurantes exitosa");
                 updateSQLiteLugares();
                 progressBar.setProgress(advance-1);
                 break;
             case 4:
-                Toast.makeText(MainActivity.this,"Sincronizacion lugares turisticos exitosa",Toast.LENGTH_SHORT).show();
+                showTextSmall("Sincronizacion lugares turisticos exitosa");
                 updateSQLitePuntaje();
                 progressBar.setProgress(advance-1);
                 break;
             case 5:
-                Toast.makeText(MainActivity.this,"Sincronizacion exitosa",Toast.LENGTH_LONG).show();
+                showTextLargue("Sincronizacion exitosa");
                 progressBar.setProgress(advance-1);
                 setVisibleScrollBar(false);
                 break;
@@ -460,5 +438,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 setProgressBar(0);
             }
         });
+    }
+
+    private void showTextLargue(String message){
+        Toast.makeText(this,message,Toast.LENGTH_LONG).show();
+    }
+    private void showTextSmall(String message){
+        Toast.makeText(this,message,Toast.LENGTH_SHORT).show();
     }
 }

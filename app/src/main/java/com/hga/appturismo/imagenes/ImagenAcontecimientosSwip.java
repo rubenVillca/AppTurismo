@@ -60,6 +60,7 @@ public class ImagenAcontecimientosSwip extends PagerAdapter {
 
         //contenedor de imagen
         View itemView = getView(container);
+        itemView.setBackgroundColor(Color.GRAY);
         setImageView(position, itemView);
 
         //agregar contenedorres de texto e imagen al contenedor principal
