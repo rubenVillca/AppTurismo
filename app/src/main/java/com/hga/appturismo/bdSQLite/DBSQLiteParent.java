@@ -26,7 +26,7 @@ public abstract class DBSQLiteParent {
         ArrayList<ModeloImagen> modeloImagenArrayList = new ArrayList<>();
         Cursor cursor = db.rawQuery("Select * "
                         + " from " + DBModel.TABLE_IMAGENES
-                        //+ " where " + DBModel.IMAGENES_TIPO + "='" + type+ "'"// and " + DBModel.IMAGENES_REFERENCE_LUGAR_ID + "='" + idReferenceLugar+"'"
+                        + " where " + DBModel.IMAGENES_TIPO + "='" + type+ "' and " + DBModel.IMAGENES_REFERENCE_LUGAR_ID + "='" + idReferenceLugar+"'"
                 , null);
         if (cursor.moveToFirst()) {
             while (!cursor.isAfterLast()) {

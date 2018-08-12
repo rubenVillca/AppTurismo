@@ -21,7 +21,7 @@ import java.util.ArrayList;
  */
 public class ServiceFirebaseUsuarios extends ServiceFirebase {
 
-    public ServiceFirebaseUsuarios(MainActivity mainActivity) {
+    ServiceFirebaseUsuarios(MainActivity mainActivity) {
         super(mainActivity);
     }
 

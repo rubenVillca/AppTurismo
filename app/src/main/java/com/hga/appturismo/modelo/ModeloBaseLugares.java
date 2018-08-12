@@ -20,6 +20,7 @@ public class ModeloBaseLugares implements Serializable {
     protected String estado;
     protected String descripcion;
     protected String registradoPor;
+
     public ModeloBaseLugares() {
         this.idSQLite = 0;
         this.idFirebase = "";
@@ -30,7 +31,7 @@ public class ModeloBaseLugares implements Serializable {
         this.gpsX = 0f;
         this.gpsY = 0f;
         this.estado = Constants.ESTADO_LUGAR_VISIBLE;
-        this.descripcion="";
+        this.descripcion = "";
         this.registradoPor = "hga.ax88@gmail.com";
     }
 
@@ -78,6 +79,7 @@ public class ModeloBaseLugares implements Serializable {
     public void setRegistradoPor(String registradoPor) {
         this.registradoPor = registradoPor;
     }
+
     public void setDireccion(String direccion) {
         this.direccion = direccion;
     }
@@ -121,33 +123,34 @@ public class ModeloBaseLugares implements Serializable {
     public void setEstado(String estado) {
         this.estado = estado;
     }
+
     public void setTelefonoString(String telefono) {
-        if (telefono.isEmpty()){
-            this.telefono=0;
-        }else{
-            this.telefono=Integer.parseInt(telefono);
+        if (telefono.isEmpty()) {
+            this.telefono = 0;
+        } else {
+            this.telefono = Integer.parseInt(telefono);
         }
     }
 
-    public void setImagenesFirebaseArreglo(String[] imagens) {
-        int id=1;
+    public void setImagenesFirebaseArreglo(String tipo, String[] imagens) {
+        int id = 1;
         for (String imagen : imagens) {
             ModeloImagen imagenes = new ModeloImagen();
             imagenes.setIdImagen(id++);
             imagenes.setIdLugarReference(this.idSQLite);
-            imagenes.setTipoImagen(ModeloImagen.TIPO_LUGAR);
+            imagenes.setTipoImagen(tipo);
             imagenes.setUrlServer(imagen);
             this.imagenes.add(imagenes);
         }
     }
 
-    public void setImagenesAndroid(int[] listaImg) {
-        int id=1;
-        for (Integer imagen:listaImg){
-            ModeloImagen imagenes=new ModeloImagen();
+    public void setImagenesAndroid(String tipo, int[] listaImg) {
+        int id = 1;
+        for (Integer imagen : listaImg) {
+            ModeloImagen imagenes = new ModeloImagen();
             imagenes.setIdImagen(id++);
             imagenes.setIdLugarReference(this.idSQLite);
-            imagenes.setTipoImagen(ModeloImagen.TIPO_LUGAR);
+            imagenes.setTipoImagen(tipo);
             imagenes.setUrlApp(String.valueOf(imagen));
             this.imagenes.add(imagenes);
         }

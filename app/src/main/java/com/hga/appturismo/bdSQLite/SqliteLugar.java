@@ -6,13 +6,14 @@ import android.support.annotation.NonNull;
 
 import com.hga.appturismo.modelo.ModeloImagen;
 import com.hga.appturismo.modelo.ModeloLugarTuristico;
+import com.hga.appturismo.util.Constants;
 
 import java.util.ArrayList;
 
 /**
  * Created by HGA on 21/7/2018
  */
-public class SqliteLugar extends DBSQLiteParent implements SqliteInterface<ModeloLugarTuristico>{
+public class SqliteLugar extends DBSQLiteParent implements SqliteInterface<ModeloLugarTuristico> {
     public SqliteLugar(Context context) {
         super(context);
     }
@@ -23,6 +24,22 @@ public class SqliteLugar extends DBSQLiteParent implements SqliteInterface<Model
     public ArrayList<ModeloLugarTuristico> list() {
         ArrayList<ModeloLugarTuristico> modeloLugarTuristicos = new ArrayList<>();
         Cursor cursor = db.rawQuery("Select * from " + DBModel.TABLE_LUGARES, null);
+        if (cursor.moveToFirst()) {
+            while (!cursor.isAfterLast()) {
+                ModeloLugarTuristico modeloLugarTuristico = getLugarTuristicoCursor(cursor);
+                modeloLugarTuristicos.add(modeloLugarTuristico);
+                cursor.moveToNext();
+            }
+        }
+        return modeloLugarTuristicos;
+    }
+
+    public ArrayList<ModeloLugarTuristico> listAcontecimientos() {
+        ArrayList<ModeloLugarTuristico> modeloLugarTuristicos = new ArrayList<>();
+        Cursor cursor = db.rawQuery("Select * "
+                + " from " + DBModel.TABLE_LUGARES
+                + " where " + DBModel.LUGARES_TIPO +"='"+Constants.TIPO_LUGAR_ACONTECIMIENTOS+"'",null);
+
         if (cursor.moveToFirst()) {
             while (!cursor.isAfterLast()) {
                 ModeloLugarTuristico modeloLugarTuristico = getLugarTuristicoCursor(cursor);
@@ -59,6 +76,7 @@ public class SqliteLugar extends DBSQLiteParent implements SqliteInterface<Model
         modeloLugarTuristico.setLinea(cursor.getString(cursor.getColumnIndex(DBModel.LUGARES_LINEA)));
         modeloLugarTuristico.setFecha(cursor.getString(cursor.getColumnIndex(DBModel.LUGARES_FECHA)));
         modeloLugarTuristico.setRegistradoPor(cursor.getString(cursor.getColumnIndex(DBModel.LUGARES_REGISTRADO_POR)));
+
         modeloLugarTuristico.setImagenesFirebase(getListaImagenes(ModeloImagen.TIPO_LUGAR, modeloLugarTuristico.getIdSQLite()));
         return modeloLugarTuristico;
     }

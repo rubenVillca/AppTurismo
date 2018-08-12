@@ -177,7 +177,7 @@ public class InsertarLugarActivity extends AppCompatActivity {
     @NonNull
     private ModeloHotel getHotel(SqliteHotel hotel) {
         ModeloHotel modeloHotel = new ModeloHotel();
-        modeloHotel.setIdSQLite(hotel.list().size() + 1);
+        modeloHotel.setIdSQLite(hotel.list().size());
         modeloHotel.setNombre(txt_nombre.getText().toString());
         modeloHotel.setDireccion(txt_direccion.getText().toString());
         modeloHotel.setTelefonoString(txt_telefono.getText().toString());

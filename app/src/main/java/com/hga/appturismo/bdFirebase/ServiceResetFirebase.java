@@ -38,9 +38,9 @@ public class ServiceResetFirebase {
     }
 
     private void resetRestaurantes() {
-        serviceFirebaseRestaurantes serviceFirebaseRestaurantes =new serviceFirebaseRestaurantes();
-        serviceFirebaseRestaurantes.deleteRestaurantes(app);
-        serviceFirebaseRestaurantes.insertRestaurantes(app, listas);
+        ServiceFirebaseRestaurantes ServiceFirebaseRestaurantes =new ServiceFirebaseRestaurantes();
+        ServiceFirebaseRestaurantes.deleteRestaurantes(app);
+        ServiceFirebaseRestaurantes.insertRestaurantes(app, listas);
     }
 
     private void resetLugares() {

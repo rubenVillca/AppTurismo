@@ -20,7 +20,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.hga.appturismo.R;
 import com.hga.appturismo.bdFirebase.ListaResponse;
 import com.hga.appturismo.bdFirebase.ServiceResetFirebase;
-import com.hga.appturismo.bdFirebase.TurismoAplicacion;
 import com.hga.appturismo.bdFirebase.TurismoCliente;
 import com.hga.appturismo.bdFirebase.TurismoFirebaseService;
 import com.hga.appturismo.bdSQLite.SqliteHotel;
@@ -55,8 +54,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         setMenu();
         crearContenido();
-        getAccontecimientos();
-        setAcontecimientosView();
+        getAcontecimientos();
+        showAcontecimientosView();
     }
 
     @Override
@@ -183,7 +182,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         startActivity(buscarPorTipo);
     }
 
-    private void setAcontecimientosView() {
+    private void getAcontecimientos() {
+        SqliteLugar lugar = new SqliteLugar(this);
+        modeloLugarTuristicos= lugar.listAcontecimientos();
+    }
+
+    private void showAcontecimientosView() {
         LinearLayout layoutAcontecimientos = findViewById(R.id.layout_container_acontecimientos);
         LinearLayout layoutPortada = findViewById(R.id.layout_container_portada);
 
@@ -203,17 +207,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void setMenu() {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-    }
-
-    private void getAccontecimientos() {
-        modeloLugarTuristicos=new ArrayList<>();
-        SqliteLugar lugar = new SqliteLugar(this);
-        ArrayList<ModeloLugarTuristico> aux= lugar.list();
-        for (ModeloLugarTuristico lugarTuristico:aux){
-            if (lugarTuristico.getTipo().equals(Constants.TIPO_LUGAR_ACONTECIMIENTOS)){
-                modeloLugarTuristicos.add(lugarTuristico);
-            }
-        }
     }
 
     private void crearContenido() {
@@ -321,6 +314,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case 5:
                 showTextLargue("Sincronizacion exitosa");
                 progressBar.setProgress(advance-1);
+
+                getAcontecimientos();
+                showAcontecimientosView();
                 setVisibleScrollBar(false);
                 break;
         }
@@ -339,8 +335,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                     if (listaResponse != null) {
                         SqliteHotel hotel = new SqliteHotel(MainActivity.this);
-                        ArrayList<ModeloHotel> hotelArrayList = listaResponse.getListModeloHotel();
-                        hotel.update(hotelArrayList);
+                        ArrayList<ModeloHotel> listModeloHotel = listaResponse.getListModeloHotel();
+                        hotel.update(listModeloHotel);
                     }
 
                     setProgressBar(2);
