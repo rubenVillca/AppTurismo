@@ -4816,23 +4816,6 @@ public class Listas {
         lugarTuristico = new ModeloLugarTuristico();
         lugarTuristico.setIdSQLite(idLugTur++);
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_ARANI);
-        lugarTuristico.setTipo(Constants.TIPO_LUGAR_ACONTECIMIENTOS);
-        lugarTuristico.setTipo("Acontecimientos Programados");
-        lugarTuristico.setNombre("Festividad de la Virgen “La Bella”");
-        lugarTuristico.setImagenesFirebaseArreglo(ModeloImagen.TIPO_LUGAR, new String[]{"Festividad de la Virgen LA BELLA.jpg", "Festividad de la Virgen LA BELLA2.jpg", "Festividad de la Virgen LA BELLA3.jpg"});
-        lugarTuristico.setDescripcion("Araní es un atractivo destino para la práctica de turismo religioso, actividad que se encuentra enmarcada en una profunda tradición y ferviente vocación religiosa, resultado del proceso de evangelización y catequización que se llevó a cabo durante la conquista, además de haber funcionado como sede del Obispado de Santa Cruz de la Sierra, el siglo XVII. Entre el 23 y el 25 de agosto, Arani se viste de gala al celebrar la festividad religiosa en honor a la Virgen La Bella, declarada Patrimonio Cultural y Religioso del Departamento de Cochabamba, mediante Ley de 24 de diciembre de 2007. Esta fiesta, al contrario de otras festividades que comienzan con la entrada folklórica, inicia su evento festivo con el día del calvario, seguido de la procesión de la sagrada imagen de la Bella, para finalizar con la demostración folklórica.\n" +
-                "No obstante, antes de la celebración misma de la fiesta, la imagen es venerada en principio en la ciudad de Sacaba para después retornar a Arani donde se da inicio a las tres jornadas festivas. En esta fiesta, durante el calvario también se acostumbra adquirir objetos en miniatura o propiedades para luego ser bendecidas en los rituales católicos y andinos, con similares características que las de Urkupiña.\n");
-        lugarTuristico.setHorario("No se tiene registrado.");
-        lugarTuristico.setDireccion("Arani, Bolivia");
-        lugarTuristico.setTelefono(0);
-        lugarTuristico.setGpsX(-17.57885187017981f);
-        lugarTuristico.setGpsY(-65.77288269996643f);
-        lugarTuristico.setEstado(Constants.ESTADO_LUGAR_VISIBLE);
-        listaLugares.add(lugarTuristico);
-
-        lugarTuristico = new ModeloLugarTuristico();
-        lugarTuristico.setIdSQLite(idLugTur++);
-        lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_ARANI);
         lugarTuristico.setTipo("Realizaciones Técnicas y Científicas");
         lugarTuristico.setNombre("Plaza 24 de Noviembre");
         lugarTuristico.setImagenesFirebaseArreglo(ModeloImagen.TIPO_LUGAR, new String[]{"plaza 24 de noviembre1.jpg", "plaza 24 de noviembre2.jpg", "plaza 24 de noviembre3.jpg"});
@@ -5389,25 +5372,6 @@ public class Listas {
         lugarTuristico.setEstado(Constants.ESTADO_LUGAR_VISIBLE);
         listaLugares.add(lugarTuristico);
 
-
-        lugarTuristico = new ModeloLugarTuristico();
-        lugarTuristico.setIdSQLite(idLugTur++);
-        lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_PUNATA);
-        lugarTuristico.setTipo(Constants.TIPO_LUGAR_ACONTECIMIENTOS);
-        lugarTuristico.setTipo("Acontecimientos Programados");
-        lugarTuristico.setNombre("La festividad del Señor de los milagros");
-        lugarTuristico.setImagenesFirebaseArreglo(ModeloImagen.TIPO_LUGAR, new String[]{"la festividad del señor de los milagros0.jpg", "la festividad del señor de los milagros1.jpg"});
-        lugarTuristico.setDescripcion("Una de las características de Punata es la celebración de diferentes festividades religiosas, siendo la fiesta patronal del Señor de Milagros que recuerda la exaltación de la Cruz celebrada el último fin de semana del mes de Septiembre.\n" +
-                "La Festividad del Señor de los Milagros fue reconocida como Patrimonio Cultural e Inmaterial de Bolivia. La imagen del Patrono fue trabajada, con todos los rasgos y detalles de un ser humano de un tamaño de 50 centímetros. En la región de la columna vertebral a la altura de la cintura, tiene una abertura de 3 cm, cubierta de vidrio.\n" +
-                "La imagen llegó a Bolivia el año 1943 procedente de Burgos - España y a Punata gracias a la diligencia del Dr. Manuel de la Cruz Méndez para alguno de sus hijos que elija la vocación sacerdotal siendo merecedor Juan Méndez.\n ");
-        lugarTuristico.setHorario("Abierto");
-        lugarTuristico.setDireccion("Punata, Bolivia");
-        lugarTuristico.setTelefono(0);
-        lugarTuristico.setGpsX(-17.545190252404954f);
-        lugarTuristico.setGpsY(-65.83560414612293f);
-        lugarTuristico.setEstado(Constants.ESTADO_LUGAR_VISIBLE);
-        listaLugares.add(lugarTuristico);
-
         lugarTuristico = new ModeloLugarTuristico();
         lugarTuristico.setIdSQLite(idLugTur++);
         lugarTuristico.setProvincia(Constants.FIREBASE_PROVINCIA_PUNATA);
@@ -5797,6 +5761,43 @@ public class Listas {
         acontecimiento.setEstado(Constants.ESTADO_LUGAR_VISIBLE);
         acontecimiento.setFecha("25 mayo ");
         acontecimiento.setLinea("");
+        listaLugares.add(acontecimiento);
+
+        acontecimiento = new ModeloLugarTuristico();
+        acontecimiento.setIdSQLite(idAcontecimiento++);
+        acontecimiento.setProvincia(Constants.FIREBASE_PROVINCIA_ARANI);
+        acontecimiento.setTipo(Constants.TIPO_LUGAR_ACONTECIMIENTOS);
+        acontecimiento.setTipo("Acontecimientos Programados");
+        acontecimiento.setNombre("Festividad de la Virgen “La Bella”");
+        acontecimiento.setImagenesFirebaseArreglo(ModeloImagen.TIPO_LUGAR, new String[]{"Festividad de la Virgen LA BELLA.jpg", "Festividad de la Virgen LA BELLA2.jpg", "Festividad de la Virgen LA BELLA3.jpg"});
+        acontecimiento.setDescripcion("Araní es un atractivo destino para la práctica de turismo religioso, actividad que se encuentra enmarcada en una profunda tradición y ferviente vocación religiosa, resultado del proceso de evangelización y catequización que se llevó a cabo durante la conquista, además de haber funcionado como sede del Obispado de Santa Cruz de la Sierra, el siglo XVII. Entre el 23 y el 25 de agosto, Arani se viste de gala al celebrar la festividad religiosa en honor a la Virgen La Bella, declarada Patrimonio Cultural y Religioso del Departamento de Cochabamba, mediante Ley de 24 de diciembre de 2007. Esta fiesta, al contrario de otras festividades que comienzan con la entrada folklórica, inicia su evento festivo con el día del calvario, seguido de la procesión de la sagrada imagen de la Bella, para finalizar con la demostración folklórica.\n" +
+                "No obstante, antes de la celebración misma de la fiesta, la imagen es venerada en principio en la ciudad de Sacaba para después retornar a Arani donde se da inicio a las tres jornadas festivas. En esta fiesta, durante el calvario también se acostumbra adquirir objetos en miniatura o propiedades para luego ser bendecidas en los rituales católicos y andinos, con similares características que las de Urkupiña.\n");
+        acontecimiento.setHorario("No se tiene registrado.");
+        acontecimiento.setDireccion("Arani, Bolivia");
+        acontecimiento.setTelefono(0);
+        acontecimiento.setFecha("25 mayo");
+        acontecimiento.setGpsX(-17.57885187017981f);
+        acontecimiento.setGpsY(-65.77288269996643f);
+        acontecimiento.setEstado(Constants.ESTADO_LUGAR_VISIBLE);
+        listaLugares.add(acontecimiento);
+
+        acontecimiento = new ModeloLugarTuristico();
+        acontecimiento.setIdSQLite(idAcontecimiento++);
+        acontecimiento.setProvincia(Constants.FIREBASE_PROVINCIA_PUNATA);
+        acontecimiento.setTipo(Constants.TIPO_LUGAR_ACONTECIMIENTOS);
+        acontecimiento.setTipo("Acontecimientos Programados");
+        acontecimiento.setNombre("La festividad del Señor de los milagros");
+        acontecimiento.setImagenesFirebaseArreglo(ModeloImagen.TIPO_LUGAR, new String[]{"la festividad del señor de los milagros0.jpg", "la festividad del señor de los milagros1.jpg"});
+        acontecimiento.setDescripcion("Una de las características de Punata es la celebración de diferentes festividades religiosas, siendo la fiesta patronal del Señor de Milagros que recuerda la exaltación de la Cruz celebrada el último fin de semana del mes de Septiembre.\n" +
+                "La Festividad del Señor de los Milagros fue reconocida como Patrimonio Cultural e Inmaterial de Bolivia. La imagen del Patrono fue trabajada, con todos los rasgos y detalles de un ser humano de un tamaño de 50 centímetros. En la región de la columna vertebral a la altura de la cintura, tiene una abertura de 3 cm, cubierta de vidrio.\n" +
+                "La imagen llegó a Bolivia el año 1943 procedente de Burgos - España y a Punata gracias a la diligencia del Dr. Manuel de la Cruz Méndez para alguno de sus hijos que elija la vocación sacerdotal siendo merecedor Juan Méndez.\n ");
+        acontecimiento.setHorario("Abierto");
+        acontecimiento.setDireccion("Punata, Bolivia");
+        acontecimiento.setTelefono(0);
+        acontecimiento.setFecha("10 Diciembre");
+        acontecimiento.setGpsX(-17.545190252404954f);
+        acontecimiento.setGpsY(-65.83560414612293f);
+        acontecimiento.setEstado(Constants.ESTADO_LUGAR_VISIBLE);
         listaLugares.add(acontecimiento);
     }
 

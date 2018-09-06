@@ -320,7 +320,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 setVisibleScrollBar(false);
                 break;
         }
-
     }
 
     private void updateSQLiteHotel() {
