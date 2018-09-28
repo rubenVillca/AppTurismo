@@ -73,14 +73,14 @@
                 android:textColor="@color/colorPrimaryDark"
                 android:textAllCaps="false"/>
 
-            <Button
-                android:id="@+id/button_user_new"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="Crear usuario"
-                android:textColor="@color/colorPrimaryDark"
-                android:textAllCaps="false"/>
+            <!---<Button
+                 android:id="@+id/button_user_new"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_marginTop="16dp"
+                 android:text="Registrarse"
+                 android:textColor="@color/colorPrimaryDark"
+                 android:textAllCaps="false"/>-->
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
