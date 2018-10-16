@@ -121,7 +121,7 @@ public class UsuarioAdapterRecycler extends RecyclerView.Adapter<UsuarioAdapterR
 
     private void eliminarUsuario(final int position, final ModeloUsuario modeloUsuario){
         //eliminar usuario autenticate bdFirebase
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();//recuoerra usuario logeado
         assert user != null;
         user.delete().addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
