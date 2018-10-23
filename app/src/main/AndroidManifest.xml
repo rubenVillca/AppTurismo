@@ -232,7 +232,7 @@
         </activity>
         <activity
             android:name=".activity.BuscarPorTipoActivity"
-            android:label="Buscar por tipo de actividad"
+            android:label="Búscar por la clasif. del Turismo "
             android:parentActivityName=".activity.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
