@@ -88,7 +88,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 markerPosicion=mMap.addMarker(new MarkerOptions().position(ubicacionActual).title("Ubicacion actual"));
 
                 mMap.animateCamera(miUbicacion);
-                //mMap.moveCamera(CameraUpdateFactory.newLatLng(ubicacionActual));
             }else{
                 markerPosicion.setPosition(ubicacionActual);
             }
