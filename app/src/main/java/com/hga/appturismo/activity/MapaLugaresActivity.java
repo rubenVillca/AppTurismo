@@ -150,6 +150,8 @@ public class MapaLugaresActivity extends MapsActivity implements GoogleMap.OnMar
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
             }
+        }else{
+            Toast.makeText(this,"GPS inactivo",Toast.LENGTH_SHORT).show();
         }
     }
 }

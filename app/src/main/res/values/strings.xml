@@ -142,7 +142,7 @@
     <string name="pref_title_vibrate">Vibrate</string>
     <string name="action_reset_profile">Resetear Datos</string>
     <string name="buscar_por_provincia">Buscar por Provincia</string>
-    <string name="buscar_por_tipo">Buscar por Tipo</string>
+    <string name="buscar_por_tipo">Buscar por Clasificación del Turismo</string>
     <string name="tipo_etnograf_a_y_folklore">Etnografía y Folklore</string>
     <string name="tipo_realizaciones_t_cnicas_y_cient_ficas">Realizaciones Técnicas y Científicas</string>
     <string name="tipo_sitios_naturales">Sitios Naturales</string>
