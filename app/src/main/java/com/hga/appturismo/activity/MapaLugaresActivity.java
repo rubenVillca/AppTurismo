@@ -66,11 +66,11 @@ public class MapaLugaresActivity extends MapsActivity implements GoogleMap.OnMar
             ((TextView) findViewById(R.id.tvDuration)).setText(ruta.duration.text);
             ((TextView) findViewById(R.id.tvDistance)).setText(ruta.distance.text);
 
-            originMarkers.add(mMap.addMarker(new MarkerOptions()
+            /*originMarkers.add(mMap.addMarker(new MarkerOptions()
                     .title("Yo")
                     .snippet(ruta.startAddress)
                     .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN))
-                    .position(ruta.startLocation)));
+                    .position(ruta.startLocation)));*/
 
             PolylineOptions polylineOptions = new PolylineOptions().
                     geodesic(true).
