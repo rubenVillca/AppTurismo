@@ -32,7 +32,7 @@ import java.util.List;
 
 @SuppressLint("Registered")
 public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback {
-    public static int ZOOM_MAP = 15;
+    public static int ZOOM_MAP = 13;
     protected GoogleMap mMap;
 
     protected SqliteUsuario listaUsuarios;
@@ -47,7 +47,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     protected List<Marker> originMarkers = new ArrayList<>();
     protected List<Marker> destinationMarkers = new ArrayList<>();
     protected List<Polyline> polylinePaths = new ArrayList<>();
-    protected static final int timeUpdate = 10;//tiempo para actualizar en el mapa
+    protected static final int timeUpdate = 100;//tiempo para actualizar en el mapa
 
     private Marker markerPosicion=null;
     @Override
@@ -86,11 +86,12 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
             if (markerPosicion==null){
                 markerPosicion=mMap.addMarker(new MarkerOptions().position(ubicacionActual).title("Ubicacion actual"));
+
+                mMap.animateCamera(miUbicacion);
+                //mMap.moveCamera(CameraUpdateFactory.newLatLng(ubicacionActual));
             }else{
                 markerPosicion.setPosition(ubicacionActual);
             }
-            mMap.animateCamera(miUbicacion);
-            mMap.moveCamera(CameraUpdateFactory.newLatLng(ubicacionActual));
         }
     }
 
