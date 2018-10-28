@@ -47,8 +47,9 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     protected List<Marker> originMarkers = new ArrayList<>();
     protected List<Marker> destinationMarkers = new ArrayList<>();
     protected List<Polyline> polylinePaths = new ArrayList<>();
-    protected static final int timeUpdate = 1000;
+    protected static final int timeUpdate = 10;//tiempo para actualizar en el mapa
 
+    private Marker markerPosicion=null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,7 +62,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         listaRestaurante = new SqliteRestaurante(this);
         listaHotel = new SqliteHotel(this);
         listaLugarTuristico = new SqliteLugar(this);
-
     }
 
     /**
@@ -82,8 +82,13 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     protected void actualizarUbicacion(Location location) {
         if (location != null) {
             LatLng ubicacionActual = new LatLng(location.getLatitude(), location.getLongitude());
-            mMap.addMarker(new MarkerOptions().position(ubicacionActual).title("Mi Posicion"));
             CameraUpdate miUbicacion = CameraUpdateFactory.newLatLngZoom(ubicacionActual, ZOOM_MAP);
+
+            if (markerPosicion==null){
+                markerPosicion=mMap.addMarker(new MarkerOptions().position(ubicacionActual).title("Ubicacion actual"));
+            }else{
+                markerPosicion.setPosition(ubicacionActual);
+            }
             mMap.animateCamera(miUbicacion);
             mMap.moveCamera(CameraUpdateFactory.newLatLng(ubicacionActual));
         }
@@ -91,23 +96,28 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     //para el gps
     protected void miUbicacion() {
+
         if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED ||
                 ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
 
             LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-            assert locationManager != null;
-            locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, timeUpdate, 0, locListener);
-            myLocationGPS = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
-            if (myLocationGPS == null) {//si en gps network_provider esta desactivado usar GPS_PROVIDER para obtener la ubicacion actual
-                locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, timeUpdate, 0, locListener);
-                myLocationGPS = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-            }
-            if (myLocationGPS != null) {//si recupero la ubicacion desde el GPS
-                LatLng ubicacionActual = new LatLng(myLocationGPS.getLatitude(), myLocationGPS.getLongitude());
-                mMap.addMarker(new MarkerOptions().position(ubicacionActual).title("Mi Posicion"));
-                cameraUpdate = CameraUpdateFactory.newLatLngZoom(ubicacionActual, ZOOM_MAP);
+
+            if (locationManager != null) {
+                locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, timeUpdate, 0, locListener);
+                myLocationGPS = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+
+                if (myLocationGPS == null) {//si en gps network_provider esta desactivado usar GPS_PROVIDER para obtener la ubicacion actual
+                    locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, timeUpdate, 0, locListener);
+                    myLocationGPS = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+                }
+                if (myLocationGPS != null) {//si recupero la ubicacion desde el GPS
+                    LatLng ubicacionActual = new LatLng(myLocationGPS.getLatitude(), myLocationGPS.getLongitude());
+                    markerPosicion=mMap.addMarker(new MarkerOptions().position(ubicacionActual).title("Mi Posicion"));
+                    cameraUpdate = CameraUpdateFactory.newLatLngZoom(ubicacionActual, ZOOM_MAP);
+                }
             }
         }
+
     }
 
     protected LocationListener locListener = new LocationListener() {
