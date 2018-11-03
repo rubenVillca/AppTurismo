@@ -9,6 +9,9 @@ import com.hga.appturismo.modelo.ModeloLugarTuristico;
 import com.hga.appturismo.util.Constants;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 
 /**
  * Created by HGA on 21/7/2018
@@ -16,6 +19,22 @@ import java.util.ArrayList;
 public class SqliteLugar extends DBSQLiteParent implements SqliteInterface<ModeloLugarTuristico> {
     public SqliteLugar(Context context) {
         super(context);
+    }
+
+    public void insert(ModeloLugarTuristico modeloLugarTuristico) {
+        helper.insertarLugarTuristico(db, modeloLugarTuristico);
+    }
+
+    @Override
+    public void delete() {
+        helper.deleteDatosLugarTuristico(db);
+    }
+
+    public void update(ArrayList<ModeloLugarTuristico> lugaresTuristicos) {
+        helper.deleteDatosLugarTuristico(db);
+        for (ModeloLugarTuristico lugar : lugaresTuristicos) {
+            insert(lugar);
+        }
     }
 
     /**
@@ -34,11 +53,26 @@ public class SqliteLugar extends DBSQLiteParent implements SqliteInterface<Model
         return modeloLugarTuristicos;
     }
 
+    public ModeloLugarTuristico getItem(String nombreMarcador) {
+        ModeloLugarTuristico modeloLugarTuristico = new ModeloLugarTuristico();
+        Cursor cursor = db.rawQuery("Select * "
+                + " from " + DBModel.TABLE_LUGARES
+                + " where " + DBModel.LUGARES_NAME + "='" + nombreMarcador + "'", null);
+        if (cursor.moveToFirst()) {
+            while (!cursor.isAfterLast()) {
+                modeloLugarTuristico = getLugarTuristicoCursor(cursor);
+
+                cursor.moveToNext();
+            }
+        }
+        return modeloLugarTuristico;
+    }
+
     public ArrayList<ModeloLugarTuristico> listAcontecimientos() {
         ArrayList<ModeloLugarTuristico> modeloLugarTuristicos = new ArrayList<>();
         Cursor cursor = db.rawQuery("Select * "
                 + " from " + DBModel.TABLE_LUGARES
-                + " where " + DBModel.LUGARES_TIPO +"='"+Constants.TIPO_LUGAR_ACONTECIMIENTOS+"'",null);
+                + " where " + DBModel.LUGARES_TIPO + "='" + Constants.TIPO_LUGAR_ACONTECIMIENTOS + "'", null);
 
         if (cursor.moveToFirst()) {
             while (!cursor.isAfterLast()) {
@@ -48,6 +82,67 @@ public class SqliteLugar extends DBSQLiteParent implements SqliteInterface<Model
             }
         }
         return modeloLugarTuristicos;
+    }
+
+    public ArrayList<ModeloLugarTuristico> listAcontecimientosActivos() {
+        ArrayList<ModeloLugarTuristico> modeloLugarTuristicos = listAcontecimientos();
+        ArrayList<ModeloLugarTuristico> modeloLugarTuristicosRes = new ArrayList<>();
+        for (ModeloLugarTuristico modelo : modeloLugarTuristicos) {
+            String fechaString = modelo.getFecha();
+            String mesString = fechaString.substring(3, fechaString.length());
+            int dia = Integer.parseInt(fechaString.substring(0, 2));
+            int mes;
+
+            mesString = mesString.trim().toLowerCase();
+            switch (mesString) {
+                case "enero":
+                    mes = 1;
+                    break;
+                case "febrero":
+                    mes = 2;
+                    break;
+                case "marzo":
+                    mes = 3;
+                    break;
+                case "abril":
+                    mes = 4;
+                    break;
+                case "mayo":
+                    mes = 5;
+                    break;
+                case "junio":
+                    mes = 6;
+                    break;
+                case "julio":
+                    mes = 7;
+                    break;
+                case "agosto":
+                    mes = 8;
+                    break;
+                case "septiembre":
+                    mes = 9;
+                    break;
+                case "octubre":
+                    mes = 10;
+                    break;
+                case "noviembre":
+                    mes = 11;
+                    break;
+                case "diciembre":
+                    mes = 12;
+                    break;
+                default:
+                    mes = 0;
+                    break;
+            }
+            Calendar fecha = new GregorianCalendar();
+            int mesActual = fecha.get(Calendar.MONTH);
+            int diaActual = fecha.get(Calendar.DAY_OF_MONTH);
+            if (mes >= mesActual && dia >= diaActual) {
+                modeloLugarTuristicosRes.add(modelo);
+            }
+        }
+        return modeloLugarTuristicosRes;
     }
 
     /**
@@ -79,37 +174,6 @@ public class SqliteLugar extends DBSQLiteParent implements SqliteInterface<Model
 
         modeloLugarTuristico.setImagenesFirebase(getListaImagenes(ModeloImagen.TIPO_LUGAR, modeloLugarTuristico.getIdSQLite()));
         return modeloLugarTuristico;
-    }
-
-    public ModeloLugarTuristico getItem(String nombreMarcador) {
-        ModeloLugarTuristico modeloLugarTuristico = new ModeloLugarTuristico();
-        Cursor cursor = db.rawQuery("Select * "
-                + " from " + DBModel.TABLE_LUGARES
-                + " where " + DBModel.LUGARES_NAME + "='" + nombreMarcador + "'", null);
-        if (cursor.moveToFirst()) {
-            while (!cursor.isAfterLast()) {
-                modeloLugarTuristico = getLugarTuristicoCursor(cursor);
-
-                cursor.moveToNext();
-            }
-        }
-        return modeloLugarTuristico;
-    }
-
-    public void insert(ModeloLugarTuristico modeloLugarTuristico) {
-        helper.insertarLugarTuristico(db, modeloLugarTuristico);
-    }
-
-    @Override
-    public void delete() {
-        helper.deleteDatosLugarTuristico(db);
-    }
-
-    public void update(ArrayList<ModeloLugarTuristico> lugaresTuristicos) {
-        helper.deleteDatosLugarTuristico(db);
-        for (ModeloLugarTuristico lugar : lugaresTuristicos) {
-            insert(lugar);
-        }
     }
 
 }

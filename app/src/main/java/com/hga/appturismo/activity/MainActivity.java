@@ -184,7 +184,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void getAcontecimientos() {
         SqliteLugar lugar = new SqliteLugar(this);
-        modeloLugarTuristicos= lugar.listAcontecimientos();
+        modeloLugarTuristicos= lugar.listAcontecimientosActivos();
     }
 
     private void showAcontecimientosView() {
