@@ -185,6 +185,22 @@ public class ListaLugaresActivity extends AppCompatActivity {
     }
 
     @Override
+    public void onBackPressed() {
+        if (isProvincia){
+            Intent intent=new Intent(this,BuscarPorProvinciaActivity.class);
+            startActivity(intent);
+        }else{
+            Intent intent=new Intent(this,MainActivity.class);
+            startActivity(intent);
+        }
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return false;
+    }
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_search, menu);
 

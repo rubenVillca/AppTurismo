@@ -85,7 +85,7 @@ public class InsertarUsuarioActivity extends AppCompatActivity implements View.O
                         if (task.isSuccessful()) {
                             //modeloUsuario.setIdFirebase(firebaseAuth.getCurrentUser().getUid());//no usado
                             Toast.makeText(InsertarUsuarioActivity.this, "Usuario creado exitosamente", Toast.LENGTH_SHORT).show();
-                            goLogin();
+                            resetData();
                         }else{
                             Toast.makeText(InsertarUsuarioActivity.this, "Contraseña demasiado corta", Toast.LENGTH_SHORT).show();
                         }
@@ -96,6 +96,19 @@ public class InsertarUsuarioActivity extends AppCompatActivity implements View.O
 
     private void goLogin() {
         Intent intent=new Intent(this,LoginActivity.class);
+        startActivity(intent);
+    }
+    private void resetData(){
+        txt_nombre.setText("");
+        txt_apellido.setText("");
+        txt_email.setText("");
+        txt_telefono.setText("");
+        txt_pwd.setText("");
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent=new Intent(this,MainActivity.class);
         startActivity(intent);
     }
 
@@ -209,7 +222,11 @@ public class InsertarUsuarioActivity extends AppCompatActivity implements View.O
 
     @Override
     public void onClick(View view) {
-        ModeloUsuario modeloUsuario = insertarUsuarioFirebaseStorage();
-        insertarUsuarioFirebaseUser(modeloUsuario);
+        if (!txt_email.getText().toString().isEmpty()||!txt_pwd.getText().toString().isEmpty()) {
+            ModeloUsuario modeloUsuario = insertarUsuarioFirebaseStorage();
+            insertarUsuarioFirebaseUser(modeloUsuario);
+        }else{
+            Toast.makeText(this,"Email y contraseña son campos requerido",Toast.LENGTH_SHORT).show();
+        }
     }
 }
