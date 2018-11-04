@@ -222,7 +222,21 @@ public class InsertarUsuarioActivity extends AppCompatActivity implements View.O
 
     @Override
     public void onClick(View view) {
-        if (!txt_email.getText().toString().isEmpty()||!txt_pwd.getText().toString().isEmpty()) {
+        boolean isValid=true;
+        if (txt_email.getText().toString().isEmpty()) {
+            txt_email.setError("Email requerido");
+            isValid=false;
+        }
+        if (txt_pwd.getText().toString().isEmpty()) {
+            txt_pwd.setError("Contraseña requerida");
+            isValid=false;
+        }
+        if (txt_nombre.getText().toString().isEmpty()) {
+            txt_nombre.setError("Nombre requerido");
+            isValid=false;
+        }
+
+        if (isValid) {
             ModeloUsuario modeloUsuario = insertarUsuarioFirebaseStorage();
             insertarUsuarioFirebaseUser(modeloUsuario);
         }else{

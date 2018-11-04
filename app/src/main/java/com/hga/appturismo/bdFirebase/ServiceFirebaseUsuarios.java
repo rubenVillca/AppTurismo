@@ -6,7 +6,9 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -41,8 +43,7 @@ public class ServiceFirebaseUsuarios extends ServiceFirebase {
                                 //modeloUsuario.setIdFirebase(firebaseAuth.getCurrentUser().getUid());//no usado
                                 Toast.makeText(mainActivity, "Usuario creado exitosamente", Toast.LENGTH_SHORT).show();
                             } else {
-                                Toast.makeText(mainActivity, "Usuario no creado, por que la contraseña es demasiado corta" +
-                                        " o porque el usuario ya existe", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(mainActivity, "Usuario no creado, por que la contraseña es demasiado corta o porque el usuario ya existe", Toast.LENGTH_SHORT).show();
                             }
                         }
                     }
@@ -50,25 +51,30 @@ public class ServiceFirebaseUsuarios extends ServiceFirebase {
         }
     }
 
-    public void delete() {
+    public void delete(final TurismoAplicacion app,ArrayList<ModeloUsuario> modeloUsuarios) {
         //eliminar usuario autenticate bdFirebase
-        FirebaseAuth auth = FirebaseAuth.getInstance();//solo un usuario puede ver la lista de usuarios
-        if (auth.getCurrentUser() != null) {
+        //final FirebaseAuth auth = FirebaseAuth.getInstance();//solo un usuario puede ver la lista de usuarios
+        final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
-            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();//solo un usuario puede ver la lista de usuarios
+        for (final ModeloUsuario modeloUsuario:modeloUsuarios){
             if (user != null) {
-                user.delete().addOnCompleteListener(new OnCompleteListener<Void>() {
+                AuthCredential credential = EmailAuthProvider.getCredential(modeloUsuario.getEmail().trim(), modeloUsuario.getContrasenia().trim());
+                user.reauthenticate(credential).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
-                        if (task.isSuccessful()) {
-                            TurismoAplicacion app=new TurismoAplicacion();
-                            DatabaseReference postReference;
-                            //eliminar usuarios bdFirebase
-                            postReference = app.getDataBaseReferenceUsuario();
-                            postReference.removeValue();//eliminar de bdFirebase
+                        user.delete().addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                if (task.isSuccessful()) {
+                                    DatabaseReference postReference;
+                                    //eliminar usuarios bdFirebase
+                                    postReference = app.getDataBaseReferenceUsuario(modeloUsuario.getIdFirebase());
+                                    postReference.removeValue();//eliminar de bdFirebase
 
-                            Log.d("Eliminado usuario", "Cuenta de usuario en bdFirebase eliminada.");
-                        }
+                                    Log.d("Eliminado usuario", "Cuenta de usuario en bdFirebase eliminada.");
+                                }
+                            }
+                        });
                     }
                 });
             }

@@ -31,7 +31,7 @@ public class SqliteLugar extends DBSQLiteParent implements SqliteInterface<Model
     }
 
     public void update(ArrayList<ModeloLugarTuristico> lugaresTuristicos) {
-        helper.deleteDatosLugarTuristico(db);
+        delete();
         for (ModeloLugarTuristico lugar : lugaresTuristicos) {
             insert(lugar);
         }

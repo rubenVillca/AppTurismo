@@ -25,15 +25,18 @@ import com.hga.appturismo.bdFirebase.TurismoFirebaseService;
 import com.hga.appturismo.bdSQLite.SqliteHotel;
 import com.hga.appturismo.bdSQLite.SqliteLugar;
 import com.hga.appturismo.bdSQLite.SqliteRestaurante;
+import com.hga.appturismo.bdSQLite.SqliteUsuario;
 import com.hga.appturismo.imagenes.ImagenAcontecimientosSwip;
 import com.hga.appturismo.modelo.ModeloHotel;
 import com.hga.appturismo.modelo.ModeloLugarTuristico;
 import com.hga.appturismo.modelo.ModeloPuntaje;
 import com.hga.appturismo.modelo.ModeloRestaurante;
+import com.hga.appturismo.modelo.ModeloUsuario;
 import com.hga.appturismo.typeAdapterJson.HotelResponseTypeAdapter;
 import com.hga.appturismo.typeAdapterJson.LugarResponseTypeAdapter;
 import com.hga.appturismo.typeAdapterJson.PuntajeResponseTypeAdapter;
 import com.hga.appturismo.typeAdapterJson.RestauranteResponseTypeAdapter;
+import com.hga.appturismo.typeAdapterJson.UsuarioResponseTypeAdapter;
 import com.hga.appturismo.util.Constants;
 
 import java.util.ArrayList;
@@ -45,7 +48,6 @@ import retrofit2.Response;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private ArrayList<ModeloLugarTuristico> modeloLugarTuristicos;
-    //private UserService userService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -135,7 +137,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         Intent intent;
-        //noinspection SimplifiableIfStatement
         switch (item.getItemId()) {
             case R.id.action_login:
                 intent = new Intent(this, LoginActivity.class);
@@ -289,7 +290,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (advance){
             case 0:
                 progressBar.setProgress(advance);
-                showTextLargue("Error al sincronizar");
+                showTextLarge("Error al sincronizar");
                 setVisibleScrollBar(false);
                 break;
             case 1:
@@ -312,14 +313,42 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 progressBar.setProgress(advance-1);
                 break;
             case 5:
-                showTextLargue("Sincronizacion exitosa");
+                showTextLarge("Sincronizacion exitosa");
                 progressBar.setProgress(advance-1);
-
                 getAcontecimientos();
                 showAcontecimientosView();
                 setVisibleScrollBar(false);
                 break;
         }
+    }
+
+    private void updateSQLiteUsusarios() {
+        TurismoFirebaseService turismoFirebaseService = (new TurismoCliente(new UsuarioResponseTypeAdapter())).getService();
+
+        Call<ListaResponse> responseCall = turismoFirebaseService.getListUsuarios();
+        responseCall.enqueue(new Callback<ListaResponse>() {
+            @Override
+            public void onResponse(@NonNull Call<ListaResponse> call, @NonNull Response<ListaResponse> response) {
+                if (response.isSuccessful()) {
+                    ListaResponse listaResponse = response.body();
+
+                    if (listaResponse != null) {
+                        SqliteUsuario usuario = new SqliteUsuario(MainActivity.this);
+                        ArrayList<ModeloUsuario> listModeloUsuario = listaResponse.getListUsuarios();
+                        usuario.update(listModeloUsuario);
+                    }
+
+                    setProgressBar(6);
+                }else{
+                    setProgressBar(0);
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<ListaResponse> call, @NonNull Throwable t) {
+                setProgressBar(0);
+            }
+        });
     }
 
     private void updateSQLiteHotel() {
@@ -435,9 +464,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         });
     }
 
-    private void showTextLargue(String message){
+    private void showTextLarge(String message){
         Toast.makeText(this,message,Toast.LENGTH_LONG).show();
     }
+
     private void showTextSmall(String message){
         Toast.makeText(this,message,Toast.LENGTH_SHORT).show();
     }

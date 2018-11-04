@@ -20,7 +20,7 @@ import java.util.ArrayList;
  */
 
 public class DBModel extends SQLiteOpenHelper {
-    public static final int DATABASE_VERSION = 96;
+    public static final int DATABASE_VERSION = 101;
     public static final String DATABASE_NAME = "APP_TURISMO";
 
     public static final String TABLE_IMAGENES = "IMAGENES";
@@ -222,7 +222,6 @@ public class DBModel extends SQLiteOpenHelper {
         insertarHoteles(listas.getListaHoteles(), db);
         insertarRestaurantes(listas.getListaRestaurantes(), db);
         insertarUsuarios(listas.getListaUsuarios(), db);
-
     }
 
     private void insertarImagenes(ArrayList<ModeloImagen> modeloImagenArrayList, SQLiteDatabase db,long idReference) {
@@ -311,7 +310,6 @@ public class DBModel extends SQLiteOpenHelper {
         }
     }
 
-
     public void insertarLugarTuristico(SQLiteDatabase db, ModeloLugarTuristico lugar) {
         ContentValues contentValues = new ContentValues();
 
@@ -339,7 +337,6 @@ public class DBModel extends SQLiteOpenHelper {
             insertarImagenes(lugar.getImagenes(), db,idSqlite);
         }
     }
-
 
     private void insertarUsuarios(ArrayList<ModeloUsuario> listaUsuarios, SQLiteDatabase db) {
         for (ModeloUsuario modeloUsuario : listaUsuarios) {

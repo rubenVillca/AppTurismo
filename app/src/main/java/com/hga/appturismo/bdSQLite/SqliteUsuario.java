@@ -18,7 +18,7 @@ public class SqliteUsuario extends DBSQLiteParent implements SqliteInterface<Mod
 
     @Override
     public void update(ArrayList<ModeloUsuario> modeloUsuarios) {
-        //helper.deleteTableUsuario(db);
+        helper.deleteTableUsuario(db);
         for (ModeloUsuario modeloUsuario : modeloUsuarios) {
             insert(modeloUsuario);
         }
@@ -70,9 +70,11 @@ public class SqliteUsuario extends DBSQLiteParent implements SqliteInterface<Mod
         modeloUsuario.setIdSqlite(cursor.getInt(cursor.getColumnIndex(DBModel.USER_SQLITE_ID)));
         modeloUsuario.setIdFirebase(cursor.getString(cursor.getColumnIndex(DBModel.USER_ID_FIREBASE)));
         modeloUsuario.setNombre(cursor.getString(cursor.getColumnIndex(DBModel.USER_NAME)));
+        modeloUsuario.setApellido(cursor.getString(cursor.getColumnIndex(DBModel.USER_APELLIDO)));
         modeloUsuario.setTelefono(cursor.getString(cursor.getColumnIndex(DBModel.USER_TELEFONO)));
         modeloUsuario.setEmail(cursor.getString(cursor.getColumnIndex(DBModel.USER_EMAIL)));
         modeloUsuario.setEstado(cursor.getString(cursor.getColumnIndex(DBModel.USER_ESTADO)));
+        modeloUsuario.setContrasenia(cursor.getString(cursor.getColumnIndex(DBModel.USER_PWD)));
         return modeloUsuario;
     }
 }

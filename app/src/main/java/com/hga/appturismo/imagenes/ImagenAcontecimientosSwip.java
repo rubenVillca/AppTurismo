@@ -135,21 +135,23 @@ public class ImagenAcontecimientosSwip extends PagerAdapter {
     }
 
     private void cargarImagen(int position, ImageView imageView, final ImageView imageViewCopy) {
-        ModeloImagen modeloImagen =imagesResources.get(position).getImagenes().get(0);
+        ModeloLugarTuristico modeloLugarTuristico=imagesResources.get(position);
+        if (!modeloLugarTuristico.getImagenes().isEmpty()) {
+            ModeloImagen modeloImagen = modeloLugarTuristico.getImagenes().get(0);
 
-        //String urlImagen = Constants.FIREBASE_STORAGE_URL+modeloImagen.getTipoImagen()+"/"+modeloImagen.getUrlServer();
-        TurismoAplicacion app = (TurismoAplicacion) context.getApplicationContext();
+            //String urlImagen = Constants.FIREBASE_STORAGE_URL+modeloImagen.getTipoImagen()+"/"+modeloImagen.getUrlServer();
+            TurismoAplicacion app = (TurismoAplicacion) context.getApplicationContext();
         /*File file = new File(app.getStorageReferenceImagen(modeloImagen.getUrlApp()).toString());
         if (file.exists()) {*/
             /*try {
                 int imagen=Integer.parseInt(modeloImagen.getUrlApp());//si la imagen esta en la app
                 Picasso.with(context).load(imagen).into(imageView);
             }catch (NumberFormatException e){*/
-                //Picasso.with(context).load(urlImagen).into(imageView);//si la imagen esta en el celular
+            //Picasso.with(context).load(urlImagen).into(imageView);//si la imagen esta en el celular
             //}
-        /*}else {//si la imagen no esta en el celular*/
+            /*}else {//si la imagen no esta en el celular*/
             String urlImagen = modeloImagen.getUrlServer();
-            StorageReference storageRef = app.getStorageReferenceImagen(modeloImagen.getTipoImagen()+"/"+urlImagen);
+            StorageReference storageRef = app.getStorageReferenceImagen(modeloImagen.getTipoImagen() + "/" + urlImagen);
             storageRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                 @Override
                 public void onSuccess(Uri uri) {
@@ -163,7 +165,8 @@ public class ImagenAcontecimientosSwip extends PagerAdapter {
                     System.out.println("Error al cargar imagenes");
                 }
             });
-        //}
+            //}
+        }
     }
 
     @Override
