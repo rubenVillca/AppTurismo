@@ -13,7 +13,6 @@ public class DBSQLiteManager {
         SqliteLugar lugarTuristico =new SqliteLugar(mainActivity);
         SqliteUsuario usuario =new SqliteUsuario(mainActivity);
 
-
         Listas listas=new Listas();
 
         hotel.update(listas.getListaHoteles());

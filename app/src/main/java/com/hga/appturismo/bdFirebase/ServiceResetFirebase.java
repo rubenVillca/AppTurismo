@@ -3,7 +3,11 @@ package com.hga.appturismo.bdFirebase;
 import android.widget.Toast;
 
 import com.hga.appturismo.activity.MainActivity;
+import com.hga.appturismo.bdSQLite.SqliteUsuario;
+import com.hga.appturismo.modelo.ModeloUsuario;
 import com.hga.appturismo.provider.Listas;
+
+import java.util.ArrayList;
 
 /**
  * Created by HGA on 8/7/2018
@@ -50,8 +54,10 @@ public class ServiceResetFirebase {
     }
 
     private void resetUsuarios(){
+        SqliteUsuario sqliteUsuario=new SqliteUsuario(mainActivity);
+
         ServiceFirebaseUsuarios resetFirebaseUsuarios =new ServiceFirebaseUsuarios(mainActivity);
-        resetFirebaseUsuarios.delete();
+        resetFirebaseUsuarios.delete(app,sqliteUsuario.list());
         resetFirebaseUsuarios.insert(app,listas);
     }
 }

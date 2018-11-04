@@ -95,8 +95,8 @@ public class UsuarioAdapterRecycler extends RecyclerView.Adapter<UsuarioAdapterR
                     for (ModeloUsuario modeloUsuario : usuarios) {
 
                         if (modeloUsuario.getNombre().toLowerCase().contains(charString) ||
-                                modeloUsuario.getApellido().toLowerCase().contains(charString)||
-                                modeloUsuario.getEmail().toLowerCase().contains(charString)||
+                                modeloUsuario.getApellido().toLowerCase().contains(charString) ||
+                                modeloUsuario.getEmail().toLowerCase().contains(charString) ||
                                 String.valueOf(modeloUsuario.getTelefono()).contains(charString)) {
 
                             filteredList.add(modeloUsuario);
@@ -124,7 +124,7 @@ public class UsuarioAdapterRecycler extends RecyclerView.Adapter<UsuarioAdapterR
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();//recuoerra usuario logeado
         assert user != null;
         user.delete().addOnCompleteListener(new OnCompleteListener<Void>() {
-            @Override
+    @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()) {
                     DatabaseReference databaseReference= app.getDataBaseReferenceUsuario(modeloUsuario.getIdFirebase());
@@ -134,7 +134,7 @@ public class UsuarioAdapterRecycler extends RecyclerView.Adapter<UsuarioAdapterR
                     notifyDataSetChanged();
 
                     Log.d("Eliminado usuario", "Cuenta de usuario en bdFirebase eliminada.");
-                }
+            }
             }
         });
     }
@@ -149,7 +149,7 @@ public class UsuarioAdapterRecycler extends RecyclerView.Adapter<UsuarioAdapterR
             super(itemView);
             btn_editar = itemView.findViewById(R.id.btn_editar_usuario);
             btn_eliminar = itemView.findViewById(R.id.btn_eliminar_usuario);
-            nameUserCardView= itemView.findViewById(R.id.nameUserCardView);
+            nameUserCardView = itemView.findViewById(R.id.nameUserCardView);
             emailUserCardView = itemView.findViewById(R.id.emailUserCardView);
         }
 
