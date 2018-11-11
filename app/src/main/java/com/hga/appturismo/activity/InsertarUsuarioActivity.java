@@ -6,11 +6,14 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,11 +24,21 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.hga.appturismo.R;
+import com.hga.appturismo.bdFirebase.ListaResponse;
 import com.hga.appturismo.bdFirebase.TurismoAplicacion;
+import com.hga.appturismo.bdFirebase.TurismoCliente;
+import com.hga.appturismo.bdFirebase.TurismoFirebaseService;
 import com.hga.appturismo.bdSQLite.DBSQLiteParent;
 import com.hga.appturismo.bdSQLite.SqliteUsuario;
 import com.hga.appturismo.modelo.ModeloUsuario;
+import com.hga.appturismo.typeAdapterJson.UsuarioResponseTypeAdapter;
 import com.hga.appturismo.util.Constants;
+
+import java.util.ArrayList;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 /**
@@ -85,8 +98,9 @@ public class InsertarUsuarioActivity extends AppCompatActivity implements View.O
                         if (task.isSuccessful()) {
                             //modeloUsuario.setIdFirebase(firebaseAuth.getCurrentUser().getUid());//no usado
                             Toast.makeText(InsertarUsuarioActivity.this, "Usuario creado exitosamente", Toast.LENGTH_SHORT).show();
-                            resetData();
+                            updateSQLiteUsusarios();
                         }else{
+                            setVisibleProgressBar(false);
                             Toast.makeText(InsertarUsuarioActivity.this, "Contraseña demasiado corta", Toast.LENGTH_SHORT).show();
                         }
                     }
@@ -94,11 +108,51 @@ public class InsertarUsuarioActivity extends AppCompatActivity implements View.O
         );
     }
 
-    private void goLogin() {
-        Intent intent=new Intent(this,LoginActivity.class);
+    private void goListUser() {
+        SharedPreferences sharedPreferences = getSharedPreferences("USER", MODE_PRIVATE);
+        int rol = sharedPreferences.getInt("rol", 0);
+
+        Intent intent;
+        if (rol==Constants.USUARIO_ROL_ADMIN){
+            intent=new Intent(this,ListaUsuariosActivity.class);
+        }else{
+            intent=new Intent(this,MainActivity.class);
+        }
         startActivity(intent);
     }
+
+    private void updateSQLiteUsusarios() {
+        TurismoFirebaseService turismoFirebaseService = (new TurismoCliente(new UsuarioResponseTypeAdapter())).getService();
+
+        Call<ListaResponse> responseCall = turismoFirebaseService.getListUsuarios();
+        responseCall.enqueue(new Callback<ListaResponse>() {
+            @Override
+            public void onResponse(@NonNull Call<ListaResponse> call, @NonNull Response<ListaResponse> response) {
+                if (response.isSuccessful()) {
+                    ListaResponse listaResponse = response.body();
+
+                    if (listaResponse != null) {
+                        SqliteUsuario usuario = new SqliteUsuario(InsertarUsuarioActivity.this);
+                        ArrayList<ModeloUsuario> listModeloUsuario = listaResponse.getListUsuarios();
+                        usuario.update(listModeloUsuario);
+                    }
+                    goListUser();
+                }else{
+                    resetData();
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<ListaResponse> call, @NonNull Throwable t) {
+                System.out.println("Error");
+                resetData();
+            }
+        });
+    }
+
     private void resetData(){
+        setVisibleProgressBar(false);
+
         txt_nombre.setText("");
         txt_apellido.setText("");
         txt_email.setText("");
@@ -237,10 +291,24 @@ public class InsertarUsuarioActivity extends AppCompatActivity implements View.O
         }
 
         if (isValid) {
+            setVisibleProgressBar(true);
             ModeloUsuario modeloUsuario = insertarUsuarioFirebaseStorage();
             insertarUsuarioFirebaseUser(modeloUsuario);
         }else{
-            Toast.makeText(this,"Email y contraseña son campos requerido",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"Email y contraseña son campos requerido",Toast.LENGTH_LONG).show();
+        }
+    }
+
+    private void setVisibleProgressBar(boolean isVisble){
+        ScrollView scrollView=findViewById(R.id.editar_usuario_activity);
+        ProgressBar progressBar=findViewById(R.id.progress_bar_usuario);
+
+        if (isVisble){
+            scrollView.setVisibility(View.GONE);
+            progressBar.setVisibility(View.VISIBLE);
+        }else{
+            scrollView.setVisibility(View.VISIBLE);
+            progressBar.setVisibility(View.GONE);
         }
     }
 }

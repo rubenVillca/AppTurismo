@@ -286,7 +286,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void setProgressBar(int advance){
         ProgressBar progressBar = findViewById(R.id.progressBarHorizontal);
-        progressBar.setMax(4);
+        progressBar.setMax(6);
         switch (advance){
             case 0:
                 progressBar.setProgress(advance);
@@ -313,11 +313,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 progressBar.setProgress(advance-1);
                 break;
             case 5:
+                showTextLarge("Sincronizacion puntaje");
+                progressBar.setProgress(advance-1);
+                updateSQLiteUsusarios();
+                break;
+            case 6:
                 showTextLarge("Sincronizacion exitosa");
                 progressBar.setProgress(advance-1);
                 getAcontecimientos();
                 showAcontecimientosView();
                 setVisibleScrollBar(false);
+
                 break;
         }
     }
