@@ -47,6 +47,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
+import static com.hga.appturismo.util.Constants.TIPO_LUGAR_ACONTECIMIENTOS;
+
 public class InsertarLugarActivity extends AppCompatActivity {
     private String email;
 
@@ -74,7 +76,7 @@ public class InsertarLugarActivity extends AppCompatActivity {
     private EditText txt_registrador;
 
     private Spinner spinnerProvincia;
-    private Spinner spinnerTipoTurismo;
+    private Spinner spinnerCategoria;
     private Spinner spinnerTipo;
 
     private LinearLayout layout_tipo;
@@ -229,7 +231,7 @@ public class InsertarLugarActivity extends AppCompatActivity {
         ModeloLugarTuristico modeloLugarTuristico = new ModeloLugarTuristico();
         modeloLugarTuristico.setIdSQLite(lugarTuristico.list().size() + 1);
         modeloLugarTuristico.setNombre(txt_nombre.getText().toString());
-        modeloLugarTuristico.setTipo(spinnerTipoTurismo.getSelectedItem().toString());
+        modeloLugarTuristico.setTipo(spinnerCategoria.getSelectedItem().toString());
         modeloLugarTuristico.setDescripcion(txt_descripcion.getText().toString());
         modeloLugarTuristico.setDireccion(txt_direccion.getText().toString());
         modeloLugarTuristico.setTelefonoString(txt_telefono.getText().toString());
@@ -291,6 +293,44 @@ public class InsertarLugarActivity extends AppCompatActivity {
     public void goGaleryActivity(View view) {
         Intent intent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.INTERNAL_CONTENT_URI);
         startActivityForResult(intent, SELECT_PICTURE);
+    }
+
+    private boolean isFechaValid() {
+        boolean res=false;
+        String fecha=txt_fecha.getText().toString();
+        if (fecha.length()>7){
+            Integer dia=0;
+            String mes="";
+            try{
+                dia=Integer.parseInt(fecha.substring(0,1));
+                mes=fecha.substring(2).trim().toLowerCase();
+            }catch (Exception e){
+                System.out.println("Error en el dia de la fecha insertada");
+            }
+
+            if (dia>0&&dia<=31
+                    &&(mes.equals("enero")
+                    ||mes.equals("marzo")
+                    ||mes.equals("mayo")
+                    ||mes.equals("julio")
+                    ||mes.equals("agosto")
+                    ||mes.equals("octubre")
+                    ||mes.equals("diciembre"))){
+                res=true;
+            }
+            if (dia>0&&dia<=29 &&(mes.equals("febrero"))){
+                res=true;
+            }
+            if (dia>0&&dia<=30
+                    &&(mes.equals("abril")
+                    ||mes.equals("junio")
+                    ||mes.equals("septiembre")
+                    ||mes.equals("noviembre"))){
+                res=true;
+            }
+        }
+
+        return res;
     }
 
     /**
@@ -468,7 +508,7 @@ public class InsertarLugarActivity extends AppCompatActivity {
         txt_ruta_imagen = findViewById(R.id.ruta_imagen);
 
         spinnerProvincia = findViewById(R.id.spinner_provincia);
-        spinnerTipoTurismo = findViewById(R.id.spinner_tipo_turismo);
+        spinnerCategoria = findViewById(R.id.spinner_tipo_turismo);
         spinnerTipo = findViewById(R.id.spinner_tipo);
 
         txt_nombre = findViewById(R.id.txt_nombre);
@@ -498,8 +538,8 @@ public class InsertarLugarActivity extends AppCompatActivity {
 
         ArrayAdapter<CharSequence> adapterTipoTurismo = ArrayAdapter.createFromResource(this, R.array.tipo_turismo, android.R.layout.simple_spinner_item);
         adapterTipoTurismo.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerTipoTurismo.setAdapter(adapterTipoTurismo);
-        spinnerTipoTurismo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        spinnerCategoria.setAdapter(adapterTipoTurismo);
+        spinnerCategoria.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 switch (position) {
@@ -684,7 +724,6 @@ public class InsertarLugarActivity extends AppCompatActivity {
             isValidLugarTuristico = false;
         }
         if (longitud.isEmpty()) {
-
             txt_longitud.setError("Llenar Longitud");
             focusView = txt_longitud;
             isValidLugarTuristico = false;
@@ -709,6 +748,13 @@ public class InsertarLugarActivity extends AppCompatActivity {
             focusView = txt_nombre;
             isValidLugarTuristico = false;
         }
+        String categoria= spinnerCategoria.getSelectedItem().toString();
+        if (!isFechaValid()&&categoria.equals(TIPO_LUGAR_ACONTECIMIENTOS)){
+            txt_fecha.setError("Fecha invalida");
+            focusView=txt_fecha;
+            isValidLugarTuristico=false;
+        }
+
         if (focusView!=null) {
             focusView.requestFocus();
         }
