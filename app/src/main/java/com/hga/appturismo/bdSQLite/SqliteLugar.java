@@ -94,7 +94,7 @@ public class SqliteLugar extends DBSQLiteParent implements SqliteInterface<Model
             int mes;
             if (fechaString.length()>5) {
                 mesString = fechaString.substring(2, fechaString.length());
-                dia = Integer.parseInt(fechaString.substring(0, 1));
+                dia = Integer.parseInt(fechaString.substring(0, 2).trim());
                 mesString = mesString.trim().toLowerCase();
             }else{
                 System.out.println("Fecha no valida");

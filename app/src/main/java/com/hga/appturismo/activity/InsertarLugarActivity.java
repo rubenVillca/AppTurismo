@@ -302,7 +302,7 @@ public class InsertarLugarActivity extends AppCompatActivity {
             Integer dia=0;
             String mes="";
             try{
-                dia=Integer.parseInt(fecha.substring(0,1));
+                dia=Integer.parseInt(fecha.substring(0,2).trim());
                 mes=fecha.substring(2).trim().toLowerCase();
             }catch (Exception e){
                 System.out.println("Error en el dia de la fecha insertada");
