@@ -248,7 +248,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 linearLayoutAddUser.setVisibility(View.GONE);
                 break;
             default:
-                linearLayoutAddSite.setVisibility(View.GONE);
+                linearLayoutAddSite.setVisibility(View.VISIBLE);
                 linearLayoutUser.setVisibility(View.GONE);
                 linearLayoutAddUser.setVisibility(View.GONE);
                 break;

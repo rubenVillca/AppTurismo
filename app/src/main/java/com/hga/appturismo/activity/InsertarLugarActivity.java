@@ -188,6 +188,21 @@ public class InsertarLugarActivity extends AppCompatActivity {
         modeloHotel.setGpsX(Float.parseFloat(txt_latitud.getText().toString()));
         modeloHotel.setGpsY(Float.parseFloat(txt_longitud.getText().toString()));
         modeloHotel.setNombre(email);
+
+        SharedPreferences sharedPreferences = getSharedPreferences("USER", MODE_PRIVATE);
+        int rol = sharedPreferences.getInt("rol", 0);
+        switch (rol){
+            case Constants.USUARIO_ROL_REVISOR:
+                modeloHotel.setEstado(Constants.ESTADO_LUGAR_VISIBLE);
+                break;
+            case Constants.USUARIO_ROL_ADMIN:
+                modeloHotel.setEstado(Constants.ESTADO_LUGAR_VISIBLE);
+                break;
+            default:
+                modeloHotel.setEstado(Constants.ESTADO_LUGAR_SUG_INSERTAR);
+                break;
+        }
+
         return modeloHotel;
     }
 
@@ -245,10 +260,18 @@ public class InsertarLugarActivity extends AppCompatActivity {
 
         SharedPreferences sharedPreferences = getSharedPreferences("USER", MODE_PRIVATE);
         int rol = sharedPreferences.getInt("rol", 0);
-        if (rol==Constants.USUARIO_ROL_REVISOR)
-            modeloLugarTuristico.setEstado(Constants.ESTADO_LUGAR_SUG_INSERTAR);
-        else
-            modeloLugarTuristico.setEstado(Constants.ESTADO_LUGAR_VISIBLE);
+        switch (rol){
+            case Constants.USUARIO_ROL_REVISOR:
+                modeloLugarTuristico.setEstado(Constants.ESTADO_LUGAR_VISIBLE);
+                break;
+            case Constants.USUARIO_ROL_ADMIN:
+                modeloLugarTuristico.setEstado(Constants.ESTADO_LUGAR_VISIBLE);
+                break;
+            default:
+                modeloLugarTuristico.setEstado(Constants.ESTADO_LUGAR_SUG_INSERTAR);
+                break;
+        }
+
         return modeloLugarTuristico;
     }
 
@@ -264,6 +287,20 @@ public class InsertarLugarActivity extends AppCompatActivity {
         modeloRestaurante.setGpsX(Float.parseFloat(txt_latitud.getText().toString()));
         modeloRestaurante.setGpsY(Float.parseFloat(txt_longitud.getText().toString()));
         modeloRestaurante.setRegistradoPor(email);
+
+        SharedPreferences sharedPreferences = getSharedPreferences("USER", MODE_PRIVATE);
+        int rol = sharedPreferences.getInt("rol", 0);
+        switch (rol){
+            case Constants.USUARIO_ROL_REVISOR:
+                modeloRestaurante.setEstado(Constants.ESTADO_LUGAR_VISIBLE);
+                break;
+            case Constants.USUARIO_ROL_ADMIN:
+                modeloRestaurante.setEstado(Constants.ESTADO_LUGAR_VISIBLE);
+                break;
+            default:
+                modeloRestaurante.setEstado(Constants.ESTADO_LUGAR_SUG_INSERTAR);
+                break;
+        }
 
         return modeloRestaurante;
     }
