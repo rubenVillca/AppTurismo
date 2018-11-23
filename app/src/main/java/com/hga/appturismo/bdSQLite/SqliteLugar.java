@@ -181,5 +181,4 @@ public class SqliteLugar extends DBSQLiteParent implements SqliteInterface<Model
         modeloLugarTuristico.setImagenesFirebase(getListaImagenes(ModeloImagen.TIPO_LUGAR, modeloLugarTuristico.getIdSQLite()));
         return modeloLugarTuristico;
     }
-
 }
