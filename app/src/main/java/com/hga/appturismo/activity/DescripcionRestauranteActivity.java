@@ -49,6 +49,9 @@ public class DescripcionRestauranteActivity extends AppCompatActivity implements
         TextView textViewNombre = findViewById(R.id.textViewNombreText);
         textViewNombre.setText(modeloRestaurante.getNombre());
 
+        TextView textViewDescripcion = findViewById(R.id.textViewDescripcionText);
+        textViewDescripcion.setText(modeloRestaurante.getDescripcion());
+
         TextView textViewDireccion = findViewById(R.id.textViewDireccionText);
         textViewDireccion.setText(modeloRestaurante.getDireccion());
 

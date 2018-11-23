@@ -57,6 +57,7 @@ public class Listas {
         ModeloHotel hotel = new ModeloHotel();
         hotel.setIdSQLite(idHotel++);
         hotel.setNombre("Hostal Bonairense");
+        //hotel.setDescripcion(" ");
         hotel.setGpsX(-17.389546148501218f);
         hotel.setGpsY(-66.15610867738724f);
         hotel.setDireccion("Alfonso Arze nro. 2091 Zona: Jaihuayco");
@@ -84,6 +85,7 @@ public class Listas {
         restaurante = new ModeloRestaurante();
         restaurante.setIdSQLite(idRestaurante++);
         restaurante.setNombre("Bunker Grill");
+        //restaurante.setDescripcion(" ");
         restaurante.setGpsX(-17.376839762065707f);
         restaurante.setGpsY(-66.16944931447506f);
         restaurante.setDireccion("Av. Juan De La Rosa nro. 842 Zona: Sarco");

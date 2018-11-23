@@ -39,6 +39,7 @@ public class SqliteHotel extends DBSQLiteParent implements SqliteInterface<Model
         modeloHotel.setIdSQLite(cursor.getInt(cursor.getColumnIndex(DBModel.HOTELES_SQLITE_ID)));
         modeloHotel.setIdFirebase(cursor.getString(cursor.getColumnIndex(DBModel.HOTELES_ID_FIREBASE)));
         modeloHotel.setNombre(cursor.getString(cursor.getColumnIndex(DBModel.HOTELES_NAME)));
+        modeloHotel.setDescripcion(cursor.getString(cursor.getColumnIndex(DBModel.HOTELES_DESCRIPCION)));
         modeloHotel.setDireccion(cursor.getString(cursor.getColumnIndex(DBModel.HOTELES_DIRECCION)));
         modeloHotel.setTelefono(cursor.getInt(cursor.getColumnIndex(DBModel.HOTELES_TELEFONO)));
         modeloHotel.setPaginaWeb(cursor.getString(cursor.getColumnIndex(DBModel.HOTELES_PAGINA_WEB)));

@@ -89,11 +89,17 @@ public class SqliteLugar extends DBSQLiteParent implements SqliteInterface<Model
         ArrayList<ModeloLugarTuristico> modeloLugarTuristicosRes = new ArrayList<>();
         for (ModeloLugarTuristico modelo : modeloLugarTuristicos) {
             String fechaString = modelo.getFecha();
-            String mesString = fechaString.substring(3, fechaString.length());
-            int dia = Integer.parseInt(fechaString.substring(0, 2));
+            String mesString="";
+            int dia=0;
             int mes;
+            if (fechaString.length()>5) {
+                mesString = fechaString.substring(2, fechaString.length());
+                dia = Integer.parseInt(fechaString.substring(0, 1));
+                mesString = mesString.trim().toLowerCase();
+            }else{
+                System.out.println("Fecha no valida");
+            }
 
-            mesString = mesString.trim().toLowerCase();
             switch (mesString) {
                 case "enero":
                     mes = 1;

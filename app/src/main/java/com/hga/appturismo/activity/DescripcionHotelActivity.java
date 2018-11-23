@@ -51,6 +51,9 @@ public class DescripcionHotelActivity extends AppCompatActivity  implements Text
         TextView textViewNombreText= findViewById(R.id.textViewNombreText);
         textViewNombreText.setText(modeloHotel.getNombre());
 
+        TextView textViewDescripcionText= findViewById(R.id.textViewDescripcionText);
+        textViewDescripcionText.setText(modeloHotel.getDescripcion());
+
         TextView textViewDireccionText= findViewById(R.id.textViewDireccionText);
         textViewDireccionText.setText(modeloHotel.getDireccion());
 
@@ -126,6 +129,7 @@ public class DescripcionHotelActivity extends AppCompatActivity  implements Text
         if (tts==null)
             tts = new TextToSpeech(this, this);
         String text = "Servicio de Hospedaje: "+ modeloHotel.getNombre()
+                +". Actividad: "+ modeloHotel.getDescripcion()
                 +". Direccion: "+ modeloHotel.getDireccion()
                 +". Teléfono: "+ modeloHotel.getTelefono();
                 tts.speak(text,TextToSpeech.QUEUE_FLUSH,null);

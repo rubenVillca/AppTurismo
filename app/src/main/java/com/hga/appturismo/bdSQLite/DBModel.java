@@ -20,7 +20,7 @@ import java.util.ArrayList;
  */
 
 public class DBModel extends SQLiteOpenHelper {
-    public static final int DATABASE_VERSION = 103;
+    public static final int DATABASE_VERSION = 108;
     public static final String DATABASE_NAME = "APP_TURISMO";
 
     public static final String TABLE_IMAGENES = "IMAGENES";
@@ -54,6 +54,7 @@ public class DBModel extends SQLiteOpenHelper {
     public static final String RESTAURANTES_ID_SQLITE = "ID_SQLITE_REST";
     public static final String RESTAURANTES_ID_FIREBASE = "ID_FIREBASE_REST";
     public static final String RESTAURANTES_NAME = "NOMBRE_REST";
+    public static final String RESTAURANTES_DESCRIPCION = "DESCRIPCION_REST";
     public static final String RESTAURANTES_DIRECCION = "DIRECCION_REST";
     public static final String RESTAURANTES_HORARIO = "HORARIO_REST";
     public static final String RESTAURANTES_TELEFONO = "TEL_REST";
@@ -68,6 +69,7 @@ public class DBModel extends SQLiteOpenHelper {
     public static final String HOTELES_SQLITE_ID = "ID_SQLITE_HOTEL";
     public static final String HOTELES_ID_FIREBASE = "ID_FIREBASE_HOTEL";
     public static final String HOTELES_NAME = "NOMBRE_HOTEL";
+    public static final String HOTELES_DESCRIPCION = "DES_HOTEL";
     public static final String HOTELES_DIRECCION = "DIR_HOTEL";
     public static final String HOTELES_TELEFONO = "TEL_HOTEL";
     public static final String HOTELES_PAGINA_WEB = "PAGWEB_HOTEL";
@@ -176,6 +178,7 @@ public class DBModel extends SQLiteOpenHelper {
                 + RESTAURANTES_ID_SQLITE + " integer primary key,"
                 + RESTAURANTES_ID_FIREBASE + " text,"
                 + RESTAURANTES_NAME + " text,"
+                + RESTAURANTES_DESCRIPCION + " text,"
                 + RESTAURANTES_DIRECCION + " text,"
                 + RESTAURANTES_HORARIO + " text,"
                 + RESTAURANTES_TELEFONO + " text,"
@@ -192,6 +195,7 @@ public class DBModel extends SQLiteOpenHelper {
                 + HOTELES_SQLITE_ID + " integer primary key,"
                 + HOTELES_ID_FIREBASE + " text,"
                 + HOTELES_NAME + " text,"
+                + HOTELES_DESCRIPCION + " text,"
                 + HOTELES_DIRECCION + " text,"
                 + HOTELES_TELEFONO + " text,"
                 + HOTELES_PAGINA_WEB + " text,"
@@ -258,6 +262,7 @@ public class DBModel extends SQLiteOpenHelper {
         //contentValues.put(DBModel.RESTAURANTES_ID_SQLITE, modeloRestaurante.getIdSQLite());
         contentValues.put(DBModel.RESTAURANTES_ID_FIREBASE, modeloRestaurante.getIdFirebase());
         contentValues.put(DBModel.RESTAURANTES_NAME, modeloRestaurante.getNombre());
+        contentValues.put(DBModel.RESTAURANTES_DESCRIPCION, modeloRestaurante.getDescripcion());
         contentValues.put(DBModel.RESTAURANTES_DIRECCION, modeloRestaurante.getDireccion());
         contentValues.put(DBModel.RESTAURANTES_HORARIO, modeloRestaurante.getHorario());
         contentValues.put(DBModel.RESTAURANTES_TELEFONO, String.valueOf(modeloRestaurante.getTelefono()));
@@ -287,6 +292,7 @@ public class DBModel extends SQLiteOpenHelper {
         //contentValues.put(DBModel.HOTELES_SQLITE_ID, modeloHotel.getIdSQLite());
         contentValues.put(DBModel.HOTELES_ID_FIREBASE, modeloHotel.getIdFirebase());
         contentValues.put(DBModel.HOTELES_NAME, modeloHotel.getNombre());
+        contentValues.put(DBModel.HOTELES_DESCRIPCION, modeloHotel.getDescripcion());
         contentValues.put(DBModel.HOTELES_DIRECCION, modeloHotel.getDireccion());
         contentValues.put(DBModel.HOTELES_TELEFONO, String.valueOf(modeloHotel.getTelefono()));
         contentValues.put(DBModel.HOTELES_PAGINA_WEB, modeloHotel.getPaginaWeb());

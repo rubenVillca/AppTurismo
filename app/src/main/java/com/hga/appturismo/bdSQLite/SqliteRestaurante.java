@@ -23,6 +23,7 @@ public class SqliteRestaurante extends DBSQLiteParent implements SqliteInterface
         modeloRestaurante.setIdSQLite(cursor.getInt(cursor.getColumnIndex(DBModel.RESTAURANTES_ID_SQLITE)));
         modeloRestaurante.setIdFirebase(cursor.getString(cursor.getColumnIndex(DBModel.RESTAURANTES_ID_FIREBASE)));
         modeloRestaurante.setNombre(cursor.getString(cursor.getColumnIndex(DBModel.RESTAURANTES_NAME)));
+        modeloRestaurante.setDescripcion(cursor.getString(cursor.getColumnIndex(DBModel.RESTAURANTES_DESCRIPCION)));
         modeloRestaurante.setDireccion(cursor.getString(cursor.getColumnIndex(DBModel.RESTAURANTES_DIRECCION)));
         modeloRestaurante.setHorario(cursor.getString(cursor.getColumnIndex(DBModel.RESTAURANTES_HORARIO)));
         modeloRestaurante.setTelefono(cursor.getInt(cursor.getColumnIndex(DBModel.RESTAURANTES_TELEFONO)));

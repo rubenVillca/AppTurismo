@@ -136,6 +136,7 @@ public class EditarRestauranteActivity extends EditarActivity {
     private void mostrarRestaurante() {
         modeloRestauranteNew = new ModeloRestaurante();
         modeloRestauranteNew.setNombre(editar_txt_nombre.getText().toString());
+        modeloRestauranteNew.setDescripcion(editar_txt_descripcion.getText().toString());
         modeloRestauranteNew.setGpsX(Float.parseFloat(editar_txt_latitud.getText().toString()));
         modeloRestauranteNew.setGpsY(Float.parseFloat(editar_txt_longitud.getText().toString()));
         modeloRestauranteNew.setDireccion(editar_txt_direccion.getText().toString());
@@ -194,7 +195,7 @@ public class EditarRestauranteActivity extends EditarActivity {
         //editar_spinner_provincia.setText(modeloRestauranteOld.get());
         //editar_spinner_tipo_turismo.setText(modeloRestauranteOld.get());
         editar_txt_nombre.setText(modeloRestauranteOld.getNombre());
-        //editar_txt_descripcion.setText(modeloRestauranteOld.getD());
+        editar_txt_descripcion.setText(modeloRestauranteOld.getDescripcion());
         editar_txt_email.setText(modeloRestauranteOld.getEmail());
         editar_txt_direccion.setText(modeloRestauranteOld.getDireccion());
         editar_txt_paginaweb.setText(modeloRestauranteOld.getPaginaWeb());
@@ -240,10 +241,12 @@ public class EditarRestauranteActivity extends EditarActivity {
     private boolean isValidRestaurante() {
         boolean isValidRestaurante = true;
         editar_txt_nombre.setError(null);
+        editar_txt_descripcion.setError(null);
         editar_txt_latitud.setError(null);
         editar_txt_longitud.setError(null);
         focusView = null;
         String nombre = editar_txt_nombre.getText().toString();
+        String descripcion = editar_txt_descripcion.getText().toString();
         String latitud = editar_txt_latitud.getText().toString();
         String longitud = editar_txt_longitud.getText().toString();
         String rutaImagen = editar_txt_ruta_imagen.getText().toString();
@@ -262,6 +265,11 @@ public class EditarRestauranteActivity extends EditarActivity {
         if (latitud.isEmpty()) {
             editar_txt_latitud.setError("Llenar Latitud");
             focusView = editar_txt_latitud;
+            isValidRestaurante = false;
+        }
+        if (nombre.isEmpty()) {
+            editar_txt_descripcion.setError("Llenar Actividad");
+            focusView = editar_txt_descripcion;
             isValidRestaurante = false;
         }
         if (nombre.isEmpty()) {

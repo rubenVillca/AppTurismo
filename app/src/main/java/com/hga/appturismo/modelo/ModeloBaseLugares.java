@@ -68,7 +68,7 @@ public class ModeloBaseLugares implements Serializable {
         this.nombre = nombre;
     }
 
-    public String getDireccion() {
+      public String getDireccion() {
         return direccion;
     }
 
