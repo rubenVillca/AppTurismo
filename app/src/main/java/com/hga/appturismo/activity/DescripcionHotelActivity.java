@@ -112,7 +112,7 @@ public class DescripcionHotelActivity extends AppCompatActivity  implements Text
             LinearLayout linearLayout=findViewById(R.id.linearLayoutRegistradoPor);
             linearLayout.setVisibility(View.VISIBLE);
 
-            TextView textViewRegistradoPor= findViewById(R.id.textViewRegistradoPor);
+            TextView textViewRegistradoPor= findViewById(R.id.textViewRegistradoPorText);
             textViewRegistradoPor.setText(modeloHotel.getRegistradoPor());
         }
 
