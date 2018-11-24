@@ -245,7 +245,7 @@
                         android:id="@+id/textViewActividadText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="" />
+                        android:text=""/>
                 </LinearLayout>
                 <LinearLayout
                     android:id="@+id/linearLayoutRegistradoPor"
@@ -269,7 +269,9 @@
                         android:text="" />
                 </LinearLayout>
                 <include layout="@layout/content_button_description"/>
+                <include layout="@layout/content_button_sugerir_lugar"/>
             </LinearLayout>
+
         </ScrollView>
     </LinearLayout>
 </android.support.design.widget.CoordinatorLayout>

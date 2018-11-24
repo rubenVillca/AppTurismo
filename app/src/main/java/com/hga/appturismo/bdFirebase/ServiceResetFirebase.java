@@ -30,7 +30,7 @@ public class ServiceResetFirebase {
         resetHoteles();
         resetRestaurantes();
         resetLugares();
-        resetUsuarios();
+        //resetUsuarios();
 
         Toast.makeText(mainActivity,"Actualizado firebase",Toast.LENGTH_LONG).show();
     }

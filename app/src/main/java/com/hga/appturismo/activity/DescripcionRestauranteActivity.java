@@ -49,8 +49,8 @@ public class DescripcionRestauranteActivity extends AppCompatActivity implements
         TextView textViewNombre = findViewById(R.id.textViewNombreText);
         textViewNombre.setText(modeloRestaurante.getNombre());
 
-        TextView textViewDescripcion = findViewById(R.id.textViewDescripcionText);
-        textViewDescripcion.setText(modeloRestaurante.getDescripcion());
+        //TextView textViewDescripcion = findViewById(R.id.textViewDescripcionText);
+        //textViewDescripcion.setText(modeloRestaurante.getDescripcion());
 
         TextView textViewDireccion = findViewById(R.id.textViewDireccionText);
         textViewDireccion.setText(modeloRestaurante.getDireccion());
@@ -69,6 +69,14 @@ public class DescripcionRestauranteActivity extends AppCompatActivity implements
 
         TextView textViewRegistradoPorText = findViewById(R.id.textViewRegistradoPorText);
         textViewRegistradoPorText.setText(modeloRestaurante.getRegistradoPor());
+
+       /* if (modeloRestaurante.getLinea().isEmpty()) {
+            LinearLayout linearLayoutLinea =findViewById(R.id.linearLayoutLinea);
+            linearLayoutLinea.setVisibility(View.GONE);
+        }else {
+            TextView textViewLineaText = findViewById(R.id.textViewLineaText);
+            textViewLineaText.setText(modeloRestaurante.getLinea());
+        }*/
 
         Button buttonAudio = findViewById(R.id.buttonAudio);
         buttonAudio.setOnClickListener(new View.OnClickListener() {

@@ -7,6 +7,7 @@ public class ModeloHotel extends ModeloBaseLugares {
     private String provincia;
     private String paginaWeb;
     private String email;
+    private String linea;
 
 
     public ModeloHotel() {
@@ -14,6 +15,7 @@ public class ModeloHotel extends ModeloBaseLugares {
         this.provincia = "";
         this.paginaWeb="";
         this.email="";
+        this.linea="";
     }
 
     public String getPaginaWeb() {
@@ -38,6 +40,14 @@ public class ModeloHotel extends ModeloBaseLugares {
 
     public void setProvincia(String provincia) {
         this.provincia = provincia;
+    }
+
+    public String getLinea() {
+        return linea;
+    }
+
+    public void setLinea(String linea) {
+        this.linea = linea;
     }
 
     public boolean equals(ModeloHotel modeloHotel) {

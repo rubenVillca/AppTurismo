@@ -56,6 +56,22 @@ public class Constants {
     public static final String ESTADO_LUGAR_SUG_ELIMINAR="Sugerir eliminado";
     public static final String ESTADO_LUGAR_SUG_RECHAZAR="Rechazar sugerencia";
 
+    //estado de restaurante
+    public static final String ESTADO_RESTAURANTE_VISIBLE="Visible";
+    public static final String ESTADO_RESTAURANTELUGAR_ELIMINADO="Eliminado";
+    public static final String ESTADO_RESTAURANTE_SUG_INSERTAR="Sugerir insercion";
+    public static final String ESTADO_RESTAURANTE_SUG_EDITAR="Sugerir edicion";
+    public static final String ESTADO_RESTAURANTE_SUG_ELIMINAR="Sugerir eliminado";
+    public static final String ESTADO_RESTAURANTE_SUG_RECHAZAR="Rechazar sugerencia";
+
+    //estado de hotel
+    public static final String ESTADO_HOTEL_VISIBLE="Visible";
+    public static final String ESTADO_HOTEL_ELIMINADO="Eliminado";
+    public static final String ESTADO_HOTEL_SUG_INSERTAR="Sugerir insercion";
+    public static final String ESTADO_HOTEL_SUG_EDITAR="Sugerir edicion";
+    public static final String ESTADO_HOTEL_SUG_ELIMINAR="Sugerir eliminado";
+    public static final String ESTADO_HOTEL_SUG_RECHAZAR="Rechazar sugerencia";
+
     //estado_usuario
     public static final String ESTADO_USUARIO_ACTIVO="Activo";
     public static final String ESTADO_USUARIO_ELIMINADO="Eliminado";

@@ -149,6 +149,8 @@ public class BuscarPorProvinciaActivity extends AppCompatActivity implements Vie
         startActivity(intent);
     }
 
+
+
     @Override
     public boolean onSupportNavigateUp() {
         onBackPressed();

@@ -31,6 +31,7 @@ public class SqliteRestaurante extends DBSQLiteParent implements SqliteInterface
         modeloRestaurante.setGpsX(cursor.getFloat(cursor.getColumnIndex(DBModel.RESTAURANTES_LATITUD)));
         modeloRestaurante.setGpsY(cursor.getFloat(cursor.getColumnIndex(DBModel.RESTAURANTES_LONGITUD)));
         modeloRestaurante.setEstado(cursor.getString(cursor.getColumnIndex(DBModel.RESTAURANTES_ESTADO)));
+        modeloRestaurante.setLinea(cursor.getString(cursor.getColumnIndex(DBModel.RESTAURANTES_LINEA)));
         modeloRestaurante.setRegistradoPor(cursor.getString(cursor.getColumnIndex(DBModel.RESTAURANTES_REGISTRADO_POR)));
         modeloRestaurante.setImagenesFirebase(getListaImagenes(ModeloImagen.TIPO_RESTAURANTE, modeloRestaurante.getIdSQLite()));
         return modeloRestaurante;

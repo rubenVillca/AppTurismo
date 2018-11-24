@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:weightSum="1"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <Button
+        android:id="@+id/buttonAceptarSugerencia"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.5"
+        android:paddingRight="15dp"
+        android:text="Aceptar"
+        android:textAllCaps="false"
+        android:drawableRight="@drawable/icono_aceptar"
+        android:background="@color/colorPrimary"/>
+
+    <Button
+        android:id="@+id/buttonRechazarSugerencia"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.5"
+        android:paddingRight="15dp"
+        android:text="Rechazar"
+        android:textAllCaps="false"
+        android:drawableRight="@drawable/icono_rechazar"
+        android:background="@color/colorPrimary"/>
+</LinearLayout>

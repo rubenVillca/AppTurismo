@@ -184,7 +184,7 @@ public class ListaLugaresActivity extends AppCompatActivity {
         adapterRecycler.notifyDataSetChanged();
     }
 
-    @Override
+   /* @Override
     public void onBackPressed() {
         if (isProvincia){
             Intent intent=new Intent(this,BuscarPorProvinciaActivity.class);
@@ -193,7 +193,7 @@ public class ListaLugaresActivity extends AppCompatActivity {
             Intent intent=new Intent(this,MainActivity.class);
             startActivity(intent);
         }
-    }
+    }*/
 
     @Override
     public boolean onSupportNavigateUp() {

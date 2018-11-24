@@ -191,6 +191,7 @@ public class EditarRestauranteActivity extends EditarActivity {
         editar_layout_tipoTurismo.setVisibility(View.GONE);
         editar_layout_descripcion.setVisibility(View.GONE);
         editar_layout_pagina_web.setVisibility(View.GONE);
+        editar_layout_linea.setVisibility(View.GONE);
         //editar_spinner_tipo.setText(modeloRestauranteOld.get());
         //editar_spinner_provincia.setText(modeloRestauranteOld.get());
         //editar_spinner_tipo_turismo.setText(modeloRestauranteOld.get());

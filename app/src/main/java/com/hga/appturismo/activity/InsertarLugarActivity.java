@@ -182,6 +182,8 @@ public class InsertarLugarActivity extends AppCompatActivity {
         modeloHotel.setIdSQLite(hotel.list().size());
         modeloHotel.setNombre(txt_nombre.getText().toString());
         modeloHotel.setDireccion(txt_direccion.getText().toString());
+        modeloHotel.setLinea(txt_linea.getText().toString());
+        modeloHotel.setDescripcion(txt_descripcion.getText().toString());
         modeloHotel.setTelefonoString(txt_telefono.getText().toString());
         modeloHotel.setPaginaWeb(txt_paginaweb.getText().toString());
         modeloHotel.setEmail(txt_email.getText().toString());
@@ -280,6 +282,8 @@ public class InsertarLugarActivity extends AppCompatActivity {
         ModeloRestaurante modeloRestaurante = new ModeloRestaurante();
         modeloRestaurante.setIdSQLite(restaurante.list().size() + 1);
         modeloRestaurante.setNombre(txt_nombre.getText().toString());
+        modeloRestaurante.setLinea(txt_linea.getText().toString());
+        modeloRestaurante.setDescripcion(txt_descripcion.getText().toString());
         modeloRestaurante.setHorario(txt_horario.getText().toString());
         modeloRestaurante.setDireccion(txt_direccion.getText().toString());
         modeloRestaurante.setEmail(txt_email.getText().toString());

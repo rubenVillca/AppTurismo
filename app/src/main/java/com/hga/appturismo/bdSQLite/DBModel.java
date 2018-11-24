@@ -20,7 +20,7 @@ import java.util.ArrayList;
  */
 
 public class DBModel extends SQLiteOpenHelper {
-    public static final int DATABASE_VERSION = 111;
+    public static final int DATABASE_VERSION = 114;
     public static final String DATABASE_NAME = "APP_TURISMO";
 
     public static final String TABLE_IMAGENES = "IMAGENES";
@@ -62,6 +62,7 @@ public class DBModel extends SQLiteOpenHelper {
     public static final String RESTAURANTES_LATITUD = "LATITUD_REST";
     public static final String RESTAURANTES_LONGITUD = "LONGITUD_REST";
     public static final String RESTAURANTES_ESTADO= "ESTADO_REST";
+    public static final String RESTAURANTES_LINEA= "LINEA_REST";
     public static final String RESTAURANTES_REGISTRADO_POR = "REGISTRADO_POR";
 
 
@@ -77,6 +78,7 @@ public class DBModel extends SQLiteOpenHelper {
     public static final String HOTELES_LATITUD = "LATITUD_HOTEL";
     public static final String HOTELES_LONGITUD = "LONGITUD_HOTEL";
     public static final String HOTELES_ESTADO= "ESTADO_HOTEL";
+    public static final String HOTELES_LINEA= "LINEA_HOTEL";
     public static final String HOTELES_REGISTRADO_POR = "REGISTRADO_POR";
 
 
@@ -186,6 +188,7 @@ public class DBModel extends SQLiteOpenHelper {
                 + RESTAURANTES_LATITUD + " text,"
                 + RESTAURANTES_LONGITUD + " text,"
                 + RESTAURANTES_ESTADO + " text,"
+                + RESTAURANTES_LINEA + " text,"
                 + RESTAURANTES_REGISTRADO_POR + " text"
                 + ");";
     }
@@ -203,6 +206,7 @@ public class DBModel extends SQLiteOpenHelper {
                 + HOTELES_LATITUD + " text,"
                 + HOTELES_LONGITUD + " text,"
                 + HOTELES_ESTADO + " text,"
+                + HOTELES_LINEA + " text,"
                 + HOTELES_REGISTRADO_POR + " text"
                 + ");";
     }
@@ -270,6 +274,7 @@ public class DBModel extends SQLiteOpenHelper {
         contentValues.put(DBModel.RESTAURANTES_LATITUD, String.valueOf(modeloRestaurante.getGpsX()));
         contentValues.put(DBModel.RESTAURANTES_LONGITUD, String.valueOf(modeloRestaurante.getGpsY()));
         contentValues.put(DBModel.RESTAURANTES_ESTADO, String.valueOf(modeloRestaurante.getEstado()));
+        contentValues.put(DBModel.RESTAURANTES_LINEA,String.valueOf(modeloRestaurante.getLinea()));
         contentValues.put(DBModel.RESTAURANTES_REGISTRADO_POR, modeloRestaurante.getRegistradoPor());
 
         long idSqlite=db.insert(DBModel.TABLE_RESTAURANTES, null, contentValues);
@@ -300,6 +305,7 @@ public class DBModel extends SQLiteOpenHelper {
         contentValues.put(DBModel.HOTELES_LATITUD, String.valueOf(modeloHotel.getGpsX()));
         contentValues.put(DBModel.HOTELES_LONGITUD, String.valueOf(modeloHotel.getGpsY()));
         contentValues.put(DBModel.HOTELES_ESTADO, String.valueOf(modeloHotel.getEstado()));
+        contentValues.put(DBModel.HOTELES_LINEA,String.valueOf(modeloHotel.getLinea()));
         contentValues.put(DBModel.HOTELES_REGISTRADO_POR, modeloHotel.getRegistradoPor());
 
         long idSqliteReference=db.insert(DBModel.TABLE_HOTELES, null, contentValues);

@@ -54,44 +54,407 @@ public class Listas {
 
     private void setListaHoteles() {
         int idHotel = 0;
-        ModeloHotel hotel = new ModeloHotel();
+        ModeloHotel hotel;
+
+        hotel=new ModeloHotel();
         hotel.setIdSQLite(idHotel++);
-        hotel.setNombre("Hostal Bonairense");
-        //hotel.setDescripcion(" ");
-        hotel.setGpsX(-17.389546148501218f);
-        hotel.setGpsY(-66.15610867738724f);
-        hotel.setDireccion("Alfonso Arze nro. 2091 Zona: Jaihuayco");
-        hotel.setImagenesFirebaseArreglo(ModeloImagen.TIPO_HOTEL, new String[]{
-                "hostal bonairense.jpg",
-                "hostal bonairense1.jpg",
-                "hostal bonairense4.jpg",
-                "hostal bonairense7.jpg",
-                "hostal bonairense9.jpg"
-        });
-        hotel.setTelefono(4567452);
+        hotel.setNombre("Adara Suites Apart Hotel ");
+        //hotel.setDescripcion("Hospedaje, administración y manejo de hoteles, apart hoteles, prestación de todo tipo de servicios hoteleros, organización de eventos, recepciones, servicios de restaurant, cafetería, spa, café, bar, etc.");
+        //hotel.setLinea("");
+        hotel.setGpsX(-17.38467001063881f);
+        hotel.setGpsY(-66.16149187088013f);
+        hotel.setDireccion("Calle Junín nro. 867 Zona: Central");
+        hotel.setImagenesFirebaseArreglo(ModeloImagen.TIPO_HOTEL, new String[]{"adara suites apart hotel3.jpg", "adara suites apart hotel4.jpg", "adara suites apart hotel1.jpg", "adara suites apart hotel2.jpg"});
+        hotel.setTelefono(4662020);
         hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
-        hotel.setPaginaWeb("hostal-bonairense.com");
-        hotel.setEmail("No se tiene registrado.");
+        hotel.setPaginaWeb("");
+        hotel.setEmail("info@adarahotel.com.bo");
         hotel.setEstado(Constants.ESTADO_LUGAR_VISIBLE);
         listaHoteles.add(hotel);
 
+        hotel=new ModeloHotel();
+        hotel.setIdSQLite(idHotel++);
+        hotel.setNombre("Americana Hotel");
+        //hotel.setDescripcion("Rubro de la hotelería, turismo, convenciones y actividades comerciales, importación, equipamiento hotelero, importación de maquinaria pesada, liviana y pequeña, textiles, insumos plásticos, etc.");
+        //hotel.setLinea("");
+        hotel.setGpsX(-17.399221249840263f);
+        hotel.setGpsY(-66.15543812513351f);
+        hotel.setDireccion("Calle Esteban Arze nro. 788 Edificio: Americana Hotel Zona: Sud-Oeste");
+        hotel.setImagenesFirebaseArreglo(ModeloImagen.TIPO_HOTEL, new String[]{"americana hotel0.jpg", "americana hotel2.jpg", "americana hotel3.jpg", "americana hote1.jpg"});
+        hotel.setTelefono(4250552);
+        hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
+        hotel.setPaginaWeb("www.americanahotel.com.bo");
+        hotel.setEmail("americanahotel@email.com");
+        hotel.setEstado(Constants.ESTADO_LUGAR_VISIBLE);
+        listaHoteles.add(hotel);
+
+        hotel=new ModeloHotel();
+        hotel.setIdSQLite(idHotel++);
+        hotel.setNombre("Anteus Apart Hotel");
+        //hotel.setDescripcion("Hospedaje");
+        //hotel.setLinea("");
+        hotel.setGpsX(-17.375887515468104f);
+        hotel.setGpsY(-66.15400180220604f);
+        hotel.setDireccion("Av. Potosi nro. 1365 Zona: Recoleta");
+        hotel.setImagenesFirebaseArreglo(ModeloImagen.TIPO_HOTEL, new String[]{"anteus apart hotel3.jpg", "anteus apart hotel1.jpg", "anteus apart hotel2.jpg" });
+        hotel.setTelefono(4245067);
+        hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
+        hotel.setPaginaWeb("www.hotelanteus.com");
+        hotel.setEmail("reservas@hotelanteus.com");
+        hotel.setEstado(Constants.ESTADO_LUGAR_VISIBLE);
+        listaHoteles.add(hotel);
+
+        hotel=new ModeloHotel();
+        hotel.setIdSQLite(idHotel++);
+        hotel.setNombre("Apart Hotel Regina");
+        //hotel.setDescripcion("Hospedaje");
+        //hotel.setLinea("");
+        hotel.setGpsX(-17.38629988377598f);
+        hotel.setGpsY(-66.15779981017113f);
+        hotel.setDireccion("C. España nro.636");
+        hotel.setImagenesFirebaseArreglo(ModeloImagen.TIPO_HOTEL, new String[]{"apart hotel regina1.jpg", "apart hotel regina2.jpg", "apart hotel regina3.jpg", "apart hotel regina4.jpg", "apart hotel regina5.jpg", "apart hotel regina7.jpg", "apart hotel regina8.jpg" });
+        hotel.setTelefono(0);
+        hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
+        hotel.setPaginaWeb("hotelregina.com-hotel.com");
+        hotel.setEmail("");
+        hotel.setEstado(Constants.ESTADO_LUGAR_VISIBLE);
+        listaHoteles.add(hotel);
+
+        hotel=new ModeloHotel();
+        hotel.setIdSQLite(idHotel++);
+        hotel.setNombre("Armenia Hotel");
+        //hotel.setDescripcion("Servicios de hotelería");
+        //hotel.setLinea("");
+        hotel.setGpsX(-17.394268583333226f);
+        hotel.setGpsY(-66.16348877549171f);
+        hotel.setDireccion("General Achá nro. 560 Edificio: Hotel Mundial Piso: Pb Zona: Barrio Noroeste");
+        hotel.setImagenesFirebaseArreglo(ModeloImagen.TIPO_HOTEL, new String[]{"armenia hotel5.jpg", "armenia hotel1.jpg", "armenia hotel2.jpg", "armenia hotel3.jpg" });
+        hotel.setTelefono(0);
+        hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
+        hotel.setPaginaWeb("");
+        hotel.setEmail("virbaba@hotmail.com");
+        hotel.setEstado(Constants.ESTADO_LUGAR_VISIBLE);
+        listaHoteles.add(hotel);
+
+        hotel=new ModeloHotel();
+        hotel.setIdSQLite(idHotel++);
+        hotel.setNombre("Banana Tropic");
+        //hotel.setDescripcion("Brinda servicios de hotelería");
+        //hotel.setLinea("");
+        hotel.setGpsX(-16.998434127224467f);
+        hotel.setGpsY(-65.43705940246582f);
+        hotel.setDireccion("Carretera Cbba - Snt. Cruz");
+        hotel.setImagenesFirebaseArreglo(ModeloImagen.TIPO_HOTEL, new String[]{"banana tropic2.jpg", "banana tropic3.jpg", "banana tropic1.jpg" });
+        hotel.setTelefono(4700956);
+        hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
+        hotel.setPaginaWeb("");
+        hotel.setEmail("");
+        hotel.setEstado(Constants.ESTADO_LUGAR_VISIBLE);
+        listaHoteles.add(hotel);
+
+        hotel=new ModeloHotel();
+        hotel.setIdSQLite(idHotel++);
+        hotel.setNombre("Casa Campestre");
+        //hotel.setDescripcion("Hospedaje");
+        //hotel.setLinea("");
+        hotel.setGpsX(-17.380707573002113f);
+        hotel.setGpsY(-66.25139951705933f);
+        hotel.setDireccion("Av. Elías Meneces");
+        hotel.setImagenesFirebaseArreglo(ModeloImagen.TIPO_HOTEL, new String[]{"casa campestre4.jpg", "casa campestre0.jpg", "casa campestre1.jpg", "casa campestre2.jpg", "casa campestre3.jpg" });
+        hotel.setTelefono(4350312);
+        hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
+        hotel.setPaginaWeb("lacasacampestre.com");
+        hotel.setEmail("");
+        hotel.setEstado(Constants.ESTADO_LUGAR_VISIBLE);
+        listaHoteles.add(hotel);
+
+        hotel=new ModeloHotel();
+        hotel.setIdSQLite(idHotel++);
+        hotel.setNombre("Cesar's Plaza Hotel");
+        //hotel.setDescripcion("Hospedaje, servicio gastronómico, servicio de bebida");
+        //hotel.setLinea("");
+        hotel.setGpsX(-17.39313661785511f);
+        hotel.setGpsY(-66.15532882511616f);
+        hotel.setDireccion("C. 25 de Mayo entre Bolívar y Sucre nro. 210 Zona: Central");
+        hotel.setImagenesFirebaseArreglo(ModeloImagen.TIPO_HOTEL, new String[]{"cesar's plaza hotel.jpg", "cesar's plaza hotel1.jpg", "cesar's plaza hotel2.jpg", "cesar's plaza hotel3.jpg" });
+        hotel.setTelefono(4254032);
+        hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
+        hotel.setPaginaWeb("www.cesarsplaza.com");
+        hotel.setEmail("info@cesarsplaza.com");
+        hotel.setEstado(Constants.ESTADO_LUGAR_VISIBLE);
+        listaHoteles.add(hotel);
+
+        hotel=new ModeloHotel();
+        hotel.setIdSQLite(idHotel++);
+        hotel.setNombre("City Hotel");
+        //hotel.setDescripcion("Realizar actividades de la industria de la hotelería. Servicios en el rubro de hotelería y todas las actividades que tengan relación con la misma.");
+        //hotel.setLinea("");
+        hotel.setGpsX(-17.39501597105829f);
+        hotel.setGpsY(-66.15571975708008f);
+        hotel.setDireccion("C. Jordán nro. 341 entre 25 de mayo y Esteban Arze Zona: Central");
+        hotel.setImagenesFirebaseArreglo(ModeloImagen.TIPO_HOTEL, new String[]{"city hotel ltda5.jpg", "city hotel ltda1.jpg", "city hotel ltda2.jpg", "city hotel ltda3.jpg"});
+        hotel.setTelefono(4222993);
+        hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
+        hotel.setPaginaWeb("www.cityhotelbolivia.com");
+        hotel.setEmail("cityhotel42@hotmail.com");
+        hotel.setEstado(Constants.ESTADO_LUGAR_VISIBLE);
+        listaHoteles.add(hotel);
+
+        hotel=new ModeloHotel();
+        hotel.setIdSQLite(idHotel++);
+        hotel.setNombre("Gran Hotel Ambassador");
+        //hotel.setDescripcion("Servicios de hotelería.");
+        //hotel.setLinea("");
+        hotel.setGpsX(-17.389441204120267f);
+        hotel.setGpsY(-66.15731835365295f);
+        hotel.setDireccion("C. España nro. 349 Zona: Central");
+        hotel.setImagenesFirebaseArreglo(ModeloImagen.TIPO_HOTEL, new String[]{"gran hotel ambassador ltda2.jpg", "gran hotel ambassador ltda1.jpg" });
+        hotel.setTelefono(4257832);
+        hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
+        hotel.setPaginaWeb("");
+        hotel.setEmail("granhotelambassador@gmail.com");
+        hotel.setEstado(Constants.ESTADO_LUGAR_VISIBLE);
+        listaHoteles.add(hotel);
+
+        hotel=new ModeloHotel();
+        hotel.setIdSQLite(idHotel++);
+        hotel.setNombre("Gran Hotel Cochabamba");
+        //hotel.setDescripcion("Hotelería, gastronomía, spa.");
+        //hotel.setLinea("");
+        hotel.setGpsX(-17.378048621747695f);
+        hotel.setGpsY(-66.15223087370396f);
+        hotel.setDireccion("Plaza Ubaldo Anze E-415, La Recoleta, Cochabamba, Bolivia");
+        hotel.setImagenesFirebaseArreglo(ModeloImagen.TIPO_HOTEL, new String[]{"gran hotel cochabamba s.a1.jpg", "gran hotel cochabamba s.a2.jpg", "gran hotel cochabamba s.a6.jpg", "gran hotel cochabamba.jpg", "gran hotel cochabamba 2.jpg", "gran hotel cochabamba 3.jpg" });
+        hotel.setTelefono(4489420);
+        hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
+        hotel.setPaginaWeb("www.granhotelcochabamba.com.bo");
+        hotel.setEmail("info@granhotelcochabamba.com.bo");
+        hotel.setEstado(Constants.ESTADO_LUGAR_VISIBLE);
+        listaHoteles.add(hotel);
+
+        hotel=new ModeloHotel();
+        hotel.setIdSQLite(idHotel++);
+        hotel.setNombre("Hostal \"BONAIRENSE\"");
+        //hotel.setDescripcion("Hospedaje");
+        //hotel.setLinea("");
+        hotel.setGpsX(-17.389546148501218f);
+        hotel.setGpsY(-66.15610867738724f);
+        hotel.setDireccion("C. 25 de Mayo entre Ecuador y Mayor Rocha nro. 0329");
+        hotel.setImagenesFirebaseArreglo(ModeloImagen.TIPO_HOTEL, new String[]{"hostal bonairense4.jpg", "hostal bonairense7.jpg", "hostal bonairense9.jpg", "hostal bonairense.jpg", "hostal bonairense1.jpg"});
+        hotel.setTelefono(4567452);
+        hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
+        hotel.setPaginaWeb("hostal-bonairense.com");
+        hotel.setEmail("");
+        hotel.setEstado(Constants.ESTADO_LUGAR_VISIBLE);
+        listaHoteles.add(hotel);
+
+        hotel=new ModeloHotel();
+        hotel.setIdSQLite(idHotel++);
+        hotel.setNombre("Hostal Arévalo");
+        //hotel.setDescripcion("Servicios de hospedaje y turísticos");
+        //hotel.setLinea("");
+        hotel.setGpsX(-17.375053015722237f);
+        hotel.setGpsY(-66.16297513246536f);
+        hotel.setDireccion("Av. Teófilo Vargas nro. 110 Edificio: Hostal Arévalo Piso:1 ofi.:101 Zona Cala Cala");
+        hotel.setImagenesFirebaseArreglo(ModeloImagen.TIPO_HOTEL, new String[]{"hostal arebalo1.jpg", "hostal arebalo2.jpg"});
+        hotel.setTelefono(4287283 );
+        hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
+        hotel.setPaginaWeb("");
+        hotel.setEmail("harold_a123@hotmail.com");
+        hotel.setEstado(Constants.ESTADO_LUGAR_VISIBLE);
+        listaHoteles.add(hotel);
+
+        hotel=new ModeloHotel();
+        hotel.setIdSQLite(idHotel++);
+        hotel.setNombre("Hostal Maya Bolivia");
+        //hotel.setDescripcion("Servicio de hospedaje");
+        //hotel.setLinea("");
+        hotel.setGpsX(-17.39239882086965f);
+        hotel.setGpsY(-66.16528317332268f);
+        hotel.setDireccion("C. Colombia nro. 710 Zona: Noroeste");
+        hotel.setImagenesFirebaseArreglo(ModeloImagen.TIPO_HOTEL, new String[]{"hostal maya bolivia1.jpg", "hostal maya bolivia2.jpg" });
+        hotel.setTelefono(4259701);
+        hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
+        hotel.setPaginaWeb("");
+        hotel.setEmail("ricardo_pol-acha@hotmial.com");
+        hotel.setEstado(Constants.ESTADO_LUGAR_VISIBLE);
+        listaHoteles.add(hotel);
+
+        hotel=new ModeloHotel();
+        hotel.setIdSQLite(idHotel++);
+        hotel.setNombre("Apart Hotel La Corona");
+        //hotel.setDescripcion("Hospedaje");
+        //hotel.setLinea("");
+        hotel.setGpsX(-17.388023169265743f);
+        hotel.setGpsY(-66.16324067115784f);
+        hotel.setDireccion("C. Juan de la Reza nro. 433 entre c. Tumusla y Av. Rafael Urquidi (Central)");
+        hotel.setImagenesFirebaseArreglo(ModeloImagen.TIPO_HOTEL, new String[]{"apart hotel la corona1.jpg"});
+        hotel.setTelefono(4520269);
+        hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
+        hotel.setPaginaWeb("reserve.affiniaspence.com");
+        hotel.setEmail("lacorona@supernet.com.bo");
+        hotel.setEstado(Constants.ESTADO_LUGAR_VISIBLE);
+        listaHoteles.add(hotel);
+
+        hotel=new ModeloHotel();
+        hotel.setIdSQLite(idHotel++);
+        hotel.setNombre("Hotel Boston");
+        //hotel.setDescripcion("Servicios de hotelería");
+        //hotel.setLinea("");
+        hotel.setGpsX(-17.39149976674768f);
+        hotel.setGpsY(-66.15580558776855f);
+        hotel.setDireccion("C. 25 De Mayo nro. 167 Edificio: Hotel Boston Zona: Central");
+        hotel.setImagenesFirebaseArreglo(ModeloImagen.TIPO_HOTEL, new String[]{"hotel boston1.jpg"});
+        hotel.setTelefono(4224421);
+        hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
+        hotel.setPaginaWeb("");
+        hotel.setEmail("hboston@supernet.com.bo");
+        hotel.setEstado(Constants.ESTADO_LUGAR_VISIBLE);
+        listaHoteles.add(hotel);
+
+        hotel=new ModeloHotel();
+        hotel.setIdSQLite(idHotel++);
+        hotel.setNombre("Hotel Briston");
+        //hotel.setDescripcion("Servicios de hotel");
+        //hotel.setLinea("");
+        hotel.setGpsX(-17.394549813918648f);
+        hotel.setGpsY(-66.16483876481652f);
+        hotel.setDireccion("C. Suipacha nro. 181 Zona: Central");
+        hotel.setImagenesFirebaseArreglo(ModeloImagen.TIPO_HOTEL, new String[]{"hotel briston.jpg", "hotel briston1.jpg", "hotel briston3.jpg"});
+        hotel.setTelefono(0);
+        hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
+        hotel.setPaginaWeb("");
+        hotel.setEmail("");
+        hotel.setEstado(Constants.ESTADO_LUGAR_VISIBLE);
+        listaHoteles.add(hotel);
+
+        hotel=new ModeloHotel();
+        hotel.setIdSQLite(idHotel++);
+        hotel.setNombre("Hotel Camino Plaza");
+        //hotel.setDescripcion("Servicios de hotelería");
+        //hotel.setLinea("");
+        hotel.setGpsX(-17.36868151040645f);
+        hotel.setGpsY(-66.1634150147438f);
+        hotel.setDireccion("C.  Huallparimachi nro. 1862 Zona: Cala Cala");
+        hotel.setImagenesFirebaseArreglo(ModeloImagen.TIPO_HOTEL, new String[]{"hotel camino plaza.jpg", "hotel camino plaza2.jpg", "hotel camino plaza3.jpg", "hotel camino plaza5.jpg"});
+        hotel.setTelefono(4200306);
+        hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
+        hotel.setPaginaWeb("www.caminoplaza.com");
+        hotel.setEmail("hotel@hotelcaminoplaza.com");
+        hotel.setEstado(Constants.ESTADO_LUGAR_VISIBLE);
+        listaHoteles.add(hotel);
     }
 
     private void setListaRestaurantes() {
         int idRestaurante = 0;
-
         ModeloRestaurante restaurante;
 
         restaurante = new ModeloRestaurante();
         restaurante.setIdSQLite(idRestaurante++);
-        restaurante.setNombre("Bunker Grill");
-        //restaurante.setDescripcion(" ");
-        restaurante.setGpsX(-17.376839762065707f);
-        restaurante.setGpsY(-66.16944931447506f);
-        restaurante.setDireccion("Av. Juan De La Rosa nro. 842 Zona: Sarco");
-        restaurante.setImagenesFirebaseArreglo(ModeloImagen.TIPO_RESTAURANTE, new String[]{"bunker grill s.r.l.2.jpg", "bunker grill s.r.l.jpg", "bunker grill s.r.l_1.jpg", "bunker grill s.r.l3.jpg"});
-        restaurante.setTelefono(0);
-        restaurante.setHorario("No se tiene registrado");
+        restaurante.setNombre("Carne y Fuego");
+        //restaurante.setDescripcion("Restaurant - churrasquería");
+        //restaurante.setLinea("");
+        restaurante.setGpsX(-17.376764248067403f);
+        restaurante.setGpsY(-66.17607034742832f);
+        restaurante.setDireccion("Av. Melchor Pérez nro. 1555 Zona: Sarco");
+        restaurante.setImagenesFirebaseArreglo(ModeloImagen.TIPO_RESTAURANTE, new String[]{"carne y fuego3.png", "carne y fuego2.png" });
+        restaurante.setTelefono(4243800);
+        restaurante.setHorario("Martes a Viernes 18:00-23:00 Sábado 18:00-23:00 Domingo 11:00-15:00");
+        restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
+        restaurante.setEstado(Constants.ESTADO_LUGAR_VISIBLE);
+        listaRestaurantes.add(restaurante);
+
+
+        restaurante = new ModeloRestaurante();
+        restaurante.setIdSQLite(idRestaurante++);
+        restaurante.setNombre("Carniclub");
+        //restaurante.setDescripcion("Preparación, elaboración y venta de comida rápida, venta de bebidas");
+        //restaurante.setLinea("");
+        restaurante.setGpsX(-17.37802494378927f);
+        restaurante.setGpsY(-66.15633934736252f);
+        restaurante.setDireccion("C. Aniceto Padilla nro. 339 Zona: Norte");
+        restaurante.setImagenesFirebaseArreglo(ModeloImagen.TIPO_RESTAURANTE, new String[]{"carniclub1.jpg", "carniclub2.jpg"  });
+        restaurante.setTelefono(4036494);
+        restaurante.setHorario("Lunes a Sábado: 17:00-22:30");
+        restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
+        restaurante.setEstado(Constants.ESTADO_LUGAR_VISIBLE);
+        listaRestaurantes.add(restaurante);
+
+
+        restaurante = new ModeloRestaurante();
+        restaurante.setIdSQLite(idRestaurante++);
+        restaurante.setNombre("Chicken´s Kingdom");
+        //restaurante.setDescripcion("Expendio de comida rápida, subsidiaria- mente a toda otra actividad comercial e industrial tendiente o relacionada con la venta de comida rápida, elaborar y comercializar productos lácteos, helados, bebidas aderezadas con jugo y/o aguas naturales, envasadas. Importar y comercializar insumos y maquinaria, equipos y materiales para la industria alimenticia, etc.");
+        //restaurante.setLinea("");
+        restaurante.setGpsX(-17.391429377982195f);
+        restaurante.setGpsY(-66.15454092621803f);
+        restaurante.setDireccion("Av. San Martin nro. 150 Zona: Central");
+        restaurante.setImagenesFirebaseArreglo(ModeloImagen.TIPO_RESTAURANTE, new String[]{"chicken s kingdom s.r.l.2.jpg", "chicken s kingdom s.r.l.1.jpg" });
+        restaurante.setTelefono(4660328);
+        restaurante.setHorario("Lunes a Domingo 10:00 - 23:45");
+        restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
+        restaurante.setEstado(Constants.ESTADO_LUGAR_VISIBLE);
+        listaRestaurantes.add(restaurante);
+
+        restaurante = new ModeloRestaurante();
+        restaurante.setIdSQLite(idRestaurante++);
+        restaurante.setNombre("Paprika");
+        //restaurante.setDescripcion("Preparado, suministro y venta de alimentación, servicio de restaurant, bar y café, catering, venta de comidas nacionales e internacionales; importar, exportar productos alimenticios, industrialización, procesamiento, comercialización, transformación y reexcepto condimentos; importar maquinaria y equipos relacionadas con alimentos, etc.");
+        //restaurante.setLinea("");
+        restaurante.setGpsX(-17.38526897630569f);
+        restaurante.setGpsY(-66.15441352128983f);
+        restaurante.setDireccion("C. Chuquisaca nro. 688 Zona: Noreste");
+        restaurante.setImagenesFirebaseArreglo(ModeloImagen.TIPO_RESTAURANTE, new String[]{"paprika 3.jpg", "paprika 1.jpg", "paprika 2.jpg" });
+        restaurante.setTelefono(4662400);
+        restaurante.setHorario("Lunes a Sábado 11:30 - 01:30 Domingo 11:30 -00:00");
+        restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
+        restaurante.setEstado(Constants.ESTADO_LUGAR_VISIBLE);
+        listaRestaurantes.add(restaurante);
+
+
+        restaurante = new ModeloRestaurante();
+        restaurante.setIdSQLite(idRestaurante++);
+        restaurante.setNombre("La Chingada");
+        //restaurante.setDescripcion("Restaurant, venta de comida y bebidas");
+        //restaurante.setLinea("");
+        restaurante.setGpsX(-17.376025745120195f);
+        restaurante.setGpsY(-66.16588532924652f);
+        restaurante.setDireccion("C. José Quintín Mendoza nro. 1489 Zona: Cala Cala");
+        restaurante.setImagenesFirebaseArreglo(ModeloImagen.TIPO_RESTAURANTE, new String[]{"la chingada1.jpg", "la chingada2.jpg", "la chingada.jpg"});
+        restaurante.setTelefono(4501156);
+        restaurante.setHorario("Lunes a Sábado de 18:00 – 23:00");
+        restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
+        restaurante.setEstado(Constants.ESTADO_LUGAR_VISIBLE);
+        listaRestaurantes.add(restaurante);
+
+
+        restaurante = new ModeloRestaurante();
+        restaurante.setIdSQLite(idRestaurante++);
+        restaurante.setNombre("Apthapi World Street Food");
+        //restaurante.setDescripcion("Venta de café, jugos , sandwiches y comida al paso");
+        //restaurante.setLinea("");
+        restaurante.setGpsX(-17.371657381677554f);
+        restaurante.setGpsY(-66.16151869297028f);
+        restaurante.setDireccion("C. Juan Capriles nro. 170 Zona: Cala Cala");
+        restaurante.setImagenesFirebaseArreglo(ModeloImagen.TIPO_RESTAURANTE, new String[]{ });
+        restaurante.setTelefono(67426557);
+        restaurante.setHorario("Lunes a Viernes: 12:00 – 14:00  17:00 – 22:30 Sábado 18:00 – 21:00");
+        restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
+        restaurante.setEstado(Constants.ESTADO_LUGAR_VISIBLE);
+        listaRestaurantes.add(restaurante);
+
+
+        restaurante = new ModeloRestaurante();
+        restaurante.setIdSQLite(idRestaurante++);
+        restaurante.setNombre("Con Yapa");
+        //restaurante.setDescripcion("Local de comida silpanchería.");
+        //restaurante.setLinea("");
+        restaurante.setGpsX(-17.37377630054552f);
+        restaurante.setGpsY(-66.14937096834183f);
+        restaurante.setDireccion("Av. Melchor Urquidi nro. 1430 Zona: Queru Queru");
+        restaurante.setImagenesFirebaseArreglo(ModeloImagen.TIPO_RESTAURANTE, new String[]{ });
+        restaurante.setTelefono(4548627);
+        restaurante.setHorario("Lunes a Domingo de 11:00 - 22:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         restaurante.setEstado(Constants.ESTADO_LUGAR_VISIBLE);
         listaRestaurantes.add(restaurante);

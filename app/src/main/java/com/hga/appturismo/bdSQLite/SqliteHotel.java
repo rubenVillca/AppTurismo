@@ -30,7 +30,7 @@ public class SqliteHotel extends DBSQLiteParent implements SqliteInterface<Model
                 cursor.moveToNext();
             }
         }
-        return hoteles;
+            return hoteles;
     }
 
     @NonNull
@@ -48,6 +48,7 @@ public class SqliteHotel extends DBSQLiteParent implements SqliteInterface<Model
         modeloHotel.setGpsY(cursor.getFloat(cursor.getColumnIndex(DBModel.HOTELES_LONGITUD)));
         modeloHotel.setRegistradoPor(cursor.getString(cursor.getColumnIndex(DBModel.HOTELES_REGISTRADO_POR)));
         modeloHotel.setEstado(cursor.getString(cursor.getColumnIndex(DBModel.HOTELES_ESTADO)));
+        modeloHotel.setLinea(cursor.getString(cursor.getColumnIndex(DBModel.HOTELES_LINEA)));
 
         modeloHotel.setImagenes(getListaImagenes(ModeloImagen.TIPO_HOTEL, modeloHotel.getIdSQLite()));
         return modeloHotel;

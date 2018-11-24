@@ -458,14 +458,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         hotel.updatePuntajeSQLite(listPuntaje);//actualizar hotel sqlite
                     }
                     setProgressBar(5);
-                }else{
-                    setProgressBar(0);
                 }
             }
 
             @Override
             public void onFailure(@NonNull Call<ListaResponse> call, @NonNull Throwable t) {
-                setProgressBar(0);
+                setProgressBar(5);
             }
         });
     }

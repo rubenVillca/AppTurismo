@@ -188,7 +188,8 @@ public class EditarUsuarioActivity extends AppCompatActivity {
 
     private void goMainActivity() {
         Toast.makeText(this, "Perfil de usuario modificado correctamente", Toast.LENGTH_SHORT).show();
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, ListaUsuariosActivity.class);
         startActivity(intent);
     }
+
 }
