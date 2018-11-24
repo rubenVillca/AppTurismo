@@ -54,6 +54,19 @@ public class SqliteLugar extends DBSQLiteParent implements SqliteInterface<Model
         return modeloLugarTuristicos;
     }
 
+    public ArrayList<ModeloLugarTuristico> listSugeridos(){
+        ArrayList<ModeloLugarTuristico> modeloLugarTuristicos = new ArrayList<>();
+        Cursor cursor = db.rawQuery("Select * from " + DBModel.TABLE_LUGARES+" where "+DBModel.LUGARES_ESTADO+"="+"'"+Constants.ESTADO_HOTEL_SUG_INSERTAR+"'", null);
+        if (cursor.moveToFirst()) {
+            while (!cursor.isAfterLast()) {
+                ModeloLugarTuristico modeloLugarTuristico = getLugarTuristicoCursor(cursor);
+                modeloLugarTuristicos.add(modeloLugarTuristico);
+                cursor.moveToNext();
+            }
+        }
+        return modeloLugarTuristicos;
+    }
+
     public ModeloLugarTuristico getItem(String nombreMarcador) {
         ModeloLugarTuristico modeloLugarTuristico = new ModeloLugarTuristico();
         Cursor cursor = db.rawQuery("Select * "

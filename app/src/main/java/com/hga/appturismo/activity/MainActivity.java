@@ -87,6 +87,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Intent addUsuarios = new Intent(this, InsertarUsuarioActivity.class);
                 startActivity(addUsuarios);
                 break;
+            case R.id.btnRevisor:
+                Intent reviewer=new Intent(this,ListaSugerirLugarActivity.class);
+                startActivity(reviewer);
+
             default:
                 System.out.println("Error!. la accion selecionada no esta asociada a ninguna funcion");
                 break;
@@ -225,6 +229,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         LinearLayout linearLayoutAddSite = findViewById(R.id.layout_container_add_site);
         LinearLayout linearLayoutUser = findViewById(R.id.layout_container_user_list);
         LinearLayout linearLayoutAddUser = findViewById(R.id.layout_container_add_user);
+        LinearLayout linearLayoutReviewer = findViewById(R.id.layout_container_revisor);
 
         ImageView btnInsertar = findViewById(R.id.btnInsertSite);
         btnInsertar.setOnClickListener(this);
@@ -235,22 +240,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ImageButton btnAddUser = findViewById(R.id.btnAddUsuarios);
         btnAddUser.setOnClickListener(this);
 
+        ImageButton btnReviewer = findViewById(R.id.btnRevisor);
+        btnReviewer.setOnClickListener(this);
+
         switch (rol) {
             case Constants.USUARIO_ROL_ADMIN:
                 linearLayoutAddSite.setVisibility(View.VISIBLE);
                 linearLayoutUser.setVisibility(View.VISIBLE);
                 linearLayoutAddUser.setVisibility(View.VISIBLE);
+                linearLayoutReviewer.setVisibility(View.GONE);
 
                 break;
             case Constants.USUARIO_ROL_REVISOR:
                 linearLayoutAddSite.setVisibility(View.VISIBLE);
                 linearLayoutUser.setVisibility(View.GONE);
                 linearLayoutAddUser.setVisibility(View.GONE);
+                linearLayoutReviewer.setVisibility(View.VISIBLE);
                 break;
             default:
                 linearLayoutAddSite.setVisibility(View.VISIBLE);
                 linearLayoutUser.setVisibility(View.GONE);
                 linearLayoutAddUser.setVisibility(View.GONE);
+                linearLayoutReviewer.setVisibility(View.GONE);
                 break;
         }
     }

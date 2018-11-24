@@ -41,7 +41,8 @@ import static android.content.Context.MODE_PRIVATE;
  * Created by HGA:P on 12/09/2017
  */
 
-public class LugarAdapterRecycler extends RecyclerView.Adapter<LugarAdapterRecycler.LugarViewHolder> implements Filterable {
+public class LugarAdapterRecycler extends RecyclerView.Adapter<LugarAdapterRecycler.LugarViewHolder>
+        implements Filterable {
     private ArrayList<ModeloLugarTuristico> modeloLugarTuristicos;//todas las listas de lugares
     private ArrayList<ModeloLugarTuristico> modeloLugarTuristicosFilter;//todos los lugares que se estasn mostrando
     private ArrayList<ModeloPuntaje> modeloPuntajes;

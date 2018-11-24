@@ -87,8 +87,6 @@ public class ListaLugaresActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(linearLayoutManager);
         adapterRecycler = new LugarAdapterRecycler(lugaresTuristicos, modeloPuntajes, R.layout.cardview_list, this);
         recyclerView.setAdapter(adapterRecycler);
-
-
     }
 
     /**

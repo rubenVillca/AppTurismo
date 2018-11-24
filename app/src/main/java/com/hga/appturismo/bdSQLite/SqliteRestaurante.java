@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 
 import com.hga.appturismo.modelo.ModeloImagen;
 import com.hga.appturismo.modelo.ModeloRestaurante;
+import com.hga.appturismo.util.Constants;
 
 import java.util.ArrayList;
 
@@ -81,5 +82,20 @@ public class SqliteRestaurante extends DBSQLiteParent implements SqliteInterface
     @Override
     public void delete() {
         helper.deleteDatosRestaurante(db);
+    }
+
+    public ArrayList<ModeloRestaurante> listSugeridos() {
+        ArrayList<ModeloRestaurante> modeloRestaurantes = new ArrayList<>();
+        Cursor cursor = db.rawQuery("Select * from " + DBModel.TABLE_RESTAURANTES+" where "+DBModel.RESTAURANTES_ESTADO+"="+"'"+ Constants.ESTADO_HOTEL_SUG_INSERTAR+"'", null, null);
+        if (cursor.moveToFirst()) {
+            while (!cursor.isAfterLast()) {
+                ModeloRestaurante modeloRestaurante = getRestauranteCursor(cursor);
+
+                modeloRestaurantes.add(modeloRestaurante);
+                cursor.moveToNext();
+            }
+
+        }
+        return modeloRestaurantes;
     }
 }

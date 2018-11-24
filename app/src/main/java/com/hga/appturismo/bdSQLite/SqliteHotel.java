@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 
 import com.hga.appturismo.modelo.ModeloHotel;
 import com.hga.appturismo.modelo.ModeloImagen;
+import com.hga.appturismo.util.Constants;
 
 import java.util.ArrayList;
 
@@ -90,5 +91,20 @@ public class SqliteHotel extends DBSQLiteParent implements SqliteInterface<Model
         for (ModeloHotel modeloHotel : modeloHotels) {
             insert(modeloHotel);
         }
+    }
+
+    public ArrayList<ModeloHotel> listSugeridos() {
+        ArrayList<ModeloHotel> hoteles = new ArrayList<>();
+        String prueba="Select * from " + DBModel.TABLE_HOTELES +" where "+DBModel.HOTELES_ESTADO+"="+"'"+ Constants.ESTADO_HOTEL_SUG_INSERTAR+"'";
+        Cursor cursor = db.rawQuery("Select * from " + DBModel.TABLE_HOTELES +" where "+DBModel.HOTELES_ESTADO+"="+"'"+ Constants.ESTADO_HOTEL_SUG_INSERTAR+"'", null);
+        if (cursor.moveToFirst()) {
+            while (!cursor.isAfterLast()) {
+                ModeloHotel modeloHotel = getHotelCursor(cursor);
+
+                hoteles.add(modeloHotel);
+                cursor.moveToNext();
+            }
+        }
+        return hoteles;
     }
 }
