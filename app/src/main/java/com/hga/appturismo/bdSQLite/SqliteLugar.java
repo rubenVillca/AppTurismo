@@ -10,6 +10,7 @@ import com.hga.appturismo.util.Constants;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collection;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
@@ -66,6 +67,21 @@ public class SqliteLugar extends DBSQLiteParent implements SqliteInterface<Model
             }
         }
         return modeloLugarTuristico;
+    }
+
+    public ArrayList<ModeloLugarTuristico> selectProvincia(String provincia) {
+        ArrayList<ModeloLugarTuristico> modeloLugarTuristicos=new ArrayList<>();
+        Cursor cursor = db.rawQuery("Select * "
+                + " from " + DBModel.TABLE_LUGARES
+                + " where " + DBModel.LUGARES_PROVINCIA + "='" + provincia + "'", null);
+        if (cursor.moveToFirst()) {
+            while (!cursor.isAfterLast()) {
+                modeloLugarTuristicos.add(getLugarTuristicoCursor(cursor));
+
+                cursor.moveToNext();
+            }
+        }
+        return modeloLugarTuristicos;
     }
 
     public ArrayList<ModeloLugarTuristico> listAcontecimientos() {

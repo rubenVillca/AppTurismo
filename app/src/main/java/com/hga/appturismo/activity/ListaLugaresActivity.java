@@ -180,7 +180,11 @@ public class ListaLugaresActivity extends AppCompatActivity {
 
     private void loadSQLite() {
         lugaresTuristicos.clear();
-        lugaresTuristicos.addAll(lugarTuristico.list());
+        if (isProvincia) {
+            lugaresTuristicos.addAll(lugarTuristico.selectProvincia(lugarSeleccionado));
+        }else{
+            lugaresTuristicos.addAll(lugarTuristico.list());
+        }
         adapterRecycler.notifyDataSetChanged();
     }
 

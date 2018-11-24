@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="0.5"
         android:paddingRight="10dp"
-        android:text="Audio Guia"
+        android:text="@string/label_audio_guia"
         android:textAllCaps="false"
         tools:ignore="ButtonStyle"/>
 
@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="0.5"
         android:paddingLeft="10dp"
-        android:text="Trazar  Ruta"
+        android:text="@string/label_trazar_ruta"
         android:textAllCaps="false"
         tools:ignore="ButtonStyle"/>
 </LinearLayout>

@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.hga.appturismo.R;
+import com.hga.appturismo.util.Constants;
 
 public class BuscarPorProvinciaActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -76,67 +77,67 @@ public class BuscarPorProvinciaActivity extends AppCompatActivity implements Vie
         int idProvincia=v.getId();
         switch (idProvincia){
             case R.id.btnProvinciaArani:
-                intent.putExtra("lugarSeleccionado","Arani");
+                intent.putExtra("lugarSeleccionado", Constants.FIREBASE_PROVINCIA_ARANI);
                 intent.putExtra("isProvincia",true);
                 break;
             case R.id.btnProvinciaArque:
-                intent.putExtra("lugarSeleccionado","Arque");
+                intent.putExtra("lugarSeleccionado",Constants.FIREBASE_PROVINCIA_ARQUE);
                 intent.putExtra("isProvincia",true);
                 break;
             case R.id.btnProvinciaAyopaya:
-                intent.putExtra("lugarSeleccionado","Ayopaya");
+                intent.putExtra("lugarSeleccionado",Constants.FIREBASE_PROVINCIA_AYOPAYA);
                 intent.putExtra("isProvincia",true);
                 break;
             case R.id.btnProvinciaBolivar:
-                intent.putExtra("lugarSeleccionado","Bolívar");
+                intent.putExtra("lugarSeleccionado",Constants.FIREBASE_PROVINCIA_BOLIVAR);
                 intent.putExtra("isProvincia",true);
                 break;
             case R.id.btnProvinciaCampero:
-                intent.putExtra("lugarSeleccionado","Narciso Campero");
+                intent.putExtra("lugarSeleccionado",Constants.FIREBASE_PROVINCIA_CAMPERO);
                 intent.putExtra("isProvincia",true);
                 break;
             case R.id.btnProvinciaCapinota:
-                intent.putExtra("lugarSeleccionado","Capinota");
+                intent.putExtra("lugarSeleccionado",Constants.FIREBASE_PROVINCIA_CAPINOTA);
                 intent.putExtra("isProvincia",true);
                 break;
             case R.id.btnProvinciaCercado:
-                intent.putExtra("lugarSeleccionado","Cercado");
+                intent.putExtra("lugarSeleccionado",Constants.FIREBASE_PROVINCIA_CERCADO);
                 intent.putExtra("isProvincia",true);
                 break;
             case R.id.btnProvinciaChapare:
-                intent.putExtra("lugarSeleccionado","Chapare");
+                intent.putExtra("lugarSeleccionado",Constants.FIREBASE_PROVINCIA_CHAPARE);
                 intent.putExtra("isProvincia",true);
                 break;
             case R.id.btnProvinciaEstebanArze:
-                intent.putExtra("lugarSeleccionado","Esteban Arce");
+                intent.putExtra("lugarSeleccionado",Constants.FIREBASE_PROVINCIA_ESTEBAN_ARZE);
                 intent.putExtra("isProvincia",true);
                 break;
             case R.id.btnProvinciaGermanJordan:
-                intent.putExtra("lugarSeleccionado","Germán Jordán");
+                intent.putExtra("lugarSeleccionado",Constants.FIREBASE_PROVINCIA_GERMAN_JORDAN);
                 intent.putExtra("isProvincia",true);
                 break;
             case R.id.btnProvinciaJoseCarrasco:
-                intent.putExtra("lugarSeleccionado","José Carrasco");
+                intent.putExtra("lugarSeleccionado",Constants.FIREBASE_PROVINCIA_JOSE_CARRASCO_TORRICO);
                 intent.putExtra("isProvincia",true);
                 break;
             case R.id.btnProvinciaMizque:
-                intent.putExtra("lugarSeleccionado","Mizque");
+                intent.putExtra("lugarSeleccionado",Constants.FIREBASE_PROVINCIA_MIZQUE);
                 intent.putExtra("isProvincia",true);
                 break;
             case R.id.btnProvinciaPunata:
-                intent.putExtra("lugarSeleccionado","Punata");
+                intent.putExtra("lugarSeleccionado",Constants.FIREBASE_PROVINCIA_PUNATA);
                 intent.putExtra("isProvincia",true);
                 break;
             case R.id.btnProvinciaQuillacollo:
-                intent.putExtra("lugarSeleccionado","Quillacollo");
+                intent.putExtra("lugarSeleccionado",Constants.FIREBASE_PROVINCIA_QUILLACOLLO);
                 intent.putExtra("isProvincia",true);
                 break;
             case R.id.btnProvinciaTapacari:
-                intent.putExtra("lugarSeleccionado","Tapacarí");
+                intent.putExtra("lugarSeleccionado",Constants.FIREBASE_PROVINCIA_TAPACARI);
                 intent.putExtra("isProvincia",true);
                 break;
             case R.id.btnProvinciaTiraque:
-                intent.putExtra("lugarSeleccionado","Tiraque");
+                intent.putExtra("lugarSeleccionado",Constants.FIREBASE_PROVINCIA_TIRAQUE);
                 intent.putExtra("isProvincia",true);
                 break;
         }
