@@ -56,8 +56,95 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         setMenu();
         crearContenido();
-        getAcontecimientos();
+    }
+
+    private void setMenu() {
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+    }
+
+    private void crearContenido() {
+        showBotonesListas();
+        setAcontecimientos();
         showAcontecimientosView();
+        showBotonesInsertar();
+    }
+
+    private void showBotonesListas() {
+        ImageButton btnMapaLugares = findViewById(R.id.btnMapaLugar);
+        btnMapaLugares.setOnClickListener(this);
+
+        ImageButton btnMapaHoteles = findViewById(R.id.btnMapaHoteles);
+        btnMapaHoteles.setOnClickListener(this);
+
+        ImageButton btnMapaRestaurantes = findViewById(R.id.btnMapaRestaurantes);
+        btnMapaRestaurantes.setOnClickListener(this);
+    }
+
+    private void setAcontecimientos() {
+        SqliteLugar lugar = new SqliteLugar(this);
+        modeloLugarTuristicos= lugar.listAcontecimientosActivos();
+    }
+
+    private void showAcontecimientosView() {
+        LinearLayout layoutAcontecimientos = findViewById(R.id.layout_container_acontecimientos);
+        LinearLayout layoutPortada = findViewById(R.id.layout_container_portada);
+
+        if (modeloLugarTuristicos.isEmpty()) {
+            layoutAcontecimientos.setVisibility(View.GONE);
+            layoutPortada.setVisibility(View.VISIBLE);
+        } else {
+            layoutAcontecimientos.setVisibility(View.VISIBLE);
+            layoutPortada.setVisibility(View.GONE);
+
+            ViewPager viewPager = findViewById(R.id.imagenAcontecimiento);
+            ImagenAcontecimientosSwip imagenSwip = new ImagenAcontecimientosSwip(modeloLugarTuristicos, this);
+            viewPager.setAdapter(imagenSwip);
+        }
+    }
+
+    private void showBotonesInsertar() {
+        SharedPreferences sharedPreferences = getSharedPreferences("USER", MODE_PRIVATE);
+        int rol = sharedPreferences.getInt("rol", 0);
+        //contenedores de botones para insertar
+        LinearLayout linearLayoutAddSite = findViewById(R.id.layout_container_add_site);
+        LinearLayout linearLayoutUser = findViewById(R.id.layout_container_user_list);
+        LinearLayout linearLayoutAddUser = findViewById(R.id.layout_container_add_user);
+        LinearLayout linearLayoutReviewer = findViewById(R.id.layout_container_revisor);
+
+        ImageView btnInsertar = findViewById(R.id.btnInsertSite);
+        btnInsertar.setOnClickListener(this);
+
+        ImageButton btnUsuario = findViewById(R.id.btnListUsuarios);
+        btnUsuario.setOnClickListener(this);
+
+        ImageButton btnAddUser = findViewById(R.id.btnAddUsuarios);
+        btnAddUser.setOnClickListener(this);
+
+        ImageButton btnReviewer = findViewById(R.id.btnRevisor);
+        btnReviewer.setOnClickListener(this);
+
+        switch (rol) {
+            case Constants.USUARIO_ROL_ADMIN:
+                linearLayoutAddSite.setVisibility(View.VISIBLE);
+                linearLayoutUser.setVisibility(View.VISIBLE);
+                linearLayoutAddUser.setVisibility(View.VISIBLE);
+                linearLayoutReviewer.setVisibility(View.GONE);
+
+                break;
+            case Constants.USUARIO_ROL_REVISOR:
+                linearLayoutAddSite.setVisibility(View.VISIBLE);
+                linearLayoutUser.setVisibility(View.GONE);
+                linearLayoutAddUser.setVisibility(View.GONE);
+                linearLayoutReviewer.setVisibility(View.VISIBLE);
+                break;
+            default:
+                linearLayoutAddSite.setVisibility(View.VISIBLE);
+                linearLayoutUser.setVisibility(View.GONE);
+                linearLayoutAddUser.setVisibility(View.GONE);
+                linearLayoutReviewer.setVisibility(View.GONE);
+                break;
+        }
     }
 
     @Override
@@ -187,85 +274,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         startActivity(buscarPorTipo);
     }
 
-    private void getAcontecimientos() {
-        SqliteLugar lugar = new SqliteLugar(this);
-        modeloLugarTuristicos= lugar.listAcontecimientosActivos();
-    }
-
-    private void showAcontecimientosView() {
-        LinearLayout layoutAcontecimientos = findViewById(R.id.layout_container_acontecimientos);
-        LinearLayout layoutPortada = findViewById(R.id.layout_container_portada);
-
-        if (modeloLugarTuristicos.isEmpty()) {
-            layoutAcontecimientos.setVisibility(View.GONE);
-            layoutPortada.setVisibility(View.VISIBLE);
-        } else {
-            layoutAcontecimientos.setVisibility(View.VISIBLE);
-            layoutPortada.setVisibility(View.GONE);
-
-            ViewPager viewPager = findViewById(R.id.imagenAcontecimiento);
-            ImagenAcontecimientosSwip imagenSwip = new ImagenAcontecimientosSwip(modeloLugarTuristicos, this);
-            viewPager.setAdapter(imagenSwip);
-        }
-    }
-
-    private void setMenu() {
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-    }
-
-    private void crearContenido() {
-        ImageButton btnMapaLugares = findViewById(R.id.btnMapaLugar);
-        btnMapaLugares.setOnClickListener(this);
-
-        ImageButton btnMapaHoteles = findViewById(R.id.btnMapaHoteles);
-        btnMapaHoteles.setOnClickListener(this);
-
-        ImageButton btnMapaRestaurantes = findViewById(R.id.btnMapaRestaurantes);
-        btnMapaRestaurantes.setOnClickListener(this);
-        SharedPreferences sharedPreferences = getSharedPreferences("USER", MODE_PRIVATE);
-        int rol = sharedPreferences.getInt("rol", 0);
-        //contenedores de botones para insertar
-        LinearLayout linearLayoutAddSite = findViewById(R.id.layout_container_add_site);
-        LinearLayout linearLayoutUser = findViewById(R.id.layout_container_user_list);
-        LinearLayout linearLayoutAddUser = findViewById(R.id.layout_container_add_user);
-        LinearLayout linearLayoutReviewer = findViewById(R.id.layout_container_revisor);
-
-        ImageView btnInsertar = findViewById(R.id.btnInsertSite);
-        btnInsertar.setOnClickListener(this);
-
-        ImageButton btnUsuario = findViewById(R.id.btnListUsuarios);
-        btnUsuario.setOnClickListener(this);
-
-        ImageButton btnAddUser = findViewById(R.id.btnAddUsuarios);
-        btnAddUser.setOnClickListener(this);
-
-        ImageButton btnReviewer = findViewById(R.id.btnRevisor);
-        btnReviewer.setOnClickListener(this);
-
-        switch (rol) {
-            case Constants.USUARIO_ROL_ADMIN:
-                linearLayoutAddSite.setVisibility(View.VISIBLE);
-                linearLayoutUser.setVisibility(View.VISIBLE);
-                linearLayoutAddUser.setVisibility(View.VISIBLE);
-                linearLayoutReviewer.setVisibility(View.GONE);
-
-                break;
-            case Constants.USUARIO_ROL_REVISOR:
-                linearLayoutAddSite.setVisibility(View.VISIBLE);
-                linearLayoutUser.setVisibility(View.GONE);
-                linearLayoutAddUser.setVisibility(View.GONE);
-                linearLayoutReviewer.setVisibility(View.VISIBLE);
-                break;
-            default:
-                linearLayoutAddSite.setVisibility(View.VISIBLE);
-                linearLayoutUser.setVisibility(View.GONE);
-                linearLayoutAddUser.setVisibility(View.GONE);
-                linearLayoutReviewer.setVisibility(View.GONE);
-                break;
-        }
-    }
-
     private void resetDataFirebase() {
         ServiceResetFirebase serviceResetFirebase =new ServiceResetFirebase(this);
         serviceResetFirebase.resetDatosFirebase();
@@ -331,7 +339,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case 6:
                 showTextLarge("Sincronizacion exitosa");
                 progressBar.setProgress(advance-1);
-                getAcontecimientos();
+                setAcontecimientos();
                 showAcontecimientosView();
                 setVisibleScrollBar(false);
 
