@@ -1,6 +1,7 @@
 package com.hga.appturismo.adapterRecycler;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -16,6 +17,7 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.storage.StorageReference;
 import com.hga.appturismo.R;
+import com.hga.appturismo.activity.DescripcionSugerenciaActivity;
 import com.hga.appturismo.bdFirebase.TurismoAplicacion;
 import com.hga.appturismo.modelo.ModeloHotel;
 import com.hga.appturismo.modelo.ModeloLugarTuristico;
@@ -28,8 +30,7 @@ import java.util.ArrayList;
  * Created by HGA on 26/11/2017
  */
 
-public class SugerenciaAdapterRecycler extends RecyclerView.Adapter<SugerenciaAdapterRecycler.SugerenciaViewHolder>
-        implements Filterable {
+public class SugerenciaAdapterRecycler extends RecyclerView.Adapter<SugerenciaAdapterRecycler.SugerenciaViewHolder> implements Filterable {
     private ArrayList<ModeloHotel> modeloHotels;
     private ArrayList<ModeloRestaurante> modeloRestaurantes;
     private ArrayList<ModeloLugarTuristico> modeloLugarTuristicos;
@@ -90,7 +91,10 @@ public class SugerenciaAdapterRecycler extends RecyclerView.Adapter<SugerenciaAd
             holder.imageViewSugerencia.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
+                    Intent intent=new Intent(activity, DescripcionSugerenciaActivity.class);
+                    intent.putExtra("type","hotel");
+                    intent.putExtra("modelHotel",modeloHotel);
+                    activity.startActivity(intent);
                 }
             });
         }
@@ -117,7 +121,10 @@ public class SugerenciaAdapterRecycler extends RecyclerView.Adapter<SugerenciaAd
             holder.imageViewSugerencia.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
+                    Intent intent=new Intent(activity, DescripcionSugerenciaActivity.class);
+                    intent.putExtra("type","restaurante");
+                    intent.putExtra("modelRestaurante",modeloRestaurante);
+                    activity.startActivity(intent);
                 }
             });
         }
@@ -145,7 +152,10 @@ public class SugerenciaAdapterRecycler extends RecyclerView.Adapter<SugerenciaAd
             holder.imageViewSugerencia.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
+                    Intent intent=new Intent(activity, DescripcionSugerenciaActivity.class);
+                    intent.putExtra("type","turistico");
+                    intent.putExtra("modelTuristico",modeloLugarTuristico);
+                    activity.startActivity(intent);
                 }
             });
         }

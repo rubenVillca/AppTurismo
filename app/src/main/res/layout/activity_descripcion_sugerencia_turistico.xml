@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.hga.appturismo.activity.DescripcionLugarTuristicoActivity">
+    tools:context="com.hga.appturismo.activity.DescripcionSugerenciaActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -268,7 +268,7 @@
                         android:layout_height="wrap_content"
                         android:text="" />
                 </LinearLayout>
-                <include layout="@layout/content_button_description"/>
+
                 <include layout="@layout/content_button_sugerir_lugar"/>
             </LinearLayout>
 

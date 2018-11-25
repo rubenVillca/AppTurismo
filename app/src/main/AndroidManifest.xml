@@ -245,6 +245,8 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.hga.appturismo.activity.MainActivity"/>
         </activity>
+        <activity android:name=".activity.DescripcionSugerenciaActivity">
+        </activity>
     </application>
 
 </manifest>
