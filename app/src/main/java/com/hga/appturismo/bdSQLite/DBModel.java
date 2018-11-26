@@ -20,7 +20,7 @@ import java.util.ArrayList;
  */
 
 public class DBModel extends SQLiteOpenHelper {
-    public static final int DATABASE_VERSION = 115;
+    public static final int DATABASE_VERSION = 116;
     public static final String DATABASE_NAME = "APP_TURISMO";
 
     public static final String TABLE_IMAGENES = "IMAGENES";
@@ -100,6 +100,7 @@ public class DBModel extends SQLiteOpenHelper {
     public static final String PUNTAJE_CANTIDAD = "PUNTAJE_PUNTAJE";
     public static final String PUNTAJE_NRO_VISITAS = "NRO_VISITAS_PUNTAJE";
     public static final String PUNTAJE_TIPO = "TIPO_PUNTAJE";
+    public static final String PUNTAJE_EMAIL = "PUNTAJE_EMAIL";
 
     public DBModel(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
@@ -149,7 +150,8 @@ public class DBModel extends SQLiteOpenHelper {
                 + PUNTAJE_ID_LUGAR_FIREBASE + " text,"
                 + PUNTAJE_CANTIDAD + " integer,"
                 + PUNTAJE_NRO_VISITAS + " integer,"
-                + PUNTAJE_TIPO + " text"
+                + PUNTAJE_TIPO + " text,"
+                + PUNTAJE_EMAIL + " text"
                 + ");";
     }
 
@@ -383,6 +385,7 @@ public class DBModel extends SQLiteOpenHelper {
         contentValues.put(DBModel.PUNTAJE_CANTIDAD, modeloPuntaje.getPuntaje());
         contentValues.put(DBModel.PUNTAJE_NRO_VISITAS, modeloPuntaje.getNroVisitas());
         contentValues.put(DBModel.PUNTAJE_TIPO, modeloPuntaje.getTipo());
+        contentValues.put(DBModel.PUNTAJE_EMAIL, modeloPuntaje.getIdUsuarioFirebase());
 
         if (db.insert(DBModel.TABLE_PUNTAJE, null, contentValues) == -1) {
             System.out.println("Error en la base de datos Usuario lugar: " + contentValues.toString() + "\nmodelo:" + modeloPuntaje.toString());

@@ -36,13 +36,13 @@ public class ListaRestaurantesActivity extends AppCompatActivity {
     private RestauranteAdapterRecycler adapterRecycler;
     private ArrayList<ModeloRestaurante> modeloRestaurantes;
     private ArrayList<ModeloPuntaje> modeloPuntajes;
-    private SqliteRestaurante restaurante;
+    private SqliteRestaurante restauranteSQLite;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_restaurantes);
-        restaurante =new SqliteRestaurante(this);
+        restauranteSQLite =new SqliteRestaurante(this);
 
         initRecyclerView();
 
@@ -61,6 +61,7 @@ public class ListaRestaurantesActivity extends AppCompatActivity {
 
         RecyclerView recyclerView = findViewById(R.id.restauranteRecyclerView);
         recyclerView.setLayoutManager(linearLayoutManager);
+
         adapterRecycler = new RestauranteAdapterRecycler(modeloRestaurantes, modeloPuntajes,R.layout.cardview_list, this);
         recyclerView.setAdapter(adapterRecycler);
 
@@ -93,7 +94,7 @@ public class ListaRestaurantesActivity extends AppCompatActivity {
                     }
                     loadJSONFirebasePuntaje();
                     adapterRecycler.notifyDataSetChanged();
-                    restaurante.update(modeloRestaurantes);
+                    restauranteSQLite.update(modeloRestaurantes);
                 }
             }
 
@@ -122,7 +123,7 @@ public class ListaRestaurantesActivity extends AppCompatActivity {
                     }
                     adapterRecycler.notifyDataSetChanged();
 
-                    restaurante.updatePuntajeSQLite(modeloPuntajes);//actualizar sqlite puntaje
+                    restauranteSQLite.updatePuntajeSQLite(modeloPuntajes);//actualizar sqlite puntaje
                 }
             }
 
@@ -136,7 +137,11 @@ public class ListaRestaurantesActivity extends AppCompatActivity {
 
     private void loadSQLite() {
         modeloRestaurantes.clear();
-        modeloRestaurantes.addAll(restaurante.listActive());
+        modeloRestaurantes.addAll(restauranteSQLite.listActive());
+
+        modeloPuntajes.clear();
+        modeloPuntajes.addAll(restauranteSQLite.getPuntaje());
+
         adapterRecycler.notifyDataSetChanged();
     }
 

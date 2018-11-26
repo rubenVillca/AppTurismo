@@ -189,6 +189,10 @@ public class ListaLugaresActivity extends AppCompatActivity {
         }else{
             lugaresTuristicos.addAll(lugarTuristico.listActive());
         }
+
+        modeloPuntajes.clear();
+        modeloPuntajes.addAll(lugarTuristico.getPuntaje());
+
         adapterRecycler.notifyDataSetChanged();
     }
 

@@ -66,7 +66,8 @@ public class RestauranteAdapterRecycler extends RecyclerView.Adapter<Restaurante
         int calificados=0;
 
         for (ModeloPuntaje puntaje : modeloPuntajes) {
-            if (puntaje.getIdUsuarioFirebase().equals(ModeloUsuario.encriptar(email))
+            String emailEncript=ModeloUsuario.codificarNombre(puntaje.getIdUsuarioFirebase());
+            if (emailEncript.equals(ModeloUsuario.encriptar(email))
                     && puntaje.getIdLugarFirebase().equals(modeloRestaurante.getIdFirebase())
                     && puntaje.getTipo().equals(ModeloImagen.TIPO_RESTAURANTE)) {
                 setCheckEstrellas(puntaje.getPuntaje(),holder);
