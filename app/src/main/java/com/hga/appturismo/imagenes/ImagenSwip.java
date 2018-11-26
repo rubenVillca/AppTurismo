@@ -48,7 +48,7 @@ public class ImagenSwip extends PagerAdapter {
 
         ImageView imageView = itemView.findViewById(R.id.imageViewTurismo);
         imageView.getLayoutParams().width = ViewGroup.LayoutParams.MATCH_PARENT;
-        imageView.getLayoutParams().height = 720;
+        imageView.getLayoutParams().height = 500;
         imageView.setBackgroundColor(Color.GRAY);
         imageView.setPadding(0, 0, 0, 0);
         imageView.refreshDrawableState();
