@@ -6,7 +6,9 @@ import java.util.List;
 
 public class Route {
     public Distance distance;
+    public Distance distanceWalking;
     public Duration duration;
+    public Duration durationWalking;
     public String endAddress;
     public LatLng endLocation;
     public String startAddress;

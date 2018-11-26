@@ -37,11 +37,28 @@
                 android:layout_height="40dp"
                 android:layout_marginLeft="@dimen/marginleft_icon_locationmap"
                 android:layout_marginTop="@dimen/margintop_icon_locationmap"
-                android:padding="5dp"
+                android:padding="1dp"
                 android:src="@drawable/ic_clock" />
 
             <TextView
                 android:id="@+id/tvDuration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/marginleft_text_locationmap"
+                android:layout_marginTop="@dimen/margintop_text_locationmap"
+                android:text="0 min"
+                android:textColor="@color/colorAccent"/>
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="@dimen/marginleft_icon_locationmap"
+                android:layout_marginTop="@dimen/margintop_icon_locationmap"
+                android:padding="1dp"
+                android:src="@drawable/ic_clock" />
+
+            <TextView
+                android:id="@+id/tvDurationWalking"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/marginleft_text_locationmap"

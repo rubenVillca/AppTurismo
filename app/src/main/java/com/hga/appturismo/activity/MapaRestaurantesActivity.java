@@ -134,7 +134,7 @@ public class MapaRestaurantesActivity extends MapsActivity implements GoogleMap.
         for (Route ruta : route) {
             ((TextView) findViewById(R.id.tvDuration)).setText(ruta.duration.text);
             ((TextView) findViewById(R.id.tvDistance)).setText(ruta.distance.text);
-
+            ((TextView) findViewById(R.id.tvDurationWalking)).setText(ruta.durationWalking.text);
             /*originMarkers.add(mMap.addMarker(new MarkerOptions()
                     .title("Yo")
                     .snippet(ruta.startAddress)
