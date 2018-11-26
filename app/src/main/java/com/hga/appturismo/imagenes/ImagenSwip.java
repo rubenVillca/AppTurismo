@@ -64,15 +64,18 @@ public class ImagenSwip extends PagerAdapter {
 
         String urlImagen = modeloImagen.getTipoImagen()+"/"+modeloImagen.getUrlServer();
         TurismoAplicacion app = (TurismoAplicacion) context.getApplicationContext();
-        /*File file = new File(app.getStorageReferenceImagen(urlImagen).toString());
-        if (file.exists()) {*/
-            /*try {
+        File file = new File(app.getStorageReferenceImagen(urlImagen).toString());
+        if (file.exists()) {
+            try {
                 int imagen=Integer.parseInt(modeloImagen.getUrlApp());
                 Picasso.with(context).load(imagen).into(imageView);
-            } catch (NumberFormatException e) {*/
-                //Picasso.with(context).load(urlImagen).into(imageView);//si la imagen esta en el celular
-            //}
-        /*}else {*/
+            } catch (NumberFormatException e) {
+                Picasso.with(context).load(urlImagen).into(imageView);//si la imagen esta en el celular
+            }
+        }else {
+            if (modeloImagen.getUrlServer().contains(modeloImagen.getTipoImagen())) {
+                urlImagen = modeloImagen.getUrlServer();
+            }
             StorageReference storageRef = app.getStorageReferenceImagen(urlImagen);
             storageRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                 @Override
@@ -87,7 +90,7 @@ public class ImagenSwip extends PagerAdapter {
                     System.out.println("Error al cargar imagenes");
                 }
             });
-        //}
+        }
     }
 
     @Override

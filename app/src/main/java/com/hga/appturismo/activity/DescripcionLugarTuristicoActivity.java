@@ -105,8 +105,8 @@ public class DescripcionLugarTuristicoActivity extends AppCompatActivity impleme
         TextView textViewActividadText = findViewById(R.id.textViewActividadText);
         textViewActividadText.setText(modeloLugarTuristico.getActividad());
 
-        /*TextView textViewRegistradoPorText = findViewById(R.id.textViewRegistradoPorText);
-        textViewRegistradoPorText.setText(modeloLugarTuristico.getRegistradoPor());*/
+        TextView textViewRegistradoPorText = findViewById(R.id.textViewRegistradoPorText);
+        textViewRegistradoPorText.setText(modeloLugarTuristico.getRegistradoPor());
 
         if (modeloLugarTuristico.getLinea().isEmpty()) {
             LinearLayout linearLayoutLinea =findViewById(R.id.linearLayoutLinea);

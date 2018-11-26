@@ -1,6 +1,7 @@
 package com.hga.appturismo.bdFirebase;
 
 import com.google.firebase.database.DatabaseReference;
+import com.hga.appturismo.modelo.ModeloHotel;
 import com.hga.appturismo.modelo.ModeloLugarTuristico;
 import com.hga.appturismo.provider.Listas;
 import com.hga.appturismo.util.Constants;
@@ -10,7 +11,7 @@ import java.util.ArrayList;
 /**
  * Created by HGA on 21/7/2018
  */
-class ServiceFirebaseLugaresTour {
+public class ServiceFirebaseLugaresTour {
     public void insertLugaresTuristicos(TurismoAplicacion app, Listas listas) {
         DatabaseReference postReference;//insertar lugares turisticos por provincia
         ArrayList<ModeloLugarTuristico> modeloLugarTuristicos = listas.getListaLugares();
@@ -84,5 +85,11 @@ class ServiceFirebaseLugaresTour {
                 break;
         }
         return postReference;
+    }
+
+    public void deleteLugarTuristico(TurismoAplicacion app, ModeloLugarTuristico modeloLugarTuristico) {
+        DatabaseReference postReference;//eliinar lugares turisticos bdFirebase
+        postReference = app.getDataBaseReferenceLugarTuristico(modeloLugarTuristico.getIdFirebase());
+        postReference.removeValue();
     }
 }

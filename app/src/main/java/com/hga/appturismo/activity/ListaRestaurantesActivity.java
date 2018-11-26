@@ -133,9 +133,10 @@ public class ListaRestaurantesActivity extends AppCompatActivity {
             }
         });
     }
+
     private void loadSQLite() {
         modeloRestaurantes.clear();
-        modeloRestaurantes.addAll(restaurante.list());
+        modeloRestaurantes.addAll(restaurante.listActive());
         adapterRecycler.notifyDataSetChanged();
     }
 

@@ -33,6 +33,21 @@ public class SqliteHotel extends DBSQLiteParent implements SqliteInterface<Model
         }
             return hoteles;
     }
+    public ArrayList<ModeloHotel> listActive() {
+        ArrayList<ModeloHotel> hoteles = new ArrayList<>();
+        Cursor cursor = db.rawQuery("Select *"
+                +" from " + DBModel.TABLE_HOTELES
+                +" where "+DBModel.HOTELES_ESTADO+"="+"'"+Constants.ESTADO_HOTEL_VISIBLE+"'", null);
+        if (cursor.moveToFirst()) {
+            while (!cursor.isAfterLast()) {
+                ModeloHotel modeloHotel = getHotelCursor(cursor);
+
+                hoteles.add(modeloHotel);
+                cursor.moveToNext();
+            }
+        }
+        return hoteles;
+    }
 
     @NonNull
     private ModeloHotel getHotelCursor(Cursor cursor) {
@@ -95,8 +110,8 @@ public class SqliteHotel extends DBSQLiteParent implements SqliteInterface<Model
 
     public ArrayList<ModeloHotel> listSugeridos() {
         ArrayList<ModeloHotel> hoteles = new ArrayList<>();
-        String prueba="Select * from " + DBModel.TABLE_HOTELES +" where "+DBModel.HOTELES_ESTADO+"="+"'"+ Constants.ESTADO_HOTEL_SUG_INSERTAR+"'";
-        Cursor cursor = db.rawQuery("Select * from " + DBModel.TABLE_HOTELES +" where "+DBModel.HOTELES_ESTADO+"="+"'"+ Constants.ESTADO_HOTEL_SUG_INSERTAR+"'", null);
+        Cursor cursor = db.rawQuery("Select * from " + DBModel.TABLE_HOTELES
+                +" where "+DBModel.HOTELES_ESTADO+"="+"'"+ Constants.ESTADO_HOTEL_SUG_INSERTAR+"'", null);
         if (cursor.moveToFirst()) {
             while (!cursor.isAfterLast()) {
                 ModeloHotel modeloHotel = getHotelCursor(cursor);
@@ -106,5 +121,9 @@ public class SqliteHotel extends DBSQLiteParent implements SqliteInterface<Model
             }
         }
         return hoteles;
+    }
+
+    public void remove(ModeloHotel modeloHotel) {
+        helper.deleteLugarHotel(db,modeloHotel.getIdSQLite());
     }
 }

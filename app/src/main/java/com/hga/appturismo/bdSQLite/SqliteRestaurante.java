@@ -68,6 +68,24 @@ public class SqliteRestaurante extends DBSQLiteParent implements SqliteInterface
         return modeloRestaurantes;
     }
 
+    public ArrayList<ModeloRestaurante> listActive() {
+        ArrayList<ModeloRestaurante> modeloRestaurantes = new ArrayList<>();
+        Cursor cursor = db.rawQuery(
+                "Select * "
+                    + " from " + DBModel.TABLE_RESTAURANTES
+                    + " where "+DBModel.RESTAURANTES_ESTADO+"="+"'"+Constants.ESTADO_RESTAURANTE_VISIBLE+"'", null);
+        if (cursor.moveToFirst()) {
+            while (!cursor.isAfterLast()) {
+                ModeloRestaurante modeloRestaurante = getRestauranteCursor(cursor);
+
+                modeloRestaurantes.add(modeloRestaurante);
+                cursor.moveToNext();
+            }
+
+        }
+        return modeloRestaurantes;
+    }
+
     public void update(ArrayList<ModeloRestaurante> modeloRestaurantes) {
         helper.deleteDatosRestaurante(db);
         for (ModeloRestaurante modeloRestaurante : modeloRestaurantes) {
@@ -97,5 +115,9 @@ public class SqliteRestaurante extends DBSQLiteParent implements SqliteInterface
 
         }
         return modeloRestaurantes;
+    }
+
+    public void remove(ModeloRestaurante modeloRestaurante) {
+        helper.deleteLugarRestaurante(db,modeloRestaurante.getIdSQLite());
     }
 }

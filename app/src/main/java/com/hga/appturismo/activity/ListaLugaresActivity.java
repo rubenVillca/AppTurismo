@@ -185,9 +185,9 @@ public class ListaLugaresActivity extends AppCompatActivity {
     private void loadSQLite() {
         lugaresTuristicos.clear();
         if (isProvincia) {
-            lugaresTuristicos.addAll(lugarTuristico.selectProvincia(lugarSeleccionado));
+            lugaresTuristicos.addAll(lugarTuristico.selectProvinciaActive(lugarSeleccionado));
         }else{
-            lugaresTuristicos.addAll(lugarTuristico.list());
+            lugaresTuristicos.addAll(lugarTuristico.listActive());
         }
         adapterRecycler.notifyDataSetChanged();
     }

@@ -220,7 +220,7 @@
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         android:layout_margin="10dp"
-                        android:background="@drawable/icono_aceptar"
+                        android:background="@drawable/icono_sug"
                         android:contentDescription="@string/description_imagen"/>
                 </LinearLayout>
 

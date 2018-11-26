@@ -26,4 +26,9 @@ public class ServiceFirebaseRestaurantes {
         }
     }
 
+    public void deleteRestaurante(TurismoAplicacion app, ModeloRestaurante modeloRestaurante) {
+        DatabaseReference postReference;//eliminar restaurantes bdFirebase
+        postReference = app.getDataBaseReferenceRestaurante(modeloRestaurante.getIdFirebase());
+        postReference.removeValue();
+    }
 }

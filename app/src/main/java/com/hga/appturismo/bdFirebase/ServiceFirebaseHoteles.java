@@ -35,4 +35,10 @@ public class ServiceFirebaseHoteles {
         postReference = app.getDataBaseReferenceHotel("");
         postReference.removeValue();
     }
+
+    public void deleteHotel(TurismoAplicacion app, ModeloHotel modeloHotel) {
+        DatabaseReference postReference;
+        postReference = app.getDataBaseReferenceHotel(modeloHotel.getIdFirebase());
+        postReference.removeValue();
+    }
 }

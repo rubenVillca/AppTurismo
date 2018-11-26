@@ -134,7 +134,7 @@ public class ListaHotelesActivity extends AppCompatActivity {
 
     private void loadSQLite() {
         modeloHotels.clear();
-        modeloHotels.addAll(hotel.list());
+        modeloHotels.addAll(hotel.listActive());
         adapterRecycler.notifyDataSetChanged();
     }
 

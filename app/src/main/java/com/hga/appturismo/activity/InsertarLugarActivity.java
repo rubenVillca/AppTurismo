@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -26,6 +27,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -142,7 +144,6 @@ public class InsertarLugarActivity extends AppCompatActivity {
         initSpinner();
     }
 
-
     private void getEmail() {
         SharedPreferences sharedPreferences = getSharedPreferences("USER", MODE_PRIVATE);
         email = sharedPreferences.getString("email", "");
@@ -177,9 +178,9 @@ public class InsertarLugarActivity extends AppCompatActivity {
     }
 
     @NonNull
-    private ModeloHotel getHotel(SqliteHotel hotel) {
+    private ModeloHotel getHotel(int idHotelSQLite) {
         ModeloHotel modeloHotel = new ModeloHotel();
-        modeloHotel.setIdSQLite(hotel.list().size());
+        modeloHotel.setIdSQLite(idHotelSQLite);
         modeloHotel.setNombre(txt_nombre.getText().toString());
         modeloHotel.setDireccion(txt_direccion.getText().toString());
         modeloHotel.setLinea(txt_linea.getText().toString());
@@ -189,7 +190,7 @@ public class InsertarLugarActivity extends AppCompatActivity {
         modeloHotel.setEmail(txt_email.getText().toString());
         modeloHotel.setGpsX(Float.parseFloat(txt_latitud.getText().toString()));
         modeloHotel.setGpsY(Float.parseFloat(txt_longitud.getText().toString()));
-        modeloHotel.setNombre(email);
+        modeloHotel.setRegistradoPor(email);
 
         SharedPreferences sharedPreferences = getSharedPreferences("USER", MODE_PRIVATE);
         int rol = sharedPreferences.getInt("rol", 0);
@@ -377,13 +378,16 @@ public class InsertarLugarActivity extends AppCompatActivity {
     /**
      * envia la imagen tomada por la camara al servidor bdFirebase//h
      */
-    private void guardarDatosFirebaseHotel(final ModeloHotel modeloHotel) {
+    private void guardarDatosFirebaseHotel() {
+        final SqliteHotel hotelSQLite=new SqliteHotel(this);
+        final ModeloHotel modeloHotel = getHotel(hotelSQLite.list().size());
+
         databaseReference = app.getDataBaseReferenceHotel("");
         File file = new File(mCurrentAbsolutePhotoPath);
         final Uri uri = Uri.fromFile(file);
 
         storageReference = app.getStorageReferenceHotel(modeloHotel.getNombre());
-        StorageReference imageReference = storageReference.child(modeloHotel.getNombre() + "/" + uri.getLastPathSegment());
+        StorageReference imageReference = storageReference.child(uri.getLastPathSegment());
 
         UploadTask uploadTask = imageReference.putFile(uri);
 
@@ -395,11 +399,16 @@ public class InsertarLugarActivity extends AppCompatActivity {
         }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                Toast.makeText(InsertarLugarActivity.this, "ModeloImagen subida con exito", Toast.LENGTH_LONG).show();
+                modeloHotel.setImagenes(getImagen(ModeloImagen.TIPO_HOTEL, modeloHotel.getIdSQLite(), ModeloImagen.TIPO_HOTEL + "/" + modeloHotel.getNombre()));
 
-                //String imageURL = taskSnapshot.getDownloadUrl().toString();
-                //String imageURL=Constants.FIREBASE_STORAGE_IMGS + uri.getLastPathSegment();
-                databaseReference.push().setValue(modeloHotel);
+                databaseReference.push().setValue(modeloHotel, new DatabaseReference.CompletionListener() {
+                    @Override
+                    public void onComplete(@Nullable DatabaseError databaseError, @NonNull DatabaseReference databaseReference) {
+                        modeloHotel.setIdFirebase(databaseReference.getKey());
+                        hotelSQLite.insert(modeloHotel);//insertar modeloHotel en SQLite
+                        Toast.makeText(InsertarLugarActivity.this, "Hotel insertado exitosamente", Toast.LENGTH_LONG).show();
+                    }
+                });
             }
         });
     }
@@ -407,14 +416,17 @@ public class InsertarLugarActivity extends AppCompatActivity {
     /**
      * envia la imagen tomada por la camara al servidor bdFirebase
      */
-    private void guardarDatosFirebaseLugarTuristico(final ModeloLugarTuristico modeloLugarTuristico) {
+    private void guardarDatosFirebaseLugarTuristico() {
+        final SqliteLugar lugarTuristico=new SqliteLugar(this);
+        final ModeloLugarTuristico modeloLugarTuristico = getLugarTuristico(lugarTuristico);
+
         File file = new File(mCurrentAbsolutePhotoPath);
         final Uri uri = Uri.fromFile(file);
 
         databaseReference=setReferencetProvincia(modeloLugarTuristico);
 
-        storageReference = app.getStorageReferenceLugarTuristico("");
-        StorageReference imageReference = storageReference.child(modeloLugarTuristico.getNombre() + "/" + uri.getLastPathSegment());
+        storageReference = app.getStorageReferenceLugarTuristico(modeloLugarTuristico.getNombre());
+        StorageReference imageReference = storageReference.child(uri.getLastPathSegment());
 
         UploadTask uploadTask = imageReference.putFile(uri);
 
@@ -426,11 +438,17 @@ public class InsertarLugarActivity extends AppCompatActivity {
         }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                Toast.makeText(InsertarLugarActivity.this, "ModeloImagen subida con exito", Toast.LENGTH_LONG).show();
+                modeloLugarTuristico.setImagenesFirebase(getImagen(ModeloImagen.TIPO_LUGAR, modeloLugarTuristico.getIdSQLite(), ModeloImagen.TIPO_LUGAR + "/" + modeloLugarTuristico.getNombre()));
 
-                //String imageURL = taskSnapshot.getDownloadUrl().toString();
-                //String imageURL=Constants.FIREBASE_STORAGE_IMGS + uri.getLastPathSegment();
-                databaseReference.push().setValue(modeloLugarTuristico);
+                databaseReference.push().setValue(modeloLugarTuristico, new DatabaseReference.CompletionListener() {
+                    @Override
+                    public void onComplete(@Nullable DatabaseError databaseError, @NonNull DatabaseReference databaseReference) {
+                        modeloLugarTuristico.setIdFirebase(databaseReference.getKey());
+                        lugarTuristico.insert(modeloLugarTuristico);//insertar el lugar turistico en SQLite
+
+                        Toast.makeText(InsertarLugarActivity.this, "Lugar turistico insertado exitosamente", Toast.LENGTH_LONG).show();
+                    }
+                });
             }
         });
     }
@@ -500,13 +518,16 @@ public class InsertarLugarActivity extends AppCompatActivity {
     /**
      * enviar los datos recuperados del activity al servidor bdFirebase
      */
-    private void guardarDatosFirebaseRestaurante(final ModeloRestaurante modeloRestaurante) {
+    private void guardarDatosFirebaseRestaurante() {
+        final SqliteRestaurante restaurante=new SqliteRestaurante(this);
+        final ModeloRestaurante modeloRestaurante = getRestaurante(restaurante);
+
         databaseReference = app.getDataBaseReferenceRestaurante("");
         File file = new File(mCurrentAbsolutePhotoPath);
         final Uri uri = Uri.fromFile(file);
 
         storageReference = app.getStorageReferenceRestaurante(modeloRestaurante.getNombre());
-        StorageReference imageReference = storageReference.child(modeloRestaurante.getNombre() + "/" + uri.getLastPathSegment());
+        StorageReference imageReference = storageReference.child(uri.getLastPathSegment());
 
         UploadTask uploadTask = imageReference.putFile(uri);
 
@@ -518,10 +539,17 @@ public class InsertarLugarActivity extends AppCompatActivity {
         }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                Toast.makeText(InsertarLugarActivity.this, "ModeloImagen subida con exito", Toast.LENGTH_LONG).show();
-                //String imageURL = taskSnapshot.getDownloadUrl().toString();
-                //String imageURL=Constants.FIREBASE_STORAGE_IMGS + uri.getLastPathSegment();
-                databaseReference.push().setValue(modeloRestaurante);
+                modeloRestaurante.setImagenes(getImagen(ModeloImagen.TIPO_RESTAURANTE, modeloRestaurante.getIdSQLite(), ModeloImagen.TIPO_RESTAURANTE + "/" + modeloRestaurante.getNombre()));
+
+                databaseReference.push().setValue(modeloRestaurante, new DatabaseReference.CompletionListener() {
+                    @Override
+                    public void onComplete(@Nullable DatabaseError databaseError, @NonNull DatabaseReference databaseReference) {
+                        modeloRestaurante.setIdFirebase(databaseReference.getKey());
+                        restaurante.insert(modeloRestaurante);//insertar restaurate en SQLite
+
+                        Toast.makeText(InsertarLugarActivity.this, "Restaurante insertado exitosamente", Toast.LENGTH_LONG).show();
+                    }
+                });
             }
         });
     }
@@ -688,45 +716,27 @@ public class InsertarLugarActivity extends AppCompatActivity {
      * @param view:parametros del boton presionado
      */
     public void insertarLugarSQLite(View view) {
-        ArrayList<ModeloImagen> modeloImagenArrayList;
         Intent intent;
 
         switch (spinnerTipo.getSelectedItemPosition()) {
             case 0://hotel
                 if (isValidHotel()) {
-                    SqliteHotel hotel=new SqliteHotel(this);
-                    ModeloHotel modeloHotel = getHotel(hotel);
-                    modeloImagenArrayList = getImagen(ModeloImagen.TIPO_HOTEL, modeloHotel.getIdSQLite(), ModeloImagen.TIPO_HOTEL + "/" + modeloHotel.getNombre());
-                    modeloHotel.setImagenes(modeloImagenArrayList);
-                    hotel.insert(modeloHotel);//insertar modeloHotel en SQLite
+                    guardarDatosFirebaseHotel();
 
-                    guardarDatosFirebaseHotel(modeloHotel);
-                    intent = new Intent(this, MapaHotelesActivity.class);
+                    intent = new Intent(InsertarLugarActivity.this, MapaHotelesActivity.class);
                     startActivity(intent);
                 }
                 break;
             case 1://restaurante
                 if (isValidRestaurante()) {
-                    SqliteRestaurante restaurante=new SqliteRestaurante(this);
-                    ModeloRestaurante modeloRestaurante = getRestaurante(restaurante);
-                    modeloImagenArrayList = getImagen(ModeloImagen.TIPO_RESTAURANTE, modeloRestaurante.getIdSQLite(), ModeloImagen.TIPO_RESTAURANTE + "/" + modeloRestaurante.getNombre());
-                    modeloRestaurante.setImagenesFirebase(modeloImagenArrayList);
-                    restaurante.insert(modeloRestaurante);//insertar restaurate en SQLite
-
-                    guardarDatosFirebaseRestaurante(modeloRestaurante);
+                    guardarDatosFirebaseRestaurante();
                     intent = new Intent(this, MapaRestaurantesActivity.class);
                     startActivity(intent);
                 }
                 break;
             case 2://lugar turistico
                 if (isValidLugarTuristico()) {
-                    SqliteLugar lugarTuristico=new SqliteLugar(this);
-                    ModeloLugarTuristico modeloLugarTuristico = getLugarTuristico(lugarTuristico);
-                    modeloImagenArrayList = getImagen(ModeloImagen.TIPO_LUGAR, modeloLugarTuristico.getIdSQLite(), ModeloImagen.TIPO_LUGAR + "/" + modeloLugarTuristico.getNombre());
-                    modeloLugarTuristico.setImagenesFirebase(modeloImagenArrayList);
-                    lugarTuristico.insert(modeloLugarTuristico);//insetar el lugar turistico en SQLite
-
-                    guardarDatosFirebaseLugarTuristico(modeloLugarTuristico);
+                    guardarDatosFirebaseLugarTuristico();
                     intent = new Intent(this, MapaLugaresActivity.class);
                     startActivity(intent);
                 }

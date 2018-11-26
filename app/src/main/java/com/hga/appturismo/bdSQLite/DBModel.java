@@ -20,7 +20,7 @@ import java.util.ArrayList;
  */
 
 public class DBModel extends SQLiteOpenHelper {
-    public static final int DATABASE_VERSION = 114;
+    public static final int DATABASE_VERSION = 115;
     public static final String DATABASE_NAME = "APP_TURISMO";
 
     public static final String TABLE_IMAGENES = "IMAGENES";
@@ -424,5 +424,17 @@ public class DBModel extends SQLiteOpenHelper {
 
     public void deleteTableUsuario(SQLiteDatabase db) {
         db.execSQL("DELETE FROM " + TABLE_USUARIOS);
+    }
+
+    public void deleteLugarTuristico(SQLiteDatabase db, int idSQLite) {
+        db.execSQL("DELETE FROM " + TABLE_LUGARES + " WHERE "+LUGARES_ID_SQLITE+"='"+idSQLite+"'");
+    }
+
+    public void deleteLugarHotel(SQLiteDatabase db, int idSQLite) {
+        db.execSQL("DELETE FROM " + TABLE_HOTELES + " WHERE "+HOTELES_SQLITE_ID+"='"+idSQLite+"'");
+    }
+
+    public void deleteLugarRestaurante(SQLiteDatabase db, int idSQLite) {
+        db.execSQL("DELETE FROM " + TABLE_RESTAURANTES + " WHERE "+RESTAURANTES_ID_SQLITE+"='"+idSQLite+"'");
     }
 }

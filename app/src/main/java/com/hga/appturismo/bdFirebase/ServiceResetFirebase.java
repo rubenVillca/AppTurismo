@@ -6,6 +6,7 @@ import com.hga.appturismo.activity.MainActivity;
 import com.hga.appturismo.bdSQLite.SqliteUsuario;
 import com.hga.appturismo.modelo.ModeloUsuario;
 import com.hga.appturismo.provider.Listas;
+import com.hga.appturismo.provider.ListasPrueba;
 
 import java.util.ArrayList;
 
@@ -20,7 +21,7 @@ public class ServiceResetFirebase {
     public ServiceResetFirebase(MainActivity mainActivity) {
         app = (TurismoAplicacion) mainActivity.getApplicationContext();
         this.mainActivity = mainActivity;
-        listas=new Listas();
+        listas=new ListasPrueba();
     }
 
     /**

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.support.annotation.NonNull;
 
+import com.hga.appturismo.modelo.ModeloHotel;
 import com.hga.appturismo.modelo.ModeloImagen;
 import com.hga.appturismo.modelo.ModeloLugarTuristico;
 import com.hga.appturismo.util.Constants;
@@ -53,6 +54,18 @@ public class SqliteLugar extends DBSQLiteParent implements SqliteInterface<Model
         }
         return modeloLugarTuristicos;
     }
+    public ArrayList<ModeloLugarTuristico> listActive() {
+        ArrayList<ModeloLugarTuristico> modeloLugarTuristicos = new ArrayList<>();
+        Cursor cursor = db.rawQuery("Select * from " + DBModel.TABLE_LUGARES+" where "+DBModel.LUGARES_ESTADO+"="+"'"+Constants.ESTADO_LUGAR_VISIBLE+"'", null);
+        if (cursor.moveToFirst()) {
+            while (!cursor.isAfterLast()) {
+                ModeloLugarTuristico modeloLugarTuristico = getLugarTuristicoCursor(cursor);
+                modeloLugarTuristicos.add(modeloLugarTuristico);
+                cursor.moveToNext();
+            }
+        }
+        return modeloLugarTuristicos;
+    }
 
     public ArrayList<ModeloLugarTuristico> listSugeridos(){
         ArrayList<ModeloLugarTuristico> modeloLugarTuristicos = new ArrayList<>();
@@ -87,6 +100,24 @@ public class SqliteLugar extends DBSQLiteParent implements SqliteInterface<Model
         Cursor cursor = db.rawQuery("Select * "
                 + " from " + DBModel.TABLE_LUGARES
                 + " where " + DBModel.LUGARES_PROVINCIA + "='" + provincia + "'", null);
+        if (cursor.moveToFirst()) {
+            while (!cursor.isAfterLast()) {
+                modeloLugarTuristicos.add(getLugarTuristicoCursor(cursor));
+
+                cursor.moveToNext();
+            }
+        }
+        return modeloLugarTuristicos;
+    }
+
+    public ArrayList<ModeloLugarTuristico> selectProvinciaActive(String provincia) {
+        ArrayList<ModeloLugarTuristico> modeloLugarTuristicos=new ArrayList<>();
+        Cursor cursor = db.rawQuery(
+                "SELECT * "
+                + " FROM " + DBModel.TABLE_LUGARES
+                + " WHERE " + DBModel.LUGARES_PROVINCIA + "='" + provincia + "'"
+                + " AND " +DBModel.LUGARES_ESTADO+"="+"'"+Constants.ESTADO_LUGAR_VISIBLE+"'", null);
+
         if (cursor.moveToFirst()) {
             while (!cursor.isAfterLast()) {
                 modeloLugarTuristicos.add(getLugarTuristicoCursor(cursor));
@@ -217,5 +248,9 @@ public class SqliteLugar extends DBSQLiteParent implements SqliteInterface<Model
 
         modeloLugarTuristico.setImagenesFirebase(getListaImagenes(ModeloImagen.TIPO_LUGAR, modeloLugarTuristico.getIdSQLite()));
         return modeloLugarTuristico;
+    }
+
+    public void remove(ModeloLugarTuristico modeloLugar) {
+        helper.deleteLugarTuristico(db,modeloLugar.getIdSQLite());
     }
 }

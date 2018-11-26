@@ -51,6 +51,8 @@ public class TurismoAplicacion extends Application {
     * base de datos hotel bdFirebase
     * */
     public DatabaseReference getDataBaseReferenceHotel() {
+        if (firebaseDatabase==null)
+            firebaseDatabase = FirebaseDatabase.getInstance();
         return firebaseDatabase.getReference(Constants.FIREBASE_DATABASE_HOTEL);
     }
 
@@ -58,6 +60,8 @@ public class TurismoAplicacion extends Application {
      * base de datos restaurante bdFirebase
      * */
     public DatabaseReference getDataBaseReferenceRestaurante() {
+        if (firebaseDatabase==null)
+            firebaseDatabase = FirebaseDatabase.getInstance();
         return firebaseDatabase.getReference(Constants.FIREBASE_DATABASE_RESTAURANTE);
     }
 
@@ -65,6 +69,8 @@ public class TurismoAplicacion extends Application {
      * base de datos lugar turistico bdFirebase
      * */
     public DatabaseReference getDataBaseReferenceLugarTuristico(String provincia) {
+        if (firebaseDatabase==null)
+            firebaseDatabase = FirebaseDatabase.getInstance();
         return firebaseDatabase.getReference(Constants.FIREBASE_DATABASE_LUGAR_TURISTICO +"/"+provincia);
     }
 
@@ -72,6 +78,8 @@ public class TurismoAplicacion extends Application {
      * base de datos usuario bdFirebase
      * */
     public DatabaseReference getDataBaseReferenceUsuario() {
+        if (firebaseDatabase==null)
+            firebaseDatabase = FirebaseDatabase.getInstance();
         return  firebaseDatabase.getReference(Constants.FIREBASE_BASE_URL+Constants.FIREBASE_DATABASE_USUARIO);
     }
 
@@ -79,6 +87,8 @@ public class TurismoAplicacion extends Application {
      * base de datos puntaje bdFirebase
      * */
     public DatabaseReference getDataBaseReferencePuntaje() {
+        if (firebaseDatabase==null)
+            firebaseDatabase = FirebaseDatabase.getInstance();
         return firebaseDatabase.getReference(Constants.FIREBASE_DATABASE_PUNTAJE);
     }
 
@@ -90,6 +100,8 @@ public class TurismoAplicacion extends Application {
      * @return DatabaseReference
      */
     public DatabaseReference getDataBaseReferenceHotel(String idFirebase) {
+        if (firebaseDatabase==null)
+            firebaseDatabase = FirebaseDatabase.getInstance();
         return firebaseDatabase.getReference(Constants.FIREBASE_DATABASE_HOTEL+"/"+idFirebase);
     }
 
@@ -97,6 +109,8 @@ public class TurismoAplicacion extends Application {
      * base de datos restaurante bdFirebase
      * */
     public DatabaseReference getDataBaseReferenceRestaurante(String idFirebase) {
+        if (firebaseDatabase==null)
+            firebaseDatabase = FirebaseDatabase.getInstance();
         return firebaseDatabase.getReference(Constants.FIREBASE_DATABASE_RESTAURANTE+"/"+idFirebase);
     }
 
@@ -104,6 +118,8 @@ public class TurismoAplicacion extends Application {
      * base de datos lugar turistico bdFirebase
      * */
     public DatabaseReference getDataBaseReferenceLugarTuristico(String provincia,String idFirebase) {
+        if (firebaseDatabase==null)
+            firebaseDatabase = FirebaseDatabase.getInstance();
         return firebaseDatabase.getReference(Constants.FIREBASE_DATABASE_LUGAR_TURISTICO +"/"+provincia+"/"+idFirebase);
     }
 
@@ -111,6 +127,8 @@ public class TurismoAplicacion extends Application {
      * base de datos usuario bdFirebase
      * */
     public DatabaseReference getDataBaseReferenceUsuario(String idFirebase) {
+        if (firebaseDatabase==null)
+            firebaseDatabase = FirebaseDatabase.getInstance();
         return  firebaseDatabase.getReference(Constants.FIREBASE_DATABASE_USUARIO+"/"+idFirebase);
     }
 
@@ -118,6 +136,8 @@ public class TurismoAplicacion extends Application {
      * base de datos puntaje bdFirebase
      * */
     public DatabaseReference getDataBaseReferencePuntaje(String idFirebase) {
+        if (firebaseDatabase==null)
+            firebaseDatabase = FirebaseDatabase.getInstance();
         return firebaseDatabase.getReference(Constants.FIREBASE_DATABASE_PUNTAJE+"/"+idFirebase);
     }
 }
