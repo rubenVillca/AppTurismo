@@ -30,7 +30,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCanceledListener;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -262,6 +264,17 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                     showProgress(false);
                     Toast.makeText(LoginActivity.this, "Usuario o contraseña incorrectas", Toast.LENGTH_SHORT).show();
                 }
+            }
+
+        }).addOnFailureListener(LoginActivity.this, new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(LoginActivity.this, "No conectado", Toast.LENGTH_SHORT).show();
+            }
+        }).addOnCanceledListener(LoginActivity.this, new OnCanceledListener() {
+            @Override
+            public void onCanceled() {
+                Toast.makeText(LoginActivity.this, "Cancel", Toast.LENGTH_SHORT).show();
             }
         });
     }

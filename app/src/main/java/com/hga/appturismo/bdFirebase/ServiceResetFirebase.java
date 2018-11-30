@@ -6,6 +6,7 @@ import com.hga.appturismo.activity.MainActivity;
 import com.hga.appturismo.bdSQLite.SqliteUsuario;
 import com.hga.appturismo.modelo.ModeloUsuario;
 import com.hga.appturismo.provider.Listas;
+import com.hga.appturismo.provider.ListasPrueba;
 
 import java.util.ArrayList;
 
@@ -30,7 +31,7 @@ public class ServiceResetFirebase {
         resetHoteles();
         resetRestaurantes();
         resetLugares();
-        resetUsuarios();
+        //resetUsuarios();
 
         Toast.makeText(mainActivity,"Actualizado firebase",Toast.LENGTH_LONG).show();
     }

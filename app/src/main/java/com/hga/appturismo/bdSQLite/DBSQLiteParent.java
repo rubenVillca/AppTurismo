@@ -53,6 +53,7 @@ public abstract class DBSQLiteParent {
         modeloPuntaje.setPuntaje(cursor.getInt(cursor.getColumnIndex(DBModel.PUNTAJE_CANTIDAD)));
         modeloPuntaje.setNroVisitas(cursor.getInt(cursor.getColumnIndex(DBModel.PUNTAJE_NRO_VISITAS)));
         modeloPuntaje.setTipo(cursor.getString(cursor.getColumnIndex(DBModel.PUNTAJE_TIPO)));
+        modeloPuntaje.setIdUsuarioFirebase(cursor.getString(cursor.getColumnIndex(DBModel.PUNTAJE_EMAIL)));
         return modeloPuntaje;
     }
 

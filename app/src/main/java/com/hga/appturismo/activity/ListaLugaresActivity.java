@@ -44,26 +44,31 @@ public class ListaLugaresActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_lugares);
-        lugarTuristico = new SqliteLugar(this);
 
-        init();
+        crearContenido();
+    }
 
+    private void crearContenido() {
+        setProvincia();
         initRecyclerView();
+        loadData();
+    }
 
+    private void loadData() {
         if (Constants.IS_READ_FIREBASE)
             loadFirebaseLugarTuristico();
         else
             loadSQLite();
     }
 
-    private void init() {
+    private void setProvincia() {
         Bundle bundle = getIntent().getExtras();
         if (bundle != null && bundle.getString("lugarSeleccionado") != null) {
             lugarSeleccionado = bundle.getString("lugarSeleccionado");
             isProvincia=bundle.getBoolean("isProvincia");
         }else{
             lugarSeleccionado ="";
-            isProvincia=true;
+            isProvincia=false;
         }
         if (!isProvincia){
             setTitle("Tipo: "+lugarSeleccionado);
@@ -77,6 +82,7 @@ public class ListaLugaresActivity extends AppCompatActivity {
     }
 
     private void initRecyclerView() {
+        lugarTuristico = new SqliteLugar(this);
         lugaresTuristicos = new ArrayList<>();
         modeloPuntajes = new ArrayList<>();
 
@@ -87,8 +93,6 @@ public class ListaLugaresActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(linearLayoutManager);
         adapterRecycler = new LugarAdapterRecycler(lugaresTuristicos, modeloPuntajes, R.layout.cardview_list, this);
         recyclerView.setAdapter(adapterRecycler);
-
-
     }
 
     /**
@@ -180,11 +184,19 @@ public class ListaLugaresActivity extends AppCompatActivity {
 
     private void loadSQLite() {
         lugaresTuristicos.clear();
-        lugaresTuristicos.addAll(lugarTuristico.list());
+        if (isProvincia) {
+            lugaresTuristicos.addAll(lugarTuristico.selectProvinciaActive(lugarSeleccionado));
+        }else{
+            lugaresTuristicos.addAll(lugarTuristico.listActive());
+        }
+
+        modeloPuntajes.clear();
+        modeloPuntajes.addAll(lugarTuristico.getPuntaje());
+
         adapterRecycler.notifyDataSetChanged();
     }
 
-    @Override
+   @Override
     public void onBackPressed() {
         if (isProvincia){
             Intent intent=new Intent(this,BuscarPorProvinciaActivity.class);
@@ -193,6 +205,7 @@ public class ListaLugaresActivity extends AppCompatActivity {
             Intent intent=new Intent(this,MainActivity.class);
             startActivity(intent);
         }
+        finish();
     }
 
     @Override

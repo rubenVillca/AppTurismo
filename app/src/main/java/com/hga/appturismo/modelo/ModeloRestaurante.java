@@ -12,12 +12,14 @@ public class ModeloRestaurante extends ModeloBaseLugares{
     private String horario;
     private String provincia;
     private String paginaWeb;
+    private String linea;
 
     public ModeloRestaurante() {
         this.email = "";
         this.horario = "";
         this.provincia = "";
         this.paginaWeb = "";
+        this.linea="";
     }
 
     public String getEmail() {
@@ -50,6 +52,14 @@ public class ModeloRestaurante extends ModeloBaseLugares{
 
     public void setPaginaWeb(String paginaWeb) {
         this.paginaWeb = paginaWeb;
+    }
+
+    public String getLinea() {
+        return linea;
+    }
+
+    public void setLinea(String linea) {
+        this.linea = linea;
     }
 
     public boolean equals(ModeloRestaurante modeloRestaurante) {

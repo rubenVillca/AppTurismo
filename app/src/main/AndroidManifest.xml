@@ -202,7 +202,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.hga.appturismo.activity.MainActivity"/>
         </activity>
-
         <activity
             android:name=".activity.EditarUsuarioActivity"
             android:label="Actualizar inf. de Usuario"
@@ -237,6 +236,22 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.hga.appturismo.activity.MainActivity"/>
+        </activity>
+        <activity
+            android:name=".activity.ListaSugerirLugarActivity"
+            android:label="Revisar sugerencias de lugares"
+            android:parentActivityName=".activity.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.hga.appturismo.activity.MainActivity"/>
+        </activity>
+        <activity
+            android:name=".activity.DescripcionSugerenciaActivity"
+            android:label="Revisar sugerencias"
+            android:parentActivityName=".activity.ListaSugerirLugarActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.hga.appturismo.activity.ListaSugerirLugarActivity"/>
         </activity>
     </application>
 

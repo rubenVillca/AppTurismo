@@ -51,6 +51,9 @@ public class DescripcionHotelActivity extends AppCompatActivity  implements Text
         TextView textViewNombreText= findViewById(R.id.textViewNombreText);
         textViewNombreText.setText(modeloHotel.getNombre());
 
+        //TextView textViewDescripcionText= findViewById(R.id.textViewDescripcionText);
+        //textViewDescripcionText.setText(modeloHotel.getDescripcion());
+
         TextView textViewDireccionText= findViewById(R.id.textViewDireccionText);
         textViewDireccionText.setText(modeloHotel.getDireccion());
 
@@ -62,6 +65,15 @@ public class DescripcionHotelActivity extends AppCompatActivity  implements Text
 
         TextView textViewEmailText= findViewById(R.id.textViewEmailText);
         textViewEmailText.setText(String.valueOf(modeloHotel.getEmail()));
+
+        /*if (modeloHotel.getLinea().isEmpty()) {
+            LinearLayout linearLayoutLinea =findViewById(R.id.linearLayoutLinea);
+            linearLayoutLinea.setVisibility(View.GONE);
+
+        }else {
+            TextView textViewLineaText = findViewById(R.id.textViewLineaText);
+            textViewLineaText.setText(modeloHotel.getLinea());
+        }*/
 
         Button buttonTrazarRuta= findViewById(R.id.buttonTrazarRuta);
 
@@ -100,7 +112,7 @@ public class DescripcionHotelActivity extends AppCompatActivity  implements Text
             LinearLayout linearLayout=findViewById(R.id.linearLayoutRegistradoPor);
             linearLayout.setVisibility(View.VISIBLE);
 
-            TextView textViewRegistradoPor= findViewById(R.id.textViewRegistradoPor);
+            TextView textViewRegistradoPor= findViewById(R.id.textViewRegistradoPorText);
             textViewRegistradoPor.setText(modeloHotel.getRegistradoPor());
         }
 
@@ -126,6 +138,7 @@ public class DescripcionHotelActivity extends AppCompatActivity  implements Text
         if (tts==null)
             tts = new TextToSpeech(this, this);
         String text = "Servicio de Hospedaje: "+ modeloHotel.getNombre()
+                +". Actividad: "+ modeloHotel.getDescripcion()
                 +". Direccion: "+ modeloHotel.getDireccion()
                 +". Teléfono: "+ modeloHotel.getTelefono();
                 tts.speak(text,TextToSpeech.QUEUE_FLUSH,null);

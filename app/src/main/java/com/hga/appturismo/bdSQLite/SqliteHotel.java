@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 
 import com.hga.appturismo.modelo.ModeloHotel;
 import com.hga.appturismo.modelo.ModeloImagen;
+import com.hga.appturismo.util.Constants;
 
 import java.util.ArrayList;
 
@@ -30,6 +31,21 @@ public class SqliteHotel extends DBSQLiteParent implements SqliteInterface<Model
                 cursor.moveToNext();
             }
         }
+            return hoteles;
+    }
+    public ArrayList<ModeloHotel> listActive() {
+        ArrayList<ModeloHotel> hoteles = new ArrayList<>();
+        Cursor cursor = db.rawQuery("Select *"
+                +" from " + DBModel.TABLE_HOTELES
+                +" where "+DBModel.HOTELES_ESTADO+"="+"'"+Constants.ESTADO_HOTEL_VISIBLE+"'", null);
+        if (cursor.moveToFirst()) {
+            while (!cursor.isAfterLast()) {
+                ModeloHotel modeloHotel = getHotelCursor(cursor);
+
+                hoteles.add(modeloHotel);
+                cursor.moveToNext();
+            }
+        }
         return hoteles;
     }
 
@@ -39,6 +55,7 @@ public class SqliteHotel extends DBSQLiteParent implements SqliteInterface<Model
         modeloHotel.setIdSQLite(cursor.getInt(cursor.getColumnIndex(DBModel.HOTELES_SQLITE_ID)));
         modeloHotel.setIdFirebase(cursor.getString(cursor.getColumnIndex(DBModel.HOTELES_ID_FIREBASE)));
         modeloHotel.setNombre(cursor.getString(cursor.getColumnIndex(DBModel.HOTELES_NAME)));
+        modeloHotel.setDescripcion(cursor.getString(cursor.getColumnIndex(DBModel.HOTELES_DESCRIPCION)));
         modeloHotel.setDireccion(cursor.getString(cursor.getColumnIndex(DBModel.HOTELES_DIRECCION)));
         modeloHotel.setTelefono(cursor.getInt(cursor.getColumnIndex(DBModel.HOTELES_TELEFONO)));
         modeloHotel.setPaginaWeb(cursor.getString(cursor.getColumnIndex(DBModel.HOTELES_PAGINA_WEB)));
@@ -47,6 +64,7 @@ public class SqliteHotel extends DBSQLiteParent implements SqliteInterface<Model
         modeloHotel.setGpsY(cursor.getFloat(cursor.getColumnIndex(DBModel.HOTELES_LONGITUD)));
         modeloHotel.setRegistradoPor(cursor.getString(cursor.getColumnIndex(DBModel.HOTELES_REGISTRADO_POR)));
         modeloHotel.setEstado(cursor.getString(cursor.getColumnIndex(DBModel.HOTELES_ESTADO)));
+        modeloHotel.setLinea(cursor.getString(cursor.getColumnIndex(DBModel.HOTELES_LINEA)));
 
         modeloHotel.setImagenes(getListaImagenes(ModeloImagen.TIPO_HOTEL, modeloHotel.getIdSQLite()));
         return modeloHotel;
@@ -88,5 +106,24 @@ public class SqliteHotel extends DBSQLiteParent implements SqliteInterface<Model
         for (ModeloHotel modeloHotel : modeloHotels) {
             insert(modeloHotel);
         }
+    }
+
+    public ArrayList<ModeloHotel> listSugeridos() {
+        ArrayList<ModeloHotel> hoteles = new ArrayList<>();
+        Cursor cursor = db.rawQuery("Select * from " + DBModel.TABLE_HOTELES
+                +" where "+DBModel.HOTELES_ESTADO+"="+"'"+ Constants.ESTADO_HOTEL_SUG_INSERTAR+"'", null);
+        if (cursor.moveToFirst()) {
+            while (!cursor.isAfterLast()) {
+                ModeloHotel modeloHotel = getHotelCursor(cursor);
+
+                hoteles.add(modeloHotel);
+                cursor.moveToNext();
+            }
+        }
+        return hoteles;
+    }
+
+    public void remove(ModeloHotel modeloHotel) {
+        helper.deleteLugarHotel(db,modeloHotel.getIdSQLite());
     }
 }

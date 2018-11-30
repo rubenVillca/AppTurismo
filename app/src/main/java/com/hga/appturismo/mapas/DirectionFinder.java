@@ -34,6 +34,7 @@ public class DirectionFinder {
 
     public void execute() throws UnsupportedEncodingException {
         listener.onDirectionFinderStart();
+
         new DownloadRawData().execute(createUrl());
     }
 
@@ -41,7 +42,21 @@ public class DirectionFinder {
         String urlOrigin = URLEncoder.encode(origin, "utf-8");
         String urlDestination = URLEncoder.encode(destination, "utf-8");
 
-        return DIRECTION_URL_API + "origin=" + urlOrigin + "&destination=" + urlDestination + "&key=" + GOOGLE_API_KEY;
+        return DIRECTION_URL_API
+                + "origin=" + urlOrigin
+                + "&destination=" + urlDestination
+                + "&key=" + GOOGLE_API_KEY;
+    }
+
+    private String createUrlWalking() throws UnsupportedEncodingException {
+        String urlOrigin = URLEncoder.encode(origin, "utf-8");
+        String urlDestination = URLEncoder.encode(destination, "utf-8");
+
+        return DIRECTION_URL_API
+                + "origin=" + urlOrigin
+                + "&destination=" + urlDestination
+                + "&mode=walking"
+                + "&key=" + GOOGLE_API_KEY;
     }
 
     private class DownloadRawData extends AsyncTask<String, Void, String> {
@@ -100,7 +115,13 @@ public class DirectionFinder {
             JSONObject jsonStartLocation = jsonLeg.getJSONObject("start_location");
 
             route.distance = new Distance(jsonDistance.getString("text"), jsonDistance.getInt("value"));
+            route.distanceWalking = new Distance(route.distance.text, 5*route.distance.value);
             route.duration = new Duration(jsonDuration.getString("text"), jsonDuration.getInt("value"));
+            if (route.distanceWalking.value<20) {
+                route.durationWalking = new Duration(3*route.duration.value+" mins", route.duration.value);
+            }else {
+                route.durationWalking = new Duration(3*(route.duration.value/60)+" mins", route.duration.value);
+            }
             route.endAddress = jsonLeg.getString("end_address");
             route.startAddress = jsonLeg.getString("start_address");
             route.startLocation = new LatLng(jsonStartLocation.getDouble("lat"), jsonStartLocation.getDouble("lng"));

@@ -105,7 +105,6 @@
                     app:srcCompat="@drawable/img_portada"/>
             </LinearLayout>
 
-
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -206,6 +205,22 @@
                         android:layout_height="100dp"
                         android:layout_margin="10dp"
                         android:background="@drawable/icono_add_user"
+                        android:contentDescription="@string/description_imagen"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layout_container_revisor"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:visibility="gone">
+
+                    <ImageButton
+                        android:id="@+id/btnRevisor"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_margin="10dp"
+                        android:background="@drawable/icono_sug"
                         android:contentDescription="@string/description_imagen"/>
                 </LinearLayout>
 

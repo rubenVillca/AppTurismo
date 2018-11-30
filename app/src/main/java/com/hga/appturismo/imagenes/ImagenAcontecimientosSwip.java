@@ -26,8 +26,10 @@ import com.hga.appturismo.activity.MainActivity;
 import com.hga.appturismo.bdFirebase.TurismoAplicacion;
 import com.hga.appturismo.modelo.ModeloImagen;
 import com.hga.appturismo.modelo.ModeloLugarTuristico;
+import com.hga.appturismo.util.Constants;
 import com.squareup.picasso.Picasso;
 
+import java.io.File;
 import java.util.ArrayList;
 
 public class ImagenAcontecimientosSwip extends PagerAdapter {
@@ -129,7 +131,7 @@ public class ImagenAcontecimientosSwip extends PagerAdapter {
         imageView.setBackgroundColor(Color.GRAY);
         imageView.setPadding(0, 0, 0, 0);
         imageView.getLayoutParams().width = ViewGroup.LayoutParams.MATCH_PARENT;
-        imageView.getLayoutParams().height = 720;
+        imageView.getLayoutParams().height = 500;
         //imageView.refreshDrawableState();
         return imageView;
     }
@@ -139,33 +141,35 @@ public class ImagenAcontecimientosSwip extends PagerAdapter {
         if (!modeloLugarTuristico.getImagenes().isEmpty()) {
             ModeloImagen modeloImagen = modeloLugarTuristico.getImagenes().get(0);
 
-            //String urlImagen = Constants.FIREBASE_STORAGE_URL+modeloImagen.getTipoImagen()+"/"+modeloImagen.getUrlServer();
+            String urlImagen = Constants.FIREBASE_STORAGE_URL+modeloImagen.getTipoImagen()+"/"+modeloImagen.getUrlServer();
             TurismoAplicacion app = (TurismoAplicacion) context.getApplicationContext();
-        /*File file = new File(app.getStorageReferenceImagen(modeloImagen.getUrlApp()).toString());
-        if (file.exists()) {*/
-            /*try {
+        File file = new File(app.getStorageReferenceImagen(modeloImagen.getUrlApp()).toString());
+        if (file.exists()) {
+            try {
                 int imagen=Integer.parseInt(modeloImagen.getUrlApp());//si la imagen esta en la app
                 Picasso.with(context).load(imagen).into(imageView);
-            }catch (NumberFormatException e){*/
-            //Picasso.with(context).load(urlImagen).into(imageView);//si la imagen esta en el celular
-            //}
-            /*}else {//si la imagen no esta en el celular*/
-            String urlImagen = modeloImagen.getUrlServer();
-            StorageReference storageRef = app.getStorageReferenceImagen(modeloImagen.getTipoImagen() + "/" + urlImagen);
+            }catch (NumberFormatException e){
+                Picasso.with(context).load(urlImagen).into(imageView);//si la imagen esta en el celular
+            }
+        }else {//si la imagen no esta en el celular*/
+            urlImagen = modeloImagen.getUrlServer();
+            String[] fragmentsUrl=urlImagen.split("/");
+            if (fragmentsUrl.length>0&&!fragmentsUrl[0].equals(modeloImagen.getTipoImagen()))
+                urlImagen=modeloImagen.getTipoImagen() + "/" + urlImagen;
+            StorageReference storageRef = app.getStorageReferenceImagen(urlImagen);
+            final String finalUrlImagen = urlImagen;
             storageRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                 @Override
                 public void onSuccess(Uri uri) {
-                    // Got the download URL for 'users/me/profile.png'
-                    // Pass it to Picasso to download, show in ImageView and caching
                     Picasso.with(context).load(uri.toString()).into(imageViewCopy);
                 }
             }).addOnFailureListener(new OnFailureListener() {
                 @Override
                 public void onFailure(@NonNull Exception exception) {
-                    System.out.println("Error al cargar imagenes");
+                    System.out.println("Error al cargar imagenes: "+ finalUrlImagen);
                 }
             });
-            //}
+        }
         }
     }
 

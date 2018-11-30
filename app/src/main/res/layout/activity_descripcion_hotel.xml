@@ -61,6 +61,26 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/textViewActividad"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Actividad: "
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textViewActividadText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
                     android:id="@+id/textViewDireccion"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -112,6 +132,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

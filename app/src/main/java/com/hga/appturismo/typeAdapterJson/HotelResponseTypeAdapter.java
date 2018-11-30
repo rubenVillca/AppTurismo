@@ -89,6 +89,9 @@ public class HotelResponseTypeAdapter extends TypeAdapter {
                 case "descripcion":
                     modeloHotel.setDescripcion(reader.nextString());
                     break;
+                case "linea":
+                    modeloHotel.setLinea(reader.nextString());
+                    break;
                 default:
                     reader.nextString();//no usado
                     break;

@@ -146,6 +146,7 @@ public class EditarHotelActivity extends EditarActivity {
         modeloHotelNew.setIdFirebase(modeloHotelOld.getIdFirebase());
         modeloHotelNew.setIdSQLite(modeloHotelOld.getIdSQLite());
         modeloHotelNew.setNombre(editar_txt_nombre.getText().toString());
+        modeloHotelNew.setDescripcion(editar_txt_descripcion.getText().toString());
         modeloHotelNew.setGpsX(Float.parseFloat(editar_txt_latitud.getText().toString()));
         modeloHotelNew.setGpsY(Float.parseFloat(editar_txt_longitud.getText().toString()));
         modeloHotelNew.setDireccion(editar_txt_direccion.getText().toString());
@@ -190,14 +191,15 @@ public class EditarHotelActivity extends EditarActivity {
         app = (TurismoAplicacion) getApplicationContext();
         editar_layout_tipoTurismo.setVisibility(View.GONE);
         editar_layout_provincia.setVisibility(View.GONE);
-        editar_layout_descripcion.setVisibility(View.GONE);
         editar_layout_horario.setVisibility(View.GONE);
+        editar_layout_linea.setVisibility(View.GONE);
         //editar_spinner_tipo.setText(modeloHotelOld.get());
         //editar_spinner_provincia.setText(modeloHotelOld.get());
         //editar_spinner_tipo_turismo.setText(modeloHotelOld.get());
         editar_txt_nombre.setText(modeloHotelOld.getNombre());
         //editar_txt_descripcion.setText(modeloHotelOld.get());
         editar_txt_email.setText(modeloHotelOld.getEmail());
+        editar_txt_descripcion.setText(modeloHotelOld.getDescripcion());
         editar_txt_direccion.setText(modeloHotelOld.getDireccion());
         editar_txt_paginaweb.setText(modeloHotelOld.getPaginaWeb());
         editar_txt_telefono.setText(valueOf(modeloHotelOld.getTelefono()));
@@ -244,6 +246,7 @@ public class EditarHotelActivity extends EditarActivity {
         focusView = null;
 
         String nombre = editar_txt_nombre.getText().toString();
+        String descripcion = editar_txt_descripcion.getText().toString();
         String latitud = editar_txt_latitud.getText().toString();
         String longitud = editar_txt_longitud.getText().toString();
         String rutaImagen = editar_txt_ruta_imagen.getText().toString();
@@ -267,6 +270,11 @@ public class EditarHotelActivity extends EditarActivity {
         if (nombre.isEmpty()) {
             editar_txt_nombre.setError("Llenar Nombre");
             focusView = editar_txt_nombre;
+            isValidHotel = false;
+        }
+        if (nombre.isEmpty()) {
+            editar_txt_descripcion.setError("Llenar Actividad");
+            focusView = editar_txt_descripcion;
             isValidHotel = false;
         }
         if (focusView != null) {

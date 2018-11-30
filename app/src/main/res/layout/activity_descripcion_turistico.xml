@@ -49,29 +49,6 @@
                     android:weightSum="1">
 
                     <TextView
-                        android:id="@+id/textViewTipo"
-                        android:layout_width="257dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
-                        android:text="Tipo de Turismo:"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:textStyle="bold"/>
-
-                    <TextView
-                        android:id="@+id/textViewTipoText"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
-                        android:text="" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:weightSum="1">
-
-                    <TextView
                         android:id="@+id/textViewNombre"
                         android:layout_width="257dp"
                         android:layout_height="wrap_content"
@@ -85,8 +62,31 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
-                        android:textStyle="bold"
+                        android:text=""
                         android:textColor="@color/colorAccent"
+                        android:textStyle="bold"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:id="@+id/textViewTipo"
+                        android:layout_width="257dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:text="Tipo de Turismo:"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/textViewTipoText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
                         android:text="" />
                 </LinearLayout>
 

@@ -156,4 +156,6 @@
     <string name="action_sincronizar">Sincronizar</string>
     <string name="description_imagen">TODO</string>
     <string name="acontecimiento">Acontecimiento:</string>
+    <string name="label_audio_guia">Audio Guia</string>
+    <string name="label_trazar_ruta">Trazar Ruta</string>
 </resources>

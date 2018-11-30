@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 
 import com.hga.appturismo.modelo.ModeloImagen;
 import com.hga.appturismo.modelo.ModeloRestaurante;
+import com.hga.appturismo.util.Constants;
 
 import java.util.ArrayList;
 
@@ -23,6 +24,7 @@ public class SqliteRestaurante extends DBSQLiteParent implements SqliteInterface
         modeloRestaurante.setIdSQLite(cursor.getInt(cursor.getColumnIndex(DBModel.RESTAURANTES_ID_SQLITE)));
         modeloRestaurante.setIdFirebase(cursor.getString(cursor.getColumnIndex(DBModel.RESTAURANTES_ID_FIREBASE)));
         modeloRestaurante.setNombre(cursor.getString(cursor.getColumnIndex(DBModel.RESTAURANTES_NAME)));
+        modeloRestaurante.setDescripcion(cursor.getString(cursor.getColumnIndex(DBModel.RESTAURANTES_DESCRIPCION)));
         modeloRestaurante.setDireccion(cursor.getString(cursor.getColumnIndex(DBModel.RESTAURANTES_DIRECCION)));
         modeloRestaurante.setHorario(cursor.getString(cursor.getColumnIndex(DBModel.RESTAURANTES_HORARIO)));
         modeloRestaurante.setTelefono(cursor.getInt(cursor.getColumnIndex(DBModel.RESTAURANTES_TELEFONO)));
@@ -30,6 +32,7 @@ public class SqliteRestaurante extends DBSQLiteParent implements SqliteInterface
         modeloRestaurante.setGpsX(cursor.getFloat(cursor.getColumnIndex(DBModel.RESTAURANTES_LATITUD)));
         modeloRestaurante.setGpsY(cursor.getFloat(cursor.getColumnIndex(DBModel.RESTAURANTES_LONGITUD)));
         modeloRestaurante.setEstado(cursor.getString(cursor.getColumnIndex(DBModel.RESTAURANTES_ESTADO)));
+        modeloRestaurante.setLinea(cursor.getString(cursor.getColumnIndex(DBModel.RESTAURANTES_LINEA)));
         modeloRestaurante.setRegistradoPor(cursor.getString(cursor.getColumnIndex(DBModel.RESTAURANTES_REGISTRADO_POR)));
         modeloRestaurante.setImagenesFirebase(getListaImagenes(ModeloImagen.TIPO_RESTAURANTE, modeloRestaurante.getIdSQLite()));
         return modeloRestaurante;
@@ -65,6 +68,24 @@ public class SqliteRestaurante extends DBSQLiteParent implements SqliteInterface
         return modeloRestaurantes;
     }
 
+    public ArrayList<ModeloRestaurante> listActive() {
+        ArrayList<ModeloRestaurante> modeloRestaurantes = new ArrayList<>();
+        Cursor cursor = db.rawQuery(
+                "Select * "
+                    + " from " + DBModel.TABLE_RESTAURANTES
+                    + " where "+DBModel.RESTAURANTES_ESTADO+"="+"'"+Constants.ESTADO_RESTAURANTE_VISIBLE+"'", null);
+        if (cursor.moveToFirst()) {
+            while (!cursor.isAfterLast()) {
+                ModeloRestaurante modeloRestaurante = getRestauranteCursor(cursor);
+
+                modeloRestaurantes.add(modeloRestaurante);
+                cursor.moveToNext();
+            }
+
+        }
+        return modeloRestaurantes;
+    }
+
     public void update(ArrayList<ModeloRestaurante> modeloRestaurantes) {
         helper.deleteDatosRestaurante(db);
         for (ModeloRestaurante modeloRestaurante : modeloRestaurantes) {
@@ -79,5 +100,24 @@ public class SqliteRestaurante extends DBSQLiteParent implements SqliteInterface
     @Override
     public void delete() {
         helper.deleteDatosRestaurante(db);
+    }
+
+    public ArrayList<ModeloRestaurante> listSugeridos() {
+        ArrayList<ModeloRestaurante> modeloRestaurantes = new ArrayList<>();
+        Cursor cursor = db.rawQuery("Select * from " + DBModel.TABLE_RESTAURANTES+" where "+DBModel.RESTAURANTES_ESTADO+"="+"'"+ Constants.ESTADO_HOTEL_SUG_INSERTAR+"'", null, null);
+        if (cursor.moveToFirst()) {
+            while (!cursor.isAfterLast()) {
+                ModeloRestaurante modeloRestaurante = getRestauranteCursor(cursor);
+
+                modeloRestaurantes.add(modeloRestaurante);
+                cursor.moveToNext();
+            }
+
+        }
+        return modeloRestaurantes;
+    }
+
+    public void remove(ModeloRestaurante modeloRestaurante) {
+        helper.deleteLugarRestaurante(db,modeloRestaurante.getIdSQLite());
     }
 }
