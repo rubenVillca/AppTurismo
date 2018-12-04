@@ -38,7 +38,7 @@
                 android:layout_marginLeft="@dimen/marginleft_icon_locationmap"
                 android:layout_marginTop="@dimen/margintop_icon_locationmap"
                 android:padding="1dp"
-                android:src="@drawable/ic_clock" />
+                android:src="@drawable/ic_driving" />
 
             <TextView
                 android:id="@+id/tvDuration"
@@ -55,7 +55,7 @@
                 android:layout_marginLeft="@dimen/marginleft_icon_locationmap"
                 android:layout_marginTop="@dimen/margintop_icon_locationmap"
                 android:padding="1dp"
-                android:src="@drawable/ic_clock" />
+                android:src="@drawable/ic_walking" />
 
             <TextView
                 android:id="@+id/tvDurationWalking"
