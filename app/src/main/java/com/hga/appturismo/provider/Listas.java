@@ -3000,7 +3000,7 @@ public class Listas {
         acontecimiento.setProvincia(Constants.FIREBASE_PROVINCIA_ARANI);
         acontecimiento.setTipo("Acontecimientos Programados");
         acontecimiento.setNombre("Festividad de la Virgen “La Bella”");
-        acontecimiento.setImagenesFirebaseArreglo(ModeloImagen.TIPO_LUGAR, new String[]{"festividad de la virgen la bella3.jpg", "festividad de la virgen la bella.jpg" });
+        acontecimiento.setImagenesFirebaseArreglo(ModeloImagen.TIPO_LUGAR, new String[]{"festividad de la virgen la bella.jpg", "festividad de la virgen la bella3.jpg"  });
         acontecimiento.setDescripcion("Araní es un atractivo destino para la práctica de turismo religioso, actividad que se encuentra enmarcada en una profunda tradición y ferviente vocación religiosa, resultado del proceso de evangelización y catequización que se llevó a cabo durante la conquista, además de haber funcionado como sede del Obispado de Santa Cruz de la Sierra, el siglo XVII. Entre el 23 y el 25 de agosto, Arani se viste de gala al celebrar la festividad religiosa en honor a la Virgen La Bella, declarada Patrimonio Cultural y Religioso del Departamento de Cochabamba, mediante Ley de 24 de diciembre de 2007. Esta fiesta, al contrario de otras festividades que comienzan con la entrada folklórica, inicia su evento festivo con el día del calvario, seguido de la procesión de la sagrada imagen de la Bella, para finalizar con la demostración folklórica.\n" +
                 "No obstante, antes de la celebración misma de la fiesta, la imagen es venerada en principio en la ciudad de Sacaba para después retornar a Arani donde se da inicio a las tres jornadas festivas. En esta fiesta, durante el calvario también se acostumbra adquirir objetos en miniatura o propiedades para luego ser bendecidas en los rituales católicos y andinos, con similares características que las de Urkupiña.\n");
         acontecimiento.setHorario("09:00");
@@ -3020,18 +3020,19 @@ public class Listas {
         acontecimiento.setTipo(Constants.TIPO_LUGAR_ACONTECIMIENTOS);
         acontecimiento.setTipo("Acontecimientos Programados");
         acontecimiento.setNombre("La festividad del Señor de los milagros");
-        acontecimiento.setImagenesFirebaseArreglo(ModeloImagen.TIPO_LUGAR, new String[]{"la festividad del señor de los milagros0.jpg", "la festividad del señor de los milagros1.jpg"});
+        acontecimiento.setImagenesFirebaseArreglo(ModeloImagen.TIPO_LUGAR, new String[]{"la festividad del señor de los milagros0.jpg"});
         acontecimiento.setDescripcion("Una de las características de Punata es la celebración de diferentes festividades religiosas, siendo la fiesta patronal del Señor de Milagros que recuerda la exaltación de la Cruz celebrada el último fin de semana del mes de Septiembre.\n" +
                 "La Festividad del Señor de los Milagros fue reconocida como Patrimonio Cultural e Inmaterial de Bolivia. La imagen del Patrono fue trabajada, con todos los rasgos y detalles de un ser humano de un tamaño de 50 centímetros. En la región de la columna vertebral a la altura de la cintura, tiene una abertura de 3 cm, cubierta de vidrio.\n" +
                 "La imagen llegó a Bolivia el año 1943 procedente de Burgos - España y a Punata gracias a la diligencia del Dr. Manuel de la Cruz Méndez para alguno de sus hijos que elija la vocación sacerdotal siendo merecedor Juan Méndez.\n ");
         acontecimiento.setHorario("Abierto");
         acontecimiento.setDireccion("Punata, Bolivia");
         acontecimiento.setTelefono(0);
-        acontecimiento.setFecha("10 Diciembre");
+        acontecimiento.setFecha("10 diciembre");
         acontecimiento.setGpsX(-17.545190252404954f);
         acontecimiento.setGpsY(-65.83560414612293f);
         acontecimiento.setEstado(Constants.ESTADO_LUGAR_VISIBLE);
         listaLugares.add(acontecimiento);
+
 
 //****** dol doc.
         acontecimiento = new ModeloLugarTuristico();
@@ -3052,7 +3053,7 @@ public class Listas {
         listaLugares.add(acontecimiento);
 
 
-        acontecimiento = new ModeloLugarTuristico();
+       /* acontecimiento = new ModeloLugarTuristico();
         acontecimiento.setIdSQLite(idAcontecimiento++);
         acontecimiento.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         acontecimiento.setTipo(Constants.TIPO_LUGAR_ACONTECIMIENTOS);
@@ -3067,7 +3068,7 @@ public class Listas {
         acontecimiento.setGpsX(-17.3522988f);
         acontecimiento.setGpsY(-66.1922095f);
         acontecimiento.setEstado(Constants.ESTADO_LUGAR_VISIBLE);
-        listaLugares.add(acontecimiento);
+        listaLugares.add(acontecimiento);*/
 
 
         acontecimiento = new ModeloLugarTuristico();
@@ -3106,7 +3107,7 @@ public class Listas {
         listaLugares.add(acontecimiento);*/
 
 
-        acontecimiento = new ModeloLugarTuristico();
+        /*acontecimiento = new ModeloLugarTuristico();
         acontecimiento.setIdSQLite(idAcontecimiento++);
         acontecimiento.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         acontecimiento.setTipo(Constants.TIPO_LUGAR_ACONTECIMIENTOS);
@@ -3121,7 +3122,7 @@ public class Listas {
         acontecimiento.setGpsX(-17.38435132938883f);
         acontecimiento.setGpsY(-66.1349768936634f);
         acontecimiento.setEstado(Constants.ESTADO_LUGAR_VISIBLE);
-        listaLugares.add(acontecimiento);
+        listaLugares.add(acontecimiento);*/
 
 
         acontecimiento = new ModeloLugarTuristico();

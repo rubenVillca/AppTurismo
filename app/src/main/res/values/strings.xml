@@ -47,7 +47,7 @@
     <string name="prompt_password">Contraseña</string>
     <string name="action_sign_in">Iniciar sesión</string>
     <string name="action_sign_in_short">Logearse</string>
-    <string name="error_invalid_email">Este email es invalido</string>
+    <string name="error_invalid_email">Este email es inválido</string>
     <string name="error_invalid_password">Esta contraseña es muy corta</string>
     <string name="error_incorrect_password">La contraseña es incorreca</string>
     <string name="error_field_required">Este Campo es requerido</string>
