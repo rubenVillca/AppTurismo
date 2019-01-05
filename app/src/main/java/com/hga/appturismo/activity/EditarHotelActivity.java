@@ -16,6 +16,7 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.hga.appturismo.R;
 import com.hga.appturismo.bdFirebase.TurismoAplicacion;
+import com.hga.appturismo.bdSQLite.SqliteHotel;
 import com.hga.appturismo.modelo.ModeloHotel;
 import com.hga.appturismo.modelo.ModeloImagen;
 import com.hga.appturismo.util.Constants;
@@ -91,6 +92,7 @@ public class EditarHotelActivity extends EditarActivity {
                     if (isValidHotel()) {
                         mostrarHotel();
                         guardarFirebaseHotel();
+                        guardarSQLiteHotel();
                         Toast.makeText(EditarHotelActivity.this, "Editado hotel " + modeloHotelNew.getNombre(), Toast.LENGTH_SHORT).show();
                     }
                 }
@@ -103,6 +105,12 @@ public class EditarHotelActivity extends EditarActivity {
         if (modeloHotelOld != null) {
             mostrarImagenHotel();
         }
+    }
+
+    private void guardarSQLiteHotel() {
+        SqliteHotel sqliteHotel=new SqliteHotel(this);
+        sqliteHotel.remove(modeloHotelOld);
+        sqliteHotel.insert(modeloHotelNew);
     }
 
     private void mostrarImagenHotel() {
