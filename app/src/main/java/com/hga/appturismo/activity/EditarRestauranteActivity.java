@@ -15,6 +15,7 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.hga.appturismo.bdFirebase.TurismoAplicacion;
+import com.hga.appturismo.bdSQLite.SqliteRestaurante;
 import com.hga.appturismo.modelo.ModeloImagen;
 import com.hga.appturismo.modelo.ModeloRestaurante;
 import com.hga.appturismo.util.Constants;
@@ -86,9 +87,8 @@ public class EditarRestauranteActivity extends EditarActivity {
                     if (isValidRestaurante()) {
                         mostrarRestaurante();
                         guardarFirebaseRestaurante();
+                        guardarSQLiteRestaurante();
                         Toast.makeText(EditarRestauranteActivity.this, "Editado restaurante " + modeloRestauranteNew.getNombre(), Toast.LENGTH_SHORT).show();
-                    /*Intent intent=new Intent(EditarActivity.this,ListaRestaurantesActivity.class);
-                    startActivity(intent);*/
                     }
                 }
 
@@ -186,12 +186,18 @@ public class EditarRestauranteActivity extends EditarActivity {
         }
     }
 
+    private void guardarSQLiteRestaurante() {
+        SqliteRestaurante restaurante=new SqliteRestaurante(this);
+        restaurante.remove(modeloRestauranteOld);
+        restaurante.insert(modeloRestauranteNew);
+    }
+
     private void mostrarDatosRestaurante() {
         app = (TurismoAplicacion) getApplicationContext();
         editar_layout_provincia.setVisibility(View.GONE);
         editar_layout_tipoTurismo.setVisibility(View.GONE);
         editar_layout_descripcion.setVisibility(View.VISIBLE);
-        editar_layout_pagina_web.setVisibility(View.GONE);
+        editar_layout_pagina_web.setVisibility(View.VISIBLE);
         editar_layout_linea.setVisibility(View.VISIBLE);
         editar_layout_fecha.setVisibility(View.GONE);
         editar_layout_direccion.setVisibility(View.VISIBLE);
@@ -212,8 +218,8 @@ public class EditarRestauranteActivity extends EditarActivity {
         editar_txt_paginaweb.setText(modeloRestauranteOld.getPaginaWeb());
         editar_txt_telefono.setText(valueOf(modeloRestauranteOld.getTelefono()));
         editar_txt_horario.setText(modeloRestauranteOld.getHorario());
-        editar_txt_latitud.setText(valueOf(valueOf(modeloRestauranteOld.getGpsX())));
-        editar_txt_longitud.setText(valueOf(valueOf(modeloRestauranteOld.getGpsY())));
+        editar_txt_latitud.setText(valueOf(modeloRestauranteOld.getGpsX()));
+        editar_txt_longitud.setText(valueOf(modeloRestauranteOld.getGpsY()));
 
         String urlImagen = "";
         if (!modeloRestauranteOld.getImagenes().isEmpty()) {

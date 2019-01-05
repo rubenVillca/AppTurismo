@@ -21,7 +21,7 @@ import java.util.ArrayList;
  */
 
 public class DBModel extends SQLiteOpenHelper {
-    public static final int DATABASE_VERSION = 117;
+    public static final int DATABASE_VERSION = 118;
     public static final String DATABASE_NAME = "APP_TURISMO";
 
     public static final String TABLE_IMAGENES = "IMAGENES";
@@ -64,6 +64,7 @@ public class DBModel extends SQLiteOpenHelper {
     public static final String RESTAURANTES_LONGITUD = "LONGITUD_REST";
     public static final String RESTAURANTES_ESTADO= "ESTADO_REST";
     public static final String RESTAURANTES_LINEA= "LINEA_REST";
+    public static final String RESTAURANTES_PAGINA_WEB= "PAGINA_WEB_REST";
     public static final String RESTAURANTES_REGISTRADO_POR = "REGISTRADO_POR";
 
 
@@ -192,6 +193,7 @@ public class DBModel extends SQLiteOpenHelper {
                 + RESTAURANTES_LONGITUD + " text,"
                 + RESTAURANTES_ESTADO + " text,"
                 + RESTAURANTES_LINEA + " text,"
+                + RESTAURANTES_PAGINA_WEB + " text,"
                 + RESTAURANTES_REGISTRADO_POR + " text"
                 + ");";
     }
@@ -278,6 +280,7 @@ public class DBModel extends SQLiteOpenHelper {
         contentValues.put(DBModel.RESTAURANTES_LONGITUD, String.valueOf(modeloRestaurante.getGpsY()));
         contentValues.put(DBModel.RESTAURANTES_ESTADO, String.valueOf(modeloRestaurante.getEstado()));
         contentValues.put(DBModel.RESTAURANTES_LINEA,String.valueOf(modeloRestaurante.getLinea()));
+        contentValues.put(DBModel.RESTAURANTES_PAGINA_WEB,String.valueOf(modeloRestaurante.getPaginaWeb()));
         contentValues.put(DBModel.RESTAURANTES_REGISTRADO_POR, modeloRestaurante.getRegistradoPor());
 
         long idSqlite=db.insert(DBModel.TABLE_RESTAURANTES, null, contentValues);

@@ -81,12 +81,14 @@ public class ListasPrueba extends Listas{
         restaurante.setIdSQLite(idRestaurante++);
         restaurante.setNombre("Carne y Fuego");
         restaurante.setDescripcion("Restaurant - churrasquería");
-        restaurante.setLinea("");
+        restaurante.setLinea("111");
         restaurante.setGpsX(-17.376764248067403f);
         restaurante.setGpsY(-66.17607034742832f);
         restaurante.setDireccion("Av. Melchor Pérez nro. 1555 Zona: Sarco");
         restaurante.setImagenesFirebaseArreglo(ModeloImagen.TIPO_RESTAURANTE, new String[]{"carne y fuego3.png", "carne y fuego2.png" });
         restaurante.setTelefono(4243800L);
+        restaurante.setEmail("emailrestautnate@gmail.com");
+        restaurante.setPaginaWeb("www.gmai.com");
         restaurante.setHorario("Martes a Viernes 18:00-23:00 Sábado 18:00-23:00 Domingo 11:00-15:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         restaurante.setEstado(Constants.ESTADO_LUGAR_VISIBLE);

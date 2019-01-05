@@ -290,6 +290,7 @@ public class InsertarLugarActivity extends AppCompatActivity {
         modeloRestaurante.setHorario(txt_horario.getText().toString());
         modeloRestaurante.setDireccion(txt_direccion.getText().toString());
         modeloRestaurante.setEmail(txt_email.getText().toString());
+        modeloRestaurante.setPaginaWeb(txt_paginaweb.getText().toString());
         modeloRestaurante.setTelefonoString(txt_telefono.getText().toString());
         modeloRestaurante.setGpsX(Float.parseFloat(txt_latitud.getText().toString()));
         modeloRestaurante.setGpsY(Float.parseFloat(txt_longitud.getText().toString()));
@@ -643,9 +644,9 @@ public class InsertarLugarActivity extends AppCompatActivity {
                         layout_descripcion.setVisibility(View.VISIBLE);
                         layout_linea.setVisibility(View.VISIBLE);
                         layout_fecha.setVisibility(View.GONE);
-                        layout_email.setVisibility(View.GONE);
+                        layout_email.setVisibility(View.VISIBLE);
                         layout_direccion.setVisibility(View.VISIBLE);
-                        layout_pagina_web.setVisibility(View.GONE);
+                        layout_pagina_web.setVisibility(View.VISIBLE);
                         layout_telefono.setVisibility(View.VISIBLE);
                         layout_horario.setVisibility(View.VISIBLE);
                         layout_latitud.setVisibility(View.VISIBLE);

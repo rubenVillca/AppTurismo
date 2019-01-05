@@ -140,7 +140,6 @@ public class EditarHotelActivity extends EditarActivity {
         return super.getModeloImagens(tipo, id, ruta, modeloHotelOld.getImagenes());
     }
 
-
     private void mostrarHotel() {
         modeloHotelNew = new ModeloHotel();
         modeloHotelNew.setIdFirebase(modeloHotelOld.getIdFirebase());
