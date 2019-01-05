@@ -12,6 +12,7 @@ import com.hga.appturismo.modelo.ModeloPuntaje;
 import com.hga.appturismo.modelo.ModeloRestaurante;
 import com.hga.appturismo.modelo.ModeloUsuario;
 import com.hga.appturismo.provider.Listas;
+import com.hga.appturismo.provider.ListasPrueba;
 
 import java.util.ArrayList;
 
@@ -227,7 +228,7 @@ public class DBModel extends SQLiteOpenHelper {
     }
 
     private void insertarDatosSQLite(SQLiteDatabase db) {
-        Listas listas = new Listas();
+        Listas listas = new ListasPrueba();
         insertarLugares(listas.getListaLugares(), db);
         insertarHoteles(listas.getListaHoteles(), db);
         insertarRestaurantes(listas.getListaRestaurantes(), db);

@@ -2,6 +2,7 @@ package com.hga.appturismo.bdSQLite;
 
 import com.hga.appturismo.activity.MainActivity;
 import com.hga.appturismo.provider.Listas;
+import com.hga.appturismo.provider.ListasPrueba;
 
 /**
  * Created by HGA on 21/7/2018
@@ -13,7 +14,7 @@ public class DBSQLiteManager {
         SqliteLugar lugarTuristico =new SqliteLugar(mainActivity);
         SqliteUsuario usuario =new SqliteUsuario(mainActivity);
 
-        Listas listas=new Listas();
+        Listas listas=new ListasPrueba();
 
         hotel.update(listas.getListaHoteles());
         lugarTuristico.update(listas.getListaLugares());

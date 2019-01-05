@@ -92,7 +92,7 @@ public class LugarResponseTypeAdapter extends TypeAdapter {
                     turistico.setDireccion(reader.nextString());
                     break;
                 case "telefono":
-                    turistico.setTelefono(reader.nextInt());
+                    turistico.setTelefono(reader.nextLong());
                     break;
                 case "gpsX":
                     turistico.setGpsX(Float.parseFloat(reader.nextString()));

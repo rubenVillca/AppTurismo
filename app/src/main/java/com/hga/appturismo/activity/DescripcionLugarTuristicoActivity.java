@@ -102,12 +102,6 @@ public class DescripcionLugarTuristicoActivity extends AppCompatActivity impleme
         TextView textViewHorariosText = findViewById(R.id.textViewHorariosTextLugar);
         textViewHorariosText.setText(modeloLugarTuristico.getHorario());
 
-        TextView textViewActividadText = findViewById(R.id.textViewActividadText);
-        textViewActividadText.setText(modeloLugarTuristico.getActividad());
-
-        TextView textViewRegistradoPorText = findViewById(R.id.textViewRegistradoPorText);
-        textViewRegistradoPorText.setText(modeloLugarTuristico.getRegistradoPor());
-
         if (modeloLugarTuristico.getLinea().isEmpty()) {
             LinearLayout linearLayoutLinea =findViewById(R.id.linearLayoutLinea);
             linearLayoutLinea.setVisibility(View.GONE);
@@ -137,6 +131,7 @@ public class DescripcionLugarTuristicoActivity extends AppCompatActivity impleme
             TextView textViewActividad = findViewById(R.id.textViewActividadText);
             textViewActividad.setText(modeloLugarTuristico.getActividad());
         }
+
         //botones
         Button buttonAudio = findViewById(R.id.buttonAudio);
         buttonAudio.setOnClickListener(new View.OnClickListener() {
@@ -172,7 +167,7 @@ public class DescripcionLugarTuristicoActivity extends AppCompatActivity impleme
             LinearLayout linearLayout=findViewById(R.id.linearLayoutRegistradoPor);
             linearLayout.setVisibility(View.VISIBLE);
 
-            TextView textViewRegistradoPor= findViewById(R.id.textViewRegistradoPor);
+            TextView textViewRegistradoPor= findViewById(R.id.textViewRegistradoPorText);
             textViewRegistradoPor.setText(modeloLugarTuristico.getRegistradoPor());
         }
     }

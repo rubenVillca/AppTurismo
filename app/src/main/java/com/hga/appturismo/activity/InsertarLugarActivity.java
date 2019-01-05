@@ -52,10 +52,9 @@ import java.util.Date;
 import static com.hga.appturismo.util.Constants.TIPO_LUGAR_ACONTECIMIENTOS;
 
 public class InsertarLugarActivity extends AppCompatActivity {
-    private String email;
-
     public static final int REQUEST_IMAGE_CAPTURE = 1;
     public static int SELECT_PICTURE = 3;
+    private String email;
     private ImageView imageView;
     private String mCurrentPhotoPath;
     private String mCurrentAbsolutePhotoPath;
@@ -141,13 +140,16 @@ public class InsertarLugarActivity extends AppCompatActivity {
         iniciarValores();
         iniciarLayout();
         showImageCamera();
-        initSpinner();
+        initSpinnerTipoLugar();
+        initSpinnerProvincia();
+        initSpinnerCategoria();
     }
 
     private void getEmail() {
         SharedPreferences sharedPreferences = getSharedPreferences("USER", MODE_PRIVATE);
         email = sharedPreferences.getString("email", "");
     }
+
     /**
      * guarda la imagen tomada con la camara en el activity en el celular
      */
@@ -194,7 +196,7 @@ public class InsertarLugarActivity extends AppCompatActivity {
 
         SharedPreferences sharedPreferences = getSharedPreferences("USER", MODE_PRIVATE);
         int rol = sharedPreferences.getInt("rol", 0);
-        switch (rol){
+        switch (rol) {
             case Constants.USUARIO_ROL_REVISOR:
                 modeloHotel.setEstado(Constants.ESTADO_LUGAR_VISIBLE);
                 break;
@@ -263,7 +265,7 @@ public class InsertarLugarActivity extends AppCompatActivity {
 
         SharedPreferences sharedPreferences = getSharedPreferences("USER", MODE_PRIVATE);
         int rol = sharedPreferences.getInt("rol", 0);
-        switch (rol){
+        switch (rol) {
             case Constants.USUARIO_ROL_REVISOR:
                 modeloLugarTuristico.setEstado(Constants.ESTADO_LUGAR_VISIBLE);
                 break;
@@ -295,7 +297,7 @@ public class InsertarLugarActivity extends AppCompatActivity {
 
         SharedPreferences sharedPreferences = getSharedPreferences("USER", MODE_PRIVATE);
         int rol = sharedPreferences.getInt("rol", 0);
-        switch (rol){
+        switch (rol) {
             case Constants.USUARIO_ROL_REVISOR:
                 modeloRestaurante.setEstado(Constants.ESTADO_LUGAR_VISIBLE);
                 break;
@@ -338,37 +340,37 @@ public class InsertarLugarActivity extends AppCompatActivity {
     }
 
     private boolean isFechaValid() {
-        boolean res=false;
-        String fecha=txt_fecha.getText().toString();
-        if (fecha.length()>7){
-            Integer dia=0;
-            String mes="";
-            try{
-                dia=Integer.parseInt(fecha.substring(0,2).trim());
-                mes=fecha.substring(2).trim().toLowerCase();
-            }catch (Exception e){
+        boolean res = false;
+        String fecha = txt_fecha.getText().toString();
+        if (fecha.length() > 7) {
+            Integer dia = 0;
+            String mes = "";
+            try {
+                dia = Integer.parseInt(fecha.substring(0, 2).trim());
+                mes = fecha.substring(2).trim().toLowerCase();
+            } catch (Exception e) {
                 System.out.println("Error en el dia de la fecha insertada");
             }
 
-            if (dia>0&&dia<=31
-                    &&(mes.equals("enero")
-                    ||mes.equals("marzo")
-                    ||mes.equals("mayo")
-                    ||mes.equals("julio")
-                    ||mes.equals("agosto")
-                    ||mes.equals("octubre")
-                    ||mes.equals("diciembre"))){
-                res=true;
+            if (dia > 0 && dia <= 31
+                    && (mes.equals("enero")
+                    || mes.equals("marzo")
+                    || mes.equals("mayo")
+                    || mes.equals("julio")
+                    || mes.equals("agosto")
+                    || mes.equals("octubre")
+                    || mes.equals("diciembre"))) {
+                res = true;
             }
-            if (dia>0&&dia<=29 &&(mes.equals("febrero"))){
-                res=true;
+            if (dia > 0 && dia <= 29 && (mes.equals("febrero"))) {
+                res = true;
             }
-            if (dia>0&&dia<=30
-                    &&(mes.equals("abril")
-                    ||mes.equals("junio")
-                    ||mes.equals("septiembre")
-                    ||mes.equals("noviembre"))){
-                res=true;
+            if (dia > 0 && dia <= 30
+                    && (mes.equals("abril")
+                    || mes.equals("junio")
+                    || mes.equals("septiembre")
+                    || mes.equals("noviembre"))) {
+                res = true;
             }
         }
 
@@ -379,7 +381,7 @@ public class InsertarLugarActivity extends AppCompatActivity {
      * envia la imagen tomada por la camara al servidor bdFirebase//h
      */
     private void guardarDatosFirebaseHotel() {
-        final SqliteHotel hotelSQLite=new SqliteHotel(this);
+        final SqliteHotel hotelSQLite = new SqliteHotel(this);
         final ModeloHotel modeloHotel = getHotel(hotelSQLite.list().size());
 
         databaseReference = app.getDataBaseReferenceHotel("");
@@ -417,13 +419,13 @@ public class InsertarLugarActivity extends AppCompatActivity {
      * envia la imagen tomada por la camara al servidor bdFirebase
      */
     private void guardarDatosFirebaseLugarTuristico() {
-        final SqliteLugar lugarTuristico=new SqliteLugar(this);
+        final SqliteLugar lugarTuristico = new SqliteLugar(this);
         final ModeloLugarTuristico modeloLugarTuristico = getLugarTuristico(lugarTuristico);
 
         File file = new File(mCurrentAbsolutePhotoPath);
         final Uri uri = Uri.fromFile(file);
 
-        databaseReference=setReferencetProvincia(modeloLugarTuristico);
+        databaseReference = setReferencetProvincia(modeloLugarTuristico);
 
         storageReference = app.getStorageReferenceLugarTuristico(modeloLugarTuristico.getNombre());
         StorageReference imageReference = storageReference.child(uri.getLastPathSegment());
@@ -519,7 +521,7 @@ public class InsertarLugarActivity extends AppCompatActivity {
      * enviar los datos recuperados del activity al servidor bdFirebase
      */
     private void guardarDatosFirebaseRestaurante() {
-        final SqliteRestaurante restaurante=new SqliteRestaurante(this);
+        final SqliteRestaurante restaurante = new SqliteRestaurante(this);
         final ModeloRestaurante modeloRestaurante = getRestaurante(restaurante);
 
         databaseReference = app.getDataBaseReferenceRestaurante("");
@@ -568,7 +570,7 @@ public class InsertarLugarActivity extends AppCompatActivity {
         layout_latitud = findViewById(R.id.layout_latitud);
         layout_longitud = findViewById(R.id.layout_longitud);
         layout_fecha = findViewById(R.id.layout_fechaTurismo);
-        layout_linea= findViewById(R.id.layout_lineaTurismo);
+        layout_linea = findViewById(R.id.layout_lineaTurismo);
         layout_imagen = findViewById(R.id.layout_imagen);
     }
 
@@ -596,53 +598,18 @@ public class InsertarLugarActivity extends AppCompatActivity {
     /**
      * agregar los valores de los spinner en el activity insertar
      * -spinner provincia(cercado, quillacollo,etc)
-     * -spinner tipo lugar(arquitectonico, etc..)
-     * -spinner tipo insercion(hotel, restarutanre, lugar turistico)
      */
-    private void initSpinner() {
-        //spinnerProvincia
+    private void initSpinnerProvincia() {
         ArrayAdapter<CharSequence> adapterProvincia = ArrayAdapter.createFromResource(this, R.array.provincia, android.R.layout.simple_spinner_item);
         adapterProvincia.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerProvincia.setAdapter(adapterProvincia);
+    }
 
-        ArrayAdapter<CharSequence> adapterTipoTurismo = ArrayAdapter.createFromResource(this, R.array.tipo_turismo, android.R.layout.simple_spinner_item);
-        adapterTipoTurismo.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerCategoria.setAdapter(adapterTipoTurismo);
-        spinnerCategoria.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                switch (position) {
-
-                    case 4://acontecimiento en un lugar turistico
-                        layout_tipo.setVisibility(View.VISIBLE);
-                        layout_provincia.setVisibility(View.VISIBLE);
-                        layout_tipoTurismo.setVisibility(View.VISIBLE);
-                        layout_nombre.setVisibility(View.VISIBLE);
-                        layout_descripcion.setVisibility(View.VISIBLE);
-                        layout_email.setVisibility(View.GONE);
-                        layout_direccion.setVisibility(View.VISIBLE);
-                        layout_pagina_web.setVisibility(View.GONE);
-                        layout_telefono.setVisibility(View.VISIBLE);
-                        layout_horario.setVisibility(View.VISIBLE);
-                        layout_latitud.setVisibility(View.VISIBLE);
-                        layout_longitud.setVisibility(View.VISIBLE);
-                        layout_imagen.setVisibility(View.VISIBLE);
-                        layout_linea.setVisibility(View.VISIBLE);
-                        layout_fecha.setVisibility(View.VISIBLE);
-                        break;
-                        default:
-                            layout_linea.setVisibility(View.GONE);
-                            layout_fecha.setVisibility(View.GONE);
-                            break;
-                }
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-
+    /**
+     * agregar los valores de los spinner en el activity insertar
+     * -spinner tipo lugar(arquitectonico, etc..)
+     */
+    private void initSpinnerTipoLugar() {
         ArrayAdapter<CharSequence> adapterTipo = ArrayAdapter.createFromResource(this, R.array.tipo_insercion, android.R.layout.simple_spinner_item);
         adapterTipo.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerTipo.setAdapter(adapterTipo);
@@ -657,6 +624,8 @@ public class InsertarLugarActivity extends AppCompatActivity {
                         layout_tipoTurismo.setVisibility(View.GONE);
                         layout_nombre.setVisibility(View.VISIBLE);
                         layout_descripcion.setVisibility(View.VISIBLE);
+                        layout_linea.setVisibility(View.VISIBLE);
+                        layout_fecha.setVisibility(View.GONE);
                         layout_email.setVisibility(View.VISIBLE);
                         layout_direccion.setVisibility(View.VISIBLE);
                         layout_pagina_web.setVisibility(View.VISIBLE);
@@ -672,6 +641,8 @@ public class InsertarLugarActivity extends AppCompatActivity {
                         layout_tipoTurismo.setVisibility(View.GONE);
                         layout_nombre.setVisibility(View.VISIBLE);
                         layout_descripcion.setVisibility(View.VISIBLE);
+                        layout_linea.setVisibility(View.VISIBLE);
+                        layout_fecha.setVisibility(View.GONE);
                         layout_email.setVisibility(View.GONE);
                         layout_direccion.setVisibility(View.VISIBLE);
                         layout_pagina_web.setVisibility(View.GONE);
@@ -697,6 +668,50 @@ public class InsertarLugarActivity extends AppCompatActivity {
                         layout_imagen.setVisibility(View.VISIBLE);
                         layout_linea.setVisibility(View.GONE);
                         layout_fecha.setVisibility(View.GONE);
+                        break;
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+    }
+
+    /**
+     * agregar los valores de los spinner en el activity insertar
+     * -spinner tipo insercion(hotel, restarutanre, lugar turistico)
+     */
+    private void initSpinnerCategoria() {
+        ArrayAdapter<CharSequence> adapterTipoTurismo = ArrayAdapter.createFromResource(this, R.array.tipo_turismo, android.R.layout.simple_spinner_item);
+        adapterTipoTurismo.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerCategoria.setAdapter(adapterTipoTurismo);
+        spinnerCategoria.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                switch (position) {
+
+                    case 4://acontecimiento en un lugar turistico
+                        layout_tipo.setVisibility(View.VISIBLE);
+                        layout_provincia.setVisibility(View.VISIBLE);
+                        layout_tipoTurismo.setVisibility(View.VISIBLE);
+                        layout_nombre.setVisibility(View.VISIBLE);
+                        layout_descripcion.setVisibility(View.VISIBLE);
+                        layout_email.setVisibility(View.GONE);
+                        layout_direccion.setVisibility(View.VISIBLE);
+                        layout_pagina_web.setVisibility(View.GONE);
+                        layout_telefono.setVisibility(View.VISIBLE);
+                        layout_horario.setVisibility(View.VISIBLE);
+                        layout_latitud.setVisibility(View.VISIBLE);
+                        layout_longitud.setVisibility(View.VISIBLE);
+                        layout_imagen.setVisibility(View.VISIBLE);
+                        layout_linea.setVisibility(View.VISIBLE);
+                        layout_fecha.setVisibility(View.VISIBLE);
+                        break;
+                    default:
+                        //layout_linea.setVisibility(View.GONE);
+                        //layout_fecha.setVisibility(View.GONE);
                         break;
                 }
             }
@@ -755,7 +770,7 @@ public class InsertarLugarActivity extends AppCompatActivity {
         txt_latitud.setError(null);
         txt_longitud.setError(null);
         txt_ruta_imagen.setError(null);
-        focusView=null;
+        focusView = null;
         //para el error en spinner provincia
         TextView txt_provincia = (TextView) spinnerProvincia.getSelectedView();
         txt_provincia.setError(null);
@@ -766,11 +781,11 @@ public class InsertarLugarActivity extends AppCompatActivity {
         String descripcion = txt_descripcion.getText().toString();
         String latitud = txt_latitud.getText().toString();
         String longitud = txt_longitud.getText().toString();
-        String rutaImagen=txt_ruta_imagen.getText().toString();
+        String rutaImagen = txt_ruta_imagen.getText().toString();
 
         if (rutaImagen.isEmpty()) {
             txt_ruta_imagen.setError("Seleccione una una imagen de la galeria\n o capture una foto");
-            Toast.makeText(this,"Seleccione una una imagen de la galeria\n o capture una foto",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Seleccione una una imagen de la galeria\n o capture una foto", Toast.LENGTH_SHORT).show();
             focusView = txt_ruta_imagen;
             isValidLugarTuristico = false;
         }
@@ -799,14 +814,14 @@ public class InsertarLugarActivity extends AppCompatActivity {
             focusView = txt_nombre;
             isValidLugarTuristico = false;
         }
-        String categoria= spinnerCategoria.getSelectedItem().toString();
-        if (!isFechaValid()&&categoria.equals(TIPO_LUGAR_ACONTECIMIENTOS)){
+        String categoria = spinnerCategoria.getSelectedItem().toString();
+        if (!isFechaValid() && categoria.equals(TIPO_LUGAR_ACONTECIMIENTOS)) {
             txt_fecha.setError("Fecha invalida");
-            focusView=txt_fecha;
-            isValidLugarTuristico=false;
+            focusView = txt_fecha;
+            isValidLugarTuristico = false;
         }
 
-        if (focusView!=null) {
+        if (focusView != null) {
             focusView.requestFocus();
         }
         return isValidLugarTuristico;
@@ -817,15 +832,15 @@ public class InsertarLugarActivity extends AppCompatActivity {
         txt_nombre.setError(null);
         txt_latitud.setError(null);
         txt_longitud.setError(null);
-        focusView=null;
+        focusView = null;
         String nombre = txt_nombre.getText().toString();
         String latitud = txt_latitud.getText().toString();
         String longitud = txt_longitud.getText().toString();
-        String rutaImagen=txt_ruta_imagen.getText().toString();
+        String rutaImagen = txt_ruta_imagen.getText().toString();
 
         if (rutaImagen.isEmpty()) {
             txt_ruta_imagen.setError("Seleccione una una imagen de la galeria\n o capture una foto");
-            Toast.makeText(this,"Seleccione una una imagen de la galeria\n o capture una foto",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Seleccione una una imagen de la galeria\n o capture una foto", Toast.LENGTH_SHORT).show();
             focusView = txt_ruta_imagen;
             isValidRestaurante = false;
         }
@@ -844,7 +859,7 @@ public class InsertarLugarActivity extends AppCompatActivity {
             focusView = txt_nombre;
             isValidRestaurante = false;
         }
-        if (focusView!=null) {
+        if (focusView != null) {
             focusView.requestFocus();
         }
         return isValidRestaurante;
@@ -855,16 +870,16 @@ public class InsertarLugarActivity extends AppCompatActivity {
         txt_nombre.setError(null);
         txt_latitud.setError(null);
         txt_longitud.setError(null);
-        focusView=null;
+        focusView = null;
 
         String nombre = txt_nombre.getText().toString();
         String latitud = txt_latitud.getText().toString();
         String longitud = txt_longitud.getText().toString();
-        String rutaImagen=txt_ruta_imagen.getText().toString();
+        String rutaImagen = txt_ruta_imagen.getText().toString();
 
         if (rutaImagen.isEmpty()) {
             txt_ruta_imagen.setError("Seleccione una una imagen de la galeria\n o capture una foto");
-            Toast.makeText(this,"Seleccione una una imagen de la galeria\n o capture una foto",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Seleccione una una imagen de la galeria\n o capture una foto", Toast.LENGTH_SHORT).show();
             focusView = txt_ruta_imagen;
             isValidHotel = false;
         }
@@ -883,7 +898,7 @@ public class InsertarLugarActivity extends AppCompatActivity {
             focusView = txt_nombre;
             isValidHotel = false;
         }
-        if (focusView!=null) {
+        if (focusView != null) {
             focusView.requestFocus();
         }
         return isValidHotel;

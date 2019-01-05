@@ -64,7 +64,7 @@ public class EditarHotelActivity extends EditarActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_editar);
+        setContentView(R.layout.activity_editar_lugar);
 
         app = (TurismoAplicacion) getApplicationContext();
 
@@ -147,10 +147,11 @@ public class EditarHotelActivity extends EditarActivity {
         modeloHotelNew.setIdSQLite(modeloHotelOld.getIdSQLite());
         modeloHotelNew.setNombre(editar_txt_nombre.getText().toString());
         modeloHotelNew.setDescripcion(editar_txt_descripcion.getText().toString());
+        modeloHotelNew.setLinea(editar_txt_linea.getText().toString());
         modeloHotelNew.setGpsX(Float.parseFloat(editar_txt_latitud.getText().toString()));
         modeloHotelNew.setGpsY(Float.parseFloat(editar_txt_longitud.getText().toString()));
         modeloHotelNew.setDireccion(editar_txt_direccion.getText().toString());
-        modeloHotelNew.setTelefono(Integer.parseInt(editar_txt_telefono.getText().toString()));
+        modeloHotelNew.setTelefono(Long.parseLong(editar_txt_telefono.getText().toString()));
         modeloHotelNew.setProvincia(editar_spinner_provincia.getSelectedItem().toString());
         modeloHotelNew.setPaginaWeb(editar_txt_paginaweb.getText().toString());
         modeloHotelNew.setEmail(editar_txt_email.getText().toString());
@@ -192,14 +193,17 @@ public class EditarHotelActivity extends EditarActivity {
         editar_layout_tipoTurismo.setVisibility(View.GONE);
         editar_layout_provincia.setVisibility(View.GONE);
         editar_layout_horario.setVisibility(View.GONE);
-        editar_layout_linea.setVisibility(View.GONE);
+        editar_layout_linea.setVisibility(View.VISIBLE);
         //editar_spinner_tipo.setText(modeloHotelOld.get());
         //editar_spinner_provincia.setText(modeloHotelOld.get());
         //editar_spinner_tipo_turismo.setText(modeloHotelOld.get());
+        editar_layout_fecha.setVisibility(View.GONE);
+
         editar_txt_nombre.setText(modeloHotelOld.getNombre());
         //editar_txt_descripcion.setText(modeloHotelOld.get());
         editar_txt_email.setText(modeloHotelOld.getEmail());
         editar_txt_descripcion.setText(modeloHotelOld.getDescripcion());
+        editar_txt_linea.setText(modeloHotelOld.getLinea());
         editar_txt_direccion.setText(modeloHotelOld.getDireccion());
         editar_txt_paginaweb.setText(modeloHotelOld.getPaginaWeb());
         editar_txt_telefono.setText(valueOf(modeloHotelOld.getTelefono()));
@@ -272,7 +276,7 @@ public class EditarHotelActivity extends EditarActivity {
             focusView = editar_txt_nombre;
             isValidHotel = false;
         }
-        if (nombre.isEmpty()) {
+        if (descripcion.isEmpty()) {
             editar_txt_descripcion.setError("Llenar Actividad");
             focusView = editar_txt_descripcion;
             isValidHotel = false;

@@ -21,7 +21,7 @@ public class ServiceResetFirebase {
     public ServiceResetFirebase(MainActivity mainActivity) {
         app = (TurismoAplicacion) mainActivity.getApplicationContext();
         this.mainActivity = mainActivity;
-        listas=new Listas();
+        listas=new ListasPrueba();
     }
 
     /**
@@ -31,7 +31,7 @@ public class ServiceResetFirebase {
         resetHoteles();
         resetRestaurantes();
         resetLugares();
-        resetUsuarios();
+        //resetUsuarios();
 
         Toast.makeText(mainActivity,"Actualizado firebase",Toast.LENGTH_LONG).show();
     }

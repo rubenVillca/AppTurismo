@@ -111,7 +111,7 @@ public class EditarLugarActivity extends EditarActivity {
         modeloLugarTuristicoNew.setDescripcion(editar_txt_descripcion.getText().toString());
         modeloLugarTuristicoNew.setHorario(editar_txt_horario.getText().toString());
         modeloLugarTuristicoNew.setDireccion(editar_txt_direccion.getText().toString());
-        modeloLugarTuristicoNew.setTelefono(Integer.parseInt(editar_txt_telefono.getText().toString()));
+        modeloLugarTuristicoNew.setTelefono(Long.parseLong(editar_txt_telefono.getText().toString()));
         modeloLugarTuristicoNew.setGpsX(Float.parseFloat(editar_txt_latitud.getText().toString()));
         modeloLugarTuristicoNew.setGpsY(Float.parseFloat(editar_txt_longitud.getText().toString()));
         modeloLugarTuristicoNew.setLinea(editar_txt_linea.getText().toString());

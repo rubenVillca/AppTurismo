@@ -69,7 +69,7 @@ public class HotelResponseTypeAdapter extends TypeAdapter {
                     modeloHotel.setImagenes(readImagenes(reader));
                     break;
                 case "telefono":
-                    modeloHotel.setTelefono(reader.nextInt());
+                    modeloHotel.setTelefono(reader.nextLong());
                     break;
                 case "provincia":
                     modeloHotel.setProvincia(reader.nextString());

@@ -38,7 +38,7 @@ import static android.content.Context.MODE_PRIVATE;
 
 
 /**
- * Created by ruben on 12/09/2017
+ * Created by on 12/09/2017
  */
 
 public class RestauranteAdapterRecycler extends RecyclerView.Adapter<RestauranteAdapterRecycler.RestauranteViewHolder> implements Filterable {

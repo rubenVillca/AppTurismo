@@ -14,7 +14,7 @@ public class ModeloBaseLugares implements Serializable {
     protected String nombre;
     protected String direccion;
     protected ArrayList<ModeloImagen> imagenes;
-    protected int telefono;
+    protected Long telefono;
     protected float gpsX;
     protected float gpsY;
     protected String estado;
@@ -27,7 +27,7 @@ public class ModeloBaseLugares implements Serializable {
         this.nombre = "";
         this.direccion = "";
         this.imagenes = new ArrayList<>();
-        this.telefono = 0;
+        this.telefono = 0L;
         this.gpsX = 0f;
         this.gpsY = 0f;
         this.estado = Constants.ESTADO_LUGAR_VISIBLE;
@@ -68,8 +68,12 @@ public class ModeloBaseLugares implements Serializable {
         this.nombre = nombre;
     }
 
-      public String getDireccion() {
+    public String getDireccion() {
         return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
     }
 
     public String getRegistradoPor() {
@@ -80,10 +84,6 @@ public class ModeloBaseLugares implements Serializable {
         this.registradoPor = registradoPor;
     }
 
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
-    }
-
     public ArrayList<ModeloImagen> getImagenes() {
         return imagenes;
     }
@@ -92,11 +92,11 @@ public class ModeloBaseLugares implements Serializable {
         this.imagenes = imagenes;
     }
 
-    public int getTelefono() {
+    public Long getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(int telefono) {
+    public void setTelefono(Long telefono) {
         this.telefono = telefono;
     }
 
@@ -126,9 +126,9 @@ public class ModeloBaseLugares implements Serializable {
 
     public void setTelefonoString(String telefono) {
         if (telefono.isEmpty()) {
-            this.telefono = 0;
+            this.telefono = 0L;
         } else {
-            this.telefono = Integer.parseInt(telefono);
+            this.telefono = Long.parseLong(telefono);
         }
     }
 

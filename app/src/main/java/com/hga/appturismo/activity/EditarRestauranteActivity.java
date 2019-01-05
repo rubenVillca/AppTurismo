@@ -137,12 +137,13 @@ public class EditarRestauranteActivity extends EditarActivity {
         modeloRestauranteNew = new ModeloRestaurante();
         modeloRestauranteNew.setNombre(editar_txt_nombre.getText().toString());
         modeloRestauranteNew.setDescripcion(editar_txt_descripcion.getText().toString());
+        modeloRestauranteNew.setLinea(editar_txt_linea.getText().toString());
         modeloRestauranteNew.setGpsX(Float.parseFloat(editar_txt_latitud.getText().toString()));
         modeloRestauranteNew.setGpsY(Float.parseFloat(editar_txt_longitud.getText().toString()));
         modeloRestauranteNew.setDireccion(editar_txt_direccion.getText().toString());
         modeloRestauranteNew.setIdSQLite(modeloRestauranteOld.getIdSQLite());
         modeloRestauranteNew.setIdFirebase(modeloRestauranteOld.getIdFirebase());
-        modeloRestauranteNew.setTelefono(Integer.parseInt(editar_txt_telefono.getText().toString()));
+        modeloRestauranteNew.setTelefono(Long.parseLong(editar_txt_telefono.getText().toString()));
         modeloRestauranteNew.setEmail(editar_txt_email.getText().toString());
         modeloRestauranteNew.setHorario(editar_txt_horario.getText().toString());
         modeloRestauranteNew.setProvincia(editar_spinner_provincia.getSelectedItem().toString());
@@ -189,14 +190,23 @@ public class EditarRestauranteActivity extends EditarActivity {
         app = (TurismoAplicacion) getApplicationContext();
         editar_layout_provincia.setVisibility(View.GONE);
         editar_layout_tipoTurismo.setVisibility(View.GONE);
-        editar_layout_descripcion.setVisibility(View.GONE);
+        editar_layout_descripcion.setVisibility(View.VISIBLE);
         editar_layout_pagina_web.setVisibility(View.GONE);
-        editar_layout_linea.setVisibility(View.GONE);
+        editar_layout_linea.setVisibility(View.VISIBLE);
+        editar_layout_fecha.setVisibility(View.GONE);
+        editar_layout_direccion.setVisibility(View.VISIBLE);
+        editar_layout_latitud.setVisibility(View.VISIBLE);
+        editar_layout_longitud.setVisibility(View.VISIBLE);
+        editar_layout_email.setVisibility(View.VISIBLE);
+        editar_layout_horario.setVisibility(View.VISIBLE);
+        editar_layout_telefono.setVisibility(View.VISIBLE);
+
         //editar_spinner_tipo.setText(modeloRestauranteOld.get());
         //editar_spinner_provincia.setText(modeloRestauranteOld.get());
         //editar_spinner_tipo_turismo.setText(modeloRestauranteOld.get());
         editar_txt_nombre.setText(modeloRestauranteOld.getNombre());
         editar_txt_descripcion.setText(modeloRestauranteOld.getDescripcion());
+        editar_txt_linea.setText(modeloRestauranteOld.getLinea());
         editar_txt_email.setText(modeloRestauranteOld.getEmail());
         editar_txt_direccion.setText(modeloRestauranteOld.getDireccion());
         editar_txt_paginaweb.setText(modeloRestauranteOld.getPaginaWeb());
@@ -268,7 +278,7 @@ public class EditarRestauranteActivity extends EditarActivity {
             focusView = editar_txt_latitud;
             isValidRestaurante = false;
         }
-        if (nombre.isEmpty()) {
+        if (descripcion.isEmpty()) {
             editar_txt_descripcion.setError("Llenar Actividad");
             focusView = editar_txt_descripcion;
             isValidRestaurante = false;

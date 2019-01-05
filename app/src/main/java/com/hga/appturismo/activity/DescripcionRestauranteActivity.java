@@ -49,8 +49,8 @@ public class DescripcionRestauranteActivity extends AppCompatActivity implements
         TextView textViewNombre = findViewById(R.id.textViewNombreText);
         textViewNombre.setText(modeloRestaurante.getNombre());
 
-        //TextView textViewDescripcion = findViewById(R.id.textViewDescripcionText);
-        //textViewDescripcion.setText(modeloRestaurante.getDescripcion());
+        TextView textViewDescripcion = findViewById(R.id.textViewDescripcionText);
+        textViewDescripcion.setText(modeloRestaurante.getDescripcion());
 
         TextView textViewDireccion = findViewById(R.id.textViewDireccionText);
         textViewDireccion.setText(modeloRestaurante.getDireccion());
@@ -61,22 +61,27 @@ public class DescripcionRestauranteActivity extends AppCompatActivity implements
         TextView textViewTelefono = findViewById(R.id.textViewTelefonoText);
         textViewTelefono.setText(String.valueOf(modeloRestaurante.getTelefono()));
 
-        TextView textViewPagWebText = findViewById(R.id.textViewPagWebText);
-        textViewPagWebText.setText(String.valueOf(modeloRestaurante.getPaginaWeb()));
-
-        TextView textViewEmailText = findViewById(R.id.textViewEmailText);
-        textViewEmailText.setText(String.valueOf(modeloRestaurante.getEmail()));
-
-        TextView textViewRegistradoPorText = findViewById(R.id.textViewRegistradoPorText);
-        textViewRegistradoPorText.setText(modeloRestaurante.getRegistradoPor());
-
-       /* if (modeloRestaurante.getLinea().isEmpty()) {
+        if (modeloRestaurante.getLinea().isEmpty()) {
             LinearLayout linearLayoutLinea =findViewById(R.id.linearLayoutLinea);
             linearLayoutLinea.setVisibility(View.GONE);
         }else {
             TextView textViewLineaText = findViewById(R.id.textViewLineaText);
             textViewLineaText.setText(modeloRestaurante.getLinea());
-        }*/
+        }
+        if (modeloRestaurante.getPaginaWeb().isEmpty()) {
+            LinearLayout linearLayoutPaginaWeb =findViewById(R.id.linearLayoutPaginaWeb);
+            linearLayoutPaginaWeb.setVisibility(View.GONE);
+        }else {
+            TextView textViewPagWebText = findViewById(R.id.textViewPagWeb);
+            textViewPagWebText.setText(modeloRestaurante.getPaginaWeb());
+        }
+        if (modeloRestaurante.getEmail().isEmpty()) {
+            LinearLayout linearLayoutEmail =findViewById(R.id.linearLayoutEmail);
+            linearLayoutEmail.setVisibility(View.GONE);
+        }else {
+            TextView textViewEmailText = findViewById(R.id.textViewEmailText);
+            textViewEmailText.setText(modeloRestaurante.getEmail());
+        }
 
         Button buttonAudio = findViewById(R.id.buttonAudio);
         buttonAudio.setOnClickListener(new View.OnClickListener() {
@@ -114,7 +119,7 @@ public class DescripcionRestauranteActivity extends AppCompatActivity implements
             LinearLayout linearLayout=findViewById(R.id.linearLayoutRegistradoPor);
             linearLayout.setVisibility(View.VISIBLE);
 
-            TextView textViewRegistradoPor= findViewById(R.id.textViewRegistradoPor);
+            TextView textViewRegistradoPor= findViewById(R.id.textViewRegistradoPorText);
             textViewRegistradoPor.setText(modeloRestaurante.getRegistradoPor());
         }
     }

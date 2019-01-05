@@ -123,7 +123,7 @@ public class EditarActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_editar);
+        setContentView(R.layout.activity_editar_lugar);
 
         app = (TurismoAplicacion) getApplicationContext();
     }
@@ -203,7 +203,7 @@ public class EditarActivity extends AppCompatActivity {
                         editar_layout_latitud.setVisibility(View.VISIBLE);
                         editar_layout_longitud.setVisibility(View.VISIBLE);
                         editar_layout_imagen.setVisibility(View.VISIBLE);
-                        editar_layout_linea.setVisibility(View.GONE);
+                        editar_layout_linea.setVisibility(View.VISIBLE);
                         editar_layout_fecha.setVisibility(View.GONE);
                         break;
                     case 1://modeloRestauranteOld
@@ -219,7 +219,7 @@ public class EditarActivity extends AppCompatActivity {
                         editar_layout_latitud.setVisibility(View.VISIBLE);
                         editar_layout_longitud.setVisibility(View.VISIBLE);
                         editar_layout_imagen.setVisibility(View.VISIBLE);
-                        editar_layout_linea.setVisibility(View.GONE);
+                        editar_layout_linea.setVisibility(View.VISIBLE);
                         editar_layout_fecha.setVisibility(View.GONE);
                         break;
                     case 2://lugar turistico

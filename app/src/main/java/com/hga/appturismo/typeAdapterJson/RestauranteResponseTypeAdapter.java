@@ -71,7 +71,7 @@ public class RestauranteResponseTypeAdapter extends TypeAdapter {
                     modeloRestaurante.setImagenesFirebase(readImagenes(reader));
                     break;
                 case "telefono":
-                    modeloRestaurante.setTelefono(reader.nextInt());
+                    modeloRestaurante.setTelefono(reader.nextLong());
                     break;
                 case "provincia":
                     modeloRestaurante.setProvincia(reader.nextString());
