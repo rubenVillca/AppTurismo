@@ -49,7 +49,7 @@ public class EditarActivity extends AppCompatActivity {
     protected Spinner editar_spinner_tipo_turismo;
 
     protected EditText editar_txt_nombre;
-    protected EditText editar_txt_descripcion;
+    protected EditText editar_txt_actividad;
     protected EditText editar_txt_email;
     protected EditText editar_txt_direccion;
     protected EditText editar_txt_paginaweb;
@@ -72,7 +72,7 @@ public class EditarActivity extends AppCompatActivity {
     protected LinearLayout editar_layout_provincia;
     protected LinearLayout editar_layout_tipoTurismo;
     protected LinearLayout editar_layout_nombre;
-    protected LinearLayout editar_layout_descripcion;
+    protected LinearLayout editar_layout_actividad;
     protected LinearLayout editar_layout_email;
     protected LinearLayout editar_layout_direccion;
     protected LinearLayout editar_layout_pagina_web;
@@ -137,8 +137,8 @@ public class EditarActivity extends AppCompatActivity {
         editar_spinner_tipo_turismo = findViewById(R.id.editar_spinner_tipo_turismo);
         editar_layout_nombre = findViewById(R.id.editar_layout_nombre);
         editar_txt_nombre = findViewById(R.id.editar_txt_nombre);
-        editar_layout_descripcion = findViewById(R.id.editar_layout_descripcion);
-        editar_txt_descripcion = findViewById(R.id.editar_txt_descripcion);
+        editar_layout_actividad = findViewById(R.id.editar_layout_actividad);
+        editar_txt_actividad = findViewById(R.id.editar_txt_actividad);
         editar_layout_email = findViewById(R.id.editar_layout_email);
         editar_txt_email = findViewById(R.id.editar_txt_email);
         editar_layout_direccion = findViewById(R.id.editar_layout_direccion);

@@ -13,7 +13,6 @@ import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
 import com.hga.appturismo.R;
-import com.hga.appturismo.bdFirebase.ServiceFirebase;
 import com.hga.appturismo.bdFirebase.ServiceFirebaseHoteles;
 import com.hga.appturismo.bdFirebase.ServiceFirebaseLugaresTour;
 import com.hga.appturismo.bdFirebase.ServiceFirebaseRestaurantes;
@@ -76,7 +75,7 @@ public class DescripcionSugerenciaActivity extends AppCompatActivity implements 
         textViewProvinciaText = findViewById(R.id.textViewProvinciaText);
         textViewNombreText = findViewById(R.id.textViewNombreText);
         textViewTipoText = findViewById(R.id.textViewTipoText);
-        textViewDescripcionText = findViewById(R.id.textViewDescripcionText);
+        textViewDescripcionText = findViewById(R.id.textViewActividadTextView);
         textViewLineaText = findViewById(R.id.textViewLineaText);
         textViewFechaText = findViewById(R.id.textViewFechaText);
         textViewDireccionText = findViewById(R.id.textViewDireccionText);
@@ -133,7 +132,7 @@ public class DescripcionSugerenciaActivity extends AppCompatActivity implements 
         textViewProvinciaText.setText(modeloHotel.getProvincia());
         textViewNombreText.setText(modeloHotel.getNombre());
         //textViewTipoText.setText(modeloHotel.get());
-        textViewDescripcionText.setText(modeloHotel.getDescripcion());
+        textViewDescripcionText.setText(modeloHotel.getActividad());
         textViewLineaText.setText(modeloHotel.getLinea());
         //textViewFechaText.setText(modeloHotel.get());
         textViewDireccionText.setText(modeloHotel.getDireccion());
@@ -147,7 +146,7 @@ public class DescripcionSugerenciaActivity extends AppCompatActivity implements 
         textViewProvinciaText.setText(modeloRestaurante.getProvincia());
         textViewNombreText.setText(modeloRestaurante.getNombre());
         //textViewTipoText.setText(modeloRestaurante.get());
-        textViewDescripcionText.setText(modeloRestaurante.getDescripcion());
+        textViewActividadText.setText(modeloRestaurante.getActividad());
         textViewLineaText.setText(modeloRestaurante.getLinea());
         //textViewFechaText.setText(modeloRestaurante.get());
         textViewDireccionText.setText(modeloRestaurante.getDireccion());
@@ -161,7 +160,7 @@ public class DescripcionSugerenciaActivity extends AppCompatActivity implements 
         textViewProvinciaText.setText(modeloLugarTuristico.getProvincia());
         textViewNombreText.setText(modeloLugarTuristico.getNombre());
         textViewTipoText.setText(modeloLugarTuristico.getTipo());
-        textViewDescripcionText.setText(modeloLugarTuristico.getDescripcion());
+        textViewActividadText.setText(modeloLugarTuristico.getActividad());
         textViewLineaText.setText(modeloLugarTuristico.getLinea());
         textViewFechaText.setText(modeloLugarTuristico.getFecha());
         textViewDireccionText.setText(modeloLugarTuristico.getDireccion());

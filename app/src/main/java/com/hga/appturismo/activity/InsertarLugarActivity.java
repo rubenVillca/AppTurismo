@@ -64,6 +64,7 @@ public class InsertarLugarActivity extends AppCompatActivity {
     private DatabaseReference databaseReference;
 
     private EditText txt_nombre;
+    private EditText txt_actividad;
     private EditText txt_descripcion;
     private EditText txt_telefono;
     private EditText txt_horario;
@@ -84,6 +85,7 @@ public class InsertarLugarActivity extends AppCompatActivity {
     private LinearLayout layout_provincia;
     private LinearLayout layout_tipoTurismo;
     private LinearLayout layout_nombre;
+    private LinearLayout layout_actividad;
     private LinearLayout layout_descripcion;
     private LinearLayout layout_email;
     private LinearLayout layout_direccion;
@@ -186,7 +188,7 @@ public class InsertarLugarActivity extends AppCompatActivity {
         modeloHotel.setNombre(txt_nombre.getText().toString());
         modeloHotel.setDireccion(txt_direccion.getText().toString());
         modeloHotel.setLinea(txt_linea.getText().toString());
-        modeloHotel.setDescripcion(txt_descripcion.getText().toString());
+        modeloHotel.setActividad(txt_actividad.getText().toString());
         modeloHotel.setTelefonoString(txt_telefono.getText().toString());
         modeloHotel.setPaginaWeb(txt_paginaweb.getText().toString());
         modeloHotel.setEmail(txt_email.getText().toString());
@@ -252,6 +254,7 @@ public class InsertarLugarActivity extends AppCompatActivity {
         modeloLugarTuristico.setIdSQLite(lugarTuristico.list().size() + 1);
         modeloLugarTuristico.setNombre(txt_nombre.getText().toString());
         modeloLugarTuristico.setTipo(spinnerCategoria.getSelectedItem().toString());
+        modeloLugarTuristico.setActividad(txt_actividad.getText().toString());
         modeloLugarTuristico.setDescripcion(txt_descripcion.getText().toString());
         modeloLugarTuristico.setDireccion(txt_direccion.getText().toString());
         modeloLugarTuristico.setTelefonoString(txt_telefono.getText().toString());
@@ -286,7 +289,7 @@ public class InsertarLugarActivity extends AppCompatActivity {
         modeloRestaurante.setIdSQLite(restaurante.list().size() + 1);
         modeloRestaurante.setNombre(txt_nombre.getText().toString());
         modeloRestaurante.setLinea(txt_linea.getText().toString());
-        modeloRestaurante.setDescripcion(txt_descripcion.getText().toString());
+        modeloRestaurante.setActividad(txt_actividad.getText().toString());
         modeloRestaurante.setHorario(txt_horario.getText().toString());
         modeloRestaurante.setDireccion(txt_direccion.getText().toString());
         modeloRestaurante.setEmail(txt_email.getText().toString());
@@ -417,6 +420,45 @@ public class InsertarLugarActivity extends AppCompatActivity {
     }
 
     /**
+     * enviar los datos recuperados del activity al servidor bdFirebase
+     */
+    private void guardarDatosFirebaseRestaurante() {
+        final SqliteRestaurante restaurante = new SqliteRestaurante(this);
+        final ModeloRestaurante modeloRestaurante = getRestaurante(restaurante);
+
+        databaseReference = app.getDataBaseReferenceRestaurante("");
+        File file = new File(mCurrentAbsolutePhotoPath);
+        final Uri uri = Uri.fromFile(file);
+
+        storageReference = app.getStorageReferenceRestaurante(modeloRestaurante.getNombre());
+        StorageReference imageReference = storageReference.child(uri.getLastPathSegment());
+
+        UploadTask uploadTask = imageReference.putFile(uri);
+
+        uploadTask.addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(InsertarLugarActivity.this, "Error al subir la imagen", Toast.LENGTH_LONG).show();
+            }
+        }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                modeloRestaurante.setImagenes(getImagen(ModeloImagen.TIPO_RESTAURANTE, modeloRestaurante.getIdSQLite(), ModeloImagen.TIPO_RESTAURANTE + "/" + modeloRestaurante.getNombre()));
+
+                databaseReference.push().setValue(modeloRestaurante, new DatabaseReference.CompletionListener() {
+                    @Override
+                    public void onComplete(@Nullable DatabaseError databaseError, @NonNull DatabaseReference databaseReference) {
+                        modeloRestaurante.setIdFirebase(databaseReference.getKey());
+                        restaurante.insert(modeloRestaurante);//insertar restaurate en SQLite
+
+                        Toast.makeText(InsertarLugarActivity.this, "Restaurante insertado exitosamente", Toast.LENGTH_LONG).show();
+                    }
+                });
+            }
+        });
+    }
+
+    /**
      * envia la imagen tomada por la camara al servidor bdFirebase
      */
     private void guardarDatosFirebaseLugarTuristico() {
@@ -518,50 +560,12 @@ public class InsertarLugarActivity extends AppCompatActivity {
         return databaseReference;
     }
 
-    /**
-     * enviar los datos recuperados del activity al servidor bdFirebase
-     */
-    private void guardarDatosFirebaseRestaurante() {
-        final SqliteRestaurante restaurante = new SqliteRestaurante(this);
-        final ModeloRestaurante modeloRestaurante = getRestaurante(restaurante);
-
-        databaseReference = app.getDataBaseReferenceRestaurante("");
-        File file = new File(mCurrentAbsolutePhotoPath);
-        final Uri uri = Uri.fromFile(file);
-
-        storageReference = app.getStorageReferenceRestaurante(modeloRestaurante.getNombre());
-        StorageReference imageReference = storageReference.child(uri.getLastPathSegment());
-
-        UploadTask uploadTask = imageReference.putFile(uri);
-
-        uploadTask.addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Toast.makeText(InsertarLugarActivity.this, "Error al subir la imagen", Toast.LENGTH_LONG).show();
-            }
-        }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-            @Override
-            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                modeloRestaurante.setImagenes(getImagen(ModeloImagen.TIPO_RESTAURANTE, modeloRestaurante.getIdSQLite(), ModeloImagen.TIPO_RESTAURANTE + "/" + modeloRestaurante.getNombre()));
-
-                databaseReference.push().setValue(modeloRestaurante, new DatabaseReference.CompletionListener() {
-                    @Override
-                    public void onComplete(@Nullable DatabaseError databaseError, @NonNull DatabaseReference databaseReference) {
-                        modeloRestaurante.setIdFirebase(databaseReference.getKey());
-                        restaurante.insert(modeloRestaurante);//insertar restaurate en SQLite
-
-                        Toast.makeText(InsertarLugarActivity.this, "Restaurante insertado exitosamente", Toast.LENGTH_LONG).show();
-                    }
-                });
-            }
-        });
-    }
-
     private void iniciarLayout() {
         layout_tipo = findViewById(R.id.layout_tipo);
         layout_provincia = findViewById(R.id.layout_provincia);
         layout_tipoTurismo = findViewById(R.id.layout_tipoTurismo);
         layout_nombre = findViewById(R.id.layout_nombre);
+        layout_actividad = findViewById(R.id.layout_actividad);
         layout_descripcion = findViewById(R.id.layout_descripcion);
         layout_email = findViewById(R.id.layout_email);
         layout_direccion = findViewById(R.id.layout_direccion);
@@ -590,7 +594,8 @@ public class InsertarLugarActivity extends AppCompatActivity {
         txt_email = findViewById(R.id.txt_email);
         txt_latitud = findViewById(R.id.txt_latitud);
         txt_longitud = findViewById(R.id.txt_longitud);
-        txt_descripcion = findViewById(R.id.txt_descripcion);
+        txt_actividad = findViewById(R.id.txt_actividad_insertar);
+        txt_descripcion = findViewById(R.id.txt_descripcion_insertar);
         txt_horario = findViewById(R.id.txt_horario);
         txt_linea = findViewById(R.id.txt_linea);
         txt_fecha = findViewById(R.id.txt_fecha);
@@ -624,7 +629,8 @@ public class InsertarLugarActivity extends AppCompatActivity {
                         //layout_provincia.removeAllViews();//lo elimnar y despues no vuelve a aparecer
                         layout_tipoTurismo.setVisibility(View.GONE);
                         layout_nombre.setVisibility(View.VISIBLE);
-                        layout_descripcion.setVisibility(View.VISIBLE);
+                        layout_actividad.setVisibility(View.VISIBLE);
+                        layout_descripcion.setVisibility(View.GONE);
                         layout_linea.setVisibility(View.VISIBLE);
                         layout_fecha.setVisibility(View.GONE);
                         layout_email.setVisibility(View.VISIBLE);
@@ -641,7 +647,8 @@ public class InsertarLugarActivity extends AppCompatActivity {
                         layout_provincia.setVisibility(View.GONE);
                         layout_tipoTurismo.setVisibility(View.GONE);
                         layout_nombre.setVisibility(View.VISIBLE);
-                        layout_descripcion.setVisibility(View.VISIBLE);
+                        layout_actividad.setVisibility(View.VISIBLE);
+                        layout_descripcion.setVisibility(View.GONE);
                         layout_linea.setVisibility(View.VISIBLE);
                         layout_fecha.setVisibility(View.GONE);
                         layout_email.setVisibility(View.VISIBLE);
@@ -658,6 +665,7 @@ public class InsertarLugarActivity extends AppCompatActivity {
                         layout_provincia.setVisibility(View.VISIBLE);
                         layout_tipoTurismo.setVisibility(View.VISIBLE);
                         layout_nombre.setVisibility(View.VISIBLE);
+                        layout_actividad.setVisibility(View.VISIBLE);
                         layout_descripcion.setVisibility(View.VISIBLE);
                         layout_email.setVisibility(View.VISIBLE);
                         layout_direccion.setVisibility(View.VISIBLE);
@@ -698,6 +706,7 @@ public class InsertarLugarActivity extends AppCompatActivity {
                         layout_provincia.setVisibility(View.VISIBLE);
                         layout_tipoTurismo.setVisibility(View.VISIBLE);
                         layout_nombre.setVisibility(View.VISIBLE);
+                        layout_actividad.setVisibility(View.VISIBLE);
                         layout_descripcion.setVisibility(View.VISIBLE);
                         layout_email.setVisibility(View.GONE);
                         layout_direccion.setVisibility(View.VISIBLE);
@@ -712,7 +721,7 @@ public class InsertarLugarActivity extends AppCompatActivity {
                         break;
                     default:
                         //layout_linea.setVisibility(View.GONE);
-                        //layout_fecha.setVisibility(View.GONE);
+                        layout_fecha.setVisibility(View.GONE);
                         break;
                 }
             }
@@ -767,7 +776,7 @@ public class InsertarLugarActivity extends AppCompatActivity {
         boolean isValidLugarTuristico = true;
 
         txt_nombre.setError(null);
-        txt_descripcion.setError(null);
+        txt_actividad.setError(null);
         txt_latitud.setError(null);
         txt_longitud.setError(null);
         txt_ruta_imagen.setError(null);
@@ -779,6 +788,7 @@ public class InsertarLugarActivity extends AppCompatActivity {
 
         String provincia = txt_provincia.getText().toString();
         String nombre = txt_nombre.getText().toString();
+        String actividad = txt_actividad.getText().toString();
         String descripcion = txt_descripcion.getText().toString();
         String latitud = txt_latitud.getText().toString();
         String longitud = txt_longitud.getText().toString();
@@ -800,14 +810,19 @@ public class InsertarLugarActivity extends AppCompatActivity {
             focusView = txt_latitud;
             isValidLugarTuristico = false;
         }
-        if (descripcion.isEmpty()) {
-            txt_descripcion.setError("Llenar descripción");
-            focusView = txt_descripcion;
+        if (actividad.isEmpty()) {
+            txt_actividad.setError("Llenar descripción");
+            focusView = txt_actividad;
             isValidLugarTuristico = false;
         }
         if (provincia.isEmpty()) {
             txt_provincia.setError("Seleccione una Provincia");
             focusView = txt_provincia;
+            isValidLugarTuristico = false;
+        }
+        if (descripcion.isEmpty()) {
+            txt_descripcion.setError("Llenar descripcion");
+            focusView = txt_descripcion;
             isValidLugarTuristico = false;
         }
         if (nombre.isEmpty()) {

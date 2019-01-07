@@ -136,7 +136,7 @@ public class EditarRestauranteActivity extends EditarActivity {
     private void mostrarRestaurante() {
         modeloRestauranteNew = new ModeloRestaurante();
         modeloRestauranteNew.setNombre(editar_txt_nombre.getText().toString());
-        modeloRestauranteNew.setDescripcion(editar_txt_descripcion.getText().toString());
+        modeloRestauranteNew.setActividad(editar_txt_actividad.getText().toString());
         modeloRestauranteNew.setLinea(editar_txt_linea.getText().toString());
         modeloRestauranteNew.setGpsX(Float.parseFloat(editar_txt_latitud.getText().toString()));
         modeloRestauranteNew.setGpsY(Float.parseFloat(editar_txt_longitud.getText().toString()));
@@ -196,7 +196,7 @@ public class EditarRestauranteActivity extends EditarActivity {
         app = (TurismoAplicacion) getApplicationContext();
         editar_layout_provincia.setVisibility(View.GONE);
         editar_layout_tipoTurismo.setVisibility(View.GONE);
-        editar_layout_descripcion.setVisibility(View.VISIBLE);
+        editar_layout_actividad.setVisibility(View.VISIBLE);
         editar_layout_pagina_web.setVisibility(View.VISIBLE);
         editar_layout_linea.setVisibility(View.VISIBLE);
         editar_layout_fecha.setVisibility(View.GONE);
@@ -211,7 +211,7 @@ public class EditarRestauranteActivity extends EditarActivity {
         //editar_spinner_provincia.setText(modeloRestauranteOld.get());
         //editar_spinner_tipo_turismo.setText(modeloRestauranteOld.get());
         editar_txt_nombre.setText(modeloRestauranteOld.getNombre());
-        editar_txt_descripcion.setText(modeloRestauranteOld.getDescripcion());
+        editar_txt_actividad.setText(modeloRestauranteOld.getActividad());
         editar_txt_linea.setText(modeloRestauranteOld.getLinea());
         editar_txt_email.setText(modeloRestauranteOld.getEmail());
         editar_txt_direccion.setText(modeloRestauranteOld.getDireccion());
@@ -258,12 +258,12 @@ public class EditarRestauranteActivity extends EditarActivity {
     private boolean isValidRestaurante() {
         boolean isValidRestaurante = true;
         editar_txt_nombre.setError(null);
-        editar_txt_descripcion.setError(null);
+        editar_txt_actividad.setError(null);
         editar_txt_latitud.setError(null);
         editar_txt_longitud.setError(null);
         focusView = null;
         String nombre = editar_txt_nombre.getText().toString();
-        String descripcion = editar_txt_descripcion.getText().toString();
+        String actividad = editar_txt_actividad.getText().toString();
         String latitud = editar_txt_latitud.getText().toString();
         String longitud = editar_txt_longitud.getText().toString();
         String rutaImagen = editar_txt_ruta_imagen.getText().toString();
@@ -284,9 +284,9 @@ public class EditarRestauranteActivity extends EditarActivity {
             focusView = editar_txt_latitud;
             isValidRestaurante = false;
         }
-        if (descripcion.isEmpty()) {
-            editar_txt_descripcion.setError("Llenar Actividad");
-            focusView = editar_txt_descripcion;
+        if (actividad.isEmpty()) {
+            editar_txt_actividad.setError("Llenar Actividad");
+            focusView = editar_txt_actividad;
             isValidRestaurante = false;
         }
         if (nombre.isEmpty()) {

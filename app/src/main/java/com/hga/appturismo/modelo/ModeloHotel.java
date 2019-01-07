@@ -8,14 +8,23 @@ public class ModeloHotel extends ModeloBaseLugares {
     private String paginaWeb;
     private String email;
     private String linea;
-
+    private String horario;
 
     public ModeloHotel() {
         super();
         this.provincia = "";
-        this.paginaWeb="";
-        this.email="";
-        this.linea="";
+        this.paginaWeb = "";
+        this.email = "";
+        this.linea = "";
+        this.horario = "";
+    }
+
+    public String getHorario() {
+        return horario;
+    }
+
+    public void setHorario(String horario) {
+        this.horario = horario;
     }
 
     public String getPaginaWeb() {

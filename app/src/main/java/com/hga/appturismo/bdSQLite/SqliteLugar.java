@@ -234,13 +234,13 @@ public class SqliteLugar extends DBSQLiteParent implements SqliteInterface<Model
         modeloLugarTuristico.setIdFirebase(cursor.getString(cursor.getColumnIndex(DBModel.LUGARES_ID_FIREBASE)));
         modeloLugarTuristico.setTipo(cursor.getString(cursor.getColumnIndex(DBModel.LUGARES_TIPO)));
         modeloLugarTuristico.setNombre(cursor.getString(cursor.getColumnIndex(DBModel.LUGARES_NAME)));
+        modeloLugarTuristico.setActividad(cursor.getString(cursor.getColumnIndex(DBModel.LUGARES_ACTIVIDAD)));
         modeloLugarTuristico.setDescripcion(cursor.getString(cursor.getColumnIndex(DBModel.LUGARES_DESCRIPCION)));
         modeloLugarTuristico.setHorario(cursor.getString(cursor.getColumnIndex(DBModel.LUGARES_HORARIO_ATENCION)));
         modeloLugarTuristico.setDireccion(cursor.getString(cursor.getColumnIndex(DBModel.LUGARES_UBICACION)));
         modeloLugarTuristico.setTelefono(cursor.getLong(cursor.getColumnIndex(DBModel.LUGARES_TELEFONO)));
         modeloLugarTuristico.setGpsX(cursor.getFloat(cursor.getColumnIndex(DBModel.LUGARES_LATITUD)));
         modeloLugarTuristico.setGpsY(cursor.getFloat(cursor.getColumnIndex(DBModel.LUGARES_LONGITUD)));
-        modeloLugarTuristico.setActividad(cursor.getString(cursor.getColumnIndex(DBModel.LUGARES_ACTIVIDAD)));
         modeloLugarTuristico.setEstado(cursor.getString(cursor.getColumnIndex(DBModel.LUGARES_ESTADO)));
         modeloLugarTuristico.setLinea(cursor.getString(cursor.getColumnIndex(DBModel.LUGARES_LINEA)));
         modeloLugarTuristico.setFecha(cursor.getString(cursor.getColumnIndex(DBModel.LUGARES_FECHA)));

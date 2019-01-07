@@ -49,8 +49,8 @@ public class DescripcionRestauranteActivity extends AppCompatActivity implements
         TextView textViewNombre = findViewById(R.id.textViewNombreText);
         textViewNombre.setText(modeloRestaurante.getNombre());
 
-        TextView textViewDescripcion = findViewById(R.id.textViewDescripcionText);
-        textViewDescripcion.setText(modeloRestaurante.getDescripcion());
+        TextView textViewActividad = findViewById(R.id.textViewActividadTextView);
+        textViewActividad.setText(modeloRestaurante.getActividad());
 
         TextView textViewDireccion = findViewById(R.id.textViewDireccionText);
         textViewDireccion.setText(modeloRestaurante.getDireccion());
@@ -72,7 +72,7 @@ public class DescripcionRestauranteActivity extends AppCompatActivity implements
             LinearLayout linearLayoutPaginaWeb =findViewById(R.id.linearLayoutPaginaWeb);
             linearLayoutPaginaWeb.setVisibility(View.GONE);
         }else {
-            TextView textViewPagWebText = findViewById(R.id.textViewPagWeb);
+            TextView textViewPagWebText = findViewById(R.id.textViewPagWebText);
             textViewPagWebText.setText(modeloRestaurante.getPaginaWeb());
         }
         if (modeloRestaurante.getEmail().isEmpty()) {

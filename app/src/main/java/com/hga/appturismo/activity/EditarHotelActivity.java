@@ -153,7 +153,7 @@ public class EditarHotelActivity extends EditarActivity {
         modeloHotelNew.setIdFirebase(modeloHotelOld.getIdFirebase());
         modeloHotelNew.setIdSQLite(modeloHotelOld.getIdSQLite());
         modeloHotelNew.setNombre(editar_txt_nombre.getText().toString());
-        modeloHotelNew.setDescripcion(editar_txt_descripcion.getText().toString());
+        modeloHotelNew.setActividad(editar_txt_actividad.getText().toString());
         modeloHotelNew.setLinea(editar_txt_linea.getText().toString());
         modeloHotelNew.setGpsX(Float.parseFloat(editar_txt_latitud.getText().toString()));
         modeloHotelNew.setGpsY(Float.parseFloat(editar_txt_longitud.getText().toString()));
@@ -162,6 +162,7 @@ public class EditarHotelActivity extends EditarActivity {
         modeloHotelNew.setProvincia(editar_spinner_provincia.getSelectedItem().toString());
         modeloHotelNew.setPaginaWeb(editar_txt_paginaweb.getText().toString());
         modeloHotelNew.setEmail(editar_txt_email.getText().toString());
+        modeloHotelNew.setHorario(editar_txt_horario.getText().toString());
         modeloHotelNew.setImagenes(getModeloImagens(ModeloImagen.TIPO_HOTEL, modeloHotelNew.getIdSQLite(), Constants.FIREBASE_STORAGE_URL_HOTEL));
     }
 
@@ -209,12 +210,12 @@ public class EditarHotelActivity extends EditarActivity {
         editar_txt_nombre.setText(modeloHotelOld.getNombre());
         //editar_txt_descripcion.setText(modeloHotelOld.get());
         editar_txt_email.setText(modeloHotelOld.getEmail());
-        editar_txt_descripcion.setText(modeloHotelOld.getDescripcion());
+        editar_txt_actividad.setText(modeloHotelOld.getActividad());
         editar_txt_linea.setText(modeloHotelOld.getLinea());
         editar_txt_direccion.setText(modeloHotelOld.getDireccion());
         editar_txt_paginaweb.setText(modeloHotelOld.getPaginaWeb());
         editar_txt_telefono.setText(valueOf(modeloHotelOld.getTelefono()));
-        //editar_txt_horario.setText(modeloHotelOld.get());
+        editar_txt_horario.setText(modeloHotelOld.getHorario());
         editar_txt_latitud.setText(valueOf(valueOf(modeloHotelOld.getGpsX())));
         editar_txt_longitud.setText(valueOf(valueOf(modeloHotelOld.getGpsY())));
         String urlImagen = "";
@@ -257,7 +258,7 @@ public class EditarHotelActivity extends EditarActivity {
         focusView = null;
 
         String nombre = editar_txt_nombre.getText().toString();
-        String descripcion = editar_txt_descripcion.getText().toString();
+        String actividad = editar_txt_actividad.getText().toString();
         String latitud = editar_txt_latitud.getText().toString();
         String longitud = editar_txt_longitud.getText().toString();
         String rutaImagen = editar_txt_ruta_imagen.getText().toString();
@@ -283,9 +284,9 @@ public class EditarHotelActivity extends EditarActivity {
             focusView = editar_txt_nombre;
             isValidHotel = false;
         }
-        if (descripcion.isEmpty()) {
-            editar_txt_descripcion.setError("Llenar Actividad");
-            focusView = editar_txt_descripcion;
+        if (actividad.isEmpty()) {
+            editar_txt_actividad.setError("Llenar Actividad");
+            focusView = editar_txt_actividad;
             isValidHotel = false;
         }
         if (focusView != null) {

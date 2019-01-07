@@ -59,7 +59,7 @@ public class Listas {
         hotel = new ModeloHotel();
         hotel.setIdSQLite(idHotel++);
         hotel.setNombre("Adara Suites Apart Hotel ");
-        hotel.setDescripcion("Hospedaje, administración y manejo de hoteles, apart hoteles, prestación de todo tipo de servicios hoteleros, organización de eventos, recepciones, servicios de restaurant, cafetería, spa, café, bar, etc.");
+        hotel.setActividad("Hospedaje, administración y manejo de hoteles, apart hoteles, prestación de todo tipo de servicios hoteleros, organización de eventos, recepciones, servicios de restaurant, cafetería, spa, café, bar, etc.");
         hotel.setLinea("");
         hotel.setGpsX(-17.38467001063881f);
         hotel.setGpsY(-66.16149187088013f);
@@ -75,7 +75,7 @@ public class Listas {
         hotel = new ModeloHotel();
         hotel.setIdSQLite(idHotel++);
         hotel.setNombre("Americana Hotel");
-        hotel.setDescripcion("Rubro de la hotelería, turismo, convenciones y actividades comerciales, importación, equipamiento hotelero, importación de maquinaria pesada, liviana y pequeña, textiles, insumos plásticos, etc.");
+        hotel.setActividad("Rubro de la hotelería, turismo, convenciones y actividades comerciales, importación, equipamiento hotelero, importación de maquinaria pesada, liviana y pequeña, textiles, insumos plásticos, etc.");
         hotel.setLinea("");
         hotel.setGpsX(-17.399221249840263f);
         hotel.setGpsY(-66.15543812513351f);
@@ -91,7 +91,7 @@ public class Listas {
         hotel = new ModeloHotel();
         hotel.setIdSQLite(idHotel++);
         hotel.setNombre("Anteus Apart Hotel");
-        hotel.setDescripcion("Hospedaje");
+        hotel.setActividad("Hospedaje");
         hotel.setLinea("");
         hotel.setGpsX(-17.375887515468104f);
         hotel.setGpsY(-66.15400180220604f);
@@ -107,7 +107,7 @@ public class Listas {
         hotel = new ModeloHotel();
         hotel.setIdSQLite(idHotel++);
         hotel.setNombre("Apart Hotel Regina");
-        hotel.setDescripcion("Hospedaje");
+        hotel.setActividad("Hospedaje");
         hotel.setLinea("");
         hotel.setGpsX(-17.38629988377598f);
         hotel.setGpsY(-66.15779981017113f);
@@ -123,7 +123,7 @@ public class Listas {
         hotel = new ModeloHotel();
         hotel.setIdSQLite(idHotel++);
         hotel.setNombre("Armenia Hotel");
-        hotel.setDescripcion("Servicios de hotelería");
+        hotel.setActividad("Servicios de hotelería");
         hotel.setLinea("");
         hotel.setGpsX(-17.394268583333226f);
         hotel.setGpsY(-66.16348877549171f);
@@ -139,7 +139,7 @@ public class Listas {
         hotel = new ModeloHotel();
         hotel.setIdSQLite(idHotel++);
         hotel.setNombre("Banana Tropic");
-        hotel.setDescripcion("Brinda servicios de hotelería");
+        hotel.setActividad("Brinda servicios de hotelería");
         hotel.setLinea("");
         hotel.setGpsX(-16.998434127224467f);
         hotel.setGpsY(-65.43705940246582f);
@@ -155,7 +155,7 @@ public class Listas {
         hotel = new ModeloHotel();
         hotel.setIdSQLite(idHotel++);
         hotel.setNombre("Casa Campestre");
-        hotel.setDescripcion("Hospedaje");
+        hotel.setActividad("Hospedaje");
         hotel.setLinea("");
         hotel.setGpsX(-17.380707573002113f);
         hotel.setGpsY(-66.25139951705933f);
@@ -171,7 +171,7 @@ public class Listas {
         hotel = new ModeloHotel();
         hotel.setIdSQLite(idHotel++);
         hotel.setNombre("Cesar's Plaza Hotel");
-        hotel.setDescripcion("Hospedaje, servicio gastronómico, servicio de bebida");
+        hotel.setActividad("Hospedaje, servicio gastronómico, servicio de bebida");
         hotel.setLinea("");
         hotel.setGpsX(-17.39313661785511f);
         hotel.setGpsY(-66.15532882511616f);
@@ -187,7 +187,7 @@ public class Listas {
         hotel = new ModeloHotel();
         hotel.setIdSQLite(idHotel++);
         hotel.setNombre("City Hotel");
-        hotel.setDescripcion("Realizar actividades de la industria de la hotelería. Servicios en el rubro de hotelería y todas las actividades que tengan relación con la misma.");
+        hotel.setActividad("Realizar actividades de la industria de la hotelería. Servicios en el rubro de hotelería y todas las actividades que tengan relación con la misma.");
         hotel.setLinea("");
         hotel.setGpsX(-17.39501597105829f);
         hotel.setGpsY(-66.15571975708008f);
@@ -203,7 +203,7 @@ public class Listas {
         hotel = new ModeloHotel();
         hotel.setIdSQLite(idHotel++);
         hotel.setNombre("Gran Hotel Ambassador");
-        hotel.setDescripcion("Servicios de hotelería.");
+        hotel.setActividad("Servicios de hotelería.");
         hotel.setLinea("");
         hotel.setGpsX(-17.389441204120267f);
         hotel.setGpsY(-66.15731835365295f);
@@ -219,7 +219,7 @@ public class Listas {
         hotel = new ModeloHotel();
         hotel.setIdSQLite(idHotel++);
         hotel.setNombre("Gran Hotel Cochabamba");
-        hotel.setDescripcion("Hotelería, gastronomía, spa.");
+        hotel.setActividad("Hotelería, gastronomía, spa.");
         hotel.setLinea("");
         hotel.setGpsX(-17.378048621747695f);
         hotel.setGpsY(-66.15223087370396f);
@@ -235,7 +235,7 @@ public class Listas {
         hotel = new ModeloHotel();
         hotel.setIdSQLite(idHotel++);
         hotel.setNombre("Hostal \"BONAIRENSE\"");
-        hotel.setDescripcion("Hospedaje");
+        hotel.setActividad("Hospedaje");
         hotel.setLinea("");
         hotel.setGpsX(-17.389546148501218f);
         hotel.setGpsY(-66.15610867738724f);
@@ -251,7 +251,7 @@ public class Listas {
         hotel = new ModeloHotel();
         hotel.setIdSQLite(idHotel++);
         hotel.setNombre("Hostal Arévalo");
-        hotel.setDescripcion("Servicios de hospedaje y turísticos");
+        hotel.setActividad("Servicios de hospedaje y turísticos");
         hotel.setLinea("");
         hotel.setGpsX(-17.375053015722237f);
         hotel.setGpsY(-66.16297513246536f);
@@ -267,7 +267,7 @@ public class Listas {
         hotel = new ModeloHotel();
         hotel.setIdSQLite(idHotel++);
         hotel.setNombre("Hostal Maya Bolivia");
-        hotel.setDescripcion("Servicio de hospedaje");
+        hotel.setActividad("Servicio de hospedaje");
         hotel.setLinea("");
         hotel.setGpsX(-17.39239882086965f);
         hotel.setGpsY(-66.16528317332268f);
@@ -283,7 +283,7 @@ public class Listas {
         hotel = new ModeloHotel();
         hotel.setIdSQLite(idHotel++);
         hotel.setNombre("Apart Hotel La Corona");
-        hotel.setDescripcion("Hospedaje");
+        hotel.setActividad("Hospedaje");
         hotel.setLinea("");
         hotel.setGpsX(-17.388023169265743f);
         hotel.setGpsY(-66.16324067115784f);
@@ -299,7 +299,7 @@ public class Listas {
         hotel = new ModeloHotel();
         hotel.setIdSQLite(idHotel++);
         hotel.setNombre("Hotel Boston");
-        hotel.setDescripcion("Servicios de hotelería");
+        hotel.setActividad("Servicios de hotelería");
         hotel.setLinea("");
         hotel.setGpsX(-17.39149976674768f);
         hotel.setGpsY(-66.15580558776855f);
@@ -315,7 +315,7 @@ public class Listas {
         hotel = new ModeloHotel();
         hotel.setIdSQLite(idHotel++);
         hotel.setNombre("Hotel Briston");
-        hotel.setDescripcion("Servicios de hotel");
+        hotel.setActividad("Servicios de hotel");
         hotel.setLinea("");
         hotel.setGpsX(-17.394549813918648f);
         hotel.setGpsY(-66.16483876481652f);
@@ -331,7 +331,7 @@ public class Listas {
         hotel = new ModeloHotel();
         hotel.setIdSQLite(idHotel++);
         hotel.setNombre("Hotel Camino Plaza");
-        hotel.setDescripcion("Servicios de hotelería");
+        hotel.setActividad("Servicios de hotelería");
         hotel.setLinea("");
         hotel.setGpsX(-17.36868151040645f);
         hotel.setGpsY(-66.1634150147438f);
@@ -348,7 +348,7 @@ public class Listas {
         hotel = new ModeloHotel();
         hotel.setIdSQLite(idHotel++);
         hotel.setNombre("Hotel Candiré");
-        hotel.setDescripcion("Hospedaje");
+        hotel.setActividad("Hospedaje");
         hotel.setLinea("");
         hotel.setGpsX(-17.022337405456373f);
         hotel.setGpsY(-65.47824203968048f);
@@ -365,7 +365,7 @@ public class Listas {
         hotel = new ModeloHotel();
         hotel.setIdSQLite(idHotel++);
         hotel.setNombre("Hotel Davinci");
-        hotel.setDescripcion("Hospedaje");
+        hotel.setActividad("Hospedaje");
         hotel.setLinea("");
         hotel.setGpsX(-17.400508025346717f);
         hotel.setGpsY(-66.15402661263943f);
@@ -382,7 +382,7 @@ public class Listas {
         hotel = new ModeloHotel();
         hotel.setIdSQLite(idHotel++);
         hotel.setNombre("Hotel de La Torre");
-        hotel.setDescripcion("Hospedaje");
+        hotel.setActividad("Hospedaje");
         hotel.setLinea("");
         hotel.setGpsX(-17.386328679990655f);
         hotel.setGpsY(-66.15070939064026f);
@@ -399,7 +399,7 @@ public class Listas {
         hotel = new ModeloHotel();
         hotel.setIdSQLite(idHotel++);
         hotel.setNombre("Hotel Diplomat Martinez ");
-        hotel.setDescripcion("Actividades de servicios de la industria hotelera, así como servicios de restaurante y alquiler de bienes raíces propios.");
+        hotel.setActividad("Actividades de servicios de la industria hotelera, así como servicios de restaurante y alquiler de bienes raíces propios.");
         hotel.setLinea("");
         hotel.setGpsX(-17.38656608861003f);
         hotel.setGpsY(-66.15711316466331f);
@@ -416,7 +416,7 @@ public class Listas {
         hotel = new ModeloHotel();
         hotel.setIdSQLite(idHotel++);
         hotel.setNombre("Hotel Felipez");
-        hotel.setDescripcion("Alojar huéspedes.");
+        hotel.setActividad("Alojar huéspedes.");
         hotel.setLinea("");
         hotel.setGpsX(-17.391411460837585f);
         hotel.setGpsY(-66.15682817995548f);
@@ -433,7 +433,7 @@ public class Listas {
         hotel = new ModeloHotel();
         hotel.setIdSQLite(idHotel++);
         hotel.setNombre("Hotel Fortaleza");
-        hotel.setDescripcion("Brindar servicios de hospedaje.");
+        hotel.setActividad("Brindar servicios de hospedaje.");
         hotel.setLinea("");
         hotel.setGpsX(-17.399697313042324f);
         hotel.setGpsY(-66.15728214383125f);
@@ -450,7 +450,7 @@ public class Listas {
         hotel = new ModeloHotel();
         hotel.setIdSQLite(idHotel++);
         hotel.setNombre("Hotel Gard Gina’s");
-        hotel.setDescripcion("Hospedaje");
+        hotel.setActividad("Hospedaje");
         hotel.setLinea("");
         hotel.setGpsX(-17.38797197646617f);
         hotel.setGpsY(-66.15695759654045f);
@@ -467,7 +467,7 @@ public class Listas {
         hotel = new ModeloHotel();
         hotel.setIdSQLite(idHotel++);
         hotel.setNombre("Hotel Heroínas");
-        hotel.setDescripcion("Hospedaje");
+        hotel.setActividad("Hospedaje");
         hotel.setLinea("");
         hotel.setGpsX(-17.392945290041474f);
         hotel.setGpsY(-66.1604592204094f);
@@ -484,7 +484,7 @@ public class Listas {
         hotel = new ModeloHotel();
         hotel.setIdSQLite(idHotel++);
         hotel.setNombre("Hotel Integración");
-        hotel.setDescripcion("Servicio de hotel, hospedaje y recreación.");
+        hotel.setActividad("Servicio de hotel, hospedaje y recreación.");
         hotel.setLinea("");
         hotel.setGpsX(-17.040280491660837f);
         hotel.setGpsY(-64.86629068851471f);
@@ -501,7 +501,7 @@ public class Listas {
         hotel = new ModeloHotel();
         hotel.setIdSQLite(idHotel++);
         hotel.setNombre("Hotel Las Vegas");
-        hotel.setDescripcion("Hospedaje");
+        hotel.setActividad("Hospedaje");
         hotel.setLinea("");
         hotel.setGpsX(-17.39487775575027f);
         hotel.setGpsY(-66.15625217556953f);
@@ -518,7 +518,7 @@ public class Listas {
         hotel = new ModeloHotel();
         hotel.setIdSQLite(idHotel++);
         hotel.setNombre("Hotel León Ávila");
-        hotel.setDescripcion("Hotelería");
+        hotel.setActividad("Hotelería");
         hotel.setLinea("");
         hotel.setGpsX(-17.392178696994918f);
         hotel.setGpsY(-66.16008270531893f);
@@ -535,7 +535,7 @@ public class Listas {
         hotel = new ModeloHotel();
         hotel.setIdSQLite(idHotel++);
         hotel.setNombre("Hotel Luxor Cochabamba");
-        hotel.setDescripcion("Hospedaje");
+        hotel.setActividad("Hospedaje");
         hotel.setLinea("");
         hotel.setGpsX(-17.384497231716722f);
         hotel.setGpsY(-66.15667060017586f);
@@ -552,7 +552,7 @@ public class Listas {
         hotel = new ModeloHotel();
         hotel.setIdSQLite(idHotel++);
         hotel.setNombre("Hotel Manhattan");
-        hotel.setDescripcion("Hotelería");
+        hotel.setActividad("Hotelería");
         hotel.setLinea("");
         hotel.setGpsX(-17.397726505709343f);
         hotel.setGpsY(-66.15672424435616f);
@@ -569,7 +569,7 @@ public class Listas {
         hotel = new ModeloHotel();
         hotel.setIdSQLite(idHotel++);
         hotel.setNombre("Hotel Maria de Los Ángeles");
-        hotel.setDescripcion("Hospedaje");
+        hotel.setActividad("Hospedaje");
         hotel.setLinea("");
         hotel.setGpsX(-17.394788811584785f);
         hotel.setGpsY(-66.15614622831345f);
@@ -586,7 +586,7 @@ public class Listas {
         hotel = new ModeloHotel();
         hotel.setIdSQLite(idHotel++);
         hotel.setNombre("Hotel Moraine");
-        hotel.setDescripcion("Hospedaje");
+        hotel.setActividad("Hospedaje");
         hotel.setLinea("");
         hotel.setGpsX(-17.38982002745576f);
         hotel.setGpsY(-66.15933269262314f);
@@ -603,7 +603,7 @@ public class Listas {
         hotel = new ModeloHotel();
         hotel.setIdSQLite(idHotel++);
         hotel.setNombre("Hotel Oblitas");
-        hotel.setDescripcion("Hospedaje");
+        hotel.setActividad("Hospedaje");
         hotel.setLinea("");
         hotel.setGpsX(-17.380394004345483f);
         hotel.setGpsY(-66.15910470485687f);
@@ -620,7 +620,7 @@ public class Listas {
         hotel = new ModeloHotel();
         hotel.setIdSQLite(idHotel++);
         hotel.setNombre("Hotel Portales * * * * *");
-        hotel.setDescripcion("Hospedaje");
+        hotel.setActividad("Hospedaje");
         hotel.setLinea("");
         hotel.setGpsX(-17.375694249761082f);
         hotel.setGpsY(-66.15142554044724f);
@@ -637,7 +637,7 @@ public class Listas {
         hotel = new ModeloHotel();
         hotel.setIdSQLite(idHotel++);
         hotel.setNombre("Hotel Regina Resort & Convenciones");
-        hotel.setDescripcion("Actividades en el rubro de hotelería, brindar servicios de restaurante y catering, además de la organización de todo tipo de eventos como matrimonios, quince años, graduaciones de colegio, graduaciones de universidades, fiestas corporativas, fiestas.");
+        hotel.setActividad("Actividades en el rubro de hotelería, brindar servicios de restaurante y catering, además de la organización de todo tipo de eventos como matrimonios, quince años, graduaciones de colegio, graduaciones de universidades, fiestas corporativas, fiestas.");
         hotel.setLinea("");
         hotel.setGpsX(-17.335991104024966f);
         hotel.setGpsY(-66.2307558953762f);
@@ -654,7 +654,7 @@ public class Listas {
         hotel = new ModeloHotel();
         hotel.setIdSQLite(idHotel++);
         hotel.setNombre("Hotel Reina Nieves ");
-        hotel.setDescripcion("Prestación de servicios en el rubro hotelero, alojamiento de huéspedes, hospedaje, servicio de restaurante, catering, eventos sociales, y otros que tengan razón de la actividad hotelera.");
+        hotel.setActividad("Prestación de servicios en el rubro hotelero, alojamiento de huéspedes, hospedaje, servicio de restaurante, catering, eventos sociales, y otros que tengan razón de la actividad hotelera.");
         hotel.setLinea("");
         hotel.setGpsX(-17.39729650855925f);
         hotel.setGpsY(-66.15672156214714f);
@@ -671,7 +671,7 @@ public class Listas {
         hotel = new ModeloHotel();
         hotel.setIdSQLite(idHotel++);
         hotel.setNombre("Hotel Siles Ideal");
-        hotel.setDescripcion("Hospedaje");
+        hotel.setActividad("Hospedaje");
         hotel.setLinea("");
         hotel.setGpsX(-17.38998704222446f);
         hotel.setGpsY(-66.15723520517349f);
@@ -688,7 +688,7 @@ public class Listas {
         hotel = new ModeloHotel();
         hotel.setIdSQLite(idHotel++);
         hotel.setNombre("Hotel Torero II");
-        hotel.setDescripcion("Servicio de hotelería y salón de eventos.");
+        hotel.setActividad("Servicio de hotelería y salón de eventos.");
         hotel.setLinea("");
         hotel.setGpsX(-17.04423484297137f);
         hotel.setGpsY(-64.8638927936554f);
@@ -705,7 +705,7 @@ public class Listas {
         hotel = new ModeloHotel();
         hotel.setIdSQLite(idHotel++);
         hotel.setNombre("Hotel Unión");
-        hotel.setDescripcion("Prestación de servicios de hospedaje");
+        hotel.setActividad("Prestación de servicios de hospedaje");
         hotel.setLinea("");
         hotel.setGpsX(-17.392690612574373f);
         hotel.setGpsY(-66.15769520401955f);
@@ -722,7 +722,7 @@ public class Listas {
         hotel = new ModeloHotel();
         hotel.setIdSQLite(idHotel++);
         hotel.setNombre("Hotel Victoria");
-        hotel.setDescripcion("Hospedaje restaurante");
+        hotel.setActividad("Hospedaje restaurante");
         hotel.setLinea("");
         hotel.setGpsX(-17.002789498689367f);
         hotel.setGpsY(-65.43620109558105f);
@@ -739,7 +739,7 @@ public class Listas {
         hotel = new ModeloHotel();
         hotel.setIdSQLite(idHotel++);
         hotel.setNombre("Jaguar House Hostel");
-        hotel.setDescripcion("Servicio de hospedaje");
+        hotel.setActividad("Servicio de hospedaje");
         hotel.setLinea("");
         hotel.setGpsX(-17.384792235629604f);
         hotel.setGpsY(-66.1596661247313f);
@@ -756,7 +756,7 @@ public class Listas {
         hotel = new ModeloHotel();
         hotel.setIdSQLite(idHotel++);
         hotel.setNombre("La colonia");
-        hotel.setDescripcion("Hospedaje");
+        hotel.setActividad("Hospedaje");
         hotel.setLinea("");
         hotel.setGpsX(-17.36161538239869f);
         hotel.setGpsY(-66.16156563162804f);
@@ -773,7 +773,7 @@ public class Listas {
         hotel = new ModeloHotel();
         hotel.setIdSQLite(idHotel++);
         hotel.setNombre("La Fontaine Oruro Hotel");
-        hotel.setDescripcion("Hospedaje");
+        hotel.setActividad("Hospedaje");
         hotel.setLinea("");
         hotel.setGpsX(-17.39209039141259f);
         hotel.setGpsY(-66.16137385368347f);
@@ -790,7 +790,7 @@ public class Listas {
         hotel = new ModeloHotel();
         hotel.setIdSQLite(idHotel++);
         hotel.setNombre("Monserrat Hotel");
-        hotel.setDescripcion("Prestación de servicios de hospedaje, hotelería, alojamiento. Prestación de servicios de alimentación. Servicios de agencia de turismo, etc.");
+        hotel.setActividad("Prestación de servicios de hospedaje, hotelería, alojamiento. Prestación de servicios de alimentación. Servicios de agencia de turismo, etc.");
         hotel.setLinea("");
         hotel.setGpsX(-17.389583262963f);
         hotel.setGpsY(-66.15698978304863f);
@@ -807,7 +807,7 @@ public class Listas {
         hotel = new ModeloHotel();
         hotel.setIdSQLite(idHotel++);
         hotel.setNombre("Ñaupa House Hostel");
-        hotel.setDescripcion("Actividades relacionadas a la hotelería y turismo, etc.");
+        hotel.setActividad("Actividades relacionadas a la hotelería y turismo, etc.");
         hotel.setLinea("");
         hotel.setGpsX(-17.413950160621734f);
         hotel.setGpsY(-66.16529675200582f);
@@ -824,7 +824,7 @@ public class Listas {
         hotel = new ModeloHotel();
         hotel.setIdSQLite(idHotel++);
         hotel.setNombre("Olga’s Hotel * *");
-        hotel.setDescripcion("Hospedaje");
+        hotel.setActividad("Hospedaje");
         hotel.setLinea("");
         hotel.setGpsX(-17.39122397061177f);
         hotel.setGpsY(-66.15637555718422f);
@@ -841,7 +841,7 @@ public class Listas {
         hotel = new ModeloHotel();
         hotel.setIdSQLite(idHotel++);
         hotel.setNombre("Hotel Hacienda de Kaluyo");
-        hotel.setDescripcion("Empresa hotelera");
+        hotel.setActividad("Empresa hotelera");
         hotel.setLinea("");
         hotel.setGpsX(-17.51900921719227f);
         hotel.setGpsY(-66.1144258081913f);
@@ -858,7 +858,7 @@ public class Listas {
         hotel = new ModeloHotel();
         hotel.setIdSQLite(idHotel++);
         hotel.setNombre("Tamesis Hotel");
-        hotel.setDescripcion("Hospedaje");
+        hotel.setActividad("Hospedaje");
         hotel.setLinea("");
         hotel.setGpsX(-17.38715288972503f);
         hotel.setGpsY(-66.153409704566f);
@@ -875,7 +875,7 @@ public class Listas {
         hotel = new ModeloHotel();
         hotel.setIdSQLite(idHotel++);
         hotel.setNombre("Toloma Hotel");
-        hotel.setDescripcion("Desarrollar actividades hoteleras, prestando servicios de alojamiento y servicios accesorios como restaurantes, bares, cafés, alquiler para ambientes para eventos públicos.");
+        hotel.setActividad("Desarrollar actividades hoteleras, prestando servicios de alojamiento y servicios accesorios como restaurantes, bares, cafés, alquiler para ambientes para eventos públicos.");
         hotel.setLinea("");
         hotel.setGpsX(-17.38402240880186f);
         hotel.setGpsY(-66.15124851465225f);
@@ -892,7 +892,7 @@ public class Listas {
         hotel = new ModeloHotel();
         hotel.setIdSQLite(idHotel++);
         hotel.setNombre("Virginias  Hotel");
-        hotel.setDescripcion("Hospedaje");
+        hotel.setActividad("Hospedaje");
         hotel.setLinea("");
         hotel.setGpsX(-17.392631102461856f);
         hotel.setGpsY(-66.15381941199303f);
@@ -913,7 +913,7 @@ public class Listas {
         restaurante = new ModeloRestaurante();
         restaurante.setIdSQLite(idRestaurante++);
         restaurante.setNombre("Carne y Fuego");
-        restaurante.setDescripcion("Restaurant - churrasquería");
+        restaurante.setActividad("Restaurant - churrasquería");
         restaurante.setLinea("0");
         restaurante.setGpsX(-17.376764248067403f);
         restaurante.setGpsY(-66.17607034742832f);
@@ -929,7 +929,7 @@ public class Listas {
         restaurante = new ModeloRestaurante();
         restaurante.setIdSQLite(idRestaurante++);
         restaurante.setNombre("Carniclub");
-        restaurante.setDescripcion("Preparación, elaboración y venta de comida rápida, venta de bebidas");
+        restaurante.setActividad("Preparación, elaboración y venta de comida rápida, venta de bebidas");
         restaurante.setLinea("");
         restaurante.setGpsX(-17.37802494378927f);
         restaurante.setGpsY(-66.15633934736252f);
@@ -945,7 +945,7 @@ public class Listas {
         restaurante = new ModeloRestaurante();
         restaurante.setIdSQLite(idRestaurante++);
         restaurante.setNombre("Chicken´s Kingdom");
-        restaurante.setDescripcion("Expendio de comida rápida, subsidiaria- mente a toda otra actividad comercial e industrial tendiente o relacionada con la venta de comida rápida, elaborar y comercializar productos lácteos, helados, bebidas aderezadas con jugo y/o aguas naturales, envasadas. Importar y comercializar insumos y maquinaria, equipos y materiales para la industria alimenticia, etc.");
+        restaurante.setActividad("Expendio de comida rápida, subsidiaria- mente a toda otra actividad comercial e industrial tendiente o relacionada con la venta de comida rápida, elaborar y comercializar productos lácteos, helados, bebidas aderezadas con jugo y/o aguas naturales, envasadas. Importar y comercializar insumos y maquinaria, equipos y materiales para la industria alimenticia, etc.");
         restaurante.setLinea("");
         restaurante.setGpsX(-17.391429377982195f);
         restaurante.setGpsY(-66.15454092621803f);
@@ -960,7 +960,7 @@ public class Listas {
         restaurante = new ModeloRestaurante();
         restaurante.setIdSQLite(idRestaurante++);
         restaurante.setNombre("Paprika");
-        restaurante.setDescripcion("Preparado, suministro y venta de alimentación, servicio de restaurant, bar y café, catering, venta de comidas nacionales e internacionales; importar, exportar productos alimenticios, industrialización, procesamiento, comercialización, transformación y reexcepto condimentos; importar maquinaria y equipos relacionadas con alimentos, etc.");
+        restaurante.setActividad("Preparado, suministro y venta de alimentación, servicio de restaurant, bar y café, catering, venta de comidas nacionales e internacionales; importar, exportar productos alimenticios, industrialización, procesamiento, comercialización, transformación y reexcepto condimentos; importar maquinaria y equipos relacionadas con alimentos, etc.");
         restaurante.setLinea("");
         restaurante.setGpsX(-17.38526897630569f);
         restaurante.setGpsY(-66.15441352128983f);
@@ -976,7 +976,7 @@ public class Listas {
         restaurante = new ModeloRestaurante();
         restaurante.setIdSQLite(idRestaurante++);
         restaurante.setNombre("La Chingada");
-        restaurante.setDescripcion("Restaurant, venta de comida y bebidas");
+        restaurante.setActividad("Restaurant, venta de comida y bebidas");
         restaurante.setLinea("");
         restaurante.setGpsX(-17.376025745120195f);
         restaurante.setGpsY(-66.16588532924652f);
@@ -992,7 +992,7 @@ public class Listas {
         restaurante = new ModeloRestaurante();
         restaurante.setIdSQLite(idRestaurante++);
         restaurante.setNombre("Apthapi World Street Food");
-        restaurante.setDescripcion("Venta de café, jugos , sandwiches y comida al paso");
+        restaurante.setActividad("Venta de café, jugos , sandwiches y comida al paso");
         restaurante.setLinea("");
         restaurante.setGpsX(-17.371657381677554f);
         restaurante.setGpsY(-66.16151869297028f);
@@ -1008,7 +1008,7 @@ public class Listas {
         restaurante = new ModeloRestaurante();
         restaurante.setIdSQLite(idRestaurante++);
         restaurante.setNombre("Con Yapa");
-        restaurante.setDescripcion("Local de comida silpanchería.");
+        restaurante.setActividad("Local de comida silpanchería.");
         restaurante.setLinea("");
         restaurante.setGpsX(-17.37377630054552f);
         restaurante.setGpsY(-66.14937096834183f);
@@ -1024,7 +1024,7 @@ public class Listas {
         restaurante = new ModeloRestaurante();
         restaurante.setIdSQLite(idRestaurante++);
         restaurante.setNombre("La Cantonata");
-        restaurante.setDescripcion("Instalación y administración de restaurant, confiterías, salones de té, heladerías con atención de todo tipo de alimentos y bebidas del campo gastronómico nacional e internacional, así como con repostería Dirección: C. España nro. 409 Zona: Central");
+        restaurante.setActividad("Instalación y administración de restaurant, confiterías, salones de té, heladerías con atención de todo tipo de alimentos y bebidas del campo gastronómico nacional e internacional, así como con repostería Dirección: C. España nro. 409 Zona: Central");
         restaurante.setLinea("");
         restaurante.setGpsX(-17.388920320753154f);
         restaurante.setGpsY(-66.15746855735779f);
@@ -1040,7 +1040,7 @@ public class Listas {
         restaurante = new ModeloRestaurante();
         restaurante.setIdSQLite(idRestaurante++);
         restaurante.setNombre("Big Joy");
-        restaurante.setDescripcion("Prestación, servicio y comercialización de alimentos, al igual que a desarrollar toda clase de actividades afines y complementarias, directa o indirectamente con el mismo, cuales son el aprovisionamiento, administración propia o de terceros, consultoría");
+        restaurante.setActividad("Prestación, servicio y comercialización de alimentos, al igual que a desarrollar toda clase de actividades afines y complementarias, directa o indirectamente con el mismo, cuales son el aprovisionamiento, administración propia o de terceros, consultoría");
         restaurante.setLinea("");
         restaurante.setGpsX(-17.377356840132606f);
         restaurante.setGpsY(-66.1537778377533f);
@@ -1056,7 +1056,7 @@ public class Listas {
         restaurante = new ModeloRestaurante();
         restaurante.setIdSQLite(idRestaurante++);
         restaurante.setNombre("Bricks Pizzeria");
-        restaurante.setDescripcion("Preparado, suministro y venta de alimentación, venta de pizzas y otras comidas rápidas relacionadas al servicio de alimentación, pudiendo importar, exportar productos alimenticios, agrícolas y demás productos conexos, etc");
+        restaurante.setActividad("Preparado, suministro y venta de alimentación, venta de pizzas y otras comidas rápidas relacionadas al servicio de alimentación, pudiendo importar, exportar productos alimenticios, agrícolas y demás productos conexos, etc");
         restaurante.setLinea("");
         restaurante.setGpsX(-17.372841317018036f);
         restaurante.setGpsY(-66.16031974554062f);
@@ -1072,7 +1072,7 @@ public class Listas {
         restaurante = new ModeloRestaurante();
         restaurante.setIdSQLite(idRestaurante++);
         restaurante.setNombre("Café Parlawi & Lab");
-        restaurante.setDescripcion("Venta cafe, bebidas, alcohol, masas dulces, saladas, piqueos, café en grano.");
+        restaurante.setActividad("Venta cafe, bebidas, alcohol, masas dulces, saladas, piqueos, café en grano.");
         restaurante.setLinea("");
         restaurante.setGpsX(-17.39069285391186f);
         restaurante.setGpsY(-66.17052286863327f);
@@ -1088,7 +1088,7 @@ public class Listas {
         restaurante = new ModeloRestaurante();
         restaurante.setIdSQLite(idRestaurante++);
         restaurante.setNombre("Caffeina Caffeina");
-        restaurante.setDescripcion("Venta café y repostería");
+        restaurante.setActividad("Venta café y repostería");
         restaurante.setLinea("");
         restaurante.setGpsX(-17.369925622470742f);
         restaurante.setGpsY(-66.16224825382233f);
@@ -1104,7 +1104,7 @@ public class Listas {
         restaurante = new ModeloRestaurante();
         restaurante.setIdSQLite(idRestaurante++);
         restaurante.setNombre("Chicken Brass");
-        restaurante.setDescripcion("Servicio de expendio de comida - pollos a la brasa y comercialización de bebidas no alcohólicas.");
+        restaurante.setActividad("Servicio de expendio de comida - pollos a la brasa y comercialización de bebidas no alcohólicas.");
         restaurante.setLinea("");
         restaurante.setGpsX(-17.384203187213203f);
         restaurante.setGpsY(-66.16834877058864f);
@@ -1120,7 +1120,7 @@ public class Listas {
         restaurante = new ModeloRestaurante();
         restaurante.setIdSQLite(idRestaurante++);
         restaurante.setNombre("Churrasquería \"Bagu\"");
-        restaurante.setDescripcion("Servicio de expendio de comida.");
+        restaurante.setActividad("Servicio de expendio de comida.");
         restaurante.setLinea("");
         restaurante.setGpsX(-17.37246437843471f);
         restaurante.setGpsY(-66.15387909114361f);
@@ -1136,7 +1136,7 @@ public class Listas {
         restaurante = new ModeloRestaurante();
         restaurante.setIdSQLite(idRestaurante++);
         restaurante.setNombre("Churrasquería Tunari Boulevar");
-        restaurante.setDescripcion("Servicio de expendio de comida.");
+        restaurante.setActividad("Servicio de expendio de comida.");
         restaurante.setLinea("");
         restaurante.setGpsX(-17.378525379988663f);
         restaurante.setGpsY(-66.15108624100685f);
@@ -1152,7 +1152,7 @@ public class Listas {
         restaurante = new ModeloRestaurante();
         restaurante.setIdSQLite(idRestaurante++);
         restaurante.setNombre("Restaurante “De K'ffe, Cafe, Lounge”");
-        restaurante.setDescripcion("Restaurant");
+        restaurante.setActividad("Restaurant");
         restaurante.setLinea("");
         restaurante.setGpsX(-17.377476510219704f);
         restaurante.setGpsY(-66.15127919241786f);
@@ -1168,7 +1168,7 @@ public class Listas {
         restaurante = new ModeloRestaurante();
         restaurante.setIdSQLite(idRestaurante++);
         restaurante.setNombre("Dimas' Restaurant");
-        restaurante.setDescripcion("Servicio de comida y restaurant");
+        restaurante.setActividad("Servicio de comida y restaurant");
         restaurante.setLinea("");
         restaurante.setGpsX(-17.389283147530463f);
         restaurante.setGpsY(-66.0877700150013f);
@@ -1184,7 +1184,7 @@ public class Listas {
         restaurante = new ModeloRestaurante();
         restaurante.setIdSQLite(idRestaurante++);
         restaurante.setNombre("Chicharronería Doña Pola");
-        restaurante.setDescripcion("Elaboración y comercialización de chicharrón y sus derivados");
+        restaurante.setActividad("Elaboración y comercialización de chicharrón y sus derivados");
         restaurante.setLinea("");
         restaurante.setGpsX(-17.37240230188733f);
         restaurante.setGpsY(-66.15931257605553f);
@@ -1200,7 +1200,7 @@ public class Listas {
         restaurante = new ModeloRestaurante();
         restaurante.setIdSQLite(idRestaurante++);
         restaurante.setNombre("Doner Kebab");
-        restaurante.setDescripcion("Servicios de restaurante, venta al por mayor de alimentos, bebidas.");
+        restaurante.setActividad("Servicios de restaurante, venta al por mayor de alimentos, bebidas.");
         restaurante.setLinea("");
         restaurante.setGpsX(-17.378969499971284f);
         restaurante.setGpsY(-66.16606906056404f);
@@ -1216,7 +1216,7 @@ public class Listas {
         restaurante = new ModeloRestaurante();
         restaurante.setIdSQLite(idRestaurante++);
         restaurante.setNombre("Dortmund Bierhaus");
-        restaurante.setDescripcion("Venta de comida y bebidas alcohólicas y no alcohólicas.");
+        restaurante.setActividad("Venta de comida y bebidas alcohólicas y no alcohólicas.");
         restaurante.setLinea("");
         restaurante.setGpsX(-17.380996823613167f);
         restaurante.setGpsY(-66.15136384963989f);
@@ -1232,7 +1232,7 @@ public class Listas {
         restaurante = new ModeloRestaurante();
         restaurante.setIdSQLite(idRestaurante++);
         restaurante.setNombre("El Tablón Family’s Food");
-        restaurante.setDescripcion("Instalación, exportación y administración de restaurante, con atención de todo tipo de alimentos y bebidas de campo de la gastronomia nacional e internacional.");
+        restaurante.setActividad("Instalación, exportación y administración de restaurante, con atención de todo tipo de alimentos y bebidas de campo de la gastronomia nacional e internacional.");
         restaurante.setLinea("");
         restaurante.setGpsX(-17.38341320023889f);
         restaurante.setGpsY(-66.15251585841179f);
@@ -1248,7 +1248,7 @@ public class Listas {
         restaurante = new ModeloRestaurante();
         restaurante.setIdSQLite(idRestaurante++);
         restaurante.setNombre("Heladería Globos");
-        restaurante.setDescripcion("Dedicarse a prestar servicios de restaurant, heladería y confitería como actividad principal y como otra actividad se dedicará al alquiler de espacios de parqueo, lavado de autos en sus instalaciones y prestar servicios de juegos electrónicos para niño.");
+        restaurante.setActividad("Dedicarse a prestar servicios de restaurant, heladería y confitería como actividad principal y como otra actividad se dedicará al alquiler de espacios de parqueo, lavado de autos en sus instalaciones y prestar servicios de juegos electrónicos para niño.");
         restaurante.setLinea("");
         restaurante.setGpsX(-17.387476685390638f);
         restaurante.setGpsY(-66.15560844540596f);
@@ -1264,7 +1264,7 @@ public class Listas {
         restaurante = new ModeloRestaurante();
         restaurante.setIdSQLite(idRestaurante++);
         restaurante.setNombre("Hunan");
-        restaurante.setDescripcion("Venta y elaboración de comida.");
+        restaurante.setActividad("Venta y elaboración de comida.");
         restaurante.setLinea("");
         restaurante.setGpsX(-17.37545874690195f);
         restaurante.setGpsY(-66.15092061460018f);
@@ -1280,7 +1280,7 @@ public class Listas {
         restaurante = new ModeloRestaurante();
         restaurante.setIdSQLite(idRestaurante++);
         restaurante.setNombre("Karbonju");
-        restaurante.setDescripcion("Restaurant - parrilla bar.");
+        restaurante.setActividad("Restaurant - parrilla bar.");
         restaurante.setLinea("");
         restaurante.setGpsX(-17.372133516594012f);
         restaurante.setGpsY(-66.16958476603031f);
@@ -1296,7 +1296,7 @@ public class Listas {
         restaurante = new ModeloRestaurante();
         restaurante.setIdSQLite(idRestaurante++);
         restaurante.setNombre("Madonna Mia");
-        restaurante.setDescripcion("Pizzería - restaurant");
+        restaurante.setActividad("Pizzería - restaurant");
         restaurante.setLinea("");
         restaurante.setGpsX(-17.389192920832944f);
         restaurante.setGpsY(-66.10998205840588f);
@@ -1312,7 +1312,7 @@ public class Listas {
         restaurante = new ModeloRestaurante();
         restaurante.setIdSQLite(idRestaurante++);
         restaurante.setNombre("Malditos Food");
-        restaurante.setDescripcion("Restaurant, venta de comida rápida, platos típicos.");
+        restaurante.setActividad("Restaurant, venta de comida rápida, platos típicos.");
         restaurante.setLinea("");
         restaurante.setGpsX(-17.378969499971284f);
         restaurante.setGpsY(-66.16606839001179f);
@@ -1328,7 +1328,7 @@ public class Listas {
         restaurante = new ModeloRestaurante();
         restaurante.setIdSQLite(idRestaurante++);
         restaurante.setNombre("Menta Restobar");
-        restaurante.setDescripcion("Preparar, presentar y ofrecer servicio de productos alimenticios para consumo inmediato, semielaborados o envasados de comida en general y comida vegetariana en particular, tomando en cuenta las necesidades específicas del cliente en cuanto a gustos y presentación y oferta de comida servida, tipo buffet, mini platillos, ensaladas, sándwiches, coffe break, jugos de fruta.");
+        restaurante.setActividad("Preparar, presentar y ofrecer servicio de productos alimenticios para consumo inmediato, semielaborados o envasados de comida en general y comida vegetariana en particular, tomando en cuenta las necesidades específicas del cliente en cuanto a gustos y presentación y oferta de comida servida, tipo buffet, mini platillos, ensaladas, sándwiches, coffe break, jugos de fruta.");
         restaurante.setLinea("");
         restaurante.setGpsX(-17.36871990905333f);
         restaurante.setGpsY(-66.1693212389946f);
@@ -1344,7 +1344,7 @@ public class Listas {
         restaurante = new ModeloRestaurante();
         restaurante.setIdSQLite(idRestaurante++);
         restaurante.setNombre("Retaurant Nauvoo");
-        restaurante.setDescripcion("Restaurante de servicio de comidas y bebidas, desayunos y comida rápida.");
+        restaurante.setActividad("Restaurante de servicio de comidas y bebidas, desayunos y comida rápida.");
         restaurante.setLinea("");
         restaurante.setGpsX(-17.387339744210674f);
         restaurante.setGpsY(-66.15523159503937f);
@@ -1360,7 +1360,7 @@ public class Listas {
         restaurante = new ModeloRestaurante();
         restaurante.setIdSQLite(idRestaurante++);
         restaurante.setNombre("Restaurant Casa de Campo ");
-        restaurante.setDescripcion("Servicio de restaurant, organizar eventos culinarios, producción y comercialización de bebidas refrescantes y alcohólicas, alquiler de espacios para publicidad, organizar, alquilar, arrendar espacios para eventos nacionales y/o internacionales.");
+        restaurante.setActividad("Servicio de restaurant, organizar eventos culinarios, producción y comercialización de bebidas refrescantes y alcohólicas, alquiler de espacios para publicidad, organizar, alquilar, arrendar espacios para eventos nacionales y/o internacionales.");
         restaurante.setLinea("");
         restaurante.setGpsX(-17.378677686386496f);
         restaurante.setGpsY(-66.15161195397377f);
@@ -1376,7 +1376,7 @@ public class Listas {
         restaurante = new ModeloRestaurante();
         restaurante.setIdSQLite(idRestaurante++);
         restaurante.setNombre("Seoul Food");
-        restaurante.setDescripcion("Preparación de comida para su comercialización.");
+        restaurante.setActividad("Preparación de comida para su comercialización.");
         restaurante.setLinea("");
         restaurante.setGpsX(-17.368883103212763f);
         restaurante.setGpsY(-66.16417575627565f);
@@ -1392,7 +1392,7 @@ public class Listas {
         restaurante = new ModeloRestaurante();
         restaurante.setIdSQLite(idRestaurante++);
         restaurante.setNombre("Shofár");
-        restaurante.setDescripcion("Elaboración de pollos y otras comidas.");
+        restaurante.setActividad("Elaboración de pollos y otras comidas.");
         restaurante.setLinea("");
         restaurante.setGpsX(-17.398636407059282f);
         restaurante.setGpsY(-66.154490634799f);
@@ -1408,7 +1408,7 @@ public class Listas {
         restaurante = new ModeloRestaurante();
         restaurante.setIdSQLite(idRestaurante++);
         restaurante.setNombre("Simple Foods");
-        restaurante.setDescripcion("Producción y comercialización de bocadillos hechos a mano (sandwich, wraps, ensaladas y productos de panadería y pastelería)");
+        restaurante.setActividad("Producción y comercialización de bocadillos hechos a mano (sandwich, wraps, ensaladas y productos de panadería y pastelería)");
         restaurante.setLinea("");
         restaurante.setGpsX(-17.375021017956897f);
         restaurante.setGpsY(-66.15767776966095f);
@@ -1424,7 +1424,7 @@ public class Listas {
         restaurante = new ModeloRestaurante();
         restaurante.setIdSQLite(idRestaurante++);
         restaurante.setNombre("Sole Mio");
-        restaurante.setDescripcion("Restaurante servicios generales");
+        restaurante.setActividad("Restaurante servicios generales");
         restaurante.setLinea("");
         restaurante.setGpsX(-17.3734639999393f);
         restaurante.setGpsY(-66.15068189799786f);
@@ -1440,7 +1440,7 @@ public class Listas {
         restaurante = new ModeloRestaurante();
         restaurante.setIdSQLite(idRestaurante++);
         restaurante.setNombre("Solo Pastas");
-        restaurante.setDescripcion("Elaboración de comidas a base de pasta para su comercialización.");
+        restaurante.setActividad("Elaboración de comidas a base de pasta para su comercialización.");
         restaurante.setLinea("");
         restaurante.setGpsX(-17.369882104290127f);
         restaurante.setGpsY(-66.16224221885204f);
@@ -1456,7 +1456,7 @@ public class Listas {
         restaurante = new ModeloRestaurante();
         restaurante.setIdSQLite(idRestaurante++);
         restaurante.setNombre("Stuffz Burgers");
-        restaurante.setDescripcion("Restaurante de comida rápida.");
+        restaurante.setActividad("Restaurante de comida rápida.");
         restaurante.setLinea("");
         restaurante.setGpsX(-17.384446037930708f);
         restaurante.setGpsY(-66.1528430879116f);
@@ -1472,7 +1472,7 @@ public class Listas {
         restaurante = new ModeloRestaurante();
         restaurante.setIdSQLite(idRestaurante++);
         restaurante.setNombre("Shawarma King");
-        restaurante.setDescripcion("Elaboración y comercialización de comida y bebidas.");
+        restaurante.setActividad("Elaboración y comercialización de comida y bebidas.");
         restaurante.setLinea("");
         restaurante.setGpsX(-17.37562385491644f);
         restaurante.setGpsY(-66.15089312195778f);
@@ -1488,7 +1488,7 @@ public class Listas {
         restaurante = new ModeloRestaurante();
         restaurante.setIdSQLite(idRestaurante++);
         restaurante.setNombre("Dogs Burgers & More");
-        restaurante.setDescripcion("Elaboración y comercialización de comida rápida. ");
+        restaurante.setActividad("Elaboración y comercialización de comida rápida. ");
         restaurante.setLinea("");
         restaurante.setGpsX(-17.377799683058683f);
         restaurante.setGpsY(-66.14966936409473f);
@@ -1504,7 +1504,7 @@ public class Listas {
         restaurante = new ModeloRestaurante();
         restaurante.setIdSQLite(idRestaurante++);
         restaurante.setNombre("Los Chicharrones Originales");
-        restaurante.setDescripcion("Elaboración y comercialización de Chicharon y bebidas.");
+        restaurante.setActividad("Elaboración y comercialización de Chicharon y bebidas.");
         restaurante.setLinea("");
         restaurante.setGpsX(-17.389289546585317f);
         restaurante.setGpsY(-66.08183093369007f);
@@ -1519,7 +1519,7 @@ public class Listas {
         restaurante = new ModeloRestaurante();
         restaurante.setIdSQLite(idRestaurante++);
         restaurante.setNombre("Mac Soba");
-        restaurante.setDescripcion("Comercialización de comida. ");
+        restaurante.setActividad("Comercialización de comida. ");
         restaurante.setLinea("");
         restaurante.setGpsX(-17.34886417514498f);
         restaurante.setGpsY(-66.19583889842033f);
@@ -1535,7 +1535,7 @@ public class Listas {
         restaurante = new ModeloRestaurante();
         restaurante.setIdSQLite(idRestaurante++);
         restaurante.setNombre("Novecento");
-        restaurante.setDescripcion("Elaboración y comercialización de comida.");
+        restaurante.setActividad("Elaboración y comercialización de comida.");
         restaurante.setLinea("");
         restaurante.setGpsX(-17.3849925308569f);
         restaurante.setGpsY(-66.15432769060135f);
@@ -1551,7 +1551,7 @@ public class Listas {
         restaurante = new ModeloRestaurante();
         restaurante.setIdSQLite(idRestaurante++);
         restaurante.setNombre("Paqui’s Restaurant");
-        restaurante.setDescripcion("Restaurant ");
+        restaurante.setActividad("Restaurant ");
         restaurante.setLinea("");
         restaurante.setGpsX(-17.363021461830993f);
         restaurante.setGpsY(-66.15060210227966f);
@@ -1567,7 +1567,7 @@ public class Listas {
         restaurante = new ModeloRestaurante();
         restaurante.setIdSQLite(idRestaurante++);
         restaurante.setNombre("Restaurant Cristal");
-        restaurante.setDescripcion("Venta de Helados, Pasteles y Comida.");
+        restaurante.setActividad("Venta de Helados, Pasteles y Comida.");
         restaurante.setLinea("");
         restaurante.setGpsX(-17.392268282324746f);
         restaurante.setGpsY(-66.15609660744667f);
@@ -1583,7 +1583,7 @@ public class Listas {
         restaurante = new ModeloRestaurante();
         restaurante.setIdSQLite(idRestaurante++);
         restaurante.setNombre("Rolling Wings");
-        restaurante.setDescripcion("Elaboración y comercialización de comida. ");
+        restaurante.setActividad("Elaboración y comercialización de comida. ");
         restaurante.setLinea("");
         restaurante.setGpsX(-17.38518706658663f);
         restaurante.setGpsY(-66.18275105953217f);

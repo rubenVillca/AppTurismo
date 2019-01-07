@@ -59,7 +59,7 @@ public class ListasPrueba extends Listas{
         hotel=new ModeloHotel();
         hotel.setIdSQLite(idHotel++);
         hotel.setNombre("Adara Suites Apart Hotel ");
-        hotel.setDescripcion("Hospedaje, administración y manejo de hoteles, apart hoteles, prestación de todo tipo de servicios hoteleros, organización de eventos, recepciones, servicios de restaurant, cafetería, spa, café, bar, etc.");
+        hotel.setActividad("Hospedaje, administración y manejo de hoteles, apart hoteles, prestación de todo tipo de servicios hoteleros, organización de eventos, recepciones, servicios de restaurant, cafetería, spa, café, bar, etc.");
         hotel.setLinea("");
         hotel.setGpsX(-17.38467001063881f);
         hotel.setGpsY(-66.16149187088013f);
@@ -80,7 +80,7 @@ public class ListasPrueba extends Listas{
         restaurante = new ModeloRestaurante();
         restaurante.setIdSQLite(idRestaurante++);
         restaurante.setNombre("Carne y Fuego");
-        restaurante.setDescripcion("Restaurant - churrasquería");
+        restaurante.setActividad("Restaurant - churrasquería");
         restaurante.setLinea("111");
         restaurante.setGpsX(-17.376764248067403f);
         restaurante.setGpsY(-66.17607034742832f);
@@ -106,7 +106,7 @@ public class ListasPrueba extends Listas{
         lugarTuristico.setTipo(Constants.TIPO_LUGAR_SITIOS_NATURALES);
         lugarTuristico.setNombre("Árbol de Jarka");
         lugarTuristico.setImagenesFirebaseArreglo(ModeloImagen.TIPO_LUGAR, new String[]{"arbol jarka2.jpg", "arbol jarka1.jpg" });
-        lugarTuristico.setDescripcion("Árbol “Jarka”, es un árbol con el tronco torcido ubicado en la Plazuela 27 de mayo," +
+        lugarTuristico.setActividad("Árbol “Jarka”, es un árbol con el tronco torcido ubicado en la Plazuela 27 de mayo," +
                 " también denominado árbol de la juventud. En años anteriores esta zona se llamaba “loza katu” por la venta de cerámica.");
         lugarTuristico.setHorario("");
         lugarTuristico.setDireccion("Tarata, Bolivia");

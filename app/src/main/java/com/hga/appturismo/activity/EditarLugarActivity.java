@@ -108,7 +108,7 @@ public class EditarLugarActivity extends EditarActivity {
                         Constants.FIREBASE_STORAGE_URL_LUGAR_TURISTICO, modeloLugarTuristicoOld.getImagenes()
                 )
         );
-        modeloLugarTuristicoNew.setDescripcion(editar_txt_descripcion.getText().toString());
+        modeloLugarTuristicoNew.setActividad(editar_txt_actividad.getText().toString());
         modeloLugarTuristicoNew.setHorario(editar_txt_horario.getText().toString());
         modeloLugarTuristicoNew.setDireccion(editar_txt_direccion.getText().toString());
         modeloLugarTuristicoNew.setTelefono(Long.parseLong(editar_txt_telefono.getText().toString()));
@@ -168,7 +168,7 @@ public class EditarLugarActivity extends EditarActivity {
         //editar_spinner_provincia.setSelection(idProvincia);
         editar_spinner_tipo_turismo.setSelection(idTipoTurismo);
         editar_txt_nombre.setText(modeloLugarTuristicoOld.getNombre());
-        editar_txt_descripcion.setText(modeloLugarTuristicoOld.getDescripcion());
+        editar_txt_actividad.setText(modeloLugarTuristicoOld.getActividad());
         //editar_txt_email.setText(modeloLugarTuristicoOld.getEmail());
         editar_txt_direccion.setText(modeloLugarTuristicoOld.getDireccion());
         //editar_txt_paginaweb.setText(modeloLugarTuristicoOld.getPaginaWeb());
@@ -215,7 +215,7 @@ public class EditarLugarActivity extends EditarActivity {
         boolean isValidLugarTuristico = true;
 
         editar_txt_nombre.setError(null);
-        editar_txt_descripcion.setError(null);
+        editar_txt_actividad.setError(null);
         editar_txt_latitud.setError(null);
         editar_txt_longitud.setError(null);
         editar_txt_ruta_imagen.setError(null);
@@ -227,7 +227,7 @@ public class EditarLugarActivity extends EditarActivity {
 
         String provincia = editar_txt_provincia.getText().toString();
         String nombre = editar_txt_nombre.getText().toString();
-        String descripcion = editar_txt_descripcion.getText().toString();
+        String actividad = editar_txt_actividad.getText().toString();
         String latitud = editar_txt_latitud.getText().toString();
         String longitud = editar_txt_longitud.getText().toString();
         String rutaImagen = editar_txt_ruta_imagen.getText().toString();
@@ -248,9 +248,9 @@ public class EditarLugarActivity extends EditarActivity {
             focusView = editar_txt_latitud;
             isValidLugarTuristico = false;
         }
-        if (descripcion.isEmpty()) {
-            editar_txt_descripcion.setError("Llenar descripción");
-            focusView = editar_txt_descripcion;
+        if (actividad.isEmpty()) {
+            editar_txt_actividad.setError("Llenar descripción");
+            focusView = editar_txt_actividad;
             isValidLugarTuristico = false;
         }
         if (provincia.isEmpty()) {

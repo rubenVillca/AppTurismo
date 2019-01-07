@@ -88,8 +88,8 @@ public class RestauranteResponseTypeAdapter extends TypeAdapter {
                 case "registradoPor":
                     modeloRestaurante.setRegistradoPor(reader.nextString());
                     break;
-                case "descripcion":
-                    modeloRestaurante.setDescripcion(reader.nextString());
+                case "actividad":
+                    modeloRestaurante.setActividad(reader.nextString());
                     break;
                 case "linea":
                     modeloRestaurante.setLinea(reader.nextString());

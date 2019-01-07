@@ -86,8 +86,8 @@ public class HotelResponseTypeAdapter extends TypeAdapter {
                 case "registradoPor":
                     modeloHotel.setRegistradoPor(reader.nextString());
                     break;
-                case "descripcion":
-                    modeloHotel.setDescripcion(reader.nextString());
+                case "actividad":
+                    modeloHotel.setActividad(reader.nextString());
                     break;
                 case "linea":
                     modeloHotel.setLinea(reader.nextString());

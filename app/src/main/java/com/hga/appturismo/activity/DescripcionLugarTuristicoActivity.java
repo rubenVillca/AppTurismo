@@ -90,8 +90,11 @@ public class DescripcionLugarTuristicoActivity extends AppCompatActivity impleme
         TextView textViewNombreText = findViewById(R.id.textViewNombreText);
         textViewNombreText.setText(modeloLugarTuristico.getNombre());
 
-        TextView textViewDescripcionText = findViewById(R.id.textViewDescripcionText);
+        TextView textViewDescripcionText = findViewById(R.id.textViewDescripcionTextView);
         textViewDescripcionText.setText(modeloLugarTuristico.getDescripcion());
+
+        TextView textViewActividadText = findViewById(R.id.textViewActividadTextView);
+        textViewActividadText.setText(modeloLugarTuristico.getActividad());
 
         TextView textViewDireccionText = findViewById(R.id.textViewDireccionText);
         textViewDireccionText.setText(modeloLugarTuristico.getDireccion());
@@ -128,7 +131,7 @@ public class DescripcionLugarTuristicoActivity extends AppCompatActivity impleme
             LinearLayout linearLayoutActividad=findViewById(R.id.linearLayoutActividad);
             linearLayoutActividad.setVisibility(View.GONE);
         }else {
-            TextView textViewActividad = findViewById(R.id.textViewActividadText);
+            TextView textViewActividad = findViewById(R.id.textViewActividadTextView);
             textViewActividad.setText(modeloLugarTuristico.getActividad());
         }
 
@@ -176,7 +179,8 @@ public class DescripcionLugarTuristicoActivity extends AppCompatActivity impleme
         if (tts == null)
             tts = new TextToSpeech(this, this);
         String text = "Lugar Turístico: " + modeloLugarTuristico.getNombre()
-                + ". Descripción: " + modeloLugarTuristico.getDescripcion()
+                + ". Descripcion: " + modeloLugarTuristico.getDescripcion()
+                + ". Actividades: " + modeloLugarTuristico.getActividad()
                 + ". Provincia: " + modeloLugarTuristico.getProvincia();
         tts.speak(text, TextToSpeech.QUEUE_FLUSH, null);
     }

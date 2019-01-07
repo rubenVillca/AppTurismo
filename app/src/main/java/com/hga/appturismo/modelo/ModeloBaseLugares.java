@@ -18,7 +18,7 @@ public class ModeloBaseLugares implements Serializable {
     protected float gpsX;
     protected float gpsY;
     protected String estado;
-    protected String descripcion;
+    protected String actividad;
     protected String registradoPor;
 
     public ModeloBaseLugares() {
@@ -31,17 +31,16 @@ public class ModeloBaseLugares implements Serializable {
         this.gpsX = 0f;
         this.gpsY = 0f;
         this.estado = Constants.ESTADO_LUGAR_VISIBLE;
-        this.descripcion = "";
         this.registradoPor = "hga.ax88@gmail.com";
+        this.actividad="";
     }
 
-
-    public String getDescripcion() {
-        return descripcion;
+    public String getActividad() {
+        return actividad;
     }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public void setActividad(String actividad) {
+        this.actividad = actividad;
     }
 
     public int getIdSQLite() {
