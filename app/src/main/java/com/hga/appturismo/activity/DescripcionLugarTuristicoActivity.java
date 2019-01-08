@@ -124,15 +124,13 @@ public class DescripcionLugarTuristicoActivity extends AppCompatActivity impleme
             LinearLayout linearLayoutHorario=findViewById(R.id.linearLayoutHorario);
             linearLayoutHorario.setVisibility(View.GONE);
         }else {
-            TextView textViewHorario = findViewById(R.id.textViewHorariosTextLugar);
-            textViewHorario.setText(modeloLugarTuristico.getHorario());
+            textViewHorariosText.setText(modeloLugarTuristico.getHorario());
         }
         if (modeloLugarTuristico.getActividad().isEmpty()) {
             LinearLayout linearLayoutActividad=findViewById(R.id.linearLayoutActividad);
             linearLayoutActividad.setVisibility(View.GONE);
         }else {
-            TextView textViewActividad = findViewById(R.id.textViewActividadTextView);
-            textViewActividad.setText(modeloLugarTuristico.getActividad());
+            textViewActividadText.setText(modeloLugarTuristico.getActividad());
         }
 
         //botones

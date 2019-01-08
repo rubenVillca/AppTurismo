@@ -154,7 +154,7 @@
                     android:layout_marginTop="@dimen/margin_label_top_bottom"
                     android:layout_weight="2"
                     android:gravity="top|left"
-                    android:lines="8"
+                    android:lines="5"
                     android:inputType="textMultiLine"
                     android:textSize="@dimen/size_text_primary"
                     tools:ignore="RtlHardcoded"/>
@@ -186,7 +186,7 @@
                     android:layout_marginBottom="@dimen/margin_label_top_bottom"
                     android:layout_marginTop="@dimen/margin_label_top_bottom"
                     android:layout_weight="2"
-                    android:lines="8"
+                    android:lines="5"
                     android:gravity="top|left"
                     android:inputType="textMultiLine"
                     android:textSize="@dimen/size_text_primary" />

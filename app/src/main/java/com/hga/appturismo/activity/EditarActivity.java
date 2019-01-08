@@ -50,6 +50,7 @@ public class EditarActivity extends AppCompatActivity {
 
     protected EditText editar_txt_nombre;
     protected EditText editar_txt_actividad;
+    protected EditText editar_txt_descripcion;
     protected EditText editar_txt_email;
     protected EditText editar_txt_direccion;
     protected EditText editar_txt_paginaweb;
@@ -73,6 +74,7 @@ public class EditarActivity extends AppCompatActivity {
     protected LinearLayout editar_layout_tipoTurismo;
     protected LinearLayout editar_layout_nombre;
     protected LinearLayout editar_layout_actividad;
+    protected LinearLayout editar_layout_descripcion;
     protected LinearLayout editar_layout_email;
     protected LinearLayout editar_layout_direccion;
     protected LinearLayout editar_layout_pagina_web;
@@ -131,30 +133,46 @@ public class EditarActivity extends AppCompatActivity {
     protected void iniciarVista() {
         editar_layout_tipo = findViewById(R.id.editar_layout_tipo);
         editar_spinner_tipo = findViewById(R.id.editar_spinner_tipo);
+
         editar_layout_provincia = findViewById(R.id.editar_layout_provincia);
         editar_spinner_provincia = findViewById(R.id.editar_spinner_provincia);
+
         editar_layout_tipoTurismo = findViewById(R.id.editar_layout_tipoTurismo);
         editar_spinner_tipo_turismo = findViewById(R.id.editar_spinner_tipo_turismo);
+
         editar_layout_nombre = findViewById(R.id.editar_layout_nombre);
         editar_txt_nombre = findViewById(R.id.editar_txt_nombre);
+
         editar_layout_actividad = findViewById(R.id.editar_layout_actividad);
         editar_txt_actividad = findViewById(R.id.editar_txt_actividad);
+
+        editar_layout_descripcion = findViewById(R.id.editar_layout_descripcion);
+        editar_txt_descripcion = findViewById(R.id.editar_txt_descripcion);
+
         editar_layout_email = findViewById(R.id.editar_layout_email);
         editar_txt_email = findViewById(R.id.editar_txt_email);
+
         editar_layout_direccion = findViewById(R.id.editar_layout_direccion);
         editar_txt_direccion = findViewById(R.id.editar_txt_direccion);
+
         editar_layout_pagina_web = findViewById(R.id.editar_layout_pagina_web);
         editar_txt_paginaweb = findViewById(R.id.editar_txt_paginaweb);
+
         editar_layout_telefono = findViewById(R.id.editar_layout_telefono);
         editar_txt_telefono = findViewById(R.id.editar_txt_telefono);
+
         editar_layout_horario = findViewById(R.id.editar_layout_horario);
         editar_txt_horario = findViewById(R.id.editar_txt_horario);
+
         editar_layout_latitud = findViewById(R.id.editar_layout_latitud);
         editar_txt_latitud = findViewById(R.id.editar_txt_latitud);
+
         editar_layout_longitud = findViewById(R.id.editar_layout_longitud);
         editar_txt_longitud = findViewById(R.id.editar_txt_longitud);
+
         editar_layout_linea = findViewById(R.id.editar_layout_linea);
         editar_txt_linea = findViewById(R.id.editar_txt_linea);
+
         editar_layout_fecha = findViewById(R.id.editar_layout_fecha);
         editar_txt_fecha = findViewById(R.id.editar_txt_fecha);
 
@@ -189,56 +207,7 @@ public class EditarActivity extends AppCompatActivity {
         editar_spinner_tipo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                switch (position) {
-                    case 0://modeloHotelOld
-                        editar_layout_tipo.setVisibility(View.GONE);
-                        editar_layout_provincia.setVisibility(View.GONE);
-                        editar_layout_tipoTurismo.setVisibility(View.GONE);
-                        editar_layout_nombre.setVisibility(View.VISIBLE);
-                        editar_layout_email.setVisibility(View.VISIBLE);
-                        editar_layout_direccion.setVisibility(View.VISIBLE);
-                        editar_layout_pagina_web.setVisibility(View.VISIBLE);
-                        editar_layout_telefono.setVisibility(View.VISIBLE);
-                        editar_layout_horario.setVisibility(View.VISIBLE);
-                        editar_layout_latitud.setVisibility(View.VISIBLE);
-                        editar_layout_longitud.setVisibility(View.VISIBLE);
-                        editar_layout_imagen.setVisibility(View.VISIBLE);
-                        editar_layout_linea.setVisibility(View.VISIBLE);
-                        editar_layout_fecha.setVisibility(View.GONE);
-                        break;
-                    case 1://modeloRestauranteOld
-                        editar_layout_tipo.setVisibility(View.GONE);
-                        editar_layout_provincia.setVisibility(View.GONE);
-                        editar_layout_tipoTurismo.setVisibility(View.GONE);
-                        editar_layout_nombre.setVisibility(View.VISIBLE);
-                        editar_layout_email.setVisibility(View.VISIBLE);
-                        editar_layout_direccion.setVisibility(View.VISIBLE);
-                        editar_layout_pagina_web.setVisibility(View.VISIBLE);
-                        editar_layout_telefono.setVisibility(View.VISIBLE);
-                        editar_layout_horario.setVisibility(View.VISIBLE);
-                        editar_layout_latitud.setVisibility(View.VISIBLE);
-                        editar_layout_longitud.setVisibility(View.VISIBLE);
-                        editar_layout_imagen.setVisibility(View.VISIBLE);
-                        editar_layout_linea.setVisibility(View.VISIBLE);
-                        editar_layout_fecha.setVisibility(View.GONE);
-                        break;
-                    case 2://lugar turistico
-                        editar_layout_tipo.setVisibility(View.VISIBLE);
-                        editar_layout_provincia.setVisibility(View.VISIBLE);
-                        editar_layout_tipoTurismo.setVisibility(View.VISIBLE);
-                        editar_layout_nombre.setVisibility(View.VISIBLE);
-                        editar_layout_email.setVisibility(View.VISIBLE);
-                        editar_layout_direccion.setVisibility(View.VISIBLE);
-                        editar_layout_pagina_web.setVisibility(View.VISIBLE);
-                        editar_layout_telefono.setVisibility(View.VISIBLE);
-                        editar_layout_horario.setVisibility(View.VISIBLE);
-                        editar_layout_latitud.setVisibility(View.VISIBLE);
-                        editar_layout_longitud.setVisibility(View.VISIBLE);
-                        editar_layout_imagen.setVisibility(View.VISIBLE);
-                        editar_layout_linea.setVisibility(View.VISIBLE);
-                        editar_layout_fecha.setVisibility(View.VISIBLE);
-                        break;
-                }
+                setVisibleTipoLugar(position);
             }
 
             @Override
@@ -246,6 +215,59 @@ public class EditarActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    private void setVisibleTipoLugar(int position) {
+        switch (position) {
+            case 0://modeloHotelOld
+                editar_layout_tipo.setVisibility(View.GONE);
+                editar_layout_provincia.setVisibility(View.GONE);
+                editar_layout_tipoTurismo.setVisibility(View.GONE);
+                editar_layout_nombre.setVisibility(View.VISIBLE);
+                editar_layout_email.setVisibility(View.VISIBLE);
+                editar_layout_direccion.setVisibility(View.VISIBLE);
+                editar_layout_pagina_web.setVisibility(View.VISIBLE);
+                editar_layout_telefono.setVisibility(View.VISIBLE);
+                editar_layout_horario.setVisibility(View.VISIBLE);
+                editar_layout_latitud.setVisibility(View.VISIBLE);
+                editar_layout_longitud.setVisibility(View.VISIBLE);
+                editar_layout_imagen.setVisibility(View.VISIBLE);
+                editar_layout_linea.setVisibility(View.VISIBLE);
+                editar_layout_fecha.setVisibility(View.GONE);
+                break;
+            case 1://modeloRestauranteOld
+                editar_layout_tipo.setVisibility(View.GONE);
+                editar_layout_provincia.setVisibility(View.GONE);
+                editar_layout_tipoTurismo.setVisibility(View.GONE);
+                editar_layout_nombre.setVisibility(View.VISIBLE);
+                editar_layout_email.setVisibility(View.VISIBLE);
+                editar_layout_direccion.setVisibility(View.VISIBLE);
+                editar_layout_pagina_web.setVisibility(View.VISIBLE);
+                editar_layout_telefono.setVisibility(View.VISIBLE);
+                editar_layout_horario.setVisibility(View.VISIBLE);
+                editar_layout_latitud.setVisibility(View.VISIBLE);
+                editar_layout_longitud.setVisibility(View.VISIBLE);
+                editar_layout_imagen.setVisibility(View.VISIBLE);
+                editar_layout_linea.setVisibility(View.VISIBLE);
+                editar_layout_fecha.setVisibility(View.GONE);
+                break;
+            case 2://lugar turistico
+                editar_layout_tipo.setVisibility(View.VISIBLE);
+                editar_layout_provincia.setVisibility(View.VISIBLE);
+                editar_layout_tipoTurismo.setVisibility(View.VISIBLE);
+                editar_layout_nombre.setVisibility(View.VISIBLE);
+                editar_layout_email.setVisibility(View.GONE);
+                editar_layout_direccion.setVisibility(View.VISIBLE);
+                editar_layout_pagina_web.setVisibility(View.VISIBLE);
+                editar_layout_telefono.setVisibility(View.VISIBLE);
+                editar_layout_horario.setVisibility(View.VISIBLE);
+                editar_layout_latitud.setVisibility(View.VISIBLE);
+                editar_layout_longitud.setVisibility(View.VISIBLE);
+                editar_layout_imagen.setVisibility(View.VISIBLE);
+                editar_layout_linea.setVisibility(View.VISIBLE);
+                editar_layout_fecha.setVisibility(View.VISIBLE);
+                break;
+        }
     }
 
     @NonNull

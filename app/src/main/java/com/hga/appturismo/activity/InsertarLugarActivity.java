@@ -667,7 +667,7 @@ public class InsertarLugarActivity extends AppCompatActivity {
                         layout_nombre.setVisibility(View.VISIBLE);
                         layout_actividad.setVisibility(View.VISIBLE);
                         layout_descripcion.setVisibility(View.VISIBLE);
-                        layout_email.setVisibility(View.VISIBLE);
+                        layout_email.setVisibility(View.GONE);
                         layout_direccion.setVisibility(View.VISIBLE);
                         layout_pagina_web.setVisibility(View.VISIBLE);
                         layout_telefono.setVisibility(View.VISIBLE);

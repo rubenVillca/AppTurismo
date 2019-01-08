@@ -48,6 +48,8 @@ public class EditarLugarActivity extends EditarActivity {
 
     protected void iniciarVista() {
         super.iniciarVista();
+
+        editar_layout_email.setVisibility(View.GONE);
         editar_btn_insertar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -109,6 +111,7 @@ public class EditarLugarActivity extends EditarActivity {
                 )
         );
         modeloLugarTuristicoNew.setActividad(editar_txt_actividad.getText().toString());
+        modeloLugarTuristicoNew.setDescripcion(editar_txt_descripcion.getText().toString());
         modeloLugarTuristicoNew.setHorario(editar_txt_horario.getText().toString());
         modeloLugarTuristicoNew.setDireccion(editar_txt_direccion.getText().toString());
         modeloLugarTuristicoNew.setTelefono(Long.parseLong(editar_txt_telefono.getText().toString()));
@@ -169,14 +172,15 @@ public class EditarLugarActivity extends EditarActivity {
         editar_spinner_tipo_turismo.setSelection(idTipoTurismo);
         editar_txt_nombre.setText(modeloLugarTuristicoOld.getNombre());
         editar_txt_actividad.setText(modeloLugarTuristicoOld.getActividad());
+        editar_txt_descripcion.setText(modeloLugarTuristicoOld.getDescripcion());
         //editar_txt_email.setText(modeloLugarTuristicoOld.getEmail());
         editar_txt_direccion.setText(modeloLugarTuristicoOld.getDireccion());
         //editar_txt_paginaweb.setText(modeloLugarTuristicoOld.getPaginaWeb());
         editar_txt_telefono.setText(valueOf(modeloLugarTuristicoOld.getTelefono()));
         editar_txt_horario.setText(modeloLugarTuristicoOld.getHorario());
-        editar_txt_latitud.setText(valueOf(valueOf(modeloLugarTuristicoOld.getGpsX())));
-        editar_txt_longitud.setText(valueOf(valueOf(modeloLugarTuristicoOld.getGpsY())));
-        //editar_txt_linea.setText(modeloLugarTuristicoNew.getLinea());
+        editar_txt_latitud.setText(valueOf(modeloLugarTuristicoOld.getGpsX()));
+        editar_txt_longitud.setText(valueOf(modeloLugarTuristicoOld.getGpsY()));
+        editar_txt_linea.setText(modeloLugarTuristicoOld.getLinea());
         //editar_txt_fecha.setText(modeloLugarTuristicoNew.getFecha());
         String urlImagen = "";
         if (!modeloLugarTuristicoOld.getImagenes().isEmpty()) {

@@ -160,7 +160,7 @@
                     android:layout_marginTop="@dimen/margin_label_top_bottom"
                     android:layout_weight="2"
                     android:gravity="top|left"
-                    android:lines="8"
+                    android:lines="5"
                     android:inputType="textMultiLine"
                     android:textSize="@dimen/size_text_primary"/>
             </LinearLayout>
@@ -192,7 +192,7 @@
                     android:layout_marginTop="@dimen/margin_label_top_bottom"
                     android:layout_weight="2"
                     android:gravity="top|left"
-                    android:lines="8"
+                    android:lines="5"
                     android:inputType="textMultiLine"
                     android:textSize="@dimen/size_text_primary"/>
             </LinearLayout>
