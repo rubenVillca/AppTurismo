@@ -499,64 +499,14 @@ public class InsertarLugarActivity extends AppCompatActivity {
     }
 
     private DatabaseReference setReferencetProvincia(ModeloLugarTuristico modeloLugarTuristico) {
-        String provincia = modeloLugarTuristico.getProvincia();
-        switch (provincia) {
-            case "Arani":
-                databaseReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_PROVINCIA_ARANI);
+        String[] arrayTipo = getResources().getStringArray(R.array.provincia);
+        for (String anArrayTipo : arrayTipo) {
+            if (modeloLugarTuristico.getProvincia().equals(anArrayTipo)) {
+                databaseReference = app.getDataBaseReferenceLugarTuristico(anArrayTipo);
                 break;
-            case "Arque":
-                databaseReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_PROVINCIA_ARQUE);
-                break;
-            case "Ayopaya":
-                databaseReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_PROVINCIA_AYOPAYA);
-                break;
-            case "Bolivar":
-            case "Bolívar":
-                databaseReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_PROVINCIA_BOLIVAR);
-                break;
-            case "Narciso Campero":
-                databaseReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_PROVINCIA_CAMPERO);
-                break;
-            case "Capinota":
-                databaseReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_PROVINCIA_CAPINOTA);
-                break;
-            case "Cercado":
-                databaseReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_PROVINCIA_CERCADO);
-                break;
-            case "Chapare":
-                databaseReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_PROVINCIA_CHAPARE);
-                break;
-            case "Esteban Arze":
-            case "Esteban Arce":
-                databaseReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_PROVINCIA_ESTEBAN_ARZE);
-                break;
-            case "German Jordan":
-            case "Germán Jordán":
-                databaseReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_PROVINCIA_GERMAN_JORDAN);
-                break;
-            case "Jose Carrasco":
-            case "José Carrasco":
-                databaseReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_PROVINCIA_JOSE_CARRASCO_TORRICO);
-                break;
-            case "Mizque":
-                databaseReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_PROVINCIA_MIZQUE);
-                break;
-            case "Punata":
-                databaseReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_PROVINCIA_PUNATA);
-                break;
-            case "Quillacollo":
-                databaseReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_PROVINCIA_QUILLACOLLO);
-                break;
-            case "Tapacari":
-            case "Tapacarí":
-                databaseReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_PROVINCIA_TAPACARI);
-                break;
-            case "Tiraque":
-                databaseReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_PROVINCIA_TIRAQUE);
-                break;
-            default:
-                break;
+            }
         }
+
         return databaseReference;
     }
 

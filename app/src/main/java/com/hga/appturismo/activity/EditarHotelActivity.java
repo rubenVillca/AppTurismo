@@ -73,6 +73,8 @@ public class EditarHotelActivity extends EditarActivity {
         iniciarVista();
         iniciarVistaSpinner(Constants.SELECT_HOTEL);
         mostrarDatosHotel();
+        mostrarImagenHotel();
+        //mostrarImagenHotelOld();
     }
 
     private void recuperarDatosModelo() {
@@ -101,46 +103,12 @@ public class EditarHotelActivity extends EditarActivity {
                 startActivity(intent);
             }
         });
-
-        if (modeloHotelOld != null) {
-            mostrarImagenHotel();
-        }
     }
 
     private void guardarSQLiteHotel() {
         SqliteHotel sqliteHotel=new SqliteHotel(this);
         sqliteHotel.remove(modeloHotelOld);
         sqliteHotel.insert(modeloHotelNew);
-    }
-
-    private void mostrarImagenHotel() {
-        if (modeloHotelOld.getImagenes().size() > 0) {
-            if (!modeloHotelOld.getImagenes().get(0).getUrlApp().equals("")) {
-                try {
-                    int idImage = Integer.parseInt(modeloHotelOld.getImagenes().get(0).getUrlApp());
-                    Picasso.with(this).load(idImage).into(imageView);
-                } catch (NumberFormatException e) {
-                    Picasso.with(this).load(modeloHotelOld.getImagenes().get(0).getUrlApp()).into(imageView);
-                }
-            } else {
-                String urlImagenServer = modeloHotelOld.getImagenes().get(0).getUrlServer();
-
-                StorageReference storageRef = app.getStorageReferenceHotel(urlImagenServer);
-                storageRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                    @Override
-                    public void onSuccess(Uri uri) {
-                        // Got the download URL for 'users/me/profile.png'
-                        // Pass it to Picasso to download, show in ImageView and caching
-                        Picasso.with(EditarHotelActivity.this).load(uri.toString()).into(imageView);
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception exception) {
-                        System.out.println("Error al cargar imagenes");
-                    }
-                });
-            }
-        }
     }
 
     @NonNull
@@ -203,9 +171,6 @@ public class EditarHotelActivity extends EditarActivity {
         editar_layout_horario.setVisibility(View.GONE);
         editar_layout_linea.setVisibility(View.VISIBLE);
         editar_layout_descripcion.setVisibility(View.GONE);
-        //editar_spinner_tipo.setText(modeloHotelOld.get());
-        //editar_spinner_provincia.setText(modeloHotelOld.get());
-        //editar_spinner_tipo_turismo.setText(modeloHotelOld.get());
         editar_layout_fecha.setVisibility(View.GONE);
 
         editar_txt_nombre.setText(modeloHotelOld.getNombre());
@@ -218,6 +183,39 @@ public class EditarHotelActivity extends EditarActivity {
         editar_txt_horario.setText(modeloHotelOld.getHorario());
         editar_txt_latitud.setText(valueOf(valueOf(modeloHotelOld.getGpsX())));
         editar_txt_longitud.setText(valueOf(valueOf(modeloHotelOld.getGpsY())));
+    }
+
+    private void mostrarImagenHotel() {
+        if (modeloHotelOld.getImagenes().size() > 0) {
+            if (!modeloHotelOld.getImagenes().get(0).getUrlApp().equals("")) {
+                try {
+                    int idImage = Integer.parseInt(modeloHotelOld.getImagenes().get(0).getUrlApp());
+                    Picasso.with(this).load(idImage).into(imageView);
+                } catch (NumberFormatException e) {
+                    Picasso.with(this).load(modeloHotelOld.getImagenes().get(0).getUrlApp()).into(imageView);
+                }
+            } else {
+                String urlImagenServer = modeloHotelOld.getImagenes().get(0).getUrlServer();
+
+                StorageReference storageRef = app.getStorageReferenceHotel(urlImagenServer);
+                storageRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                    @Override
+                    public void onSuccess(Uri uri) {
+                        // Got the download URL for 'users/me/profile.png'
+                        // Pass it to Picasso to download, show in ImageView and caching
+                        Picasso.with(EditarHotelActivity.this).load(uri.toString()).into(imageView);
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception exception) {
+                        System.out.println("Error al cargar imagenes");
+                    }
+                });
+            }
+        }
+    }
+
+    private void mostrarImagenHotelOld() {
         String urlImagen = "";
         if (!modeloHotelOld.getImagenes().isEmpty()) {
             if (modeloHotelOld.getImagenes().get(0).getUrlServer().isEmpty()) {

@@ -302,155 +302,27 @@ public class EditarActivity extends AppCompatActivity {
      * @return DatabaseReference:direccion de la ruta bdFirebase en formato bdFirebase
      */
     protected DatabaseReference getPostReferenceProvincia(String urlFirebase, String provincia) {
-        DatabaseReference postReference;
-        provincia = provincia.toLowerCase();
-        switch (provincia) {
-            case "arani":
-                postReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_PROVINCIA_ARANI + "/" + urlFirebase);
+        DatabaseReference postReference=null;
+
+        String[] arrayTipo = getResources().getStringArray(R.array.provincia);
+        for (String provinciaLugar : arrayTipo) {
+            if (provincia.equals(provinciaLugar)) {
+                postReference = app.getDataBaseReferenceLugarTuristico(provinciaLugar+"/" + urlFirebase);
                 break;
-            case "cercado":
-                postReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_PROVINCIA_CERCADO + "/" + urlFirebase);
-                break;
-            case "arque":
-                postReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_PROVINCIA_ARQUE + "/" + urlFirebase);
-                break;
-            case "ayopaya":
-                postReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_PROVINCIA_AYOPAYA + "/" + urlFirebase);
-                break;
-            case "bolivar":
-            case "bolívar":
-                postReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_PROVINCIA_BOLIVAR + "/" + urlFirebase);
-                break;
-            case "campero":
-            case "narciso campero":
-                postReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_PROVINCIA_CAMPERO + "/" + urlFirebase);
-                break;
-            case "chapare":
-                postReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_PROVINCIA_CHAPARE + "/" + urlFirebase);
-                break;
-            case "capinota":
-                postReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_PROVINCIA_CAMPERO + "/" + urlFirebase);
-                break;
-            case "esteban arze":
-                postReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_PROVINCIA_ESTEBAN_ARZE + "/" + urlFirebase);
-                break;
-            case "jordán":
-            case "jordan":
-            case "germán jordán":
-                postReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_PROVINCIA_GERMAN_JORDAN + "/" + urlFirebase);
-                break;
-            case "carrasco":
-            case "josé carrasco":
-            case "José Carrasco":
-                postReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_PROVINCIA_JOSE_CARRASCO_TORRICO + "/" + urlFirebase);
-                break;
-            case "mizque":
-                postReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_PROVINCIA_MIZQUE + "/" + urlFirebase);
-                break;
-            case "punata":
-                postReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_PROVINCIA_PUNATA + "/" + urlFirebase);
-                break;
-            case "quillacollo":
-                postReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_PROVINCIA_QUILLACOLLO + "/" + urlFirebase);
-                break;
-            case "tapacarí":
-            case "tapacari":
-                postReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_PROVINCIA_TAPACARI + "/" + urlFirebase);
-                break;
-            case "tiraque":
-                postReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_PROVINCIA_TIRAQUE + "/" + urlFirebase);
-                break;
-            default:
-                postReference = null;
-                break;
+            }
         }
+
         return postReference;
     }
 
-    protected int getTipoTurismo(String tipo) {
-        int res;
-        switch (tipo) {
-            case "sitios naturales":
-                res = 0;
+    protected int getSelectedArray(String tipo, int idArray) {
+        int res=-1;
+        String[] arrayTipo = getResources().getStringArray(idArray);
+        for (int i=0;i<arrayTipo.length;i++){
+            if (tipo.equals(arrayTipo[i])){
+                res=i;
                 break;
-            case "patrimonio urbano arquitectónico, artístico, museos y manifestaciones culturales":
-                res = 1;
-                break;
-            case "etnografía y folklore":
-                res = 2;
-                break;
-            case "realizaciones técnicas y científicas":
-                res = 3;
-                break;
-            case "acontecimientos programados":
-                res = 4;
-                break;
-            default:
-                res = 0;
-                break;
-        }
-        return res;
-    }
-
-    protected int getIdProvincia(String provincia) {
-        provincia=provincia.toLowerCase();
-        int res;
-        switch (provincia) {
-            case "arani":
-                res = 0;
-                break;
-            case "arque":
-                res = 1;
-                break;
-            case "ayopaya":
-                res = 2;
-                break;
-            case "bolivar":
-            case "bolívar":
-                res = 3;
-                break;
-            case "narciso campero":
-                res = 4;
-                break;
-            case "capinota":
-                res = 5;
-                break;
-            case "cercado":
-                res = 6;
-                break;
-            case "chapare":
-                res = 7;
-                break;
-            case "esteban arce":
-                res = 8;
-                break;
-            case "germán jordán":
-            case "german jordan":
-                res = 9;
-                break;
-            case "jose carrasco":
-            case "josé carrasco":
-                res = 10;
-                break;
-            case "mizque":
-                res = 11;
-                break;
-            case "punata":
-                res = 12;
-                break;
-            case "quillacollo":
-                res = 13;
-                break;
-            case "tapacarí":
-            case "tapacari":
-                res = 14;
-                break;
-            case "tiraque":
-                res = 15;
-                break;
-            default:
-                res = 0;
-                break;
+            }
         }
         return res;
     }

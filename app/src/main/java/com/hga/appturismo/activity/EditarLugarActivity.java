@@ -13,7 +13,9 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.hga.appturismo.R;
 import com.hga.appturismo.bdFirebase.TurismoAplicacion;
+import com.hga.appturismo.bdSQLite.SqliteLugar;
 import com.hga.appturismo.modelo.ModeloImagen;
 import com.hga.appturismo.modelo.ModeloLugarTuristico;
 import com.hga.appturismo.modelo.ModeloUsuario;
@@ -33,13 +35,14 @@ public class EditarLugarActivity extends EditarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        recuperarDatosModelo();
+        setLugarTuristicoOld();
         iniciarVista();
         iniciarVistaSpinner(Constants.SELECT_LUGAR);
         mostrarDatosLugarTuristico();
+        mostrarImagenLugar();
     }
 
-    private void recuperarDatosModelo() {
+    private void setLugarTuristicoOld() {
         Bundle bundle = getIntent().getExtras();
         if (bundle != null && bundle.get("lugar") != null) {
             modeloLugarTuristicoOld = (ModeloLugarTuristico) bundle.get("lugar");
@@ -137,6 +140,10 @@ public class EditarLugarActivity extends EditarActivity {
             databaseReference = getPostReferenceProvincia(modeloLugarTuristicoOld.getIdFirebase(), modeloLugarTuristicoOld.getProvincia());
             databaseReference.removeValue();
         }
+        //actualizar sqlite
+        SqliteLugar sqliteLugar=new SqliteLugar(this);
+        sqliteLugar.remove(modeloLugarTuristicoOld);
+        sqliteLugar.insert(modeloLugarTuristicoNew);
 
         //subir imagen a bdFirebase
         if (!mCurrentPhotoPath.isEmpty()) {
@@ -165,23 +172,32 @@ public class EditarLugarActivity extends EditarActivity {
 
         editar_layout_tipo.setVisibility(View.GONE);
         editar_layout_pagina_web.setVisibility(View.GONE);
-        //editar_spinner_tipo.setText(modeloLugarTuristicoOld.get());
-        //int idProvincia = getIdProvincia(modeloLugarTuristicoOld.getProvincia());
-        int idTipoTurismo = getTipoTurismo(modeloLugarTuristicoOld.getTipo());
-        //editar_spinner_provincia.setSelection(idProvincia);
+
+        String tipo= getString(R.string.tipo_acontecimientos_programados);
+        if (modeloLugarTuristicoOld.getTipo().equals(tipo)) {
+            editar_layout_fecha.setVisibility(View.VISIBLE);
+        }else{
+            editar_layout_fecha.setVisibility(View.GONE);
+        }
+
+        int idProvincia = getSelectedArray(modeloLugarTuristicoOld.getProvincia(),R.array.provincia);
+        editar_spinner_provincia.setSelection(idProvincia);
+        int idTipoTurismo = getSelectedArray(modeloLugarTuristicoOld.getTipo(),R.array.tipo_turismo);
         editar_spinner_tipo_turismo.setSelection(idTipoTurismo);
+
         editar_txt_nombre.setText(modeloLugarTuristicoOld.getNombre());
         editar_txt_actividad.setText(modeloLugarTuristicoOld.getActividad());
         editar_txt_descripcion.setText(modeloLugarTuristicoOld.getDescripcion());
-        //editar_txt_email.setText(modeloLugarTuristicoOld.getEmail());
         editar_txt_direccion.setText(modeloLugarTuristicoOld.getDireccion());
-        //editar_txt_paginaweb.setText(modeloLugarTuristicoOld.getPaginaWeb());
         editar_txt_telefono.setText(valueOf(modeloLugarTuristicoOld.getTelefono()));
         editar_txt_horario.setText(modeloLugarTuristicoOld.getHorario());
         editar_txt_latitud.setText(valueOf(modeloLugarTuristicoOld.getGpsX()));
         editar_txt_longitud.setText(valueOf(modeloLugarTuristicoOld.getGpsY()));
         editar_txt_linea.setText(modeloLugarTuristicoOld.getLinea());
-        //editar_txt_fecha.setText(modeloLugarTuristicoNew.getFecha());
+        editar_txt_fecha.setText(modeloLugarTuristicoOld.getFecha());
+    }
+
+    private void mostrarImagenLugar() {
         String urlImagen = "";
         if (!modeloLugarTuristicoOld.getImagenes().isEmpty()) {
             if (modeloLugarTuristicoOld.getImagenes().get(0).getUrlServer().isEmpty()) {

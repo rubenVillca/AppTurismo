@@ -1,5 +1,7 @@
 package com.hga.appturismo.provider;
 
+import android.content.Context;
+
 import com.hga.appturismo.modelo.ModeloHotel;
 import com.hga.appturismo.modelo.ModeloImagen;
 import com.hga.appturismo.modelo.ModeloLugarTuristico;
@@ -16,6 +18,7 @@ public class ListasPrueba extends Listas{
     private ArrayList<ModeloRestaurante> listaRestaurantes;
     private ArrayList<ModeloUsuario> listaUsuarios;
     private ArrayList<ModeloPuntaje> listaPuntaje;
+    private Context context;
 
     public ListasPrueba() {
         this.listaHoteles = new ArrayList<>();

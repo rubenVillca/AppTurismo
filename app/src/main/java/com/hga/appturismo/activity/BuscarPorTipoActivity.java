@@ -52,11 +52,11 @@ public class BuscarPorTipoActivity extends AppCompatActivity implements View.OnC
                 intent.putExtra("isProvincia",false);
                 break;
             case R.id.btn_etnografia:
-                intent.putExtra("lugarSeleccionado",getString(R.string.tipo_etnograf_a_y_folklore));
+                intent.putExtra("lugarSeleccionado",getString(R.string.tipo_etnografia_folklore));
                 intent.putExtra("isProvincia",false);
                 break;
             case R.id.btn_realizacioneTecnicas:
-                intent.putExtra("lugarSeleccionado",getString(R.string.tipo_realizaciones_t_cnicas_y_cient_ficas));
+                intent.putExtra("lugarSeleccionado",getString(R.string.tipo_realizaciones_tecnicas_cientificas));
                 intent.putExtra("isProvincia",false);
                 break;
             case R.id.btn_acontecimientosPro:
