@@ -21,7 +21,7 @@ import java.util.ArrayList;
  */
 
 public class DBModel extends SQLiteOpenHelper {
-    public static final int DATABASE_VERSION = 119;
+    public static final int DATABASE_VERSION = 120;
     public static final String DATABASE_NAME = "APP_TURISMO";
 
     public static final String TABLE_IMAGENES = "IMAGENES";
@@ -110,14 +110,14 @@ public class DBModel extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL(getTableImagenes());
-        db.execSQL(getTableUsuarios());
-        db.execSQL(getTablePuntaje());
-        db.execSQL(getTableSitioTurisico());
-        db.execSQL(getTableRestaurantes());
-        db.execSQL(getTableHoteles());
+        db.execSQL(setTableImagenes());
+        db.execSQL(setTableUsuarios());
+        db.execSQL(setTablePuntaje());
+        db.execSQL(setTableSitioTurisico());
+        db.execSQL(setTableRestaurantes());
+        db.execSQL(setTableHoteles());
 
-        insertarDatosSQLite(db);
+        insertarDatosSQLite(db);//cargar datos por defecto son sincronizar con firebase()
     }
 
     @Override
@@ -133,7 +133,7 @@ public class DBModel extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    private String getTableImagenes() {
+    private String setTableImagenes() {
         return "create table " + TABLE_IMAGENES + " ("
                 + IMAGENES_ID_SQLITE + " integer primary key autoincrement,"
                 + IMAGENES_REFERENCE_LUGAR_ID + " integer,"
@@ -144,7 +144,7 @@ public class DBModel extends SQLiteOpenHelper {
                 + ");";
     }
 
-    private String getTableUsuarios() {
+    private String setTableUsuarios() {
         return "create table " + TABLE_USUARIOS + " ("
                 + USER_SQLITE_ID + " integer primary key AUTOINCREMENT,"
                 + USER_ID_FIREBASE + " text,"
@@ -158,7 +158,7 @@ public class DBModel extends SQLiteOpenHelper {
                 + ");";
     }
 
-    private String getTablePuntaje() {
+    private String setTablePuntaje() {
         return "create table " + TABLE_PUNTAJE + " ("
                 + PUNTAJE_ID_SQLITE + " integer primary key autoincrement,"
                 + PUNTAJE_ID_FIREBASE + " text,"
@@ -170,7 +170,7 @@ public class DBModel extends SQLiteOpenHelper {
                 + ");";
     }
 
-    private String getTableSitioTurisico() {
+    private String setTableSitioTurisico() {
         return "create table " + TABLE_LUGARES + " ("
                 + LUGARES_ID_SQLITE + " integer primary key,"
                 + LUGARES_ID_FIREBASE + " text,"
@@ -191,7 +191,7 @@ public class DBModel extends SQLiteOpenHelper {
                 + ");";
     }
 
-    private String getTableRestaurantes() {
+    private String setTableRestaurantes() {
         return "create table " + TABLE_RESTAURANTES + " ("
                 + RESTAURANTES_ID_SQLITE + " integer primary key,"
                 + RESTAURANTES_ID_FIREBASE + " text,"
@@ -210,7 +210,7 @@ public class DBModel extends SQLiteOpenHelper {
                 + ");";
     }
 
-    private String getTableHoteles() {
+    private String setTableHoteles() {
         return "create table " + TABLE_HOTELES + " ("
                 + HOTELES_SQLITE_ID + " integer primary key,"
                 + HOTELES_ID_FIREBASE + " text,"

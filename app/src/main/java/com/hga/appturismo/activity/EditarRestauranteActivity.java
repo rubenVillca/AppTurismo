@@ -206,6 +206,7 @@ public class EditarRestauranteActivity extends EditarActivity {
         editar_layout_email.setVisibility(View.VISIBLE);
         editar_layout_horario.setVisibility(View.VISIBLE);
         editar_layout_telefono.setVisibility(View.VISIBLE);
+        editar_layout_descripcion.setVisibility(View.GONE);
 
         //editar_spinner_tipo.setText(modeloRestauranteOld.get());
         //editar_spinner_provincia.setText(modeloRestauranteOld.get());

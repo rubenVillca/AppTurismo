@@ -202,13 +202,13 @@ public class EditarHotelActivity extends EditarActivity {
         editar_layout_provincia.setVisibility(View.GONE);
         editar_layout_horario.setVisibility(View.GONE);
         editar_layout_linea.setVisibility(View.VISIBLE);
+        editar_layout_descripcion.setVisibility(View.GONE);
         //editar_spinner_tipo.setText(modeloHotelOld.get());
         //editar_spinner_provincia.setText(modeloHotelOld.get());
         //editar_spinner_tipo_turismo.setText(modeloHotelOld.get());
         editar_layout_fecha.setVisibility(View.GONE);
 
         editar_txt_nombre.setText(modeloHotelOld.getNombre());
-        //editar_txt_descripcion.setText(modeloHotelOld.get());
         editar_txt_email.setText(modeloHotelOld.getEmail());
         editar_txt_actividad.setText(modeloHotelOld.getActividad());
         editar_txt_linea.setText(modeloHotelOld.getLinea());
