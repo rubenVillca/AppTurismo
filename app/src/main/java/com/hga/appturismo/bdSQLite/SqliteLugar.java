@@ -128,6 +128,41 @@ public class SqliteLugar extends DBSQLiteParent implements SqliteInterface<Model
         return modeloLugarTuristicos;
     }
 
+    public ArrayList<ModeloLugarTuristico> selectTipoLugar(String tipoLugar) {
+        ArrayList<ModeloLugarTuristico> modeloLugarTuristicos=new ArrayList<>();
+        Cursor cursor = db.rawQuery(
+                "SELECT * "
+                        + " FROM " + DBModel.TABLE_LUGARES
+                        + " WHERE " + DBModel.LUGARES_TIPO + "='" + tipoLugar + "'", null);
+
+        if (cursor.moveToFirst()) {
+            while (!cursor.isAfterLast()) {
+                modeloLugarTuristicos.add(getLugarTuristicoCursor(cursor));
+
+                cursor.moveToNext();
+            }
+        }
+        return modeloLugarTuristicos;
+    }
+
+    public ArrayList<ModeloLugarTuristico> selectTipoLugarActive(String tipoLugar) {
+        ArrayList<ModeloLugarTuristico> modeloLugarTuristicos=new ArrayList<>();
+        Cursor cursor = db.rawQuery(
+                "SELECT * "
+                        + " FROM " + DBModel.TABLE_LUGARES
+                        + " WHERE " + DBModel.LUGARES_TIPO + "='" + tipoLugar + "'"
+                        + " AND " +DBModel.LUGARES_ESTADO+"="+"'"+Constants.ESTADO_LUGAR_VISIBLE+"'", null);
+
+        if (cursor.moveToFirst()) {
+            while (!cursor.isAfterLast()) {
+                modeloLugarTuristicos.add(getLugarTuristicoCursor(cursor));
+
+                cursor.moveToNext();
+            }
+        }
+        return modeloLugarTuristicos;
+    }
+
     public ArrayList<ModeloLugarTuristico> listAcontecimientos() {
         ArrayList<ModeloLugarTuristico> modeloLugarTuristicos = new ArrayList<>();
         Cursor cursor = db.rawQuery("Select * "
