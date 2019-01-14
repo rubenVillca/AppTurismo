@@ -140,6 +140,7 @@ public class DescripcionRestauranteActivity extends AppCompatActivity implements
 
         }
     }
+
     private void speakOut() {
         if (tts==null)
             tts = new TextToSpeech(this, this);

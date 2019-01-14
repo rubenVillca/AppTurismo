@@ -59,29 +59,41 @@ public class ImagenSwip extends PagerAdapter {
         return itemView;
     }
 
+    @Override
+    public void destroyItem(ViewGroup container, int position, Object object) {
+
+    }
+
+    @Override
+    public boolean isViewFromObject(View view, Object object) {
+        return (view == object);
+    }
+
     private void setImageView(int position, final ImageView imageView) {
         ModeloImagen modeloImagen = imagesResources.get(position);
-
-        String urlImagen = modeloImagen.getTipoImagen()+"/"+modeloImagen.getUrlServer();
         TurismoAplicacion app = (TurismoAplicacion) context.getApplicationContext();
-        File file = new File(app.getStorageReferenceImagen(urlImagen).toString());
-        if (file.exists()) {
+
+        if (!modeloImagen.getUrlApp().isEmpty()) {
+            String urlImagenApp = modeloImagen.getUrlApp();
             try {
-                int imagen=Integer.parseInt(modeloImagen.getUrlApp());
+                int imagen = Integer.parseInt(urlImagenApp);
                 Picasso.with(context).load(imagen).into(imageView);
             } catch (NumberFormatException e) {
-                Picasso.with(context).load(urlImagen).into(imageView);//si la imagen esta en el celular
+                Picasso.with(context).load(urlImagenApp).into(imageView);//si la imagen esta en el celular
+                //modeloImagen.setUrlApp("");
             }
-        }else {
+        }
+
+        if (modeloImagen.getUrlApp().isEmpty()) {
+            String urlImagenServer = modeloImagen.getTipoImagen() + "/" + modeloImagen.getUrlServer();
             if (modeloImagen.getUrlServer().contains(modeloImagen.getTipoImagen())) {
-                urlImagen = modeloImagen.getUrlServer();
+                urlImagenServer = modeloImagen.getUrlServer();
             }
-            StorageReference storageRef = app.getStorageReferenceImagen(urlImagen);
+
+            StorageReference storageRef = app.getStorageReferenceImagen(urlImagenServer);
             storageRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                 @Override
                 public void onSuccess(Uri uri) {
-                    // Got the download URL for 'users/me/profile.png'
-                    // Pass it to Picasso to download, show in ImageView and caching
                     Picasso.with(context).load(uri.toString()).into(imageView);
                 }
             }).addOnFailureListener(new OnFailureListener() {
@@ -91,15 +103,5 @@ public class ImagenSwip extends PagerAdapter {
                 }
             });
         }
-    }
-
-    @Override
-    public boolean isViewFromObject(View view, Object object) {
-        return (view == object);
-    }
-
-    @Override
-    public void destroyItem(ViewGroup container, int position, Object object) {
-
     }
 }

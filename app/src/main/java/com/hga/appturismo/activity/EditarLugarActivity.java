@@ -39,7 +39,8 @@ public class EditarLugarActivity extends EditarActivity {
         iniciarVista();
         iniciarVistaSpinner(Constants.SELECT_LUGAR);
         mostrarDatosLugarTuristico();
-        mostrarImagenLugar();
+        //mostrarImagenLugar();
+        mostrarImagenLugarTuristico();
     }
 
     private void setLugarTuristicoOld() {
