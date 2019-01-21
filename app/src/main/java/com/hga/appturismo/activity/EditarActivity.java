@@ -26,14 +26,17 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.storage.StorageReference;
 import com.hga.appturismo.R;
 import com.hga.appturismo.bdFirebase.TurismoAplicacion;
+import com.hga.appturismo.calendar.DatePickerFragment;
 import com.hga.appturismo.modelo.ModeloImagen;
 import com.hga.appturismo.util.Constants;
 import com.squareup.picasso.Picasso;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 
 public class EditarActivity extends AppCompatActivity {
@@ -59,7 +62,7 @@ public class EditarActivity extends AppCompatActivity {
     protected EditText editar_txt_latitud;
     protected EditText editar_txt_longitud;
     protected EditText editar_txt_linea;
-    protected EditText editar_txt_fecha;
+    protected TextView editar_txt_fecha;
 
     protected Button editar_btn_imagen_capturar;
     protected Button editar_btn_insertar;//guardar
@@ -86,6 +89,9 @@ public class EditarActivity extends AppCompatActivity {
     protected LinearLayout editar_layout_linea;
     protected LinearLayout editar_layout_fecha;
     protected View focusView = null;
+
+    private DatePickerFragment datePickerFragmentIn;
+    private Calendar calendarDateIn;
 
     /**
      * despues de  tomar la foto con la camara muestra la imagen tomada con la camara en el activity *
@@ -128,6 +134,28 @@ public class EditarActivity extends AppCompatActivity {
         setContentView(R.layout.activity_editar_lugar);
 
         app = (TurismoAplicacion) getApplicationContext();
+        initDatePicker();
+    }
+
+    private void initDatePicker() {
+        calendarDateIn=setDateReserve(1, 6, editar_txt_fecha);
+
+        datePickerFragmentIn = new DatePickerFragment();
+        datePickerFragmentIn.setTextView(editar_txt_fecha, editar_txt_fecha,calendarDateIn);
+    }
+
+    private Calendar setDateReserve(int dayLast, int hour, TextView dateTextView) {
+        DateFormat dateFormat = DateFormat.getDateInstance(DateFormat.DEFAULT);
+        Calendar calendar = Calendar.getInstance();
+        calendar.add(Calendar.DAY_OF_MONTH, dayLast);//sumar dias
+        calendar.set(Calendar.HOUR_OF_DAY, hour);
+
+        String[] strDays = new String[]{"Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"};
+        String dia = strDays[calendar.get(Calendar.DAY_OF_WEEK) - 1];//obtener dia
+
+        dateTextView.setText(dateFormat.format(calendar.getTime()));
+
+        return calendar;
     }
 
     protected void iniciarVista() {
@@ -381,5 +409,9 @@ public class EditarActivity extends AppCompatActivity {
         Uri contentUri = Uri.fromFile(newFile);
         intent.setData(contentUri);
         this.sendBroadcast(intent);
+    }
+
+    public void showDatePickerDialog(View v) {
+        datePickerFragmentIn.show(getFragmentManager(), "datePicker");
     }
 }

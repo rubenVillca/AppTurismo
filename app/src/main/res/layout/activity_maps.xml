@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -21,7 +22,7 @@
                 android:layout_height="40dp"
                 android:layout_marginLeft="@dimen/marginleft_icon_locationmap"
                 android:layout_marginTop="@dimen/margintop_icon_locationmap"
-                android:src="@drawable/ic_distance" />
+                android:src="@drawable/ic_distance"/>
 
             <TextView
                 android:id="@+id/tvDistance"
@@ -38,7 +39,7 @@
                 android:layout_marginLeft="@dimen/marginleft_icon_locationmap"
                 android:layout_marginTop="@dimen/margintop_icon_locationmap"
                 android:padding="1dp"
-                android:src="@drawable/ic_driving" />
+                android:src="@drawable/ic_driving"/>
 
             <TextView
                 android:id="@+id/tvDuration"
@@ -56,7 +57,7 @@
                 android:layout_marginTop="@dimen/margintop_icon_locationmap"
                 android:padding="1dp"
                 android:src="@drawable/ic_walking"
-                android:visibility="gone"/>
+                android:visibility="visible"/>
 
             <TextView
                 android:id="@+id/tvDurationWalking"
@@ -66,15 +67,15 @@
                 android:layout_marginTop="@dimen/margintop_text_locationmap"
                 android:text="0 min"
                 android:textColor="@color/colorAccent"
-                android:visibility="gone"/>
+                android:visibility="visible"/>
         </LinearLayout>
 
         <fragment xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:tools="http://schemas.android.com/tools"
-            android:id="@+id/map"
-            android:name="com.google.android.gms.maps.SupportMapFragment"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:context="com.hga.appturismo.activity.MapsActivity" />
+                  xmlns:tools="http://schemas.android.com/tools"
+                  android:id="@+id/map"
+                  android:name="com.google.android.gms.maps.SupportMapFragment"
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  tools:context="com.hga.appturismo.activity.MapsActivity"/>
     </LinearLayout>
 </android.support.design.widget.CoordinatorLayout>

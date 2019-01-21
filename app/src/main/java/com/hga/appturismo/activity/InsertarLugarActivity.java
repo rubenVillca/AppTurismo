@@ -36,6 +36,7 @@ import com.hga.appturismo.bdFirebase.TurismoAplicacion;
 import com.hga.appturismo.bdSQLite.SqliteHotel;
 import com.hga.appturismo.bdSQLite.SqliteLugar;
 import com.hga.appturismo.bdSQLite.SqliteRestaurante;
+import com.hga.appturismo.calendar.DatePickerFragment;
 import com.hga.appturismo.modelo.ModeloHotel;
 import com.hga.appturismo.modelo.ModeloImagen;
 import com.hga.appturismo.modelo.ModeloLugarTuristico;
@@ -45,8 +46,10 @@ import com.squareup.picasso.Picasso;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 
 import static com.hga.appturismo.util.Constants.TIPO_LUGAR_ACONTECIMIENTOS;
@@ -74,7 +77,7 @@ public class InsertarLugarActivity extends AppCompatActivity {
     private EditText txt_paginaweb;
     private EditText txt_email;
     private EditText txt_linea;
-    private EditText txt_fecha;
+    private TextView txt_fecha;
     private EditText txt_registrador;
 
     private Spinner spinnerProvincia;
@@ -100,6 +103,9 @@ public class InsertarLugarActivity extends AppCompatActivity {
     private LinearLayout layout_registrador;
 
     private View focusView = null;
+
+    private DatePickerFragment datePickerFragmentIn;
+    private Calendar calendarDateIn;
 
     /**
      * despues de  tomar la foto con la camara muestra la imagen tomada con la camara en el activity *
@@ -145,6 +151,32 @@ public class InsertarLugarActivity extends AppCompatActivity {
         initSpinnerTipoLugar();
         initSpinnerProvincia();
         initSpinnerCategoria();
+        initDate();
+    }
+
+    private void initDate() {
+        calendarDateIn=setDateReserve(1, 6, txt_fecha);
+
+        datePickerFragmentIn = new DatePickerFragment();
+        datePickerFragmentIn.setTextView(txt_fecha, txt_fecha,calendarDateIn);
+    }
+
+    private Calendar setDateReserve(int dayLast, int hour, TextView dateTextView) {
+        DateFormat dateFormat = DateFormat.getDateInstance(DateFormat.DEFAULT);
+        Calendar calendar = Calendar.getInstance();
+        calendar.add(Calendar.DAY_OF_MONTH, dayLast);//sumar dias
+        calendar.set(Calendar.HOUR_OF_DAY, hour);
+
+        String[] strDays = new String[]{"Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"};
+        String dia = strDays[calendar.get(Calendar.DAY_OF_WEEK) - 1];//obtener dia
+
+        dateTextView.setText(dateFormat.format(calendar.getTime()));
+
+        return calendar;
+    }
+
+    public void showDatePickerDialog(View v) {
+        datePickerFragmentIn.show(getFragmentManager(), "datePicker");
     }
 
     private void getEmail() {
@@ -341,44 +373,6 @@ public class InsertarLugarActivity extends AppCompatActivity {
     public void goGaleryActivity(View view) {
         Intent intent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.INTERNAL_CONTENT_URI);
         startActivityForResult(intent, SELECT_PICTURE);
-    }
-
-    private boolean isFechaValid() {
-        boolean res = false;
-        String fecha = txt_fecha.getText().toString();
-        if (fecha.length() > 7) {
-            Integer dia = 0;
-            String mes = "";
-            try {
-                dia = Integer.parseInt(fecha.substring(0, 2).trim());
-                mes = fecha.substring(2).trim().toLowerCase();
-            } catch (Exception e) {
-                System.out.println("Error en el dia de la fecha insertada");
-            }
-
-            if (dia > 0 && dia <= 31
-                    && (mes.equals("enero")
-                    || mes.equals("marzo")
-                    || mes.equals("mayo")
-                    || mes.equals("julio")
-                    || mes.equals("agosto")
-                    || mes.equals("octubre")
-                    || mes.equals("diciembre"))) {
-                res = true;
-            }
-            if (dia > 0 && dia <= 29 && (mes.equals("febrero"))) {
-                res = true;
-            }
-            if (dia > 0 && dia <= 30
-                    && (mes.equals("abril")
-                    || mes.equals("junio")
-                    || mes.equals("septiembre")
-                    || mes.equals("noviembre"))) {
-                res = true;
-            }
-        }
-
-        return res;
     }
 
     /**
@@ -778,12 +772,6 @@ public class InsertarLugarActivity extends AppCompatActivity {
         if (nombre.isEmpty()) {
             txt_nombre.setError("Llenar Nombre");
             focusView = txt_nombre;
-            isValidLugarTuristico = false;
-        }
-        String categoria = spinnerCategoria.getSelectedItem().toString();
-        if (!isFechaValid() && categoria.equals(TIPO_LUGAR_ACONTECIMIENTOS)) {
-            txt_fecha.setError("Fecha invalida");
-            focusView = txt_fecha;
             isValidLugarTuristico = false;
         }
 
