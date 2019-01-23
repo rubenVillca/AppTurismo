@@ -195,7 +195,7 @@ public class EditarRestauranteActivity extends EditarActivity {
     private void mostrarDatosRestaurante() {
         app = (TurismoAplicacion) getApplicationContext();
         editar_layout_provincia.setVisibility(View.GONE);
-        editar_layout_tipoTurismo.setVisibility(View.GONE);
+        editar_layout_subtipo.setVisibility(View.GONE);
         editar_layout_actividad.setVisibility(View.VISIBLE);
         editar_layout_pagina_web.setVisibility(View.VISIBLE);
         editar_layout_linea.setVisibility(View.VISIBLE);
@@ -210,7 +210,7 @@ public class EditarRestauranteActivity extends EditarActivity {
 
         //editar_spinner_tipo.setText(modeloRestauranteOld.get());
         //editar_spinner_provincia.setText(modeloRestauranteOld.get());
-        //editar_spinner_tipo_turismo.setText(modeloRestauranteOld.get());
+        //editar_spinner_subtipo.setText(modeloRestauranteOld.get());
         editar_txt_nombre.setText(modeloRestauranteOld.getNombre());
         editar_txt_actividad.setText(modeloRestauranteOld.getActividad());
         editar_txt_linea.setText(modeloRestauranteOld.getLinea());

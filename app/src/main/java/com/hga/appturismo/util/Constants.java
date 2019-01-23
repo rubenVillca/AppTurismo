@@ -82,8 +82,8 @@ public class Constants {
     public static final boolean IS_READ_FIREBASE = false;
 
     public static int SELECT_HOTEL = 0;
-    public static int SELECT_LUGAR = 1;
-    public static int SELECT_RESTAURANTE = 2;
+    public static int SELECT_RESTAURANTE = 1;
+    public static int SELECT_LUGAR = 2;
 
     public static String TIPO_LUGAR_SITIOS_NATURALES = "Sitios Naturales";
     public static String TIPO_LUGAR_PATRIMONIO = "Patrimonio Urbano Arquitectónico, Artístico, Museos y Manifestaciones Culturales";

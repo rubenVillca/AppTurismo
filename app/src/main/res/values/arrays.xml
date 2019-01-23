@@ -19,7 +19,7 @@
         <item> Tiraque</item>
     </string-array>
 
-    <string-array name="tipo_turismo">
+    <string-array name="subtipo_turismo">
         <item>Sitios Naturales</item>
         <item>Patrimonio Urbano Arquitectónico, Artístico, Museos y Manifestaciones Culturales</item>
         <item>Etnografía y Folklore</item>

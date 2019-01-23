@@ -166,7 +166,7 @@ public class EditarHotelActivity extends EditarActivity {
 
     private void mostrarDatosHotel() {
         app = (TurismoAplicacion) getApplicationContext();
-        editar_layout_tipoTurismo.setVisibility(View.GONE);
+        editar_layout_subtipo.setVisibility(View.GONE);
         editar_layout_provincia.setVisibility(View.GONE);
         editar_layout_horario.setVisibility(View.GONE);
         editar_layout_linea.setVisibility(View.VISIBLE);

@@ -72,7 +72,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/editar_layout_tipoTurismo"
+                android:id="@+id/editar_layout_subtipo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -91,11 +91,11 @@
                     android:textSize="@dimen/size_text_primary" />
 
                 <Spinner
-                    android:id="@+id/editar_spinner_tipo_turismo"
+                    android:id="@+id/editar_spinner_subtipo"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
-                    android:text="@array/tipo_turismo"
+                    android:text="@array/subtipo_turismo"
                     android:textSize="@dimen/size_text_primary" />
             </LinearLayout>
 

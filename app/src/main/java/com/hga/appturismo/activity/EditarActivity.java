@@ -26,13 +26,16 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.storage.StorageReference;
 import com.hga.appturismo.R;
 import com.hga.appturismo.bdFirebase.TurismoAplicacion;
+import com.hga.appturismo.calendar.DatePickerFragment;
 import com.hga.appturismo.modelo.ModeloImagen;
+import com.hga.appturismo.util.Constants;
 import com.squareup.picasso.Picasso;
 
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 
 public class EditarActivity extends AppCompatActivity {
@@ -44,8 +47,8 @@ public class EditarActivity extends AppCompatActivity {
     protected StorageReference storageReference;
 
     protected Spinner editar_spinner_tipo;//seleccion entre: hotel,restaurante,lugar turistico
+    protected Spinner editar_spinner_subtipo;
     protected Spinner editar_spinner_provincia;
-    protected Spinner editar_spinner_tipo_turismo;
 
     protected EditText editar_txt_nombre;
     protected EditText editar_txt_actividad;
@@ -69,8 +72,8 @@ public class EditarActivity extends AppCompatActivity {
     protected FloatingActionButton btn_editar;
 
     protected LinearLayout editar_layout_tipo;
+    protected LinearLayout editar_layout_subtipo;
     protected LinearLayout editar_layout_provincia;
-    protected LinearLayout editar_layout_tipoTurismo;
     protected LinearLayout editar_layout_nombre;
     protected LinearLayout editar_layout_actividad;
     protected LinearLayout editar_layout_descripcion;
@@ -85,6 +88,9 @@ public class EditarActivity extends AppCompatActivity {
     protected LinearLayout editar_layout_linea;
     protected LinearLayout editar_layout_fecha;
     protected View focusView = null;
+
+    protected DatePickerFragment datePickerFragmentIn;
+    protected Calendar calendarDate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -133,11 +139,11 @@ public class EditarActivity extends AppCompatActivity {
         editar_layout_tipo = findViewById(R.id.editar_layout_tipo);
         editar_spinner_tipo = findViewById(R.id.editar_spinner_tipo);
 
+        editar_layout_subtipo = findViewById(R.id.editar_layout_subtipo);
+        editar_spinner_subtipo = findViewById(R.id.editar_spinner_subtipo);
+
         editar_layout_provincia = findViewById(R.id.editar_layout_provincia);
         editar_spinner_provincia = findViewById(R.id.editar_spinner_provincia);
-
-        editar_layout_tipoTurismo = findViewById(R.id.editar_layout_tipoTurismo);
-        editar_spinner_tipo_turismo = findViewById(R.id.editar_spinner_tipo_turismo);
 
         editar_layout_nombre = findViewById(R.id.editar_layout_nombre);
         editar_txt_nombre = findViewById(R.id.editar_txt_nombre);
@@ -181,6 +187,9 @@ public class EditarActivity extends AppCompatActivity {
         editar_btn_imagen_capturar = findViewById(R.id.editar_btn_imagen_capturar);
         editar_btn_imagen_buscar = findViewById(R.id.editar_btn_imagen_buscar);
 
+        datePickerFragmentIn = new DatePickerFragment();
+        datePickerFragmentIn.setTextView(editar_txt_fecha, editar_txt_fecha, calendarDate);
+
         editar_btn_guardar = findViewById(R.id.editar_btn_insertar);
     }
 
@@ -191,14 +200,12 @@ public class EditarActivity extends AppCompatActivity {
      * -spinner tipo insercion(modeloHotelOld, restarutanre, lugar turistico)
      */
     protected void iniciarVistaSpinner(int seleccion) {
-        ArrayAdapter<CharSequence> adapterProvincia = ArrayAdapter.createFromResource(this, R.array.provincia, android.R.layout.simple_spinner_item);
-        adapterProvincia.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        editar_spinner_provincia.setAdapter(adapterProvincia);
+        onClickSpinnerTipo(seleccion);
+        onClickSpinnerSubtipo();
+        onClickSpinnerProvincia();
+    }
 
-        ArrayAdapter<CharSequence> adapterTipoTurismo = ArrayAdapter.createFromResource(this, R.array.tipo_turismo, android.R.layout.simple_spinner_item);
-        adapterTipoTurismo.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        editar_spinner_tipo_turismo.setAdapter(adapterTipoTurismo);
-
+    private void onClickSpinnerTipo(int seleccion) {
         ArrayAdapter<CharSequence> adapterTipo = ArrayAdapter.createFromResource(this, R.array.tipo_insercion, android.R.layout.simple_spinner_item);
         adapterTipo.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         editar_spinner_tipo.setAdapter(adapterTipo);
@@ -216,12 +223,35 @@ public class EditarActivity extends AppCompatActivity {
         });
     }
 
+    private void onClickSpinnerSubtipo() {
+        ArrayAdapter<CharSequence> adapterSubTipoTurismo = ArrayAdapter.createFromResource(this, R.array.subtipo_turismo, android.R.layout.simple_spinner_item);
+        adapterSubTipoTurismo.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        editar_spinner_subtipo.setAdapter(adapterSubTipoTurismo);
+        editar_spinner_subtipo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                setVisibleTipoLugar(Constants.SELECT_LUGAR);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+    }
+
+    private void onClickSpinnerProvincia() {
+        ArrayAdapter<CharSequence> adapterProvincia = ArrayAdapter.createFromResource(this, R.array.provincia, android.R.layout.simple_spinner_item);
+        adapterProvincia.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        editar_spinner_provincia.setAdapter(adapterProvincia);
+    }
+
     private void setVisibleTipoLugar(int position) {
         switch (position) {
             case 0://modeloHotelOld
-                editar_layout_tipo.setVisibility(View.GONE);
+                editar_layout_tipo.setVisibility(View.VISIBLE);
+                editar_layout_subtipo.setVisibility(View.GONE);
                 editar_layout_provincia.setVisibility(View.GONE);
-                editar_layout_tipoTurismo.setVisibility(View.GONE);
                 editar_layout_nombre.setVisibility(View.VISIBLE);
                 editar_layout_email.setVisibility(View.VISIBLE);
                 editar_layout_direccion.setVisibility(View.VISIBLE);
@@ -233,11 +263,10 @@ public class EditarActivity extends AppCompatActivity {
                 editar_layout_imagen.setVisibility(View.VISIBLE);
                 editar_layout_linea.setVisibility(View.VISIBLE);
                 editar_layout_fecha.setVisibility(View.GONE);
-                break;
             case 1://modeloRestauranteOld
-                editar_layout_tipo.setVisibility(View.GONE);
+                editar_layout_tipo.setVisibility(View.VISIBLE);
                 editar_layout_provincia.setVisibility(View.GONE);
-                editar_layout_tipoTurismo.setVisibility(View.GONE);
+                editar_layout_subtipo.setVisibility(View.GONE);
                 editar_layout_nombre.setVisibility(View.VISIBLE);
                 editar_layout_email.setVisibility(View.VISIBLE);
                 editar_layout_direccion.setVisibility(View.VISIBLE);
@@ -253,7 +282,7 @@ public class EditarActivity extends AppCompatActivity {
             case 2://lugar turistico
                 editar_layout_tipo.setVisibility(View.VISIBLE);
                 editar_layout_provincia.setVisibility(View.VISIBLE);
-                editar_layout_tipoTurismo.setVisibility(View.VISIBLE);
+                editar_layout_subtipo.setVisibility(View.VISIBLE);
                 editar_layout_nombre.setVisibility(View.VISIBLE);
                 editar_layout_email.setVisibility(View.GONE);
                 editar_layout_direccion.setVisibility(View.VISIBLE);
@@ -264,7 +293,12 @@ public class EditarActivity extends AppCompatActivity {
                 editar_layout_longitud.setVisibility(View.VISIBLE);
                 editar_layout_imagen.setVisibility(View.VISIBLE);
                 editar_layout_linea.setVisibility(View.VISIBLE);
-                editar_layout_fecha.setVisibility(View.VISIBLE);
+
+                String positionTipo=editar_spinner_subtipo.getSelectedItem().toString();
+                if (positionTipo.equals(Constants.TIPO_LUGAR_ACONTECIMIENTOS))
+                    editar_layout_fecha.setVisibility(View.VISIBLE);
+                else
+                    editar_layout_fecha.setVisibility(View.GONE);
                 break;
         }
     }
@@ -380,5 +414,9 @@ public class EditarActivity extends AppCompatActivity {
         Uri contentUri = Uri.fromFile(newFile);
         intent.setData(contentUri);
         this.sendBroadcast(intent);
+    }
+
+    public void showDatePickerDialog(View v) {
+        datePickerFragmentIn.show(getFragmentManager(), "datePicker");
     }
 }

@@ -51,7 +51,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
 
 public class InsertarLugarActivity extends AppCompatActivity {
     public static final int REQUEST_IMAGE_CAPTURE = 1;
@@ -636,9 +635,9 @@ public class InsertarLugarActivity extends AppCompatActivity {
      * -spinner tipo insercion(hotel, restarutanre, lugar turistico)
      */
     private void initSpinnerCategoria() {
-        ArrayAdapter<CharSequence> adapterTipoTurismo = ArrayAdapter.createFromResource(this, R.array.tipo_turismo, android.R.layout.simple_spinner_item);
-        adapterTipoTurismo.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerCategoria.setAdapter(adapterTipoTurismo);
+        ArrayAdapter<CharSequence> adapterSubTipoTurismo = ArrayAdapter.createFromResource(this, R.array.subtipo_turismo, android.R.layout.simple_spinner_item);
+        adapterSubTipoTurismo.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerCategoria.setAdapter(adapterSubTipoTurismo);
         spinnerCategoria.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
