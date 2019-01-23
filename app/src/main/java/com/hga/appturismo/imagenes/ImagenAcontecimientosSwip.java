@@ -30,7 +30,10 @@ import com.hga.appturismo.util.Constants;
 import com.squareup.picasso.Picasso;
 
 import java.io.File;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 public class ImagenAcontecimientosSwip extends PagerAdapter {
     private ArrayList<ModeloLugarTuristico> imagesResources;
@@ -60,7 +63,13 @@ public class ImagenAcontecimientosSwip extends PagerAdapter {
 
         TextView acontecimiento = getAcontecimientoTextView(imagesResources.get(position).getNombre(), params);
         acontecimiento.setTextColor(Color.WHITE);
-        TextView fecha = getAcontecimientoTextView(imagesResources.get(position).getFecha(), params);
+
+        Calendar calendar=new GregorianCalendar();
+        calendar.setTimeInMillis(Long.parseLong(imagesResources.get(position).getFecha()));
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMM, yyyy");
+        dateFormat.setTimeZone(calendar.getTimeZone());
+
+        TextView fecha = getAcontecimientoTextView(dateFormat.format(calendar.getTime()), params);
         fecha.setTextColor(Color.WHITE);
 
         linearLayoutText.addView(acontecimiento);
@@ -185,34 +194,6 @@ public class ImagenAcontecimientosSwip extends PagerAdapter {
                     }
                 });
             }
-
-            /*File file = new File(app.getStorageReferenceImagen(modeloImagen.getUrlApp()).toString());
-            if (file.exists()) {
-                try {
-                    int imagen = Integer.parseInt(modeloImagen.getUrlApp());//si la imagen esta en la app
-                    Picasso.with(context).load(imagen).into(imageView);
-                } catch (NumberFormatException e) {
-                    Picasso.with(context).load(urlImagen).into(imageView);//si la imagen esta en el celular
-                }
-            } else {//si la imagen no esta en el celular
-                urlImagen = modeloImagen.getUrlServer();
-                String[] fragmentsUrl = urlImagen.split("/");
-                if (fragmentsUrl.length > 0 && !fragmentsUrl[0].equals(modeloImagen.getTipoImagen()))
-                    urlImagen = modeloImagen.getTipoImagen() + "/" + urlImagen;
-                StorageReference storageRef = app.getStorageReferenceImagen(urlImagen);
-                final String finalUrlImagen = urlImagen;
-                storageRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                    @Override
-                    public void onSuccess(Uri uri) {
-                        Picasso.with(context).load(uri.toString()).into(imageViewCopy);
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception exception) {
-                        System.out.println("Error al cargar imagenes: " + finalUrlImagen);
-                    }
-                });
-            }*/
         }
     }
 }

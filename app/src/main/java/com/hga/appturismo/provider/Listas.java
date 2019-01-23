@@ -3058,7 +3058,7 @@ public class Listas {
         acontecimiento = new ModeloLugarTuristico();
         acontecimiento.setIdSQLite(idAcontecimiento++);
         acontecimiento.setProvincia(Constants.FIREBASE_PROVINCIA_ARANI);
-        acontecimiento.setTipo("Acontecimientos Programados");
+        acontecimiento.setTipo(Constants.TIPO_LUGAR_ACONTECIMIENTOS);
         acontecimiento.setNombre("Festividad de la Virgen “La Bella”");
         acontecimiento.setImagenesFirebaseArreglo(ModeloImagen.TIPO_LUGAR, new String[]{"festividad de la virgen la bella.jpg", "festividad de la virgen la bella3.jpg"});
         acontecimiento.setDescripcion("Araní es un atractivo destino para la práctica de turismo religioso, actividad que se encuentra enmarcada en una profunda tradición y ferviente vocación religiosa, resultado del proceso de evangelización y catequización que se llevó a cabo durante la conquista, además de haber funcionado como sede del Obispado de Santa Cruz de la Sierra, el siglo XVII. Entre el 23 y el 25 de agosto, Arani se viste de gala al celebrar la festividad religiosa en honor a la Virgen La Bella, declarada Patrimonio Cultural y Religioso del Departamento de Cochabamba, mediante Ley de 24 de diciembre de 2007. Esta fiesta, al contrario de otras festividades que comienzan con la entrada folklórica, inicia su evento festivo con el día del calvario, seguido de la procesión de la sagrada imagen de la Bella, para finalizar con la demostración folklórica.\n" +
@@ -3069,7 +3069,7 @@ public class Listas {
         acontecimiento.setGpsX(-17.57885187017981f);
         acontecimiento.setGpsY(-65.77288269996643f);
         acontecimiento.setEstado(Constants.ESTADO_LUGAR_VISIBLE);
-        acontecimiento.setFecha("25 mayo ");
+        acontecimiento.setFecha("1558756800000");
         acontecimiento.setLinea("");
         listaLugares.add(acontecimiento);
 
@@ -3078,7 +3078,6 @@ public class Listas {
         acontecimiento.setIdSQLite(idAcontecimiento++);
         acontecimiento.setProvincia(Constants.FIREBASE_PROVINCIA_PUNATA);
         acontecimiento.setTipo(Constants.TIPO_LUGAR_ACONTECIMIENTOS);
-        acontecimiento.setTipo("Acontecimientos Programados");
         acontecimiento.setNombre("La festividad del Señor de los milagros");
         acontecimiento.setImagenesFirebaseArreglo(ModeloImagen.TIPO_LUGAR, new String[]{"la festividad del señor de los milagros0.jpg"});
         acontecimiento.setDescripcion("Una de las características de Punata es la celebración de diferentes festividades religiosas, siendo la fiesta patronal del Señor de Milagros que recuerda la exaltación de la Cruz celebrada el último fin de semana del mes de Septiembre.\n" +
@@ -3087,7 +3086,7 @@ public class Listas {
         acontecimiento.setHorario("Abierto");
         acontecimiento.setDireccion("Punata, Bolivia");
         acontecimiento.setTelefono(0L);
-        acontecimiento.setFecha("10 diciembre");
+        acontecimiento.setFecha("1575950400000");
         acontecimiento.setGpsX(-17.545190252404954f);
         acontecimiento.setGpsY(-65.83560414612293f);
         acontecimiento.setEstado(Constants.ESTADO_LUGAR_VISIBLE);
@@ -3099,14 +3098,13 @@ public class Listas {
         acontecimiento.setIdSQLite(idAcontecimiento++);
         acontecimiento.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         acontecimiento.setTipo(Constants.TIPO_LUGAR_ACONTECIMIENTOS);
-        acontecimiento.setTipo("Acontecimientos Programados");
         acontecimiento.setNombre("Carnaval de la concordia");
         acontecimiento.setImagenesFirebaseArreglo(ModeloImagen.TIPO_LUGAR, new String[]{"carnaval de la concordia.jpg"});
         acontecimiento.setDescripcion("El Carnaval de la Concordia, tiene su origen en el carnaval de antaño que llegó con la presencia de los españoles. Es una de las fiestas más populares y democráticas del país ya que participan sin ninguna distinción todos los sectores de la sociedad. ");
         acontecimiento.setHorario("09:00");
         acontecimiento.setDireccion("Av. José Ballivian, paseo del prado, Cochabamba, Bolivia.");
         acontecimiento.setTelefono(0L);
-        acontecimiento.setFecha("4 Marzo");
+        acontecimiento.setFecha("1551672000000");
         acontecimiento.setGpsX(-17.386061810323937f);
         acontecimiento.setGpsY(-66.1568412607924f);
         acontecimiento.setEstado(Constants.ESTADO_LUGAR_VISIBLE);
@@ -3117,14 +3115,13 @@ public class Listas {
         acontecimiento.setIdSQLite(idAcontecimiento++);
         acontecimiento.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         acontecimiento.setTipo(Constants.TIPO_LUGAR_ACONTECIMIENTOS);
-        acontecimiento.setTipo("Acontecimientos Programados");
         acontecimiento.setNombre("Festividad de San Andrés");
         acontecimiento.setImagenesFirebaseArreglo(ModeloImagen.TIPO_LUGAR, new String[]{"festividad de san andres.jpg"});
         acontecimiento.setDescripcion("Esta fiesta se realiza en la región de la Taquiña cada 30 de noviembre en honor a San Andrés, aunque su celebración comienza el 27, San Andrés Cuna de Wayllunk’as. ");
         acontecimiento.setHorario("10:00");
         acontecimiento.setDireccion("Zona Taquiña, Cochabamba, Bolivia.");
         acontecimiento.setTelefono(0L);
-        acontecimiento.setFecha("30 Noviembre");
+        acontecimiento.setFecha("1575086400000");
         acontecimiento.setGpsX(-17.3522988f);
         acontecimiento.setGpsY(-66.1922095f);
         acontecimiento.setEstado(Constants.ESTADO_LUGAR_VISIBLE);
@@ -3135,14 +3132,13 @@ public class Listas {
         acontecimiento.setIdSQLite(idAcontecimiento++);
         acontecimiento.setProvincia(Constants.FIREBASE_PROVINCIA_MIZQUE);
         acontecimiento.setTipo(Constants.TIPO_LUGAR_ACONTECIMIENTOS);
-        acontecimiento.setTipo("Acontecimientos Programados");
         acontecimiento.setNombre("Festividad del Señor de Burgos");
         acontecimiento.setImagenesFirebaseArreglo(ModeloImagen.TIPO_LUGAR, new String[]{"festividad del señor de burgos.jpg"});
         acontecimiento.setDescripcion("La población mizqueña mantiene, desde tiempos de la Colonia, la fe por el Señor de Burgos, al que se le atribuyen varios milagros y se pide intercesión en los partos difíciles.");
         acontecimiento.setHorario("Abierto");
         acontecimiento.setDireccion("Mizque, Cochabamba, Bolivia.");
         acontecimiento.setTelefono(0L);
-        acontecimiento.setFecha("19 Septiembre");
+        acontecimiento.setFecha("1568865600000");
         acontecimiento.setGpsX(-17.9418306f);
         acontecimiento.setGpsY(-65.3435859f);
         acontecimiento.setEstado(Constants.ESTADO_LUGAR_VISIBLE);
@@ -3153,14 +3149,13 @@ public class Listas {
         acontecimiento.setIdSQLite(idAcontecimiento++);
         acontecimiento.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         acontecimiento.setTipo(Constants.TIPO_LUGAR_ACONTECIMIENTOS);
-        acontecimiento.setTipo("Acontecimientos Programados");
         acontecimiento.setNombre("Fiesta de Compadres y Comadres");
         acontecimiento.setImagenesFirebaseArreglo(ModeloImagen.TIPO_LUGAR, new String[]{});
         acontecimiento.setDescripcion("El carnaval Cochabambino, se inicia el jueves de compadres y continua con el jueves siguiente que celebran de la misma forma las “comadres”. Así dentro de estas actividades se desarrolla la ya tradicional \"Feria del Puchero y Festival del Acordeón y la Concertina”.");
         acontecimiento.setHorario("10:00");
         acontecimiento.setDireccion("Cochabamba, Bolivia.");
         acontecimiento.setTelefono(0L);
-        acontecimiento.setFecha("");
+        acontecimiento.setFecha("1551326400000");
         acontecimiento.setGpsX(-17.398708023328837f);
         acontecimiento.setGpsY(-66.15274988934343f);
         acontecimiento.setEstado(Constants.ESTADO_LUGAR_VISIBLE);
@@ -3171,14 +3166,13 @@ public class Listas {
         acontecimiento.setIdSQLite(idAcontecimiento++);
         acontecimiento.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         acontecimiento.setTipo(Constants.TIPO_LUGAR_ACONTECIMIENTOS);
-        acontecimiento.setTipo("Acontecimientos Programados");
         acontecimiento.setNombre("Festividad de Cristo Rey");
         acontecimiento.setImagenesFirebaseArreglo(ModeloImagen.TIPO_LUGAR, new String[]{"festividad de cristo rey.jpg"});
         acontecimiento.setDescripcion("Recordemos que cada año en esta fiesta religiosa se hacía una peregrinación al Cristo de la Concordia y se celebraba una eucaristía a los pies del Cristo.");
         acontecimiento.setHorario("No se tiene registrado.");
         acontecimiento.setDireccion("Av. de la Concordia, Cochabamba, Bolivia.");
         acontecimiento.setTelefono(0L);
-        acontecimiento.setFecha("25 Noviembre");
+        acontecimiento.setFecha("1574654400000");
         acontecimiento.setGpsX(-17.38435132938883f);
         acontecimiento.setGpsY(-66.1349768936634f);
         acontecimiento.setEstado(Constants.ESTADO_LUGAR_VISIBLE);
@@ -3189,14 +3183,13 @@ public class Listas {
         acontecimiento.setIdSQLite(idAcontecimiento++);
         acontecimiento.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         acontecimiento.setTipo(Constants.TIPO_LUGAR_ACONTECIMIENTOS);
-        acontecimiento.setTipo("Acontecimientos Programados");
         acontecimiento.setNombre("Festividad de San Joaquín");
         acontecimiento.setImagenesFirebaseArreglo(ModeloImagen.TIPO_LUGAR, new String[]{"festividad de san joaquin.jpg", "festividad de san joaquin1.jpg"});
         acontecimiento.setDescripcion("El tradicional barrio de Jaihuayco se prepara para celebrar la Fiesta de San Joaquín, considerado según la tradición católica el abuelo de Jesucristo, del 24 al 27 de agosto.La festividad se inicia el viernes 24 de agosto con la verbena. Sigue el sábado 25 con la Entrada Folklórica, sigue el domingo 26 con la misa y termina 27 con el calvario.");
         acontecimiento.setHorario("No se tiene registrado.");
         acontecimiento.setDireccion("Jaihuayco, Cochabamba, Bolivia.");
         acontecimiento.setTelefono(0L);
-        acontecimiento.setFecha("24 Agosto");
+        acontecimiento.setFecha("1566619200000");
         acontecimiento.setGpsX(-17.4214352f);
         acontecimiento.setGpsY(-66.1584174f);
         acontecimiento.setEstado(Constants.ESTADO_LUGAR_VISIBLE);
@@ -3207,14 +3200,13 @@ public class Listas {
         acontecimiento.setIdSQLite(idAcontecimiento++);
         acontecimiento.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         acontecimiento.setTipo(Constants.TIPO_LUGAR_ACONTECIMIENTOS);
-        acontecimiento.setTipo("Acontecimientos Programados");
         acontecimiento.setNombre("Festividad de Santa Veracruz");
         acontecimiento.setImagenesFirebaseArreglo(ModeloImagen.TIPO_LUGAR, new String[]{"festividad de santa veracruz.jpg"});
         acontecimiento.setDescripcion("Santa Vera Cruz, es una de las festividades religiosas más grandes de la Arquidiócesis de Cochabamba, que reconoce las bendiciones del Señor en la fecundidad. Santa Vera Cruz es la segunda festividad religiosa más importante del departamento de Cochabamba. Cada año, recibe 40.000 turistas, el 90 por ciento nacionales. ");
         acontecimiento.setHorario("No se tiene registrado.");
         acontecimiento.setDireccion("Av. Petrolera km7, Cochabamba, Bolivia.");
         acontecimiento.setTelefono(0L);
-        acontecimiento.setFecha("1 Mayo");
+        acontecimiento.setFecha("1546386325000");
         acontecimiento.setGpsX(-17.4559286f);
         acontecimiento.setGpsY(-66.1263881f);
         acontecimiento.setEstado(Constants.ESTADO_LUGAR_VISIBLE);
@@ -3225,14 +3217,13 @@ public class Listas {
         acontecimiento.setIdSQLite(idAcontecimiento++);
         acontecimiento.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         acontecimiento.setTipo(Constants.TIPO_LUGAR_ACONTECIMIENTOS);
-        acontecimiento.setTipo("Acontecimientos Programados");
         acontecimiento.setNombre("Fiesta de la Virgen del Carmen");
         acontecimiento.setImagenesFirebaseArreglo(ModeloImagen.TIPO_LUGAR, new String[]{"fiesta de la virgen del carmen.jpg"});
         acontecimiento.setDescripcion("La Virgen del Carmen es Patrona de las Fuerzas Armadas y es venerada casi en todos los pueblos de Bolivia, donde la milagrosa imagen sale por distintas calles en procesión donde la gente rinde tributos. ");
         acontecimiento.setHorario("Abierto");
         acontecimiento.setDireccion("av. Ecuador, Cochabamba, Bolivia.");
         acontecimiento.setTelefono(0L);
-        acontecimiento.setFecha("16 Julio  ");
+        acontecimiento.setFecha("1563320725000");
         acontecimiento.setGpsX(-17.3903429f);
         acontecimiento.setGpsY(-66.1580821f);
         acontecimiento.setEstado(Constants.ESTADO_LUGAR_VISIBLE);
@@ -3243,36 +3234,34 @@ public class Listas {
         acontecimiento.setIdSQLite(idAcontecimiento++);
         acontecimiento.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         acontecimiento.setTipo(Constants.TIPO_LUGAR_ACONTECIMIENTOS);
-        acontecimiento.setTipo("Acontecimientos Programados");
         acontecimiento.setNombre("Festividad de Todos Santos");
         acontecimiento.setImagenesFirebaseArreglo(ModeloImagen.TIPO_LUGAR, new String[]{"festividad de todos santos.jpg", "festividad de todos santos2.jpg"});
         acontecimiento.setDescripcion("En Bolivia, desde tiempos inmemoriales, las comunidades originarias celebran la fiesta a los muertos. Con la llegada de los conquistadores español esta fiesta se fusiono con la fiesta de Todos Santos que los católicos celebran los dos primeros días de noviembre de cada año. Desde entonces la tradición de festejar a las almas y ajayus(almas en aymara), de los muertos forma parte de los detalles culturales de muchos bolivianos.");
         acontecimiento.setHorario("Abierto");
         acontecimiento.setDireccion("Av. Bartolomé Guzmán");
         acontecimiento.setTelefono(0L);
-        acontecimiento.setFecha("2 Noviembre");
+        acontecimiento.setFecha("1572738325000");
         acontecimiento.setGpsX(-17.4092406f);
         acontecimiento.setGpsY(-66.1607367f);
         acontecimiento.setEstado(Constants.ESTADO_LUGAR_VISIBLE);
         listaLugares.add(acontecimiento);
 
 
-        acontecimiento = new ModeloLugarTuristico();
+        /*acontecimiento = new ModeloLugarTuristico();
         acontecimiento.setIdSQLite(idAcontecimiento++);
         acontecimiento.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         acontecimiento.setTipo(Constants.TIPO_LUGAR_ACONTECIMIENTOS);
-        acontecimiento.setTipo("Acontecimientos Programados");
         acontecimiento.setNombre("Feria Internacional de Cochabamba");
         acontecimiento.setImagenesFirebaseArreglo(ModeloImagen.TIPO_LUGAR, new String[]{"feria internacional de cochabamba.jpg", "feria internacional de cochabamba2.jpg"});
         acontecimiento.setDescripcion("La Feria Internacional de Cochabamba, nace como proyecto en 1971 por iniciativa de la Federación de Entidades Empresariales Privadas de Cochabamba (FEPC), como un primer ensayo realizado en el Estado Mayor, organizado y apoyado por la Cámara de Comercio de Cochabamba.");
         acontecimiento.setHorario("Abierto");
         acontecimiento.setDireccion("Circuito Bolivia, Cochabamba.");
         acontecimiento.setTelefono(0L);
-        acontecimiento.setFecha("26 Abril ");
+        acontecimiento.setFecha("1577403925000");
         acontecimiento.setGpsX(-17.4092406f);
         acontecimiento.setGpsY(-66.1607367f);
         acontecimiento.setEstado(Constants.ESTADO_LUGAR_VISIBLE);
-        listaLugares.add(acontecimiento);
+        listaLugares.add(acontecimiento);*/
     }
 
     private void setListaUsuarios() {

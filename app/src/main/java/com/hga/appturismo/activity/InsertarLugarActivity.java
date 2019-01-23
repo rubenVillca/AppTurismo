@@ -51,8 +51,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-
-import static com.hga.appturismo.util.Constants.TIPO_LUGAR_ACONTECIMIENTOS;
+import java.util.GregorianCalendar;
 
 public class InsertarLugarActivity extends AppCompatActivity {
     public static final int REQUEST_IMAGE_CAPTURE = 1;
@@ -105,7 +104,7 @@ public class InsertarLugarActivity extends AppCompatActivity {
     private View focusView = null;
 
     private DatePickerFragment datePickerFragmentIn;
-    private Calendar calendarDateIn;
+    private Calendar calendarDate;
 
     /**
      * despues de  tomar la foto con la camara muestra la imagen tomada con la camara en el activity *
@@ -155,17 +154,17 @@ public class InsertarLugarActivity extends AppCompatActivity {
     }
 
     private void initDate() {
-        calendarDateIn=setDateReserve(1, 6, txt_fecha);
+        calendarDate =setDateReserve(1, txt_fecha);
 
         datePickerFragmentIn = new DatePickerFragment();
-        datePickerFragmentIn.setTextView(txt_fecha, txt_fecha,calendarDateIn);
+        datePickerFragmentIn.setTextView(txt_fecha, txt_fecha, calendarDate);
     }
 
-    private Calendar setDateReserve(int dayLast, int hour, TextView dateTextView) {
+    private Calendar setDateReserve(int dayLast, TextView dateTextView) {
         DateFormat dateFormat = DateFormat.getDateInstance(DateFormat.DEFAULT);
         Calendar calendar = Calendar.getInstance();
         calendar.add(Calendar.DAY_OF_MONTH, dayLast);//sumar dias
-        calendar.set(Calendar.HOUR_OF_DAY, hour);
+        calendar.set(Calendar.HOUR_OF_DAY, 0);
 
         String[] strDays = new String[]{"Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"};
         String dia = strDays[calendar.get(Calendar.DAY_OF_WEEK) - 1];//obtener dia
@@ -295,7 +294,7 @@ public class InsertarLugarActivity extends AppCompatActivity {
         modeloLugarTuristico.setGpsY(Float.parseFloat(txt_longitud.getText().toString()));
         modeloLugarTuristico.setProvincia(spinnerProvincia.getSelectedItem().toString());
         modeloLugarTuristico.setLinea(txt_linea.getText().toString());
-        modeloLugarTuristico.setFecha(txt_fecha.getText().toString());
+        modeloLugarTuristico.setFecha(String.valueOf(calendarDate.getTimeInMillis()));
         modeloLugarTuristico.setRegistradoPor(email);
 
         SharedPreferences sharedPreferences = getSharedPreferences("USER", MODE_PRIVATE);

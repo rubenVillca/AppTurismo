@@ -27,7 +27,10 @@ import com.hga.appturismo.modelo.ModeloLugarTuristico;
 import com.hga.appturismo.modelo.ModeloRestaurante;
 import com.hga.appturismo.util.Constants;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 public class DescripcionSugerenciaActivity extends AppCompatActivity implements View.OnClickListener{
     private ModeloRestaurante modeloRestaurante;
@@ -162,12 +165,18 @@ public class DescripcionSugerenciaActivity extends AppCompatActivity implements 
         textViewTipoText.setText(modeloLugarTuristico.getTipo());
         textViewActividadText.setText(modeloLugarTuristico.getActividad());
         textViewLineaText.setText(modeloLugarTuristico.getLinea());
-        textViewFechaText.setText(modeloLugarTuristico.getFecha());
         textViewDireccionText.setText(modeloLugarTuristico.getDireccion());
         textViewTelefonoText.setText(String.valueOf(modeloLugarTuristico.getTelefono()));
         textViewHorariosTextLugar.setText(modeloLugarTuristico.getHorario());
         textViewActividadText.setText(modeloLugarTuristico.getActividad());
         textViewRegistradoPorText.setText(modeloLugarTuristico.getRegistradoPor());
+
+        Calendar calendar=new GregorianCalendar();
+        calendar.setTimeInMillis(Long.parseLong(modeloLugarTuristico.getFecha()));
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMM, yyyy");
+        dateFormat.setTimeZone(calendar.getTimeZone());
+
+        textViewFechaText.setText(dateFormat.format(calendar.getTime()));
     }
 
     @Override

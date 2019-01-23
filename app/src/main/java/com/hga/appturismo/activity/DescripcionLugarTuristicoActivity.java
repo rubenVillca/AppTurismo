@@ -20,12 +20,16 @@ import com.hga.appturismo.imagenes.ImagenSwip;
 import com.hga.appturismo.modelo.ModeloLugarTuristico;
 import com.hga.appturismo.util.Constants;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.Locale;
 
 public class DescripcionLugarTuristicoActivity extends AppCompatActivity implements TextToSpeech.OnInitListener {
     private TextToSpeech tts;
     private ModeloLugarTuristico modeloLugarTuristico;
     private String email;
+    private Calendar calendar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,12 +38,8 @@ public class DescripcionLugarTuristicoActivity extends AppCompatActivity impleme
 
         recuperarDatos();
         mostrarContenido();
-        //getEmail();
     }
-    /*private void getEmail() {
-        SharedPreferences sharedPreferences = getSharedPreferences("USER", MODE_PRIVATE);
-        email = sharedPreferences.getString("email", "");
-    }*/
+
     @Override
     protected void onStop() {
         super.onStop();
@@ -116,8 +116,13 @@ public class DescripcionLugarTuristicoActivity extends AppCompatActivity impleme
             LinearLayout linearLayoutFecha=findViewById(R.id.linearLayoutFecha);
             linearLayoutFecha.setVisibility(View.GONE);
         }else {
+            calendar=new GregorianCalendar();
+            calendar.setTimeInMillis(Long.parseLong(modeloLugarTuristico.getFecha()));
+            SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMM, yyyy");
+            dateFormat.setTimeZone(calendar.getTimeZone());
+
             TextView textViewFechaText = findViewById(R.id.textViewFechaText);
-            textViewFechaText.setText(modeloLugarTuristico.getFecha());
+            textViewFechaText.setText(dateFormat.format(calendar.getTime()));
         }
 
         if (modeloLugarTuristico.getHorario().isEmpty()) {

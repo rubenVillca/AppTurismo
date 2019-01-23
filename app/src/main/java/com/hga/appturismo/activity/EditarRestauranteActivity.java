@@ -80,7 +80,7 @@ public class EditarRestauranteActivity extends EditarActivity {
 
     protected void iniciarVista() {
         super.iniciarVista();
-        editar_btn_insertar.setOnClickListener(new View.OnClickListener() {
+        editar_btn_guardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (modeloRestauranteOld != null) {

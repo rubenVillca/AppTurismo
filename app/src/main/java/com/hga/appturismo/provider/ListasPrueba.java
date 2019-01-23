@@ -138,7 +138,7 @@ public class ListasPrueba extends Listas{
         acontecimiento.setHorario("Abierto");
         acontecimiento.setDireccion("Circuito Bolivia, Cochabamba.");
         acontecimiento.setTelefono(0L);
-        acontecimiento.setFecha("26 Abril");
+        acontecimiento.setFecha("1561074325000");
         acontecimiento.setGpsX(-17.4092406f);
         acontecimiento.setGpsY(-66.1607367f);
         acontecimiento.setEstado(Constants.ESTADO_LUGAR_VISIBLE);

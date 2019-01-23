@@ -31,7 +31,7 @@ public class DatePickerFragment extends DialogFragment implements DatePickerDial
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         // Use the current date as the default date in the picker
-        SimpleDateFormat formatter = new SimpleDateFormat("MMM dd, yyyy",Locale.getDefault());
+        SimpleDateFormat formatter = new SimpleDateFormat("dd MMM, yyyy",Locale.getDefault());
         try {
             calendar.setTime(formatter.parse(String.valueOf(textViewDate.getText())));
         } catch (ParseException e) {
@@ -44,8 +44,8 @@ public class DatePickerFragment extends DialogFragment implements DatePickerDial
 
         // Create a new instance of DatePickerDialog and return it
         DatePickerDialog datePickerDialog= new DatePickerDialog(getActivity(), this, year, month, day);
-        DatePicker dp = datePickerDialog.getDatePicker();
-        dp.setMinDate(calendar.getTimeInMillis());
+        //DatePicker dp = datePickerDialog.getDatePicker();
+        //dp.setMinDate(calendar.getTimeInMillis());
 
         return  datePickerDialog;
     }

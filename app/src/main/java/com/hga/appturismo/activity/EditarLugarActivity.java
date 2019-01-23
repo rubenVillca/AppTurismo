@@ -16,6 +16,7 @@ import com.google.firebase.storage.UploadTask;
 import com.hga.appturismo.R;
 import com.hga.appturismo.bdFirebase.TurismoAplicacion;
 import com.hga.appturismo.bdSQLite.SqliteLugar;
+import com.hga.appturismo.calendar.DatePickerFragment;
 import com.hga.appturismo.modelo.ModeloImagen;
 import com.hga.appturismo.modelo.ModeloLugarTuristico;
 import com.hga.appturismo.modelo.ModeloUsuario;
@@ -23,6 +24,10 @@ import com.hga.appturismo.util.Constants;
 import com.squareup.picasso.Picasso;
 
 import java.io.File;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 import static java.lang.String.valueOf;
 
@@ -30,6 +35,8 @@ public class EditarLugarActivity extends EditarActivity {
 
     private ModeloLugarTuristico modeloLugarTuristicoOld;
     private ModeloLugarTuristico modeloLugarTuristicoNew;
+    private Calendar calendarDate;
+    private DatePickerFragment datePickerFragmentIn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +48,29 @@ public class EditarLugarActivity extends EditarActivity {
         mostrarDatosLugarTuristico();
         //mostrarImagenLugar();
         mostrarImagenLugarTuristico();
+        initDatePicker();
+    }
+
+    private Calendar setDateReserve(TextView dateTextView) {
+        DateFormat dateFormat = DateFormat.getDateInstance(DateFormat.DEFAULT);
+        Calendar calendar = Calendar.getInstance();
+        calendar.add(Calendar.DAY_OF_MONTH, 1);//sumar dias
+        calendar.set(Calendar.HOUR_OF_DAY, 0);
+
+        String[] strDays = new String[]{"Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"};
+        String dia = strDays[calendar.get(Calendar.DAY_OF_WEEK) - 1];//obtener dia
+
+        dateTextView.setText(dateFormat.format(calendar.getTime()));
+
+        return calendar;
+    }
+
+    private void initDatePicker() {
+        editar_txt_fecha=findViewById(R.id.editar_txt_fecha);
+        calendarDate =setDateReserve(editar_txt_fecha);
+
+        datePickerFragmentIn = new DatePickerFragment();
+        datePickerFragmentIn.setTextView(editar_txt_fecha, editar_txt_fecha, calendarDate);
     }
 
     private void setLugarTuristicoOld() {
@@ -54,12 +84,12 @@ public class EditarLugarActivity extends EditarActivity {
         super.iniciarVista();
 
         editar_layout_email.setVisibility(View.GONE);
-        editar_btn_insertar.setOnClickListener(new View.OnClickListener() {
+        editar_btn_guardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (modeloLugarTuristicoOld != null) {
                     if (isValidLugarTuristico()) {
-                        mostrarLugar();
+                        getLugar();
                         guardarFirebaseLugarTuristico();
                         Toast.makeText(EditarLugarActivity.this, "Editado lugar " + modeloLugarTuristicoNew.getNombre(), Toast.LENGTH_SHORT).show();
                     }
@@ -100,7 +130,7 @@ public class EditarLugarActivity extends EditarActivity {
         }
     }
 
-    private void mostrarLugar() {
+    private void getLugar() {
         modeloLugarTuristicoNew = new ModeloLugarTuristico();
         modeloLugarTuristicoNew.setProvincia(editar_spinner_provincia.getSelectedItem().toString());
         modeloLugarTuristicoNew.setTipo(editar_spinner_tipo_turismo.getSelectedItem().toString());
@@ -122,7 +152,7 @@ public class EditarLugarActivity extends EditarActivity {
         modeloLugarTuristicoNew.setGpsX(Float.parseFloat(editar_txt_latitud.getText().toString()));
         modeloLugarTuristicoNew.setGpsY(Float.parseFloat(editar_txt_longitud.getText().toString()));
         modeloLugarTuristicoNew.setLinea(editar_txt_linea.getText().toString());
-        modeloLugarTuristicoNew.setFecha(editar_txt_fecha.getText().toString());
+        modeloLugarTuristicoNew.setFecha(String.valueOf(calendarDate.getTimeInMillis()));
 
         mostrarImagenLugarTuristico();
     }
@@ -195,7 +225,13 @@ public class EditarLugarActivity extends EditarActivity {
         editar_txt_latitud.setText(valueOf(modeloLugarTuristicoOld.getGpsX()));
         editar_txt_longitud.setText(valueOf(modeloLugarTuristicoOld.getGpsY()));
         editar_txt_linea.setText(modeloLugarTuristicoOld.getLinea());
-        editar_txt_fecha.setText(modeloLugarTuristicoOld.getFecha());
+
+        Calendar calendar=new GregorianCalendar();
+        calendar.setTimeInMillis(Long.parseLong(modeloLugarTuristicoOld.getFecha()));
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMM, yyyy");
+        dateFormat.setTimeZone(calendar.getTimeZone());
+
+        editar_txt_fecha.setText(calendar.getTime().toString());
     }
 
     private void mostrarImagenLugar() {
@@ -290,4 +326,7 @@ public class EditarLugarActivity extends EditarActivity {
         return isValidLugarTuristico;
     }
 
+    public void showDatePickerDialog(View v) {
+        datePickerFragmentIn.show(getFragmentManager(), "datePicker");
+    }
 }

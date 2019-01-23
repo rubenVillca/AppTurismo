@@ -9,11 +9,15 @@ import com.hga.appturismo.modelo.ModeloImagen;
 import com.hga.appturismo.modelo.ModeloLugarTuristico;
 import com.hga.appturismo.util.Constants;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collection;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.Locale;
 
 /**
  * Created by HGA on 21/7/2018
@@ -184,23 +188,20 @@ public class SqliteLugar extends DBSQLiteParent implements SqliteInterface<Model
         ArrayList<ModeloLugarTuristico> modeloLugarTuristicosRes = new ArrayList<>();
         for (ModeloLugarTuristico modelo : modeloLugarTuristicos) {
             if (modelo.getEstado().equals(Constants.ESTADO_LUGAR_VISIBLE)) {
-                String fechaString = modelo.getFecha();
-                String mesString = "";
-                int dia = 0;
-                int mes;
-                if (fechaString.length() > 5) {
-                    mesString = fechaString.substring(2, fechaString.length());
-                    dia = Integer.parseInt(fechaString.substring(0, 2).trim());
-                    mesString = mesString.trim().toLowerCase();
-                } else {
-                    System.out.println("Fecha no valida");
-                }
 
-                mes = getMes(mesString);
-                Calendar fecha = new GregorianCalendar();
-                int mesActual = fecha.get(Calendar.MONTH);
-                int diaActual = fecha.get(Calendar.DAY_OF_MONTH);
-                if (mes >= mesActual && dia >= diaActual) {
+                SimpleDateFormat sdf = new SimpleDateFormat("dd MMM, yyyy");
+                Date date;
+                try {
+                    date = sdf.parse(modelo.getFecha());
+                    Calendar fecha = new GregorianCalendar();
+                    fecha.setTime(date);
+                    int mesActual = fecha.get(Calendar.MONTH);
+                    int diaActual = fecha.get(Calendar.DAY_OF_MONTH);
+                    if (fecha.get(Calendar.DAY_OF_MONTH) >= mesActual && fecha.get(Calendar.DAY_OF_MONTH) >= diaActual) {
+                        modeloLugarTuristicosRes.add(modelo);
+                    }
+                } catch (ParseException e) {
+                    e.printStackTrace();
                     modeloLugarTuristicosRes.add(modelo);
                 }
             }

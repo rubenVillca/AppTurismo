@@ -237,7 +237,7 @@
                     android:layout_marginBottom="5dp"
                     android:layout_marginTop="5dp"
                     android:layout_weight="1"
-                    android:text="Fecha:"
+                    android:text="@string/label_date"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="@dimen/size_text_primary" />
 
@@ -415,7 +415,7 @@
                     android:layout_marginBottom="5dp"
                     android:layout_marginTop="5dp"
                     android:layout_weight="1"
-                    android:text="Latitud"
+                    android:text="@string/label_latitud"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="@dimen/size_text_primary" />
 
@@ -445,7 +445,7 @@
                     android:layout_marginBottom="5dp"
                     android:layout_marginTop="5dp"
                     android:layout_weight="1"
-                    android:text="Longitud"
+                    android:text="@string/label_longitud"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="@dimen/size_text_primary" />
 
@@ -481,7 +481,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:backgroundTint="@color/colorPrimary"
-                        android:hint="Capturar"
+                        android:hint="@string/label_capturar"
                         android:onClick="goCameraActivity"
                         tools:targetApi="lollipop" />
 
@@ -490,7 +490,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:backgroundTint="@color/colorPrimary"
-                        android:hint="Buscar Imagen"
+                        android:hint="@string/label_buscar_imagen"
                         android:onClick="goGaleryActivity"
                         tools:targetApi="lollipop" />
 
@@ -510,8 +510,7 @@
                     android:layout_marginBottom="@dimen/margin_label_top_bottom"
                     android:layout_marginTop="@dimen/margin_label_top_bottom"
                     android:layout_weight="2"
-                    android:src="@drawable/img_fondo"
-                    android:text="@string/label_longitud" />
+                    android:src="@drawable/img_fondo"/>
 
             </LinearLayout>
 
@@ -527,7 +526,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/colorPrimary"
-                    android:text="Guardar Cambios"
+                    android:text="@string/label_guardar_cambios"
                     android:textAllCaps="false"
                     tools:targetApi="lollipop" />
             </LinearLayout>
