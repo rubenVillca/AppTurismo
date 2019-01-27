@@ -98,7 +98,7 @@ public class DBModel extends SQLiteOpenHelper {
     public static final String TABLE_PUNTAJE = "USUARIOS_LUGAR";//
     public static final String PUNTAJE_ID_SQLITE = "ID_SQLITE_PUNTAJE";
     public static final String PUNTAJE_ID_FIREBASE = "ID_FIREBASE_PUNTAJE";
-    public static final String PUNTAJE_ID_LUGAR_FIREBASE = "ID_ID_LUGAR_FIREBASE_PUNTAJE";
+    public static final String PUNTAJE_ID_LUGAR_FIREBASE = "ID_LUGAR_FIREBASE_PUNTAJE";
     public static final String PUNTAJE_CANTIDAD = "PUNTAJE_PUNTAJE";
     public static final String PUNTAJE_NRO_VISITAS = "NRO_VISITAS_PUNTAJE";
     public static final String PUNTAJE_TIPO = "TIPO_PUNTAJE";
