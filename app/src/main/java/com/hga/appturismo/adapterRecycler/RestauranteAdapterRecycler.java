@@ -280,7 +280,7 @@ public class RestauranteAdapterRecycler extends RecyclerView.Adapter<Restaurante
             modeloPuntaje.setTipo(ModeloImagen.TIPO_RESTAURANTE);
             modeloPuntajes.add(modeloPuntaje);//actualizar lista android
 
-            postReference.push().setValue(modeloPuntaje);//insertar en bdFirebase
+            postReference.child(modeloRestaurante.getIdFirebasePuntaje(Constants.FIREBASE_TIPO_RESTAURANTE)).setValue(modeloPuntaje);//insertar en bdFirebase
 
             holder.promedio.setText(String.valueOf(modeloPuntaje.getPuntaje()));
         }
@@ -372,7 +372,6 @@ public class RestauranteAdapterRecycler extends RecyclerView.Adapter<Restaurante
             }
         };
     }
-
 
     class RestauranteViewHolder extends RecyclerView.ViewHolder {
         private TextView nameCardView;

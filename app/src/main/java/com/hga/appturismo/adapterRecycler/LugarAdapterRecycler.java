@@ -212,7 +212,7 @@ public class LugarAdapterRecycler extends RecyclerView.Adapter<LugarAdapterRecyc
             modeloPuntaje.setTipo(ModeloImagen.TIPO_LUGAR);
             modeloPuntajes.add(modeloPuntaje);//actualizar lista android
 
-            postReference.push().setValue(modeloPuntaje);//insertar en bdFirebase
+            postReference.child(modeloLugarTuristico.getIdFirebasePuntaje(Constants.FIREBASE_TIPO_LUGAR_TURISTICO)).setValue(modeloPuntaje);//insertar en bdFirebase
 
             holder.promedio.setText(String.valueOf(modeloPuntaje.getPuntaje()));
         }
