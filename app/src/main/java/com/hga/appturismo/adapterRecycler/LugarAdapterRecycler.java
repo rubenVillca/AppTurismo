@@ -41,8 +41,7 @@ import static android.content.Context.MODE_PRIVATE;
  * Created by HGA:P on 12/09/2017
  */
 
-public class LugarAdapterRecycler extends RecyclerView.Adapter<LugarAdapterRecycler.LugarViewHolder>
-        implements Filterable {
+public class LugarAdapterRecycler extends RecyclerView.Adapter<LugarViewHolder> implements Filterable {
     private ArrayList<ModeloLugarTuristico> modeloLugarTuristicos;//todas las listas de lugares
     private ArrayList<ModeloLugarTuristico> modeloLugarTuristicosFilter;//todos los lugares que se estasn mostrando
     private ArrayList<ModeloPuntaje> modeloPuntajes;
@@ -416,35 +415,6 @@ public class LugarAdapterRecycler extends RecyclerView.Adapter<LugarAdapterRecyc
         if (!email.isEmpty()&&email.equals(registradoPor)){
             holder.btn_editar.setVisibility(View.VISIBLE);
             holder.btn_eliminar.setVisibility(View.VISIBLE);
-        }
-    }
-
-    class LugarViewHolder extends RecyclerView.ViewHolder {
-        private TextView nameCardView;
-        private ImageView imageCardView;
-        private FloatingActionButton btn_editar;
-        private FloatingActionButton btn_eliminar;
-        private CheckBox estrella1;
-        private CheckBox estrella2;
-        private CheckBox estrella3;
-        private CheckBox estrella4;
-        private CheckBox estrella5;
-        private TextView promedio;
-        private LinearLayout layoutEstrellas;
-
-        private LugarViewHolder(View itemView) {
-            super(itemView);
-            nameCardView = itemView.findViewById(R.id.nameCardView);
-            imageCardView = itemView.findViewById(R.id.imageCardView);
-            btn_editar = itemView.findViewById(R.id.btn_editar);
-            btn_eliminar = itemView.findViewById(R.id.btn_eliminar);
-            estrella1 = itemView.findViewById(R.id.star1);
-            estrella2 = itemView.findViewById(R.id.star2);
-            estrella3 = itemView.findViewById(R.id.star3);
-            estrella4 = itemView.findViewById(R.id.star4);
-            estrella5 = itemView.findViewById(R.id.star5);
-            promedio = itemView.findViewById(R.id.promedioCardView);
-            layoutEstrellas = itemView.findViewById(R.id.calificacion);
         }
     }
 }

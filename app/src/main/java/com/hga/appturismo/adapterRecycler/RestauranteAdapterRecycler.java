@@ -39,12 +39,10 @@ import java.util.ArrayList;
 
 import static android.content.Context.MODE_PRIVATE;
 
-
 /**
  * Created by on 12/09/2017
  */
-
-public class RestauranteAdapterRecycler extends RecyclerView.Adapter<RestauranteAdapterRecycler.RestauranteViewHolder> implements Filterable {
+public class RestauranteAdapterRecycler extends RecyclerView.Adapter<RestauranteViewHolder> implements Filterable {
     private final ArrayList<ModeloPuntaje> modeloPuntajes;
     private ArrayList<ModeloRestaurante> modeloRestaurantes;
     private ArrayList<ModeloRestaurante> restaurantesFilter;
@@ -136,36 +134,7 @@ public class RestauranteAdapterRecycler extends RecyclerView.Adapter<Restaurante
         return restaurantesFilter.size();
     }
 
-    class RestauranteViewHolder extends RecyclerView.ViewHolder {
-        private TextView nameCardView;
-        private ImageView imageCardView;
-        private FloatingActionButton btn_editar;
-        private FloatingActionButton btn_eliminar;
-        private CheckBox estrella1;
-        private CheckBox estrella2;
-        private CheckBox estrella3;
-        private CheckBox estrella4;
-        private CheckBox estrella5;
-        private TextView promedio;
-        private LinearLayout layoutEstrellas;
-
-        private RestauranteViewHolder(View itemView) {
-            super(itemView);
-            nameCardView = itemView.findViewById(R.id.nameCardView);
-            imageCardView = itemView.findViewById(R.id.imageCardView);
-            btn_editar = itemView.findViewById(R.id.btn_editar);
-            btn_eliminar = itemView.findViewById(R.id.btn_eliminar);
-            estrella1 = itemView.findViewById(R.id.star1);
-            estrella2 = itemView.findViewById(R.id.star2);
-            estrella3 = itemView.findViewById(R.id.star3);
-            estrella4 = itemView.findViewById(R.id.star4);
-            estrella5 = itemView.findViewById(R.id.star5);
-            promedio = itemView.findViewById(R.id.promedioCardView);
-            layoutEstrellas = itemView.findViewById(R.id.calificacion);
-        }
-    }
-
-    private double getPromedio(RestauranteAdapterRecycler.RestauranteViewHolder holder, ModeloRestaurante modeloRestaurante) {
+    private double getPromedio(RestauranteViewHolder holder, ModeloRestaurante modeloRestaurante) {
         double promedio = 0;
         int calificados = 0;
 
@@ -229,7 +198,7 @@ public class RestauranteAdapterRecycler extends RecyclerView.Adapter<Restaurante
         }
     }
 
-    private void setButtonHolder(RestauranteAdapterRecycler.RestauranteViewHolder holder, final int position, final ModeloRestaurante modeloRestaurante) {
+    private void setButtonHolder(RestauranteViewHolder holder, final int position, final ModeloRestaurante modeloRestaurante) {
         holder.imageCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -256,7 +225,7 @@ public class RestauranteAdapterRecycler extends RecyclerView.Adapter<Restaurante
                 });
     }
 
-    private void setEstrellasHolder(final RestauranteAdapterRecycler.RestauranteViewHolder holder, final ModeloRestaurante modeloRestaurante) {
+    private void setEstrellasHolder(final RestauranteViewHolder holder, final ModeloRestaurante modeloRestaurante) {
         holder.estrella1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -289,7 +258,7 @@ public class RestauranteAdapterRecycler extends RecyclerView.Adapter<Restaurante
         });
     }
 
-    private void showCheckEstrellas(int cantidad, RestauranteAdapterRecycler.RestauranteViewHolder holder) {
+    private void showCheckEstrellas(int cantidad, RestauranteViewHolder holder) {
         switch (cantidad) {
             case 1:
                 holder.estrella1.setChecked(true);
@@ -343,7 +312,7 @@ public class RestauranteAdapterRecycler extends RecyclerView.Adapter<Restaurante
      * @param holder:            contenedor del recyclerView
      * @param modeloRestaurante:
      */
-    private void guardarFirebaseEstrellas(int estrellasMarcadas, RestauranteAdapterRecycler.RestauranteViewHolder holder, ModeloRestaurante modeloRestaurante) {
+    private void guardarFirebaseEstrellas(int estrellasMarcadas, RestauranteViewHolder holder, ModeloRestaurante modeloRestaurante) {
         TurismoAplicacion app = (TurismoAplicacion) activity.getApplicationContext();
         DatabaseReference postReference = app.getDataBaseReferencePuntaje();
         showCheckEstrellas(estrellasMarcadas, holder);
@@ -373,13 +342,13 @@ public class RestauranteAdapterRecycler extends RecyclerView.Adapter<Restaurante
             modeloPuntajes.add(modeloPuntaje);//actualizar lista android
 
             postReference.child(modeloRestaurante.getIdFirebasePuntaje(Constants.FIREBASE_TIPO_RESTAURANTE)).setValue(modeloPuntaje);//insertar en bdFirebase
-            SqlitePuntaje sqlitePuntaje=new SqlitePuntaje(activity);
-            sqlitePuntaje.insert(modeloPuntaje);
+            /*SqlitePuntaje sqlitePuntaje=new SqlitePuntaje(activity);
+            sqlitePuntaje.insert(modeloPuntaje);*/
             holder.promedio.setText(String.valueOf(modeloPuntaje.getPuntaje()));
         }
     }
 
-    private void setImageHolder(final RestauranteAdapterRecycler.RestauranteViewHolder holder, ModeloRestaurante modeloRestaurante) {
+    private void setImageHolder(final RestauranteViewHolder holder, ModeloRestaurante modeloRestaurante) {
         if (modeloRestaurante.getImagenes().size() > 0) {
             if (!modeloRestaurante.getImagenes().get(0).getUrlApp().equals("")) {
                 try {
@@ -409,7 +378,7 @@ public class RestauranteAdapterRecycler extends RecyclerView.Adapter<Restaurante
         }
     }
 
-    private void setTextHolder(RestauranteAdapterRecycler.RestauranteViewHolder holder, ModeloRestaurante modeloRestaurante, double promedio) {
+    private void setTextHolder(RestauranteViewHolder holder, ModeloRestaurante modeloRestaurante, double promedio) {
         holder.promedio.setText(String.format("%.1f", promedio));//promedio con 1 decimal
         holder.nameCardView.setText(modeloRestaurante.getNombre());
     }
