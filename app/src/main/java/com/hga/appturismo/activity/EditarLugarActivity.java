@@ -13,7 +13,9 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.hga.appturismo.R;
 import com.hga.appturismo.bdFirebase.TurismoAplicacion;
+import com.hga.appturismo.bdSQLite.SqliteLugar;
 import com.hga.appturismo.modelo.ModeloImagen;
 import com.hga.appturismo.modelo.ModeloLugarTuristico;
 import com.hga.appturismo.modelo.ModeloUsuario;
@@ -21,6 +23,10 @@ import com.hga.appturismo.util.Constants;
 import com.squareup.picasso.Picasso;
 
 import java.io.File;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 import static java.lang.String.valueOf;
 
@@ -33,13 +39,35 @@ public class EditarLugarActivity extends EditarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        recuperarDatosModelo();
+        setLugarTuristicoOld();
         iniciarVista();
         iniciarVistaSpinner(Constants.SELECT_LUGAR);
         mostrarDatosLugarTuristico();
+        //mostrarImagenLugar();
+        mostrarImagenLugarTuristico();
+        initDatePicker();
     }
 
-    private void recuperarDatosModelo() {
+    private Calendar setDateReserve(TextView dateTextView) {
+        DateFormat dateFormat = DateFormat.getDateInstance(DateFormat.DEFAULT);
+        Calendar calendar = Calendar.getInstance();
+        calendar.add(Calendar.DAY_OF_MONTH, 1);//sumar dias
+        calendar.set(Calendar.HOUR_OF_DAY, 0);
+
+        String[] strDays = new String[]{"Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"};
+        String dia = strDays[calendar.get(Calendar.DAY_OF_WEEK) - 1];//obtener dia
+
+        dateTextView.setText(dateFormat.format(calendar.getTime()));
+
+        return calendar;
+    }
+
+    private void initDatePicker() {
+        editar_txt_fecha=findViewById(R.id.editar_txt_fecha);
+        calendarDate =setDateReserve(editar_txt_fecha);
+    }
+
+    private void setLugarTuristicoOld() {
         Bundle bundle = getIntent().getExtras();
         if (bundle != null && bundle.get("lugar") != null) {
             modeloLugarTuristicoOld = (ModeloLugarTuristico) bundle.get("lugar");
@@ -48,18 +76,21 @@ public class EditarLugarActivity extends EditarActivity {
 
     protected void iniciarVista() {
         super.iniciarVista();
-        editar_btn_insertar.setOnClickListener(new View.OnClickListener() {
+
+        editar_layout_email.setVisibility(View.GONE);
+        editar_btn_guardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (modeloLugarTuristicoOld != null) {
                     if (isValidLugarTuristico()) {
-                        mostrarLugar();
+                        getLugar();
                         guardarFirebaseLugarTuristico();
                         Toast.makeText(EditarLugarActivity.this, "Editado lugar " + modeloLugarTuristicoNew.getNombre(), Toast.LENGTH_SHORT).show();
+
+                        Intent intent = new Intent(EditarLugarActivity.this, MainActivity.class);
+                        startActivity(intent);
                     }
                 }
-                Intent intent = new Intent(EditarLugarActivity.this, MainActivity.class);
-                startActivity(intent);
             }
         });
     }
@@ -94,10 +125,10 @@ public class EditarLugarActivity extends EditarActivity {
         }
     }
 
-    private void mostrarLugar() {
+    private void getLugar() {
         modeloLugarTuristicoNew = new ModeloLugarTuristico();
         modeloLugarTuristicoNew.setProvincia(editar_spinner_provincia.getSelectedItem().toString());
-        modeloLugarTuristicoNew.setTipo(editar_spinner_tipo_turismo.getSelectedItem().toString());
+        modeloLugarTuristicoNew.setTipo(editar_spinner_subtipo.getSelectedItem().toString());
         modeloLugarTuristicoNew.setNombre(editar_txt_nombre.getText().toString());
         modeloLugarTuristicoNew.setIdSQLite(modeloLugarTuristicoOld.getIdSQLite());
         modeloLugarTuristicoNew.setIdFirebase(modeloLugarTuristicoOld.getIdFirebase());
@@ -108,14 +139,15 @@ public class EditarLugarActivity extends EditarActivity {
                         Constants.FIREBASE_STORAGE_URL_LUGAR_TURISTICO, modeloLugarTuristicoOld.getImagenes()
                 )
         );
+        modeloLugarTuristicoNew.setActividad(editar_txt_actividad.getText().toString());
         modeloLugarTuristicoNew.setDescripcion(editar_txt_descripcion.getText().toString());
         modeloLugarTuristicoNew.setHorario(editar_txt_horario.getText().toString());
         modeloLugarTuristicoNew.setDireccion(editar_txt_direccion.getText().toString());
-        modeloLugarTuristicoNew.setTelefono(Integer.parseInt(editar_txt_telefono.getText().toString()));
+        modeloLugarTuristicoNew.setTelefono(Long.parseLong(editar_txt_telefono.getText().toString()));
         modeloLugarTuristicoNew.setGpsX(Float.parseFloat(editar_txt_latitud.getText().toString()));
         modeloLugarTuristicoNew.setGpsY(Float.parseFloat(editar_txt_longitud.getText().toString()));
         modeloLugarTuristicoNew.setLinea(editar_txt_linea.getText().toString());
-        modeloLugarTuristicoNew.setFecha(editar_txt_fecha.getText().toString());
+        modeloLugarTuristicoNew.setFecha(String.valueOf(calendarDate.getTimeInMillis()));
 
         mostrarImagenLugarTuristico();
     }
@@ -128,12 +160,17 @@ public class EditarLugarActivity extends EditarActivity {
     private void guardarFirebaseLugarTuristico() {
         app = (TurismoAplicacion) getApplicationContext();
         //subir datos a bdFirebase
-        databaseReference = getPostReferenceProvincia(modeloLugarTuristicoNew.getIdFirebase(), modeloLugarTuristicoNew.getProvincia());
+        databaseReference = getPostReferenceProvincia(modeloLugarTuristicoOld.getIdFirebase(), modeloLugarTuristicoNew.getProvincia());
         databaseReference.setValue(modeloLugarTuristicoNew);
         if (!modeloLugarTuristicoNew.getProvincia().equals(modeloLugarTuristicoOld.getProvincia())) {
             databaseReference = getPostReferenceProvincia(modeloLugarTuristicoOld.getIdFirebase(), modeloLugarTuristicoOld.getProvincia());
             databaseReference.removeValue();
         }
+        databaseReference.setValue(modeloLugarTuristicoNew);
+        //actualizar sqlite
+        SqliteLugar sqliteLugar=new SqliteLugar(this);
+        sqliteLugar.remove(modeloLugarTuristicoOld);
+        sqliteLugar.insert(modeloLugarTuristicoNew);
 
         //subir imagen a bdFirebase
         if (!mCurrentPhotoPath.isEmpty()) {
@@ -162,22 +199,40 @@ public class EditarLugarActivity extends EditarActivity {
 
         editar_layout_tipo.setVisibility(View.GONE);
         editar_layout_pagina_web.setVisibility(View.GONE);
-        //editar_spinner_tipo.setText(modeloLugarTuristicoOld.get());
-        //int idProvincia = getIdProvincia(modeloLugarTuristicoOld.getProvincia());
-        int idTipoTurismo = getTipoTurismo(modeloLugarTuristicoOld.getTipo());
-        //editar_spinner_provincia.setSelection(idProvincia);
-        editar_spinner_tipo_turismo.setSelection(idTipoTurismo);
+
+        String tipo= getString(R.string.tipo_acontecimientos_programados);
+        if (modeloLugarTuristicoOld.getTipo().equals(tipo)) {
+            editar_layout_fecha.setVisibility(View.VISIBLE);
+        }else{
+            editar_layout_fecha.setVisibility(View.GONE);
+        }
+
+        int idProvincia = getSelectedArray(modeloLugarTuristicoOld.getProvincia(),R.array.provincia);
+        editar_spinner_provincia.setSelection(idProvincia);
+        int idTipoTurismo = getSelectedArray(modeloLugarTuristicoOld.getTipo(),R.array.subtipo_turismo);
+        editar_spinner_subtipo.setSelection(idTipoTurismo);
+
         editar_txt_nombre.setText(modeloLugarTuristicoOld.getNombre());
+        editar_txt_actividad.setText(modeloLugarTuristicoOld.getActividad());
         editar_txt_descripcion.setText(modeloLugarTuristicoOld.getDescripcion());
-        //editar_txt_email.setText(modeloLugarTuristicoOld.getEmail());
         editar_txt_direccion.setText(modeloLugarTuristicoOld.getDireccion());
-        //editar_txt_paginaweb.setText(modeloLugarTuristicoOld.getPaginaWeb());
         editar_txt_telefono.setText(valueOf(modeloLugarTuristicoOld.getTelefono()));
         editar_txt_horario.setText(modeloLugarTuristicoOld.getHorario());
-        editar_txt_latitud.setText(valueOf(valueOf(modeloLugarTuristicoOld.getGpsX())));
-        editar_txt_longitud.setText(valueOf(valueOf(modeloLugarTuristicoOld.getGpsY())));
-        //editar_txt_linea.setText(modeloLugarTuristicoNew.getLinea());
-        //editar_txt_fecha.setText(modeloLugarTuristicoNew.getFecha());
+        editar_txt_latitud.setText(valueOf(modeloLugarTuristicoOld.getGpsX()));
+        editar_txt_longitud.setText(valueOf(modeloLugarTuristicoOld.getGpsY()));
+        editar_txt_linea.setText(modeloLugarTuristicoOld.getLinea());
+
+        Calendar calendar=new GregorianCalendar();
+        if (!modeloLugarTuristicoOld.getFecha().isEmpty()) {
+            calendar.setTimeInMillis(Long.parseLong(modeloLugarTuristicoOld.getFecha()));
+            SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMM, yyyy");
+            dateFormat.setTimeZone(calendar.getTimeZone());
+
+            editar_txt_fecha.setText(calendar.getTime().toString());
+        }
+    }
+
+    private void mostrarImagenLugar() {
         String urlImagen = "";
         if (!modeloLugarTuristicoOld.getImagenes().isEmpty()) {
             if (modeloLugarTuristicoOld.getImagenes().get(0).getUrlServer().isEmpty()) {
@@ -215,7 +270,7 @@ public class EditarLugarActivity extends EditarActivity {
         boolean isValidLugarTuristico = true;
 
         editar_txt_nombre.setError(null);
-        editar_txt_descripcion.setError(null);
+        editar_txt_actividad.setError(null);
         editar_txt_latitud.setError(null);
         editar_txt_longitud.setError(null);
         editar_txt_ruta_imagen.setError(null);
@@ -227,17 +282,11 @@ public class EditarLugarActivity extends EditarActivity {
 
         String provincia = editar_txt_provincia.getText().toString();
         String nombre = editar_txt_nombre.getText().toString();
-        String descripcion = editar_txt_descripcion.getText().toString();
+        String actividad = editar_txt_actividad.getText().toString();
         String latitud = editar_txt_latitud.getText().toString();
         String longitud = editar_txt_longitud.getText().toString();
         String rutaImagen = editar_txt_ruta_imagen.getText().toString();
 
-        if (rutaImagen.isEmpty()) {
-            editar_txt_ruta_imagen.setError("Seleccione una una imagen de la galeria\n o capture una foto");
-            Toast.makeText(this, "Seleccione una una imagen de la galeria\n o capture una foto", Toast.LENGTH_SHORT).show();
-            focusView = editar_txt_ruta_imagen;
-            isValidLugarTuristico = false;
-        }
         if (longitud.isEmpty()) {
             editar_txt_longitud.setError("Llenar Longitud");
             focusView = editar_txt_longitud;
@@ -248,14 +297,9 @@ public class EditarLugarActivity extends EditarActivity {
             focusView = editar_txt_latitud;
             isValidLugarTuristico = false;
         }
-        if (descripcion.isEmpty()) {
-            editar_txt_descripcion.setError("Llenar descripción");
-            focusView = editar_txt_descripcion;
-            isValidLugarTuristico = false;
-        }
-        if (provincia.isEmpty()) {
-            editar_txt_provincia.setError("Seleccione una provincia");
-            focusView = editar_txt_provincia;
+        if (actividad.isEmpty()) {
+            editar_txt_actividad.setError("Llenar actividad");
+            focusView = editar_txt_actividad;
             isValidLugarTuristico = false;
         }
         if (nombre.isEmpty()) {
@@ -268,5 +312,4 @@ public class EditarLugarActivity extends EditarActivity {
         }
         return isValidLugarTuristico;
     }
-
 }

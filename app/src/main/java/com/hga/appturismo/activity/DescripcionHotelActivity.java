@@ -51,8 +51,8 @@ public class DescripcionHotelActivity extends AppCompatActivity  implements Text
         TextView textViewNombreText= findViewById(R.id.textViewNombreText);
         textViewNombreText.setText(modeloHotel.getNombre());
 
-        //TextView textViewDescripcionText= findViewById(R.id.textViewDescripcionText);
-        //textViewDescripcionText.setText(modeloHotel.getDescripcion());
+        TextView textViewActividad= findViewById(R.id.textViewActividadTextView);
+        textViewActividad.setText(modeloHotel.getActividad());
 
         TextView textViewDireccionText= findViewById(R.id.textViewDireccionText);
         textViewDireccionText.setText(modeloHotel.getDireccion());
@@ -60,21 +60,29 @@ public class DescripcionHotelActivity extends AppCompatActivity  implements Text
         TextView textViewTelefonoText= findViewById(R.id.textViewTelefonoText);
         textViewTelefonoText.setText(String.valueOf(modeloHotel.getTelefono()));
 
-        TextView textViewPagWebText= findViewById(R.id.textViewPagWebText);
-        textViewPagWebText.setText(String.valueOf(modeloHotel.getPaginaWeb()));
-
-        TextView textViewEmailText= findViewById(R.id.textViewEmailText);
-        textViewEmailText.setText(String.valueOf(modeloHotel.getEmail()));
-
-        /*if (modeloHotel.getLinea().isEmpty()) {
+        if (modeloHotel.getLinea().isEmpty()) {
             LinearLayout linearLayoutLinea =findViewById(R.id.linearLayoutLinea);
             linearLayoutLinea.setVisibility(View.GONE);
-
         }else {
             TextView textViewLineaText = findViewById(R.id.textViewLineaText);
             textViewLineaText.setText(modeloHotel.getLinea());
-        }*/
+        }
+        if (modeloHotel.getPaginaWeb().isEmpty()) {
+            LinearLayout linearLayoutPaginaWeb =findViewById(R.id.linearLayoutPaginaWeb);
+            linearLayoutPaginaWeb.setVisibility(View.GONE);
+        }else {
+            TextView textViewPagWebText= findViewById(R.id.textViewPagWebText);
+            textViewPagWebText.setText(modeloHotel.getPaginaWeb());
+        }
+        if (modeloHotel.getEmail().isEmpty()) {
+            LinearLayout linearLayoutEmail =findViewById(R.id.linearLayoutEmail);
+            linearLayoutEmail.setVisibility(View.GONE);
+        }else {
+            TextView textViewEmailText = findViewById(R.id.textViewEmailText);
+            textViewEmailText.setText(modeloHotel.getEmail());
+        }
 
+        //BOTONES
         Button buttonTrazarRuta= findViewById(R.id.buttonTrazarRuta);
 
         Button buttonAudio = findViewById(R.id.buttonAudio);
@@ -138,7 +146,7 @@ public class DescripcionHotelActivity extends AppCompatActivity  implements Text
         if (tts==null)
             tts = new TextToSpeech(this, this);
         String text = "Servicio de Hospedaje: "+ modeloHotel.getNombre()
-                +". Actividad: "+ modeloHotel.getDescripcion()
+                +". Actividad: "+ modeloHotel.getActividad()
                 +". Direccion: "+ modeloHotel.getDireccion()
                 +". Teléfono: "+ modeloHotel.getTelefono();
                 tts.speak(text,TextToSpeech.QUEUE_FLUSH,null);

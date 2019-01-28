@@ -66,12 +66,11 @@ public class ListaLugaresActivity extends AppCompatActivity {
         if (bundle != null && bundle.getString("lugarSeleccionado") != null) {
             lugarSeleccionado = bundle.getString("lugarSeleccionado");
             isProvincia=bundle.getBoolean("isProvincia");
+            setTitle(lugarSeleccionado);
         }else{
             lugarSeleccionado ="";
             isProvincia=false;
-        }
-        if (!isProvincia){
-            setTitle("Tipo: "+lugarSeleccionado);
+            setTitle("Lugares tutisticos");
         }
     }
 
@@ -183,11 +182,30 @@ public class ListaLugaresActivity extends AppCompatActivity {
     }
 
     private void loadSQLite() {
+        SharedPreferences sharedPreferences = getSharedPreferences("USER", MODE_PRIVATE);
+        int rol = sharedPreferences.getInt("rol", 0);
+
         lugaresTuristicos.clear();
         if (isProvincia) {
-            lugaresTuristicos.addAll(lugarTuristico.selectProvinciaActive(lugarSeleccionado));
+            if (rol==Constants.USUARIO_ROL_ADMIN||rol==Constants.USUARIO_ROL_REVISOR) {
+                lugaresTuristicos.addAll(lugarTuristico.selectProvincia(lugarSeleccionado));
+            }else{
+                lugaresTuristicos.addAll(lugarTuristico.selectProvinciaActive(lugarSeleccionado));
+            }
         }else{
-            lugaresTuristicos.addAll(lugarTuristico.listActive());
+            if (lugarSeleccionado.isEmpty()) {
+                if (rol==Constants.USUARIO_ROL_ADMIN||rol==Constants.USUARIO_ROL_REVISOR) {
+                    lugaresTuristicos.addAll(lugarTuristico.list());
+                }else{
+                    lugaresTuristicos.addAll(lugarTuristico.listActive());
+                }
+            }else{
+                if (rol==Constants.USUARIO_ROL_ADMIN||rol==Constants.USUARIO_ROL_REVISOR) {
+                    lugaresTuristicos.addAll(lugarTuristico.selectTipoLugar(lugarSeleccionado));
+                }else{
+                    lugaresTuristicos.addAll(lugarTuristico.selectTipoLugarActive(lugarSeleccionado));
+                }
+            }
         }
 
         modeloPuntajes.clear();

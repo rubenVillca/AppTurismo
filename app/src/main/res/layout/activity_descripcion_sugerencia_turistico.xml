@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.hga.appturismo.activity.DescripcionSugerenciaActivity">
+                                                 xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                 xmlns:tools="http://schemas.android.com/tools"
+                                                 android:layout_width="match_parent"
+                                                 android:layout_height="match_parent"
+                                                 tools:context="com.hga.appturismo.activity.DescripcionSugerenciaActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -22,6 +22,7 @@
                 android:orientation="vertical">
 
                 <LinearLayout
+                    android:id="@+id/descripcion_layout_sugerencia_provincia"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
@@ -43,6 +44,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/descripcion_layout_sugerencia_nombre"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
@@ -68,6 +70,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/descripcion_layout_sugerencia_tipo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
@@ -87,10 +90,11 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
-                        android:text="" />
+                        android:text=""/>
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/descripcion_layout_sugerencia_image"
                     android:layout_width="match_parent"
                     android:layout_height="250dp">
 
@@ -101,10 +105,11 @@
                         android:padding="0dp"
                         android:scaleType="fitXY"
 
-                        app:layout_collapseMode="parallax" />
+                        app:layout_collapseMode="parallax"/>
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/descripcion_layout_sugerencia_descripcion"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
@@ -113,15 +118,36 @@
                         android:id="@+id/textViewDescripcion"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Descripción: "
+                        android:text="@string/label_descripcion"
                         android:textColor="@color/colorPrimaryDark"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"/>
 
                     <TextView
-                        android:id="@+id/textViewDescripcionText"
+                        android:id="@+id/textViewDescipcionTextView"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="" />
+                        android:text=""/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/descripcion_layout_sugerencia_actividad"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textViewActividad"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/label_actividad"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/textViewActividadTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text=""/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -136,13 +162,13 @@
                         android:layout_height="wrap_content"
                         android:text="Linea: "
                         android:textColor="@color/colorPrimaryDark"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"/>
 
                     <TextView
                         android:id="@+id/textViewLineaText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="" />
+                        android:text=""/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -157,16 +183,17 @@
                         android:layout_height="wrap_content"
                         android:text="Fecha: "
                         android:textColor="@color/colorPrimaryDark"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"/>
 
                     <TextView
                         android:id="@+id/textViewFechaText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="" />
+                        android:text=""/>
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/descripcion_layout_sugerencia_direccion"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
@@ -177,16 +204,17 @@
                         android:layout_height="wrap_content"
                         android:text="@string/text_direccion"
                         android:textColor="@color/colorPrimaryDark"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"/>
 
                     <TextView
                         android:id="@+id/textViewDireccionText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="" />
+                        android:text=""/>
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/descripcion_layout_sugerencia_telefono"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
@@ -197,13 +225,13 @@
                         android:layout_height="wrap_content"
                         android:text="Teléfono: "
                         android:textColor="@color/colorPrimaryDark"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"/>
 
                     <TextView
                         android:id="@+id/textViewTelefonoText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="" />
+                        android:text=""/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -218,35 +246,15 @@
                         android:layout_height="wrap_content"
                         android:text="Horarios de atención: "
                         android:textColor="@color/colorPrimaryDark"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"/>
 
                     <TextView
                         android:id="@+id/textViewHorariosTextLugar"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/linearLayoutActividad"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/textViewActividad"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Actividades:"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:textStyle="bold"/>
-
-                    <TextView
-                        android:id="@+id/textViewActividadText"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
                         android:text=""/>
                 </LinearLayout>
+
                 <LinearLayout
                     android:id="@+id/linearLayoutRegistradoPor"
                     android:layout_width="match_parent"
@@ -266,7 +274,7 @@
                         android:id="@+id/textViewRegistradoPorText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="" />
+                        android:text=""/>
                 </LinearLayout>
 
                 <include layout="@layout/content_button_sugerir_lugar"/>

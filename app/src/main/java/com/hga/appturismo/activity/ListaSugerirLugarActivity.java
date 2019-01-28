@@ -45,7 +45,7 @@ public class ListaSugerirLugarActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_sugerir_lugar);
-
+        setTitle("Lugares turisticos");
         lugarTuristicoSQL = new SqliteLugar(this);
         restauranteSQL = new SqliteRestaurante(this);
         hotelSQL = new SqliteHotel(this);
@@ -174,15 +174,15 @@ public class ListaSugerirLugarActivity extends AppCompatActivity {
 
     private void initRecyclerView() {
         lugaresTuristicos = new ArrayList<>();
-        hotels=new ArrayList<>();
-        restaurantes=new ArrayList<>();
+        hotels = new ArrayList<>();
+        restaurantes = new ArrayList<>();
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
 
         RecyclerView recyclerView = findViewById(R.id.sugerirRecyclerView);
         recyclerView.setLayoutManager(linearLayoutManager);
-        adapterRecycler = new SugerenciaAdapterRecycler(hotels,restaurantes,lugaresTuristicos, R.layout.cardview_list_sugerencias, this);
+        adapterRecycler = new SugerenciaAdapterRecycler(hotels, restaurantes, lugaresTuristicos, R.layout.cardview_list_sugerencias, this);
         recyclerView.setAdapter(adapterRecycler);
     }
 }

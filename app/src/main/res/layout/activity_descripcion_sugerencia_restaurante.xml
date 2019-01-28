@@ -67,7 +67,27 @@
                     android:textStyle="bold"/>
 
                 <TextView
-                    android:id="@+id/textViewDescripcionText"
+                    android:id="@+id/textViewActividadTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/linearLayoutLinea"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textViewlinea"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Linea: "
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textViewLineaText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="" />
@@ -132,6 +152,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/linearLayoutPaginaWeb"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">

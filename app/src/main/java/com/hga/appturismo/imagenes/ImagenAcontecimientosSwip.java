@@ -30,7 +30,10 @@ import com.hga.appturismo.util.Constants;
 import com.squareup.picasso.Picasso;
 
 import java.io.File;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 public class ImagenAcontecimientosSwip extends PagerAdapter {
     private ArrayList<ModeloLugarTuristico> imagesResources;
@@ -60,7 +63,13 @@ public class ImagenAcontecimientosSwip extends PagerAdapter {
 
         TextView acontecimiento = getAcontecimientoTextView(imagesResources.get(position).getNombre(), params);
         acontecimiento.setTextColor(Color.WHITE);
-        TextView fecha = getAcontecimientoTextView(imagesResources.get(position).getFecha(), params);
+
+        Calendar calendar=new GregorianCalendar();
+        calendar.setTimeInMillis(Long.parseLong(imagesResources.get(position).getFecha()));
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMM, yyyy");
+        dateFormat.setTimeZone(calendar.getTimeZone());
+
+        TextView fecha = getAcontecimientoTextView(dateFormat.format(calendar.getTime()), params);
         fecha.setTextColor(Color.WHITE);
 
         linearLayoutText.addView(acontecimiento);
@@ -87,6 +96,16 @@ public class ImagenAcontecimientosSwip extends PagerAdapter {
         return frameLayout;
     }
 
+    @Override
+    public void destroyItem(ViewGroup container, int position, Object object) {
+
+    }
+
+    @Override
+    public boolean isViewFromObject(View view, Object object) {
+        return (view == object);
+    }
+
     @NonNull
     private TextView getAcontecimientoTextView(String text, ViewPager.LayoutParams params) {
         TextView acontecimiento = new TextView(context);
@@ -110,9 +129,9 @@ public class ImagenAcontecimientosSwip extends PagerAdapter {
     private View getView(ViewGroup container) {
         LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-        View itemView= layoutInflater.inflate(R.layout.viewpager_turismo,container,false);
+        View itemView = layoutInflater.inflate(R.layout.viewpager_turismo, container, false);
         itemView.setBackgroundColor(Color.GREEN);
-        itemView.setPadding(0,0,0,0);
+        itemView.setPadding(0, 0, 0, 0);
         itemView.getLayoutParams().width = ViewGroup.LayoutParams.MATCH_PARENT;
         itemView.getLayoutParams().height = ViewGroup.LayoutParams.WRAP_CONTENT;
         return itemView;
@@ -127,7 +146,7 @@ public class ImagenAcontecimientosSwip extends PagerAdapter {
 
     @NonNull
     private ImageView getImageView(View itemView) {
-        ImageView imageView= itemView.findViewById(R.id.imageViewTurismo);
+        ImageView imageView = itemView.findViewById(R.id.imageViewTurismo);
         imageView.setBackgroundColor(Color.GRAY);
         imageView.setPadding(0, 0, 0, 0);
         imageView.getLayoutParams().width = ViewGroup.LayoutParams.MATCH_PARENT;
@@ -137,49 +156,44 @@ public class ImagenAcontecimientosSwip extends PagerAdapter {
     }
 
     private void cargarImagen(int position, ImageView imageView, final ImageView imageViewCopy) {
-        ModeloLugarTuristico modeloLugarTuristico=imagesResources.get(position);
+        ModeloLugarTuristico modeloLugarTuristico = imagesResources.get(position);
         if (!modeloLugarTuristico.getImagenes().isEmpty()) {
             ModeloImagen modeloImagen = modeloLugarTuristico.getImagenes().get(0);
 
-            String urlImagen = Constants.FIREBASE_STORAGE_URL+modeloImagen.getTipoImagen()+"/"+modeloImagen.getUrlServer();
+            String urlImagen = Constants.FIREBASE_STORAGE_URL + modeloImagen.getTipoImagen() + "/" + modeloImagen.getUrlServer();
             TurismoAplicacion app = (TurismoAplicacion) context.getApplicationContext();
-        File file = new File(app.getStorageReferenceImagen(modeloImagen.getUrlApp()).toString());
-        if (file.exists()) {
-            try {
-                int imagen=Integer.parseInt(modeloImagen.getUrlApp());//si la imagen esta en la app
-                Picasso.with(context).load(imagen).into(imageView);
-            }catch (NumberFormatException e){
-                Picasso.with(context).load(urlImagen).into(imageView);//si la imagen esta en el celular
+
+
+            if (!modeloImagen.getUrlApp().isEmpty()) {
+                String urlImagenApp = modeloImagen.getUrlApp();
+                try {
+                    int imagen = Integer.parseInt(urlImagenApp);
+                    Picasso.with(context).load(imagen).into(imageView);
+                } catch (NumberFormatException e) {
+                    Picasso.with(context).load(urlImagenApp).into(imageView);//si la imagen esta en el celular
+                    //modeloImagen.setUrlApp("");
+                }
             }
-        }else {//si la imagen no esta en el celular*/
-            urlImagen = modeloImagen.getUrlServer();
-            String[] fragmentsUrl=urlImagen.split("/");
-            if (fragmentsUrl.length>0&&!fragmentsUrl[0].equals(modeloImagen.getTipoImagen()))
-                urlImagen=modeloImagen.getTipoImagen() + "/" + urlImagen;
-            StorageReference storageRef = app.getStorageReferenceImagen(urlImagen);
-            final String finalUrlImagen = urlImagen;
-            storageRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                @Override
-                public void onSuccess(Uri uri) {
-                    Picasso.with(context).load(uri.toString()).into(imageViewCopy);
+
+            if (modeloImagen.getUrlApp().isEmpty()) {
+                String urlImagenServer = modeloImagen.getTipoImagen() + "/" + modeloImagen.getUrlServer();
+                if (modeloImagen.getUrlServer().contains(modeloImagen.getTipoImagen())) {
+                    urlImagenServer = modeloImagen.getUrlServer();
                 }
-            }).addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull Exception exception) {
-                    System.out.println("Error al cargar imagenes: "+ finalUrlImagen);
-                }
-            });
+
+                StorageReference storageRef = app.getStorageReferenceImagen(urlImagenServer);
+                storageRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                    @Override
+                    public void onSuccess(Uri uri) {
+                        Picasso.with(context).load(uri.toString()).into(imageViewCopy);
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception exception) {
+                        System.out.println("Error al cargar imagenes");
+                    }
+                });
+            }
         }
-        }
-    }
-
-    @Override
-    public boolean isViewFromObject(View view, Object object) {
-        return (view==object);
-    }
-
-    @Override
-    public void destroyItem(ViewGroup container, int position, Object object) {
-
     }
 }

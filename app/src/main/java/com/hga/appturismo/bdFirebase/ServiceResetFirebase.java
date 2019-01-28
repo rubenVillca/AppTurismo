@@ -21,7 +21,7 @@ public class ServiceResetFirebase {
     public ServiceResetFirebase(MainActivity mainActivity) {
         app = (TurismoAplicacion) mainActivity.getApplicationContext();
         this.mainActivity = mainActivity;
-        listas=new Listas();
+        listas=new ListasPrueba();
     }
 
     /**

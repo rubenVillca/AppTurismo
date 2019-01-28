@@ -47,7 +47,7 @@
     <string name="prompt_password">Contraseña</string>
     <string name="action_sign_in">Iniciar sesión</string>
     <string name="action_sign_in_short">Logearse</string>
-    <string name="error_invalid_email">Este email es invalido</string>
+    <string name="error_invalid_email">Este email es inválido</string>
     <string name="error_invalid_password">Esta contraseña es muy corta</string>
     <string name="error_incorrect_password">La contraseña es incorreca</string>
     <string name="error_field_required">Este Campo es requerido</string>
@@ -140,22 +140,29 @@
     <string name="pref_ringtone_silent">Silent</string>
 
     <string name="pref_title_vibrate">Vibrate</string>
-    <string name="action_reset_profile">Resetear Datos</string>
+    <string name="action_reset_profile">Resetear Firebase</string>
     <string name="buscar_por_provincia">Buscar por Provincia</string>
     <string name="buscar_por_tipo">Buscar por Clasificación del Turismo</string>
-    <string name="tipo_etnograf_a_y_folklore">Etnografía y Folklore</string>
-    <string name="tipo_realizaciones_t_cnicas_y_cient_ficas">Realizaciones Técnicas y Científicas</string>
-    <string name="tipo_sitios_naturales">Sitios Naturales</string>
     <string name="label_clasificacion_del_turismo_en_cochabamba">Clasificación del Turismo en Cochabamba</string>
+
+    <string name="tipo_etnografia_folklore">Etnografía y Folklore</string>
+    <string name="tipo_realizaciones_tecnicas_cientificas">Realizaciones Técnicas y Científicas</string>
+    <string name="tipo_sitios_naturales">Sitios Naturales</string>
     <string name="tipo_patrimonio_urbano">Patrimonio Urbano Arquitectónico, Artístico, Museos y Manifestaciones Culturales</string>
     <string name="tipo_acontecimientos_programados">Acontecimientos Programados</string>
+
     <string name="label_linea">Línea:</string>
     <string name="label_fecha">Fecha:</string>
     <string name="labelName">Nombre:</string>
     <string name="label_rolUser">Tipo Usuario:</string>
-    <string name="action_sincronizar">Sincronizar</string>
+    <string name="action_sincronizar">Sincronizar SQLite</string>
     <string name="description_imagen">TODO</string>
     <string name="acontecimiento">Acontecimiento:</string>
     <string name="label_audio_guia">Audio Guia</string>
     <string name="label_trazar_ruta">Trazar Ruta</string>
+    <string name="label_descripcion">Descripción:</string>
+    <string name="label_actividad">Actividad</string>
+    <string name="label_date">Fecha:</string>
+    <string name="label_buscar_imagen">Buscar Imagen</string>
+    <string name="label_guardar_cambios">Guardar Cambios</string>
 </resources>

@@ -65,7 +65,7 @@
                         android:id="@+id/btn_etnografia"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/tipo_etnograf_a_y_folklore"
+                        android:text="@string/tipo_etnografia_folklore"
                         android:textAllCaps="false"/>
                 </LinearLayout>
                 <LinearLayout
@@ -75,7 +75,7 @@
                         android:id="@+id/btn_realizacioneTecnicas"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/tipo_realizaciones_t_cnicas_y_cient_ficas"
+                        android:text="@string/tipo_realizaciones_tecnicas_cientificas"
                         android:textAllCaps="false"/>
                 </LinearLayout>
                 <LinearLayout

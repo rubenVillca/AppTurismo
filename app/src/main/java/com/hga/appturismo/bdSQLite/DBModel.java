@@ -12,6 +12,7 @@ import com.hga.appturismo.modelo.ModeloPuntaje;
 import com.hga.appturismo.modelo.ModeloRestaurante;
 import com.hga.appturismo.modelo.ModeloUsuario;
 import com.hga.appturismo.provider.Listas;
+import com.hga.appturismo.provider.ListasPrueba;
 
 import java.util.ArrayList;
 
@@ -20,7 +21,7 @@ import java.util.ArrayList;
  */
 
 public class DBModel extends SQLiteOpenHelper {
-    public static final int DATABASE_VERSION = 116;
+    public static final int DATABASE_VERSION = 122;
     public static final String DATABASE_NAME = "APP_TURISMO";
 
     public static final String TABLE_IMAGENES = "IMAGENES";
@@ -37,16 +38,16 @@ public class DBModel extends SQLiteOpenHelper {
     public static final String LUGARES_TIPO = "TIPO_FIREBASE_LUGAR";
     public static final String LUGARES_NAME = "NOMBRE_LUGAR";
     public static final String LUGARES_DESCRIPCION = "DESCRIPCION_LUGAR";
+    public static final String LUGARES_ACTIVIDAD = "ACTIVIDAD_LUGAR";
     public static final String LUGARES_UBICACION = "UBICACION_LUGAR";
     public static final String LUGARES_HORARIO_ATENCION = "HORARIO_LUGAR";
     public static final String LUGARES_TELEFONO = "TELEFONO_LUGAR";
     public static final String LUGARES_LATITUD = "LATITUD_LUGAR";
     public static final String LUGARES_LONGITUD = "LONGITUD_LUGAR";
     public static final String LUGARES_PROVINCIA = "PROVINCIA_LUGAR";
-    public static final String LUGARES_ACTIVIDAD = "ACTIVIDAD_LUGAR";
-    public static final String LUGARES_ESTADO= "ESTADO_LUGAR";
-    public static final String LUGARES_FECHA= "FECHA_LUGAR";
-    public static final String LUGARES_LINEA= "LINEA_LUGAR";
+    public static final String LUGARES_ESTADO = "ESTADO_LUGAR";
+    public static final String LUGARES_FECHA = "FECHA_LUGAR";
+    public static final String LUGARES_LINEA = "LINEA_LUGAR";
     public static final String LUGARES_REGISTRADO_POR = "REGISTRADO_POR";
 
 
@@ -54,15 +55,16 @@ public class DBModel extends SQLiteOpenHelper {
     public static final String RESTAURANTES_ID_SQLITE = "ID_SQLITE_REST";
     public static final String RESTAURANTES_ID_FIREBASE = "ID_FIREBASE_REST";
     public static final String RESTAURANTES_NAME = "NOMBRE_REST";
-    public static final String RESTAURANTES_DESCRIPCION = "DESCRIPCION_REST";
+    public static final String RESTAURANTES_ACTIVIDAD = "ACTIVIDAD_REST";
     public static final String RESTAURANTES_DIRECCION = "DIRECCION_REST";
     public static final String RESTAURANTES_HORARIO = "HORARIO_REST";
     public static final String RESTAURANTES_TELEFONO = "TEL_REST";
     public static final String RESTAURANTES_EMAIL = "EMAIL_REST";
     public static final String RESTAURANTES_LATITUD = "LATITUD_REST";
     public static final String RESTAURANTES_LONGITUD = "LONGITUD_REST";
-    public static final String RESTAURANTES_ESTADO= "ESTADO_REST";
-    public static final String RESTAURANTES_LINEA= "LINEA_REST";
+    public static final String RESTAURANTES_ESTADO = "ESTADO_REST";
+    public static final String RESTAURANTES_LINEA = "LINEA_REST";
+    public static final String RESTAURANTES_PAGINA_WEB = "PAGINA_WEB_REST";
     public static final String RESTAURANTES_REGISTRADO_POR = "REGISTRADO_POR";
 
 
@@ -70,15 +72,15 @@ public class DBModel extends SQLiteOpenHelper {
     public static final String HOTELES_SQLITE_ID = "ID_SQLITE_HOTEL";
     public static final String HOTELES_ID_FIREBASE = "ID_FIREBASE_HOTEL";
     public static final String HOTELES_NAME = "NOMBRE_HOTEL";
-    public static final String HOTELES_DESCRIPCION = "DES_HOTEL";
+    public static final String HOTELES_ACTIVIDAD = "ACTIVIDAD_HOTEL";
     public static final String HOTELES_DIRECCION = "DIR_HOTEL";
     public static final String HOTELES_TELEFONO = "TEL_HOTEL";
     public static final String HOTELES_PAGINA_WEB = "PAGWEB_HOTEL";
     public static final String HOTELES_EMAIL = "EMAIL_HOTEL";
     public static final String HOTELES_LATITUD = "LATITUD_HOTEL";
     public static final String HOTELES_LONGITUD = "LONGITUD_HOTEL";
-    public static final String HOTELES_ESTADO= "ESTADO_HOTEL";
-    public static final String HOTELES_LINEA= "LINEA_HOTEL";
+    public static final String HOTELES_ESTADO = "ESTADO_HOTEL";
+    public static final String HOTELES_LINEA = "LINEA_HOTEL";
     public static final String HOTELES_REGISTRADO_POR = "REGISTRADO_POR";
 
 
@@ -90,13 +92,13 @@ public class DBModel extends SQLiteOpenHelper {
     public static final String USER_EMAIL = "EMAIL_USER";
     public static final String USER_TELEFONO = "TELEFONO_USER";
     public static final String USER_PWD = "PWD_USER";
-    public static final String USER_ROL="USER_ROL";
-    public static final String USER_ESTADO= "ESTADO_USER";//para solicitudes
+    public static final String USER_ROL = "USER_ROL";
+    public static final String USER_ESTADO = "ESTADO_USER";//para solicitudes
 
     public static final String TABLE_PUNTAJE = "USUARIOS_LUGAR";//
     public static final String PUNTAJE_ID_SQLITE = "ID_SQLITE_PUNTAJE";
     public static final String PUNTAJE_ID_FIREBASE = "ID_FIREBASE_PUNTAJE";
-    public static final String PUNTAJE_ID_LUGAR_FIREBASE = "ID_ID_LUGAR_FIREBASE_PUNTAJE";
+    public static final String PUNTAJE_ID_LUGAR_FIREBASE = "ID_LUGAR_FIREBASE_PUNTAJE";
     public static final String PUNTAJE_CANTIDAD = "PUNTAJE_PUNTAJE";
     public static final String PUNTAJE_NRO_VISITAS = "NRO_VISITAS_PUNTAJE";
     public static final String PUNTAJE_TIPO = "TIPO_PUNTAJE";
@@ -108,109 +110,14 @@ public class DBModel extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL(getTableImagenes());
-        db.execSQL(getTableUsuarios());
-        db.execSQL(getTablePuntaje());
-        db.execSQL(getTableSitioTurisico());
-        db.execSQL(getTableRestaurantes());
-        db.execSQL(getTableHoteles());
+        db.execSQL(setTableImagenes());
+        db.execSQL(setTableUsuarios());
+        db.execSQL(setTablePuntaje());
+        db.execSQL(setTableSitioTurisico());
+        db.execSQL(setTableRestaurantes());
+        db.execSQL(setTableHoteles());
 
-        insertarDatosSQLite(db);
-    }
-
-    private String getTableImagenes() {
-        return "create table " + TABLE_IMAGENES + " ("
-                + IMAGENES_ID_SQLITE + " integer primary key autoincrement,"
-                + IMAGENES_REFERENCE_LUGAR_ID + " integer,"
-                + IMAGENES_POSICION_IMAGEN + " integer,"
-                + IMAGENES_TIPO + " text,"
-                + IMAGENES_RUTA_APP + " text,"
-                + IMAGENES_RUTA_SERVER + " text"
-                + ");";
-    }
-
-    private String getTableUsuarios() {
-        return "create table " + TABLE_USUARIOS + " ("
-                + USER_SQLITE_ID + " integer primary key AUTOINCREMENT,"
-                + USER_ID_FIREBASE + " text,"
-                + USER_NAME + " text,"
-                + USER_APELLIDO + " text,"
-                + USER_EMAIL + " text,"
-                + USER_TELEFONO + " text,"
-                + USER_PWD + " text,"
-                + USER_ROL +" integer,"
-                + USER_ESTADO+" text"
-                + ");";
-    }
-
-    private String getTablePuntaje() {
-        return "create table " + TABLE_PUNTAJE + " ("
-                + PUNTAJE_ID_SQLITE + " integer primary key autoincrement,"
-                + PUNTAJE_ID_FIREBASE + " text,"
-                + PUNTAJE_ID_LUGAR_FIREBASE + " text,"
-                + PUNTAJE_CANTIDAD + " integer,"
-                + PUNTAJE_NRO_VISITAS + " integer,"
-                + PUNTAJE_TIPO + " text,"
-                + PUNTAJE_EMAIL + " text"
-                + ");";
-    }
-
-    private String getTableSitioTurisico() {
-        return "create table " + TABLE_LUGARES + " ("
-                + LUGARES_ID_SQLITE + " integer primary key,"
-                + LUGARES_ID_FIREBASE + " text,"
-                + LUGARES_TIPO + " text,"
-                + LUGARES_NAME + " text,"
-                + LUGARES_PROVINCIA + " text,"
-                + LUGARES_DESCRIPCION + " text,"
-                + LUGARES_UBICACION + " text,"
-                + LUGARES_HORARIO_ATENCION + " text,"
-                + LUGARES_TELEFONO + " text,"
-                + LUGARES_LATITUD + " text,"
-                + LUGARES_LONGITUD + " text,"
-                + LUGARES_ACTIVIDAD + " text,"
-                + LUGARES_ESTADO + " text,"
-                + LUGARES_LINEA + " text,"
-                + LUGARES_FECHA + " text,"
-                + LUGARES_REGISTRADO_POR + " text"
-                + ");";
-    }
-
-
-    private String getTableRestaurantes() {
-        return "create table " + TABLE_RESTAURANTES + " ("
-                + RESTAURANTES_ID_SQLITE + " integer primary key,"
-                + RESTAURANTES_ID_FIREBASE + " text,"
-                + RESTAURANTES_NAME + " text,"
-                + RESTAURANTES_DESCRIPCION + " text,"
-                + RESTAURANTES_DIRECCION + " text,"
-                + RESTAURANTES_HORARIO + " text,"
-                + RESTAURANTES_TELEFONO + " text,"
-                + RESTAURANTES_EMAIL + " text,"
-                + RESTAURANTES_LATITUD + " text,"
-                + RESTAURANTES_LONGITUD + " text,"
-                + RESTAURANTES_ESTADO + " text,"
-                + RESTAURANTES_LINEA + " text,"
-                + RESTAURANTES_REGISTRADO_POR + " text"
-                + ");";
-    }
-
-    private String getTableHoteles() {
-        return "create table " + TABLE_HOTELES + " ("
-                + HOTELES_SQLITE_ID + " integer primary key,"
-                + HOTELES_ID_FIREBASE + " text,"
-                + HOTELES_NAME + " text,"
-                + HOTELES_DESCRIPCION + " text,"
-                + HOTELES_DIRECCION + " text,"
-                + HOTELES_TELEFONO + " text,"
-                + HOTELES_PAGINA_WEB + " text,"
-                + HOTELES_EMAIL + " text,"
-                + HOTELES_LATITUD + " text,"
-                + HOTELES_LONGITUD + " text,"
-                + HOTELES_ESTADO + " text,"
-                + HOTELES_LINEA + " text,"
-                + HOTELES_REGISTRADO_POR + " text"
-                + ");";
+        insertarDatosSQLite(db);//cargar datos por defecto son sincronizar con firebase()
     }
 
     @Override
@@ -226,15 +133,110 @@ public class DBModel extends SQLiteOpenHelper {
         onCreate(db);
     }
 
+    private String setTableImagenes() {
+        return "create table " + TABLE_IMAGENES + " ("
+                + IMAGENES_ID_SQLITE + " integer primary key autoincrement,"
+                + IMAGENES_REFERENCE_LUGAR_ID + " integer,"
+                + IMAGENES_POSICION_IMAGEN + " integer,"
+                + IMAGENES_TIPO + " text,"
+                + IMAGENES_RUTA_APP + " text,"
+                + IMAGENES_RUTA_SERVER + " text"
+                + ");";
+    }
+
+    private String setTableUsuarios() {
+        return "create table " + TABLE_USUARIOS + " ("
+                + USER_SQLITE_ID + " integer primary key AUTOINCREMENT,"
+                + USER_ID_FIREBASE + " text,"
+                + USER_NAME + " text,"
+                + USER_APELLIDO + " text,"
+                + USER_EMAIL + " text,"
+                + USER_TELEFONO + " text,"
+                + USER_PWD + " text,"
+                + USER_ROL + " integer,"
+                + USER_ESTADO + " text"
+                + ");";
+    }
+
+    private String setTablePuntaje() {
+        return "create table " + TABLE_PUNTAJE + " ("
+                + PUNTAJE_ID_SQLITE + " integer primary key autoincrement,"
+                + PUNTAJE_ID_FIREBASE + " text,"
+                + PUNTAJE_ID_LUGAR_FIREBASE + " text,"
+                + PUNTAJE_CANTIDAD + " integer,"
+                + PUNTAJE_NRO_VISITAS + " integer,"
+                + PUNTAJE_TIPO + " text,"
+                + PUNTAJE_EMAIL + " text"
+                + ");";
+    }
+
+    private String setTableSitioTurisico() {
+        return "create table " + TABLE_LUGARES + " ("
+                + LUGARES_ID_SQLITE + " integer primary key,"
+                + LUGARES_ID_FIREBASE + " text,"
+                + LUGARES_TIPO + " text,"
+                + LUGARES_NAME + " text,"
+                + LUGARES_PROVINCIA + " text,"
+                + LUGARES_DESCRIPCION + " text,"
+                + LUGARES_ACTIVIDAD + " text,"
+                + LUGARES_UBICACION + " text,"
+                + LUGARES_HORARIO_ATENCION + " text,"
+                + LUGARES_TELEFONO + " text,"
+                + LUGARES_LATITUD + " text,"
+                + LUGARES_LONGITUD + " text,"
+                + LUGARES_ESTADO + " text,"
+                + LUGARES_LINEA + " text,"
+                + LUGARES_FECHA + " text,"
+                + LUGARES_REGISTRADO_POR + " text"
+                + ");";
+    }
+
+    private String setTableRestaurantes() {
+        return "create table " + TABLE_RESTAURANTES + " ("
+                + RESTAURANTES_ID_SQLITE + " integer primary key,"
+                + RESTAURANTES_ID_FIREBASE + " text,"
+                + RESTAURANTES_NAME + " text,"
+                + RESTAURANTES_ACTIVIDAD + " text,"
+                + RESTAURANTES_DIRECCION + " text,"
+                + RESTAURANTES_HORARIO + " text,"
+                + RESTAURANTES_TELEFONO + " text,"
+                + RESTAURANTES_EMAIL + " text,"
+                + RESTAURANTES_LATITUD + " text,"
+                + RESTAURANTES_LONGITUD + " text,"
+                + RESTAURANTES_ESTADO + " text,"
+                + RESTAURANTES_LINEA + " text,"
+                + RESTAURANTES_PAGINA_WEB + " text,"
+                + RESTAURANTES_REGISTRADO_POR + " text"
+                + ");";
+    }
+
+    private String setTableHoteles() {
+        return "create table " + TABLE_HOTELES + " ("
+                + HOTELES_SQLITE_ID + " integer primary key,"
+                + HOTELES_ID_FIREBASE + " text,"
+                + HOTELES_NAME + " text,"
+                + HOTELES_ACTIVIDAD + " text,"
+                + HOTELES_DIRECCION + " text,"
+                + HOTELES_TELEFONO + " text,"
+                + HOTELES_PAGINA_WEB + " text,"
+                + HOTELES_EMAIL + " text,"
+                + HOTELES_LATITUD + " text,"
+                + HOTELES_LONGITUD + " text,"
+                + HOTELES_ESTADO + " text,"
+                + HOTELES_LINEA + " text,"
+                + HOTELES_REGISTRADO_POR + " text"
+                + ");";
+    }
+
     private void insertarDatosSQLite(SQLiteDatabase db) {
-        Listas listas = new Listas();
+        Listas listas = new ListasPrueba();
         insertarLugares(listas.getListaLugares(), db);
         insertarHoteles(listas.getListaHoteles(), db);
         insertarRestaurantes(listas.getListaRestaurantes(), db);
         insertarUsuarios(listas.getListaUsuarios(), db);
     }
 
-    private void insertarImagenes(ArrayList<ModeloImagen> modeloImagenArrayList, SQLiteDatabase db,long idReference) {
+    private void insertarImagenes(ArrayList<ModeloImagen> modeloImagenArrayList, SQLiteDatabase db, long idReference) {
         for (ModeloImagen modeloImagen : modeloImagenArrayList) {
             modeloImagen.setIdLugarReference((int) idReference);
             insertarImagen(db, modeloImagen);
@@ -250,8 +252,8 @@ public class DBModel extends SQLiteOpenHelper {
         contentValues.put(DBModel.IMAGENES_RUTA_APP, modeloImagen.getUrlApp());
         contentValues.put(DBModel.IMAGENES_RUTA_SERVER, modeloImagen.getUrlServer());
 
-        long idSqlite=db.insert(DBModel.TABLE_IMAGENES, null, contentValues);
-        if ( idSqlite== -1) {
+        long idSqlite = db.insert(DBModel.TABLE_IMAGENES, null, contentValues);
+        if (idSqlite == -1) {
             System.out.println("Error en la base de datos");
         }
     }
@@ -268,7 +270,7 @@ public class DBModel extends SQLiteOpenHelper {
         //contentValues.put(DBModel.RESTAURANTES_ID_SQLITE, modeloRestaurante.getIdSQLite());
         contentValues.put(DBModel.RESTAURANTES_ID_FIREBASE, modeloRestaurante.getIdFirebase());
         contentValues.put(DBModel.RESTAURANTES_NAME, modeloRestaurante.getNombre());
-        contentValues.put(DBModel.RESTAURANTES_DESCRIPCION, modeloRestaurante.getDescripcion());
+        contentValues.put(DBModel.RESTAURANTES_ACTIVIDAD, modeloRestaurante.getActividad());
         contentValues.put(DBModel.RESTAURANTES_DIRECCION, modeloRestaurante.getDireccion());
         contentValues.put(DBModel.RESTAURANTES_HORARIO, modeloRestaurante.getHorario());
         contentValues.put(DBModel.RESTAURANTES_TELEFONO, String.valueOf(modeloRestaurante.getTelefono()));
@@ -276,14 +278,15 @@ public class DBModel extends SQLiteOpenHelper {
         contentValues.put(DBModel.RESTAURANTES_LATITUD, String.valueOf(modeloRestaurante.getGpsX()));
         contentValues.put(DBModel.RESTAURANTES_LONGITUD, String.valueOf(modeloRestaurante.getGpsY()));
         contentValues.put(DBModel.RESTAURANTES_ESTADO, String.valueOf(modeloRestaurante.getEstado()));
-        contentValues.put(DBModel.RESTAURANTES_LINEA,String.valueOf(modeloRestaurante.getLinea()));
+        contentValues.put(DBModel.RESTAURANTES_LINEA, String.valueOf(modeloRestaurante.getLinea()));
+        contentValues.put(DBModel.RESTAURANTES_PAGINA_WEB, String.valueOf(modeloRestaurante.getPaginaWeb()));
         contentValues.put(DBModel.RESTAURANTES_REGISTRADO_POR, modeloRestaurante.getRegistradoPor());
 
-        long idSqlite=db.insert(DBModel.TABLE_RESTAURANTES, null, contentValues);
+        long idSqlite = db.insert(DBModel.TABLE_RESTAURANTES, null, contentValues);
         if (idSqlite == -1) {
             System.out.println("Error en la base de datos restaurante: " + contentValues.toString() + "\nModeloRestaurante:" + modeloRestaurante.toString());
         } else {
-            insertarImagenes(modeloRestaurante.getImagenes(), db,idSqlite);
+            insertarImagenes(modeloRestaurante.getImagenes(), db, idSqlite);
         }
     }
 
@@ -299,7 +302,7 @@ public class DBModel extends SQLiteOpenHelper {
         //contentValues.put(DBModel.HOTELES_SQLITE_ID, modeloHotel.getIdSQLite());
         contentValues.put(DBModel.HOTELES_ID_FIREBASE, modeloHotel.getIdFirebase());
         contentValues.put(DBModel.HOTELES_NAME, modeloHotel.getNombre());
-        contentValues.put(DBModel.HOTELES_DESCRIPCION, modeloHotel.getDescripcion());
+        contentValues.put(DBModel.HOTELES_ACTIVIDAD, modeloHotel.getActividad());
         contentValues.put(DBModel.HOTELES_DIRECCION, modeloHotel.getDireccion());
         contentValues.put(DBModel.HOTELES_TELEFONO, String.valueOf(modeloHotel.getTelefono()));
         contentValues.put(DBModel.HOTELES_PAGINA_WEB, modeloHotel.getPaginaWeb());
@@ -307,14 +310,14 @@ public class DBModel extends SQLiteOpenHelper {
         contentValues.put(DBModel.HOTELES_LATITUD, String.valueOf(modeloHotel.getGpsX()));
         contentValues.put(DBModel.HOTELES_LONGITUD, String.valueOf(modeloHotel.getGpsY()));
         contentValues.put(DBModel.HOTELES_ESTADO, String.valueOf(modeloHotel.getEstado()));
-        contentValues.put(DBModel.HOTELES_LINEA,String.valueOf(modeloHotel.getLinea()));
+        contentValues.put(DBModel.HOTELES_LINEA, String.valueOf(modeloHotel.getLinea()));
         contentValues.put(DBModel.HOTELES_REGISTRADO_POR, modeloHotel.getRegistradoPor());
 
-        long idSqliteReference=db.insert(DBModel.TABLE_HOTELES, null, contentValues);
+        long idSqliteReference = db.insert(DBModel.TABLE_HOTELES, null, contentValues);
         if (idSqliteReference == -1) {
             System.out.println("Error en la base de datos hotel: " + contentValues.toString() + "\nModeloHotel: " + modeloHotel.toString());
         } else {
-            insertarImagenes(modeloHotel.getImagenes(), db,idSqliteReference);
+            insertarImagenes(modeloHotel.getImagenes(), db, idSqliteReference);
         }
     }
 
@@ -332,23 +335,23 @@ public class DBModel extends SQLiteOpenHelper {
         contentValues.put(DBModel.LUGARES_NAME, String.valueOf(lugar.getNombre()));
         contentValues.put(DBModel.LUGARES_TIPO, String.valueOf(lugar.getTipo()));
         contentValues.put(DBModel.LUGARES_DESCRIPCION, String.valueOf(lugar.getDescripcion()));
+        contentValues.put(DBModel.LUGARES_ACTIVIDAD, String.valueOf(lugar.getActividad()));
         contentValues.put(DBModel.LUGARES_UBICACION, String.valueOf(lugar.getDireccion()));
         contentValues.put(DBModel.LUGARES_HORARIO_ATENCION, lugar.getHorario());
         contentValues.put(DBModel.LUGARES_TELEFONO, String.valueOf(lugar.getTelefono()));
         contentValues.put(DBModel.LUGARES_LATITUD, String.valueOf(lugar.getGpsX()));
         contentValues.put(DBModel.LUGARES_LONGITUD, String.valueOf(lugar.getGpsY()));
-        contentValues.put(DBModel.LUGARES_ACTIVIDAD, String.valueOf(lugar.getActividad()));
         contentValues.put(DBModel.LUGARES_ESTADO, String.valueOf(lugar.getEstado()));
-        contentValues.put(DBModel.LUGARES_LINEA,String.valueOf(lugar.getLinea()));
-        contentValues.put(DBModel.LUGARES_FECHA,String.valueOf(lugar.getFecha()));
-        contentValues.put(DBModel.LUGARES_PROVINCIA,lugar.getProvincia());
+        contentValues.put(DBModel.LUGARES_LINEA, String.valueOf(lugar.getLinea()));
+        contentValues.put(DBModel.LUGARES_FECHA, String.valueOf(lugar.getFecha()));
+        contentValues.put(DBModel.LUGARES_PROVINCIA, lugar.getProvincia());
         contentValues.put(DBModel.LUGARES_REGISTRADO_POR, lugar.getRegistradoPor());
 
-        long idSqlite=db.insert(DBModel.TABLE_LUGARES, null, contentValues) ;
-        if (idSqlite== -1) {
+        long idSqlite = db.insert(DBModel.TABLE_LUGARES, null, contentValues);
+        if (idSqlite == -1) {
             System.out.println("Error en la base de datos turismo: " + contentValues.toString() + "\nmodelo:" + lugar.toString());
         } else {
-            insertarImagenes(lugar.getImagenes(), db,idSqlite);
+            insertarImagenes(lugar.getImagenes(), db, idSqlite);
         }
     }
 
@@ -367,7 +370,7 @@ public class DBModel extends SQLiteOpenHelper {
         contentValues.put(DBModel.USER_APELLIDO, modeloUsuario.getApellido());
         contentValues.put(DBModel.USER_EMAIL, modeloUsuario.getEmail());
         contentValues.put(DBModel.USER_TELEFONO, modeloUsuario.getTelefono());
-        contentValues.put(DBModel.USER_ROL,modeloUsuario.getRol());
+        contentValues.put(DBModel.USER_ROL, modeloUsuario.getRol());
         contentValues.put(DBModel.USER_PWD, String.valueOf(modeloUsuario.getTelefono()));
         contentValues.put(DBModel.USER_ESTADO, String.valueOf(modeloUsuario.getEstado()));
 
@@ -430,14 +433,14 @@ public class DBModel extends SQLiteOpenHelper {
     }
 
     public void deleteLugarTuristico(SQLiteDatabase db, int idSQLite) {
-        db.execSQL("DELETE FROM " + TABLE_LUGARES + " WHERE "+LUGARES_ID_SQLITE+"='"+idSQLite+"'");
+        db.execSQL("DELETE FROM " + TABLE_LUGARES + " WHERE " + LUGARES_ID_SQLITE + "='" + idSQLite + "'");
     }
 
     public void deleteLugarHotel(SQLiteDatabase db, int idSQLite) {
-        db.execSQL("DELETE FROM " + TABLE_HOTELES + " WHERE "+HOTELES_SQLITE_ID+"='"+idSQLite+"'");
+        db.execSQL("DELETE FROM " + TABLE_HOTELES + " WHERE " + HOTELES_SQLITE_ID + "='" + idSQLite + "'");
     }
 
     public void deleteLugarRestaurante(SQLiteDatabase db, int idSQLite) {
-        db.execSQL("DELETE FROM " + TABLE_RESTAURANTES + " WHERE "+RESTAURANTES_ID_SQLITE+"='"+idSQLite+"'");
+        db.execSQL("DELETE FROM " + TABLE_RESTAURANTES + " WHERE " + RESTAURANTES_ID_SQLITE + "='" + idSQLite + "'");
     }
 }

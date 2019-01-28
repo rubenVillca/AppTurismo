@@ -11,6 +11,7 @@ public class ModeloLugarTuristico extends ModeloBaseLugares{
     private String fecha;
     private String linea;
     private String actividad;
+    private String descripcion;
 
     public ModeloLugarTuristico(){
         super();
@@ -20,6 +21,15 @@ public class ModeloLugarTuristico extends ModeloBaseLugares{
         this.actividad = "";
         this.fecha="";
         this.linea="";
+        this.descripcion = "";
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
     public String getProvincia() {

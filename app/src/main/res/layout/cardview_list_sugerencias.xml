@@ -47,7 +47,7 @@
                         android:id="@+id/nombreCardView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Lugar:"
+                        android:text="Nombre:"
                         android:textColor="@android:color/holo_blue_light"
                         android:textStyle="bold"/>
 

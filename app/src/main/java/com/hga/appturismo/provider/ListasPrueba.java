@@ -1,5 +1,7 @@
 package com.hga.appturismo.provider;
 
+import android.content.Context;
+
 import com.hga.appturismo.modelo.ModeloHotel;
 import com.hga.appturismo.modelo.ModeloImagen;
 import com.hga.appturismo.modelo.ModeloLugarTuristico;
@@ -16,6 +18,7 @@ public class ListasPrueba extends Listas{
     private ArrayList<ModeloRestaurante> listaRestaurantes;
     private ArrayList<ModeloUsuario> listaUsuarios;
     private ArrayList<ModeloPuntaje> listaPuntaje;
+    private Context context;
 
     public ListasPrueba() {
         this.listaHoteles = new ArrayList<>();
@@ -59,13 +62,13 @@ public class ListasPrueba extends Listas{
         hotel=new ModeloHotel();
         hotel.setIdSQLite(idHotel++);
         hotel.setNombre("Adara Suites Apart Hotel ");
-        //hotel.setDescripcion("Hospedaje, administración y manejo de hoteles, apart hoteles, prestación de todo tipo de servicios hoteleros, organización de eventos, recepciones, servicios de restaurant, cafetería, spa, café, bar, etc.");
-        //hotel.setLinea("");
+        hotel.setActividad("Hospedaje, administración y manejo de hoteles, apart hoteles, prestación de todo tipo de servicios hoteleros, organización de eventos, recepciones, servicios de restaurant, cafetería, spa, café, bar, etc.");
+        hotel.setLinea("");
         hotel.setGpsX(-17.38467001063881f);
         hotel.setGpsY(-66.16149187088013f);
         hotel.setDireccion("Calle Junín nro. 867 Zona: Central");
         hotel.setImagenesFirebaseArreglo(ModeloImagen.TIPO_HOTEL, new String[]{"adara suites apart hotel3.jpg", "adara suites apart hotel4.jpg", "adara suites apart hotel1.jpg", "adara suites apart hotel2.jpg"});
-        hotel.setTelefono(4662020);
+        hotel.setTelefono(4662020L);
         hotel.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         hotel.setPaginaWeb("");
         hotel.setEmail("info@adarahotel.com.bo");
@@ -80,13 +83,15 @@ public class ListasPrueba extends Listas{
         restaurante = new ModeloRestaurante();
         restaurante.setIdSQLite(idRestaurante++);
         restaurante.setNombre("Carne y Fuego");
-        //restaurante.setDescripcion("Restaurant - churrasquería");
-        //restaurante.setLinea("");
+        restaurante.setActividad("Restaurant - churrasquería");
+        restaurante.setLinea("111");
         restaurante.setGpsX(-17.376764248067403f);
         restaurante.setGpsY(-66.17607034742832f);
         restaurante.setDireccion("Av. Melchor Pérez nro. 1555 Zona: Sarco");
         restaurante.setImagenesFirebaseArreglo(ModeloImagen.TIPO_RESTAURANTE, new String[]{"carne y fuego3.png", "carne y fuego2.png" });
-        restaurante.setTelefono(4243800);
+        restaurante.setTelefono(4243800L);
+        restaurante.setEmail("emailrestautnate@gmail.com");
+        restaurante.setPaginaWeb("www.gmai.com");
         restaurante.setHorario("Martes a Viernes 18:00-23:00 Sábado 18:00-23:00 Domingo 11:00-15:00");
         restaurante.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         restaurante.setEstado(Constants.ESTADO_LUGAR_VISIBLE);
@@ -104,11 +109,11 @@ public class ListasPrueba extends Listas{
         lugarTuristico.setTipo(Constants.TIPO_LUGAR_SITIOS_NATURALES);
         lugarTuristico.setNombre("Árbol de Jarka");
         lugarTuristico.setImagenesFirebaseArreglo(ModeloImagen.TIPO_LUGAR, new String[]{"arbol jarka2.jpg", "arbol jarka1.jpg" });
-        lugarTuristico.setDescripcion("Árbol “Jarka”, es un árbol con el tronco torcido ubicado en la Plazuela 27 de mayo," +
+        lugarTuristico.setActividad("Árbol “Jarka”, es un árbol con el tronco torcido ubicado en la Plazuela 27 de mayo," +
                 " también denominado árbol de la juventud. En años anteriores esta zona se llamaba “loza katu” por la venta de cerámica.");
         lugarTuristico.setHorario("");
         lugarTuristico.setDireccion("Tarata, Bolivia");
-        lugarTuristico.setTelefono(0);
+        lugarTuristico.setTelefono(0L);
         lugarTuristico.setGpsX(-17.6144987102532f);
         lugarTuristico.setGpsY(-66.02461002767086f);
         lugarTuristico.setLinea("");
@@ -132,8 +137,8 @@ public class ListasPrueba extends Listas{
         acontecimiento.setDescripcion("La Feria Internacional de Cochabamba, nace como proyecto en 1971 por iniciativa de la Federación de Entidades Empresariales Privadas de Cochabamba (FEPC), como un primer ensayo realizado en el Estado Mayor, organizado y apoyado por la Cámara de Comercio de Cochabamba.");
         acontecimiento.setHorario("Abierto");
         acontecimiento.setDireccion("Circuito Bolivia, Cochabamba.");
-        acontecimiento.setTelefono(0);
-        acontecimiento.setFecha("26 Abril");
+        acontecimiento.setTelefono(0L);
+        acontecimiento.setFecha("1561074325000");
         acontecimiento.setGpsX(-17.4092406f);
         acontecimiento.setGpsY(-66.1607367f);
         acontecimiento.setEstado(Constants.ESTADO_LUGAR_VISIBLE);

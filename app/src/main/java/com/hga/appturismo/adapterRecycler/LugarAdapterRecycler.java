@@ -124,70 +124,16 @@ public class LugarAdapterRecycler extends RecyclerView.Adapter<LugarAdapterRecyc
      * @return DatabaseReference:direccion de la ruta bdFirebase en formato bdFirebase
      */
     private DatabaseReference getPostReferenceProvincia(String urlFirebase, String provincia) {
-        DatabaseReference databaseReference;
-        provincia = provincia.toLowerCase();
-        switch (provincia) {
-            case "arani":
-                databaseReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_PROVINCIA_ARANI + "/" + urlFirebase);
+        DatabaseReference databaseReference=null;
+        String[] arrayTipo = activity.getResources().getStringArray(R.array.provincia);
+        for (String anArrayTipo : arrayTipo) {
+            if (provincia.equals(anArrayTipo)) {
+                databaseReference = app.getDataBaseReferenceLugarTuristico(anArrayTipo+"/" + urlFirebase);
                 break;
-            case "cercado":
-                databaseReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_PROVINCIA_CERCADO + "/" + urlFirebase);
-                break;
-            case "arque":
-                databaseReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_PROVINCIA_ARQUE + "/" + urlFirebase);
-                break;
-            case "ayopaya":
-                databaseReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_PROVINCIA_AYOPAYA + "/" + urlFirebase);
-                break;
-            case "bolivar":
-            case "bolívar":
-                databaseReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_PROVINCIA_BOLIVAR + "/" + urlFirebase);
-                break;
-            case "campero":
-            case "narciso campero":
-                databaseReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_PROVINCIA_CAMPERO + "/" + urlFirebase);
-                break;
-            case "chapare":
-                databaseReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_PROVINCIA_CHAPARE + "/" + urlFirebase);
-                break;
-            case "capinota":
-                databaseReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_PROVINCIA_CAPINOTA + "/" + urlFirebase);
-                break;
-            case "esteban arze":
-                databaseReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_PROVINCIA_ESTEBAN_ARZE + "/" + urlFirebase);
-                break;
-            case "jordán":
-            case "jordan":
-            case "germán jordán":
-                databaseReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_PROVINCIA_GERMAN_JORDAN + "/" + urlFirebase);
-                break;
-            case "carrasco":
-            case "josé carrasco":
-            case "José Carrasco":
-                databaseReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_PROVINCIA_JOSE_CARRASCO_TORRICO + "/" + urlFirebase);
-                break;
-            case "mizque":
-                databaseReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_PROVINCIA_MIZQUE + "/" + urlFirebase);
-                break;
-            case "punata":
-                databaseReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_PROVINCIA_PUNATA + "/" + urlFirebase);
-                break;
-            case "quillacollo":
-                databaseReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_PROVINCIA_QUILLACOLLO + "/" + urlFirebase);
-                break;
-            case "tapacarí":
-            case "tapacari":
-                databaseReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_PROVINCIA_TAPACARI + "/" + urlFirebase);
-                break;
-            case "tiraque":
-                databaseReference = app.getDataBaseReferenceLugarTuristico(Constants.FIREBASE_PROVINCIA_TIRAQUE + "/" + urlFirebase);
-                break;
-            default:
-                databaseReference = null;
-                break;
+            }
         }
-        return databaseReference;
 
+        return databaseReference;
     }
 
     private double getPromedio(LugarViewHolder holder, ModeloLugarTuristico modeloLugarTuristico) {
@@ -266,7 +212,7 @@ public class LugarAdapterRecycler extends RecyclerView.Adapter<LugarAdapterRecyc
             modeloPuntaje.setTipo(ModeloImagen.TIPO_LUGAR);
             modeloPuntajes.add(modeloPuntaje);//actualizar lista android
 
-            postReference.push().setValue(modeloPuntaje);//insertar en bdFirebase
+            postReference.child(modeloLugarTuristico.getIdFirebasePuntaje(Constants.FIREBASE_TIPO_LUGAR_TURISTICO)).setValue(modeloPuntaje);//insertar en bdFirebase
 
             holder.promedio.setText(String.valueOf(modeloPuntaje.getPuntaje()));
         }

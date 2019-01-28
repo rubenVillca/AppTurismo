@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                                                 xmlns:app="http://schemas.android.com/apk/res-auto"
-                                                 xmlns:tools="http://schemas.android.com/tools"
-                                                 android:layout_width="match_parent"
-                                                 android:layout_height="match_parent"
-                                                 tools:context="com.hga.appturismo.activity.InsertarLugarActivity">
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.hga.appturismo.activity.InsertarLugarActivity">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -100,7 +101,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
-                    android:text="@array/tipo_turismo"
+                    android:text="@array/subtipo_turismo"
                     android:textSize="@dimen/size_text_primary"/>
             </LinearLayout>
 
@@ -142,24 +143,58 @@
                 android:weightSum="3">
 
                 <TextView
-                    android:id="@+id/label_descripcion"
+                    android:id="@+id/id_label_descripcion"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
                     android:layout_marginTop="5dp"
                     android:layout_weight="1"
-                    android:text="Descripción:"
+                    android:text="@string/label_descripcion"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="@dimen/size_text_primary"/>
 
                 <EditText
-                    android:id="@+id/txt_descripcion"
+                    android:id="@+id/txt_descripcion_insertar"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/margin_label_top_bottom"
                     android:layout_marginTop="@dimen/margin_label_top_bottom"
                     android:layout_weight="2"
-                    android:inputType="text"
+                    android:gravity="top|left"
+                    android:inputType="textMultiLine"
+                    android:lines="5"
+                    android:textSize="@dimen/size_text_primary"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_actividad"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+                <TextView
+                    android:id="@+id/id_label_actividad"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    android:text="@string/label_actividad"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/size_text_primary"/>
+
+                <EditText
+                    android:id="@+id/txt_actividad_insertar"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin_label_top_bottom"
+                    android:layout_marginTop="@dimen/margin_label_top_bottom"
+                    android:layout_weight="2"
+                    android:gravity="top|left"
+                    android:inputType="textMultiLine"
+                    android:lines="5"
                     android:textSize="@dimen/size_text_primary"/>
             </LinearLayout>
 
@@ -208,14 +243,14 @@
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="@dimen/size_text_primary"/>
 
-                <EditText
+                <TextView
                     android:id="@+id/txt_fecha"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/margin_label_top_bottom"
                     android:layout_marginTop="@dimen/margin_label_top_bottom"
                     android:layout_weight="2"
-                    android:inputType="text"
+                    android:onClick="showDatePickerDialog"
                     android:textSize="@dimen/size_text_primary"/>
 
             </LinearLayout>

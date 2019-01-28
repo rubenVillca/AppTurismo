@@ -19,18 +19,18 @@ public class Constants {
     public static final String FIREBASE_PROVINCIA_ARANI = "Arani";
     public static final String FIREBASE_PROVINCIA_ARQUE = "Arque";
     public static final String FIREBASE_PROVINCIA_AYOPAYA = "Ayopaya";
-    public static final String FIREBASE_PROVINCIA_BOLIVAR = "Bolivar";
-    public static final String FIREBASE_PROVINCIA_CAMPERO = "Campero";
+    public static final String FIREBASE_PROVINCIA_BOLIVAR = "Bolívar";
+    public static final String FIREBASE_PROVINCIA_CAMPERO = "Narciso Campero";
     public static final String FIREBASE_PROVINCIA_CAPINOTA = "Capinota";
     public static final String FIREBASE_PROVINCIA_CERCADO = "Cercado";
     public static final String FIREBASE_PROVINCIA_CHAPARE = "Chapare";
-    public static final String FIREBASE_PROVINCIA_ESTEBAN_ARZE = "Esteban Arze";
-    public static final String FIREBASE_PROVINCIA_GERMAN_JORDAN = "German Jordan";
-    public static final String FIREBASE_PROVINCIA_JOSE_CARRASCO_TORRICO = "Jose Carrasco Torrico";
+    public static final String FIREBASE_PROVINCIA_ESTEBAN_ARZE = "Esteban Arce";
+    public static final String FIREBASE_PROVINCIA_GERMAN_JORDAN = "Germán Jordán";
+    public static final String FIREBASE_PROVINCIA_JOSE_CARRASCO_TORRICO = "José Carrasco";
     public static final String FIREBASE_PROVINCIA_MIZQUE = "Mizque";
     public static final String FIREBASE_PROVINCIA_PUNATA = "Punata";
     public static final String FIREBASE_PROVINCIA_QUILLACOLLO = "Quillacollo";
-    public static final String FIREBASE_PROVINCIA_TAPACARI = "Tapacari";
+    public static final String FIREBASE_PROVINCIA_TAPACARI = "Tapacarí";
     public static final String FIREBASE_PROVINCIA_TIRAQUE = "Tiraque";
 
     //base de daos bdFirebase
@@ -82,8 +82,8 @@ public class Constants {
     public static final boolean IS_READ_FIREBASE = false;
 
     public static int SELECT_HOTEL = 0;
-    public static int SELECT_LUGAR = 1;
-    public static int SELECT_RESTAURANTE = 2;
+    public static int SELECT_RESTAURANTE = 1;
+    public static int SELECT_LUGAR = 2;
 
     public static String TIPO_LUGAR_SITIOS_NATURALES = "Sitios Naturales";
     public static String TIPO_LUGAR_PATRIMONIO = "Patrimonio Urbano Arquitectónico, Artístico, Museos y Manifestaciones Culturales";

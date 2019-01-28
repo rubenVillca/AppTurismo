@@ -20,11 +20,14 @@ import android.widget.TextView;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.StorageReference;
 import com.hga.appturismo.R;
 import com.hga.appturismo.activity.DescripcionRestauranteActivity;
 import com.hga.appturismo.activity.EditarRestauranteActivity;
 import com.hga.appturismo.bdFirebase.TurismoAplicacion;
+import com.hga.appturismo.bdSQLite.SqliteLugar;
+import com.hga.appturismo.bdSQLite.SqlitePuntaje;
 import com.hga.appturismo.modelo.ModeloImagen;
 import com.hga.appturismo.modelo.ModeloPuntaje;
 import com.hga.appturismo.modelo.ModeloRestaurante;
@@ -38,7 +41,7 @@ import static android.content.Context.MODE_PRIVATE;
 
 
 /**
- * Created by ruben on 12/09/2017
+ * Created by on 12/09/2017
  */
 
 public class RestauranteAdapterRecycler extends RecyclerView.Adapter<RestauranteAdapterRecycler.RestauranteViewHolder> implements Filterable {
@@ -50,6 +53,7 @@ public class RestauranteAdapterRecycler extends RecyclerView.Adapter<Restaurante
     private SharedPreferences sharedPreferences;
     private String email;
     private TurismoAplicacion app;
+
     public RestauranteAdapterRecycler(ArrayList<ModeloRestaurante> modeloRestaurantes, ArrayList<ModeloPuntaje> modeloPuntaje, int resource, Activity activity) {
         this.modeloRestaurantes = modeloRestaurantes;
         this.restaurantesFilter = modeloRestaurantes;
@@ -58,28 +62,45 @@ public class RestauranteAdapterRecycler extends RecyclerView.Adapter<Restaurante
         this.activity = activity;
         sharedPreferences = activity.getSharedPreferences("USER", MODE_PRIVATE);
         email = sharedPreferences.getString("email", "");
-        this.app = (TurismoAplicacion)activity.getApplicationContext();
+        this.app = (TurismoAplicacion) activity.getApplicationContext();
     }
 
-    private double getPromedio(RestauranteAdapterRecycler.RestauranteViewHolder holder, ModeloRestaurante modeloRestaurante) {
-        double promedio = 0;
-        int calificados=0;
+    @Override
+    public Filter getFilter() {
+        return new Filter() {
+            @Override
+            protected FilterResults performFiltering(CharSequence charSequence) {
 
-        for (ModeloPuntaje puntaje : modeloPuntajes) {
-            String emailEncript=ModeloUsuario.codificarNombre(puntaje.getIdUsuarioFirebase());
-            if (emailEncript.equals(ModeloUsuario.encriptar(email))
-                    && puntaje.getIdLugarFirebase().equals(modeloRestaurante.getIdFirebase())
-                    && puntaje.getTipo().equals(ModeloImagen.TIPO_RESTAURANTE)) {
-                setCheckEstrellas(puntaje.getPuntaje(),holder);
-            }
-            if (puntaje.getIdLugarFirebase().equals(modeloRestaurante.getIdFirebase()) && puntaje.getTipo().equals(ModeloImagen.TIPO_RESTAURANTE)) {
-                promedio += puntaje.getPuntaje();//
-                calificados++;
-            }
-        }
-        promedio=promedio>0?(promedio/calificados):0;
+                String charString = charSequence.toString().toLowerCase();
 
-        return promedio;
+                if (charString.isEmpty()) {
+                    restaurantesFilter = modeloRestaurantes;
+                } else {
+                    ArrayList<ModeloRestaurante> filteredList = new ArrayList<>();
+
+                    for (ModeloRestaurante modeloRestaurante : modeloRestaurantes) {
+
+                        if (modeloRestaurante.getNombre().toLowerCase().contains(charString) ||
+                                modeloRestaurante.getProvincia().toLowerCase().contains(charString)) {
+
+                            filteredList.add(modeloRestaurante);
+                        }
+                    }
+
+                    restaurantesFilter = filteredList;
+                }
+
+                FilterResults filterResults = new FilterResults();
+                filterResults.values = restaurantesFilter;
+                return filterResults;
+            }
+
+            @Override
+            protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
+                restaurantesFilter = (ArrayList<ModeloRestaurante>) filterResults.values;
+                notifyDataSetChanged();
+            }
+        };
     }
 
     @Override
@@ -91,19 +112,84 @@ public class RestauranteAdapterRecycler extends RecyclerView.Adapter<Restaurante
     @Override
     public void onBindViewHolder(final RestauranteViewHolder holder, final int position) {
         final ModeloRestaurante modeloRestaurante = restaurantesFilter.get(position);
-        double promedio=getPromedio(holder,modeloRestaurante);
+        double promedio = getPromedio(holder, modeloRestaurante);
 
         setTextHolder(holder, modeloRestaurante, promedio);//ponser valor promedio de estrellas
         setImageHolder(holder, modeloRestaurante);
+
+        int estrellas=getEstrellasFirebase(modeloRestaurante);
         setEstrellasHolder(holder, modeloRestaurante);//marcar estrellas
         setButtonHolder(holder, position, modeloRestaurante);
-        setVisivilityHolder(holder,modeloRestaurante.getRegistradoPor());
+        setVisivilityHolder(holder, modeloRestaurante.getRegistradoPor());
 
     }
-    private void setVisivilityHolder(RestauranteViewHolder holder,String registradoPor) {
-        SharedPreferences sharedPreferences=activity.getSharedPreferences("USER",MODE_PRIVATE);
-        int rol=sharedPreferences.getInt("rol",0);
-        switch (rol){
+
+    private int getEstrellasFirebase(ModeloRestaurante modeloRestaurante) {
+        int estrellasSeleccionadas=0;
+        DatabaseReference mDatabase=app.getDataBaseReferencePuntaje(modeloRestaurante.getIdFirebasePuntaje(Constants.FIREBASE_TIPO_RESTAURANTE));
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+        return estrellasSeleccionadas;
+    }
+
+    @Override
+    public int getItemCount() {
+        return restaurantesFilter.size();
+    }
+
+    class RestauranteViewHolder extends RecyclerView.ViewHolder {
+        private TextView nameCardView;
+        private ImageView imageCardView;
+        private FloatingActionButton btn_editar;
+        private FloatingActionButton btn_eliminar;
+        private CheckBox estrella1;
+        private CheckBox estrella2;
+        private CheckBox estrella3;
+        private CheckBox estrella4;
+        private CheckBox estrella5;
+        private TextView promedio;
+        private LinearLayout layoutEstrellas;
+
+        private RestauranteViewHolder(View itemView) {
+            super(itemView);
+            nameCardView = itemView.findViewById(R.id.nameCardView);
+            imageCardView = itemView.findViewById(R.id.imageCardView);
+            btn_editar = itemView.findViewById(R.id.btn_editar);
+            btn_eliminar = itemView.findViewById(R.id.btn_eliminar);
+            estrella1 = itemView.findViewById(R.id.star1);
+            estrella2 = itemView.findViewById(R.id.star2);
+            estrella3 = itemView.findViewById(R.id.star3);
+            estrella4 = itemView.findViewById(R.id.star4);
+            estrella5 = itemView.findViewById(R.id.star5);
+            promedio = itemView.findViewById(R.id.promedioCardView);
+            layoutEstrellas = itemView.findViewById(R.id.calificacion);
+        }
+    }
+
+    private double getPromedio(RestauranteAdapterRecycler.RestauranteViewHolder holder, ModeloRestaurante modeloRestaurante) {
+        double promedio = 0;
+        int calificados = 0;
+
+        for (ModeloPuntaje puntaje : modeloPuntajes) {
+            String emailEncript = ModeloUsuario.codificarNombre(puntaje.getIdUsuarioFirebase());
+            if (emailEncript.equals(ModeloUsuario.encriptar(email))
+                    && puntaje.getIdLugarFirebase().equals(modeloRestaurante.getIdFirebase())
+                    && puntaje.getTipo().equals(ModeloImagen.TIPO_RESTAURANTE)) {
+                showCheckEstrellas(puntaje.getPuntaje(), holder);
+            }
+            if (puntaje.getIdLugarFirebase().equals(modeloRestaurante.getIdFirebase()) && puntaje.getTipo().equals(ModeloImagen.TIPO_RESTAURANTE)) {
+                promedio += puntaje.getPuntaje();//
+                calificados++;
+            }
+        }
+        promedio = promedio > 0 ? (promedio / calificados) : 0;
+
+        return promedio;
+    }
+
+    private void setVisivilityHolder(RestauranteViewHolder holder, String registradoPor) {
+        SharedPreferences sharedPreferences = activity.getSharedPreferences("USER", MODE_PRIVATE);
+        int rol = sharedPreferences.getInt("rol", 0);
+        switch (rol) {
             case Constants.USUARIO_ROL_ADMIN:
                 holder.btn_editar.setVisibility(View.VISIBLE);
                 holder.btn_eliminar.setVisibility(View.VISIBLE);
@@ -137,11 +223,12 @@ public class RestauranteAdapterRecycler extends RecyclerView.Adapter<Restaurante
         }
 
         String email = sharedPreferences.getString("email", "");
-        if (!email.isEmpty()&&email.equals(registradoPor)){
+        if (!email.isEmpty() && email.equals(registradoPor)) {
             holder.btn_editar.setVisibility(View.VISIBLE);
             holder.btn_eliminar.setVisibility(View.VISIBLE);
         }
     }
+
     private void setButtonHolder(RestauranteAdapterRecycler.RestauranteViewHolder holder, final int position, final ModeloRestaurante modeloRestaurante) {
         holder.imageCardView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -162,45 +249,47 @@ public class RestauranteAdapterRecycler extends RecyclerView.Adapter<Restaurante
         });
         holder.btn_eliminar.setOnClickListener(
                 new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                eliminarRestaurante(position,modeloRestaurante);
-            }
-        });
+                    @Override
+                    public void onClick(View v) {
+                        eliminarRestaurante(position, modeloRestaurante);
+                    }
+                });
     }
+
     private void setEstrellasHolder(final RestauranteAdapterRecycler.RestauranteViewHolder holder, final ModeloRestaurante modeloRestaurante) {
         holder.estrella1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                actualizarMarcarEstrellas(Integer.parseInt(v.getTag().toString()), holder, modeloRestaurante);
+                guardarFirebaseEstrellas(Integer.parseInt(v.getTag().toString()), holder, modeloRestaurante);
             }
         });
         holder.estrella2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                actualizarMarcarEstrellas(Integer.parseInt(v.getTag().toString()), holder, modeloRestaurante);
+                guardarFirebaseEstrellas(Integer.parseInt(v.getTag().toString()), holder, modeloRestaurante);
             }
         });
         holder.estrella3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                actualizarMarcarEstrellas(Integer.parseInt(v.getTag().toString()), holder, modeloRestaurante);
+                guardarFirebaseEstrellas(Integer.parseInt(v.getTag().toString()), holder, modeloRestaurante);
             }
         });
         holder.estrella4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                actualizarMarcarEstrellas(Integer.parseInt(v.getTag().toString()), holder, modeloRestaurante);
+                guardarFirebaseEstrellas(Integer.parseInt(v.getTag().toString()), holder, modeloRestaurante);
             }
         });
         holder.estrella5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                actualizarMarcarEstrellas(Integer.parseInt(v.getTag().toString()), holder, modeloRestaurante);
+                guardarFirebaseEstrellas(Integer.parseInt(v.getTag().toString()), holder, modeloRestaurante);
             }
         });
     }
-    private void setCheckEstrellas(int cantidad, RestauranteAdapterRecycler.RestauranteViewHolder holder) {
+
+    private void showCheckEstrellas(int cantidad, RestauranteAdapterRecycler.RestauranteViewHolder holder) {
         switch (cantidad) {
             case 1:
                 holder.estrella1.setChecked(true);
@@ -246,45 +335,50 @@ public class RestauranteAdapterRecycler extends RecyclerView.Adapter<Restaurante
                 break;
         }
     }
+
     /**
      * guardar estrellas marcadas en bdFirebase
+     *
      * @param estrellasMarcadas: cantidad de estrellas marcadas en un recyclerView
-     * @param holder: contenedor del recyclerView
+     * @param holder:            contenedor del recyclerView
      * @param modeloRestaurante:
      */
-    private void actualizarMarcarEstrellas(int estrellasMarcadas, RestauranteAdapterRecycler.RestauranteViewHolder holder, ModeloRestaurante modeloRestaurante) {
+    private void guardarFirebaseEstrellas(int estrellasMarcadas, RestauranteAdapterRecycler.RestauranteViewHolder holder, ModeloRestaurante modeloRestaurante) {
         TurismoAplicacion app = (TurismoAplicacion) activity.getApplicationContext();
         DatabaseReference postReference = app.getDataBaseReferencePuntaje();
-        setCheckEstrellas(estrellasMarcadas, holder);
+        showCheckEstrellas(estrellasMarcadas, holder);
 
-        boolean isInsert=false;
+        boolean isInsert = false;
         for (ModeloPuntaje puntaje : modeloPuntajes) {
             if (ModeloUsuario.encriptar(email).equals(puntaje.getIdUsuarioFirebase())
-                    &&puntaje.getTipo().equals(ModeloImagen.TIPO_RESTAURANTE)
-                    &&puntaje.getIdLugarFirebase().equals(modeloRestaurante.getIdFirebase())) {
+                    && puntaje.getTipo().equals(ModeloImagen.TIPO_RESTAURANTE)
+                    && puntaje.getIdLugarFirebase().equals(modeloRestaurante.getIdFirebase())) {
                 puntaje.setPuntaje(estrellasMarcadas);
                 puntaje.setIdLugarFirebase(modeloRestaurante.getIdFirebase());
                 puntaje.setIdUsuarioFirebase(email);
                 puntaje.setTipo(ModeloImagen.TIPO_RESTAURANTE);
                 if (!puntaje.getIdFirebase().isEmpty()) {
                     postReference.child(puntaje.getIdFirebase()).setValue(puntaje);//actualizar puntaje del lugar (hotel, restaurante o lugar tour) en bdFirebase
-                    isInsert=true;
+                    isInsert = true;
+                    break;
                 }
             }
         }
-        if (!isInsert){
-            ModeloPuntaje modeloPuntaje=new ModeloPuntaje();
+        if (!isInsert) {
+            ModeloPuntaje modeloPuntaje = new ModeloPuntaje();
             modeloPuntaje.setPuntaje(estrellasMarcadas);
             modeloPuntaje.setIdLugarFirebase(modeloRestaurante.getIdFirebase());
             modeloPuntaje.setIdUsuarioFirebase(email);
             modeloPuntaje.setTipo(ModeloImagen.TIPO_RESTAURANTE);
             modeloPuntajes.add(modeloPuntaje);//actualizar lista android
 
-            postReference.push().setValue(modeloPuntaje);//insertar en bdFirebase
-
+            postReference.child(modeloRestaurante.getIdFirebasePuntaje(Constants.FIREBASE_TIPO_RESTAURANTE)).setValue(modeloPuntaje);//insertar en bdFirebase
+            SqlitePuntaje sqlitePuntaje=new SqlitePuntaje(activity);
+            sqlitePuntaje.insert(modeloPuntaje);
             holder.promedio.setText(String.valueOf(modeloPuntaje.getPuntaje()));
         }
     }
+
     private void setImageHolder(final RestauranteAdapterRecycler.RestauranteViewHolder holder, ModeloRestaurante modeloRestaurante) {
         if (modeloRestaurante.getImagenes().size() > 0) {
             if (!modeloRestaurante.getImagenes().get(0).getUrlApp().equals("")) {
@@ -295,7 +389,7 @@ public class RestauranteAdapterRecycler extends RecyclerView.Adapter<Restaurante
                     Picasso.with(activity).load(modeloRestaurante.getImagenes().get(0).getUrlApp()).into(holder.imageCardView);
                 }
             } else {
-                String urlImagenServer=modeloRestaurante.getImagenes().get(0).getUrlServer();
+                String urlImagenServer = modeloRestaurante.getImagenes().get(0).getUrlServer();
 
                 StorageReference storageRef = app.getStorageReferenceRestaurante(urlImagenServer);
                 storageRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
@@ -314,13 +408,14 @@ public class RestauranteAdapterRecycler extends RecyclerView.Adapter<Restaurante
             }
         }
     }
+
     private void setTextHolder(RestauranteAdapterRecycler.RestauranteViewHolder holder, ModeloRestaurante modeloRestaurante, double promedio) {
         holder.promedio.setText(String.format("%.1f", promedio));//promedio con 1 decimal
         holder.nameCardView.setText(modeloRestaurante.getNombre());
     }
 
     private void eliminarRestaurante(int position, ModeloRestaurante modeloRestaurante) {
-        DatabaseReference databaseReference=app.getDataBaseReferenceRestaurante(modeloRestaurante.getIdFirebase());
+        DatabaseReference databaseReference = app.getDataBaseReferenceRestaurante(modeloRestaurante.getIdFirebase());
         databaseReference.removeValue();//eliminar de bdFirebase
 
         int p = restaurantesFilter.indexOf(modeloRestaurante);
@@ -328,78 +423,5 @@ public class RestauranteAdapterRecycler extends RecyclerView.Adapter<Restaurante
         modeloRestaurantes.remove(modeloRestaurante);
         //notifyDataSetChanged();
         notifyItemRemoved(p);
-    }
-
-    @Override
-    public int getItemCount() {
-        return restaurantesFilter.size();
-    }
-
-    @Override
-    public Filter getFilter() {
-        return new Filter() {
-            @Override
-            protected FilterResults performFiltering(CharSequence charSequence) {
-
-                String charString = charSequence.toString().toLowerCase();
-
-                if (charString.isEmpty()) {
-                    restaurantesFilter = modeloRestaurantes;
-                } else {
-                    ArrayList<ModeloRestaurante> filteredList = new ArrayList<>();
-
-                    for (ModeloRestaurante modeloRestaurante : modeloRestaurantes) {
-
-                        if (modeloRestaurante.getNombre().toLowerCase().contains(charString) ||
-                                modeloRestaurante.getProvincia().toLowerCase().contains(charString)) {
-
-                            filteredList.add(modeloRestaurante);
-                        }
-                    }
-
-                    restaurantesFilter = filteredList;
-                }
-
-                FilterResults filterResults = new FilterResults();
-                filterResults.values = restaurantesFilter;
-                return filterResults;
-            }
-
-            @Override
-            protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
-                restaurantesFilter = (ArrayList<ModeloRestaurante>) filterResults.values;
-                notifyDataSetChanged();
-            }
-        };
-    }
-
-
-    class RestauranteViewHolder extends RecyclerView.ViewHolder {
-        private TextView nameCardView;
-        private ImageView imageCardView;
-        private FloatingActionButton btn_editar;
-        private FloatingActionButton btn_eliminar;
-        private CheckBox estrella1;
-        private CheckBox estrella2;
-        private CheckBox estrella3;
-        private CheckBox estrella4;
-        private CheckBox estrella5;
-        private TextView promedio;
-        private LinearLayout layoutEstrellas;
-
-        private RestauranteViewHolder(View itemView) {
-            super(itemView);
-            nameCardView = itemView.findViewById(R.id.nameCardView);
-            imageCardView = itemView.findViewById(R.id.imageCardView);
-            btn_editar = itemView.findViewById(R.id.btn_editar);
-            btn_eliminar = itemView.findViewById(R.id.btn_eliminar);
-            estrella1 = itemView.findViewById(R.id.star1);
-            estrella2 = itemView.findViewById(R.id.star2);
-            estrella3 = itemView.findViewById(R.id.star3);
-            estrella4 = itemView.findViewById(R.id.star4);
-            estrella5 = itemView.findViewById(R.id.star5);
-            promedio= itemView.findViewById(R.id.promedioCardView);
-            layoutEstrellas= itemView.findViewById(R.id.calificacion);
-        }
     }
 }

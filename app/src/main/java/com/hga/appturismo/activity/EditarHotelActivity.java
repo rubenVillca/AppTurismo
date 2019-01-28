@@ -16,6 +16,7 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.hga.appturismo.R;
 import com.hga.appturismo.bdFirebase.TurismoAplicacion;
+import com.hga.appturismo.bdSQLite.SqliteHotel;
 import com.hga.appturismo.modelo.ModeloHotel;
 import com.hga.appturismo.modelo.ModeloImagen;
 import com.hga.appturismo.util.Constants;
@@ -64,7 +65,7 @@ public class EditarHotelActivity extends EditarActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_editar);
+        setContentView(R.layout.activity_editar_lugar);
 
         app = (TurismoAplicacion) getApplicationContext();
 
@@ -72,6 +73,8 @@ public class EditarHotelActivity extends EditarActivity {
         iniciarVista();
         iniciarVistaSpinner(Constants.SELECT_HOTEL);
         mostrarDatosHotel();
+        mostrarImagenHotel();
+        //mostrarImagenHotelOld();
     }
 
     private void recuperarDatosModelo() {
@@ -84,13 +87,14 @@ public class EditarHotelActivity extends EditarActivity {
     protected void iniciarVista() {
         super.iniciarVista();
 
-        editar_btn_insertar.setOnClickListener(new View.OnClickListener() {
+        editar_btn_guardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (modeloHotelOld != null) {
                     if (isValidHotel()) {
                         mostrarHotel();
                         guardarFirebaseHotel();
+                        guardarSQLiteHotel();
                         Toast.makeText(EditarHotelActivity.this, "Editado hotel " + modeloHotelNew.getNombre(), Toast.LENGTH_SHORT).show();
                     }
                 }
@@ -99,40 +103,12 @@ public class EditarHotelActivity extends EditarActivity {
                 startActivity(intent);
             }
         });
-
-        if (modeloHotelOld != null) {
-            mostrarImagenHotel();
-        }
     }
 
-    private void mostrarImagenHotel() {
-        if (modeloHotelOld.getImagenes().size() > 0) {
-            if (!modeloHotelOld.getImagenes().get(0).getUrlApp().equals("")) {
-                try {
-                    int idImage = Integer.parseInt(modeloHotelOld.getImagenes().get(0).getUrlApp());
-                    Picasso.with(this).load(idImage).into(imageView);
-                } catch (NumberFormatException e) {
-                    Picasso.with(this).load(modeloHotelOld.getImagenes().get(0).getUrlApp()).into(imageView);
-                }
-            } else {
-                String urlImagenServer = modeloHotelOld.getImagenes().get(0).getUrlServer();
-
-                StorageReference storageRef = app.getStorageReferenceHotel(urlImagenServer);
-                storageRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                    @Override
-                    public void onSuccess(Uri uri) {
-                        // Got the download URL for 'users/me/profile.png'
-                        // Pass it to Picasso to download, show in ImageView and caching
-                        Picasso.with(EditarHotelActivity.this).load(uri.toString()).into(imageView);
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception exception) {
-                        System.out.println("Error al cargar imagenes");
-                    }
-                });
-            }
-        }
+    private void guardarSQLiteHotel() {
+        SqliteHotel sqliteHotel=new SqliteHotel(this);
+        sqliteHotel.remove(modeloHotelOld);
+        sqliteHotel.insert(modeloHotelNew);
     }
 
     @NonNull
@@ -140,20 +116,21 @@ public class EditarHotelActivity extends EditarActivity {
         return super.getModeloImagens(tipo, id, ruta, modeloHotelOld.getImagenes());
     }
 
-
     private void mostrarHotel() {
         modeloHotelNew = new ModeloHotel();
         modeloHotelNew.setIdFirebase(modeloHotelOld.getIdFirebase());
         modeloHotelNew.setIdSQLite(modeloHotelOld.getIdSQLite());
         modeloHotelNew.setNombre(editar_txt_nombre.getText().toString());
-        modeloHotelNew.setDescripcion(editar_txt_descripcion.getText().toString());
+        modeloHotelNew.setActividad(editar_txt_actividad.getText().toString());
+        modeloHotelNew.setLinea(editar_txt_linea.getText().toString());
         modeloHotelNew.setGpsX(Float.parseFloat(editar_txt_latitud.getText().toString()));
         modeloHotelNew.setGpsY(Float.parseFloat(editar_txt_longitud.getText().toString()));
         modeloHotelNew.setDireccion(editar_txt_direccion.getText().toString());
-        modeloHotelNew.setTelefono(Integer.parseInt(editar_txt_telefono.getText().toString()));
+        modeloHotelNew.setTelefono(Long.parseLong(editar_txt_telefono.getText().toString()));
         modeloHotelNew.setProvincia(editar_spinner_provincia.getSelectedItem().toString());
         modeloHotelNew.setPaginaWeb(editar_txt_paginaweb.getText().toString());
         modeloHotelNew.setEmail(editar_txt_email.getText().toString());
+        modeloHotelNew.setHorario(editar_txt_horario.getText().toString());
         modeloHotelNew.setImagenes(getModeloImagens(ModeloImagen.TIPO_HOTEL, modeloHotelNew.getIdSQLite(), Constants.FIREBASE_STORAGE_URL_HOTEL));
     }
 
@@ -189,23 +166,56 @@ public class EditarHotelActivity extends EditarActivity {
 
     private void mostrarDatosHotel() {
         app = (TurismoAplicacion) getApplicationContext();
-        editar_layout_tipoTurismo.setVisibility(View.GONE);
+        editar_layout_subtipo.setVisibility(View.GONE);
         editar_layout_provincia.setVisibility(View.GONE);
         editar_layout_horario.setVisibility(View.GONE);
-        editar_layout_linea.setVisibility(View.GONE);
-        //editar_spinner_tipo.setText(modeloHotelOld.get());
-        //editar_spinner_provincia.setText(modeloHotelOld.get());
-        //editar_spinner_tipo_turismo.setText(modeloHotelOld.get());
+        editar_layout_linea.setVisibility(View.VISIBLE);
+        editar_layout_descripcion.setVisibility(View.GONE);
+        editar_layout_fecha.setVisibility(View.GONE);
+
         editar_txt_nombre.setText(modeloHotelOld.getNombre());
-        //editar_txt_descripcion.setText(modeloHotelOld.get());
         editar_txt_email.setText(modeloHotelOld.getEmail());
-        editar_txt_descripcion.setText(modeloHotelOld.getDescripcion());
+        editar_txt_actividad.setText(modeloHotelOld.getActividad());
+        editar_txt_linea.setText(modeloHotelOld.getLinea());
         editar_txt_direccion.setText(modeloHotelOld.getDireccion());
         editar_txt_paginaweb.setText(modeloHotelOld.getPaginaWeb());
         editar_txt_telefono.setText(valueOf(modeloHotelOld.getTelefono()));
-        //editar_txt_horario.setText(modeloHotelOld.get());
+        editar_txt_horario.setText(modeloHotelOld.getHorario());
         editar_txt_latitud.setText(valueOf(valueOf(modeloHotelOld.getGpsX())));
         editar_txt_longitud.setText(valueOf(valueOf(modeloHotelOld.getGpsY())));
+    }
+
+    private void mostrarImagenHotel() {
+        if (modeloHotelOld.getImagenes().size() > 0) {
+            if (!modeloHotelOld.getImagenes().get(0).getUrlApp().equals("")) {
+                try {
+                    int idImage = Integer.parseInt(modeloHotelOld.getImagenes().get(0).getUrlApp());
+                    Picasso.with(this).load(idImage).into(imageView);
+                } catch (NumberFormatException e) {
+                    Picasso.with(this).load(modeloHotelOld.getImagenes().get(0).getUrlApp()).into(imageView);
+                }
+            } else {
+                String urlImagenServer = modeloHotelOld.getImagenes().get(0).getUrlServer();
+
+                StorageReference storageRef = app.getStorageReferenceHotel(urlImagenServer);
+                storageRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                    @Override
+                    public void onSuccess(Uri uri) {
+                        // Got the download URL for 'users/me/profile.png'
+                        // Pass it to Picasso to download, show in ImageView and caching
+                        Picasso.with(EditarHotelActivity.this).load(uri.toString()).into(imageView);
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception exception) {
+                        System.out.println("Error al cargar imagenes");
+                    }
+                });
+            }
+        }
+    }
+
+    private void mostrarImagenHotelOld() {
         String urlImagen = "";
         if (!modeloHotelOld.getImagenes().isEmpty()) {
             if (modeloHotelOld.getImagenes().get(0).getUrlServer().isEmpty()) {
@@ -246,7 +256,7 @@ public class EditarHotelActivity extends EditarActivity {
         focusView = null;
 
         String nombre = editar_txt_nombre.getText().toString();
-        String descripcion = editar_txt_descripcion.getText().toString();
+        String actividad = editar_txt_actividad.getText().toString();
         String latitud = editar_txt_latitud.getText().toString();
         String longitud = editar_txt_longitud.getText().toString();
         String rutaImagen = editar_txt_ruta_imagen.getText().toString();
@@ -272,9 +282,9 @@ public class EditarHotelActivity extends EditarActivity {
             focusView = editar_txt_nombre;
             isValidHotel = false;
         }
-        if (nombre.isEmpty()) {
-            editar_txt_descripcion.setError("Llenar Actividad");
-            focusView = editar_txt_descripcion;
+        if (actividad.isEmpty()) {
+            editar_txt_actividad.setError("Llenar Actividad");
+            focusView = editar_txt_actividad;
             isValidHotel = false;
         }
         if (focusView != null) {

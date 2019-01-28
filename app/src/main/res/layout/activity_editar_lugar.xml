@@ -72,7 +72,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/editar_layout_tipoTurismo"
+                android:id="@+id/editar_layout_subtipo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -91,11 +91,11 @@
                     android:textSize="@dimen/size_text_primary" />
 
                 <Spinner
-                    android:id="@+id/editar_spinner_tipo_turismo"
+                    android:id="@+id/editar_spinner_subtipo"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
-                    android:text="@array/tipo_turismo"
+                    android:text="@array/subtipo_turismo"
                     android:textSize="@dimen/size_text_primary" />
             </LinearLayout>
 
@@ -142,7 +142,7 @@
                     android:layout_marginBottom="5dp"
                     android:layout_marginTop="5dp"
                     android:layout_weight="1"
-                    android:text="Actividad:"
+                    android:text="@string/label_descripcion"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="@dimen/size_text_primary" />
 
@@ -153,7 +153,42 @@
                     android:layout_marginBottom="@dimen/margin_label_top_bottom"
                     android:layout_marginTop="@dimen/margin_label_top_bottom"
                     android:layout_weight="2"
-                    android:inputType="text"
+                    android:gravity="top|left"
+                    android:lines="5"
+                    android:inputType="textMultiLine"
+                    android:textSize="@dimen/size_text_primary"
+                    tools:ignore="RtlHardcoded"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/editar_layout_actividad"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+                <TextView
+                    android:id="@+id/editar_label_actividad"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    android:text="@string/label_actividad"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/size_text_primary" />
+
+                <EditText
+                    android:id="@+id/editar_txt_actividad"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin_label_top_bottom"
+                    android:layout_marginTop="@dimen/margin_label_top_bottom"
+                    android:layout_weight="2"
+                    android:lines="5"
+                    android:gravity="top|left"
+                    android:inputType="textMultiLine"
                     android:textSize="@dimen/size_text_primary" />
             </LinearLayout>
 
@@ -202,18 +237,18 @@
                     android:layout_marginBottom="5dp"
                     android:layout_marginTop="5dp"
                     android:layout_weight="1"
-                    android:text="Fecha:"
+                    android:text="@string/label_date"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="@dimen/size_text_primary" />
 
-                <EditText
+                <TextView
                     android:id="@+id/editar_txt_fecha"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/margin_label_top_bottom"
                     android:layout_marginTop="@dimen/margin_label_top_bottom"
                     android:layout_weight="2"
-                    android:inputType="text"
+                    android:onClick="showDatePickerDialog"
                     android:textSize="@dimen/size_text_primary" />
             </LinearLayout>
 
@@ -380,7 +415,7 @@
                     android:layout_marginBottom="5dp"
                     android:layout_marginTop="5dp"
                     android:layout_weight="1"
-                    android:text="Latitud"
+                    android:text="@string/label_latitud"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="@dimen/size_text_primary" />
 
@@ -410,7 +445,7 @@
                     android:layout_marginBottom="5dp"
                     android:layout_marginTop="5dp"
                     android:layout_weight="1"
-                    android:text="Longitud"
+                    android:text="@string/label_longitud"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="@dimen/size_text_primary" />
 
@@ -446,7 +481,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:backgroundTint="@color/colorPrimary"
-                        android:hint="Capturar"
+                        android:hint="@string/label_capturar"
                         android:onClick="goCameraActivity"
                         tools:targetApi="lollipop" />
 
@@ -455,7 +490,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:backgroundTint="@color/colorPrimary"
-                        android:hint="Buscar Imagen"
+                        android:hint="@string/label_buscar_imagen"
                         android:onClick="goGaleryActivity"
                         tools:targetApi="lollipop" />
 
@@ -475,8 +510,7 @@
                     android:layout_marginBottom="@dimen/margin_label_top_bottom"
                     android:layout_marginTop="@dimen/margin_label_top_bottom"
                     android:layout_weight="2"
-                    android:src="@drawable/img_fondo"
-                    android:text="@string/label_longitud" />
+                    android:src="@drawable/img_fondo"/>
 
             </LinearLayout>
 
@@ -492,7 +526,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/colorPrimary"
-                    android:text="Guardar Cambios"
+                    android:text="@string/label_guardar_cambios"
                     android:textAllCaps="false"
                     tools:targetApi="lollipop" />
             </LinearLayout>

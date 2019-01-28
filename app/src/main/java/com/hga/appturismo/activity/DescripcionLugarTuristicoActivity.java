@@ -20,12 +20,16 @@ import com.hga.appturismo.imagenes.ImagenSwip;
 import com.hga.appturismo.modelo.ModeloLugarTuristico;
 import com.hga.appturismo.util.Constants;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.Locale;
 
 public class DescripcionLugarTuristicoActivity extends AppCompatActivity implements TextToSpeech.OnInitListener {
     private TextToSpeech tts;
     private ModeloLugarTuristico modeloLugarTuristico;
     private String email;
+    private Calendar calendar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,12 +38,8 @@ public class DescripcionLugarTuristicoActivity extends AppCompatActivity impleme
 
         recuperarDatos();
         mostrarContenido();
-        //getEmail();
     }
-    /*private void getEmail() {
-        SharedPreferences sharedPreferences = getSharedPreferences("USER", MODE_PRIVATE);
-        email = sharedPreferences.getString("email", "");
-    }*/
+
     @Override
     protected void onStop() {
         super.onStop();
@@ -90,8 +90,11 @@ public class DescripcionLugarTuristicoActivity extends AppCompatActivity impleme
         TextView textViewNombreText = findViewById(R.id.textViewNombreText);
         textViewNombreText.setText(modeloLugarTuristico.getNombre());
 
-        TextView textViewDescripcionText = findViewById(R.id.textViewDescripcionText);
+        TextView textViewDescripcionText = findViewById(R.id.textViewDescripcionTextView);
         textViewDescripcionText.setText(modeloLugarTuristico.getDescripcion());
+
+        TextView textViewActividadText = findViewById(R.id.textViewActividadTextView);
+        textViewActividadText.setText(modeloLugarTuristico.getActividad());
 
         TextView textViewDireccionText = findViewById(R.id.textViewDireccionText);
         textViewDireccionText.setText(modeloLugarTuristico.getDireccion());
@@ -101,12 +104,6 @@ public class DescripcionLugarTuristicoActivity extends AppCompatActivity impleme
 
         TextView textViewHorariosText = findViewById(R.id.textViewHorariosTextLugar);
         textViewHorariosText.setText(modeloLugarTuristico.getHorario());
-
-        TextView textViewActividadText = findViewById(R.id.textViewActividadText);
-        textViewActividadText.setText(modeloLugarTuristico.getActividad());
-
-        TextView textViewRegistradoPorText = findViewById(R.id.textViewRegistradoPorText);
-        textViewRegistradoPorText.setText(modeloLugarTuristico.getRegistradoPor());
 
         if (modeloLugarTuristico.getLinea().isEmpty()) {
             LinearLayout linearLayoutLinea =findViewById(R.id.linearLayoutLinea);
@@ -119,24 +116,28 @@ public class DescripcionLugarTuristicoActivity extends AppCompatActivity impleme
             LinearLayout linearLayoutFecha=findViewById(R.id.linearLayoutFecha);
             linearLayoutFecha.setVisibility(View.GONE);
         }else {
+            calendar=new GregorianCalendar();
+            calendar.setTimeInMillis(Long.parseLong(modeloLugarTuristico.getFecha()));
+            SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMM, yyyy");
+            dateFormat.setTimeZone(calendar.getTimeZone());
+
             TextView textViewFechaText = findViewById(R.id.textViewFechaText);
-            textViewFechaText.setText(modeloLugarTuristico.getFecha());
+            textViewFechaText.setText(dateFormat.format(calendar.getTime()));
         }
 
         if (modeloLugarTuristico.getHorario().isEmpty()) {
             LinearLayout linearLayoutHorario=findViewById(R.id.linearLayoutHorario);
             linearLayoutHorario.setVisibility(View.GONE);
         }else {
-            TextView textViewHorario = findViewById(R.id.textViewHorariosTextLugar);
-            textViewHorario.setText(modeloLugarTuristico.getHorario());
+            textViewHorariosText.setText(modeloLugarTuristico.getHorario());
         }
         if (modeloLugarTuristico.getActividad().isEmpty()) {
             LinearLayout linearLayoutActividad=findViewById(R.id.linearLayoutActividad);
             linearLayoutActividad.setVisibility(View.GONE);
         }else {
-            TextView textViewActividad = findViewById(R.id.textViewActividadText);
-            textViewActividad.setText(modeloLugarTuristico.getActividad());
+            textViewActividadText.setText(modeloLugarTuristico.getActividad());
         }
+
         //botones
         Button buttonAudio = findViewById(R.id.buttonAudio);
         buttonAudio.setOnClickListener(new View.OnClickListener() {
@@ -172,7 +173,7 @@ public class DescripcionLugarTuristicoActivity extends AppCompatActivity impleme
             LinearLayout linearLayout=findViewById(R.id.linearLayoutRegistradoPor);
             linearLayout.setVisibility(View.VISIBLE);
 
-            TextView textViewRegistradoPor= findViewById(R.id.textViewRegistradoPor);
+            TextView textViewRegistradoPor= findViewById(R.id.textViewRegistradoPorText);
             textViewRegistradoPor.setText(modeloLugarTuristico.getRegistradoPor());
         }
     }
@@ -181,7 +182,8 @@ public class DescripcionLugarTuristicoActivity extends AppCompatActivity impleme
         if (tts == null)
             tts = new TextToSpeech(this, this);
         String text = "Lugar Turístico: " + modeloLugarTuristico.getNombre()
-                + ". Descripción: " + modeloLugarTuristico.getDescripcion()
+                + ". Descripcion: " + modeloLugarTuristico.getDescripcion()
+                + ". Actividades: " + modeloLugarTuristico.getActividad()
                 + ". Provincia: " + modeloLugarTuristico.getProvincia();
         tts.speak(text, TextToSpeech.QUEUE_FLUSH, null);
     }
