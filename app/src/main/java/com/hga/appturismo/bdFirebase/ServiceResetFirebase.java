@@ -31,9 +31,16 @@ public class ServiceResetFirebase {
         resetHoteles();
         resetRestaurantes();
         resetLugares();
+        resetPuntaje();
         //resetUsuarios();
 
         Toast.makeText(mainActivity,"Actualizado firebase",Toast.LENGTH_LONG).show();
+    }
+
+    private void resetPuntaje() {
+        //ServiceFirebasePuntaje serviceFirebasePuntaje=new ServiceFirebasePuntaje();
+        //serviceFirebasePuntaje.delete(app);
+        //serviceFirebasePuntaje.insert(app,listas);
     }
 
     private void resetHoteles() {

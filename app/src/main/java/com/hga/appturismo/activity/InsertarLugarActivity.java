@@ -773,6 +773,20 @@ public class InsertarLugarActivity extends AppCompatActivity {
             isValidLugarTuristico = false;
         }
 
+        SqliteLugar lugar=new SqliteLugar(this);
+
+        if (isValidLugarTuristico) {
+            ArrayList<ModeloLugarTuristico> modeloLugarTuristicosArrayList = lugar.listActive();
+            for (ModeloLugarTuristico modeloLugarTuristico : modeloLugarTuristicosArrayList) {
+                if (nombre.trim().toLowerCase().equals(modeloLugarTuristico.getNombre().trim().toLowerCase())) {
+                    focusView = txt_nombre;
+                    txt_nombre.setError("El Lugar Turisticos que intenta insertar ya existe, intente con otro");
+                    isValidLugarTuristico = false;
+                    break;
+                }
+            }
+        }
+
         if (focusView != null) {
             focusView.requestFocus();
         }
@@ -810,6 +824,20 @@ public class InsertarLugarActivity extends AppCompatActivity {
             txt_nombre.setError("Llenar Nombre");
             focusView = txt_nombre;
             isValidRestaurante = false;
+        }
+
+        SqliteRestaurante restaurante=new SqliteRestaurante(this);
+
+        if (isValidRestaurante) {
+            ArrayList<ModeloRestaurante> modeloRestauranteArrayList = restaurante.listActive();
+            for (ModeloRestaurante modeloRestaurante : modeloRestauranteArrayList) {
+                if (nombre.trim().toLowerCase().equals(modeloRestaurante.getNombre().trim().toLowerCase())) {
+                    focusView = txt_nombre;
+                    txt_nombre.setError("El Restaurante que intenta insertar ya existe, intente con otro");
+                    isValidRestaurante = false;
+                    break;
+                }
+            }
         }
         if (focusView != null) {
             focusView.requestFocus();
@@ -850,6 +878,21 @@ public class InsertarLugarActivity extends AppCompatActivity {
             focusView = txt_nombre;
             isValidHotel = false;
         }
+
+        SqliteHotel hotel=new SqliteHotel(this);
+
+        if (isValidHotel) {
+            ArrayList<ModeloHotel> modeloHotelArrayList = hotel.listActive();
+            for (ModeloHotel modeloHotel : modeloHotelArrayList) {
+                if (nombre.trim().toLowerCase().equals(modeloHotel.getNombre().trim().toLowerCase())) {
+                    focusView = txt_nombre;
+                    txt_nombre.setError("El Hotel que intenta insertar ya existe, intente con otro");
+                    isValidHotel = false;
+                    break;
+                }
+            }
+        }
+
         if (focusView != null) {
             focusView.requestFocus();
         }

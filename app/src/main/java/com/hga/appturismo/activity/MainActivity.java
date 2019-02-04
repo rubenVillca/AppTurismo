@@ -22,6 +22,7 @@ import com.hga.appturismo.bdFirebase.ListaResponse;
 import com.hga.appturismo.bdFirebase.ServiceResetFirebase;
 import com.hga.appturismo.bdFirebase.TurismoCliente;
 import com.hga.appturismo.bdFirebase.TurismoFirebaseService;
+import com.hga.appturismo.bdSQLite.DBSQLiteParent;
 import com.hga.appturismo.bdSQLite.SqliteHotel;
 import com.hga.appturismo.bdSQLite.SqliteLugar;
 import com.hga.appturismo.bdSQLite.SqliteRestaurante;
@@ -472,11 +473,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     ListaResponse listaResponse = response.body();
 
                     if (listaResponse != null) {
-                        SqliteHotel hotel = new SqliteHotel(MainActivity.this);
+                        DBSQLiteParent hotel = new DBSQLiteParent(MainActivity.this);
                         ArrayList<ModeloPuntaje> listPuntaje = listaResponse.getListPuntaje();
                         hotel.updatePuntajeSQLite(listPuntaje);//actualizar hotel sqlite
                     }
                     setProgressBar(5);
+                }else{
+                    setProgressBar(0);
                 }
             }
 

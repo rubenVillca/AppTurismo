@@ -13,7 +13,7 @@ import java.util.ArrayList;
  * Created by HGA on 05/07/2017
  */
 
-public abstract class DBSQLiteParent {
+public class DBSQLiteParent {
     protected DBModel helper;
     protected SQLiteDatabase db;
 
