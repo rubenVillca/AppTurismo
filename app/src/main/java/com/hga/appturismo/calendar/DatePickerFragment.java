@@ -31,7 +31,7 @@ public class DatePickerFragment extends DialogFragment implements DatePickerDial
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         // Use the current date as the default date in the picker
-        SimpleDateFormat formatter = new SimpleDateFormat("dd MMM, yyyy",Locale.getDefault());
+        SimpleDateFormat formatter = new SimpleDateFormat("dd MMM. yyyy",Locale.getDefault());
         if (calendar==null)
             calendar=new GregorianCalendar();
         try {

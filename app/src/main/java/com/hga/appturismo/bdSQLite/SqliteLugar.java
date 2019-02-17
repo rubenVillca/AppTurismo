@@ -189,19 +189,23 @@ public class SqliteLugar extends DBSQLiteParent implements SqliteInterface<Model
         for (ModeloLugarTuristico modelo : modeloLugarTuristicos) {
             if (modelo.getEstado().equals(Constants.ESTADO_LUGAR_VISIBLE)) {
 
-                SimpleDateFormat sdf = new SimpleDateFormat("dd MMM, yyyy");
                 Date date;
                 try {
+                    SimpleDateFormat sdf = new SimpleDateFormat("dd MMM, yyyy");
                     date = sdf.parse(modelo.getFecha());
-                    Calendar fecha = new GregorianCalendar();
-                    fecha.setTime(date);
-                    int mesActual = fecha.get(Calendar.MONTH);
-                    int diaActual = fecha.get(Calendar.DAY_OF_MONTH);
-                    if (fecha.get(Calendar.DAY_OF_MONTH) >= mesActual && fecha.get(Calendar.DAY_OF_MONTH) >= diaActual) {
-                        modeloLugarTuristicosRes.add(modelo);
-                    }
                 } catch (ParseException e) {
                     e.printStackTrace();
+                    date=new Date();
+                    long dateNumber= Long.parseLong(modelo.getFecha());
+                    date.setTime(dateNumber);
+                    modelo.setFecha(String.valueOf(dateNumber));
+                }
+
+                Calendar fecha = new GregorianCalendar();
+                fecha.setTime(date);
+                int mesActual = fecha.get(Calendar.MONTH);
+                int diaActual = fecha.get(Calendar.DAY_OF_MONTH);
+                if (fecha.get(Calendar.DAY_OF_MONTH) >= mesActual && fecha.get(Calendar.DAY_OF_MONTH) >= diaActual) {
                     modeloLugarTuristicosRes.add(modelo);
                 }
             }

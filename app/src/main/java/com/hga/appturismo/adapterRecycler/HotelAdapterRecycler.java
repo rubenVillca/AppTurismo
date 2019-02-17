@@ -268,9 +268,6 @@ public class HotelAdapterRecycler extends RecyclerView.Adapter<HotelViewHolder> 
                     && puntaje.getTipo().equals(ModeloImagen.TIPO_HOTEL)
                     && puntaje.getIdLugarFirebase().equals(modeloHotel.getIdFirebase())) {
                 puntaje.setPuntaje(estrellasMarcadas);
-                puntaje.setIdLugarFirebase(modeloHotel.getIdFirebase());
-                puntaje.setIdUsuarioFirebase(email);
-                puntaje.setTipo(ModeloImagen.TIPO_HOTEL);
                 if (!puntaje.getIdFirebase().isEmpty()) {
                     postReference.child(puntaje.getIdFirebase()).setValue(puntaje);//actualizar puntaje del lugar (hotel, restaurante o lugar tour) en bdFirebase
                     isInsert = true;

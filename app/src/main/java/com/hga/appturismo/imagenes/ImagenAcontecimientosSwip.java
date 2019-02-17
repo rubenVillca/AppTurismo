@@ -68,8 +68,14 @@ public class ImagenAcontecimientosSwip extends PagerAdapter {
         calendar.setTimeInMillis(Long.parseLong(imagesResources.get(position).getFecha()));
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMM, yyyy");
         dateFormat.setTimeZone(calendar.getTimeZone());
+        String dateAconteciminto="";
+        try {
+            dateAconteciminto=dateFormat.format(calendar.getTime());
+        }catch (NumberFormatException e){
+            System.out.println("Error al parsear datos");
+        }
 
-        TextView fecha = getAcontecimientoTextView(dateFormat.format(calendar.getTime()), params);
+        TextView fecha = getAcontecimientoTextView(dateAconteciminto, params);
         fecha.setTextColor(Color.WHITE);
 
         linearLayoutText.addView(acontecimiento);
