@@ -25,6 +25,8 @@ import com.hga.appturismo.R;
 import com.hga.appturismo.activity.DescripcionHotelActivity;
 import com.hga.appturismo.activity.EditarHotelActivity;
 import com.hga.appturismo.bdFirebase.TurismoAplicacion;
+import com.hga.appturismo.bdSQLite.SqliteHotel;
+import com.hga.appturismo.bdSQLite.SqlitePuntaje;
 import com.hga.appturismo.modelo.ModeloHotel;
 import com.hga.appturismo.modelo.ModeloImagen;
 import com.hga.appturismo.modelo.ModeloPuntaje;
@@ -264,20 +266,21 @@ public class HotelAdapterRecycler extends RecyclerView.Adapter<HotelViewHolder> 
         setCheckEstrellas(estrellasMarcadas, holder);
 
         boolean isInsert = false;
+        ModeloPuntaje modeloPuntaje = new ModeloPuntaje();
         for (ModeloPuntaje puntaje : modeloPuntajes) {
 
             if (ModeloUsuario.encriptar(email).equals(puntaje.getIdUsuarioFirebase())
                     && puntaje.getTipo().equals(ModeloImagen.TIPO_HOTEL)
                     && puntaje.getIdLugarFirebase().equals(modeloHotel.getIdFirebase())) {
                 puntaje.setPuntaje(estrellasMarcadas);
+                modeloPuntaje=puntaje;
                 if (!puntaje.getIdFirebase().isEmpty()) {
-                    postReference.child(puntaje.getIdFirebase()).setValue(puntaje);//actualizar puntaje del lugar (hotel, restaurante o lugar tour) en bdFirebase
                     isInsert = true;
+                    break;
                 }
             }
         }
         if (!isInsert) {
-            ModeloPuntaje modeloPuntaje = new ModeloPuntaje();
             modeloPuntaje.setPuntaje(estrellasMarcadas);
             modeloPuntaje.setIdLugarFirebase(modeloHotel.getIdFirebase());
             modeloPuntaje.setIdUsuarioFirebase(email);
@@ -287,7 +290,12 @@ public class HotelAdapterRecycler extends RecyclerView.Adapter<HotelViewHolder> 
             postReference.child(modeloHotel.getIdFirebasePuntaje(Constants.FIREBASE_TIPO_HOTEL,email)).setValue(modeloPuntaje);//insertar en bdFirebase
 
             holder.promedio.setText(String.valueOf(modeloPuntaje.getPuntaje()));
+        }else{
+            postReference.child(modeloPuntaje.getIdFirebase()).setValue(modeloPuntaje);//actualizar puntaje del lugar (hotel, restaurante o lugar tour) en bdFirebase
         }
+
+        SqlitePuntaje sqlitePuntaje=new SqlitePuntaje(activity);
+        sqlitePuntaje.update(modeloPuntajes);
     }
 
     private void setImageHolder(final HotelViewHolder holder, ModeloHotel modeloHotel) {

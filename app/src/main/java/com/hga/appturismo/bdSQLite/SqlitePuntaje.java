@@ -33,8 +33,18 @@ public class SqlitePuntaje extends DBSQLiteParent implements SqliteInterface<Mod
     }
 
     @Override
-    public ModeloPuntaje getItem(String search) {
-        return null;
+    public ModeloPuntaje getItem(String idSQLite) {
+        ModeloPuntaje modeloPuntaje=new ModeloPuntaje();
+        Cursor cursor = db.rawQuery("Select * "
+                + " from " + DBModel.TABLE_PUNTAJE
+                + " where " + DBModel.PUNTAJE_ID_SQLITE + "='" + idSQLite + "' ", null);
+        if (cursor.moveToFirst()) {
+            while (!cursor.isAfterLast()) {
+                modeloPuntaje = getPuntajeCursor(cursor);
+                cursor.moveToNext();
+            }
+        }
+        return modeloPuntaje;
     }
 
     @NonNull
