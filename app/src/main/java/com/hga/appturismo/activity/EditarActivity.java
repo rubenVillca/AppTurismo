@@ -284,6 +284,8 @@ public class EditarActivity extends AppCompatActivity {
                 editar_layout_provincia.setVisibility(View.VISIBLE);
                 editar_layout_subtipo.setVisibility(View.VISIBLE);
                 editar_layout_nombre.setVisibility(View.VISIBLE);
+                editar_layout_descripcion.setVisibility(View.VISIBLE);
+                editar_layout_actividad.setVisibility(View.GONE);
                 editar_layout_email.setVisibility(View.GONE);
                 editar_layout_direccion.setVisibility(View.VISIBLE);
                 editar_layout_pagina_web.setVisibility(View.VISIBLE);
