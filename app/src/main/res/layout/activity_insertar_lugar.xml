@@ -105,126 +105,68 @@
                     android:textSize="@dimen/size_text_primary"/>
             </LinearLayout>
 
-
-            <LinearLayout
+            <android.support.design.widget.TextInputLayout
                 android:id="@+id/layout_nombre"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal"
-                android:weightSum="3">
+                android:textColor="@color/colorPrimaryDark">
 
-                <TextView
-                    android:id="@+id/label_textView_nombre"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/label_nombre"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textSize="@dimen/size_text_primary"/>
-
-                <EditText
+                <android.support.design.widget.TextInputEditText
                     android:id="@+id/txt_nombre"
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/margin_label_top_bottom"
-                    android:layout_marginTop="@dimen/margin_label_top_bottom"
-                    android:layout_weight="2"
-                    android:inputType="text"
+                    android:hint="@string/label_nombre"
                     android:textSize="@dimen/size_text_primary"/>
-            </LinearLayout>
+            </android.support.design.widget.TextInputLayout>
 
-            <LinearLayout
+            <android.support.design.widget.TextInputLayout
                 android:id="@+id/layout_descripcion"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal"
-                android:weightSum="3">
+                android:layout_height="wrap_content">
 
-                <TextView
-                    android:id="@+id/id_label_descripcion"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="5dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_weight="1"
-                    android:text="@string/label_descripcion"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textSize="@dimen/size_text_primary"/>
-
-                <EditText
+                <android.support.design.widget.TextInputEditText
                     android:id="@+id/txt_descripcion_insertar"
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/margin_label_top_bottom"
-                    android:layout_marginTop="@dimen/margin_label_top_bottom"
-                    android:layout_weight="2"
                     android:gravity="top|left"
+                    android:hint="@string/label_descripcion"
+                    android:textColor="@color/colorPrimaryDark"
                     android:inputType="textMultiLine"
                     android:lines="5"
                     android:textSize="@dimen/size_text_primary"/>
-            </LinearLayout>
+            </android.support.design.widget.TextInputLayout>
 
-            <LinearLayout
+            <android.support.design.widget.TextInputLayout
                 android:id="@+id/layout_actividad"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal"
-                android:weightSum="3">
+                android:layout_height="wrap_content">
 
-                <TextView
-                    android:id="@+id/id_label_actividad"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="5dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_weight="1"
-                    android:text="@string/label_actividad"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textSize="@dimen/size_text_primary"/>
-
-                <EditText
+                <android.support.design.widget.TextInputEditText
                     android:id="@+id/txt_actividad_insertar"
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/margin_label_top_bottom"
-                    android:layout_marginTop="@dimen/margin_label_top_bottom"
-                    android:layout_weight="2"
                     android:gravity="top|left"
                     android:inputType="textMultiLine"
                     android:lines="5"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:hint="@string/label_actividad"
                     android:textSize="@dimen/size_text_primary"/>
-            </LinearLayout>
+            </android.support.design.widget.TextInputLayout>
 
-            <LinearLayout
+            <android.support.design.widget.TextInputLayout
                 android:id="@+id/layout_lineaTurismo"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal"
-                android:weightSum="3">
+                android:layout_height="wrap_content">
 
-                <TextView
-                    android:id="@+id/label_textView_linea"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/label_linea"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textSize="@dimen/size_text_primary"/>
-
-                <EditText
+                <android.support.design.widget.TextInputEditText
                     android:id="@+id/txt_linea"
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/margin_label_top_bottom"
-                    android:layout_marginTop="@dimen/margin_label_top_bottom"
-                    android:layout_weight="2"
+                    android:hint="@string/label_linea"
+                    android:textColor="@color/colorPrimaryDark"
                     android:inputType="text"
                     android:textSize="@dimen/size_text_primary"/>
-            </LinearLayout>
+            </android.support.design.widget.TextInputLayout>
 
             <LinearLayout
                 android:id="@+id/layout_fechaTurismo"
@@ -255,214 +197,112 @@
 
             </LinearLayout>
 
-            <LinearLayout
+            <android.support.design.widget.TextInputLayout
                 android:id="@+id/layout_email"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal"
-                android:weightSum="3">
+                android:layout_height="wrap_content">
 
-                <TextView
-                    android:id="@+id/label_email"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/margin_label_top_bottom"
-                    android:layout_marginTop="@dimen/margin_label_top_bottom"
-                    android:layout_weight="1"
-                    android:text="@string/label_email"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textSize="@dimen/size_text_primary"/>
-
-                <EditText
+                <android.support.design.widget.TextInputEditText
                     android:id="@+id/txt_email"
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/margin_label_top_bottom"
-                    android:layout_marginTop="@dimen/margin_label_top_bottom"
-                    android:layout_weight="2"
+                    android:hint="@string/label_email"
+                    android:textColor="@color/colorPrimaryDark"
                     android:inputType="textEmailAddress"
                     android:textSize="@dimen/size_text_primary"/>
-            </LinearLayout>
+            </android.support.design.widget.TextInputLayout>
 
-            <LinearLayout
+            <android.support.design.widget.TextInputLayout
                 android:id="@+id/layout_direccion"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal"
-                android:weightSum="3">
+                android:layout_height="wrap_content">
 
-                <TextView
-                    android:id="@+id/label_direccion"
-                    android:layout_width="0dp"
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/txt_direccion"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/margin_label_top_bottom"
-                    android:layout_marginTop="@dimen/margin_label_top_bottom"
-                    android:layout_weight="1"
-                    android:text="@string/label_direccion"
+                    android:inputType="text"
+                    android:hint="@string/label_direccion"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="@dimen/size_text_primary"/>
+            </android.support.design.widget.TextInputLayout>
 
-                <EditText
-                    android:id="@+id/txt_direccion"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:layout_weight="2"
-                    android:inputType="text"
-                    android:textSize="@dimen/size_text_primary"/>
-            </LinearLayout>
-
-            <LinearLayout
+            <android.support.design.widget.TextInputLayout
                 android:id="@+id/layout_pagina_web"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal"
-                android:weightSum="3">
+                android:layout_marginTop="10dp">
 
-                <TextView
-                    android:id="@+id/label_pagina_web"
-                    android:layout_width="0dp"
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/txt_paginaweb"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/margin_label_top_bottom"
-                    android:layout_marginTop="@dimen/margin_label_top_bottom"
-                    android:layout_weight="1"
-                    android:text="@string/label_pagina_web"
+                    android:inputType="textUri"
+                    android:hint="@string/label_pagina_web"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="@dimen/size_text_primary"/>
+            </android.support.design.widget.TextInputLayout>
 
-                <EditText
-                    android:id="@+id/txt_paginaweb"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:layout_weight="2"
-                    android:inputType="textUri"
-                    android:textSize="@dimen/size_text_primary"/>
-            </LinearLayout>
-
-            <LinearLayout
+            <android.support.design.widget.TextInputLayout
                 android:id="@+id/layout_telefono"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal"
-                android:weightSum="3">
+                android:layout_height="wrap_content">
 
-                <TextView
-                    android:id="@+id/label_telefono"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="5dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_weight="1"
-                    android:text="Teléfono:"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textSize="@dimen/size_text_primary"/>
-
-                <EditText
+                <android.support.design.widget.TextInputEditText
                     android:id="@+id/txt_telefono"
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/margin_label_top_bottom"
-                    android:layout_marginTop="@dimen/margin_label_top_bottom"
-                    android:layout_weight="2"
                     android:inputType="number"
                     android:maxLength="8"
+                    android:hint="@string/label_telefono"
+                    android:textColor="@color/colorPrimaryDark"
                     android:textSize="@dimen/size_text_primary"/>
-            </LinearLayout>
+            </android.support.design.widget.TextInputLayout>
 
-            <LinearLayout
+            <android.support.design.widget.TextInputLayout
                 android:id="@+id/layout_horario"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal"
-                android:weightSum="3">
+                android:layout_height="wrap_content">
 
-                <TextView
-                    android:id="@+id/label_horario"
-                    android:layout_width="0dp"
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/txt_horario"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="5dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_weight="1"
-                    android:text="Horario:"
+                    android:inputType="text"
+                    android:hint="@string/label_horarios"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="@dimen/size_text_primary"/>
+            </android.support.design.widget.TextInputLayout>
 
-                <EditText
-                    android:id="@+id/txt_horario"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/margin_label_top_bottom"
-                    android:layout_marginTop="@dimen/margin_label_top_bottom"
-                    android:layout_weight="2"
-                    android:inputType="text"
-                    android:textSize="@dimen/size_text_primary"/>
-            </LinearLayout>
-
-            <LinearLayout
+            <android.support.design.widget.TextInputLayout
                 android:id="@+id/layout_latitud"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal"
-                android:weightSum="3">
+                android:layout_height="wrap_content">
 
-                <TextView
-                    android:id="@+id/label_latitud"
-                    android:layout_width="0dp"
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/txt_latitud"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="5dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_weight="1"
-                    android:text="Latitud:"
+                    android:inputType="numberDecimal"
+                    android:hint="@string/label_latitud"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="@dimen/size_text_primary"/>
+            </android.support.design.widget.TextInputLayout>
 
-                <EditText
-                    android:id="@+id/txt_latitud"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/margin_label_top_bottom"
-                    android:layout_marginTop="@dimen/margin_label_top_bottom"
-                    android:layout_weight="2"
-                    android:inputType="numberDecimal"
-                    android:textSize="@dimen/size_text_primary"/>
-            </LinearLayout>
-
-            <LinearLayout
+            <android.support.design.widget.TextInputLayout
                 android:id="@+id/layout_longitud"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal"
-                android:weightSum="3">
+                android:layout_height="wrap_content">
 
-                <TextView
-                    android:id="@+id/label_longitud"
-                    android:layout_width="0dp"
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/txt_longitud"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="5dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_weight="1"
-                    android:text="Longitud:"
+                    android:inputType="numberDecimal"
+                    android:hint="@string/label_longitud"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="@dimen/size_text_primary"/>
-
-                <EditText
-                    android:id="@+id/txt_longitud"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/margin_label_top_bottom"
-                    android:layout_marginTop="@dimen/margin_label_top_bottom"
-                    android:layout_weight="2"
-                    android:inputType="numberDecimal"
-                    android:textSize="@dimen/size_text_primary"/>
-            </LinearLayout>
+            </android.support.design.widget.TextInputLayout>
 
             <LinearLayout
                 android:id="@+id/layout_imagen"

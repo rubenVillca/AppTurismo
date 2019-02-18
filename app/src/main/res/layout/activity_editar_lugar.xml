@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                                                 xmlns:app="http://schemas.android.com/apk/res-auto"
-                                                 xmlns:tools="http://schemas.android.com/tools"
-                                                 android:layout_width="match_parent"
-                                                 android:layout_height="match_parent"
-                                                 tools:context="com.hga.appturismo.activity.EditarActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.hga.appturismo.activity.EditarActivity">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -15,8 +15,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
             android:layout_marginTop="15dp"
+            android:layout_marginRight="10dp"
             android:orientation="vertical"
             android:paddingBottom="15dp">
 
@@ -83,8 +83,8 @@
                     android:id="@+id/editar_label_textView_tipoTurismo"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="5dp"
                     android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
                     android:layout_weight="1"
                     android:text="@string/label_tipo_de_turismo"
                     android:textColor="@color/colorPrimaryDark"
@@ -99,128 +99,69 @@
                     android:textSize="@dimen/size_text_primary" />
             </LinearLayout>
 
-            <LinearLayout
+            <android.support.design.widget.TextInputLayout
                 android:id="@+id/editar_layout_nombre"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal"
-                android:weightSum="3">
+                android:layout_height="wrap_content">
 
-                <TextView
-                    android:id="@+id/editar_label_textView_nombre"
-                    android:layout_width="0dp"
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/editar_txt_nombre"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/label_nombre"
+                    android:inputType="text"
+                    android:hint="@string/label_nombre"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="@dimen/size_text_primary" />
+            </android.support.design.widget.TextInputLayout>
 
-                <EditText
-                    android:id="@+id/editar_txt_nombre"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/margin_label_top_bottom"
-                    android:layout_marginTop="@dimen/margin_label_top_bottom"
-                    android:layout_weight="2"
-                    android:inputType="text"
-                    android:textSize="@dimen/size_text_primary" />
-            </LinearLayout>
-
-            <LinearLayout
+            <android.support.design.widget.TextInputLayout
                 android:id="@+id/editar_layout_descripcion"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal"
-                android:weightSum="3">
+                android:layout_height="wrap_content">
 
-                <TextView
-                    android:id="@+id/editar_label_descripcion"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="5dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_weight="1"
-                    android:text="@string/label_descripcion"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textSize="@dimen/size_text_primary" />
-
-                <EditText
+                <android.support.design.widget.TextInputEditText
                     android:id="@+id/editar_txt_descripcion"
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/margin_label_top_bottom"
-                    android:layout_marginTop="@dimen/margin_label_top_bottom"
-                    android:layout_weight="2"
                     android:gravity="top|left"
-                    android:lines="5"
                     android:inputType="textMultiLine"
+                    android:lines="5"
                     android:textSize="@dimen/size_text_primary"
-                    tools:ignore="RtlHardcoded"/>
-            </LinearLayout>
+                    android:hint="@string/label_descripcion"
+                    android:textColor="@color/colorPrimaryDark" />
+            </android.support.design.widget.TextInputLayout>
 
-            <LinearLayout
+            <android.support.design.widget.TextInputLayout
                 android:id="@+id/editar_layout_actividad"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal"
-                android:weightSum="3">
+                android:layout_height="wrap_content">
 
-                <TextView
-                    android:id="@+id/editar_label_actividad"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="5dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_weight="1"
-                    android:text="@string/label_actividad"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textSize="@dimen/size_text_primary" />
-
-                <EditText
+                <android.support.design.widget.TextInputEditText
                     android:id="@+id/editar_txt_actividad"
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/margin_label_top_bottom"
-                    android:layout_marginTop="@dimen/margin_label_top_bottom"
-                    android:layout_weight="2"
-                    android:lines="5"
                     android:gravity="top|left"
                     android:inputType="textMultiLine"
-                    android:textSize="@dimen/size_text_primary" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/editar_layout_linea"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal"
-                android:weightSum="3">
-
-                <TextView
-                    android:id="@+id/editar_label_linea"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="5dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_weight="1"
-                    android:text="Linea:"
+                    android:lines="5"
+                    android:hint="@string/label_actividad"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="@dimen/size_text_primary" />
+            </android.support.design.widget.TextInputLayout>
 
-                <EditText
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/editar_layout_linea"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <android.support.design.widget.TextInputEditText
                     android:id="@+id/editar_txt_linea"
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/margin_label_top_bottom"
-                    android:layout_marginTop="@dimen/margin_label_top_bottom"
-                    android:layout_weight="2"
                     android:inputType="text"
+                    android:hint="@string/label_linea"
+                    android:textColor="@color/colorPrimaryDark"
                     android:textSize="@dimen/size_text_primary" />
-            </LinearLayout>
+            </android.support.design.widget.TextInputLayout>
 
             <LinearLayout
                 android:id="@+id/editar_layout_fecha"
@@ -234,8 +175,8 @@
                     android:id="@+id/editar_label_fecha"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="5dp"
                     android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
                     android:layout_weight="1"
                     android:text="@string/label_date"
                     android:textColor="@color/colorPrimaryDark"
@@ -245,220 +186,117 @@
                     android:id="@+id/editar_txt_fecha"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/margin_label_top_bottom"
                     android:layout_marginTop="@dimen/margin_label_top_bottom"
+                    android:layout_marginBottom="@dimen/margin_label_top_bottom"
                     android:layout_weight="2"
                     android:onClick="showDatePickerDialog"
                     android:textSize="@dimen/size_text_primary" />
             </LinearLayout>
 
-            <LinearLayout
+            <android.support.design.widget.TextInputLayout
                 android:id="@+id/editar_layout_email"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal"
-                android:weightSum="3">
+                android:layout_height="wrap_content">
 
-                <TextView
-                    android:id="@+id/editar_label_email"
-                    android:layout_width="0dp"
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/editar_txt_email"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/margin_label_top_bottom"
-                    android:layout_marginTop="@dimen/margin_label_top_bottom"
-                    android:layout_weight="1"
-                    android:text="@string/label_email"
+                    android:inputType="textEmailAddress"
+                    android:hint="@string/label_email"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="@dimen/size_text_primary" />
+            </android.support.design.widget.TextInputLayout>
 
-                <EditText
-                    android:id="@+id/editar_txt_email"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/margin_label_top_bottom"
-                    android:layout_marginTop="@dimen/margin_label_top_bottom"
-                    android:layout_weight="2"
-                    android:inputType="textEmailAddress"
-                    android:textSize="@dimen/size_text_primary" />
-            </LinearLayout>
-
-            <LinearLayout
+            <android.support.design.widget.TextInputLayout
                 android:id="@+id/editar_layout_direccion"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal"
-                android:weightSum="3">
+                android:layout_height="wrap_content">
 
-                <TextView
-                    android:id="@+id/editar_label_direccion"
-                    android:layout_width="0dp"
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/editar_txt_direccion"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/margin_label_top_bottom"
-                    android:layout_marginTop="@dimen/margin_label_top_bottom"
-                    android:layout_weight="1"
-                    android:text="@string/label_direccion"
+                    android:inputType="text"
+                    android:hint="@string/label_direccion"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="@dimen/size_text_primary" />
+            </android.support.design.widget.TextInputLayout>
 
-                <EditText
-                    android:id="@+id/editar_txt_direccion"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:layout_weight="2"
-                    android:inputType="text"
-                    android:textSize="@dimen/size_text_primary" />
-            </LinearLayout>
-
-            <LinearLayout
+            <android.support.design.widget.TextInputLayout
                 android:id="@+id/editar_layout_pagina_web"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal"
-                android:weightSum="3">
+                android:layout_height="wrap_content">
 
-                <TextView
-                    android:id="@+id/editar_label_pagina_web"
-                    android:layout_width="0dp"
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/editar_txt_paginaweb"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/margin_label_top_bottom"
-                    android:layout_marginTop="@dimen/margin_label_top_bottom"
-                    android:layout_weight="1"
-                    android:text="@string/label_pagina_web"
+                    android:inputType="textUri"
+                    android:hint="@string/label_pagina_web"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="@dimen/size_text_primary" />
+            </android.support.design.widget.TextInputLayout>
 
-                <EditText
-                    android:id="@+id/editar_txt_paginaweb"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:layout_weight="2"
-                    android:inputType="textUri"
-                    android:textSize="@dimen/size_text_primary" />
-            </LinearLayout>
-
-            <LinearLayout
+            <android.support.design.widget.TextInputLayout
                 android:id="@+id/editar_layout_telefono"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal"
-                android:weightSum="3">
+                android:layout_height="wrap_content">
 
-                <TextView
-                    android:id="@+id/editar_label_telefono"
-                    android:layout_width="0dp"
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/editar_txt_telefono"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="5dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_weight="1"
-                    android:text="Teléfono"
+                    android:inputType="number"
+                    android:hint="@string/label_telefono"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="@dimen/size_text_primary" />
+            </android.support.design.widget.TextInputLayout>
 
-                <EditText
-                    android:id="@+id/editar_txt_telefono"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/margin_label_top_bottom"
-                    android:layout_marginTop="@dimen/margin_label_top_bottom"
-                    android:layout_weight="2"
-                    android:inputType="number"
-                    android:textSize="@dimen/size_text_primary" />
-            </LinearLayout>
-
-            <LinearLayout
+            <android.support.design.widget.TextInputLayout
                 android:id="@+id/editar_layout_horario"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal"
-                android:weightSum="3">
+                android:layout_height="wrap_content">
 
-                <TextView
-                    android:id="@+id/editar_label_horario"
-                    android:layout_width="0dp"
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/editar_txt_horario"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="5dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_weight="1"
-                    android:text="Horario"
+                    android:inputType="text"
+                    android:hint="@string/label_horarios"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="@dimen/size_text_primary" />
+            </android.support.design.widget.TextInputLayout>
 
-                <EditText
-                    android:id="@+id/editar_txt_horario"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/margin_label_top_bottom"
-                    android:layout_marginTop="@dimen/margin_label_top_bottom"
-                    android:layout_weight="2"
-                    android:inputType="text"
-                    android:textSize="@dimen/size_text_primary" />
-            </LinearLayout>
-
-            <LinearLayout
+            <android.support.design.widget.TextInputLayout
                 android:id="@+id/editar_layout_latitud"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal"
-                android:weightSum="3">
+                android:layout_height="wrap_content">
 
-                <TextView
-                    android:id="@+id/editar_label_latitud"
-                    android:layout_width="0dp"
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/editar_txt_latitud"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="5dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_weight="1"
-                    android:text="@string/label_latitud"
+                    android:inputType="numberDecimal"
+                    android:hint="@string/label_latitud"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="@dimen/size_text_primary" />
+            </android.support.design.widget.TextInputLayout>
 
-                <EditText
-                    android:id="@+id/editar_txt_latitud"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/margin_label_top_bottom"
-                    android:layout_marginTop="@dimen/margin_label_top_bottom"
-                    android:layout_weight="2"
-                    android:inputType="numberDecimal"
-                    android:textSize="@dimen/size_text_primary" />
-            </LinearLayout>
-
-            <LinearLayout
+            <android.support.design.widget.TextInputLayout
                 android:id="@+id/editar_layout_longitud"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal"
-                android:weightSum="3">
+                android:layout_height="wrap_content">
 
-                <TextView
-                    android:id="@+id/editar_label_longitud"
-                    android:layout_width="0dp"
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/editar_txt_longitud"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="5dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_weight="1"
-                    android:text="@string/label_longitud"
+                    android:inputType="numberDecimal"
+                    android:hint="@string/label_longitud"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="@dimen/size_text_primary" />
-
-                <EditText
-                    android:id="@+id/editar_txt_longitud"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/margin_label_top_bottom"
-                    android:layout_marginTop="@dimen/margin_label_top_bottom"
-                    android:layout_weight="2"
-                    android:inputType="numberDecimal"
-                    android:textSize="@dimen/size_text_primary" />
-            </LinearLayout>
+            </android.support.design.widget.TextInputLayout>
 
             <LinearLayout
                 android:id="@+id/editar_layout_imagen"
@@ -471,8 +309,8 @@
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/margin_label_top_bottom"
                     android:layout_marginTop="@dimen/margin_label_top_bottom"
+                    android:layout_marginBottom="@dimen/margin_label_top_bottom"
                     android:layout_weight="1"
                     android:orientation="vertical">
 
@@ -507,10 +345,10 @@
                     android:id="@+id/editar_insertar_imagen"
                     android:layout_width="0dp"
                     android:layout_height="150dp"
-                    android:layout_marginBottom="@dimen/margin_label_top_bottom"
                     android:layout_marginTop="@dimen/margin_label_top_bottom"
+                    android:layout_marginBottom="@dimen/margin_label_top_bottom"
                     android:layout_weight="2"
-                    android:src="@drawable/img_fondo"/>
+                    android:src="@drawable/img_fondo" />
 
             </LinearLayout>
 
