@@ -230,7 +230,7 @@ public class DBModel extends SQLiteOpenHelper {
     }
 
     private void insertarDatosSQLite(SQLiteDatabase db) {
-        Listas listas = new ListasPrueba();
+        Listas listas = new Listas();
         insertarLugares(listas.getListaLugares(), db);
         insertarHoteles(listas.getListaHoteles(), db);
         insertarRestaurantes(listas.getListaRestaurantes(), db);
