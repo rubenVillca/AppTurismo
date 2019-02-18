@@ -79,7 +79,7 @@ public class InsertarLugarActivity extends AppCompatActivity {
     private EditText txt_registrador;
 
     private Spinner spinnerProvincia;
-    private Spinner spinnerCategoria;
+    private Spinner spinnerSubTipo;
     private Spinner spinnerTipo;
 
     private LinearLayout layout_tipo;
@@ -148,7 +148,7 @@ public class InsertarLugarActivity extends AppCompatActivity {
         showImageCamera();
         initSpinnerTipoLugar();
         initSpinnerProvincia();
-        initSpinnerCategoria();
+        initSpinnerSubTipoLigar();
         initDate();
     }
 
@@ -283,7 +283,7 @@ public class InsertarLugarActivity extends AppCompatActivity {
         ModeloLugarTuristico modeloLugarTuristico = new ModeloLugarTuristico();
         modeloLugarTuristico.setIdSQLite(lugarTuristico.list().size() + 1);
         modeloLugarTuristico.setNombre(txt_nombre.getText().toString());
-        modeloLugarTuristico.setTipo(spinnerCategoria.getSelectedItem().toString());
+        modeloLugarTuristico.setTipo(spinnerSubTipo.getSelectedItem().toString());
         modeloLugarTuristico.setActividad(txt_actividad.getText().toString());
         modeloLugarTuristico.setDescripcion(txt_descripcion.getText().toString());
         modeloLugarTuristico.setDireccion(txt_direccion.getText().toString());
@@ -526,7 +526,7 @@ public class InsertarLugarActivity extends AppCompatActivity {
         txt_ruta_imagen = findViewById(R.id.ruta_imagen);
 
         spinnerProvincia = findViewById(R.id.spinner_provincia);
-        spinnerCategoria = findViewById(R.id.spinner_tipo_turismo);
+        spinnerSubTipo = findViewById(R.id.spinner_tipo_turismo);
         spinnerTipo = findViewById(R.id.spinner_tipo);
 
         txt_nombre = findViewById(R.id.txt_nombre);
@@ -607,7 +607,7 @@ public class InsertarLugarActivity extends AppCompatActivity {
                         layout_provincia.setVisibility(View.VISIBLE);
                         layout_tipoTurismo.setVisibility(View.VISIBLE);
                         layout_nombre.setVisibility(View.VISIBLE);
-                        layout_actividad.setVisibility(View.VISIBLE);
+                        layout_actividad.setVisibility(View.GONE);
                         layout_descripcion.setVisibility(View.VISIBLE);
                         layout_email.setVisibility(View.GONE);
                         layout_direccion.setVisibility(View.VISIBLE);
@@ -634,11 +634,11 @@ public class InsertarLugarActivity extends AppCompatActivity {
      * agregar los valores de los spinner en el activity insertar
      * -spinner tipo insercion(hotel, restarutanre, lugar turistico)
      */
-    private void initSpinnerCategoria() {
+    private void initSpinnerSubTipoLigar() {
         ArrayAdapter<CharSequence> adapterSubTipoTurismo = ArrayAdapter.createFromResource(this, R.array.subtipo_turismo, android.R.layout.simple_spinner_item);
         adapterSubTipoTurismo.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerCategoria.setAdapter(adapterSubTipoTurismo);
-        spinnerCategoria.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        spinnerSubTipo.setAdapter(adapterSubTipoTurismo);
+        spinnerSubTipo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 switch (position) {
