@@ -288,7 +288,6 @@ public class HotelAdapterRecycler extends RecyclerView.Adapter<HotelViewHolder> 
             modeloPuntajes.add(modeloPuntaje);//actualizar lista android
 
             postReference.child(modeloHotel.getIdFirebasePuntaje(Constants.FIREBASE_TIPO_HOTEL,email)).setValue(modeloPuntaje);//insertar en bdFirebase
-
             holder.promedio.setText(String.valueOf(modeloPuntaje.getPuntaje()));
         }else{
             postReference.child(modeloPuntaje.getIdFirebase()).setValue(modeloPuntaje);//actualizar puntaje del lugar (hotel, restaurante o lugar tour) en bdFirebase

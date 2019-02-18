@@ -317,7 +317,9 @@ public class RestauranteAdapterRecycler extends RecyclerView.Adapter<Restaurante
         DatabaseReference postReference = app.getDataBaseReferencePuntaje();
         showCheckEstrellas(estrellasMarcadas, holder);
 
+        ModeloPuntaje modeloPuntaje = new ModeloPuntaje();
         boolean isInsert = false;
+
         for (ModeloPuntaje puntaje : modeloPuntajes) {
             if (ModeloUsuario.encriptar(email).equals(puntaje.getIdUsuarioFirebase())
                     && puntaje.getTipo().equals(ModeloImagen.TIPO_RESTAURANTE)
@@ -326,15 +328,13 @@ public class RestauranteAdapterRecycler extends RecyclerView.Adapter<Restaurante
                 puntaje.setIdLugarFirebase(modeloRestaurante.getIdFirebase());
                 puntaje.setIdUsuarioFirebase(email);
                 puntaje.setTipo(ModeloImagen.TIPO_RESTAURANTE);
-                if (!puntaje.getIdFirebase().isEmpty()) {
-                    postReference.child(puntaje.getIdFirebase()).setValue(puntaje);//actualizar puntaje del lugar (hotel, restaurante o lugar tour) en bdFirebase
-                    isInsert = true;
-                    break;
-                }
+
+                modeloPuntaje=puntaje;
+                isInsert=true;
+                break;
             }
         }
-        if (!isInsert) {
-            ModeloPuntaje modeloPuntaje = new ModeloPuntaje();
+        if (!isInsert||modeloPuntaje.getIdFirebase().isEmpty()) {
             modeloPuntaje.setPuntaje(estrellasMarcadas);
             modeloPuntaje.setIdLugarFirebase(modeloRestaurante.getIdFirebase());
             modeloPuntaje.setIdUsuarioFirebase(email);
@@ -342,10 +342,13 @@ public class RestauranteAdapterRecycler extends RecyclerView.Adapter<Restaurante
             modeloPuntajes.add(modeloPuntaje);//actualizar lista android
 
             postReference.child(modeloRestaurante.getIdFirebasePuntaje(Constants.FIREBASE_TIPO_RESTAURANTE,email)).setValue(modeloPuntaje);//insertar en bdFirebase
-            /*SqlitePuntaje sqlitePuntaje=new SqlitePuntaje(activity);
-            sqlitePuntaje.insert(modeloPuntaje);*/
             holder.promedio.setText(String.valueOf(modeloPuntaje.getPuntaje()));
+        }else{
+            postReference.child(modeloPuntaje.getIdFirebase()).setValue(modeloPuntaje);//actualizar puntaje del lugar (hotel, restaurante o lugar tour) en bdFirebase
         }
+
+        SqlitePuntaje sqlitePuntaje=new SqlitePuntaje(activity);
+        sqlitePuntaje.update(modeloPuntajes);
     }
 
     private void setImageHolder(final RestauranteViewHolder holder, ModeloRestaurante modeloRestaurante) {

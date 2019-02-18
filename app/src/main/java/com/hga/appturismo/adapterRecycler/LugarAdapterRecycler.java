@@ -25,6 +25,7 @@ import com.hga.appturismo.R;
 import com.hga.appturismo.activity.DescripcionLugarTuristicoActivity;
 import com.hga.appturismo.activity.EditarLugarActivity;
 import com.hga.appturismo.bdFirebase.TurismoAplicacion;
+import com.hga.appturismo.bdSQLite.SqlitePuntaje;
 import com.hga.appturismo.modelo.ModeloHotel;
 import com.hga.appturismo.modelo.ModeloImagen;
 import com.hga.appturismo.modelo.ModeloLugarTuristico;
@@ -189,6 +190,7 @@ public class LugarAdapterRecycler extends RecyclerView.Adapter<LugarViewHolder> 
         setCheckEstrellas(estrellasMarcadas, holder);
 
         boolean isInsert=false;
+        ModeloPuntaje modeloPuntaje=new ModeloPuntaje();
         for (ModeloPuntaje puntaje : modeloPuntajes) {
             if (ModeloUsuario.encriptar(email).equals(puntaje.getIdUsuarioFirebase())
                     &&puntaje.getTipo().equals(ModeloImagen.TIPO_LUGAR)
@@ -197,14 +199,13 @@ public class LugarAdapterRecycler extends RecyclerView.Adapter<LugarViewHolder> 
                 puntaje.setIdLugarFirebase(modeloLugarTuristico.getIdFirebase());
                 puntaje.setIdUsuarioFirebase(email);
                 puntaje.setTipo(ModeloImagen.TIPO_LUGAR);
-                if (!puntaje.getIdFirebase().isEmpty()) {
-                    postReference.child(puntaje.getIdFirebase()).setValue(puntaje);//actualizar puntaje de lugar en bdFirebase
-                    isInsert=true;
-                }
+
+                modeloPuntaje=puntaje;
+                isInsert=true;
+                break;
             }
         }
-        if (!isInsert){
-            ModeloPuntaje modeloPuntaje=new ModeloPuntaje();
+        if (!isInsert||modeloPuntaje.getIdFirebase().isEmpty()){
             modeloPuntaje.setPuntaje(estrellasMarcadas);
             modeloPuntaje.setIdLugarFirebase(modeloLugarTuristico.getIdFirebase());
             modeloPuntaje.setIdUsuarioFirebase(email);
@@ -214,7 +215,12 @@ public class LugarAdapterRecycler extends RecyclerView.Adapter<LugarViewHolder> 
             postReference.child(modeloLugarTuristico.getIdFirebasePuntaje(Constants.FIREBASE_TIPO_LUGAR_TURISTICO,email)).setValue(modeloPuntaje);//insertar en bdFirebase
 
             holder.promedio.setText(String.valueOf(modeloPuntaje.getPuntaje()));
+        }else {
+            postReference.child(modeloPuntaje.getIdFirebase()).setValue(modeloLugarTuristico);//actualizar puntaje de lugar en bdFirebase
         }
+
+        SqlitePuntaje sqlitePuntaje=new SqlitePuntaje(activity);
+        sqlitePuntaje.update(modeloPuntajes);
     }
 
     @Override
