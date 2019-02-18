@@ -32,7 +32,7 @@ public class PuntajeResponseTypeAdapter extends TypeAdapter {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        }
+    }
         in.endObject();
         response.setListPuntaje(modeloPuntajes);
         return response;
@@ -49,8 +49,8 @@ public class PuntajeResponseTypeAdapter extends TypeAdapter {
                     modeloPuntaje.setIdLugarFirebase(in.nextString());
                     break;
                 case "idFirebase":
-                    in.nextString();
-                    //modeloUsuario.setIdFirebase(in.nextString());
+                    //in.nextString();
+                    modeloPuntaje.setIdFirebase(in.nextString());
                     break;
                 case "idSqlite":
                     modeloPuntaje.setIdSqlite(in.nextInt());

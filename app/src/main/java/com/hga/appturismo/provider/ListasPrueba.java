@@ -61,7 +61,7 @@ public class ListasPrueba extends Listas{
 
         hotel=new ModeloHotel();
         hotel.setIdSQLite(idHotel++);
-        hotel.setNombre("Adara Suites Apart Hotel ");
+        hotel.setNombre("Adara Suites Apart Hotel Prueba");
         hotel.setActividad("Hospedaje, administración y manejo de hoteles, apart hoteles, prestación de todo tipo de servicios hoteleros, organización de eventos, recepciones, servicios de restaurant, cafetería, spa, café, bar, etc.");
         hotel.setLinea("");
         hotel.setGpsX(-17.38467001063881f);

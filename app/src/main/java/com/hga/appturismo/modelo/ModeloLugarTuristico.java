@@ -1,8 +1,5 @@
 package com.hga.appturismo.modelo;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-
 public class ModeloLugarTuristico extends ModeloBaseLugares{
 
     private String provincia;

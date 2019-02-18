@@ -124,7 +124,7 @@ public class RestauranteAdapterRecycler extends RecyclerView.Adapter<Restaurante
 
     private int getEstrellasFirebase(ModeloRestaurante modeloRestaurante) {
         int estrellasSeleccionadas=0;
-        DatabaseReference mDatabase=app.getDataBaseReferencePuntaje(modeloRestaurante.getIdFirebasePuntaje(Constants.FIREBASE_TIPO_RESTAURANTE));
+        DatabaseReference mDatabase=app.getDataBaseReferencePuntaje(modeloRestaurante.getIdFirebasePuntaje(Constants.FIREBASE_TIPO_RESTAURANTE,email));
         mDatabase = FirebaseDatabase.getInstance().getReference();
         return estrellasSeleccionadas;
     }
@@ -341,7 +341,7 @@ public class RestauranteAdapterRecycler extends RecyclerView.Adapter<Restaurante
             modeloPuntaje.setTipo(ModeloImagen.TIPO_RESTAURANTE);
             modeloPuntajes.add(modeloPuntaje);//actualizar lista android
 
-            postReference.child(modeloRestaurante.getIdFirebasePuntaje(Constants.FIREBASE_TIPO_RESTAURANTE)).setValue(modeloPuntaje);//insertar en bdFirebase
+            postReference.child(modeloRestaurante.getIdFirebasePuntaje(Constants.FIREBASE_TIPO_RESTAURANTE,email)).setValue(modeloPuntaje);//insertar en bdFirebase
             /*SqlitePuntaje sqlitePuntaje=new SqlitePuntaje(activity);
             sqlitePuntaje.insert(modeloPuntaje);*/
             holder.promedio.setText(String.valueOf(modeloPuntaje.getPuntaje()));

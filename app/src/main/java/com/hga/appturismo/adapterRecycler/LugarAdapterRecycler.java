@@ -211,7 +211,7 @@ public class LugarAdapterRecycler extends RecyclerView.Adapter<LugarViewHolder> 
             modeloPuntaje.setTipo(ModeloImagen.TIPO_LUGAR);
             modeloPuntajes.add(modeloPuntaje);//actualizar lista android
 
-            postReference.child(modeloLugarTuristico.getIdFirebasePuntaje(Constants.FIREBASE_TIPO_LUGAR_TURISTICO)).setValue(modeloPuntaje);//insertar en bdFirebase
+            postReference.child(modeloLugarTuristico.getIdFirebasePuntaje(Constants.FIREBASE_TIPO_LUGAR_TURISTICO,email)).setValue(modeloPuntaje);//insertar en bdFirebase
 
             holder.promedio.setText(String.valueOf(modeloPuntaje.getPuntaje()));
         }

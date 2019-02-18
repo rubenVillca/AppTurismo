@@ -14,12 +14,11 @@ public class ServiceFirebaseHoteles {
     /**
      * insertar hoteles
      *
-     * @param app: conexion a la bd
+     * @param app:    conexion a la bd
      * @param listas: listas por defecto
      */
     public void insertHoteles(TurismoAplicacion app, Listas listas) {
-        DatabaseReference postReference;
-        postReference = app.getDataBaseReferenceHotel("");
+        DatabaseReference postReference = app.getDataBaseReferenceHotel("");
         ArrayList<ModeloHotel> listHotel = listas.getListaHoteles();
         for (ModeloHotel hotel : listHotel) {
             postReference.push().setValue(hotel);
@@ -28,17 +27,16 @@ public class ServiceFirebaseHoteles {
 
     /**
      * eliminar hoteles bdFirebase
+     *
      * @param app: conexion a la bd
      */
     public void deleteHoteles(TurismoAplicacion app) {
-        DatabaseReference postReference;
-        postReference = app.getDataBaseReferenceHotel("");
+        DatabaseReference postReference = app.getDataBaseReferenceHotel("");
         postReference.removeValue();
     }
 
     public void deleteHotel(TurismoAplicacion app, ModeloHotel modeloHotel) {
-        DatabaseReference postReference;
-        postReference = app.getDataBaseReferenceHotel(modeloHotel.getIdFirebase());
+        DatabaseReference postReference = app.getDataBaseReferenceHotel(modeloHotel.getIdFirebase());
         postReference.removeValue();
     }
 }

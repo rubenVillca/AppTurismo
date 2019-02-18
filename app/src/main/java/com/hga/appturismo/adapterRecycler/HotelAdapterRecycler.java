@@ -61,8 +61,9 @@ public class HotelAdapterRecycler extends RecyclerView.Adapter<HotelViewHolder> 
         this.app = (TurismoAplicacion) activity.getApplicationContext();
     }
 
+    @NonNull
     @Override
-    public HotelViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public HotelViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(resource, parent, false);
         return new HotelViewHolder(view);
     }
@@ -264,6 +265,7 @@ public class HotelAdapterRecycler extends RecyclerView.Adapter<HotelViewHolder> 
 
         boolean isInsert = false;
         for (ModeloPuntaje puntaje : modeloPuntajes) {
+
             if (ModeloUsuario.encriptar(email).equals(puntaje.getIdUsuarioFirebase())
                     && puntaje.getTipo().equals(ModeloImagen.TIPO_HOTEL)
                     && puntaje.getIdLugarFirebase().equals(modeloHotel.getIdFirebase())) {
@@ -282,7 +284,7 @@ public class HotelAdapterRecycler extends RecyclerView.Adapter<HotelViewHolder> 
             modeloPuntaje.setTipo(ModeloImagen.TIPO_HOTEL);
             modeloPuntajes.add(modeloPuntaje);//actualizar lista android
 
-            postReference.child(modeloHotel.getIdFirebasePuntaje(Constants.FIREBASE_TIPO_HOTEL)).push().setValue(modeloPuntaje);//insertar en bdFirebase
+            postReference.child(modeloHotel.getIdFirebasePuntaje(Constants.FIREBASE_TIPO_HOTEL,email)).setValue(modeloPuntaje);//insertar en bdFirebase
 
             holder.promedio.setText(String.valueOf(modeloPuntaje.getPuntaje()));
         }

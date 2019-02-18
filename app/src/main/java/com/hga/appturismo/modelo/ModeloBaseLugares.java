@@ -159,11 +159,10 @@ public class ModeloBaseLugares implements Serializable {
         this.imagenes = listaImg;
     }
 
-    public String getIdFirebasePuntaje(String tipo) {
+    public String getIdFirebasePuntaje(String tipo,String user) {
         String res="fail";
         if (!nombre.isEmpty()&&!idFirebase.isEmpty()) {
-            res = tipo+"_"+nombre+"_" + idFirebase;
-            res=res.trim().toLowerCase();
+            res = tipo+"_"+user+"_" + idFirebase;
             res=res.replaceAll("[^\\dA-Za-z_]", "");
         }
         return res;

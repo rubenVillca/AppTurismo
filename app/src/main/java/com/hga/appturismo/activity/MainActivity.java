@@ -201,16 +201,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 menu.findItem(R.id.action_login).setVisible(false);
                 menu.findItem(R.id.action_user_insert).setVisible(true);
                 menu.findItem(R.id.action_edit_profile).setVisible(true);
-                menu.findItem(R.id.action_sincronizar).setVisible(true);
-                menu.findItem(R.id.action_reset).setVisible(true);//para resetear bdFirebase y sqlite
+                menu.findItem(R.id.action_reset_sqlite).setVisible(true);
+                menu.findItem(R.id.action_reset_firebase).setVisible(true);//para resetear bdFirebase y sqlite
                 menu.findItem(R.id.action_close_login).setVisible(true);
                 break;
             case Constants.USUARIO_ROL_REVISOR:
                 menu.findItem(R.id.action_login).setVisible(false);
                 menu.findItem(R.id.action_user_insert).setVisible(false);
                 menu.findItem(R.id.action_edit_profile).setVisible(true);
-                menu.findItem(R.id.action_sincronizar).setVisible(true);
-                menu.findItem(R.id.action_reset).setVisible(true);//para descartivar la opcion de reseteo poner false aqui
+                menu.findItem(R.id.action_reset_sqlite).setVisible(true);
+                menu.findItem(R.id.action_reset_firebase).setVisible(true);//para descartivar la opcion de reseteo poner false aqui
 
                 menu.findItem(R.id.action_close_login).setVisible(true);
                 break;
@@ -218,8 +218,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 menu.findItem(R.id.action_login).setVisible(true);
                 menu.findItem(R.id.action_user_insert).setVisible(false);
                 menu.findItem(R.id.action_edit_profile).setVisible(false);
-                menu.findItem(R.id.action_sincronizar).setVisible(true);
-                menu.findItem(R.id.action_reset).setVisible(true);//para resetear datos habilita a true y seleccionar
+                menu.findItem(R.id.action_reset_sqlite).setVisible(true);
+                menu.findItem(R.id.action_reset_firebase).setVisible(true);//para resetear datos habilita a true y seleccionar
                 menu.findItem(R.id.action_close_login).setVisible(false);
                 break;
         }
@@ -238,6 +238,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 intent = new Intent(this, InsertarUsuarioActivity.class);
                 startActivity(intent);
                 break;
+            case R.id.action_edit_profile:
+                intent = new Intent(this, EditarUsuarioActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.action_reset_sqlite:
+                resetDatosSQlite();
+                break;
+            case R.id.action_reset_firebase:
+                resetDataFirebase();
+                //resetDatosSQlite();
+                break;
             case R.id.action_close_login:
                 FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();//h
                 firebaseAuth.signOut();
@@ -248,17 +259,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 intent = new Intent(this, MainActivity.class);
                 startActivity(intent);
-                break;
-            case R.id.action_edit_profile:
-                intent = new Intent(this, EditarUsuarioActivity.class);
-                startActivity(intent);
-                break;
-            case R.id.action_reset:
-                resetDataFirebase();
-                resetDatosSQlite();
-                break;
-            case R.id.action_sincronizar:
-                resetDatosSQlite();
                 break;
         }
         return super.onOptionsItemSelected(item);
@@ -473,9 +473,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     ListaResponse listaResponse = response.body();
 
                     if (listaResponse != null) {
-                        DBSQLiteParent hotel = new DBSQLiteParent(MainActivity.this);
+                        DBSQLiteParent dbsqLiteParent = new DBSQLiteParent(MainActivity.this);
                         ArrayList<ModeloPuntaje> listPuntaje = listaResponse.getListPuntaje();
-                        hotel.updatePuntajeSQLite(listPuntaje);//actualizar hotel sqlite
+                        dbsqLiteParent.updatePuntajeSQLite(listPuntaje);//actualizar puntaje sqlite
                     }
                     setProgressBar(5);
                 }else{

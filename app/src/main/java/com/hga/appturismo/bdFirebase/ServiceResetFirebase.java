@@ -37,28 +37,32 @@ public class ServiceResetFirebase {
         Toast.makeText(mainActivity,"Actualizado firebase",Toast.LENGTH_LONG).show();
     }
 
-    private void resetPuntaje() {
-        //ServiceFirebasePuntaje serviceFirebasePuntaje=new ServiceFirebasePuntaje();
-        //serviceFirebasePuntaje.delete(app);
-        //serviceFirebasePuntaje.insert(app,listas);
-    }
-
     private void resetHoteles() {
         ServiceFirebaseHoteles serviceFirebaseHoteles =new ServiceFirebaseHoteles();
         serviceFirebaseHoteles.deleteHoteles(app);
         serviceFirebaseHoteles.insertHoteles(app,listas);
+        Toast.makeText(mainActivity,"Hoteles actualizado firebase",Toast.LENGTH_SHORT).show();
     }
 
     private void resetRestaurantes() {
         ServiceFirebaseRestaurantes ServiceFirebaseRestaurantes =new ServiceFirebaseRestaurantes();
         ServiceFirebaseRestaurantes.deleteRestaurantes(app);
         ServiceFirebaseRestaurantes.insertRestaurantes(app, listas);
+        Toast.makeText(mainActivity,"Restaurantes actualizado firebase",Toast.LENGTH_SHORT).show();
     }
 
     private void resetLugares() {
         ServiceFirebaseLugaresTour serviceFirebaseLugaresTour =new ServiceFirebaseLugaresTour();
         serviceFirebaseLugaresTour.deleteLugaresTuristicos(app);
         serviceFirebaseLugaresTour.insertLugaresTuristicos(app, listas);
+        Toast.makeText(mainActivity,"Lugares turisticos actualizado firebase",Toast.LENGTH_SHORT).show();
+    }
+
+    private void resetPuntaje() {
+        ServiceFirebasePuntaje serviceFirebasePuntaje=new ServiceFirebasePuntaje();
+        serviceFirebasePuntaje.deletePuntaje(app);
+        //serviceFirebasePuntaje.insert(app,listas);
+        Toast.makeText(mainActivity,"Puntaje actualizado firebase",Toast.LENGTH_LONG).show();
     }
 
     private void resetUsuarios(){
@@ -67,5 +71,6 @@ public class ServiceResetFirebase {
         ServiceFirebaseUsuarios resetFirebaseUsuarios =new ServiceFirebaseUsuarios(mainActivity);
         resetFirebaseUsuarios.delete(app,sqliteUsuario.list());
         resetFirebaseUsuarios.insert(app,listas);
+        Toast.makeText(mainActivity,"Usuarios actualizado firebase",Toast.LENGTH_LONG).show();
     }
 }

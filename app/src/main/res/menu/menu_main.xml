@@ -20,12 +20,12 @@
         android:title="@string/action_edit_profile"
         app:showAsAction="never" />
     <item
-        android:id="@+id/action_sincronizar"
+        android:id="@+id/action_reset_sqlite"
         android:orderInCategory="106"
         android:title="@string/action_sincronizar"
         />
     <item
-        android:id="@+id/action_reset"
+        android:id="@+id/action_reset_firebase"
         android:orderInCategory="107"
         android:title="@string/action_reset_profile"
         />
