@@ -13,6 +13,7 @@ import com.hga.appturismo.modelo.ModeloRestaurante;
 import com.hga.appturismo.modelo.ModeloUsuario;
 import com.hga.appturismo.provider.Listas;
 import com.hga.appturismo.provider.ListasPrueba;
+import com.hga.appturismo.util.Constants;
 
 import java.util.ArrayList;
 
@@ -415,6 +416,9 @@ public class DBModel extends SQLiteOpenHelper {
         db.execSQL("DELETE FROM " + TABLE_PUNTAJE);
     }
 
+    public void deleteDatosPuntajeType(SQLiteDatabase db,String type){
+        db.execSQL("DELETE FROM "+TABLE_PUNTAJE +" WHERE "+PUNTAJE_TIPO+"='"+type +"'");
+    }
     public void deleteDatosImagenes(SQLiteDatabase db) {
         db.execSQL("DELETE FROM " + TABLE_IMAGENES);
     }

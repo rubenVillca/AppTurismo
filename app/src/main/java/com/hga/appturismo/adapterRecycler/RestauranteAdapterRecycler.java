@@ -328,13 +328,14 @@ public class RestauranteAdapterRecycler extends RecyclerView.Adapter<Restaurante
                 puntaje.setIdLugarFirebase(modeloRestaurante.getIdFirebase());
                 puntaje.setIdUsuarioFirebase(email);
                 puntaje.setTipo(ModeloImagen.TIPO_RESTAURANTE);
-
-                modeloPuntaje=puntaje;
-                isInsert=true;
-                break;
+                if (!puntaje.getIdFirebase().isEmpty()) {
+                    modeloPuntaje=puntaje;
+                    isInsert=true;
+                    break;
+                }
             }
         }
-        if (!isInsert||modeloPuntaje.getIdFirebase().isEmpty()) {
+        if (!isInsert) {
             modeloPuntaje.setPuntaje(estrellasMarcadas);
             modeloPuntaje.setIdLugarFirebase(modeloRestaurante.getIdFirebase());
             modeloPuntaje.setIdUsuarioFirebase(email);
@@ -348,7 +349,7 @@ public class RestauranteAdapterRecycler extends RecyclerView.Adapter<Restaurante
         }
 
         SqlitePuntaje sqlitePuntaje=new SqlitePuntaje(activity);
-        sqlitePuntaje.update(modeloPuntajes);
+        sqlitePuntaje.update(modeloPuntajes,modeloPuntaje.getTipo());
     }
 
     private void setImageHolder(final RestauranteViewHolder holder, ModeloRestaurante modeloRestaurante) {

@@ -294,7 +294,7 @@ public class HotelAdapterRecycler extends RecyclerView.Adapter<HotelViewHolder> 
         }
 
         SqlitePuntaje sqlitePuntaje=new SqlitePuntaje(activity);
-        sqlitePuntaje.update(modeloPuntajes);
+        sqlitePuntaje.update(modeloPuntajes,modeloPuntaje.getTipo());
     }
 
     private void setImageHolder(final HotelViewHolder holder, ModeloHotel modeloHotel) {

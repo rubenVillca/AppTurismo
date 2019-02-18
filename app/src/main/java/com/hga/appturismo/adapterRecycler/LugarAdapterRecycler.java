@@ -199,13 +199,14 @@ public class LugarAdapterRecycler extends RecyclerView.Adapter<LugarViewHolder> 
                 puntaje.setIdLugarFirebase(modeloLugarTuristico.getIdFirebase());
                 puntaje.setIdUsuarioFirebase(email);
                 puntaje.setTipo(ModeloImagen.TIPO_LUGAR);
-
-                modeloPuntaje=puntaje;
-                isInsert=true;
-                break;
+                if (!modeloPuntaje.getIdFirebase().isEmpty()){
+                    modeloPuntaje=puntaje;
+                    isInsert=true;
+                    break;
+                }
             }
         }
-        if (!isInsert||modeloPuntaje.getIdFirebase().isEmpty()){
+        if (!isInsert){
             modeloPuntaje.setPuntaje(estrellasMarcadas);
             modeloPuntaje.setIdLugarFirebase(modeloLugarTuristico.getIdFirebase());
             modeloPuntaje.setIdUsuarioFirebase(email);
@@ -220,7 +221,7 @@ public class LugarAdapterRecycler extends RecyclerView.Adapter<LugarViewHolder> 
         }
 
         SqlitePuntaje sqlitePuntaje=new SqlitePuntaje(activity);
-        sqlitePuntaje.update(modeloPuntajes);
+        sqlitePuntaje.update(modeloPuntajes,modeloPuntaje.getTipo());
     }
 
     @Override

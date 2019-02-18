@@ -85,12 +85,21 @@ public class SqlitePuntaje extends DBSQLiteParent implements SqliteInterface<Mod
     public void delete() {
         helper.deleteDatosPuntaje(db);
     }
+
+    @Override
+    public void update(ArrayList<ModeloPuntaje> modeloPuntajes) {
+        helper.deleteDatosPuntaje(db);
+        for (ModeloPuntaje modeloPuntaje : modeloPuntajes) {
+            insert(modeloPuntaje);
+        }
+    }
+
     public void deletePuntaje(){
         helper.deleteDatosPuntaje(db);
     }
 
-    public void update(ArrayList<ModeloPuntaje> modeloPuntajes) {
-        helper.deleteDatosPuntaje(db);
+    public void update(ArrayList<ModeloPuntaje> modeloPuntajes,String type) {
+        helper.deleteDatosPuntajeType(db,type);
         for (ModeloPuntaje modeloPuntaje : modeloPuntajes) {
             insert(modeloPuntaje);
         }
