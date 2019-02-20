@@ -117,11 +117,11 @@ public class DirectionFinder {
             route.distance = new Distance(jsonDistance.getString("text"), jsonDistance.getInt("value"));
             route.distanceWalking = new Distance(route.distance.text, 5*route.distance.value);
             route.duration = new Duration(jsonDuration.getString("text"), jsonDuration.getInt("value"));
-            if (route.distanceWalking.value<20) {
-                route.durationWalking = new Duration(3*route.duration.value+" mins", route.duration.value);
-            }else {
-                route.durationWalking = new Duration(3*(route.duration.value/60)+" mins", route.duration.value);
-            }
+            //if (route.distanceWalking.value<20) {
+                route.durationWalking = new Duration((6*route.duration.value+5)+" mins", route.duration.value);
+            //}else {
+                //route.durationWalking = new Duration(3*(route.duration.value/60)+" mins", route.duration.value);
+            //}
             route.endAddress = jsonLeg.getString("end_address");
             route.startAddress = jsonLeg.getString("start_address");
             route.startLocation = new LatLng(jsonStartLocation.getDouble("lat"), jsonStartLocation.getDouble("lng"));
