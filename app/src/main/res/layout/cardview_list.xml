@@ -91,7 +91,7 @@
                         android:textStyle="bold"/>
                 </LinearLayout>
 
-                <LinearLayout
+               <!--- <LinearLayout
                     android:id="@+id/calificacion"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -133,7 +133,8 @@
                         android:layout_height="wrap_content"
                         android:tag="5"/>
 
-                </LinearLayout>
+                </LinearLayout> -->
+
 
             </LinearLayout>
 
