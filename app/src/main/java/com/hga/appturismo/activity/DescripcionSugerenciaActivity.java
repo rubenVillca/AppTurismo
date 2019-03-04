@@ -78,13 +78,13 @@ public class DescripcionSugerenciaActivity extends AppCompatActivity implements 
         textViewProvinciaText = findViewById(R.id.textViewProvinciaText);
         textViewNombreText = findViewById(R.id.textViewNombreText);
         textViewTipoText = findViewById(R.id.textViewTipoText);
-        textViewDescripcionText = findViewById(R.id.textViewActividadTextView);
+        textViewDescripcionText = findViewById(R.id.textViewDescripcion);
         textViewLineaText = findViewById(R.id.textViewLineaText);
         textViewFechaText = findViewById(R.id.textViewFechaText);
         textViewDireccionText = findViewById(R.id.textViewDireccionText);
         textViewTelefonoText = findViewById(R.id.textViewTelefonoText);
         textViewHorariosTextLugar = findViewById(R.id.textViewHorariosTextLugar);
-        textViewActividadText = findViewById(R.id.textViewActividadText);
+        textViewActividadText = findViewById(R.id.textViewActividad);
         textViewRegistradoPorText = findViewById(R.id.textViewRegistradoPorText);
     }
 
@@ -163,7 +163,6 @@ public class DescripcionSugerenciaActivity extends AppCompatActivity implements 
         textViewProvinciaText.setText(modeloLugarTuristico.getProvincia());
         textViewNombreText.setText(modeloLugarTuristico.getNombre());
         textViewTipoText.setText(modeloLugarTuristico.getTipo());
-        textViewActividadText.setText(modeloLugarTuristico.getActividad());
         textViewLineaText.setText(modeloLugarTuristico.getLinea());
         textViewDireccionText.setText(modeloLugarTuristico.getDireccion());
         textViewTelefonoText.setText(String.valueOf(modeloLugarTuristico.getTelefono()));
