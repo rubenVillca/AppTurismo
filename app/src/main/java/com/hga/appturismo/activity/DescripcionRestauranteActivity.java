@@ -58,8 +58,13 @@ public class DescripcionRestauranteActivity extends AppCompatActivity implements
         TextView textViewHorario = findViewById(R.id.textViewHorariosTextRestaurante);
         textViewHorario.setText(modeloRestaurante.getHorario());
 
-        TextView textViewTelefono = findViewById(R.id.textViewTelefonoText);
-        textViewTelefono.setText(String.valueOf(modeloRestaurante.getTelefono()));
+        if (modeloRestaurante.getTelefono() > 0) {
+            TextView textViewTelefonoText = findViewById(R.id.textViewTelefonoText);
+            textViewTelefonoText.setText(String.valueOf(String.valueOf(modeloRestaurante.getTelefono())));
+        } else {
+            LinearLayout linearLayoutTelefono = findViewById(R.id.linearLayoutTelefono);
+            linearLayoutTelefono.setVisibility(View.GONE);
+        }
 
         if (modeloRestaurante.getLinea().isEmpty()) {
             LinearLayout linearLayoutLinea =findViewById(R.id.linearLayoutLinea);

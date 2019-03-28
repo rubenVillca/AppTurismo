@@ -57,8 +57,13 @@ public class DescripcionHotelActivity extends AppCompatActivity  implements Text
         TextView textViewDireccionText= findViewById(R.id.textViewDireccionText);
         textViewDireccionText.setText(modeloHotel.getDireccion());
 
-        TextView textViewTelefonoText= findViewById(R.id.textViewTelefonoText);
-        textViewTelefonoText.setText(String.valueOf(modeloHotel.getTelefono()));
+        if (modeloHotel.getTelefono() > 0) {
+            TextView textViewTelefonoText = findViewById(R.id.textViewTelefonoText);
+            textViewTelefonoText.setText(String.valueOf(String.valueOf(modeloHotel.getTelefono())));
+        } else {
+            LinearLayout linearLayoutTelefono = findViewById(R.id.linearLayoutTelefono);
+            linearLayoutTelefono.setVisibility(View.GONE);
+        }
 
         if (modeloHotel.getLinea().isEmpty()) {
             LinearLayout linearLayoutLinea =findViewById(R.id.linearLayoutLinea);

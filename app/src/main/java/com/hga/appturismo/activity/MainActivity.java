@@ -209,8 +209,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 menu.findItem(R.id.action_login).setVisible(false);
                 menu.findItem(R.id.action_user_insert).setVisible(false);
                 menu.findItem(R.id.action_edit_profile).setVisible(true);
-                menu.findItem(R.id.action_reset_sqlite).setVisible(true);
-                menu.findItem(R.id.action_reset_firebase).setVisible(true);//para descartivar la opcion de reseteo poner false aqui
+                menu.findItem(R.id.action_reset_sqlite).setVisible(false);
+                menu.findItem(R.id.action_reset_firebase).setVisible(false);//para descartivar la opcion de reseteo poner false aqui
 
                 menu.findItem(R.id.action_close_login).setVisible(true);
                 break;
@@ -218,8 +218,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 menu.findItem(R.id.action_login).setVisible(true);
                 menu.findItem(R.id.action_user_insert).setVisible(false);
                 menu.findItem(R.id.action_edit_profile).setVisible(false);
-                menu.findItem(R.id.action_reset_sqlite).setVisible(true);
-                menu.findItem(R.id.action_reset_firebase).setVisible(true);//para resetear datos habilita a true y seleccionar
+                menu.findItem(R.id.action_reset_sqlite).setVisible(false);
+                menu.findItem(R.id.action_reset_firebase).setVisible(false);//para resetear datos habilita a true y seleccionar
                 menu.findItem(R.id.action_close_login).setVisible(false);
                 break;
         }

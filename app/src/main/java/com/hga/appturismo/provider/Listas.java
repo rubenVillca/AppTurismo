@@ -3076,6 +3076,24 @@ public class Listas {
 
         acontecimiento = new ModeloLugarTuristico();
         acontecimiento.setIdSQLite(idAcontecimiento++);
+        acontecimiento.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
+        acontecimiento.setTipo(Constants.TIPO_LUGAR_ACONTECIMIENTOS);
+        acontecimiento.setNombre("Festividad de San Joaquín");
+        acontecimiento.setImagenesFirebaseArreglo(ModeloImagen.TIPO_LUGAR, new String[]{"festividad de san joaquin.jpg", "festividad de san joaquin1.jpg"});
+        acontecimiento.setDescripcion("El tradicional barrio de Jaihuayco se prepara para celebrar la Fiesta de San Joaquín, considerado según la tradición católica el abuelo de Jesucristo, del 24 al 27 de agosto.La festividad se inicia el viernes 24 de agosto con la verbena. Sigue el sábado 25 con la Entrada Folklórica, sigue el domingo 26 con la misa y termina 27 con el calvario.");
+        acontecimiento.setHorario("No se tiene registrado.");
+        acontecimiento.setDireccion("Jaihuayco, Cochabamba, Bolivia.");
+        acontecimiento.setTelefono(0L);
+        acontecimiento.setFecha("1566619200000");
+        acontecimiento.setGpsX(-17.4214352f);
+        acontecimiento.setGpsY(-66.1584174f);
+        acontecimiento.setLinea("");
+        acontecimiento.setEstado(Constants.ESTADO_LUGAR_VISIBLE);
+        listaLugares.add(acontecimiento);
+
+
+        acontecimiento = new ModeloLugarTuristico();
+        acontecimiento.setIdSQLite(idAcontecimiento++);
         acontecimiento.setProvincia(Constants.FIREBASE_PROVINCIA_PUNATA);
         acontecimiento.setTipo(Constants.TIPO_LUGAR_ACONTECIMIENTOS);
         acontecimiento.setNombre("La festividad del Señor de los milagros");
@@ -3089,6 +3107,7 @@ public class Listas {
         acontecimiento.setFecha("1575950400000");
         acontecimiento.setGpsX(-17.545190252404954f);
         acontecimiento.setGpsY(-65.83560414612293f);
+        acontecimiento.setLinea("");
         acontecimiento.setEstado(Constants.ESTADO_LUGAR_VISIBLE);
         listaLugares.add(acontecimiento);
 
@@ -3107,6 +3126,7 @@ public class Listas {
         acontecimiento.setFecha("1551672000000");
         acontecimiento.setGpsX(-17.386061810323937f);
         acontecimiento.setGpsY(-66.1568412607924f);
+        acontecimiento.setLinea("");
         acontecimiento.setEstado(Constants.ESTADO_LUGAR_VISIBLE);
         listaLugares.add(acontecimiento);
 
@@ -3141,6 +3161,7 @@ public class Listas {
         acontecimiento.setFecha("1568865600000");
         acontecimiento.setGpsX(-17.9418306f);
         acontecimiento.setGpsY(-65.3435859f);
+        acontecimiento.setLinea("");
         acontecimiento.setEstado(Constants.ESTADO_LUGAR_VISIBLE);
         listaLugares.add(acontecimiento);
 
@@ -3158,6 +3179,7 @@ public class Listas {
         acontecimiento.setFecha("1551326400000");
         acontecimiento.setGpsX(-17.398708023328837f);
         acontecimiento.setGpsY(-66.15274988934343f);
+        acontecimiento.setLinea("");
         acontecimiento.setEstado(Constants.ESTADO_LUGAR_VISIBLE);
         listaLugares.add(acontecimiento);
 
@@ -3175,28 +3197,15 @@ public class Listas {
         acontecimiento.setFecha("1574654400000");
         acontecimiento.setGpsX(-17.38435132938883f);
         acontecimiento.setGpsY(-66.1349768936634f);
+        acontecimiento.setLinea("");
         acontecimiento.setEstado(Constants.ESTADO_LUGAR_VISIBLE);
         listaLugares.add(acontecimiento);
 
 
-        acontecimiento = new ModeloLugarTuristico();
-        acontecimiento.setIdSQLite(idAcontecimiento++);
-        acontecimiento.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
-        acontecimiento.setTipo(Constants.TIPO_LUGAR_ACONTECIMIENTOS);
-        acontecimiento.setNombre("Festividad de San Joaquín");
-        acontecimiento.setImagenesFirebaseArreglo(ModeloImagen.TIPO_LUGAR, new String[]{"festividad de san joaquin.jpg", "festividad de san joaquin1.jpg"});
-        acontecimiento.setDescripcion("El tradicional barrio de Jaihuayco se prepara para celebrar la Fiesta de San Joaquín, considerado según la tradición católica el abuelo de Jesucristo, del 24 al 27 de agosto.La festividad se inicia el viernes 24 de agosto con la verbena. Sigue el sábado 25 con la Entrada Folklórica, sigue el domingo 26 con la misa y termina 27 con el calvario.");
-        acontecimiento.setHorario("No se tiene registrado.");
-        acontecimiento.setDireccion("Jaihuayco, Cochabamba, Bolivia.");
-        acontecimiento.setTelefono(0L);
-        acontecimiento.setFecha("1566619200000");
-        acontecimiento.setGpsX(-17.4214352f);
-        acontecimiento.setGpsY(-66.1584174f);
-        acontecimiento.setEstado(Constants.ESTADO_LUGAR_VISIBLE);
-        listaLugares.add(acontecimiento);
 
 
-        acontecimiento = new ModeloLugarTuristico();
+
+        /*acontecimiento = new ModeloLugarTuristico();
         acontecimiento.setIdSQLite(idAcontecimiento++);
         acontecimiento.setProvincia(Constants.FIREBASE_PROVINCIA_CERCADO);
         acontecimiento.setTipo(Constants.TIPO_LUGAR_ACONTECIMIENTOS);
@@ -3209,8 +3218,9 @@ public class Listas {
         acontecimiento.setFecha("1546386325000");
         acontecimiento.setGpsX(-17.4559286f);
         acontecimiento.setGpsY(-66.1263881f);
+        acontecimiento.setLinea("");
         acontecimiento.setEstado(Constants.ESTADO_LUGAR_VISIBLE);
-        listaLugares.add(acontecimiento);
+        listaLugares.add(acontecimiento);*/
 
 
         acontecimiento = new ModeloLugarTuristico();
@@ -3226,6 +3236,7 @@ public class Listas {
         acontecimiento.setFecha("1563320725000");
         acontecimiento.setGpsX(-17.3903429f);
         acontecimiento.setGpsY(-66.1580821f);
+        acontecimiento.setLinea("");
         acontecimiento.setEstado(Constants.ESTADO_LUGAR_VISIBLE);
         listaLugares.add(acontecimiento);
 
@@ -3243,6 +3254,7 @@ public class Listas {
         acontecimiento.setFecha("1572738325000");
         acontecimiento.setGpsX(-17.4092406f);
         acontecimiento.setGpsY(-66.1607367f);
+        acontecimiento.setLinea("");
         acontecimiento.setEstado(Constants.ESTADO_LUGAR_VISIBLE);
         listaLugares.add(acontecimiento);
 

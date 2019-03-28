@@ -99,24 +99,29 @@ public class DescripcionLugarTuristicoActivity extends AppCompatActivity impleme
         TextView textViewDireccionText = findViewById(R.id.textViewDireccionText);
         textViewDireccionText.setText(modeloLugarTuristico.getDireccion());
 
-        TextView textViewTelefonoText = findViewById(R.id.textViewTelefonoText);
-        textViewTelefonoText.setText(String.valueOf(String.valueOf(modeloLugarTuristico.getTelefono())));
+        if (modeloLugarTuristico.getTelefono() > 0) {
+            TextView textViewTelefonoText = findViewById(R.id.textViewTelefonoText);
+            textViewTelefonoText.setText(String.valueOf(String.valueOf(modeloLugarTuristico.getTelefono())));
+        } else {
+            LinearLayout linearLayoutTelefono = findViewById(R.id.linearLayoutTelefono);
+            linearLayoutTelefono.setVisibility(View.GONE);
+        }
 
         TextView textViewHorariosText = findViewById(R.id.textViewHorariosTextLugar);
         textViewHorariosText.setText(modeloLugarTuristico.getHorario());
 
         if (modeloLugarTuristico.getLinea().isEmpty()) {
-            LinearLayout linearLayoutLinea =findViewById(R.id.linearLayoutLinea);
+            LinearLayout linearLayoutLinea = findViewById(R.id.linearLayoutLinea);
             linearLayoutLinea.setVisibility(View.GONE);
-        }else {
+        } else {
             TextView textViewLineaText = findViewById(R.id.textViewLineaText);
             textViewLineaText.setText(modeloLugarTuristico.getLinea());
         }
         if (modeloLugarTuristico.getFecha().isEmpty()) {
-            LinearLayout linearLayoutFecha=findViewById(R.id.linearLayoutFecha);
+            LinearLayout linearLayoutFecha = findViewById(R.id.linearLayoutFecha);
             linearLayoutFecha.setVisibility(View.GONE);
-        }else {
-            calendar=new GregorianCalendar();
+        } else {
+            calendar = new GregorianCalendar();
             calendar.setTimeInMillis(Long.parseLong(modeloLugarTuristico.getFecha()));
             SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMM, yyyy");
             dateFormat.setTimeZone(calendar.getTimeZone());
@@ -126,15 +131,15 @@ public class DescripcionLugarTuristicoActivity extends AppCompatActivity impleme
         }
 
         if (modeloLugarTuristico.getHorario().isEmpty()) {
-            LinearLayout linearLayoutHorario=findViewById(R.id.linearLayoutHorario);
+            LinearLayout linearLayoutHorario = findViewById(R.id.linearLayoutHorario);
             linearLayoutHorario.setVisibility(View.GONE);
-        }else {
+        } else {
             textViewHorariosText.setText(modeloLugarTuristico.getHorario());
         }
         if (modeloLugarTuristico.getActividad().isEmpty()) {
-            LinearLayout linearLayoutActividad=findViewById(R.id.linearLayoutActividad);
+            LinearLayout linearLayoutActividad = findViewById(R.id.linearLayoutActividad);
             linearLayoutActividad.setVisibility(View.GONE);
-        }else {
+        } else {
             textViewActividadText.setText(modeloLugarTuristico.getActividad());
         }
 
@@ -169,11 +174,11 @@ public class DescripcionLugarTuristicoActivity extends AppCompatActivity impleme
 
         SharedPreferences sharedPreferences = getSharedPreferences("USER", MODE_PRIVATE);
         int rol = sharedPreferences.getInt("rol", 0);
-        if (rol== Constants.USUARIO_ROL_ADMIN && !modeloLugarTuristico.getRegistradoPor().isEmpty()){
-            LinearLayout linearLayout=findViewById(R.id.linearLayoutRegistradoPor);
+        if (rol == Constants.USUARIO_ROL_ADMIN && !modeloLugarTuristico.getRegistradoPor().isEmpty()) {
+            LinearLayout linearLayout = findViewById(R.id.linearLayoutRegistradoPor);
             linearLayout.setVisibility(View.VISIBLE);
 
-            TextView textViewRegistradoPor= findViewById(R.id.textViewRegistradoPorText);
+            TextView textViewRegistradoPor = findViewById(R.id.textViewRegistradoPorText);
             textViewRegistradoPor.setText(modeloLugarTuristico.getRegistradoPor());
         }
     }
